@@ -11,12 +11,14 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Nuit du 18 au 19/11 (it. 2369-2395) : petites retouches à voir en jouant
+## Nuit du 18 au 19/11 (it. 2369-2406) : petites retouches à voir en jouant
 
 - **Compétences** : les noms des nœuds passent toujours au-dessus des nœuds (un nœud voisin en cachait le début, « Охотник за
   сокровищами » en russe) et un peu plus grands (11 px, 12 pour le texte sous les pétales) : en russe à 1280 px, les mots avec « ж »
   (« Жажда », « Сердце зажжено ») étaient flous.
 - **Astuce** : une fois, à 5 points de compétence libres, la bande rappelle qu'un clic sur un nœud lointain prend le chemin le plus court.
+- **Ta partie (grand graphe)** : si tu avais rempli l'ancien grand graphe, l'annonce « grand graphe complet » reviendra quand tu
+  auras repris tous les nouveaux nœuds (avant, elle restait marquée « vue » pour toujours ; it. 2405).
 - **Talents** : la colonne « Rang 400 » des bonus des paliers est assez large en chinois, japonais et coréen.
 - Contrôles de la nuit, tous propres : les 10 langues parcourues (clics), aucun défilement à 1920 et 1280 px, sauvegardes abîmées,
   parties bloquées ou figées, performance inchangée (bande ≈ 19,5 %).

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2406, doc) : POUR-VICTOR : l'annonce du grand graphe complet reviendra sur sa partie (it. 2405).
 - 2026-11-19 (it. 2405) : ancienne sauvegarde au grand graphe rempli avant l'allègement (it. 2332) : graphFullSeen restait vrai alors
   que le nettoyage retire des nœuds : l'annonce « grand graphe complet » ne serait jamais revenue en le remplissant de nouveau.
   migrate() la rend si le graphe n'est plus complet ; test (incomplet : rendue ; fin de partie pleine : gardée). save-fuzz ok. 307/307.
