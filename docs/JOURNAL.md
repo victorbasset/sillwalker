@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2690) docs/POUR-VICTOR.md : la mesure des polices (it. 2685, 2689) et les deux défauts qu'elle a révélés (it. 2686-2687).
 - 2026-11-19 (it. 2689) Autotest : les contrôles « aucun onglet ne défile » (1920, 1366, 1280 px) attendent aussi les polices (premier
   passage sur chaque onglet, puis document.fonts.ready), comme --overflow-report depuis l'it. 2685. Toujours « aucun » ; 326/326.
 - 2026-11-19 (it. 2688, contrôle) : lang-overflow complet (10 langues × 1920, 1600, 1366, 1280 ; fin 1280 / 1600 ; × 130 % ; max) avec la

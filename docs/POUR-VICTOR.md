@@ -52,6 +52,13 @@ bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
   « Language / Langue » passaient à la ligne) ; « Gold und Beute » / « Золото и добыча » plus courts (it. 2675-2677).
 Édition « Quoi de neuf » 159 publiée pour ces retouches (it. 2679).
 
+**Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
+leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest
+attendent les polices) ; deux défauts cachés sont apparus et sont corrigés :
+- Ascension en russe sur un portable (1280 px) : l'onglet défilait de 5 px (liste « gardé / perdu » resserrée).
+- Japonais : un titre de panneau ne se coupe plus entre deux caractères (« 戦 / 士 » dans les Talents).
+Mesure complète relancée ensuite (10 langues, 4 largeurs, fin de partie, 130 %, état maximal) : plus rien.
+
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non
 livrées).
