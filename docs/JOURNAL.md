@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2437, accessibilité) : champs (cases, curseurs, listes) sans nom accessible, tous les onglets, fin de partie : aucun.
 - 2026-11-19 (it. 2436, autotest) : contrôle « aucune image sans texte de remplacement » (toute la page, après le parcours des
   onglets). 313/313.
 - 2026-11-19 (it. 2435, accessibilité) : images sans alt (tous les onglets, fin de partie) : aucune dans le panneau ; deux icônes de
