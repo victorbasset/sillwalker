@@ -108,6 +108,7 @@ export class StatsTab {
         ${line(tx("Or gagné au total"), fmt(st.goldTotal || 0))}
         ${line(tx("Objets trouvés"), fmt(st.items || 0))}
         ${line(tx("Légendaires trouvés"), fmt(st.legendaries || 0))}
+        ${/* (it. 2567) total des objets restés au sol faute de place (sac plein), pour qu'il pense à l'agrandir */ ""}${st.grounded > 0 ? line(tx("Laissés au sol (sac plein)"), fmt(st.grounded)) : ""}
         ${line(tx("Achats en boutique"), fmt(st.purchases || 0))}
         ${line(tx("Potions bues"), fmt(st.potionsUsed || 0))}
         ${line(tx("Quêtes accomplies"), fmt(S.quests.completed || 0))}

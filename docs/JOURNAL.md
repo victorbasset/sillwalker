@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2567, lisible) : Statistiques > Chiffres : « Laissés au sol (sac plein) N » (S.stats.grounded, compté dans
+  addToBag ; libellé déjà traduit ; ligne absente tant que 0). Le résumé d'absence compte désormais la même chose (différence du
+  compteur : les coffres et trouvailles restés au sol aussi ; avant, seul le butin des combats, 18 au lieu de 20 dans le test).
+  Test, save-fuzz ok, autotest 322/322 ; vérifié dans dev-data (2 h) : « Laissés au sol (sac plein) 9 ».
 - 2026-11-19 (it. 2566, contrôle) : résumé d'absence en chinois (dev-data, 3 h) : propre ; lignes du sac en tête, ✦ sur le sort,
   « 稀有 · 未保留 » pour le butin perdu.
 - 2026-11-19 (it. 2565, langues) : coréen, bulle des coffres (clé 3407) « {0}(쓸모없음)을(를) » : koJosa saute la parenthèse et

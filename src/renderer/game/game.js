@@ -1239,6 +1239,7 @@ export class Game {
         return true;
       }
       this.R.grounded = it.id;
+      S.stats.grounded = (+S.stats.grounded || 0) + 1; // (it. 2567) total pour Statistiques > Chiffres
       codexLine();
       if (!quiet) {
         const up = this.isUpgrade(it);
@@ -1525,6 +1526,7 @@ export class Game {
     this.invalidateStats();
     // (it. 1349) Trèfle à quatre feuilles au prorata de sa durée (ignoré hors ligne jusque-là)
     const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3));
+    const grounded0 = +S.stats.grounded || 0; // (it. 2567) tout ce qui reste au sol pendant l'absence (coffres compris), pas seulement le butin des combats
     let best = -1, bestItem = null, onGround = 0, bestLost = null; // (it. 2523) bestLost : le plus rare ni gardé (sol, vente auto)
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
     let ppLeg = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
@@ -1575,6 +1577,7 @@ export class Game {
     const h = Math.floor(sec / 3600), mn = Math.floor(sec % 3600 / 60);
     // kept : objets nouveaux dans le sac (remplacements quand il est plein et coffres compris ; avant, la différence
     // de taille du sac affichait « 0 » dès qu'il était plein).
+    onGround = Math.max(onGround, (+S.stats.grounded || 0) - grounded0);
     const summary = {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,

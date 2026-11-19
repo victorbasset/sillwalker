@@ -3949,6 +3949,7 @@ test("retour d'absence, sac plein : le nom du meilleur objet perdu est gardé po
   assert.ok(sum.onGround > 0, "des objets restés au sol");
   assert.ok(typeof sum.bestLostName === "string" && sum.bestLostName.length > 0, JSON.stringify(sum.bestLostName));
   assert.ok(sum.bestLostR >= 0 && sum.bestLostR <= sum.best, "rareté du meilleur perdu (it. 2524)");
+  assert.equal(g.S.stats.grounded, sum.onGround, "(it. 2567) le total des objets laissés au sol suit : " + g.S.stats.grounded + " / " + sum.onGround);
   assert.ok(g.S.log.slice(0, 4).some((l) => JSON.stringify(l).includes(String(sum.onGround)) && /sol|ground/.test(JSON.stringify(l))), "(it. 2542) la perte au journal : " + JSON.stringify(g.S.log.slice(0, 4)));
 });
 
