@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2729, contrôle) : version Linux construite dans le dossier temporaire (electron-builder --linux dir, 287 Mo ; dist-itch/
+  intact) et lancée 15 s avec un HOME temporaire : partie neuve créée (zone 1), aucune erreur ; dossiers supprimés ensuite.
 - 2026-11-19 (it. 2728, contrôle) : --perf sur batterie (20 images/s) : bande 15,2 % (repère 15,3 %) ; utilisateur absent (--idle,
   10 images/s) : 9,9 % ; mode normal ≈ 19,6 % : les économies d'énergie tiennent.
 - 2026-11-19 (it. 2727, contrôle) : Bestiaire en japonais à 1280 px : propre (« オオト カゲ » : pas d'espace dans la traduction, écart de
