@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2568, contrôle) : max-save : stats.grounded = 987 654 (ligne « Laissés au sol » au pire cas) ; lang-overflow all 1280
+  avec l'état maximum : 40 mesures, aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2567, lisible) : Statistiques > Chiffres : « Laissés au sol (sac plein) N » (S.stats.grounded, compté dans
   addToBag ; libellé déjà traduit ; ligne absente tant que 0). Le résumé d'absence compte désormais la même chose (différence du
   compteur : les coffres et trouvailles restés au sol aussi ; avant, seul le butin des combats, 18 au lieu de 20 dans le test).
