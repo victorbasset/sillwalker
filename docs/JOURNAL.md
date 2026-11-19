@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2597, contrôle) : nombre de pages de « Quoi de neuf » recompté sans limite (newsShown) : 40 pour 157 éditions ;
+  la mesure de l'it. 2596 (boucle limitée à 40) les a donc toutes couvertes.
 - 2026-11-19 (it. 2596, contrôle) : « Quoi de neuf », TOUTES les pages (40, les 157 éditions) dans les 10 langues à 1280 px :
   aucun défilement ni débordement (lang-overflow ne mesure que la première page).
 - 2026-11-19 (it. 2595, test) : autotest « Quoi de neuf : les nouveautés plus anciennes se lisent page par page » (page suivante
