@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2561, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 66, moine 62 (habituels) ; --perf : 19,4 / 19,2 %, mini 5,6 %, icône
+  0,7 % ; résumé d'absence en japonais (lignes du sac en tête, ✦ sur le sort à apprendre) : propre ; texte russe : aucun mot latin
+  suspect. Rien à corriger.
 - 2026-11-19 (it. 2560, contrôle) : save-fuzz FUZZ_BASE=0.1.2 (vieille sauvegarde) après les changements du butin et du retour
   d'absence : ok, 1 169 corruptions.
 - 2026-11-19 (it. 2559, contrôle) : barre du prochain déblocage du mode mini : pas cliquable en soi (la zone ouvre le panneau, où il
