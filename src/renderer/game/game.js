@@ -1224,10 +1224,15 @@ export class Game {
     if (this.bagFull()) {
       // Sac plein : l'objet reste au sol, perdu (demande de Victor : « tant pis »). Exception : le Valet d'armes
       // (déblocage acheté) équipe une amélioration ; c'est alors l'ancienne pièce qui reste au sol.
-      if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it)) {
+      // (it. 2518) ancienne pièce PRÉCIEUSE (légendaire, de panoplie, forgée) : jamais perdue d'office. Un objet inutile ordinaire
+      // est vendu pour lui garder une place dans le sac ; s'il n'y en a pas, c'est le nouvel objet qui reste au sol.
+      const old0 = S.equip[it.slot], precious = !!old0 && (old0.r >= LEGENDARY || !!old0.set || old0.plus > 0);
+      const room = precious ? this.chestRoom() : null;
+      if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it) && (!precious || room)) {
         const old = S.equip[it.slot];
+        if (room) { S.gold += sellValue(room); S.bag = S.bag.filter((b) => b.id !== room.id); }
         S.bag.push(it); this.equip(it);
-        if (old) S.bag = S.bag.filter((b) => b.id !== old.id);
+        if (old && !room) S.bag = S.bag.filter((b) => b.id !== old.id);
         if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé."));
         codexLine();
         this.changed();

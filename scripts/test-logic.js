@@ -2518,6 +2518,29 @@ test("sac plein : le butin reste au sol, sans or ni échange (demande de Victor)
   assert.equal(g.S.bag.length, g.S.bagSize, "le sac ne déborde pas");
 });
 
+test("Valet d'armes, sac plein : une ancienne pièce précieuse n'est jamais perdue (it. 2518)", () => {
+  const g = new Game(freshState()); g.S.unlocks.armsValet = true;
+  g.S.autoSell = { common: false, uncommon: false, rare: false };
+  g.isUpgrade = (it) => !!it.up;
+  const mk = (r, up) => { const it = g.newItem(0); it.r = r; it.up = up; it.set = null; it.plus = 0; it.slot = "weapon"; return it; };
+  const forged = mk(2); forged.plus = 3; g.S.equip.weapon = forged; g.invalidateStats();
+  // sac plein d'objets ordinaires inutiles : l'un est vendu, la pièce forgée reste dans le sac
+  g.S.bag = []; while (!g.bagFull()) g.S.bag.push(mk(1));
+  const up = mk(2, true), gold = g.S.gold;
+  assert.equal(g.addToBag(up), true); assert.equal(g.S.equip.weapon, up);
+  assert.ok(g.S.bag.some((b) => b.id === forged.id), "la pièce forgée est gardée dans le sac");
+  assert.equal(g.S.bag.length, g.S.bagSize, "le sac ne déborde pas"); assert.ok(g.S.gold > gold, "l'objet ordinaire est vendu");
+  // sac plein de légendaires : rien à vendre, l'amélioration reste au sol, la pièce précieuse reste équipée
+  const leg = mk(4); g.S.equip.weapon = leg; g.invalidateStats();
+  g.S.bag = []; while (!g.bagFull()) g.S.bag.push(mk(4));
+  const up2 = mk(3, true);
+  assert.equal(g.addToBag(up2), false); assert.equal(g.S.equip.weapon, leg, "le légendaire reste équipé");
+  // ancienne pièce ordinaire : comportement d'avant (elle reste au sol)
+  const plain = mk(1); g.S.equip.weapon = plain; g.invalidateStats();
+  const up3 = mk(3, true);
+  assert.equal(g.addToBag(up3), true); assert.equal(g.S.equip.weapon, up3); assert.ok(!g.S.bag.some((b) => b.id === plain.id));
+});
+
 test("usure des boss : -5 % de PV par défaite (30 % au plus), gardée à l'ascension, effacée par la victoire", () => {
   const g = new Game(freshState());
   g.S.zone = g.S.best = 25;

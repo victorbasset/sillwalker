@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2518, ne jamais trahir) : Valet d'armes, sac plein : l'ancienne pièce était retirée du sac et PERDUE, même
+  légendaire, de panoplie ou forgée. Maintenant : pièce précieuse → un objet inutile ordinaire est vendu (chestRoom) pour la garder
+  dans le sac ; sans place possible, le nouvel objet reste au sol (règle du sac plein). Pièce ordinaire : comme avant. Test (échoue
+  avant), autotest 320/320, balance 12 h : identique (64,7).
 - 2026-11-19 (it. 2517, ne jamais trahir) : coffre de quête, sac plein : la place se fait par chestRoom (it. 2515) au lieu du
   moins cher de uselessItems, qui pouvait vendre d'office un objet FORGÉ (plus > 0) ou une pièce de panoplie en surplus ; sans
   objet ordinaire à vendre, l'objet du coffre est vendu (repli existant). Test (échoue avant), autotest 320/320.
