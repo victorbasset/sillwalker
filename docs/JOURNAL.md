@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2616, doc) : POUR-VICTOR : avec l'édition 158, la première page montre 156-158 (newsShown vérifié : 9 nouveautés) ;
+  pages et notes de version mentionnées.
 - 2026-11-19 (it. 2615, contenu) : « Quoi de neuf » édition 158 (tout relire : pages des nouveautés, notes des versions précédentes ;
   vente du Valet au journal ; it. 2594-2614) ; clés 3418-3420 dans les 9 langues. Autotest 324/324, lang-overflow all 1280 : aucun défilement.
 - 2026-11-19 (it. 2614, plaisir de revenir) : notes de version (Réglages > « Version 0.1.7 ») : boutons « ← 0.1.6 » / « 0.1.7 → » pour relire

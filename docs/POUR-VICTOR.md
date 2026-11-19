@@ -32,10 +32,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Mode mini, bulle de la 💡 : « Prochain déblocage : X · 90 k or · prêt à acheter ! » (avant « 447 Md / 90 k or »).
 - Japonais : compteur « つ » remplacé là où le nombre dépasse 9 (« マスタリーの段階 18 件 »).
 
-**Au prochain lancement** : « Quoi de neuf » montre les éditions 155 à 157 (sac plein, moins de clics, sac et lisibilité) ; la 154
-(accessibilité) ne tient pas dans la fenêtre (11 nouveautés au plus) : le bas de la fenêtre, « … et N nouveautés plus anciennes → »,
-est maintenant un bouton qui montre la page suivante (it. 2594 ; avant, les anciennes ne se lisaient nulle part) ;
-« ← Plus récentes » y ramène à la première page (it. 2612).
+**Au prochain lancement** : « Quoi de neuf » montre d'abord les éditions 156 à 158 (moins de clics, sac et lisibilité, tout relire) ;
+« … et N nouveautés plus anciennes → » mène aux 154-155 (accessibilité, sac plein) et au-delà, page par page ; « ← Plus récentes »
+y ramène (it. 2594, 2612). Les notes des versions 0.1.3 à 0.1.7 se relisent aussi (Réglages > Version, « ← / → », it. 2614).
 
 **Outils** : le joueur simulé agrandit maintenant son sac (avant, jamais : sac de 24 en fin de partie) ; équilibrage inchangé
 (64,7 → 65,1 sur 12 h, bruit ; semaine du guerrier toujours au palier 350).
