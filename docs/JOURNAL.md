@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2535, contrôle) : bande en français (dev-data, 1920) : rangée d'informations, barres de vie, nom du boss et
+  astuce du sac plein (« l'Atelier l'agrandit de 6 places. Clique ici. ») propres ; rien à corriger.
 - 2026-11-19 (it. 2534, contrôle) : TALENTS-UX.md : aucun point ouvert ; Bestiaire en français (dev-data, 83 / 84) : propre. Tous
   les onglets revus aujourd'hui (it. 2513-2534) ; « À faire » : les liens restants demandent un choix ou un déblocage (voulu).
 - 2026-11-19 (it. 2533, doc + contrôle) : POUR-VICTOR : sort appris d'un clic depuis « À faire » ; --crawl en japonais : 548 clics,
