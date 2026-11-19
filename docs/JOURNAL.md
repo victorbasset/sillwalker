@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2404, contrôle) : texte japonais de la fin de partie (--dump-text) : seuls des unités (HP, Qa, pt, Lv), noms
+  propres et touches en lettres latines. Graphe complet : déjà annoncé (graphFull, it. 1117).
 - 2026-11-19 (it. 2403, contrôle) : lang-overflow 10 langues à 1366 px (dev et fin de partie) : aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2402, contrôle) : aucun Electron orphelin après la revue ; --crawl d'une partie neuve en polonais : 73 clics, aucune erreur.
 - 2026-11-19 (it. 2401, REVUE GÉNÉRALE) : 12 h : druide 64, chaman 69, artificier 65 ; --perf : 20,5 / 19,9 %, mini 5,4 %, icône 0,8 %
