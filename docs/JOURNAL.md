@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2641, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, nécromancien 65 ; --perf : 19,6 / 19,1 %, mini 5,6 %, icône 0,4 % ;
+  mode mini en coréen (« Lv. 1313 », « 447B », « 지역 57 · 12/12 ») propre ; texte coréen : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2640) « À faire maintenant » (résumé d'absence et carte du héros) : les actions faites d'un clic portent « ✦ », les
   liens vers un onglet « → » ; « Acheter : Carte du voyageur (90 k or) » (it. 2614, achat direct) n'avait ni l'un ni l'autre : « ✦ »
   ajouté. Vu en capture du résumé d'absence en anglais (3 h ; « Left on the ground (bag full) 13 » correct). Aucune édition « Quoi
