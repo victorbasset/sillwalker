@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2441, REVUE GÉNÉRALE) : 12 h : assassin 62, moine 62, paladin 65 ; --perf : 19,1 / 18,9 %, mini 5,4 %, icône 0,4 % ;
+  Aventure en français et chinois à 1366 px : en français, la puce de panoplie de la carte du héros (« ◆ Plumage du phénix 2/4 »)
+  est coupée par le bord de la carte, sans « 2/4 » ni points de suspension : à corriger (it. suivante).
 - 2026-11-19 (it. 2440, vérification) : échappement du contrôle « boutons nommés » : « \\s » du gabarit de selftest.js devient « \s »
   dans le code injecté (/[\s▲▼…]/) : le contrôle retire bien les espaces, il détecte un bouton sans nom.
 - 2026-11-19 (it. 2439, autotest) : contrôle « chaque bouton visible du panneau a un nom » dans tous les onglets. 314/314.
