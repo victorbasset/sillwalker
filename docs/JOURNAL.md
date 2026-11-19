@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2548, contrôle) : lang-overflow all 1920 AVEC l'état « tout au maximum » (max-save, sauté par NO_MAX aux
+  mesures du jour) : 30 mesures (dont max 1920 et 1280 dans les 10 langues), aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2547, contrôle) : résumé d'absence sur la fin de partie (fixture, 3 h, français) : propre ; « Agrandir le sac » en tête,
   26 objets au sol (le joueur simulé n'agrandit jamais le sac : sac de 24 à 90 Qi d'or), « Meilleur butin : Grèves d'étoile ».
 - 2026-11-19 (it. 2546, contrôle) : semaine simulée (guerrier, 168 h) après le Valet d'armes (it. 2518) : courses 40-42 à
