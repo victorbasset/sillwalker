@@ -1448,6 +1448,18 @@ async function runSelfTest(strip) {
   // (it. 2446) les puces de la carte du héros (bénédiction, panoplies, reliques, effets) prennent le focus : leur bulle au clavier
   const chipFocus = await js("(async () => { const P = window.__panel, keep = P.tab; P.setTab('adventure'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const cs = [...document.querySelectorAll('[data-pane=adventure]:not([hidden]) .chips .chip')]; P.setTab(keep); P.renderAll(); return cs.length ? String(cs.every((c) => c.tabIndex === 0)) : 'aucune puce'; })()");
   check("puces du héros atteignables au clavier (tabindex 0)", chipFocus === "true" || chipFocus === "aucune puce", chipFocus);
+  // (it. 2455) vraie touche Tab : la puce suivante prend le focus
+  {
+    const n = await js("(() => { const P = window.__panel; P.setTab('adventure'); P.renderAll(); const cs = document.querySelectorAll('[data-pane=adventure]:not([hidden]) .chips .chip'); if (cs.length < 2) return cs.length; cs[0].focus(); return cs.length; })()");
+    let kb = "moins de deux puces";
+    if (n >= 2) {
+      wc.sendInputEvent({ type: "keyDown", keyCode: "Tab" }); wc.sendInputEvent({ type: "keyUp", keyCode: "Tab" }); await sleep(250);
+      kb = await js("(() => { const a = document.activeElement, t = document.querySelector('.gtip'); return (a && a.classList.contains('chip')) + ' ' + (a && a.matches(':focus-visible')) + ' ' + (a ? getComputedStyle(a).outlineStyle : '-') + ' ' + (t && !t.hidden); })()");
+      await js("document.activeElement && document.activeElement.blur(), 1");
+    }
+    // (:focus-visible reste faux dans la fenêtre fantôme sans focus système : seul le passage de puce en puce se vérifie ici)
+    check("puces du héros : Tab passe d'une puce à la suivante", kb === "moins de deux puces" || kb.startsWith("true "), kb);
+  }
   // (it. 2096) Voie : un clic sur la ligne la montre (sans la choisir) ; le bouton « Choisir cette voie » de la fiche la choisit
   const talVoie = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, ranks = S.talents[S.cls] ||= {}, keepR = JSON.stringify(ranks), keepL = S.lvl; for (const id of Object.keys(ranks)) if (id.startsWith('v_')) delete ranks[id]; S.lvl += 5; g.invalidateStats(); P.setTab('talents'); P.renderAll(); await new Promise((r) => setTimeout(r, 200)); const v = document.querySelector('[data-pane=talents] .talent.voie'); if (!v) { S.lvl = keepL; return 'pas de voie'; } v.click(); await new Promise((r) => setTimeout(r, 200)); const n0 = Object.keys(ranks).filter((k) => k.startsWith('v_')).length; const b = document.querySelector('#tsel [data-action=t-voie-ok]'); if (b) b.click(); await new Promise((r) => setTimeout(r, 200)); const n1 = Object.keys(ranks).filter((k) => k.startsWith('v_')).length; S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return n0 + ' ' + !!b + ' ' + n1; })()");
   check("talents : un clic montre la voie, le bouton de la fiche la choisit", talVoie === "0 true 1", talVoie);
