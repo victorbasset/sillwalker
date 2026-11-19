@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2459, contrôle) : ampoule du mode mini : sa bulle donne le texte de l'astuce (« Un conseil t'attend… » + texte) ; conforme.
 - 2026-11-19 (it. 2458, contrôle) : early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages : identique à l'it. 2354.
 - 2026-11-19 (it. 2457, contrôle) : « 618 » encore cité : README (« 618 avant ») et devlog 0.1.3 (historique) seulement ; pages de
   magasin à 222 (vérifiées par npm test).
