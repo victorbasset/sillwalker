@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2413, doc) : FINALE.md et POUR-VICTOR : retouches « bon voisin » de la libération (it. 2408-2412).
 - 2026-11-19 (it. 2412, bon voisin) : jeu réduit à son icône (bande cachée par le joueur) : la cinématique de libération attend que la
   bande revienne (StripWindow.onModeChange ; si on réduit pendant la scène, elle se ferme et sera rejouée). Contrôle de l'autotest en
   fin de parcours. 309/309.
