@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2667, contrôle) : save-fuzz FUZZ_BASE=0.1.2 (ancienne version migrée) : « ok balayage (1169 corruptions) ».
 - 2026-11-19 (it. 2666, contrôle) : save-fuzz FUZZ_BASE=fin (partie de fin de partie) : « ok balayage (1225 corruptions) ».
 - 2026-11-19 (it. 2665, contrôle) : save-fuzz (dev-data) : 27 cas écrits à la main ok, « ok balayage (1267 corruptions) ».
 - 2026-11-19 (it. 2664, contrôle) : --crawl en russe sur la partie de fin de partie (trois pluriels) : 701 clics en 24 s, aucune erreur.
