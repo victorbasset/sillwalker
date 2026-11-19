@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2600, contrôle) : semaine simulée (guerrier) avec l'agrandissement du sac (it. 2599) : dernières courses 350 / 349 / 350
+  (40 courses au lieu de 42), 6 131-6 158 éclats : même palier, repère de CLAUDE.md inchangé.
 - 2026-11-19 (it. 2599, outils) : simulate.js : le joueur simulé agrandit le sac (UPGRADES, même prudence que l'Atelier : sous 10 % de
   l'or) ; avant, jamais (sac de 24 à 90 Qi d'or dans la fin de partie de référence, des dizaines d'objets au sol par absence). 12 h,
   guerrier : sac 48 (4 niveaux), aucun objet au sol. balance 12 h contre HEAD : 64,7 → 65,1 (+0,4, bruit). La fixture endgame-save.json
