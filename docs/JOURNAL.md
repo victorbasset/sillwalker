@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2538, contrôle) : first-minutes après les changements du jour : premier objet 42-82 s, premier boss 70-82 s,
+  zone 9-10 et niveau 16-17 (identiques aux relevés précédents).
 - 2026-11-19 (it. 2537, contrôle) : mémoire, point P3 de l'it. 2536 fermé : 64c16330 (avant le 19/11 matin, git worktree, même
   dev-data) 561 → 579 Mo ; actuel 559 → 583 (it. 2536) puis 600 → 610 (mode haut de la mesure bimodale, plat). Aucun écart dû aux
   changements du matin, pas de fuite.
