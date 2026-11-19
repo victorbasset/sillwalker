@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2593, contrôle) : newsShown vérifié (affirmation de POUR-VICTOR, it. 2592) : lu jusqu'à 152 ou 153 → 9 nouveautés
+  montrées (éditions 155-157), 7 ou 4 plus anciennes signalées ; la 154 ne s'affiche pas, comme écrit.
 - 2026-11-19 (it. 2592, doc) : POUR-VICTOR : section du jour réorganisée (sac plein / moins de clics / Quoi de neuf / Linux) ; la 154
   ne tient pas dans « Quoi de neuf » au lancement (155-157 = 9 nouveautés, plafond 11), corrigé.
 - 2026-11-19 (it. 2591, REVUE GÉNÉRALE) : 12 h : ranger 64, prêtresse 64, gladiateur 65 (habituels) ; --perf (charge ≈ 2) : 19,4 / 19,9 %,
