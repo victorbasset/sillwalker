@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2527, moins de clics) : liens « 🔒 déblocage · prix » (ui/locks.js : Carte, Familiers, Compétences, forge du
+  sac) : disponible ET abordable → « Acheter : X (N or) », un clic l'achète sur place (goal-buy, comme « Prochain déblocage »).
+  Avant : le lien ouvrait la boutique, puis il fallait y chercher la carte. Classe lock.buy (même taille que le lien, trait plein,
+  --good) : sans « lock », le bouton prenait toute la largeur et la Carte défilait de 31 px (autotest et lang-overflow l'ont vu).
+  Vérifié : un clic sur la Carte achète la Carte du voyageur ; autotest 320/320, lang-overflow all 1280 : aucun défilement.
 - 2026-11-19 (it. 2526, contrôle) : Statistiques > Chiffres en français (dev-data) : propre ; le ⚠ du gobelin doré est la bulle
   « ils s'enfuient » (héros trop lent pour les attraper), voulue.
 - 2026-11-19 (it. 2525, contrôle) : après les changements du butin (it. 2514-2524) : save-fuzz FUZZ_BASE=fin ok (1 225 corruptions),
