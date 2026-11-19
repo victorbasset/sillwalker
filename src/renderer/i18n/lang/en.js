@@ -2298,4 +2298,7 @@ export default {
   3423: "Statistics and Settings: on a laptop screen, card titles fit on one line.",
   3424: "Workshop: the price and the “max” button are aligned; in “Things to do now”, buying an unlock wears the ✦ of one-click actions.",
   3425: "empty",
+  3426: "Equipment: an empty slot shows its name, then “empty”, without being cut off on a laptop screen.",
+  3427: "Pets: an expedition in progress shows ⏳ and the time left (its name on hover), without being cut off.",
+  3428: "Laptop screens: Ascension no longer scrolls in Russian, Japanese titles no longer break mid-word, and the + sign of a looped zone stays with its name.",
 };

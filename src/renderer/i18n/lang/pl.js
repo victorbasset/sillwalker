@@ -2298,4 +2298,7 @@ export default {
   3423: "Statystyki i Ustawienia: na ekranie laptopa tytuły kart mieszczą się w jednej linii.",
   3424: "Warsztat: cena i przycisk „maks.” są wyrównane; w „Do zrobienia teraz” zakup odblokowania nosi ✦ akcji jednym kliknięciem.",
   3425: "pusto",
+  3426: "Ekwipunek: puste miejsce pokazuje swoją nazwę, a pod nią „pusto”, bez ucinania na ekranie laptopa.",
+  3427: "Zwierzaki: trwająca wyprawa pokazuje ⏳ i pozostały czas (nazwa po najechaniu), bez ucinania.",
+  3428: "Ekrany laptopów: Wniebowstąpienie nie przewija się już po rosyjsku, japońskie tytuły nie łamią się w środku słowa, a znak + powtórzonej strefy zostaje przy jej nazwie.",
 };

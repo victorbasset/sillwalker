@@ -60,6 +60,9 @@ attendent les polices) ; deux défauts cachés sont apparus et sont corrigés :
 Mesure complète relancée ensuite (10 langues, 4 largeurs, fin de partie, 130 %, état maximal) : plus rien.
 - Équipement : un emplacement vide s'affiche sur deux lignes (« Gants » / « vide »), comme un objet porté ; en allemand sur un
   portable, « Handschuhe: le… » était coupé dès le premier écran d'une partie neuve (it. 2697).
+- Familiers : une expédition en cours affiche « ⏳ 7 h 59 » (son nom au survol) ; « Große Expedition » était coupé sur chaque carte (it. 2716).
+- Nom de zone : le signe + d'une zone bouclée ne passe plus seul à la ligne (it. 2701-2702).
+Édition « Quoi de neuf » 160 publiée pour ces retouches (it. 2718).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non

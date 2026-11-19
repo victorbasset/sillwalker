@@ -2298,4 +2298,7 @@ export default {
   3423: "Estatísticas e Configurações: numa tela de notebook, os títulos dos cartões cabem em uma linha.",
   3424: "Oficina: o preço e o botão “máx.” estão alinhados; em “O que fazer agora”, a compra de um desbloqueio leva o ✦ das ações de um clique.",
   3425: "vazio",
+  3426: "Equipamento: um espaço vazio mostra seu nome e depois “vazio”, sem ser cortado numa tela de notebook.",
+  3427: "Mascotes: uma expedição em andamento mostra ⏳ e o tempo restante (o nome ao passar o mouse), sem ser cortada.",
+  3428: "Telas de notebook: a Ascensão não rola mais em russo, os títulos japoneses não se quebram mais no meio da palavra e o sinal + de uma zona repetida fica junto ao nome.",
 };

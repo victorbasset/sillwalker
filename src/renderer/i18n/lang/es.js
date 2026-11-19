@@ -2298,4 +2298,7 @@ export default {
   3423: "Estadísticas y Ajustes: en una pantalla de portátil, los títulos de las tarjetas caben en una línea.",
   3424: "Taller: el precio y el botón «máx.» están alineados; en «Qué hacer ahora», la compra de un desbloqueo lleva el ✦ de las acciones de un clic.",
   3425: "vacío",
+  3426: "Equipo: una ranura vacía muestra su nombre y luego «vacío», sin cortarse en una pantalla de portátil.",
+  3427: "Mascotas: una expedición en curso muestra ⏳ y el tiempo restante (su nombre al pasar el ratón), sin cortarse.",
+  3428: "Pantallas de portátil: la Ascensión ya no se desplaza en ruso, los títulos japoneses ya no se cortan a mitad de palabra y el signo + de una zona repetida queda junto a su nombre.",
 };
