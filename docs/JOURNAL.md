@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2707, contrôle) : Quêtes en fin de partie, anglais à 1280 px (guilde rang 9, chasse « not here · zone 143 », quête 3 étoiles
+  « → Adventure ») : propre.
 - 2026-11-19 (it. 2706, contrôle) : Familiers en fin de partie, anglais à 1280 px (17 trouvés, « Collect 16 expeditions », rangée centrée
   sur le compagnon actuel) : propre.
 - 2026-11-19 (it. 2705, contrôle) : Ascension en fin de partie, anglais à 1280 px (19 ascensions, « What is kept or lost » replié,
