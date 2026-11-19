@@ -2272,4 +2272,5 @@ export default {
   3397: "Die Überraschung des letzten Sieges wartet auf dich: nie über einem Spiel oder Video im Vollbild, auch nicht bei minimiertem Spiel oder gesperrter Sitzung.",
   3398: "Ein Tipp erinnert daran, dass ein Klick auf einen fernen Knoten des großen Graphen den kürzesten Weg nimmt.",
   3399: "Tasche voll: Dein aktuelles Teil, {0}, ist wertvoll und wird nicht automatisch verkauft. Klick: Tasche öffnen, um Platz zu schaffen.",
+  3400: "Nichts Besseres in der Tasche: Deine Ausrüstung ist schon die beste.",
 };

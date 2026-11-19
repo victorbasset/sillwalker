@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2423) : Aventure : « Équiper le meilleur » grisé a maintenant sa bulle (« Rien de mieux dans le sac : ton équipement
+  est déjà le meilleur. », clé 3400, 10 langues). 310/310.
 - 2026-11-19 (it. 2422) : Boutique : amélioration du marchand bloquée par le sac plein parce que la pièce équipée est précieuse
   (canBuyWhenFull : légendaire, panoplie ou forgée, jamais vendue d'office) : la bulle de « Sac plein » le dit et nomme la pièce
   (clé 3399, 10 langues ; vérifié en japonais sur dev-data : « 最初の英雄の星鉄のグレートヘルム »). 310/310.

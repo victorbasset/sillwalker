@@ -2272,4 +2272,5 @@ export default {
   3397: "Niespodzianka ostatecznego zwycięstwa czeka na twój powrót: nigdy nad grą ani filmem na pełnym ekranie, ani gdy gra jest zminimalizowana lub sesja zablokowana.",
   3398: "Wskazówka przypomina, że kliknięcie odległego węzła wielkiego grafu bierze najkrótszą ścieżkę.",
   3399: "Torba pełna: twój obecny przedmiot, {0}, jest cenny i nie zostanie sprzedany automatycznie. Kliknij: otwórz torbę, by zrobić miejsce.",
+  3400: "Nic lepszego w torbie: twój ekwipunek jest już najlepszy.",
 };

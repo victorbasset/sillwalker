@@ -2272,4 +2272,5 @@ export default {
   3397: "A surpresa da vitória final espera a sua volta: nunca por cima de um jogo ou vídeo em tela cheia, nem com o jogo minimizado ou a sessão bloqueada.",
   3398: "Uma dica lembra que um clique num nó distante do grande grafo pega o caminho mais curto.",
   3399: "Bolsa cheia: sua peça atual, {0}, é preciosa e não será vendida automaticamente. Clique: abrir a bolsa para abrir espaço.",
+  3400: "Nada melhor na bolsa: seu equipamento já é o melhor.",
 };

@@ -2272,4 +2272,5 @@ export default {
   3397: "La sorpresa de la victoria final espera tu regreso: nunca encima de un juego o un vídeo a pantalla completa, ni con el juego minimizado o la sesión bloqueada.",
   3398: "Un consejo recuerda que un clic en un nodo lejano del gran grafo toma el camino más corto.",
   3399: "Bolsa llena: tu pieza actual, {0}, es valiosa y no se venderá automáticamente. Clic: abrir la bolsa para hacer sitio.",
+  3400: "Nada mejor en la bolsa: tu equipo ya es el mejor.",
 };
