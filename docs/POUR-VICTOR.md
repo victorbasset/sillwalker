@@ -57,6 +57,8 @@ bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
 comptent comme lues.
 Dans la même veine : au retour d'une courte absence, un débutant ne rapportait JAMAIS d'objet (54 monstres en 10 min, « Objets gardés :
 0 », arrondi par défaut). Arrondi au hasard, même moyenne : environ un retour sur deux rapporte maintenant un objet (it. 2731).
+Et au retour d'une longue absence avec le sac plein, la bulle « Sac plein : une amélioration est restée au sol » passait devant la
+bulle d'absence pendant 12 s : ouvrir le panneau à ce moment ne montrait pas le résumé. La bulle d'absence passe maintenant en premier (it. 2742).
 
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest
