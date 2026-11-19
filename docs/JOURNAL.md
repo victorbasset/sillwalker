@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2505, doc) : CLAUDE.md : règles d'accessibilité vérifiées par l'autotest et le test de contraste.
 - 2026-11-19 (it. 2504, contrôle) : autotest relancé deux fois de suite (stabilité des contrôles de la nuit) : 320/320 les deux fois.
 - 2026-11-19 (it. 2503, accessibilité) : fenêtres (#modal, #confirm) : focus posé à l'ouverture (panel.js 1264, 1288) et Tab qui boucle
   dans la fenêtre (it. 2168) : rien à ajouter ; la phrase « tout se fait au clavier » du README tient.

@@ -366,6 +366,10 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   dans le sac force `r = 0`, `set = null`, `plus = 0` et un niveau 1. Contrôle instable : `SELFTEST_TIMES=1` et une mise en scène qui
   rejoue le cas 30 fois (it. 2216) trouvent la cause vite.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
+- Accessibilité (it. 2422-2499) : l'autotest vérifie dans tous les onglets que chaque bouton grisé a une bulle (« Maximum » excepté),
+  que tout texte coupé (…) garde une bulle, que tout élément cliquable hors bouton a un tabindex (SVG exclus), que chaque bouton
+  visible a un nom, que toute image a un alt (alt="" pour un décor) et qu'aucun identifiant n'est en double ; test-logic vérifie le
+  contraste des jetons de couleur (≥ 3:1 sur --panel et --bg, deux thèmes). Un nouvel élément d'interface doit respecter ces règles.
 - Info-bulles (it. 817) : le jeu déplace l'attribut `title` dans `data-title` (bulle maison, panel.js et app.js) : un
   contrôle qui lit `el.title` trouve une chaîne vide ; lire `el.title || el.dataset.title`.
 - Les scripts Python écrits dans un heredoc abîment les `\n` et les accents : écrire le script dans
