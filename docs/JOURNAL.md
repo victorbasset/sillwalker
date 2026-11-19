@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2648) docs/POUR-VICTOR.md : résumé de la fin d'après-midi (it. 2614-2647 : contrôles et quatre retouches visibles).
 - 2026-11-19 (it. 2647, contrôle) : lang-overflow all 1280 (+ fin, × 130 %, max) après le « ✦ » des achats de « À faire » (it. 2640) et la
   pastille de bénédiction (it. 2631) : aucun défilement ni mot coupé dans les 10 langues.
 - 2026-11-19 (it. 2646, contrôle) : --crawl en anglais sur une copie de dev-data après les retouches du panneau et de la bande

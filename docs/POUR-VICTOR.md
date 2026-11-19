@@ -39,6 +39,15 @@ y ramène (it. 2594, 2612). Les notes des versions 0.1.3 à 0.1.7 se relisent au
 **Outils** : le joueur simulé agrandit maintenant son sac (avant, jamais : sac de 24 en fin de partie) ; équilibrage inchangé
 (64,7 → 65,1 sur 12 h, bruit ; semaine du guerrier toujours au palier 350).
 
+**Fin d'après-midi (it. 2614-2647)** : surtout des contrôles (Bestiaire en entier, chaque onglet en anglais à 1280 px, parties
+bloquées, mémoire, performance), rien de cassé. Quatre retouches visibles :
+- Bande sur un écran de portable (1280 px) : la barre de vie du monstre s'affiche quand le nom du boss laisse la place (avant : jamais).
+- Bande avec les informations « au milieu » sur un écran étroit : le nom du boss ne passe plus sous les boutons. Sur ton écran très
+  large, rien ne change (mesuré : même charge, 27 % d'un cœur à 3840 px).
+- Pastille de la bénédiction du jour sans point final (« 🍄 Poupouce ×10 »), comme les autres pastilles.
+- « À faire » : « ✦ Acheter : … » porte le ✦ des actions d'un clic.
+Pas encore d'édition « Quoi de neuf » pour ces retouches (trop petites seules) : elles iront avec les suivantes.
+
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non
 livrées).
