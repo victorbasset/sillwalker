@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2708, contrôle) : Compétences en fin de partie, anglais à 1280 px (arbre et grand graphe complets, 140 points en surplus) :
+  propre. « Spend automatically » reste mis en avant avec tout complet : lié à la question des points en surplus, en attente de Victor.
 - 2026-11-19 (it. 2707, contrôle) : Quêtes en fin de partie, anglais à 1280 px (guilde rang 9, chasse « not here · zone 143 », quête 3 étoiles
   « → Adventure ») : propre.
 - 2026-11-19 (it. 2706, contrôle) : Familiers en fin de partie, anglais à 1280 px (17 trouvés, « Collect 16 expeditions », rangée centrée
