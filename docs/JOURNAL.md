@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2525, contrôle) : après les changements du butin (it. 2514-2524) : save-fuzz FUZZ_BASE=fin ok (1 225 corruptions),
+  stall-check 60 parties 0 figées, fuzz 1 200 parties 0 bloquées.
 - 2026-11-19 (it. 2524, correction) : bulle du meilleur objet perdu (it. 2523) seulement si sa rareté est celle affichée
   (sum.bestLostR === sum.best) : un objet gardé puis vendu ou transmuté pendant l'absence laissait « Légendaire · pas gardé » avec
   le nom d'un objet moins rare. Revérifié (dev-data, 3 h) : « Épique · pas gardé » → « Couronne d'étoile du serment brisé ».
