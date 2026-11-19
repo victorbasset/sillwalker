@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2686) Ascension en russe à 1280 px (moins de 3 ascensions : liste « gardé / perdu » dépliée, six lignes) : la colonne
+  dépassait de 5 px (défaut caché jusqu'à l'it. 2685). Interligne de la liste 3 → 1 px sous un panneau de 1334 px : lang-overflow ru, de,
+  pl, fr à 1280 et 1366 px (+ fin 1280) : aucun. npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2685) --overflow-report (donc lang-overflow) mesurait certains onglets avec la POLICE DE SECOURS : le navigateur ne charge
   une police (graisse, alphabet) qu'au premier texte qui la demande, et le rapport mesurait chaque onglet aussitôt après son premier
   rendu (sonde : à 1,5 s, polices « loading », titres des Statistiques sur une ligne ; à 2,8 s, « loaded », sur deux). Chaque onglet est
@@ -8687,7 +8690,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P1 (it. 2685) Défauts révélés par la mesure corrigée : ru 1280 Ascension défile de 5 px (« Вознестись к звёздам ») ; ja max 1280
+- P1 (it. 2685) Défauts révélés par la mesure corrigée : (FAIT it. 2686 : ru 1280 Ascension) ; ja max 1280
   titres « 戦士 » (Talents) et « 昇天 » (Ascension) coupés entre deux caractères. Relancer aussi lang-overflow à 1920, 1600, 1366
   et sur la fin de partie (autres défauts possibles, cachés depuis longtemps).
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux

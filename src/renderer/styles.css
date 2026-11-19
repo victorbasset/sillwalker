@@ -1171,6 +1171,8 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Ascension (demandes 27 et 29) : icônes ; « gardé / perdu » en étiquettes compactes. */
 .keeplose ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 3px 10px; font-size: 13px; }
 .keeplose li { display: inline-flex; align-items: center; gap: 4px; }
+/* (it. 2686) russe à 1280 px : la colonne de l'Ascension (liste « gardé / perdu » sur six lignes) dépassait de 5 px */
+@container panel (max-width: 1334px) { .keeplose ul { row-gap: 1px; } }
 .keeplose .eicon, .ascend .shards .eicon, .ascend button .eicon { width: 16px; height: 16px; image-rendering: pixelated; vertical-align: -3px; }
 .ascgrid .uowned .chip .eicon { width: 14px; height: 14px; margin-right: 3px; image-rendering: pixelated; vertical-align: -2px; }
 .ascgrid .shopline > .eicon.big { width: 24px; height: 24px; flex: none; image-rendering: pixelated; margin-right: 8px; }
