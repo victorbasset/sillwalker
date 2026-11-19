@@ -2301,4 +2301,5 @@ export default {
   3426: "Equipment: an empty slot shows its name, then “empty”, without being cut off on a laptop screen.",
   3427: "Pets: an expedition in progress shows ⏳ and the time left (its name on hover), without being cut off.",
   3428: "Laptop screens: Ascension no longer scrolls in Russian, Japanese titles no longer break mid-word, and the + sign of a looped zone stays with its name.",
+  3429: "Your absence summary is waiting: click to expand.",
 };

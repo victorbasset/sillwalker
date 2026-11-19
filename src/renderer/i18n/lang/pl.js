@@ -2301,4 +2301,5 @@ export default {
   3426: "Ekwipunek: puste miejsce pokazuje swoją nazwę, a pod nią „pusto”, bez ucinania na ekranie laptopa.",
   3427: "Zwierzaki: trwająca wyprawa pokazuje ⏳ i pozostały czas (nazwa po najechaniu), bez ucinania.",
   3428: "Ekrany laptopów: Wniebowstąpienie nie przewija się już po rosyjsku, japońskie tytuły nie łamią się w środku słowa, a znak + powtórzonej strefy zostaje przy jej nazwie.",
+  3429: "Podsumowanie nieobecności czeka: kliknij, aby powiększyć.",
 };

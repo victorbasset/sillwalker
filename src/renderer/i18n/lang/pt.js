@@ -2301,4 +2301,5 @@ export default {
   3426: "Equipamento: um espaço vazio mostra seu nome e depois “vazio”, sem ser cortado numa tela de notebook.",
   3427: "Mascotes: uma expedição em andamento mostra ⏳ e o tempo restante (o nome ao passar o mouse), sem ser cortada.",
   3428: "Telas de notebook: a Ascensão não rola mais em russo, os títulos japoneses não se quebram mais no meio da palavra e o sinal + de uma zona repetida fica junto ao nome.",
+  3429: "O resumo da tua ausência espera-te: clica para ampliar.",
 };

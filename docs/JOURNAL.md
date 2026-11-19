@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2746) Retour d'absence en MODE MINI : au lancement, showOffline voyait mode = null (disposition appliquée plus tard) et
+  envoyait la bulle sur la bande cachée : le résumé se perdait (voyant du mini : un conseil ordinaire). Il lit maintenant la disposition
+  prévue (init.layout.mode). Le voyant dit « Ton résumé d’absence t’attend : clique pour agrandir. » (clé 3429, 10 langues) ; un clic
+  agrandit et montre la bulle d'absence. Mesuré avec settings.json mode=mini (--mode=mini, appliqué après le chargement, ne le voyait
+  pas) : avant, conseil « objet plus puissant » ; après, « Pendant ton absence (8 h) : 3 944 monstres… ». npm test 377, autotest 328/328.
 - 2026-11-20 (it. 2745) docs/POUR-VICTOR.md : question des légendaires de Poupouce perdus sac plein pendant une absence (it. 2744), avec une proposition.
 - 2026-11-19 (it. 2744) Contrôle : résumé d'absence d'un débutant (10 min de jeu, sac plein, 8 h d'absence) à 1920 px : propre ; « Sac plein »
   en tête des actions, plafond de 8 h expliqué, « Légendaire · pas gardé » (40 légendaires de Poupouce restés au sol : règle voulue par

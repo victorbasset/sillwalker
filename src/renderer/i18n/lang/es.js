@@ -2301,4 +2301,5 @@ export default {
   3426: "Equipo: una ranura vacía muestra su nombre y luego «vacío», sin cortarse en una pantalla de portátil.",
   3427: "Mascotas: una expedición en curso muestra ⏳ y el tiempo restante (su nombre al pasar el ratón), sin cortarse.",
   3428: "Pantallas de portátil: la Ascensión ya no se desplaza en ruso, los títulos japoneses ya no se cortan a mitad de palabra y el signo + de una zona repetida queda junto a su nombre.",
+  3429: "Tu resumen de ausencia te espera: haz clic para ampliar.",
 };

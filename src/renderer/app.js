@@ -336,9 +336,11 @@ async function boot() {
   function showOffline(sum) {
     // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
     if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
-    if (mode === "mini") {
+    // (it. 2746) au lancement, la disposition n'est pas encore appliquée (mode = null) : lancé en mode mini, le résumé partait en
+    // bulle sur la bande cachée et se perdait (le voyant du mini montrait un conseil ordinaire)
+    if ((mode ?? (init.layout && init.layout.mode)) === "mini") {
       pendingOffline = sum;
-      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold + (sum.petGold || 0)) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`);
+      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold + (sum.petGold || 0)) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`, true);
       return;
     }
     strip.welcomeBack();

@@ -3430,5 +3430,6 @@ export const KEYS = [
   "vide",
   "Équipement : un emplacement vide affiche son nom puis « vide », sans être coupé sur un écran de portable.",
   "Familiers : une expédition en cours affiche ⏳ et le temps restant (son nom au survol), sans être coupée.",
-  "Écrans de portable : l’Ascension ne défile plus en russe, les titres japonais ne se coupent plus au milieu d’un mot, et le signe + d’une zone bouclée reste collé à son nom."
+  "Écrans de portable : l’Ascension ne défile plus en russe, les titres japonais ne se coupent plus au milieu d’un mot, et le signe + d’une zone bouclée reste collé à son nom.",
+  "Ton résumé d’absence t’attend : clique pour agrandir."
 ];

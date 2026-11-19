@@ -2301,4 +2301,5 @@ export default {
   3426: "Ausrüstung: Ein leerer Platz zeigt seinen Namen, darunter „leer“, ohne auf einem Laptop-Bildschirm abgeschnitten zu werden.",
   3427: "Begleiter: Eine laufende Expedition zeigt ⏳ und die Restzeit (ihr Name beim Überfahren), ohne abgeschnitten zu werden.",
   3428: "Laptop-Bildschirme: Der Aufstieg scrollt auf Russisch nicht mehr, japanische Titel brechen nicht mehr mitten im Wort, und das +-Zeichen einer wiederholten Zone bleibt bei ihrem Namen.",
+  3429: "Deine Abwesenheitsübersicht wartet: Klicke zum Vergrößern.",
 };

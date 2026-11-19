@@ -113,10 +113,11 @@ export class MiniRenderer {
   }
 
   /** Indique qu'un conseil attend (affiché en grand une fois l'encart agrandi). */
-  setHint(text) {
+  setHint(text, away = false) {
     const on = !!text;
     if (this.hintDot.hidden === on) { this.hintDot.hidden = !on; mark("hud"); }
-    if (on) this.hintDot.title = tx("Un conseil t’attend : clique pour agrandir.") + "\n" + text;
+    // (it. 2746) résumé d'absence en attente : il ne s'annonce plus comme un « conseil »
+    if (on) this.hintDot.title = (away ? tx("Ton résumé d’absence t’attend : clique pour agrandir.") : tx("Un conseil t’attend : clique pour agrandir.")) + "\n" + text;
   }
 
   /** Moment marquant : texte sur la scène et liseré doré (4 s), sans boucle ni clignotement. */
