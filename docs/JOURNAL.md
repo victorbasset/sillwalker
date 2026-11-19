@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2465, vérification) : mesuré cette fois (l'it. 2464 l'avait déduit du code) : pendant perf.mjs --tab=skills, la
+  mise en scène relève window.__panel.tab = skills et le panneau ouvert à 5, 15, 25, 35 et 45 s : la mesure de l'it. 2463 vaut.
 - 2026-11-19 (it. 2464, vérification) : --tab est appliqué au lancement (main.js, commande « tab:… » à 300 ms) avant les phases de
   --perf : la mesure de l'it. 2463 portait bien sur l'onglet demandé (le panneau rouvert garde son dernier onglet).
 - 2026-11-19 (it. 2463, performance) : panneau ouvert sur Compétences (graphe plein de la copie de dev) 19,7 % contre Aventure 19,1 %
