@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2596, contrôle) : « Quoi de neuf », TOUTES les pages (40, les 157 éditions) dans les 10 langues à 1280 px :
+  aucun défilement ni débordement (lang-overflow ne mesure que la première page).
 - 2026-11-19 (it. 2595, test) : autotest « Quoi de neuf : les nouveautés plus anciennes se lisent page par page » (page suivante
   différente, sans défilement, focus gardé dans la fenêtre) ; 323/323.
 - 2026-11-19 (it. 2594, plaisir de revenir) : « Quoi de neuf » : « … et N nouveautés plus anciennes » devient un bouton qui montre la
