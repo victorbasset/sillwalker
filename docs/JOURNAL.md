@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2588, contrôle) : ligne « Sac plein » de « À faire » sans objet inutile : « Sac plein : le butin suivant restera au sol »
+  (pas de « 0 objets ») ; pluriel par txn. Correct.
 - 2026-11-19 (it. 2587, contrôle) : astuce « bagup » (« l'Atelier l'agrandit de 6 places ») : conditionnée à la ligne « Agrandir le sac »
   de todoNow (sac plein, niveau restant, or suffisant) ; muette au maximum (48 places). Correct.
 - 2026-11-19 (it. 2586, contrôle) : tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire
