@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2466, doc) : CLAUDE.md : mesurer --perf sur un onglet précis (perf.mjs --tab=…).
 - 2026-11-19 (it. 2465, vérification) : mesuré cette fois (l'it. 2464 l'avait déduit du code) : pendant perf.mjs --tab=skills, la
   mise en scène relève window.__panel.tab = skills et le panneau ouvert à 5, 15, 25, 35 et 45 s : la mesure de l'it. 2463 vaut.
 - 2026-11-19 (it. 2464, vérification) : --tab est appliqué au lancement (main.js, commande « tab:… » à 300 ms) avant les phases de
