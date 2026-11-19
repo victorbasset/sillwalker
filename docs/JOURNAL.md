@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2543, contrôle) : Statistiques > Succès en français (34 / 72) : propre ; « grand graphe 0 / 222 » contre « 144 nœuds »
+  des Compétences : deux ensembles distincts (fleur SKILL_NODE_COUNT, grand graphe SKILL_GRAPH_COUNT), voulu.
 - 2026-11-19 (it. 2542, plaisir de revenir) : Journal : après une absence sac plein, une ligne « Sac plein, objets laissés au sol : N. »
   suit « Pendant 2 h : … » (texte déjà traduit, catégorie déjà classée) ; avant, seul le résumé d'absence, une fois fermé, le disait.
   Test (échoue avant), autotest 320/320.
