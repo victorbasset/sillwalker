@@ -2268,4 +2268,7 @@ export default {
   3393: "Osiągnięcia objaśnione po najechaniu, trzy najbliższe na złoto; Bestiariusz mówi, gdzie znaleźć to, czego brakuje; Dziennik podróży pokazuje następny etap.",
   3394: "Dźwięk ciosów nadąża za szybkością ataku; łagodniejsza głośność przy pierwszej instalacji; na Macu menu Docka pojawia się przed paskiem.",
   3395: "Umiejętności: kliknij odległy węzeł, a najkrótsza ścieżka zostanie wzięta sama, jeśli masz dość punktów. Kliknij tutaj.",
+  3396: "Umiejętności: nazwy węzłów pozostają czytelne, rysowane nad węzłami i nieco większe.",
+  3397: "Niespodzianka ostatecznego zwycięstwa czeka na twój powrót: nigdy nad grą ani filmem na pełnym ekranie, ani gdy gra jest zminimalizowana lub sesja zablokowana.",
+  3398: "Wskazówka przypomina, że kliknięcie odległego węzła wielkiego grafu bierze najkrótszą ścieżkę.",
 };

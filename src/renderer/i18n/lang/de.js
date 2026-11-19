@@ -2268,4 +2268,7 @@ export default {
   3393: "Erfolge beim Überfahren erklärt, die drei nächsten golden; das Bestiarium sagt, wo das Fehlende zu finden ist; das Logbuch zeigt die nächste Etappe.",
   3394: "Trefferklänge folgen dem Angriffstempo; leisere Lautstärken bei der ersten Installation; auf dem Mac erscheint das Dock-Menü vor dem Band.",
   3395: "Fertigkeiten: Klick auf einen fernen Knoten, und der kürzeste Weg wird von selbst genommen, wenn du genug Punkte hast. Klicke hier.",
+  3396: "Fertigkeiten: Die Namen der Knoten bleiben lesbar, über den Knoten gezeichnet und etwas größer.",
+  3397: "Die Überraschung des letzten Sieges wartet auf dich: nie über einem Spiel oder Video im Vollbild, auch nicht bei minimiertem Spiel oder gesperrter Sitzung.",
+  3398: "Ein Tipp erinnert daran, dass ein Klick auf einen fernen Knoten des großen Graphen den kürzesten Weg nimmt.",
 };

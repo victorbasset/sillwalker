@@ -2268,4 +2268,7 @@ export default {
   3393: "Conquistas explicadas ao passar o mouse, as três mais próximas em ouro; o Bestiário diz onde achar o que falta; o Diário de bordo anuncia a próxima etapa.",
   3394: "O som dos golpes segue a velocidade de ataque; volumes mais suaves na primeira instalação; no Mac, o menu do Dock fica à frente da faixa.",
   3395: "Habilidades: clique num nó distante e o caminho mais curto é pego sozinho se você tiver pontos suficientes. Clique aqui.",
+  3396: "Habilidades: os nomes dos nós continuam legíveis, desenhados acima dos nós e um pouco maiores.",
+  3397: "A surpresa da vitória final espera a sua volta: nunca por cima de um jogo ou vídeo em tela cheia, nem com o jogo minimizado ou a sessão bloqueada.",
+  3398: "Uma dica lembra que um clique num nó distante do grande grafo pega o caminho mais curto.",
 };

@@ -2268,4 +2268,7 @@ export default {
   3393: "Logros explicados al pasar el ratón, los tres más cercanos en oro; el Bestiario dice dónde encontrar lo que falta; el Cuaderno de ruta anuncia su próxima etapa.",
   3394: "El sonido de los golpes sigue la velocidad de ataque; volúmenes más suaves en la primera instalación; en Mac, el menú del Dock pasa delante de la banda.",
   3395: "Habilidades: haz clic en un nodo lejano y el camino más corto se toma solo si tienes puntos suficientes. Haz clic aquí.",
+  3396: "Habilidades: los nombres de los nodos siguen legibles, dibujados encima de los nodos y un poco más grandes.",
+  3397: "La sorpresa de la victoria final espera tu regreso: nunca encima de un juego o un vídeo a pantalla completa, ni con el juego minimizado o la sesión bloqueada.",
+  3398: "Un consejo recuerda que un clic en un nodo lejano del gran grafo toma el camino más corto.",
 };

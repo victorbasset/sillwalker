@@ -2268,4 +2268,7 @@ export default {
   3393: "Achievements explained on hover, the three closest in gold; the Bestiary says where to find what is missing; the Logbook shows its next milestone.",
   3394: "Hit sounds follow the attack speed; softer volumes on first install; on Mac, the Dock menu shows in front of the strip.",
   3395: "Skills: click a faraway node and the shortest path is taken by itself if you have enough points. Click here.",
+  3396: "Skills: node names stay readable, drawn above the nodes and slightly larger.",
+  3397: "The final victory's surprise waits for you: never over a full-screen game or video, nor while the game is minimized or the session locked.",
+  3398: "A tip reminds you that clicking a faraway node of the great graph takes the shortest path.",
 };

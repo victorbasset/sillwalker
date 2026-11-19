@@ -3397,5 +3397,8 @@ export const KEYS = [
   "Familiers : « Emmener » rappelle un familier parti en expédition et l’équipe d’un clic.",
   "Succès expliqués au survol, les trois plus proches en or ; le Bestiaire dit où trouver ce qui manque ; le Carnet de route annonce sa prochaine étape.",
   "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande.",
-  "Compétences : clique sur un nœud lointain, le chemin le plus court se prend tout seul si tu as assez de points. Clique ici."
+  "Compétences : clique sur un nœud lointain, le chemin le plus court se prend tout seul si tu as assez de points. Clique ici.",
+  "Compétences : les noms des nœuds restent lisibles, posés au-dessus des nœuds et un peu plus grands.",
+  "La surprise de la victoire finale attend ton retour : jamais par-dessus un jeu ou une vidéo en plein écran, ni quand le jeu est réduit ou la session verrouillée.",
+  "Une astuce rappelle qu’un clic sur un nœud lointain du grand graphe prend le chemin le plus court."
 ];

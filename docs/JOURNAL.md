@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2417) : « Quoi de neuf » édition 153 (retouches de la nuit) : noms des Compétences lisibles, la surprise finale
+  attend ton retour (plein écran, jeu réduit, session verrouillée), astuce du chemin le plus court ; clés 3396-3398 dans les 10
+  langues (« surprise » gardé, comme les notes de la 0.1.7). lang-overflow ru, de à 1280 et 1920 : aucun défilement. 310/310.
 - 2026-11-19 (it. 2416, doc) : POUR-VICTOR : la libération attend aussi le déverrouillage de la session (it. 2415).
 - 2026-11-19 (it. 2415, bon voisin) : libération : une seule règle, finaleGate (main.js) : jouée seulement si strip.renderVisible()
   (ni plein écran, ni icône, ni session verrouillée : StripWindow.onLocked ajouté) ; sinon attente puis jouée 1,5 s après le retour.
