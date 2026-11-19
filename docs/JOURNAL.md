@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2531, REVUE GÉNÉRALE) : 12 h : berserker 66, prêtresse 64, lancier 66 (habituels) ; --perf : 19,7 / 19,1 %,
+  mini 5,4 %, icône 0,6 % ; Aventure en chinois (1920) et mode mini en anglais : propres. Rien à corriger.
 - 2026-11-19 (it. 2530, contrôle) : Compétences en français (dev-data, 686 points libres, 0 / 144 nœuds) : propre ; noms des
   nœuds lisibles, « Dépenser automatiquement » mis en avant.
 - 2026-11-19 (it. 2529, test + doc) : test de lockLink (lien vers la boutique sans or, achat direct goal-buy avec l'or, classe
