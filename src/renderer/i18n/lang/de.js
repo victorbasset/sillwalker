@@ -2279,4 +2279,5 @@ export default {
   3404: "Tastatur: Die Marken auf der Heldenkarte (Segen, Sets, Relikte) lassen sich mit Tab erreichen und zeigen ihre Blase.",
   3405: "Helles Design: Das Orange legendärer Gegenstände ist besser lesbar.",
   3406: "Ist dein System auf „Animationen reduzieren“ eingestellt, startet die letzte Überraschung nicht mehr von selbst; das ▶ ihrer Chronik spielt sie erneut ab.",
+  3407: "Tasche voll: Der nutzlose Gegenstand {0} wird verkauft, um Platz zu schaffen.",
 };

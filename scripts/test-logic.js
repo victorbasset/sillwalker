@@ -1863,6 +1863,26 @@ test("à faire : Atelier délaissé (moins de 1 % de l'or) → rappel ; investi 
   assert.ok(!g.todoNow().some((t) => t.id === "workshop"), "après investissement : plus proposé");
 });
 
+test("coffre de la boutique, sac plein : l'objet inutile le moins cher cède sa place, jamais un précieux (it. 2515)", () => {
+  const g = new Game(freshState()); g.S.gold = 1e12; g.S.best = 30;
+  // un objet ordinaire, faible, niveau 1 : inutile (le héros porte mieux)
+  const plain = () => { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.plus = 0; it.il = 1; return it; };
+  for (const sl of Object.keys(g.S.equip)) if (!g.S.equip[sl]) { const it = g.newItem(0, 30); it.r = 3; it.set = null; it.plus = 0; it.slot = sl; g.S.equip[sl] = it; }
+  g.invalidateStats?.();
+  while (!g.bagFull()) g.S.bag.push(plain());
+  const room = g.chestRoom(); assert.ok(room, "un objet à vendre");
+  const n = g.S.bag.length, it = g.buyChest("chest_iron");
+  assert.ok(it, "acheté malgré le sac plein"); assert.equal(g.S.bag.length, n, "même nombre d'objets");
+  assert.ok(!g.S.bag.some((b) => b.id === room.id), "l'objet inutile est parti"); assert.ok(g.S.bag.some((b) => b.id === it.id), "le butin est dans le sac");
+  // sac plein de pièces précieuses (légendaires) : pas de place à faire, achat refusé
+  g.S.bag = []; while (!g.bagFull()) { const p = plain(); p.r = LEGENDARY; g.S.bag.push(p); }
+  assert.equal(g.chestRoom(), null); const gold = g.S.gold;
+  assert.equal(g.buyChest("chest_iron"), null); assert.equal(g.S.gold, gold, "rien payé");
+  // pas assez d'or : rien de vendu
+  g.S.bag = []; while (!g.bagFull()) g.S.bag.push(plain()); g.S.gold = 0; const ids = g.S.bag.map((b) => b.id).join();
+  assert.equal(g.buyChest("chest_iron"), null); assert.equal(g.S.bag.map((b) => b.id).join(), ids, "sac inchangé");
+});
+
 test("à faire : sac plein et agrandissement abordable → « Agrandir le sac » (it. 2269)", () => {
   const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
   while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));

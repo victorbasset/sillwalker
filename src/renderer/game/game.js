@@ -2207,9 +2207,18 @@ export class Game {
     return n;
   }
 
+  /** (it. 2515) sac plein : l'objet inutile le moins cher, vendu pour faire place au butin d'un coffre acheté (comme le coffre
+      d'une quête) ; jamais un objet précieux (légendaire, de panoplie, forgé). null : sac pas plein, ou rien à vendre. */
+  chestRoom() {
+    if (!this.bagFull()) return null;
+    return this.uselessItems().filter((it) => it.r < LEGENDARY && !it.set && !(it.plus > 0)).sort((a, b) => sellValue(a) - sellValue(b))[0] || null;
+  }
+
   buyChest(id) {
-    const c = CHESTS.find((x) => x.id === id), S = this.S;
-    if (!c || this.bagFull() || !this.pay(chestPrice(c, S))) return null;
+    const c = CHESTS.find((x) => x.id === id), S = this.S, full = this.bagFull(), room = full ? this.chestRoom() : null;
+    if (!c || (full && !room) || S.gold < chestPrice(c, S)) return null;
+    if (room) this.sell(room); // (it. 2515) sac plein : la place d'abord (le bouton n'est plus une impasse)
+    if (!this.pay(chestPrice(c, S))) return null;
     const it = this.newItem(c.minRarity, S.best);
     S.bag.push(it);
     this.log(`${c.name} ${tx("ouvert : {0} ({1}) !", { 0: itemName(it), 1: RARITIES[it.r].name.toLowerCase() })}`);

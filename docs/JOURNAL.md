@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2515, moins de clics) : coffres de la Boutique, sac plein : l'achat vend d'abord l'objet inutile le moins cher
+  (game.chestRoom, comme le coffre d'une quête ; jamais un légendaire, une pièce de panoplie ou un objet forgé) ; bulle « Sac plein :
+  X (inutile) sera vendu pour faire de la place. » (clé 3407, 9 langues, « objet » explicite en ru, pl, de, pt, es pour l'accord).
+  Le bouton « Sac plein » (ouvre le sac) ne reste que s'il n'y a rien à vendre. Avant : 4 coffres grisés avec 24 objets inutiles
+  dans le sac (dev-data). Test (ordinaires / légendaires / or insuffisant) ; contrôle de l'autotest « Sac plein » rempli de
+  légendaires ; autotest 320/320, save-fuzz ok.
 - 2026-11-19 (it. 2514, plaisir de revenir) : « À faire maintenant » : sac plein → « Agrandir le sac » puis « Sac plein : N objets à
   vendre » en TÊTE de liste (game.todoNow). Résumé d'absence de dev-data (3 h) : « Meilleur butin : Légendaire · pas gardé », 14 objets
   laissés au sol, et le remède venait en 8e et dernière ligne. La perte au sol reste voulue (Victor : « tant pis ») ; seul l'ordre

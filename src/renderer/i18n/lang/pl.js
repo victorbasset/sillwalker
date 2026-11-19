@@ -2279,4 +2279,5 @@ export default {
   3404: "Klawiatura: plakietki na karcie bohatera (błogosławieństwo, zestawy, relikwie) obsłużysz klawiszem Tab, a pokazują swój dymek.",
   3405: "Jasny motyw: pomarańcz przedmiotów legendarnych jest czytelniejszy.",
   3406: "Jeśli system ma ustawione „ograniczanie animacji”, finałowa niespodzianka nie zaczyna się już sama; ▶ jej kroniki odtwarza ją ponownie.",
+  3407: "Torba pełna: zbędny przedmiot {0} zostanie sprzedany, by zrobić miejsce.",
 };

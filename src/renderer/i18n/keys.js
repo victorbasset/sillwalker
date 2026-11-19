@@ -3408,5 +3408,6 @@ export const KEYS = [
   "Boutons grisés : une bulle dit toujours pourquoi (rien de mieux dans le sac, pièce précieuse qui bloque un achat, son coupé…).",
   "Clavier : les puces de la carte du héros (bénédiction, panoplies, reliques) se parcourent avec Tab et montrent leur bulle.",
   "Thème clair : l’orange des objets légendaires est plus lisible.",
-  "Si ton système est réglé sur « réduire les animations », la surprise finale ne se lance plus d’elle-même ; le ▶ de sa chronique la rejoue."
+  "Si ton système est réglé sur « réduire les animations », la surprise finale ne se lance plus d’elle-même ; le ▶ de sa chronique la rejoue.",
+  "Sac plein : {0} (inutile) sera vendu pour faire de la place."
 ];

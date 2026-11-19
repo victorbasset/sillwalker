@@ -2279,4 +2279,5 @@ export default {
   3404: "Keyboard: the chips on the hero card (blessing, sets, relics) can be reached with Tab and show their tooltip.",
   3405: "Light theme: the orange of legendary items is easier to read.",
   3406: "If your system is set to “reduce animations”, the final surprise no longer starts by itself; the ▶ of its chronicle replays it.",
+  3407: "Bag full: {0} (useless) will be sold to make room.",
 };

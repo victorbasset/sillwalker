@@ -85,10 +85,12 @@ export class ShopTab {
     }).join("");
 
     // --- Coffres et œuf ---
+    // (it. 2515) sac plein : un coffre s'achète quand même si un objet inutile ordinaire peut céder sa place
+    const room = g.chestRoom();
     const chests = CHESTS.map((c) => `<div class="ctile chesttile" title="${esc(c.name + " · " + tx("niveau {0}", { 0: S.best }))}">
         <img src="${shopIconURL(c.id, 6)}" alt="">
         <div class="eff rc${c.minRarity}">${esc(RARITIES[c.minRarity].name)} ${tx("ou mieux")}</div>
-        ${buy("s-chest", c.id, chestPrice(c, S), full ? tx("Sac plein") : "", "", true)}
+        ${buy("s-chest", c.id, chestPrice(c, S), full && !room ? tx("Sac plein") : "", "", true, room ? tx("Sac plein : {0} (inutile) sera vendu pour faire de la place.", { 0: itemName(room) }) : "")}
       </div>`).join("") + (!eggsAllowed(S) ? "" : `<div class="ctile chesttile" title="${esc(tx("Œuf de familier") + " · " + tx("1 par étal"))}">
         <img src="${shopIconURL("egg", 6)}" alt="">
         <div class="eff">${tx("Un familier au hasard")}</div>

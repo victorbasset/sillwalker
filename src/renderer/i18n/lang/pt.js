@@ -2279,4 +2279,5 @@ export default {
   3404: "Teclado: os selos do cartão do herói (bênção, conjuntos, relíquias) são percorridos com Tab e mostram sua dica.",
   3405: "Tema claro: o laranja dos itens lendários está mais legível.",
   3406: "Se o seu sistema estiver configurado para “reduzir animações”, a surpresa final não começa mais sozinha; o ▶ da sua crônica a repete.",
+  3407: "Bolsa cheia: o item inútil {0} será vendido para abrir espaço.",
 };

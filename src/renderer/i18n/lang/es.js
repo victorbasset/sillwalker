@@ -2279,4 +2279,5 @@ export default {
   3404: "Teclado: las insignias de la ficha del héroe (bendición, conjuntos, reliquias) se recorren con Tab y muestran su burbuja.",
   3405: "Tema claro: el naranja de los objetos legendarios se lee mejor.",
   3406: "Si tu sistema está configurado para «reducir las animaciones», la sorpresa final ya no empieza sola; el ▶ de su crónica la repite.",
+  3407: "Bolsa llena: el objeto inútil {0} se venderá para hacer sitio.",
 };
