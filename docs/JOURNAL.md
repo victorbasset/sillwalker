@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2644, contrôle) : Boutique (Marchand, sac plein : objets « Bag full », coffres achetables) et Carte (« Buy: Traveler's Map »)
+  en anglais à 1280 px : propres.
 - 2026-11-19 (it. 2643, contrôle) : Statistiques et Ascension (onglet « ascension ») en anglais à 1280 px : propres (« Wealth and loot »
   sur deux lignes, sans défilement ; « 0 earned in total » : éclats de dev-data donnés à la main).
 - 2026-11-19 (it. 2642, contrôle) : bulle de l'ampoule du mode mini (todoLabel, texte sans clic : pas de ✦ / → à y mettre) ;
