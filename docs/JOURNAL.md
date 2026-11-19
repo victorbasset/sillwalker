@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2570, doc) : POUR-VICTOR : total des objets laissés au sol, éditions 154-157 ; section renommée « Journée du 19/11 ».
 - 2026-11-19 (it. 2569, contenu) : « Quoi de neuf » édition 157 (« max » du sac, « prêt à acheter ! » du mode mini, objets laissés au
   sol notés au journal et comptés aux statistiques ; it. 2542-2567) ; clés 3414-3416 dans les 9 langues. Autotest 322/322,
   lang-overflow all 1280 : aucun défilement.
