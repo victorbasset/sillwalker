@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2468, contrôle) : --crawl d'une partie neuve en japonais : aucune erreur.
 - 2026-11-19 (it. 2467, performance) : panneau ouvert par onglet (perf.mjs --tab) : Carte 20,5 %, Bestiaire 18,7 %, Compétences 19,7 %,
   Aventure 19,1 % : écarts d'un point au plus, aucun onglet coûteux.
 - 2026-11-19 (it. 2466, doc) : CLAUDE.md : mesurer --perf sur un onglet précis (perf.mjs --tab=…).
