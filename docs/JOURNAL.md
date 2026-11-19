@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2580, contrôle) : sonde des ⓘ cachés (info-probe, 1280 px) après les changements de la Boutique, de l'Atelier et
+  des liens de déblocage : IPROBE 0 en français et en allemand.
 - 2026-11-19 (it. 2579, contrôle) : « À faire » de la carte du héros (dev-data) : même ordre et mêmes actions que le résumé d'absence
   (sac en tête, ✦ actions directes, goal-buy, sort d'un clic ; maîtrises et constellations en liens).
 - 2026-11-19 (it. 2578, contrôle) : construction Windows (dir + zip itch) du code du jour dans un dossier temporaire : réussie, zip de
