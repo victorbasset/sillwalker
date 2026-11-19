@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2416, doc) : POUR-VICTOR : la libération attend aussi le déverrouillage de la session (it. 2415).
 - 2026-11-19 (it. 2415, bon voisin) : libération : une seule règle, finaleGate (main.js) : jouée seulement si strip.renderVisible()
   (ni plein écran, ni icône, ni session verrouillée : StripWindow.onLocked ajouté) ; sinon attente puis jouée 1,5 s après le retour.
   Contrôle de la session verrouillée. 310/310.
