@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2508, contrôle) : après l'édition 154, lang-overflow all 1280 (« Quoi de neuf » au pire cas compris) : 20 mesures,
+  aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2507, contenu) : « Quoi de neuf » édition 154 (confort et accessibilité : bulles des boutons grisés, puces au
   clavier, orange du thème clair, « réduire les animations ») ; clés 3403-3406 traduites dans les 9 langues ; « ton système » plutôt
   que « Windows » (version Mac). Autotest 320/320.
