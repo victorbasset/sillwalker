@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2628, contrôle) : fuzz 60 graines après les changements du sac plein, du coffre et du Valet d'armes : 1200 parties,
+  0 bloquées.
 - 2026-11-19 (it. 2627, contrôle) : Bestiaire (monstres) en polonais, 1920 px : 83 / 84, noms longs sur deux lignes (« Niedźwiedź
   brunatny », « Obsydianowy skorpion ») sans débordement, compteurs et bonus propres.
 - 2026-11-19 (it. 2626, contrôle) : Bestiaire > Collection d'objets en français (44 / 44 types, tous en légendaire ; bonus
