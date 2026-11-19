@@ -25,6 +25,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   total dans Statistiques > Chiffres (« Laissés au sol (sac plein) »).
 - **À toi de dire** : le Creuset et la vente automatique des inutiles consomment les objets FORGÉS devenus inutiles (le Marchand vend
   des objets déjà forgés : les garder boucherait le sac). Pas changé.
+- **À toi de dire (it. 2744)** : un débutant (10 min de jeu, sac plein) absent 8 h a vaincu 40 fois Poupouce : ses 40 légendaires sont
+  TOUS restés au sol (« Légendaire · pas gardé »). Proposition : un légendaire prend la place de l'objet inutile ordinaire le moins cher
+  (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 
 **Moins de clics, lisibilité** :
 - Liens « 🔒 déblocage · prix » (Carte, Familiers, Compétences, forge) : quand tu as l'or, « Acheter : X (N or) » l'achète sur place.
