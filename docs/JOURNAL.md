@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2445, contrôle) : fin de partie à 1920 px avec l'interface à 130 % (fr, de, ru) : aucun défilement.
 - 2026-11-19 (it. 2444, contrôle) : lang-overflow 10 langues à 1600 px (dev et fin de partie) : aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2443, contrôle) : rangée des puces du héros à 1366 px : fondu de bord droit visible (.hscroll.more-r) : la suite
   est signalée ; conforme.
