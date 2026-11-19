@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2574, contrôle) : construction Linux (AppImage, électron-builder) du code du jour dans un dossier temporaire
+  (pas dans dist-itch : il aurait écrasé l'AppImage publiée de la 0.1.7, même numéro de version) : réussie, 140 Mo ; lancée 25 s avec
+  un HOME temporaire : démarre et crée sa sauvegarde, aucune erreur avant l'arrêt forcé. Dossiers supprimés ensuite.
 - 2026-11-19 (it. 2573, contrôle) : Idées : les trois P3 attendent Victor ou sont mesurés. Partie neuve en français à 90 s : zone 2,
   niveau 2, onglet Talents annoncé, scène d'Oorvin (point de talent) avec « clic : passer » : cohérent.
 - 2026-11-19 (it. 2572, contrôle) : sous-section des Statistiques invalide (page mêlée vue à l'it. 2571) : impossible pour un joueur
