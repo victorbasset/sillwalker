@@ -852,6 +852,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .wsline .nm { font-size: 14px; }
 .wsline .sub { font-size: 12px; color: var(--muted); }
 .wsmax { font-size: 12px; padding: 2px 6px; }
+/* (it. 2653) la marge haute de .buy (cartes du Marchand) décalait le prix de 4 px sous le bouton « max » de la même ligne */
+.wsline .buy { margin-top: 0; }
 /* Ouverture de coffre */
 .reveal { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px 0 10px; text-align: center; }
 .reveal .rchest { width: 112px; image-rendering: pixelated; animation: rshake .5s steps(6) 1; }

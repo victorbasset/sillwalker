@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2653) Boutique > Atelier : sur chaque ligne, le bouton du prix tombait ≈ 4 px plus bas que le bouton « max » voisin
+  (button.buy { margin-top: auto } des cartes du Marchand : 8,5 px de marge dans une ligne centrée). `.wsline .buy { margin-top: 0 }` :
+  haut des boutons 186,4 / 186,7 px (avant 190,6 / 186,7), hauteur de ligne inchangée. Vu en allemand à 1280 px. npm test 376, autotest 325/325.
 - 2026-11-19 (it. 2652, contrôle) : Boutique > Déblocages en allemand à 1280 px (14 / 26, rangée défilante, « Karte des Reisenden » à
   90 k mise en avant) : propre.
 - 2026-11-19 (it. 2651, REVUE GÉNÉRALE) : 12 h : paladin 65, berserker 65, chaman 69 ; --perf (charge 4) : 19,8 / 19,0 %, mini 5,6 %,
