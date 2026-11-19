@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2695, contrôle) : mem-watch 10 min, mode mini : 508 / 501 / 512 / 502 / 504 / 517 Mo, plat (repère it. 2293 : 505-518).
 - 2026-11-19 (it. 2694, contrôle) : partie neuve en allemand à 1280 px : propre ; barre de vie du monstre affichée dans la rangée de la bande
   (it. 2633) dès la zone 1 ; « Handschuhe: le… » coupé avec bulle (règle d'accessibilité).
 - 2026-11-19 (it. 2693, contrôle) : partie neuve en japonais après 8 s, 1920 px : onglets fermés grisés, objectif « エリア 2 (1 / 2) »
