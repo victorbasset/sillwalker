@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2526, contrôle) : Statistiques > Chiffres en français (dev-data) : propre ; le ⚠ du gobelin doré est la bulle
+  « ils s'enfuient » (héros trop lent pour les attraper), voulue.
 - 2026-11-19 (it. 2525, contrôle) : après les changements du butin (it. 2514-2524) : save-fuzz FUZZ_BASE=fin ok (1 225 corruptions),
   stall-check 60 parties 0 figées, fuzz 1 200 parties 0 bloquées.
 - 2026-11-19 (it. 2524, correction) : bulle du meilleur objet perdu (it. 2523) seulement si sa rareté est celle affichée
