@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2536, contrôle) : mem-watch 10 min (bande) : 559 → 570 → 577 → 580 → 581 → 583 Mo, montée qui s'aplatit (mise en
+  route), pas de fuite visible ; 10 Mo au-dessus du repère 565-575 (bruit connu d'une exécution à l'autre). Voir Idées.
 - 2026-11-19 (it. 2535, contrôle) : bande en français (dev-data, 1920) : rangée d'informations, barres de vie, nom du boss et
   astuce du sac plein (« l'Atelier l'agrandit de 6 places. Clique ici. ») propres ; rien à corriger.
 - 2026-11-19 (it. 2534, contrôle) : TALENTS-UX.md : aucun point ouvert ; Bestiaire en français (dev-data, 83 / 84) : propre. Tous
@@ -8357,6 +8359,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2536) mem-watch 10 min : 583 Mo en fin de mesure (repère 565-575), courbe qui s'aplatit. Au prochain contrôle mémoire :
+  comparer au commit 64c16330 (avant les changements du 19/11 au matin) en git worktree, deux exécutions chacun (mesure bimodale).
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
   ESSAI it. 2215, annulé : sorts déplacés dans l'en-tête (à droite du nom) : les boutons restaient sur deux lignes (« Jouer à /
