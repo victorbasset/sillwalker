@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2463, performance) : panneau ouvert sur Compétences (graphe plein de la copie de dev) 19,7 % contre Aventure 19,1 %
+  (perf.mjs --tab=…) : +0,5 point, dans le bruit ; rien à optimiser.
 - 2026-11-19 (it. 2462, contrôle) : « Language / Langue » (Réglages, settings.js:48) écrit en dur exprès : retrouvable quelle que soit
   la langue choisie. Conforme.
 - 2026-11-19 (it. 2461, REVUE GÉNÉRALE) : 12 h : druide 64, prêtresse 64, gardien 65 ; --perf : 20,1 / 19,1 %, mini 5,4 %, icône 0,6 % ;
