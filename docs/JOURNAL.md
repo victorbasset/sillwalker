@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2687) Japonais, état maximal, 1280 px : titre « 戦 / 士 » (Talents) coupé entre deux caractères à côté d'un long
+  sous-titre (défaut caché jusqu'à l'it. 2685 ; « 昇天 » aussi signalé). `.panel > h2 { word-break: keep-all }` (pas de coupure au milieu
+  d'un mot chinois, japonais ou coréen ; le sous-titre <small> garde la coupure ordinaire) : capture « 戦士 » sur une ligne ;
+  lang-overflow ja, zh, ko à 1280 et 1920 px (+ fin, × 130 %, max) : aucun. npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2686) Ascension en russe à 1280 px (moins de 3 ascensions : liste « gardé / perdu » dépliée, six lignes) : la colonne
   dépassait de 5 px (défaut caché jusqu'à l'it. 2685). Interligne de la liste 3 → 1 px sous un panneau de 1334 px : lang-overflow ru, de,
   pl, fr à 1280 et 1366 px (+ fin 1280) : aucun. npm test 376, autotest 326/326.
@@ -8690,8 +8694,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P1 (it. 2685) Défauts révélés par la mesure corrigée : (FAIT it. 2686 : ru 1280 Ascension) ; ja max 1280
-  titres « 戦士 » (Talents) et « 昇天 » (Ascension) coupés entre deux caractères. Relancer aussi lang-overflow à 1920, 1600, 1366
+- P1 (it. 2685) Défauts révélés par la mesure corrigée : FAITS (it. 2686 : ru 1280 Ascension ; it. 2687 : titres japonais). Relancer aussi lang-overflow à 1920, 1600, 1366
   et sur la fin de partie (autres défauts possibles, cachés depuis longtemps).
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.

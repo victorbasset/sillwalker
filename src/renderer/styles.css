@@ -219,6 +219,10 @@ button.close { padding: 2px 9px; font-weight: 700; }
 .panel { background: var(--panel); border: 2px solid var(--line); border-radius: 4px; box-shadow: 0 4px 0 var(--line); padding: 10px 12px 12px; min-width: 0; }
 .panel h2 { font-size: 19px; margin: 0 0 8px; font-weight: 600; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .panel h2 small { font-size: 14px; color: var(--muted); font-weight: 400; }
+/* (it. 2687) japonais, état maximal, 1280 px : « 戦 / 士 » (Talents) coupé entre deux caractères à côté d'un long sous-titre ;
+   le titre ne se coupe plus au milieu d'un mot (chinois, japonais, coréen), le sous-titre garde la coupure ordinaire */
+.panel > h2 { word-break: keep-all; }
+.panel > h2 small { word-break: normal; }
 .panel h3 { font-size: 16px; margin: 12px 0 2px; font-weight: 600; }
 .kv { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; color: var(--muted); }
 /* (it. 1269) carte du héros : « Experiencia 4,49 mil M / 1,54e105 » passait sur deux lignes à 1280 px (espagnol) et
