@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2516, contrôle) : Familiers, Héros, Ascension en français (dev-data) : propres. 2 765 éclats non placés : la Carte
+  du ciel (déblocage) les place seule, clics manuels avant l'achat (règle des commodités) ; rien à changer.
 - 2026-11-19 (it. 2515, moins de clics) : coffres de la Boutique, sac plein : l'achat vend d'abord l'objet inutile le moins cher
   (game.chestRoom, comme le coffre d'une quête ; jamais un légendaire, une pièce de panoplie ou un objet forgé) ; bulle « Sac plein :
   X (inutile) sera vendu pour faire de la place. » (clé 3407, 9 langues, « objet » explicite en ru, pl, de, pt, es pour l'accord).
