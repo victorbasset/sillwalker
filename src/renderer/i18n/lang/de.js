@@ -2290,4 +2290,7 @@ export default {
   3415: "Mini-Modus: Die Blase sagt „bereit zum Kauf!“, wenn das Gold für die nächste Freischaltung reicht.",
   3416: "Gegenstände, die mangels Platz liegen bleiben: Das Protokoll vermerkt sie nach einer Abwesenheit, die Statistik zählt sie mit.",
   3417: "← Neuere",
+  3418: "Neuigkeiten: Ältere Neuigkeiten lassen sich Seite für Seite lesen, bis zur allerersten.",
+  3419: "Einstellungen: Die Notizen jeder Version lassen sich erneut lesen, von der neuesten bis zu den ältesten (← / →).",
+  3420: "Waffenknecht: Verkauft er einen Gegenstand, um ein wertvolles Teil zu behalten, steht es im Protokoll.",
 };

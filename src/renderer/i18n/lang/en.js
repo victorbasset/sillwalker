@@ -2290,4 +2290,7 @@ export default {
   3415: "Mini mode: the tooltip says “ready to buy!” when you have enough gold for the next unlock.",
   3416: "Items left on the ground for lack of space: the log notes it after an absence, and the stats keep the total.",
   3417: "← Newer",
+  3418: "What’s new: older news can be read page by page, all the way to the very first.",
+  3419: "Settings: each version’s notes can be read again, from the latest to the oldest (← / →).",
+  3420: "Arms Valet: when it sells an item to keep a precious piece, the log says so.",
 };

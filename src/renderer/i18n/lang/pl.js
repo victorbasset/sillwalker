@@ -2290,4 +2290,7 @@ export default {
   3415: "Tryb mini: dymek mówi „gotowe do kupienia!”, gdy złota wystarcza na następne odblokowanie.",
   3416: "Przedmioty zostawione na ziemi z braku miejsca: dziennik zapisuje to po nieobecności, a statystyki liczą łącznie.",
   3417: "← Nowsze",
+  3418: "Co nowego: starsze nowości czyta się strona po stronie, aż do pierwszej.",
+  3419: "Ustawienia: notatki każdej wersji można przeczytać ponownie, od najnowszej do najstarszych (← / →).",
+  3420: "Giermek: gdy sprzedaje przedmiot, by zachować cenny, dziennik to odnotowuje.",
 };

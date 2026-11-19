@@ -2290,4 +2290,7 @@ export default {
   3415: "Modo mini: la burbuja dice «¡listo para comprar!» cuando el oro alcanza para el próximo desbloqueo.",
   3416: "Objetos que quedan en el suelo por falta de espacio: el registro lo anota tras una ausencia y las estadísticas guardan el total.",
   3417: "← Más recientes",
+  3418: "Novedades: las novedades más antiguas se leen página a página, hasta la primera.",
+  3419: "Ajustes: las notas de cada versión se pueden releer, de la más reciente a las más antiguas (← / →).",
+  3420: "Ayuda de armas: cuando vende un objeto para conservar una pieza valiosa, el diario lo indica.",
 };

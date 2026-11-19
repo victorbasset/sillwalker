@@ -2290,4 +2290,7 @@ export default {
   3415: "Modo mini: a dica avisa “pronto para comprar!” quando o ouro basta para o próximo desbloqueio.",
   3416: "Itens deixados no chão por falta de espaço: o registro anota após uma ausência e as estatísticas guardam o total.",
   3417: "← Mais recentes",
+  3418: "Novidades: as novidades mais antigas são lidas página por página, até a primeira.",
+  3419: "Configurações: as notas de cada versão podem ser relidas, da mais recente às mais antigas (← / →).",
+  3420: "Escudeiro de armas: quando vende um item para manter uma peça preciosa, o diário informa.",
 };

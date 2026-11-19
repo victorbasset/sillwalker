@@ -3419,5 +3419,8 @@ export const KEYS = [
   "Atelier : « max » agrandit aussi le sac de tous ses niveaux d’un clic.",
   "Mode mini : la bulle annonce « prêt à acheter ! » quand l’or suffit pour le prochain déblocage.",
   "Objets laissés au sol faute de place : le journal le note après une absence, et les statistiques en gardent le total.",
-  "← Plus récentes"
+  "← Plus récentes",
+  "Quoi de neuf : les nouveautés plus anciennes se lisent page par page, jusqu’à la toute première.",
+  "Réglages : les notes de chaque version se relisent, de la plus récente aux plus anciennes (← / →).",
+  "Valet d’armes : quand il vend un objet pour garder une pièce précieuse, le journal le dit."
 ];
