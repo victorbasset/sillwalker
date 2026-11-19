@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2627, contrôle) : Bestiaire (monstres) en polonais, 1920 px : 83 / 84, noms longs sur deux lignes (« Niedźwiedź
+  brunatny », « Obsydianowy skorpion ») sans débordement, compteurs et bonus propres.
 - 2026-11-19 (it. 2626, contrôle) : Bestiaire > Collection d'objets en français (44 / 44 types, tous en légendaire ; bonus
   actuel en vert) : propre. Les huit sous-sections du Bestiaire sont revues.
 - 2026-11-19 (it. 2625, contrôle) : Bestiaire > Capacités des boss, Élites (1 / 11), Bénédictions du jour (6 / 17, « aujourd'hui » /
