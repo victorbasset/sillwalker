@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2625, contrôle) : Bestiaire > Capacités des boss, Élites (1 / 11), Bénédictions du jour (6 / 17, « aujourd'hui » /
+  « demain ») en français : propres. Toutes les sous-sections du Bestiaire revues aujourd'hui.
 - 2026-11-19 (it. 2624, contrôle) : Bestiaire > Panoplies (0 / 10, pièces portées et dans le sac) et Événements rares (1 / 18, « ??? »
   avec probabilité) en français : propres.
 - 2026-11-19 (it. 2623, contrôle) : Bestiaire > Pouvoirs légendaires en français (29 / 30) : propre ; « ??? » à sa place dans l'ordre
