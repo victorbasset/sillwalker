@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2658) docs/POUR-VICTOR.md : alignement de l'Atelier et contrôle des boutons voisins ajoutés au résumé de la fin d'après-midi.
 - 2026-11-19 (it. 2657, contrôle) : thème clair à 1280 px, Atelier (prix et « max » alignés, it. 2653) et Aventure (pastille de bénédiction
   sans point, it. 2631) : propres, contrastes lisibles.
 - 2026-11-19 (it. 2656, contrôle) : sonde d'alignement des boutons voisins (celle de l'it. 2655) sur la partie de fin de partie et dev-data,
