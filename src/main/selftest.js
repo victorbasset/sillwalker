@@ -1483,7 +1483,14 @@ async function runSelfTest(strip) {
     }
     await js("(() => { const S = window.__game.S; S.bag.push(...window.__keepBag); window.__panel.renderAll(); return 1; })()");
     check("bouton grisé : sa bulle s'affiche au survol (« Équiper le meilleur »)", !has || /\S/.test(tipTxt) && tipTxt !== "cachée", tipTxt);
-  }
+  }  // (it. 2425-2426) aucun bouton grisé sans explication (bulle sur lui ou sur un parent), dans tous les onglets ; « Maximum » parle seul
+  const disNo = await js(`(async () => { const P = window.__panel, keep = P.tab, { t: tr } = await import("./i18n/index.js"), out = [];
+    for (const t of Object.keys(P.tabs)) { P.setTab(t); P.renderAll(); await new Promise((r) => setTimeout(r, 120));
+      for (const b of document.querySelectorAll('[data-pane="' + t + '"]:not([hidden]) button[disabled]')) {
+        if (b.closest("[title],[data-title]") || b.textContent.trim() === tr("Maximum")) continue; out.push(t + ":" + b.textContent.trim().slice(0, 30)); } }
+    P.setTab(keep); P.renderAll(); return out.length ? out.join(" | ") : "ok"; })()`);
+  check("boutons grisés : chacun dit pourquoi (bulle), dans tous les onglets", disNo === "ok", disNo);
+
   // (it. 2119) touche Z dans les Talents : annule le dernier clic sur un talent
   const talZ = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl; S.lvl += 8; g.invalidateStats(); P.setTab('talents'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const sum = () => Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0); const s0 = sum(); const t = document.querySelector('[data-pane=talents] .talent.can:not(.voie)'); if (!t) { S.lvl = keepL; return 'aucun talent ouvert'; } t.click(); await new Promise((r) => setTimeout(r, 150)); const s1 = sum(); const ok = P.onKey ? P.onKey({ key: 'z', target: document.body, preventDefault() {} }) : 'pas de onKey'; await new Promise((r) => setTimeout(r, 100)); const s2 = sum(); S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; g.lastLearn = null; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return [s1 > s0, s2 === s0].join(' '); })()");
   check("talents : la touche Z annule le dernier clic", talZ === "true true", talZ);

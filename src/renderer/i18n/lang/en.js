@@ -2274,4 +2274,5 @@ export default {
   3399: "Bag full: your current piece, {0}, is precious and won't be sold automatically. Click: open the bag to make room.",
   3400: "Nothing better in the bag: your gear is already the best.",
   3401: "Nothing to reset: no skill taken.",
+  3402: "Sound effects are off: tick “Sound effects” to listen.",
 };

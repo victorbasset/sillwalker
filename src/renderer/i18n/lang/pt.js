@@ -2274,4 +2274,5 @@ export default {
   3399: "Bolsa cheia: sua peça atual, {0}, é preciosa e não será vendida automaticamente. Clique: abrir a bolsa para abrir espaço.",
   3400: "Nada melhor na bolsa: seu equipamento já é o melhor.",
   3401: "Nada para reiniciar: nenhuma habilidade escolhida.",
+  3402: "Efeitos sonoros desligados: marque “Efeitos sonoros” para ouvir.",
 };

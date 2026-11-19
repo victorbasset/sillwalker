@@ -2274,4 +2274,5 @@ export default {
   3399: "Tasche voll: Dein aktuelles Teil, {0}, ist wertvoll und wird nicht automatisch verkauft. Klick: Tasche öffnen, um Platz zu schaffen.",
   3400: "Nichts Besseres in der Tasche: Deine Ausrüstung ist schon die beste.",
   3401: "Nichts zurückzusetzen: keine Fertigkeit gewählt.",
+  3402: "Soundeffekte aus: Hake „Soundeffekte“ an, um zuzuhören.",
 };

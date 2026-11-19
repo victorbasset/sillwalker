@@ -3403,5 +3403,6 @@ export const KEYS = [
   "Une astuce rappelle qu’un clic sur un nœud lointain du grand graphe prend le chemin le plus court.",
   "Sac plein : ta pièce actuelle, {0}, est précieuse et ne sera pas vendue d’office. Clic : ouvrir le sac pour faire de la place.",
   "Rien de mieux dans le sac : ton équipement est déjà le meilleur.",
-  "Rien à réinitialiser : aucune compétence prise."
+  "Rien à réinitialiser : aucune compétence prise.",
+  "Effets sonores coupés : coche « Effets sonores » pour écouter."
 ];

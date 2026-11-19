@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2426) : contrôle permanent de l'autotest : aucun bouton grisé sans bulle dans tous les onglets (« Maximum »
+  excepté). Il a trouvé Réglages > Son « Écouter » grisé quand les effets sonores sont coupés : bulle « Effets sonores coupés :
+  coche « Effets sonores » pour écouter. » (clé 3402, 10 langues, libellé cité tel que traduit). 312/312.
 - 2026-11-19 (it. 2425) : audit des boutons grisés sans bulle (tous les onglets, dev et fin de partie, sonde --stage) : seuls
   « Tout réinitialiser » des Compétences (rien de pris) et « Maximum » de l'Atelier (parlant). Le premier a sa bulle (« Rien à
   réinitialiser : aucune compétence prise. », clé 3401, 10 langues) ; nouvelle sonde : 0. 311/311.

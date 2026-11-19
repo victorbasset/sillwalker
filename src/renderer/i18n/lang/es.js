@@ -2274,4 +2274,5 @@ export default {
   3399: "Bolsa llena: tu pieza actual, {0}, es valiosa y no se venderá automáticamente. Clic: abrir la bolsa para hacer sitio.",
   3400: "Nada mejor en la bolsa: tu equipo ya es el mejor.",
   3401: "Nada que reiniciar: ninguna habilidad tomada.",
+  3402: "Efectos de sonido apagados: marca «Efectos de sonido» para escuchar.",
 };
