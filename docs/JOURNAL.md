@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2633) Bande, écran étroit : la barre de vie du monstre (rangée d'informations, réglage hudBars) était cachée à
+  1280 px, faute des 300 px réservés au nom du boss, même quand un nom court laissait la place. Elle se règle maintenant sur le bord
+  gauche RÉEL du nom (getBoundingClientRect, relu au plus deux fois par seconde ; 300 px seulement si le nom n'est pas mesurable).
+  Captures à 1280 px : anglais et allemand, barre affichée (≈ 55 px avant le nom) ; russe (nom long) : cachée comme avant.
+  --perf : bande 19,5 % (19,4-20,3 avant) ; npm test 376, autotest 324/324.
 - 2026-11-19 (it. 2632, contrôle) : Héros en japonais, 1920 px (onglet « class ») : propre ; boutons « 昇天後にプレイ » / « デュオに加える »
   sur deux lignes quand ils sont côte à côte : le cas connu des libellés (Idées, P3 it. 2213, à décider avec Victor).
 - 2026-11-19 (it. 2631, REVUE GÉNÉRALE) : 12 h : moine 65, prêtresse 64, artificier 64 ; --perf : 20,3 / 19,3 %, mini 5,3 %,

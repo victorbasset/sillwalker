@@ -1689,7 +1689,14 @@ export class StripRenderer {
       // aux bords : les deux à la suite de la pastille de la zone (avant la pastille or / niveau, le monstre passait sur le
       // nom du boss, qui s'étend vers la gauche depuis le boss)
       // (écran étroit : la barre du héros seule, s'il n'y a pas la place pour les deux)
-      else { hx = Math.round((this.hudLRight || 0) + gap); mx = hx + BW + gap; const lim = (this.hudRLeft || this.W) - 300; fits = hx + BW + 24 <= lim; monFits = mx + BW + 24 <= lim; }
+      // (it. 2633) la barre du monstre se règle sur le bord gauche RÉEL du nom du boss (relu au plus deux fois par seconde) :
+      // à 1280 px, les 300 px réservés la cachaient alors qu'un nom court laissait la place
+      else {
+        hx = Math.round((this.hudLRight || 0) + gap); mx = hx + BW + gap; const rl = this.hudRLeft || this.W, lim = rl - 300; fits = hx + BW + 24 <= lim;
+        const now = performance.now();
+        if (now - (this.bossLT || 0) > 500) { this.bossLT = now; const t = this.bossTag, r = t && t.isConnected ? t.getBoundingClientRect() : null; this.bossL = r && r.width > 0 ? r.left : null; }
+        monFits = fits && mx + BW + 24 <= (this.bossL == null ? lim : Math.min(rl, this.bossL));
+      }
     }
     // (it. 1536, demande de Victor) la barre du monstre reste affichée entre deux combats : le dernier monstre, vide
     const fight = R.mode === "fight" && R.mon;
