@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2711, REVUE GÉNÉRALE) : 12 h : guerrier 65, assassin 65, druide 65 ; --perf : 19,8 / 19,1 %, mini 5,6 %, icône 0,5 % ;
+  Aventure en espagnol à 1600 px (« Bosque de setas gigantes + » sur une ligne) propre ; texte chinois : aucun mot latin suspect.
+  Rien à corriger.
 - 2026-11-19 (it. 2710, contrôle) : --crawl en coréen sur la partie de fin de partie après les retouches de la soirée : 702 clics en 25 s, aucune erreur.
 - 2026-11-19 (it. 2709, contrôle) : Statistiques en fin de partie, anglais à 1280 px : propres, titres des cartes sur une ligne (it. 2675).
   Tour des onglets de la fin de partie terminé (it. 2704-2709).
