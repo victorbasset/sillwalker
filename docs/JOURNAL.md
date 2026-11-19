@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2456, contrôle) : --crawl en français sur la fin de partie après les bulles et puces focalisables : aucune erreur.
 - 2026-11-19 (it. 2455, autotest) : vraie touche Tab (sendInputEvent) sur les puces du héros : le focus passe à la puce suivante
   (contrôlé) ; :focus-visible reste faux dans la fenêtre fantôme sans focus système (contour et bulle non vérifiables ici). 316/316.
 - 2026-11-19 (it. 2454, doc) : CLAUDE.md : repère hero-table de l'it. 2452 (64,9, écart 4,0).
