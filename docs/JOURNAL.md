@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2453, équilibrage) : nécromancien (le plus bas du tableau, 62,7) sur 7 graines (7,3,11,21,31,41,51) : 62, 61, 64,
+  66, 62, 64, 64 → 63,3, soit −1,6 zone : dans le bruit, pas de retouche.
 - 2026-11-19 (it. 2452, équilibrage) : hero-table 20 héros, 12 h, graines 7/3/11 : moyenne 64,9, écart 4,0 (nécromancien 62,7 →
   chaman 66,7) : identique à l'it. 2332.
 - 2026-11-19 (it. 2451, REVUE GÉNÉRALE) : 12 h : berserker 66, samouraï 65, chaman 69 ; --perf : 19,7 / 19,3 %, mini 5,4 %, icône 0,7 % ;
