@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2435, accessibilité) : images sans alt (tous les onglets, fin de partie) : aucune dans le panneau ; deux icônes de
+  sort du mode mini (.minispell) : alt="" (décor). 312/312.
 - 2026-11-19 (it. 2434, contrôle) : lang-overflow 10 langues à 1920 et 1280 px (avec l'état maximal) après l'édition 153 et les bulles :
   aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2433, contrôle) : Familiers : « Compagnon actuel » grisé hérite de la bulle de sa carte (phrase d'ambiance) ; son
