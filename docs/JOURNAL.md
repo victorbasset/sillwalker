@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2720, contrôle) : sonde des textes à « … » sur la partie de fin de partie à 1280 px (de, en) : hors noms d'objets et
+  bulles des PNJ, aucun.
 - 2026-11-19 (it. 2719, contrôle) : édition 160 à l'écran en allemand et en coréen (1920 px) : trois nouveautés, ⏳ affiché, rien de coupé.
 - 2026-11-19 (it. 2718) « Quoi de neuf », édition 160 (lisibilité, suite) : emplacements vides (it. 2697), expédition « ⏳ durée » (it. 2716),
   écrans de portable : Ascension russe, titres japonais, signe + des zones (it. 2686-2702). Clés 3426-3428, 9 langues (« vide » cité tel
