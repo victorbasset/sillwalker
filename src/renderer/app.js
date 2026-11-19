@@ -539,7 +539,7 @@ async function boot() {
   if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)
   if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
-  if (init.isDev) window.__offlineToast = (sum) => showOffline(sum); // (it. 2748) auto-test : bulle d'absence selon le mode
+  if (init.isDev) { window.__offlineToast = (sum) => showOffline(sum); window.__tx = tx; } // (it. 2748, 2750) auto-test : bulle d'absence selon le mode
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");
     strip.juice.coins(strip.monX(), strip.ground - 20, 28, true);

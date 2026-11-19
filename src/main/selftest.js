@@ -1866,6 +1866,15 @@ async function runSelfTest(strip) {
     const shown = await js("(async () => { for (let i = 0; i < 40; i++) { await new Promise((r) => setTimeout(r, 100)); const t = document.getElementById('toast'); if (!t.hidden && /4[\\s\\u00a0\\u202f,.]?321/.test(t.textContent)) { t.hidden = true; return true; } } return false; })()");
     check("absence pendant le mode icône : le résumé attend l'ouverture de la bande", !hidden && shown, hidden + " / " + shown);
   }
+  {
+    // (it. 2750) même chose en mode mini : le voyant annonce le résumé (pas « un conseil »), l'agrandissement le montre
+    await strip.setMode("mini"); await sleep(300);
+    await js("(() => { window.__offlineToast({ seconds: 30000, duration: '8 h', zone: 'Z', kills: 4321, gold: 10, xp: 10, steps: [] }); return 1; })()");
+    const dot = await js("(() => { const d = document.querySelector('.minihint'); const t = d.title || d.dataset.title || ''; return !d.hidden && t.startsWith(window.__tx('Ton résumé d’absence t’attend : clique pour agrandir.')) && /4[\\s\\u00a0\\u202f,.]?321/.test(t); })()");
+    await strip.setMode("strip");
+    const shown = await js("(async () => { for (let i = 0; i < 40; i++) { await new Promise((r) => setTimeout(r, 100)); const t = document.getElementById('toast'); if (!t.hidden && /4[\\s\\u00a0\\u202f,.]?321/.test(t.textContent)) { t.hidden = true; return true; } } return false; })()");
+    check("absence pendant le mode mini : le voyant annonce le résumé, montré à l'agrandissement", dot && shown, dot + " / " + shown);
+  }
   // (it. 2415) session verrouillée : la libération attend le retour du joueur
   strip.setLocked(true); await sleep(200);
   await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
