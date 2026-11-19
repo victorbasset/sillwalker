@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2566, contrôle) : résumé d'absence en chinois (dev-data, 3 h) : propre ; lignes du sac en tête, ✦ sur le sort,
+  « 稀有 · 未保留 » pour le butin perdu.
 - 2026-11-19 (it. 2565, langues) : coréen, bulle des coffres (clé 3407) « {0}(쓸모없음)을(를) » : koJosa saute la parenthèse et
   garde « 을 » (« 별철 단검(쓸모없음)을 팝니다 ») ; correct.
 - 2026-11-19 (it. 2564, test) : test-logic : en japonais, aucun « つ » après un nombre variable ou à deux chiffres (échoue avec la
