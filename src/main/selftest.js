@@ -1470,6 +1470,20 @@ async function runSelfTest(strip) {
   // (it. 2153-2154) sac plein : une amélioration du marchand garde son prix (pas « Sac plein ») et s'achète d'un clic, équipée
   const shopUp = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, keepBag = S.bag.slice(), keepShop = S.shop, keepEq = { ...S.equip }, keepG = S.gold; S.gold = 1e300; let up = null; for (let k = 0; k < 200; k++) { const c = g.newItem(4, S.best + 40), plain = g.newItem(1, Math.max(1, S.best - 30)); plain.slot = c.slot; plain.set = null; plain.plus = 0; S.equip[c.slot] = plain; g.invalidateStats(); if (g.canBuyWhenFull(c)) { up = c; break; } S.equip[c.slot] = keepEq[c.slot]; } if (!up) { Object.assign(S.equip, keepEq); return 'pas d amélioration achetable'; } while (!g.bagFull()) S.bag.push(g.newItem(0, 1)); const n = S.bag.length; up.price = 10; S.shop = { items: [up], next: Date.now() + 600000 }; S.tabsOpen.shop = true; P.setTab('shop'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const b = document.querySelector('[data-pane=shop]:not([hidden]) [data-action=s-item]'); const label = b ? b.textContent.trim() : 'pas de bouton', notFull = !!b && !b.disabled && !/Sac plein|Bag full/i.test(label); const tip = b ? (b.title || b.dataset.title || '') : ''; b?.click(); await new Promise((r) => setTimeout(r, 150)); const worn = S.equip[up.slot] && S.equip[up.slot].id === up.id, same = S.bag.length === n ? true : n + '->' + S.bag.length; S.bag.length = 0; S.bag.push(...keepBag); S.shop = keepShop; Object.assign(S.equip, keepEq); S.gold = keepG; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return [notFull, worn, same, /sold|vendu/i.test(tip) || tip].join(' '); })()");
   check("boutique, sac plein : une amélioration s'achète d'un clic et s'équipe (le sac reste plein ; la bulle dit ce qui sera vendu)", shopUp === "true true true true", shopUp);
+  // (it. 2424) un bouton grisé garde sa bulle au survol (vraie souris) : « Équiper le meilleur » sans rien de mieux dans le sac
+  {
+    const sel = "[data-pane=adventure]:not([hidden]) [data-action=autoequip][disabled]";
+    const has = await js(`(() => { const P = window.__panel, S = window.__game.S; window.__keepBag = S.bag.slice(); S.bag.length = 0; P.setTab("adventure"); P.renderAll(); return !!document.querySelector(${JSON.stringify(sel)}); })()`);
+    let tipTxt = "sans objet (une amélioration attend dans le sac)";
+    if (has) {
+      const r = await rectOf(sel);
+      await move(r.x, r.y); await sleep(350);
+      tipTxt = await js("(() => { const t = document.querySelector('.gtip'); return t && !t.hidden ? t.textContent : 'cachée'; })()");
+      await move(5, 5);
+    }
+    await js("(() => { const S = window.__game.S; S.bag.push(...window.__keepBag); window.__panel.renderAll(); return 1; })()");
+    check("bouton grisé : sa bulle s'affiche au survol (« Équiper le meilleur »)", !has || /\S/.test(tipTxt) && tipTxt !== "cachée", tipTxt);
+  }
   // (it. 2119) touche Z dans les Talents : annule le dernier clic sur un talent
   const talZ = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl; S.lvl += 8; g.invalidateStats(); P.setTab('talents'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const sum = () => Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0); const s0 = sum(); const t = document.querySelector('[data-pane=talents] .talent.can:not(.voie)'); if (!t) { S.lvl = keepL; return 'aucun talent ouvert'; } t.click(); await new Promise((r) => setTimeout(r, 150)); const s1 = sum(); const ok = P.onKey ? P.onKey({ key: 'z', target: document.body, preventDefault() {} }) : 'pas de onKey'; await new Promise((r) => setTimeout(r, 100)); const s2 = sum(); S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; g.lastLearn = null; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return [s1 > s0, s2 === s0].join(' '); })()");
   check("talents : la touche Z annule le dernier clic", talZ === "true true", talZ);

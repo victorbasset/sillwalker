@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2424, autotest) : un bouton grisé garde sa bulle au survol réel (sendInputEvent) : « Équiper le meilleur » sac vidé
+  le temps du contrôle (la copie de test a une amélioration : sans cela le contrôle ne vérifiait rien). 311/311.
 - 2026-11-19 (it. 2423) : Aventure : « Équiper le meilleur » grisé a maintenant sa bulle (« Rien de mieux dans le sac : ton équipement
   est déjà le meilleur. », clé 3400, 10 langues). 310/310.
 - 2026-11-19 (it. 2422) : Boutique : amélioration du marchand bloquée par le sac plein parce que la pièce équipée est précieuse
