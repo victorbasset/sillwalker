@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2741, REVUE GÉNÉRALE) : 12 h : ranger 62, paladin 65, chaman 69 (identiques aux revues précédentes) ; --perf : 19,7 / 19,3 %,
+  mini 5,3 %, icône 0,8 % ; Quêtes en russe à 1280 px (« выполнено 234 задания », pluriel juste) propres ; texte japonais : aucun mot latin
+  suspect. Rien à corriger.
 - 2026-11-19 (it. 2740) docs/POUR-VICTOR.md : bulle de parole du héros (it. 2737-2739) ajoutée au résumé de la soirée.
 - 2026-11-19 (it. 2739) Autotest : « la bulle de parole du héros ne couvre pas le nom du boss » (réplique urgente forcée, délai entre
   répliques remis à zéro ; bulle absente = échec, pour ne pas passer à vide comme au premier essai). OK ; avec strip.js d'avant l'it. 2738 :
