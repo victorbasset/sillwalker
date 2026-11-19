@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2700, contrôle) : partie neuve en polonais à 1280 px : propre (emplacements « Rękawice / pusto », rien de coupé).
 - 2026-11-19 (it. 2699) docs/POUR-VICTOR.md : emplacements vides sur deux lignes (it. 2697) ajoutés au résumé de la soirée.
 - 2026-11-19 (it. 2698, contrôle) : emplacements vides (it. 2697) en japonais sur une partie neuve, 1920 px : « 武器 / 空き » … propres.
 - 2026-11-19 (it. 2697) Équipement, emplacement vide : « Handschuhe: le… » coupé en allemand à 1280 px sur une partie neuve (premier écran
