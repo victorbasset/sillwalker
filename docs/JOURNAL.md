@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2501, REVUE GÉNÉRALE) : 12 h : guerrier 65, ranger 64, paladin 65 ; --perf : 19,4 / 19,5 %, mini 5,5 %, icône 0,4 % ;
+  Réglages en russe : propres (« Windows » visible sous xvfb : isLinux() faux exprès en dev, window.__game ; masqué en version
+  distribuée) ; --crawl en anglais : 513 clics, aucune erreur. Rien à corriger.
 - 2026-11-19 (it. 2500, doc) : POUR-VICTOR : accessibilité de la nuit complétée (it. 2474-2499).
 - 2026-11-19 (it. 2499, accessibilité) : barres de progression (.bar) sans role="progressbar", mais toujours accompagnées de leur
   valeur en texte (kv « 70 / 70 », expérience, avant le boss) : l'information est lue ; rien de nécessaire.
