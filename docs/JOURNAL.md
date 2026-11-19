@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2698, contrôle) : emplacements vides (it. 2697) en japonais sur une partie neuve, 1920 px : « 武器 / 空き » … propres.
 - 2026-11-19 (it. 2697) Équipement, emplacement vide : « Handschuhe: le… » coupé en allemand à 1280 px sur une partie neuve (premier écran
   d'un nouveau joueur). Affiché maintenant sur deux lignes comme un objet porté : nom de l'emplacement, puis « vide » (clé 3425, 9 langues ;
   la bulle garde « {0} : vide »). Capture : les 7 emplacements lisibles. npm test 376, autotest 326/326, lang-overflow all 1280 : aucun.
