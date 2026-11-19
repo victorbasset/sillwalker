@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2694, contrôle) : partie neuve en allemand à 1280 px : propre ; barre de vie du monstre affichée dans la rangée de la bande
+  (it. 2633) dès la zone 1 ; « Handschuhe: le… » coupé avec bulle (règle d'accessibilité).
 - 2026-11-19 (it. 2693, contrôle) : partie neuve en japonais après 8 s, 1920 px : onglets fermés grisés, objectif « エリア 2 (1 / 2) »
   sur la carte du héros, sac et équipement vides lisibles, bande complète : propre.
 - 2026-11-19 (it. 2692, contrôle) : --crawl sur une partie NEUVE en japonais (--lang=ja-JP, dossier vide) : 73 clics en 4 s, aucune erreur.
