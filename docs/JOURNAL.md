@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2713, contrôle) : --dump-text d'une partie neuve en chinois et en japonais (≈ 1 810 lignes chacune) : aucun mot latin suspect.
 - 2026-11-19 (it. 2712, contrôle) : --dump-text d'une partie NEUVE en russe (1 811 lignes, onglets fermés, astuces de début) : aucun mot
   latin suspect (noms propres, touches, noms des langues seulement).
 - 2026-11-19 (it. 2711, REVUE GÉNÉRALE) : 12 h : guerrier 65, assassin 65, druide 65 ; --perf : 19,8 / 19,1 %, mini 5,6 %, icône 0,5 % ;
