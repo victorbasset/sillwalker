@@ -216,6 +216,9 @@ export function migrate(raw) {
   // (it. 1075) grand graphe autour de la fleur : mêmes règles (nœuds inconnus ou doublons retirés)
   // (it. 2332) graphe allégé (voies de 10 nœuds) : seuls les nœuds qui existent encore ET restent reliés sont gardés
   s.skills.outer = Array.isArray(s.skills.outer) ? sanitizeOuter([...new Set(s.skills.outer)]) : [];
+  // (it. 2405) graphe qui n'est plus complet (nœuds retirés par l'allègement) : l'annonce « grand graphe complet » reviendra
+  // quand il le sera de nouveau (avant : vue une fois sur l'ancien graphe, plus jamais)
+  if (s.skills.graphFullSeen && s.skills.outer.length < Object.keys(SKILL_GRAPH.nodes).length) s.skills.graphFullSeen = false;
   s.prestige.skillPts = Math.max(0, Math.floor(+s.prestige.skillPts || 0));
   s.speed = Math.max(0, +s.speed || 0);
   s.settings = Object.assign(def.settings, isObj(o.settings) ? o.settings : {});

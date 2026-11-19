@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2405) : ancienne sauvegarde au grand graphe rempli avant l'allègement (it. 2332) : graphFullSeen restait vrai alors
+  que le nettoyage retire des nœuds : l'annonce « grand graphe complet » ne serait jamais revenue en le remplissant de nouveau.
+  migrate() la rend si le graphe n'est plus complet ; test (incomplet : rendue ; fin de partie pleine : gardée). save-fuzz ok. 307/307.
 - 2026-11-19 (it. 2404, contrôle) : texte japonais de la fin de partie (--dump-text) : seuls des unités (HP, Qa, pt, Lv), noms
   propres et touches en lettres latines. Graphe complet : déjà annoncé (graphFull, it. 1117).
 - 2026-11-19 (it. 2403, contrôle) : lang-overflow 10 langues à 1366 px (dev et fin de partie) : aucun défilement ni mot coupé.

@@ -5018,5 +5018,10 @@ test("grand graphe allégé (it. 2332) : une ancienne sauvegarde garde ses nœud
   const m = migrate(JSON.parse(JSON.stringify(S)));
   assert.deepEqual(m.skills.outer, kept, "appliqué au chargement");
   assert.equal(graphPointsFree(m), graphPointsTotal(m) - kept.length, "les points des nœuds retirés redeviennent libres");
+  // (it. 2405) l'annonce « grand graphe complet » reviendra une fois le graphe de nouveau rempli
+  const S2 = JSON.parse(JSON.stringify(S)); S2.skills.graphFullSeen = true;
+  assert.equal(migrate(S2).skills.graphFullSeen, false, "graphe incomplet après nettoyage : annonce rendue");
+  const full = JSON.parse(fs.readFileSync(new URL("./fixtures/endgame-save.json", import.meta.url), "utf8")); full.skills.graphFullSeen = true;
+  assert.equal(migrate(full).skills.graphFullSeen, true, "graphe toujours complet : l'annonce reste vue");
 });
 console.log(`\n${pass} tests réussis`);
