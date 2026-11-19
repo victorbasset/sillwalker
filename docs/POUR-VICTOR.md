@@ -11,29 +11,33 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Journée du 19/11 (it. 2514-2577) : sac plein à juger, moins de clics, lisibilité
+## Journée du 19/11 (it. 2514-2592) : sac plein à juger, moins de clics, lisibilité
 
-Ta règle « sac plein : l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
-- « À faire maintenant » (résumé d'absence, bulle du ☰, mode mini) : sac plein → « Agrandir le sac » puis « Sac plein : N objets
+**Sac plein** : ta règle « l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
+- « À faire maintenant » (résumé d'absence, carte du héros, bulle du ☰, mode mini) : « Agrandir le sac » puis « Sac plein : N objets
   à vendre » passent EN TÊTE (avant : 8e ligne sur 8 dans dev-data, après 3 h d'absence avec un légendaire perdu).
 - Boutique : un coffre s'achète sac plein ; l'objet inutile ORDINAIRE le moins cher est vendu pour lui faire place (sa bulle le nomme).
 - Coffre de quête : même choix (avant, il pouvait vendre une pièce forgée ou de panoplie en surplus).
-- Valet d'armes, sac plein : l'ancienne pièce était PERDUE, même légendaire, de panoplie ou forgée. Maintenant une pièce précieuse
-  est gardée (un objet ordinaire est vendu pour elle) ; s'il n'y a rien à vendre, c'est la nouvelle qui reste au sol.
-- Résumé d'absence : « Meilleur butin : Épique · pas gardé » montre en bulle le NOM de l'objet perdu (it. 2523-2524).
-- Liens « 🔒 déblocage · prix » (Carte, Familiers, Compétences, forge) : quand tu as l'or, « Acheter : X (N or) » l'achète
-  d'un clic sur place, sans passer par la boutique (it. 2527).
-- « À faire maintenant » : « ✦ Sort à apprendre : X » apprend le sort d'un clic sur place (it. 2532 ; avant, il ouvrait Héros > Sorts).
-- Journal : après une absence sac plein, « Sac plein, objets laissés au sol : N. » reste écrit (it. 2542).
-- Atelier : « Sac plus grand » a son bouton « max » comme les autres lignes (it. 2549).
-- Mode mini, bulle de la 💡 : « Prochain déblocage : X · 90 k or · prêt à acheter ! » quand l'or suffit (it. 2555 ; avant « 447 Md / 90 k or »).
-- Statistiques > Chiffres : « Laissés au sol (sac plein) N », le total depuis le début (it. 2567).
-- « Quoi de neuf » : éditions 154 à 157 publiées aujourd'hui (accessibilité, sac plein, moins de clics, sac et lisibilité) ; tu les verras
-  d'un coup au prochain lancement.
-- Linux (prochaine version) : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre des
-  tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). À voir seulement si un joueur Linux le signale.
-- Pas changé, à toi de dire : le Creuset et la vente automatique des inutiles consomment les objets FORGÉS devenus inutiles
-  (le Marchand vend des objets déjà forgés : les garder boucherait le sac).
+- Valet d'armes : l'ancienne pièce était PERDUE, même légendaire, de panoplie ou forgée. Maintenant une pièce précieuse est gardée
+  (un objet ordinaire est vendu pour elle) ; s'il n'y a rien à vendre, c'est la nouvelle qui reste au sol.
+- Atelier : « Sac plus grand » a son bouton « max » comme les autres lignes.
+- Ce qui reste au sol se voit : nom du meilleur objet perdu en bulle dans le résumé d'absence, ligne au journal après une absence,
+  total dans Statistiques > Chiffres (« Laissés au sol (sac plein) »).
+- **À toi de dire** : le Creuset et la vente automatique des inutiles consomment les objets FORGÉS devenus inutiles (le Marchand vend
+  des objets déjà forgés : les garder boucherait le sac). Pas changé.
+
+**Moins de clics, lisibilité** :
+- Liens « 🔒 déblocage · prix » (Carte, Familiers, Compétences, forge) : quand tu as l'or, « Acheter : X (N or) » l'achète sur place.
+- « À faire » : « ✦ Sort à apprendre : X » apprend le sort d'un clic.
+- Mode mini, bulle de la 💡 : « Prochain déblocage : X · 90 k or · prêt à acheter ! » (avant « 447 Md / 90 k or »).
+- Japonais : compteur « つ » remplacé là où le nombre dépasse 9 (« マスタリーの段階 18 件 »).
+
+**Au prochain lancement** : « Quoi de neuf » montre les éditions 155 à 157 (sac plein, moins de clics, sac et lisibilité) ; la 154
+(accessibilité, déjà dans la section de la nuit ci-dessous) ne tient pas dans la fenêtre (11 nouveautés au plus).
+
+**Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
+des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non
+livrées).
 
 ## Nuit du 18 au 19/11 (it. 2369-2500) : petites retouches à voir en jouant
 

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2592, doc) : POUR-VICTOR : section du jour réorganisée (sac plein / moins de clics / Quoi de neuf / Linux) ; la 154
+  ne tient pas dans « Quoi de neuf » au lancement (155-157 = 9 nouveautés, plafond 11), corrigé.
 - 2026-11-19 (it. 2591, REVUE GÉNÉRALE) : 12 h : ranger 64, prêtresse 64, gladiateur 65 (habituels) ; --perf (charge ≈ 2) : 19,4 / 19,9 %,
   mini 5,6 %, icône 0,5 % ; mode mini en allemand : propre ; texte japonais : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2590, contrôle) : autotest relancé deux fois de suite (stabilité des contrôles des it. 2552-2553) : 322/322 les deux fois.
