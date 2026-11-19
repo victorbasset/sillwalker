@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Journée du 19/11 (it. 2514-2592) : sac plein à juger, moins de clics, lisibilité
+## Journée du 19/11 (it. 2514-2608) : sac plein à juger, moins de clics, lisibilité
 
 **Sac plein** : ta règle « l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
 - « À faire maintenant » (résumé d'absence, carte du héros, bulle du ☰, mode mini) : « Agrandir le sac » puis « Sac plein : N objets
@@ -19,7 +19,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Boutique : un coffre s'achète sac plein ; l'objet inutile ORDINAIRE le moins cher est vendu pour lui faire place (sa bulle le nomme).
 - Coffre de quête : même choix (avant, il pouvait vendre une pièce forgée ou de panoplie en surplus).
 - Valet d'armes : l'ancienne pièce était PERDUE, même légendaire, de panoplie ou forgée. Maintenant une pièce précieuse est gardée
-  (un objet ordinaire est vendu pour elle) ; s'il n'y a rien à vendre, c'est la nouvelle qui reste au sol.
+  (un objet ordinaire est vendu pour elle, « Vendu : … » au journal) ; s'il n'y a rien à vendre, c'est la nouvelle qui reste au sol.
 - Atelier : « Sac plus grand » a son bouton « max » comme les autres lignes.
 - Ce qui reste au sol se voit : nom du meilleur objet perdu en bulle dans le résumé d'absence, ligne au journal après une absence,
   total dans Statistiques > Chiffres (« Laissés au sol (sac plein) »).
@@ -35,6 +35,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 **Au prochain lancement** : « Quoi de neuf » montre les éditions 155 à 157 (sac plein, moins de clics, sac et lisibilité) ; la 154
 (accessibilité) ne tient pas dans la fenêtre (11 nouveautés au plus) : le bas de la fenêtre, « … et N nouveautés plus anciennes → »,
 est maintenant un bouton qui montre la page suivante (it. 2594 ; avant, les anciennes ne se lisaient nulle part).
+
+**Outils** : le joueur simulé agrandit maintenant son sac (avant, jamais : sac de 24 en fin de partie) ; équilibrage inchangé
+(64,7 → 65,1 sur 12 h, bruit ; semaine du guerrier toujours au palier 350).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non
