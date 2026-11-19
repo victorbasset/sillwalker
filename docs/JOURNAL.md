@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2626, contrôle) : Bestiaire > Collection d'objets en français (44 / 44 types, tous en légendaire ; bonus
+  actuel en vert) : propre. Les huit sous-sections du Bestiaire sont revues.
 - 2026-11-19 (it. 2625, contrôle) : Bestiaire > Capacités des boss, Élites (1 / 11), Bénédictions du jour (6 / 17, « aujourd'hui » /
   « demain ») en français : propres. Toutes les sous-sections du Bestiaire revues aujourd'hui.
 - 2026-11-19 (it. 2624, contrôle) : Bestiaire > Panoplies (0 / 10, pièces portées et dans le sac) et Événements rares (1 / 18, « ??? »
