@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2547, contrôle) : résumé d'absence sur la fin de partie (fixture, 3 h, français) : propre ; « Agrandir le sac » en tête,
+  26 objets au sol (le joueur simulé n'agrandit jamais le sac : sac de 24 à 90 Qi d'or), « Meilleur butin : Grèves d'étoile ».
 - 2026-11-19 (it. 2546, contrôle) : semaine simulée (guerrier, 168 h) après le Valet d'armes (it. 2518) : courses 40-42 à
   350 / 350 / 349 (palier de l'écho 350, repère it. 2332 : 350), 6 131-6 158 éclats. Fin de partie inchangée.
 - 2026-11-19 (it. 2545, contrôle) : hero-table HEROES=all 12 h, graines 7,3,11, après le Valet d'armes (it. 2518) : moyenne 64,9,
