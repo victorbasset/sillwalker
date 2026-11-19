@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2706, contrôle) : Familiers en fin de partie, anglais à 1280 px (17 trouvés, « Collect 16 expeditions », rangée centrée
+  sur le compagnon actuel) : propre.
 - 2026-11-19 (it. 2705, contrôle) : Ascension en fin de partie, anglais à 1280 px (19 ascensions, « What is kept or lost » replié,
   17 constellations au maximum, compagnon « Brothers in Arms ») : propre.
 - 2026-11-19 (it. 2704, contrôle) : Carte en fin de partie, anglais à 1280 px (record 150, 16 / 20 héros, reliques 5/5 et 2/5, Briseur) : propre.
