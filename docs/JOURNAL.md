@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2554, doc) : CLAUDE.md : autotest ≈ 146 s pour 322 vérifications (mesuré).
 - 2026-11-19 (it. 2553, test) : autotest « À faire : un sort abordable s'apprend d'un clic » (todoDirect vrai, todoDo apprend le
   sort, état rendu ensuite) ; 322/322.
 - 2026-11-19 (it. 2552, test) : autotest « Atelier : « max » agrandit le sac de tous ses niveaux d'un clic » (sac 24 → 48, bouton retiré,
