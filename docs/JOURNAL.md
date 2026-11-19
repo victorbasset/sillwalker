@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2692, contrôle) : --crawl sur une partie NEUVE en japonais (--lang=ja-JP, dossier vide) : 73 clics en 4 s, aucune erreur.
 - 2026-11-19 (it. 2691, REVUE GÉNÉRALE) : 12 h : druide 65, danseur de lames 66, gardien des étoiles 69 ; --perf : 19,8 / 18,9 %, mini 5,5 %,
   icône 0,5 % ; Talents en russe à 1280 px propres ; texte allemand : aucun mot français ou anglais courant (« des » = article allemand).
   Rien à corriger.
