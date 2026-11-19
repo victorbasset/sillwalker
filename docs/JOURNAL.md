@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2751, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, nécromancien 65 ; --perf : 19,5 / 19,3 %, mini 5,4 %, icône 0,5 % ;
+  mode mini en anglais propre (« Lv. 1313 », « 447B ») ; texte coréen : seuls « Language / Langue » (sélecteur bilingue voulu) et les noms
+  propres. Rien à corriger.
 - 2026-11-20 (it. 2750) Autotest : « absence pendant le mode mini : le voyant annonce le résumé, montré à l'agrandissement » (window.__tx
   en dev). OK ; avec l'ancien libellé du voyant (« Un conseil t'attend ») : ÉCHEC. npm test 377, autotest 330/330.
 - 2026-11-20 (it. 2749) « Quoi de neuf » : édition 161 (retour d'absence : résumé prioritaire et gardé en mode mini / icône ; objet après
