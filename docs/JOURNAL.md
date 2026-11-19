@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2582, doc) : CLAUDE.md : la charge des autres services du serveur fausse --perf de ≈ 2 points ; comparer à l'ancien
+  commit mesuré aussitôt (it. 2581).
 - 2026-11-19 (it. 2581, REVUE GÉNÉRALE) : 12 h : samouraï 65, chaman 69, paladin 65 (habituels) ; --perf 21,1-21,9 % (bande) sous une
   charge extérieure (node /backend à 48 %, bitcoind 9 %, charge moyenne ≈ 3) ; comparé aussitôt à 64c16330 (git worktree, même
   dev-data) : ancien 21,8 / 20,6 %, actuel 19,5 / 18,7 % : aucune régression du jour. Boutique en coréen : propre ; texte russe : aucun
