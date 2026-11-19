@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2732, contrôle) : après l'arrondi au hasard du butin d'absence (it. 2731) : save-fuzz « ok balayage (1267 corruptions) » ;
+  IDLE=1 simulate 12 h guerrier : record 16 (repère it. 698 : 16 à 12 h).
 - 2026-11-19 (it. 2731, REVUE GÉNÉRALE) : 12 h : mage 65, moine 65, lancier 65 ; --perf : 19,3 / 19,4 %, mini 5,6 %, icône 0,5 % ; texte
   polonais : aucun mot français ou anglais courant ; retour d'un joueur neuf en russe (deux lancements) : newsSeen 160, « Пока тебя не
   было » sans fenêtre de version (it. 2730 confirmé). Trouvé : ce résumé montrait « Objets gardés : 0 » pour 54 monstres en 10 min.
