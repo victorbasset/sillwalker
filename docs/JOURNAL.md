@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2679) « Quoi de neuf », édition 159 (lisibilité sur un écran de portable) : barre du monstre et nom du boss sur la bande
+  (it. 2633-2635), titres des cartes des Statistiques et des Réglages sur une ligne (it. 2675-2677), Atelier aligné et ✦ des achats dans
+  « À faire maintenant » (it. 2640, 2653). Clés 3422-3424 traduites dans les 9 langues (libellés cités tels qu'au jeu). npm test 376,
+  autotest 326/326, lang-overflow all 1280 : aucun défilement.
 - 2026-11-19 (it. 2678, contrôle) : sonde des titres de cartes d'une même rangée de hauteurs différentes, tous les onglets et sous-sections à
   1280 px (fr, de, ru, en) : seuls Talents (portrait du héros dans le titre, voulu) et l'Atelier (seul sur sa rangée ; capture russe : une
   ligne, mesure faussée par une autre sous-section) ; aucun autre titre sur deux lignes après les it. 2675-2677.

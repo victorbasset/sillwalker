@@ -2294,4 +2294,7 @@ export default {
   3419: "Settings: each version’s notes can be read again, from the latest to the oldest (← / →).",
   3420: "Arms Valet: when it sells an item to keep a precious piece, the log says so.",
   3421: "Notes for this version and earlier ones (← / →)",
+  3422: "Strip on a laptop screen: the monster's health bar shows as soon as the boss name leaves room, and that name no longer slips under the buttons.",
+  3423: "Statistics and Settings: on a laptop screen, card titles fit on one line.",
+  3424: "Workshop: the price and the “max” button are aligned; in “Things to do now”, buying an unlock wears the ✦ of one-click actions.",
 };

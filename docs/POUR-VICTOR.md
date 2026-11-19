@@ -39,8 +39,8 @@ y ramène (it. 2594, 2612). Les notes des versions 0.1.3 à 0.1.7 se relisent au
 **Outils** : le joueur simulé agrandit maintenant son sac (avant, jamais : sac de 24 en fin de partie) ; équilibrage inchangé
 (64,7 → 65,1 sur 12 h, bruit ; semaine du guerrier toujours au palier 350).
 
-**Fin d'après-midi (it. 2614-2657)** : surtout des contrôles (Bestiaire en entier, chaque onglet en anglais à 1280 px, parties
-bloquées, mémoire, performance), rien de cassé. Cinq retouches visibles :
+**Fin d'après-midi (it. 2614-2679)** : surtout des contrôles (Bestiaire en entier, chaque onglet en anglais à 1280 px, parties
+bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
 - Bande sur un écran de portable (1280 px) : la barre de vie du monstre s'affiche quand le nom du boss laisse la place (avant : jamais).
 - Bande avec les informations « au milieu » sur un écran étroit : le nom du boss ne passe plus sous les boutons. Sur ton écran très
   large, rien ne change (mesuré : même charge, 27 % d'un cœur à 3840 px).
@@ -48,7 +48,9 @@ bloquées, mémoire, performance), rien de cassé. Cinq retouches visibles :
 - « À faire » : « ✦ Acheter : … » porte le ✦ des actions d'un clic.
 - Boutique > Atelier : le prix et le bouton « max » sont alignés sur chaque ligne (le prix tombait 4 px plus bas) ; l'autotest
   vérifie maintenant l'alignement des boutons voisins dans tous les onglets (it. 2653-2656).
-Pas encore d'édition « Quoi de neuf » pour ces retouches (trop petites seules) : elles iront avec les suivantes.
+- Statistiques et Réglages : sur un portable (1280-1366 px), les titres des cartes tiennent sur une ligne (« Richesse et butin »,
+  « Language / Langue » passaient à la ligne) ; « Gold und Beute » / « Золото и добыча » plus courts (it. 2675-2677).
+Édition « Quoi de neuf » 159 publiée pour ces retouches (it. 2679).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non

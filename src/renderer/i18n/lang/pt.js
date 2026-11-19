@@ -2294,4 +2294,7 @@ export default {
   3419: "Configurações: as notas de cada versão podem ser relidas, da mais recente às mais antigas (← / →).",
   3420: "Escudeiro de armas: quando vende um item para manter uma peça preciosa, o diário informa.",
   3421: "Notas desta versão e das anteriores (← / →)",
+  3422: "Faixa numa tela de notebook: a barra de vida do monstro aparece assim que o nome do chefe deixa espaço, e esse nome não passa mais sob os botões.",
+  3423: "Estatísticas e Configurações: numa tela de notebook, os títulos dos cartões cabem em uma linha.",
+  3424: "Oficina: o preço e o botão “máx.” estão alinhados; em “O que fazer agora”, a compra de um desbloqueio leva o ✦ das ações de um clique.",
 };

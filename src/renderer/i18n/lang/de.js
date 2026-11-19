@@ -2294,4 +2294,7 @@ export default {
   3419: "Einstellungen: Die Notizen jeder Version lassen sich erneut lesen, von der neuesten bis zu den ältesten (← / →).",
   3420: "Waffenknecht: Verkauft er einen Gegenstand, um ein wertvolles Teil zu behalten, steht es im Protokoll.",
   3421: "Notizen zu dieser und früheren Versionen (← / →)",
+  3422: "Leiste auf einem Laptop-Bildschirm: Die Lebensleiste des Monsters erscheint, sobald der Bossname Platz lässt, und dieser Name rutscht nicht mehr unter die Schaltflächen.",
+  3423: "Statistiken und Einstellungen: Auf einem Laptop-Bildschirm passen die Kartentitel in eine Zeile.",
+  3424: "Werkstatt: Preis und „max.“-Schaltfläche sind ausgerichtet; unter „Jetzt zu tun“ trägt der Kauf einer Freischaltung das ✦ der Ein-Klick-Aktionen.",
 };

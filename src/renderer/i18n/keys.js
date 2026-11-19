@@ -3423,5 +3423,8 @@ export const KEYS = [
   "Quoi de neuf : les nouveautés plus anciennes se lisent page par page, jusqu’à la toute première.",
   "Réglages : les notes de chaque version se relisent, de la plus récente aux plus anciennes (← / →).",
   "Valet d’armes : quand il vend un objet pour garder une pièce précieuse, le journal le dit.",
-  "Notes de cette version et des précédentes (← / →)"
+  "Notes de cette version et des précédentes (← / →)",
+  "Bande sur un écran de portable : la barre de vie du monstre s’affiche dès que le nom du boss laisse la place, et ce nom ne passe plus sous les boutons.",
+  "Statistiques et Réglages : sur un écran de portable, les titres des cartes tiennent sur une ligne.",
+  "Atelier : le prix et le bouton « max » sont alignés ; dans « À faire maintenant », l’achat d’un déblocage porte le ✦ des actions d’un clic."
 ];

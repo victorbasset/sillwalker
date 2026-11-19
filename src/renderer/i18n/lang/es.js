@@ -2294,4 +2294,7 @@ export default {
   3419: "Ajustes: las notas de cada versión se pueden releer, de la más reciente a las más antiguas (← / →).",
   3420: "Ayuda de armas: cuando vende un objeto para conservar una pieza valiosa, el diario lo indica.",
   3421: "Notas de esta versión y de las anteriores (← / →)",
+  3422: "Banda en una pantalla de portátil: la barra de vida del monstruo aparece en cuanto el nombre del jefe deja sitio, y ese nombre ya no pasa bajo los botones.",
+  3423: "Estadísticas y Ajustes: en una pantalla de portátil, los títulos de las tarjetas caben en una línea.",
+  3424: "Taller: el precio y el botón «máx.» están alineados; en «Qué hacer ahora», la compra de un desbloqueo lleva el ✦ de las acciones de un clic.",
 };
