@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2577, doc) : POUR-VICTOR : desktopName sous Linux (à voir si un joueur Linux le signale).
 - 2026-11-19 (it. 2576, contrôle) : desktopName (it. 2575) ne déplace pas la sauvegarde Linux : app.getPath("userData") reste
   ~/.config/Sillwalker (petit programme Electron avec le package.json du jeu, HOME temporaire).
 - 2026-11-19 (it. 2575, Linux) : package.json « desktopName »: « sillwalker.desktop » (avertissement d'electron-builder à l'it. 2574 :
