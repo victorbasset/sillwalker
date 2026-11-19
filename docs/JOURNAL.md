@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2581, REVUE GÉNÉRALE) : 12 h : samouraï 65, chaman 69, paladin 65 (habituels) ; --perf 21,1-21,9 % (bande) sous une
+  charge extérieure (node /backend à 48 %, bitcoind 9 %, charge moyenne ≈ 3) ; comparé aussitôt à 64c16330 (git worktree, même
+  dev-data) : ancien 21,8 / 20,6 %, actuel 19,5 / 18,7 % : aucune régression du jour. Boutique en coréen : propre ; texte russe : aucun
+  mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2580, contrôle) : sonde des ⓘ cachés (info-probe, 1280 px) après les changements de la Boutique, de l'Atelier et
   des liens de déblocage : IPROBE 0 en français et en allemand.
 - 2026-11-19 (it. 2579, contrôle) : « À faire » de la carte du héros (dev-data) : même ordre et mêmes actions que le résumé d'absence
