@@ -2302,4 +2302,7 @@ export default {
   3427: "Mascotas: una expedición en curso muestra ⏳ y el tiempo restante (su nombre al pasar el ratón), sin cortarse.",
   3428: "Pantallas de portátil: la Ascensión ya no se desplaza en ruso, los títulos japoneses ya no se cortan a mitad de palabra y el signo + de una zona repetida queda junto a su nombre.",
   3429: "Tu resumen de ausencia te espera: haz clic para ampliar.",
+  3430: "Regreso: el resumen de ausencia pasa antes que las demás burbujas y ya no se pierde cuando el juego arranca en modo mini o minimizado en su icono (al iniciar Windows): espera a que abras la banda.",
+  3431: "Regreso: incluso tras una ausencia corta, un principiante a veces trae un objeto.",
+  3432: "Banda: la burbuja de diálogo del héroe ya no tapa las barras de vida ni el nombre del jefe.",
 };

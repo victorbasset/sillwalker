@@ -2302,4 +2302,7 @@ export default {
   3427: "Zwierzaki: trwająca wyprawa pokazuje ⏳ i pozostały czas (nazwa po najechaniu), bez ucinania.",
   3428: "Ekrany laptopów: Wniebowstąpienie nie przewija się już po rosyjsku, japońskie tytuły nie łamią się w środku słowa, a znak + powtórzonej strefy zostaje przy jej nazwie.",
   3429: "Podsumowanie nieobecności czeka: kliknij, aby powiększyć.",
+  3430: "Powrót: podsumowanie nieobecności wyświetla się przed innymi dymkami i nie ginie, gdy gra startuje w trybie mini lub zminimalizowana do ikony (start z Windows): czeka, aż otworzysz pasek.",
+  3431: "Powrót: nawet po krótkiej nieobecności początkujący czasem przynosi przedmiot.",
+  3432: "Pasek: dymek bohatera nie zasłania już pasków zdrowia ani imienia bossa.",
 };

@@ -2302,4 +2302,7 @@ export default {
   3427: "Mascotes: uma expedição em andamento mostra ⏳ e o tempo restante (o nome ao passar o mouse), sem ser cortada.",
   3428: "Telas de notebook: a Ascensão não rola mais em russo, os títulos japoneses não se quebram mais no meio da palavra e o sinal + de uma zona repetida fica junto ao nome.",
   3429: "O resumo da tua ausência espera-te: clica para ampliar.",
+  3430: "Regresso: o resumo da ausência passa à frente das outras bolhas e já não se perde quando o jogo arranca em modo mini ou minimizado no ícone (iniciado com o Windows): espera que abras a faixa.",
+  3431: "Regresso: mesmo após uma ausência curta, um principiante por vezes traz um objeto.",
+  3432: "Faixa: o balão de fala do herói já não tapa as barras de vida nem o nome do chefe.",
 };

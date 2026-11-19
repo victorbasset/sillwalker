@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2749) « Quoi de neuf » : édition 161 (retour d'absence : résumé prioritaire et gardé en mode mini / icône ; objet après
+  une courte absence ; bulle de parole du héros), clés 3430-3432, 10 langues. npm test 377, autotest 329/329, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2748) Autotest : « absence pendant le mode icône : le résumé attend l'ouverture de la bande » (window.__offlineToast en
   dev ; passe en icône, envoie un résumé, revient à la bande). OK ; sans le correctif de l'it. 2747 : ÉCHEC (bulle montrée sur la bande
   cachée). npm test 377, autotest 329/329.

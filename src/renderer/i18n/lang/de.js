@@ -2302,4 +2302,7 @@ export default {
   3427: "Begleiter: Eine laufende Expedition zeigt ⏳ und die Restzeit (ihr Name beim Überfahren), ohne abgeschnitten zu werden.",
   3428: "Laptop-Bildschirme: Der Aufstieg scrollt auf Russisch nicht mehr, japanische Titel brechen nicht mehr mitten im Wort, und das +-Zeichen einer wiederholten Zone bleibt bei ihrem Namen.",
   3429: "Deine Abwesenheitsübersicht wartet: Klicke zum Vergrößern.",
+  3430: "Rückkehr: Die Abwesenheitsübersicht kommt vor anderen Blasen und geht nicht mehr verloren, wenn das Spiel im Mini-Modus oder als Symbol startet (Start mit Windows): Sie wartet, bis du die Leiste öffnest.",
+  3431: "Rückkehr: Auch nach kurzer Abwesenheit bringt ein Anfänger manchmal einen Gegenstand mit.",
+  3432: "Leiste: Die Sprechblase des Helden verdeckt keine Lebensbalken und keinen Bossnamen mehr.",
 };

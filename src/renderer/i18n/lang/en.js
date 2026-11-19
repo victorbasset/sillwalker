@@ -2302,4 +2302,7 @@ export default {
   3427: "Pets: an expedition in progress shows ⏳ and the time left (its name on hover), without being cut off.",
   3428: "Laptop screens: Ascension no longer scrolls in Russian, Japanese titles no longer break mid-word, and the + sign of a looped zone stays with its name.",
   3429: "Your absence summary is waiting: click to expand.",
+  3430: "Returning: the absence summary now comes before other bubbles, and is no longer lost when the game starts in mini mode or minimized to its icon (launched with Windows): it waits until you open the strip.",
+  3431: "Returning: even after a short absence, a beginner sometimes brings back an item.",
+  3432: "Strip: the hero’s speech bubble no longer covers the health bars or the boss name.",
 };
