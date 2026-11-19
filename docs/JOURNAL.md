@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2563, langues) : japonais : dernier « {n} つ » variable corrigé (« （ほかに {n} 個の節目） », paliers restants) ;
+  plus aucun « つ » collé à un nombre variable ou à deux chiffres.
 - 2026-11-19 (it. 2562, langues) : japonais : compteur « つ » (petits nombres) remplacé là où {n} dépasse 10 : « マスタリーの段階 {n} 件 »
   (vu à 18 dans le résumé d'absence), « この先あと {n} 個の解放 » (jusqu'à 26 déblocages).
 - 2026-11-19 (it. 2561, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 66, moine 62 (habituels) ; --perf : 19,4 / 19,2 %, mini 5,6 %, icône
