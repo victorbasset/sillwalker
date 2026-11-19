@@ -1848,6 +1848,19 @@ async function runSelfTest(strip) {
   await click("#menu-btn");
   await sleep(400);
 
+  // (it. 2655) dans une rangée centrée, deux boutons voisins ont le même centre vertical : le prix de l'Atelier tombait 4 px sous
+  // son bouton « max » (marge de button.buy). Tous les onglets et leurs sous-sections (liste SUBS de main.js).
+  {
+    const r = await js(`new Promise((ok) => { const P = window.__panel; const SUBS = { shop: [null, "unlocks", "workshop"], stats: [null, "journey", "log"], bestiary: [null, "codex", "powers", "sets", "bosses", "elites", "events", "blessings"], pets: [null, "unknown"], class: [null, "locked"] }; const keep = {}; for (const t in SUBS) keep[t] = P.tabs[t] && P.tabs[t].sec; const cur = P.tab; const out = [];
+      (async () => { for (const t of Object.keys(P.tabs)) for (const sec of (SUBS[t] || [null])) { try { if (t in SUBS) P.tabs[t].sec = sec || keep[t]; P.setTab(t); P.renderAll(); } catch (e) { continue; } await new Promise((f) => requestAnimationFrame(() => requestAnimationFrame(f)));
+          const pane = document.querySelector('[data-pane=' + t + ']:not([hidden])'); if (!pane) continue;
+          for (const row of pane.querySelectorAll('*')) { const cs = getComputedStyle(row); if (cs.display !== 'flex' || cs.flexDirection !== 'row' || cs.alignItems !== 'center') continue;
+            const bs = [...row.children].filter((c) => c.tagName === 'BUTTON' && c.offsetParent); if (bs.length < 2) continue;
+            const cy = bs.map((b) => { const q = b.getBoundingClientRect(); return q.top + q.height / 2; }); const d = Math.max(...cy) - Math.min(...cy);
+            if (d > 2) out.push(t + (sec ? '/' + sec : '') + ' ' + (row.className || row.tagName) + ' Δ' + d.toFixed(1)); } }
+        for (const t in keep) if (P.tabs[t]) P.tabs[t].sec = keep[t]; P.setTab(cur || 'adventure'); P.renderAll(); ok(out.length ? [...new Set(out)].slice(0, 4).join(' ; ') : 'ok'); })(); })`);
+    check("rangées centrées : boutons voisins alignés (tous les onglets)", r === "ok", r);
+  }
   check("aucune erreur de l'interface pendant le parcours", rendErr.length === 0, rendErr.length ? `${rendErr.length} : ${rendErr[0]}` : "");
   const failed = results.filter((r) => !r).length;
   if (process.env.SELFTEST_TIMES) for (const [ms, n] of times.slice().sort((x, y) => y[0] - x[0]).slice(0, 12)) console.log(`[selftest] lent : ${(ms / 1000).toFixed(1)} s ${n}`);

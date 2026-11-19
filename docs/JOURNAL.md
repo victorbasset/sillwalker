@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2655) Autotest : « rangées centrées : boutons voisins alignés (tous les onglets) » : dans chaque rangée flex centrée de chaque
+  onglet et sous-section (liste SUBS de main.js), les boutons voisins ont le même centre vertical (écart ≤ 2 px). Aucun autre décalage
+  trouvé ; avec la feuille d'avant l'it. 2653 : ÉCHEC « shop/workshop wsline Δ4.2 ; Δ5.9 ; Δ4.1 ». npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2654, contrôle) : autres usages de button.buy (margin-top: auto) : Marchand, potions, coffres, œuf, déblocages :
   tous dans des cartes en colonne (le bouton descend en bas de la carte, voulu) ; seules les lignes de l'Atelier étaient en rangée.
 - 2026-11-19 (it. 2653) Boutique > Atelier : sur chaque ligne, le bouton du prix tombait ≈ 4 px plus bas que le bouton « max » voisin
