@@ -2289,4 +2289,5 @@ export default {
   3414: "Workshop: “max” now also enlarges the bag by all its levels in one click.",
   3415: "Mini mode: the tooltip says “ready to buy!” when you have enough gold for the next unlock.",
   3416: "Items left on the ground for lack of space: the log notes it after an absence, and the stats keep the total.",
+  3417: "← Newer",
 };

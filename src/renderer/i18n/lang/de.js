@@ -2289,4 +2289,5 @@ export default {
   3414: "Werkstatt: „max.“ vergrößert jetzt auch die Tasche um alle Stufen mit einem Klick.",
   3415: "Mini-Modus: Die Blase sagt „bereit zum Kauf!“, wenn das Gold für die nächste Freischaltung reicht.",
   3416: "Gegenstände, die mangels Platz liegen bleiben: Das Protokoll vermerkt sie nach einer Abwesenheit, die Statistik zählt sie mit.",
+  3417: "← Neuere",
 };

@@ -3418,5 +3418,6 @@ export const KEYS = [
   "Retour d’absence : le meilleur butin perdu montre son nom au survol.",
   "Atelier : « max » agrandit aussi le sac de tous ses niveaux d’un clic.",
   "Mode mini : la bulle annonce « prêt à acheter ! » quand l’or suffit pour le prochain déblocage.",
-  "Objets laissés au sol faute de place : le journal le note après une absence, et les statistiques en gardent le total."
+  "Objets laissés au sol faute de place : le journal le note après une absence, et les statistiques en gardent le total.",
+  "← Plus récentes"
 ];

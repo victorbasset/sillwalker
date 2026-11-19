@@ -2289,4 +2289,5 @@ export default {
   3414: "Warsztat: „maks.” powiększa też torbę o wszystkie poziomy jednym kliknięciem.",
   3415: "Tryb mini: dymek mówi „gotowe do kupienia!”, gdy złota wystarcza na następne odblokowanie.",
   3416: "Przedmioty zostawione na ziemi z braku miejsca: dziennik zapisuje to po nieobecności, a statystyki liczą łącznie.",
+  3417: "← Nowsze",
 };

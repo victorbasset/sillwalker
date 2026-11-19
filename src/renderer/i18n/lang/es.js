@@ -2289,4 +2289,5 @@ export default {
   3414: "Taller: «máx.» también agranda la bolsa todos sus niveles con un clic.",
   3415: "Modo mini: la burbuja dice «¡listo para comprar!» cuando el oro alcanza para el próximo desbloqueo.",
   3416: "Objetos que quedan en el suelo por falta de espacio: el registro lo anota tras una ausencia y las estadísticas guardan el total.",
+  3417: "← Más recientes",
 };

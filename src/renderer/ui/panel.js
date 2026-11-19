@@ -1037,7 +1037,8 @@ export class Panel {
     const { items, older, shown } = newsShown(seen, skip);
     // (it. 2594) les plus anciennes se lisent page par page (bouton), la fenêtre ne défile toujours pas
     $(this.root, "#mbody").innerHTML = `<ul class="lines newslist${items.length > 12 ? " dense" : ""}">${items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`
-      + (older ? `<p class="note"><button class="linkbtn lock more" data-action="news-older" data-seen="${seen}" data-skip="${skip + shown}">${esc(txn(older, "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."))} →</button></p>` : "");
+      // (it. 2612) sur une page ancienne : « ← Plus récentes » ramène à la première (avant : fermer et rouvrir)
+      + (older || skip ? `<p class="note">${skip ? `<button class="linkbtn lock more" data-action="news-older" data-seen="${seen}" data-skip="0">${esc(tx("← Plus récentes"))}</button> ` : ""}${older ? `<button class="linkbtn lock more" data-action="news-older" data-seen="${seen}" data-skip="${skip + shown}">${esc(txn(older, "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."))} →</button>` : ""}</p>` : "");
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }

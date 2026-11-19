@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2612, moins de clics) : « Quoi de neuf », pages anciennes : bouton « ← Plus récentes » (retour à la première page ;
+  avant, fermer et rouvrir). Clé 3417 dans les 9 langues. Les 40 pages vérifiées dans les 10 langues à 1280 px : sans défilement, retour
+  correct ; contrôle de l'autotest étendu (323/323).
 - 2026-11-19 (it. 2611, REVUE GÉNÉRALE) : 12 h : druide 65, moine 65, nécromancien 65 ; --perf : 19,3 / 19,5 %, mini 5,3 %, icône 0,7 % ;
   mode mini en japonais : propre ; texte russe : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2610, équilibrage) : ranger (62,7 au tableau de l'it. 2609) sur 4 graines de plus (21, 31, 41, 51) : 62, 65, 65, 65 ;

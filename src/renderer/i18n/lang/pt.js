@@ -2289,4 +2289,5 @@ export default {
   3414: "Oficina: “máx.” agora também aumenta a bolsa em todos os níveis com um clique.",
   3415: "Modo mini: a dica avisa “pronto para comprar!” quando o ouro basta para o próximo desbloqueio.",
   3416: "Itens deixados no chão por falta de espaço: o registro anota após uma ausência e as estatísticas guardam o total.",
+  3417: "← Mais recentes",
 };
