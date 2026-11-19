@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2521, REVUE GÉNÉRALE) : 12 h : druide 64, assassin 62, moine 62 (habituels) ; --perf : 20,0 / 19,5 %, mini 5,6 %,
+  icône 0,5 % ; Boutique en anglais à 1366 px (coffres achetables sac plein) : propre ; texte russe : aucun mot latin suspect, bulle
+  des coffres (it. 2515) traduite. Rien à corriger.
 - 2026-11-19 (it. 2520, contenu) : « Quoi de neuf » édition 155 (sac plein : remède en tête des choses à faire, coffre acheté sac
   plein, pièces précieuses jamais vendues ni perdues d'office ; it. 2514-2518) ; clés 3408-3410 dans les 9 langues (« Agrandir le sac »
   sans guillemets : le libellé du jeu est plus long). Autotest 320/320, lang-overflow all 1280 : 20 mesures, aucun défilement.
