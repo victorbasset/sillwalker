@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2611, REVUE GÉNÉRALE) : 12 h : druide 65, moine 65, nécromancien 65 ; --perf : 19,3 / 19,5 %, mini 5,3 %, icône 0,7 % ;
+  mode mini en japonais : propre ; texte russe : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2610, équilibrage) : ranger (62,7 au tableau de l'it. 2609) sur 4 graines de plus (21, 31, 41, 51) : 62, 65, 65, 65 ;
   sur 7 graines 63,6 (moyenne générale 65,1) : bruit, comme le nécromancien (63,3 sur 7, it. 2452) ; pas de réglage.
 - 2026-11-19 (it. 2609, contrôle) : hero-table HEROES=all 12 h, graines 7,3,11, avec le sac agrandi par le joueur simulé : moyenne 65,1
