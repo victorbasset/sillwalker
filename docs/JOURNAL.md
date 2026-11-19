@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2651, REVUE GÉNÉRALE) : 12 h : paladin 65, berserker 65, chaman 69 ; --perf (charge 4) : 19,8 / 19,0 %, mini 5,6 %,
+  icône 0,5 % ; Aventure en chinois (pastille « Poupouce ×10 » sans 。, it. 2631) propre ; texte chinois : aucun mot latin suspect.
+  Rien à corriger.
 - 2026-11-19 (it. 2650, contrôle) : SELFTEST_TIMES=1 : le contrôle du nom du boss (it. 2636, deux réglages, attente d'images) n'est pas
   parmi les 12 plus lents (< 2,3 s) ; en tête, toujours les trois attentes de la libération (5,6-5,8 s). 325/325.
 - 2026-11-19 (it. 2649, contrôle) : Réglages en anglais à 1280 px : propres (cinq colonnes, « Version 0.1.7 », « Automatic (very wide
