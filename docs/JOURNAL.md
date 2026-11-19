@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2541, REVUE GÉNÉRALE) : 12 h : gladiateur 65, chaman 69, arbalétrier 64 (habituels ; chaman en haut du tableau
+  depuis l'it. 2452) ; --perf : 19,5 / 19,2 %, mini 5,5 %, icône 0,5 % ; Aventure en coréen et mode mini en espagnol (« 447 mil M ») :
+  propres ; texte polonais : aucun mot français (« Le » = « Leśny », frontière de mot du motif). Rien à corriger.
 - 2026-11-19 (it. 2540, contrôle) : i18n-names après les éditions 155-156 (clés 3407-3413) : 25 écarts, les mêmes anciens faux
   positifs ; aucun dans les nouveaux textes.
 - 2026-11-19 (it. 2539, contenu) : « Quoi de neuf » édition 156 (moins de clics : déblocage acheté sur place, sort appris d'un clic,
