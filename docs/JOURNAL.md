@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2419, contrôle) : --crawl en coréen sur la fin de partie à graphe plein : aucune erreur.
 - 2026-11-19 (it. 2418, contrôle) : édition 153 en allemand à 1920 px (panel.showNews(152)) : trois nouveautés sur deux colonnes,
   lisibles, « Weiter ».
 - 2026-11-19 (it. 2417) : « Quoi de neuf » édition 153 (retouches de la nuit) : noms des Compétences lisibles, la surprise finale
