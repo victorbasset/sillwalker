@@ -259,6 +259,13 @@ test("traductions (it. 2067) : en anglais, chinois, japonais et coréen, le pour
   }
 });
 
+test("traductions (it. 2562-2563) : en japonais, pas de compteur « つ » après un nombre variable ou à deux chiffres", () => {
+  // « つ » ne compte que les petits nombres (jusqu'à 9) : « マスタリーの段階 18 つ » se lisait mal ; 件 ou 個 au-delà
+  const src = fs.readFileSync(new URL("../src/renderer/i18n/lang/ja.js", import.meta.url), "utf8");
+  const bad = src.match(/(\{[0-9a-z]+\}|[0-9]{2,}) ?つ/g) || [];
+  assert.equal(bad.length, 0, bad.slice(0, 3).join(" ; "));
+});
+
 test("talents : annuler le dernier clic (it. 2115), refusé s'il casserait un palier", () => {
   const g = new Game(freshState()); g.S.lvl = 80; g.S.talents[g.S.cls] = {}; g.invalidateStats();
   const tree = TREES[g.S.cls][0].talents, t0 = tree.find((t) => t.tier === 0), t1 = tree.find((t) => t.tier === 1);
