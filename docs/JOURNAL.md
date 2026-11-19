@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2461, REVUE GÉNÉRALE) : 12 h : druide 64, prêtresse 64, gardien 65 ; --perf : 20,1 / 19,1 %, mini 5,4 %, icône 0,6 % ;
+  Bestiaire en espagnol (fin de partie) : propre ; texte chinois : noms propres, touches, « Langue / Language » du sélecteur. Rien à corriger.
 - 2026-11-19 (it. 2460, contrôle) : mem-watch 10 min panneau ouvert : 573-606 Mo réels, plat (repère it. 2258 : 580-610).
 - 2026-11-19 (it. 2459, contrôle) : ampoule du mode mini : sa bulle donne le texte de l'astuce (« Un conseil t'attend… » + texte) ; conforme.
 - 2026-11-19 (it. 2458, contrôle) : early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages : identique à l'it. 2354.
