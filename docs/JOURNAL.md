@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2709, contrôle) : Statistiques en fin de partie, anglais à 1280 px : propres, titres des cartes sur une ligne (it. 2675).
+  Tour des onglets de la fin de partie terminé (it. 2704-2709).
 - 2026-11-19 (it. 2708, contrôle) : Compétences en fin de partie, anglais à 1280 px (arbre et grand graphe complets, 140 points en surplus) :
   propre. « Spend automatically » reste mis en avant avec tout complet : lié à la question des points en surplus, en attente de Victor.
 - 2026-11-19 (it. 2707, contrôle) : Quêtes en fin de partie, anglais à 1280 px (guilde rang 9, chasse « not here · zone 143 », quête 3 étoiles
