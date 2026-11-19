@@ -521,6 +521,9 @@ export class StripRenderer {
       } else {
         // En début de zone, la bulle passerait sur la pastille de zone (en haut à gauche) : on la décale à sa droite.
         if (this.bubbleW && this.hudLRight && bx - this.bubbleW / 2 < this.hudLRight + 4) bx = q(this.hudLRight + 4 + this.bubbleW / 2);
+        // (it. 2737) ni sur les barres de vie de la rangée (réglage hudBars, à la suite de la pastille) : vu sur une partie neuve,
+        // « Aïe… je reviens. » couvrait la fin de la barre du héros et le début de celle du monstre
+        if (this.bubbleW && this.hpBars) for (const [a, b] of this.hpBars) if (bx + this.bubbleW / 2 > a - 4 && bx - this.bubbleW / 2 < b + 4) bx = q(b + 4 + this.bubbleW / 2);
         // Près du bord droit : pas sur la pastille or / niveau.
         if (this.bubbleW && this.hudRLeft && bx + this.bubbleW / 2 > this.hudRLeft - 4) bx = q(this.hudRLeft - 4 - this.bubbleW / 2);
       }

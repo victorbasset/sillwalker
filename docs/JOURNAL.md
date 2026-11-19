@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2737) Bande : la bulle de parole du héros évitait la pastille de zone et celle de l'or, pas les barres de vie de la rangée
+  (hudBars, it. 1531) : « Aïe… je reviens. » couvrait la fin de la barre du héros et le début de celle du monstre (partie neuve, it. 2736).
+  Elle passe maintenant à droite d'une barre qu'elle chevaucherait (strip.js updateSpeech, hpBars). Mesure : bulle 760-866 px, barres
+  299-523 et 531-755 : plus de chevauchement. npm test 377, autotest 327/327.
 - 2026-11-19 (it. 2736, contrôle) : partie neuve en français, ≈ 30 min de jeu (--speed=10, 180 s) sans aucun clic : niveau 23, zone 10
   (record 11), sac plein, équipement vide (personne n'équipe) ; onglets ouverts au fil du jeu, « Acheter : Œil du connaisseur » toujours
   proposé. Aucune erreur. Détail : la bulle de parole du héros (« Aïe… je reviens. ») passe sur la rangée des barres de vie de la bande.
