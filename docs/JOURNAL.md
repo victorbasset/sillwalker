@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2470, contrôle) : info-probe en allemand à 1280 px : IPROBE 0.
 - 2026-11-19 (it. 2469, contrôle) : fuzz 1200 parties : 0 bloquée.
 - 2026-11-19 (it. 2468, contrôle) : --crawl d'une partie neuve en japonais : aucune erreur.
 - 2026-11-19 (it. 2467, performance) : panneau ouvert par onglet (perf.mjs --tab) : Carte 20,5 %, Bestiaire 18,7 %, Compétences 19,7 %,
