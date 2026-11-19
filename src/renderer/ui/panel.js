@@ -589,7 +589,7 @@ export class Panel {
     if (!list.length) return "";
     return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
       ${list.map((t) => t.id === "unlock" && t.uid // déblocage payable : acheté d'un clic, comme depuis la carte du héros
-        ? `<button class="linkbtn" data-action="goal-buy" data-id="${t.uid}">${esc(tx("Acheter : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
+        ? `<button class="linkbtn" data-action="goal-buy" data-id="${t.uid}">✦ ${esc(tx("Acheter : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : t.id === "merchant" && t.name // amélioration du marchand : achetée et équipée d'un clic
           ? `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="merchant">${esc(tx("Acheter et équiper : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)

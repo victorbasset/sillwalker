@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2640) « À faire maintenant » (résumé d'absence et carte du héros) : les actions faites d'un clic portent « ✦ », les
+  liens vers un onglet « → » ; « Acheter : Carte du voyageur (90 k or) » (it. 2614, achat direct) n'avait ni l'un ni l'autre : « ✦ »
+  ajouté. Vu en capture du résumé d'absence en anglais (3 h ; « Left on the ground (bag full) 13 » correct). Aucune édition « Quoi
+  de neuf » : une seule retouche visible depuis la 158 (bande à 1280 px), à regrouper avec les suivantes. npm test 376, autotest 325/325.
 - 2026-11-19 (it. 2639, contrôle) : bande à 3840 px en français (informations au milieu) : barres du héros et du monstre de part et
   d'autre, nom du boss entier au-dessus du boss, aucune erreur.
 - 2026-11-19 (it. 2638, contrôle) : --perf à 3840 px (informations au milieu par défaut, écran de Victor) après les it. 2633-2635 :
