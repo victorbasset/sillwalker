@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2513, contrôle) : Aventure en français : « Expérience 6,80 Md / 1,54e105 » vient du niveau 1 313 de dev-data
+  (commandes DEV) ; xpNeed reste en suffixes jusqu'au niveau ≈ 400 (7,84e32), fin de partie à 48 h : niveau 183 (5,15 Qa). Rien à corriger.
 - 2026-11-19 (it. 2512, contrôle) : mode mini en français et en coréen (complément de la revue 2511) : niveau, or, zone et série
   lisibles, boutons alignés ; rien à corriger.
 - 2026-11-19 (it. 2511, REVUE GÉNÉRALE) : 12 h : mage 66, nécromancien 62, samouraï 65 (habituels) ; --perf : 19,6 / 19,9 %, mini
