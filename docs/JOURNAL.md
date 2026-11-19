@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2656, contrôle) : sonde d'alignement des boutons voisins (celle de l'it. 2655) sur la partie de fin de partie et dev-data,
+  en russe à 1280 px, tous les onglets et sous-sections : 0 décalage.
 - 2026-11-19 (it. 2655) Autotest : « rangées centrées : boutons voisins alignés (tous les onglets) » : dans chaque rangée flex centrée de chaque
   onglet et sous-section (liste SUBS de main.js), les boutons voisins ont le même centre vertical (écart ≤ 2 px). Aucun autre décalage
   trouvé ; avec la feuille d'avant l'it. 2653 : ÉCHEC « shop/workshop wsline Δ4.2 ; Δ5.9 ; Δ4.1 ». npm test 376, autotest 326/326.
