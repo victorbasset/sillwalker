@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2522, doc) : POUR-VICTOR : section « Matin du 19/11 (it. 2514-2520) : sac plein, à juger » (sa règle gardée,
+  ce qui change autour, la question des objets forgés consommés par les automatismes).
 - 2026-11-19 (it. 2521, REVUE GÉNÉRALE) : 12 h : druide 64, assassin 62, moine 62 (habituels) ; --perf : 20,0 / 19,5 %, mini 5,6 %,
   icône 0,5 % ; Boutique en anglais à 1366 px (coffres achetables sac plein) : propre ; texte russe : aucun mot latin suspect, bulle
   des coffres (it. 2515) traduite. Rien à corriger.
