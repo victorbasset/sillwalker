@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2646, contrôle) : --crawl en anglais sur une copie de dev-data après les retouches du panneau et de la bande
+  (it. 2631-2640) : 527 clics en 18 s, aucune erreur.
 - 2026-11-19 (it. 2645, contrôle) : Talents et Compétences (grand graphe) en anglais à 1280 px : propres (« Coup de Grâce » : emprunt
   anglais voulu). Tour des onglets en anglais à 1280 px terminé (it. 2642-2645).
 - 2026-11-19 (it. 2644, contrôle) : Boutique (Marchand, sac plein : objets « Bag full », coffres achetables) et Carte (« Buy: Traveler's Map »)
