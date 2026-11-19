@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2576, contrôle) : desktopName (it. 2575) ne déplace pas la sauvegarde Linux : app.getPath("userData") reste
+  ~/.config/Sillwalker (petit programme Electron avec le package.json du jeu, HOME temporaire).
 - 2026-11-19 (it. 2575, Linux) : package.json « desktopName »: « sillwalker.desktop » (avertissement d'electron-builder à l'it. 2574 :
   sous Wayland, la fenêtre se relie au raccourci par ce nom ; le .desktop de l'AppImage 0.1.7 s'appelle bien sillwalker.desktop, avec
   StartupWMClass=Sillwalker pour X11). Linux seulement ; npm test, autotest 322/322.
