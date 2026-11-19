@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Nuit du 18 au 19/11 (it. 2369-2416) : petites retouches à voir en jouant
+## Nuit du 18 au 19/11 (it. 2369-2429) : petites retouches à voir en jouant
 
 - **Compétences** : les noms des nœuds passent toujours au-dessus des nœuds (un nœud voisin en cachait le début, « Охотник за
   сокровищами » en russe) et un peu plus grands (11 px, 12 pour le texte sous les pétales) : en russe à 1280 px, les mots avec « ж »
@@ -22,6 +22,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Libération (zone 200)** : jamais par-dessus un jeu ou une vidéo en plein écran, ni quand tu as réduit le jeu à son icône, ni
   session verrouillée : elle
   attend ton retour et se joue alors en entier ; 15 images/s en économie d'énergie et sur batterie.
+- **Boutons grisés** : chacun dit pourquoi au survol (« Équiper le meilleur » : rien de mieux dans le sac ; « Tout réinitialiser » :
+  rien de pris ; « Écouter » : effets sonores coupés ; Boutique, sac plein : une amélioration reste bloquée quand ta pièce actuelle
+  est précieuse, la bulle la nomme). L'autotest vérifie qu'aucun bouton grisé ne reste muet.
 - **Talents** : la colonne « Rang 400 » des bonus des paliers est assez large en chinois, japonais et coréen.
 - Contrôles de la nuit, tous propres : les 10 langues parcourues (clics), aucun défilement à 1920 et 1280 px, sauvegardes abîmées,
   parties bloquées ou figées, performance inchangée (bande ≈ 19,5 %).
