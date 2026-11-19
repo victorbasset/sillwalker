@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2724, contrôle) : info-probe (ⓘ cachés) sur la partie de fin de partie, allemand à 1366 px : IPROBE 0.
 - 2026-11-19 (it. 2723) CLAUDE.md : l'autotest tourne dans la langue de dev-data (anglais, pas le français annoncé) ; contrôle des libellés
   coupés par « … » (it. 2722) ajouté aux règles d'accessibilité ; 327 vérifications.
 - 2026-11-19 (it. 2722) Autotest : « aucun libellé coupé par « … » (1280 px, hors noms d'objets et bulles) » : tous les onglets, après
