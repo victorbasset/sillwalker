@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2573, contrôle) : Idées : les trois P3 attendent Victor ou sont mesurés. Partie neuve en français à 90 s : zone 2,
+  niveau 2, onglet Talents annoncé, scène d'Oorvin (point de talent) avec « clic : passer » : cohérent.
 - 2026-11-19 (it. 2572, contrôle) : sous-section des Statistiques invalide (page mêlée vue à l'it. 2571) : impossible pour un joueur
   (this.sec en mémoire seulement, « numbers » au lancement, changé par les seuls sous-onglets affichés). Rien à corriger.
 - 2026-11-19 (it. 2571, REVUE GÉNÉRALE) : 12 h : druide 64, lancier 66, assassin 62 (habituels) ; --perf : 21,9 / 20,6 % juste après
