@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2738) Bande : repoussée par la pastille de l'or, la bulle de parole du héros couvrait le nom du boss (« Rendez-moi cet
+  or ! », dev-data à 1920 px : bulle 1507-1637, nom 1488-1636). Elle passe maintenant à gauche du nom (bord réel, it. 2633) : bulle
+  1354-1484. L'annonce d'un événement (« Ruée des gobelins ! »), passagère, reste par-dessus la bande comme voulu. npm test 377, 327/327.
 - 2026-11-19 (it. 2737) Bande : la bulle de parole du héros évitait la pastille de zone et celle de l'or, pas les barres de vie de la rangée
   (hudBars, it. 1531) : « Aïe… je reviens. » couvrait la fin de la barre du héros et le début de celle du monstre (partie neuve, it. 2736).
   Elle passe maintenant à droite d'une barre qu'elle chevaucherait (strip.js updateSpeech, hpBars). Mesure : bulle 760-866 px, barres

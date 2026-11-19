@@ -526,6 +526,9 @@ export class StripRenderer {
         if (this.bubbleW && this.hpBars) for (const [a, b] of this.hpBars) if (bx + this.bubbleW / 2 > a - 4 && bx - this.bubbleW / 2 < b + 4) bx = q(b + 4 + this.bubbleW / 2);
         // Près du bord droit : pas sur la pastille or / niveau.
         if (this.bubbleW && this.hudRLeft && bx + this.bubbleW / 2 > this.hudRLeft - 4) bx = q(this.hudRLeft - 4 - this.bubbleW / 2);
+        // (it. 2738) ni sur le nom du boss (bord gauche réel, relu par updateHudBars, it. 2633) : repoussée par la pastille de l'or,
+        // « Rendez-moi cet or ! » le couvrait en fin de zone
+        if (this.bubbleW && this.bossL != null && bx + this.bubbleW / 2 > this.bossL - 4) bx = q(this.bossL - 4 - this.bubbleW / 2);
       }
       if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
