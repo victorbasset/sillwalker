@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2587, contrôle) : astuce « bagup » (« l'Atelier l'agrandit de 6 places ») : conditionnée à la ligne « Agrandir le sac »
+  de todoNow (sac plein, niveau restant, or suffisant) ; muette au maximum (48 places). Correct.
 - 2026-11-19 (it. 2586, contrôle) : tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire
   13-18, ascension 20-41 (inchangé). Tous les contrôles de rythme et d'équilibre du jour sont identiques aux repères.
 - 2026-11-19 (it. 2585, contrôle) : early-pace après les changements du jour : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
