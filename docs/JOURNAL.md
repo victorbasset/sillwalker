@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2591, REVUE GÉNÉRALE) : 12 h : ranger 64, prêtresse 64, gladiateur 65 (habituels) ; --perf (charge ≈ 2) : 19,4 / 19,9 %,
+  mini 5,6 %, icône 0,5 % ; mode mini en allemand : propre ; texte japonais : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2590, contrôle) : autotest relancé deux fois de suite (stabilité des contrôles des it. 2552-2553) : 322/322 les deux fois.
 - 2026-11-19 (it. 2589, doc) : README : règles du sac plein (sol, coffres, pièces précieuses, « Agrandir le sac » en tête).
 - 2026-11-19 (it. 2588, contrôle) : ligne « Sac plein » de « À faire » sans objet inutile : « Sac plein : le butin suivant restera au sol »
