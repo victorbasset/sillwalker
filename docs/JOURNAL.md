@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2670, contrôle) : early-pace : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages (identique à l'it. 2585) ;
+  first-minutes : premier objet à 42-82 s, premier boss à 70-82 s, 1er déblocage à 345-408 s.
 - 2026-11-19 (it. 2669, contrôle) : stall-check STALL_DAYMOD=all (sauvegardes avancées, une bénédiction par héros) : 60 parties, 0 figées.
 - 2026-11-19 (it. 2668, contrôle) : fuzz FUZZ_DAYMOD=all, 30 graines : 600 parties, 0 bloquées.
 - 2026-11-19 (it. 2667, contrôle) : save-fuzz FUZZ_BASE=0.1.2 (ancienne version migrée) : « ok balayage (1169 corruptions) ».
