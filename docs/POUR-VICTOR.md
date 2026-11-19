@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Nuit du 18 au 19/11 (it. 2369-2450) : petites retouches à voir en jouant
+## Nuit du 18 au 19/11 (it. 2369-2485) : petites retouches à voir en jouant
 
 - **Compétences** : les noms des nœuds passent toujours au-dessus des nœuds (un nœud voisin en cachait le début, « Охотник за
   сокровищами » en russe) et un peu plus grands (11 px, 12 pour le texte sous les pétales) : en russe à 1280 px, les mots avec « ж »
@@ -28,6 +28,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Accessibilité** : les puces de la carte du héros (bénédiction, panoplies, reliques, effets) se parcourent au clavier (Tab) et
   montrent leur bulle ; l'autotest vérifie que toute image a un texte de remplacement et que chaque bouton du panneau a un nom.
   À vérifier chez toi si tu joues au clavier : le contour doré autour d'une puce ne doit pas être rogné (impossible à capturer ici).
+- **Thème clair** : l'orange des objets légendaires est un peu plus foncé (il passait sous le contraste minimal sur les cartes) ;
+  un test vérifie désormais le contraste de toutes les couleurs de texte dans les deux thèmes.
 - **Talents** : la colonne « Rang 400 » des bonus des paliers est assez large en chinois, japonais et coréen.
 - Contrôles de la nuit, tous propres : les 10 langues parcourues (clics), aucun défilement à 1920 et 1280 px, sauvegardes abîmées,
   parties bloquées ou figées, performance inchangée (bande ≈ 19,5 %).
