@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2575, Linux) : package.json « desktopName »: « sillwalker.desktop » (avertissement d'electron-builder à l'it. 2574 :
+  sous Wayland, la fenêtre se relie au raccourci par ce nom ; le .desktop de l'AppImage 0.1.7 s'appelle bien sillwalker.desktop, avec
+  StartupWMClass=Sillwalker pour X11). Linux seulement ; npm test, autotest 322/322.
 - 2026-11-19 (it. 2574, contrôle) : construction Linux (AppImage, électron-builder) du code du jour dans un dossier temporaire
   (pas dans dist-itch : il aurait écrasé l'AppImage publiée de la 0.1.7, même numéro de version) : réussie, 140 Mo ; lancée 25 s avec
   un HOME temporaire : démarre et crée sa sauvegarde, aucune erreur avant l'arrêt forcé. Dossiers supprimés ensuite.
