@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2725, contrôle) : --perf avec un héros à distance (copie de dev-data, cls ranger) : bande 19,5 % contre 20,1 % pour le
+  guerrier sur la même copie : les projectiles ne coûtent rien de plus.
 - 2026-11-19 (it. 2724, contrôle) : info-probe (ⓘ cachés) sur la partie de fin de partie, allemand à 1366 px : IPROBE 0.
 - 2026-11-19 (it. 2723) CLAUDE.md : l'autotest tourne dans la langue de dev-data (anglais, pas le français annoncé) ; contrôle des libellés
   coupés par « … » (it. 2722) ajouté aux règles d'accessibilité ; 327 vérifications.
