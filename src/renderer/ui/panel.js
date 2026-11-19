@@ -220,7 +220,7 @@ export class Panel {
       </section>
       ${TABS.slice(1).map((t) => `<section class="tabpane" data-pane="${t.id}" hidden></section>`).join("")}
       <div class="modal" id="confirm" hidden>
-        <div class="panel" role="alertdialog" aria-modal="true" aria-labelledby="ct">
+        <div class="panel" role="alertdialog" aria-modal="true" aria-labelledby="ct" aria-describedby="cbody">
           <h2 id="ct"></h2>
           <p id="cbody"></p>
           <div class="row"><button data-action="confirm-ok" class="primary"></button><button data-action="confirm-cancel">${tx("Annuler")}</button></div>
