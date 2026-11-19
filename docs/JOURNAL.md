@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2618, doc) : autotest chronométré : ≈ 145 s pour 324 vérifications (CLAUDE.md).
 - 2026-11-19 (it. 2617, doc + contrôle) : README : retour aux plus récentes et notes des versions précédentes ; i18n-names après les
   clés 3417-3420 : 25 écarts, les mêmes anciens faux positifs.
 - 2026-11-19 (it. 2616, doc) : POUR-VICTOR : avec l'édition 158, la première page montre 156-158 (newsShown vérifié : 9 nouveautés) ;
