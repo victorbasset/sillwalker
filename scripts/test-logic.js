@@ -5024,4 +5024,20 @@ test("grand graphe allégé (it. 2332) : une ancienne sauvegarde garde ses nœud
   const full = JSON.parse(fs.readFileSync(new URL("./fixtures/endgame-save.json", import.meta.url), "utf8")); full.skills.graphFullSeen = true;
   assert.equal(migrate(full).skills.graphFullSeen, true, "graphe toujours complet : l'annonce reste vue");
 });
+test("couleurs du panneau (it. 2483-2484) : texte et raretés à 3:1 au moins sur le fond, dans les deux thèmes", () => {
+  const css = fs.readFileSync(new URL("../src/renderer/styles.css", import.meta.url), "utf8");
+  const L = (h) => { const c = [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]; };
+  const ratio = (a, b) => { const x = L(a), y = L(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+  // premier bloc de jetons (thème clair) puis le bloc sombre (« prefers-color-scheme: dark »)
+  const blocks = css.split(/@media \(prefers-color-scheme: dark\)/);
+  for (const [name, blk] of [["clair", blocks[0]], ["sombre", blocks[1]]]) {
+    const tok = Object.fromEntries([...blk.matchAll(/--(bg|panel|ink|muted|good|bad|accent|r[0-4]): (#[0-9a-fA-F]{6})/g)].map((m) => [m[1], m[2]]));
+    assert(tok.panel && tok.bg, "fonds trouvés (" + name + ")");
+    // les cartes ont un fond entre --panel et --bg : les deux sont mesurés (pire cas ; it. 2482 : 2,9:1 sur une carte de la Boutique)
+    for (const k of ["ink", "muted", "good", "bad", "accent", "r0", "r1", "r2", "r3", "r4"]) for (const f of ["panel", "bg"]) {
+      assert(tok[k], k + " défini (" + name + ")");
+      assert(ratio(tok[k], tok[f]) >= 3, `${k} ${tok[k]} sur --${f} ${tok[f]} (${name}) : ${ratio(tok[k], tok[f]).toFixed(2)} < 3`);
+    }
+  }
+});
 console.log(`\n${pass} tests réussis`);

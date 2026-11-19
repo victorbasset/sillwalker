@@ -5,11 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2484, test) : contraste des jetons (ink, muted, good, bad, accent, raretés) ≥ 3:1 sur --panel ET --bg, dans les deux
+  thèmes (test-logic). Vérifié qu'il attrape l'ancien orange (#c97a00 : 2,65:1 sur --bg) ; sur --panel seul il passait (3,16:1).
+  370 tests.
 - 2026-11-19 (it. 2483, accessibilité) : contraste des jetons de couleur sur --panel : thème clair ink 14,5, muted 6,2, good 4,1, bad 5,1,
   accent 4,7, raretés 3,7-5,1 (r4 4,4 depuis l'it. 2482) ; thème sombre 6,6-13,5. Tous au-dessus de 3:1.
 - 2026-11-19 (it. 2482, accessibilité) : sonde de contraste des textes (WCAG, < 3:1) dans les deux thèmes : faux positifs sur les fonds
-  en dégradé (Talents, étoiles des quêtes, vérifiés en capture) ; un vrai : légendaire en thème clair (--r4 #c97a00, 2,9:1 sur
-  #fcf8f0) foncé en #a96500 (4,4:1), capture de la Boutique : lisible. 319/319.
+  en dégradé (Talents, étoiles des quêtes, vérifiés en capture) ; un vrai : légendaire en thème clair (--r4 #c97a00, 2,9:1 sur une carte #f3ecdf, 3,2:1 sur
+  le panneau #fcf8f0, 2,65:1 sur --bg) foncé en #a96500 (3,65 à 4,4:1), capture de la Boutique : lisible. 319/319.
 - 2026-11-19 (it. 2481, REVUE GÉNÉRALE) : 12 h : arbalétrier 64, artificier 65, cryomancienne 65 ; --perf : 19,4 / 19,1 %, mini 5,5 %,
   icône 0,4 % ; Quêtes en allemand à 1920 px : propres. Rien à corriger.
 - 2026-11-19 (it. 2480, autotest) : contrôle « aucun identifiant HTML en double » (après le parcours des onglets). 319/319.
