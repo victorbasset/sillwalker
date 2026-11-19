@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2431, REVUE GÉNÉRALE) : 12 h : ranger 64, mage 66, barde 65 ; --perf : 19,4 / 19,5 %, mini 5,4 %, icône 0,7 % ;
+  Familiers en anglais : propres ; texte russe : seuls noms propres, touches et noms de langues. Rien à corriger.
 - 2026-11-19 (it. 2430, contrôle) : bulle de la Boutique en coréen (clé 3399, « {0}은(는) ») : koJosa garde « 는 » après voyelle
   (« 별철 투구는 ») et « 은 » après consonne (« 별철 갑옷은 »).
 - 2026-11-19 (it. 2429, doc) : POUR-VICTOR : boutons grisés expliqués (it. 2422-2427).
