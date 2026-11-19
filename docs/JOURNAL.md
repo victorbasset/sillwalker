@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2728, contrôle) : --perf sur batterie (20 images/s) : bande 15,2 % (repère 15,3 %) ; utilisateur absent (--idle,
+  10 images/s) : 9,9 % ; mode normal ≈ 19,6 % : les économies d'énergie tiennent.
 - 2026-11-19 (it. 2727, contrôle) : Bestiaire en japonais à 1280 px : propre (« オオト カゲ » : pas d'espace dans la traduction, écart de
   dessin de la police pixel ; aucune traduction japonaise de nom en deux mots séparés par une espace).
 - 2026-11-19 (it. 2726, contrôle) : bande avec --reduced-motion (réduire les animations du système) à 1920 px : propre, aucune erreur ;
