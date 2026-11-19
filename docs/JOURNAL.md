@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2622, contrôle) : mem-watch 10 min, panneau ouvert : 577 → 590 → 595 → 598 → 598 → 601 Mo, plat (repère 580-610) ;
+  pas de fuite après les changements du panneau du jour.
 - 2026-11-19 (it. 2621, REVUE GÉNÉRALE) : 12 h : lancier 65, samouraï 69, ranger 62 (graine 7, cf. it. 2610 : 63,6 sur 7 graines) ;
   --perf : 19,4 / 19,1 %, mini 5,4 %, icône 0,7 % ; notes de la 0.1.6 en allemand (« ← 0.1.5 » / « 0.1.7 → ») : propres ; texte russe :
   aucun mot latin suspect. Rien à corriger.
