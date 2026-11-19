@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2524, correction) : bulle du meilleur objet perdu (it. 2523) seulement si sa rareté est celle affichée
+  (sum.bestLostR === sum.best) : un objet gardé puis vendu ou transmuté pendant l'absence laissait « Légendaire · pas gardé » avec
+  le nom d'un objet moins rare. Revérifié (dev-data, 3 h) : « Épique · pas gardé » → « Couronne d'étoile du serment brisé ».
 - 2026-11-19 (it. 2523, plaisir de revenir) : résumé d'absence, « Meilleur butin : Rare · pas gardé » : le NOM de l'objet perdu en
   bulle (sum.bestLostName, applyOffline ; tabindex : bulle au clavier). Avant : seule la rareté, on ne savait pas ce qu'on avait
   manqué. Vérifié dans dev-data (3 h) : « Souliers de tissu céleste du loup gris ». Test, autotest 320/320.

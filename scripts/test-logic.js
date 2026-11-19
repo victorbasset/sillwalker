@@ -3930,6 +3930,7 @@ test("retour d'absence, sac plein : le nom du meilleur objet perdu est gardé po
   const sum = g.applyOffline(4 * 3600);
   assert.ok(sum.onGround > 0, "des objets restés au sol");
   assert.ok(typeof sum.bestLostName === "string" && sum.bestLostName.length > 0, JSON.stringify(sum.bestLostName));
+  assert.ok(sum.bestLostR >= 0 && sum.bestLostR <= sum.best, "rareté du meilleur perdu (it. 2524)");
 });
 
 test("hors ligne : plafond de 8 h allongé par la Lune, signalé quand il est atteint", () => {

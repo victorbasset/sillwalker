@@ -1579,7 +1579,7 @@ export class Game {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
-      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, bestLostName: bestLost ? itemName(bestLost) : null, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
+      capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, bestLostName: bestLost ? itemName(bestLost) : null, bestLostR: bestLost ? bestLost.r : -1, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
       goblins, poupouce, poupouceLeg: ppLeg, // (it. 1780) ; (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
     };
     // (it. 1353) victoires accordées (« 1 monstres vaincus ») et virgule de la langue (« 、 » en japonais)
