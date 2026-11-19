@@ -678,6 +678,12 @@ async function runSelfTest(strip) {
     const r = await js("new Promise((ok) => { const S = window.__game.S, st = window.__strip; const keep = S.settings.hudBars; S.settings.hudBars = true; st.updateHudBars(); const on = !document.querySelector('.hudbar.hero').hidden; S.settings.hudBars = false; st.updateHudBars(); const off = [...document.querySelectorAll('.hudbar')].every((x) => x.hidden); S.settings.hudBars = keep; st.updateHudBars(); ok(on + ' ' + off + ' ' + (st.W || 0)); })");
     check("bande : barres de vie en haut (réglage)", /^true true/.test(r) || (/^false true (\d+)/.test(r) && +r.split(" ")[2] < 1200), r);
   }
+  // (it. 2738) repoussée par la pastille de l'or, la bulle de parole du héros couvrait le nom du boss ; elle passe à sa gauche
+  {
+    const r = await js(`new Promise((ok) => { const st = window.__strip; if (!st.bossTag || !st.bossTag.isConnected || st.centerHud) { ok('sans objet'); return; } if (!st.active) { ok('bande inactive'); return; } st.saidAt = -1e9; st.bossLT = 0; st.updateHudBars(); st.say(["Rendez-moi cet or !"], true);
+      setTimeout(() => { const b = st.bubble.getBoundingClientRect(), t = st.bossTag.getBoundingClientRect(); st.bubbleT = 0; ok(b.width ? ((b.right > t.left && b.left < t.right && b.bottom > t.top && b.top < t.bottom) ? 'chevauche ' + Math.round(b.left) + '-' + Math.round(b.right) + ' / ' + Math.round(t.left) + '-' + Math.round(t.right) : 'ok') : 'bulle absente'); }, 600); })`);
+    check("bande : la bulle de parole du héros ne couvre pas le nom du boss", r === "ok" || r === "sans objet" || r === "bande inactive", r);
+  }
   // (it. 2633, 2635) la barre du monstre se règle sur le bord réel du nom du boss : jamais par-dessus, même avec un nom très
   // long, aux bords comme au milieu (réglage) ; au milieu, le nom ne passe pas non plus sous les boutons
   {
