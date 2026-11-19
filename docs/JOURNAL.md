@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2642, contrôle) : bulle de l'ampoule du mode mini (todoLabel, texte sans clic : pas de ✦ / → à y mettre) ;
+  Quêtes et Familiers en anglais à 1280 px : propres (« Great Exped… · 7 h 59 » coupé avec bulle, cas connu).
 - 2026-11-19 (it. 2641, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, nécromancien 65 ; --perf : 19,6 / 19,1 %, mini 5,6 %, icône 0,4 % ;
   mode mini en coréen (« Lv. 1313 », « 447B », « 지역 57 · 12/12 ») propre ; texte coréen : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2640) « À faire maintenant » (résumé d'absence et carte du héros) : les actions faites d'un clic portent « ✦ », les
