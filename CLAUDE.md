@@ -114,7 +114,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Options utiles (dev) : `--user-data=<dossier>`, `--tab=<onglet>`, `--mode=strip|mini`,
   `--shot=<fichier.png> --shot-delay=<ms>`, `--exit-after=<s>`, `--width=1366`,
   `--dump-text=<fichier>` (texte de chaque onglet, pour traquer les textes non traduits), `--demo`,
-  `--battery` (simule un portable sur batterie : 20 images/s), `--idle` (simule un utilisateur absent : 10 images/s).
+  `--battery` (simule un portable sur batterie : 20 images/s), `--idle` (simule un utilisateur absent : 10 images/s). `--reduced-motion` (simule « réduire les animations » du système : prefers-reduced-motion, it. 2488).
   `--release-ui` : cache les commandes de dev (DEV, ×1, ×3, ×10) pour des captures fidèles à la version distribuée.
   `--stage=<fichier.js>` : exécute un script dans la page (window.__game en dev) pour mettre en scène un état rare ;
   y écrire avec `console.warn` (seuls avertissements et erreurs de la page remontent dans la console, it. 1335).

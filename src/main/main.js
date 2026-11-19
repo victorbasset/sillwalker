@@ -23,6 +23,8 @@ registerScheme();
 app.commandLine.appendSwitch("autoplay-policy", "no-user-gesture-required");
 // Tests (--ghost) : la fenêtre est hors de l'écran ; sans ceci, Windows la croirait cachée et elle ne serait plus dessinée.
 if (process.argv.includes("--ghost")) app.commandLine.appendSwitch("disable-features", "CalculateNativeWinOcclusion");
+// (it. 2488, dev) --reduced-motion : simule le réglage système « réduire les animations » (prefers-reduced-motion)
+if (!app.isPackaged && process.argv.includes("--reduced-motion")) app.commandLine.appendSwitch("force-prefers-reduced-motion");
 
 if (!app.requestSingleInstanceLock()) {
   app.quit();
