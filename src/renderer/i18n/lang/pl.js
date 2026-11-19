@@ -2283,4 +2283,7 @@ export default {
   3408: "Pełna torba: powiększenie torby trafia na początek listy zadań (podsumowanie nieobecności, dymek ☰, tryb mini).",
   3409: "Sklep: skrzynię kupisz nawet z pełną torbą; najtańszy zbędny przedmiot ustępuje jej miejsca.",
   3410: "Pełna torba: przedmiot legendarny, z zestawu lub wykuty nigdy nie zostanie sprzedany ani utracony bez twojej zgody (skrzynie, Giermek).",
+  3411: "Odblokowanie pokazane poza sklepem (Mapa, Pupile, Umiejętności…) kupisz jednym kliknięciem na miejscu, gdy masz złoto.",
+  3412: "Do zrobienia: przystępne zaklęcie poznasz jednym kliknięciem, bez przechodzenia do karty bohaterów.",
+  3413: "Powrót po nieobecności: najlepszy utracony łup pokazuje swoją nazwę po najechaniu.",
 };

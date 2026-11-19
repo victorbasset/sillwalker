@@ -2283,4 +2283,7 @@ export default {
   3408: "Bolsa llena: agrandar la bolsa pasa a encabezar las tareas (resumen de ausencia, burbuja de ☰, modo mini).",
   3409: "Tienda: un cofre se compra aunque la bolsa esté llena; el objeto inútil más barato le deja su sitio.",
   3410: "Bolsa llena: una pieza legendaria, de conjunto o forjada ya nunca se vende ni se pierde sin que lo pidas (cofres, Ayuda de armas).",
+  3411: "Un desbloqueo anunciado fuera de la tienda (Mapa, Mascotas, Habilidades…) se compra con un clic allí mismo cuando tienes el oro.",
+  3412: "Tareas: un hechizo asequible se aprende con un clic, sin pasar por la pestaña de héroes.",
+  3413: "Regreso de una ausencia: el mejor botín perdido muestra su nombre al pasar el ratón.",
 };

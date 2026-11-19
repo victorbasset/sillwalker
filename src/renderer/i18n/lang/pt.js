@@ -2283,4 +2283,7 @@ export default {
   3408: "Bolsa cheia: aumentar a bolsa passa a liderar as tarefas (resumo da ausência, dica do ☰, modo mini).",
   3409: "Loja: um baú pode ser comprado mesmo com a bolsa cheia; o item inútil mais barato cede o lugar.",
   3410: "Bolsa cheia: uma peça lendária, de conjunto ou forjada nunca mais é vendida ou perdida sem você pedir (baús, Escudeiro de armas).",
+  3411: "Um desbloqueio anunciado fora da loja (Mapa, Mascotes, Habilidades…) é comprado com um clique ali mesmo quando você tem o ouro.",
+  3412: "Tarefas: um feitiço acessível é aprendido com um clique, sem passar pela aba dos heróis.",
+  3413: "Volta da ausência: o melhor saque perdido mostra o nome ao passar o mouse.",
 };

@@ -3412,5 +3412,8 @@ export const KEYS = [
   "Sac plein : {0} (inutile) sera vendu pour faire de la place.",
   "Sac plein : agrandir le sac passe en tête des choses à faire (résumé d’absence, bulle du ☰, mode mini).",
   "Boutique : un coffre s’achète même sac plein ; l’objet inutile le moins cher lui cède sa place.",
-  "Sac plein : une pièce légendaire, de panoplie ou forgée n’est plus jamais vendue ni perdue sans que tu le demandes (coffres, Valet d’armes)."
+  "Sac plein : une pièce légendaire, de panoplie ou forgée n’est plus jamais vendue ni perdue sans que tu le demandes (coffres, Valet d’armes).",
+  "Un déblocage annoncé ailleurs que dans la boutique (Carte, Familiers, Compétences…) s’achète d’un clic sur place quand tu as l’or.",
+  "Choses à faire : un sort abordable s’apprend d’un clic, sans passer par l’onglet des héros.",
+  "Retour d’absence : le meilleur butin perdu montre son nom au survol."
 ];

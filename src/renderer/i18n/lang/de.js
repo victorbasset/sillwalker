@@ -2283,4 +2283,7 @@ export default {
   3408: "Tasche voll: Tasche vergrößern steht jetzt ganz oben auf der Liste (Abwesenheitsübersicht, Blase von ☰, Mini-Modus).",
   3409: "Laden: Eine Truhe lässt sich auch mit voller Tasche kaufen; der billigste nutzlose Gegenstand macht ihr Platz.",
   3410: "Tasche voll: Ein legendäres, Set- oder geschmiedetes Teil wird nie mehr ungefragt verkauft oder verloren (Truhen, Waffenknecht).",
+  3411: "Eine außerhalb des Ladens angezeigte Freischaltung (Karte, Begleiter, Fertigkeiten…) kaufst du mit einem Klick direkt dort, wenn du das Gold hast.",
+  3412: "Zu tun: Ein bezahlbarer Zauber wird mit einem Klick gelernt, ohne Umweg über den Heldentab.",
+  3413: "Rückkehr: Die beste verlorene Beute zeigt beim Überfahren ihren Namen.",
 };

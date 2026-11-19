@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2539, contenu) : « Quoi de neuf » édition 156 (moins de clics : déblocage acheté sur place, sort appris d'un clic,
+  nom du butin perdu au survol ; it. 2523-2532) ; clés 3411-3413 dans les 9 langues (noms d'onglets tels que traduits). Autotest
+  320/320, lang-overflow all 1280 : aucun défilement.
 - 2026-11-19 (it. 2538, contrôle) : first-minutes après les changements du jour : premier objet 42-82 s, premier boss 70-82 s,
   zone 9-10 et niveau 16-17 (identiques aux relevés précédents).
 - 2026-11-19 (it. 2537, contrôle) : mémoire, point P3 de l'it. 2536 fermé : 64c16330 (avant le 19/11 matin, git worktree, même

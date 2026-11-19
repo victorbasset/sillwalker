@@ -2283,4 +2283,7 @@ export default {
   3408: "Bag full: enlarging the bag now tops the to-do list (away summary, ☰ tooltip, mini mode).",
   3409: "Shop: a chest can be bought even with a full bag; the cheapest useless item makes room for it.",
   3410: "Bag full: a legendary, set or forged piece is never sold or lost unless you ask (chests, Arms Valet).",
+  3411: "An unlock announced outside the shop (Map, Pets, Skills…) can be bought in one click right there when you have the gold.",
+  3412: "To-do: an affordable spell is learned in one click, without going to the heroes tab.",
+  3413: "Back from away: the best lost loot shows its name on hover.",
 };
