@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2472, contrôle) : stall-check : 60 parties, 0 figée.
 - 2026-11-19 (it. 2471, REVUE GÉNÉRALE) : 12 h : gladiateur 65, lancier 66, nécromancien 62 ; --perf : 19,4 / 19,7 %, mini 5,6 %, icône 0,6 % ;
   Carte en polonais (fin de partie, 1920 px) : propre. Rien à corriger.
 - 2026-11-19 (it. 2470, contrôle) : info-probe en allemand à 1280 px : IPROBE 0.
