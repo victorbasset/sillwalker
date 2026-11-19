@@ -1534,6 +1534,9 @@ async function runSelfTest(strip) {
         out.push(t + ":" + e.tagName + "." + e.className + " " + (e.dataset.action || e.dataset.tab)); } }
     P.setTab(keep); P.renderAll(); return out.length ? [...new Set(out)].slice(0, 4).join(" | ") : "ok"; })()`);
   check("clavier : tout élément cliquable est atteignable (Tab)", kbNo === "ok", kbNo);
+  // (it. 2479-2480) aucun identifiant HTML en double une fois tous les onglets construits
+  const dupId = await js("(() => { const c = {}; for (const e of document.querySelectorAll('[id]')) c[e.id] = (c[e.id] || 0) + 1; const d = Object.keys(c).filter((k) => c[k] > 1); return d.length ? d.slice(0, 5).join(',') : 'ok'; })()");
+  check("aucun identifiant HTML en double", dupId === "ok", dupId);
 
   // (it. 2119) touche Z dans les Talents : annule le dernier clic sur un talent
   const talZ = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl; S.lvl += 8; g.invalidateStats(); P.setTab('talents'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const sum = () => Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0); const s0 = sum(); const t = document.querySelector('[data-pane=talents] .talent.can:not(.voie)'); if (!t) { S.lvl = keepL; return 'aucun talent ouvert'; } t.click(); await new Promise((r) => setTimeout(r, 150)); const s1 = sum(); const ok = P.onKey ? P.onKey({ key: 'z', target: document.body, preventDefault() {} }) : 'pas de onKey'; await new Promise((r) => setTimeout(r, 100)); const s2 = sum(); S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; g.lastLearn = null; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return [s1 > s0, s2 === s0].join(' '); })()");

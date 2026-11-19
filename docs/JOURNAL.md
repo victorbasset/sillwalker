@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2480, autotest) : contrôle « aucun identifiant HTML en double » (après le parcours des onglets). 319/319.
 - 2026-11-19 (it. 2479, contrôle) : identifiants HTML en double après construction de tous les onglets (fin de partie) : aucun.
 - 2026-11-19 (it. 2478, doc) : CLAUDE.md : autotest ≈ 143 s pour 318 vérifications (mesuré).
 - 2026-11-19 (it. 2477, autotest) : contrôle « tout élément cliquable est atteignable au clavier » (tous les onglets). 318/318.
