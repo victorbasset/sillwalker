@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2409, bon voisin) : cinématique de libération à 15 images/s aussi sur batterie (music.onBattery) ; capture --battery
+  à 8 s : scène dessinée.
 - 2026-11-19 (it. 2408, bon voisin) : cinématique de libération : suit « Économie d'énergie » (15 images/s au lieu de 30 ; data.eco
   envoyé par app.js, pas de temps plafonné à 0,1 s au lieu de 0,06 pour garder la même vitesse). Capture en économie d'énergie à 8 s :
   scène normale (« Free! »). 307/307.
