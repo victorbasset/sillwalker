@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2589, doc) : README : règles du sac plein (sol, coffres, pièces précieuses, « Agrandir le sac » en tête).
 - 2026-11-19 (it. 2588, contrôle) : ligne « Sac plein » de « À faire » sans objet inutile : « Sac plein : le butin suivant restera au sol »
   (pas de « 0 objets ») ; pluriel par txn. Correct.
 - 2026-11-19 (it. 2587, contrôle) : astuce « bagup » (« l'Atelier l'agrandit de 6 places ») : conditionnée à la ligne « Agrandir le sac »
