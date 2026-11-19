@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2734, contrôle) : partie neuve en français à --speed=10 pendant 60 s (≈ 10 min de jeu), sans aucun clic : niveau 13,
+  zone 8, 18 objets dans le sac, tous signalés ▲ ; équipement vide souligné en vert, « double-clic : équiper », et le lien « Acheter : Œil
+  du connaisseur (300 or) » (bouton « Équiper le meilleur ») : le chemin vers l'équipement est indiqué. Aucune erreur. Détail : l'annonce
+  « Ruée des gobelins ! » passe sur un texte de la bande (« Mire… ») le temps de son affichage.
 - 2026-11-19 (it. 2733) docs/POUR-VICTOR.md : butin d'absence d'un débutant (it. 2731) ajouté sous le bug des nouveaux joueurs (it. 2730).
 - 2026-11-19 (it. 2732, contrôle) : après l'arrondi au hasard du butin d'absence (it. 2731) : save-fuzz « ok balayage (1267 corruptions) » ;
   IDLE=1 simulate 12 h guerrier : record 16 (repère it. 698 : 16 à 12 h).
