@@ -857,7 +857,7 @@ export class Panel {
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span>${tilePower(heroPower(hs))}</div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
-      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${events}${buffs}${relics}${day}${sets}</div>` : ""}
+      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${(events + buffs + relics + day + sets).replace(/<span class="chip/g, '<span tabindex="0" class="chip')}</div>` : ""}
       <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
