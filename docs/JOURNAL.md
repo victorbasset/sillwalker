@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2451, REVUE GÉNÉRALE) : 12 h : berserker 66, samouraï 65, chaman 69 ; --perf : 19,7 / 19,3 %, mini 5,4 %, icône 0,7 % ;
+  Talents en anglais et coréen à 1920 px : propres. Rien à corriger.
 - 2026-11-19 (it. 2450, doc) : POUR-VICTOR : accessibilité de la nuit (it. 2435-2448) et le contour de focus à vérifier chez lui.
 - 2026-11-19 (it. 2449, contrôle) : save-fuzz fin et 0.1.2 après la migration de l'it. 2405 : ok (1225, 1169 corruptions).
 - 2026-11-19 (it. 2448, contrôle) : contour de focus des puces non capturable ici (focus({focusVisible}) non pris en charge par cet
