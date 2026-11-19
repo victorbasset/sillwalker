@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2401, REVUE GÉNÉRALE) : 12 h : druide 64, chaman 69, artificier 65 ; --perf : 20,5 / 19,9 %, mini 5,4 %, icône 0,8 %
+  (deux Electron de test encore ouverts avant la mesure : chiffres dans les repères) ; Aventure en anglais et coréen à 1920 px : propre.
+  Rien à corriger.
 - 2026-11-19 (it. 2400, contrôle) : avec la fin de partie à graphe plein : stall-check STALL_DAYMOD=all 60 parties, 0 figée ;
   fuzz FUZZ_DAYMOD=all 1200 parties, 0 bloquée.
 - 2026-11-19 (it. 2399, contrôle) : mode mini de la fin de partie en allemand et russe : niveau, or (6,57 Qi), zone sur une ligne,
