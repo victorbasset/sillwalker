@@ -290,6 +290,7 @@ class StripWindow {
   setLocked(locked) {
     this.locked = locked;
     this.send("visibility", this.renderVisible());
+    this.onLocked?.(locked); // (it. 2415) main.js : la libération attend le retour du joueur
   }
 }
 

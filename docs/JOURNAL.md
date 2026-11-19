@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2415, bon voisin) : libération : une seule règle, finaleGate (main.js) : jouée seulement si strip.renderVisible()
+  (ni plein écran, ni icône, ni session verrouillée : StripWindow.onLocked ajouté) ; sinon attente puis jouée 1,5 s après le retour.
+  Contrôle de la session verrouillée. 310/310.
 - 2026-11-19 (it. 2414, contrôle) : libération et absence : applyOffline farme la zone en cours sans boss (monsterBase(S.zone, false)) :
   le Briseur ne tombe jamais hors ligne, la scène ne peut pas surgir au lancement sous le résumé d'absence.
 - 2026-11-19 (it. 2413, doc) : FINALE.md et POUR-VICTOR : retouches « bon voisin » de la libération (it. 2408-2412).

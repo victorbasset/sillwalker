@@ -34,7 +34,7 @@
 - it. 2345 : coût mesuré (temps processeur de l'arbre Electron sur 22 s, rendu logiciel) : 5 s sans la scène, 27 s avec ;
   demi-résolution agrandie sans lissage + 30 images/s : 14 s (≈ 40 % d'un cœur pour la scène, surtout la composition d'une
   fenêtre transparente plein écran ; bien moins avec une carte graphique ; 26 s une seule fois). Mode mini : s'ouvre et se ferme.
-- it. 2408-2412 (bon voisin) : 15 images/s en « Économie d'énergie » et sur batterie (data.eco) ; jamais par-dessus une
-  application en plein écran ni quand le jeu est réduit à son icône : main.js la met en attente (finalePending) et la joue 1,5 s
+- it. 2408-2415 (bon voisin) : 15 images/s en « Économie d'énergie » et sur batterie (data.eco) ; jamais par-dessus une
+  application en plein écran, ni jeu réduit à son icône, ni session verrouillée (strip.renderVisible, it. 2415) : main.js la met en attente (finalePending) et la joue 1,5 s
   après le retour de la bande ; si le plein écran commence ou si l'on réduit pendant la scène, elle se ferme et sera rejouée en
   entier (StripWindow.onFullscreen / onModeChange). Autotest : deux contrôles en fin de parcours.

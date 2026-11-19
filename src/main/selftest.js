@@ -1733,6 +1733,14 @@ async function runSelfTest(strip) {
   await strip.setMode("strip");
   const icAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
   check("libération : attend que la bande revienne quand le jeu est réduit à son icône", icBlocked && icAfter === "true true", icBlocked + " / " + icAfter);
+  // (it. 2415) session verrouillée : la libération attend le retour du joueur
+  strip.setLocked(true); await sleep(200);
+  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await sleep(1500);
+  const lkBlocked = !(await js("window.sillwalker.finaleOpen()"));
+  strip.setLocked(false);
+  const lkAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
+  check("libération : attend le déverrouillage de la session", lkBlocked && lkAfter === "true true", lkBlocked + " / " + lkAfter);
 
   await click("#menu-btn");
   await sleep(400);

@@ -165,15 +165,17 @@ function start() {
     // (it. 2410, bon voisin) jamais par-dessus un jeu ou une vidéo en plein écran : la scène attend la fin du plein écran (ou
     // s'interrompt s'il commence pendant qu'elle se joue) puis se joue (de nouveau) en entier
     let finalePending = null, finaleLast = null;
-    strip.onFullscreen = (on) => {
-      if (on) { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } }
-      else if (finalePending && strip.isShown()) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden && strip.isShown()) playFinaleWin(d); else finalePending = d; }, 1500); }
+    // (it. 2415) une seule règle : la scène ne se joue que si la bande est réellement affichée (renderVisible : ni plein écran,
+    // ni jeu réduit à son icône, ni session verrouillée) ; appelée à chaque changement de ces états
+    const finaleGate = () => {
+      if (!strip.renderVisible()) { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } return; }
+      if (!finalePending) return;
+      const d = finalePending; finalePending = null;
+      setTimeout(() => { if (strip.renderVisible()) playFinaleWin(d); else finalePending = d; }, 1500);
     };
-    // (it. 2412) jeu réduit à son icône (bande cachée par le joueur) : la scène attend que la bande revienne
-    strip.onModeChange = (mode) => {
-      if (mode === "icon") { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } }
-      else if (finalePending && !strip.fsHidden) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden && strip.isShown()) playFinaleWin(d); else finalePending = d; }, 1500); }
-    };
+    strip.onFullscreen = finaleGate;
+    strip.onModeChange = finaleGate;
+    strip.onLocked = finaleGate;
     const playFinaleWin = (data) => {
       finaleLast = data;
       const fw = finale.openFinale({ strip, preload: path.join(__dirname, "..", "preload", "preload.js"), url, ghost: flags.ghost && !flags.finaleShot }, data);
@@ -181,7 +183,7 @@ function start() {
     };
     ipcMain.on("finale:play", (_e, data) => {
       if (!data || typeof data !== "object") return;
-      if (strip.fsHidden || !strip.isShown()) { finalePending = data; return; }
+      if (!strip.renderVisible()) { finalePending = data; return; }
       playFinaleWin(data);
     });
     ipcMain.on("finale:end", () => finale.closeFinale());
