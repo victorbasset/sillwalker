@@ -25,8 +25,9 @@ export class PetsTab {
       // (it. 714, signalé par Victor) de retour : le bouton seul, sur toute la largeur de la carte (la phrase et le
       // bouton côte à côte sortaient de la carte) ; « De retour de … ! » en infobulle
       if (done) return `<div class="expe done"><button class="primary" data-action="p-claim" data-id="${p.id}" title="${esc(tx("De retour de {0} !", { 0: lc(ex.name) }))}">${tx("Récupérer le butin")}</button></div>`;
-      // Une ligne (demande 18) : « Voyage · 2 h 10 », la phrase complète en infobulle.
-      return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `<i class="exn">${esc(ex.name)}</i> · <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
+      // Une ligne (demande 18) : « ⏳ 2 h 10 », le nom et la phrase complète en infobulle (it. 2716 : « Große Expedition » / « Great Exped… »
+      // étaient coupés sur chaque carte, à côté de « Emmener »)
+      return `<div class="expe${done ? " done" : ""}" title="${esc(tx("En {0} · retour dans", { 0: lc(ex.name) }))}…"><span>${done ? `${tx("De retour de {0} !", { 0: esc(lc(ex.name)) })}` : `<i class="exn" aria-label="${esc(ex.name)}">⏳</i> <b data-exp="${p.id}">${left(e.end - Date.now())}</b>`}</span>
         ${done ? `<button class="primary" data-action="p-claim" data-id="${p.id}">${tx("Récupérer le butin")}</button>` : `<button class="quiet" data-action="p-set" data-id="${p.id}" title="${esc(tx("Rappelle ce familier de son expédition, sans butin, et l’emmène."))}">${tx("Emmener")}</button>`}</div>`;
       // (it. 2208, demande de Victor) « Emmener » dans le cadre de l'expédition en cours : rappel sans butin, sur la même ligne (aucune
       // hauteur en plus, aligné sur toutes les cartes)

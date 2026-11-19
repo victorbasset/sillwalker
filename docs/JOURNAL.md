@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2716) Familiers : le nom de l'expédition en cours était coupé sur CHAQUE carte (« Große Expedition » / « Great Exped… »,
+  sonde des textes à « … » sur tous les onglets, allemand à 1280 px : 19 cartes). La ligne affiche « ⏳ 7 Std. 59 » (nom en infobulle, déjà
+  là, et en aria-label) ; « Emmener » reste sur la même ligne (demande de l'it. 2208). Capture propre. npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2715, contrôle) : sonde des textes coupés par « … » (text-overflow, après document.fonts.ready) sur le premier écran
   d'une partie neuve à 1280 px (fr, de, ru, pl, es) : 0 (avant l'it. 2697, « Handschuhe: leer » l'était). Sonde vérifiée : 13 sur dev-data
   en allemand (noms d'objets longs, avec bulle).
