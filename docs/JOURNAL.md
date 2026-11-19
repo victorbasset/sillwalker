@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2710, contrôle) : --crawl en coréen sur la partie de fin de partie après les retouches de la soirée : 702 clics en 25 s, aucune erreur.
 - 2026-11-19 (it. 2709, contrôle) : Statistiques en fin de partie, anglais à 1280 px : propres, titres des cartes sur une ligne (it. 2675).
   Tour des onglets de la fin de partie terminé (it. 2704-2709).
 - 2026-11-19 (it. 2708, contrôle) : Compétences en fin de partie, anglais à 1280 px (arbre et grand graphe complets, 140 points en surplus) :
