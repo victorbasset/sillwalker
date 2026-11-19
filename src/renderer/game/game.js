@@ -2835,10 +2835,10 @@ export class Game {
     if (u && unlockAvailable(S, u) && S.gold >= u.price) out.push({ id: "unlock", n: 1, tab: "shop", name: u.name, uid: u.id, price: u.price });
     // Sort abordable du héros, pas encore appris (Héros > Sorts et attaque)
     const rec = recordZone(S), sp1 = classSpells(S.cls).find((x) => rec >= x.zone && !spellRank(S, x.id) && S.gold >= spellPrice(x, 0));
-    if (sp1) out.push({ id: "spell", n: 1, tab: "class", sec: "style", name: sp1.name });
+    if (sp1) out.push({ id: "spell", n: 1, tab: "class", sec: "style", name: sp1.name, sid: sp1.id }); // (it. 2532) sid : appris d'un clic
     // (it. 565) sort du compagnon débloqué, abordable, pas encore appris
     const sp2 = !sp1 && S.partner && classSpells(S.partner).find((x) => rec >= x.zone && !spellRank(S, x.id) && S.gold >= spellPrice(x, 0));
-    if (sp2) out.push({ id: "partnerSpell", n: 1, tab: "class", sec: "style", name: sp2.name });
+    if (sp2) out.push({ id: "partnerSpell", n: 1, tab: "class", sec: "style", name: sp2.name, sid: sp2.id });
     // (it. 868) éclats d'étoile gagnés hors ascension (quêtes, pluie d'éclats) ou laissés : un rang de constellation abordable
     if (this.constellationAffordable()) out.push({ id: "stars", n: S.prestige.shards, tab: "ascension" });
     // (it. 908) pas quand le Grand intendant les fait éclore lui-même (comme les familiers libres, it. 876)

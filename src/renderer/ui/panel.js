@@ -634,7 +634,8 @@ export class Panel {
     return (t.id === "quests" && hasUnlock(S, "questDesk")) || ((t.id === "eggs" || t.id === "expeditions" || t.id === "idlePets") && hasUnlock(S, "petBulk"))
       || (t.id === "upgrade" && hasUnlock(S, "bulkEquip")) || t.id === "setFinish" || (t.id === "bagFull" && t.n > 0 && hasUnlock(S, "bulkEquip"))
       || ((t.id === "talents" || t.id === "skills") && hasUnlock(S, "bulkPoints")) // Manuel du stratège : tout dépenser d'un clic
-      || t.id === "bagUp"; // (it. 2269) agrandir le sac : achat d'un clic (comme dans l'Atelier)
+      || t.id === "bagUp" // (it. 2269) agrandir le sac : achat d'un clic (comme dans l'Atelier)
+      || ((t.id === "spell" || t.id === "partnerSpell") && !!t.sid); // (it. 2532) sort abordable : appris d'un clic (comme dans Héros > Sorts)
   }
 
   /** Exécute une action de « À faire maintenant » (le résumé reste ouvert, la ligne passe à ✓). */
@@ -643,6 +644,7 @@ export class Panel {
     if (what === "quests") { for (const q of [...g.S.quests.slots]) if (questDone(q)) g.claimQuest(q.uid); }
     else if (what === "eggs") g.hatchAll();
     else if (what === "bagUp") g.buyUpgrade("bag");
+    else if (what === "spell" || what === "partnerSpell") { const t = g.todoNow().find((x) => x.id === what); if (t && t.sid) g.learnSpell(t.sid); }
     else if (what === "expeditions") g.claimAllExpeditions();
     else if (what === "idlePets") g.sendAllExpeditions(EXPEDITIONS[g.S.pets.lastKind] ? g.S.pets.lastKind : "long"); // même choix que le Grand intendant
     else if (what === "upgrade") g.autoEquip();

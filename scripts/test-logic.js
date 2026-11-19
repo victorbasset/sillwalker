@@ -1257,7 +1257,7 @@ test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés �
   const t = new Game(freshState()); t.S.cls = "warrior"; t.S.best = t.S.zone = 12; t.S.gold = 1e12; t.S.tabsOpen = { ...(t.S.tabsOpen || {}), class: true };
   t.S.settings.hints = Object.fromEntries(M_hints_js.HINTS.filter((x) => x.id !== "spell").map((x) => [x.id, true]));
   const ht = nextHint(t); assert.ok(ht && ht.id === "spell" && ht.tab === "class" && ht.sec === "style", "astuce du sort : " + (ht && ht.id));
-  const td = t.todoNow().find((x) => x.id === "spell"); assert.ok(td && td.tab === "class" && td.sec === "style", "« À faire » : sort à apprendre");
+  const td = t.todoNow().find((x) => x.id === "spell"); assert.ok(td && td.tab === "class" && td.sec === "style", "« À faire » : sort à apprendre"); assert.equal(td.sid, "warrior.0", "(it. 2532) son identifiant, pour l'apprendre d'un clic");
   t.learnSpell("warrior.0"); const ht2 = nextHint(t); assert.ok(!ht2 || ht2.id !== "spell", "sort appris : plus d'astuce"); assert.ok(!t.todoNow().some((x) => x.id === "spell" && x.name === "Tourbillon"), "Tourbillon appris : plus dans « À faire »");
   assert.deepEqual(ACH_PROGRESS.SPELLS_ALL3(t.S), [1, 3], "Grimoire complet : 1 sort sur 3");
   { const m = SPELL_INDEX_T["mage.2"]; assert.deepEqual([1, 9, 10, 25, 50].map((r) => spellCd(m, r)), [20, 20, 18, 16, 10], "recharge : -10 % tous les 10 rangs"); }
