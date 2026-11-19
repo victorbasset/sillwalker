@@ -840,7 +840,8 @@ export class Panel {
     // (it. 957, 1273, 1413) bénédiction qui ne sert pas encore : quand arrivent élites, champions ou sorts (it. 1415 : partagé
     // avec la bulle du mode mini)
     const dmNotes = dayModNotes(S, dm).map((x) => "\n" + x).join("");
-    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}${dmNotes}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc)}</span>` : "";
+    // (it. 2631) sans le point final, comme les autres pastilles (la bulle garde la phrase entière)
+    const day = dm ? `<span class="chip daymod" title="${esc(`${dm.icon} ${dm.name} · ${dm.desc}${dmNotes}\n${tx("Bénédiction du jour : change chaque jour à minuit.")}${dmNext ? "\n" + tx("Demain : {0}", { 0: `${dmNext.icon} ${dmNext.name} · ${dmNext.desc}` }) : ""}`)}">${dm.icon} ${esc(dm.desc.replace(/[.。]$/, ""))}</span>` : "";
     // Duo (demande 17) : le compagnon à côté du héros ; un clic mène à l'onglet Héros.
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);

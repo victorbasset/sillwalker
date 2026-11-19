@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2631, REVUE GÉNÉRALE) : 12 h : moine 65, prêtresse 64, artificier 64 ; --perf : 20,3 / 19,3 %, mini 5,3 %,
+  icône 0,6 % ; texte japonais : aucun mot latin suspect. Capture de l'Aventure en japonais : la pastille de la bénédiction du jour
+  finissait par « 。 » (« Poupouce ×10。 ») ; en français aussi par un point : retiré du texte de la pastille (panel.js ; la bulle
+  garde la phrase), comme les pastilles d'événements. npm test 376, autotest 324/324.
 - 2026-11-19 (it. 2630, contrôle) : i18n-names : 25 écarts, tous anciens (déclinaisons allemandes et coréennes, tournures voulues) ;
   aucun parmi les clés du jour (3395-3421).
 - 2026-11-19 (it. 2629, contrôle) : stall-check (sauvegardes avancées, 20 héros) : 60 parties, 0 figées.
