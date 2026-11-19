@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2557, doc + contrôle) : POUR-VICTOR : bulle du mode mini ; bande en russe (nom du boss, or, niveau) : propre.
 - 2026-11-19 (it. 2556, contrôle) : autres « or possédé / prix » du prochain déblocage : seulement la carte du héros (déjà « cliquer
   pour l'acheter » quand l'or suffit) et le mode mini (corrigé it. 2555). Rien d'autre.
 - 2026-11-19 (it. 2555, lisible d'un coup d'œil) : bulle du mode mini, or suffisant : « Prochain déblocage : Carte du voyageur · 90 k or ·

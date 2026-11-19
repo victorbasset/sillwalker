@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Matin du 19/11 (it. 2514-2550) : sac plein, à juger ; et deux commodités
+## Matin du 19/11 (it. 2514-2557) : sac plein, à juger ; et deux commodités
 
 Ta règle « sac plein : l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
 - « À faire maintenant » (résumé d'absence, bulle du ☰, mode mini) : sac plein → « Agrandir le sac » puis « Sac plein : N objets
@@ -26,6 +26,7 @@ Ta règle « sac plein : l'objet reste au sol, tant pis » est gardée pour le b
 - « À faire maintenant » : « ✦ Sort à apprendre : X » apprend le sort d'un clic sur place (it. 2532 ; avant, il ouvrait Héros > Sorts).
 - Journal : après une absence sac plein, « Sac plein, objets laissés au sol : N. » reste écrit (it. 2542).
 - Atelier : « Sac plus grand » a son bouton « max » comme les autres lignes (it. 2549).
+- Mode mini, bulle de la 💡 : « Prochain déblocage : X · 90 k or · prêt à acheter ! » quand l'or suffit (it. 2555 ; avant « 447 Md / 90 k or »).
 - Pas changé, à toi de dire : le Creuset et la vente automatique des inutiles consomment les objets FORGÉS devenus inutiles
   (le Marchand vend des objets déjà forgés : les garder boucherait le sac).
 
