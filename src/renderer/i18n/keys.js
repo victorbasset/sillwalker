@@ -3426,5 +3426,6 @@ export const KEYS = [
   "Notes de cette version et des précédentes (← / →)",
   "Bande sur un écran de portable : la barre de vie du monstre s’affiche dès que le nom du boss laisse la place, et ce nom ne passe plus sous les boutons.",
   "Statistiques et Réglages : sur un écran de portable, les titres des cartes tiennent sur une ligne.",
-  "Atelier : le prix et le bouton « max » sont alignés ; dans « À faire maintenant », l’achat d’un déblocage porte le ✦ des actions d’un clic."
+  "Atelier : le prix et le bouton « max » sont alignés ; dans « À faire maintenant », l’achat d’un déblocage porte le ✦ des actions d’un clic.",
+  "vide"
 ];

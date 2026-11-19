@@ -2297,4 +2297,5 @@ export default {
   3422: "Strip on a laptop screen: the monster's health bar shows as soon as the boss name leaves room, and that name no longer slips under the buttons.",
   3423: "Statistics and Settings: on a laptop screen, card titles fit on one line.",
   3424: "Workshop: the price and the “max” button are aligned; in “Things to do now”, buying an unlock wears the ✦ of one-click actions.",
+  3425: "empty",
 };

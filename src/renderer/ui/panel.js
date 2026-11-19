@@ -951,7 +951,8 @@ export class Panel {
         const e = S.equip[k];
         return `<li class="eqline">${this.slotBtn(e, k, "equip")}<div class="si">${e
           ? `<div class="nm rc${e.r}">${esc(itemName(e))}${e.plus ? " +" + e.plus : ""}</div><div class="sub">${SLOTS[k].name}${tx(", niveau {0}{1}", { 0: e.il, 1: e.power && POWER_INDEX[e.power] ? ` · ★ ${esc(POWER_INDEX[e.power].name)}` : "" })}</div>`
-          : `<div class="nm empty">${tx("{0} : vide", { 0: SLOTS[k].name })}</div>`}</div></li>`;
+          // (it. 2697) vide : sur deux lignes comme un objet porté (allemand à 1280 px : « Handschuhe: le… » coupé sur une partie neuve)
+          : `<div class="nm empty">${SLOTS[k].name}</div><div class="sub">${tx("vide")}</div>`}</div></li>`;
       }).join("");
       // Demande E de Victor : « clique un objet » ne disait pas pourquoi : on dit ce que fait le clic.
       // (it. 957) l'aide « clic sur un objet » n'a de sens qu'une fois un objet porté (partie neuve : rien à cliquer)

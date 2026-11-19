@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2697) Équipement, emplacement vide : « Handschuhe: le… » coupé en allemand à 1280 px sur une partie neuve (premier écran
+  d'un nouveau joueur). Affiché maintenant sur deux lignes comme un objet porté : nom de l'emplacement, puis « vide » (clé 3425, 9 langues ;
+  la bulle garde « {0} : vide »). Capture : les 7 emplacements lisibles. npm test 376, autotest 326/326, lang-overflow all 1280 : aucun.
 - 2026-11-19 (it. 2696, contrôle) : hero-table HEROES=all, 12 h, graines 7/3/11 : moyenne 65,1, écart 5,0 zones (samouraï, gladiateur,
   gardien des étoiles 67,7 en tête) : identique au repère de l'it. 2609.
 - 2026-11-19 (it. 2695, contrôle) : mem-watch 10 min, mode mini : 508 / 501 / 512 / 502 / 504 / 517 Mo, plat (repère it. 2293 : 505-518).

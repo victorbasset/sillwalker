@@ -2297,4 +2297,5 @@ export default {
   3422: "Banda en una pantalla de portátil: la barra de vida del monstruo aparece en cuanto el nombre del jefe deja sitio, y ese nombre ya no pasa bajo los botones.",
   3423: "Estadísticas y Ajustes: en una pantalla de portátil, los títulos de las tarjetas caben en una línea.",
   3424: "Taller: el precio y el botón «máx.» están alineados; en «Qué hacer ahora», la compra de un desbloqueo lleva el ✦ de las acciones de un clic.",
+  3425: "vacío",
 };

@@ -2297,4 +2297,5 @@ export default {
   3422: "Pasek na ekranie laptopa: pasek życia potwora pojawia się, gdy tylko imię bossa zostawia miejsce, a to imię nie wchodzi już pod przyciski.",
   3423: "Statystyki i Ustawienia: na ekranie laptopa tytuły kart mieszczą się w jednej linii.",
   3424: "Warsztat: cena i przycisk „maks.” są wyrównane; w „Do zrobienia teraz” zakup odblokowania nosi ✦ akcji jednym kliknięciem.",
+  3425: "pusto",
 };
