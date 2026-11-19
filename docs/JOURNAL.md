@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2509, contrôle) : i18n-names après l'édition 154 (clés 3403-3406) : 25 écarts, les mêmes anciens faux positifs ;
+  aucun dans les nouveaux textes.
 - 2026-11-19 (it. 2508, contrôle) : après l'édition 154, lang-overflow all 1280 (« Quoi de neuf » au pire cas compris) : 20 mesures,
   aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2507, contenu) : « Quoi de neuf » édition 154 (confort et accessibilité : bulles des boutons grisés, puces au
