@@ -17,6 +17,7 @@
   };
 
   async function play(d) {
+    if (d.lang) document.documentElement.lang = d.lang; // (it. 2494) finale.html part en « fr » ; la scène parle la langue du joueur
     // (it. 2345, --perf) demi-résolution agrandie sans lissage (pixel art : invisible) et 30 images par seconde : la scène
     // plein écran en pleine résolution à 60 images/s coûtait un cœur entier en rendu logiciel (22 s de processeur sur 22)
     const RES = 0.5, W = d.width || innerWidth, H = d.height || innerHeight;

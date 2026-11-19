@@ -598,6 +598,7 @@ async function boot() {
       partner: ps ? { walk1: ps.walk1.toDataURL(), walk2: ps.walk2.toDataURL() } : null,
       from, texts: { title: tx("Libre !"), sub: tx("Le Rebord ne te retient plus.") }, duration: window.__finaleMs || 26000,
       eco: !!S.settings.eco || !!music.onBattery, // (it. 2409) sur batterie aussi
+      lang: document.documentElement.lang || "en", // (it. 2494) langue de la page (lecteurs d’écran), celle de la bande
     });
   };
   if (init.isDev) window.__playFinale = playFinale; // autotest et captures
