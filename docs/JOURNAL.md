@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2511, REVUE GÉNÉRALE) : 12 h : mage 66, nécromancien 62, samouraï 65 (habituels) ; --perf : 19,6 / 19,9 %, mini
+  5,4 %, icône 0,7 % ; « Quoi de neuf » en japonais (éditions 153-154, --stage panel.showNews) : propre ; texte russe : aucun mot latin
+  suspect (« --- attributs » = repère de l'extraction, « Poupouce » = nom d'un familier). Rien à corriger.
 - 2026-11-19 (it. 2510, contrôle) : durée de l'autotest examinée (SELFTEST_TIMES, voir Idées) : rien à raccourcir sans toucher au
   code distribué ; 320/320 trois fois de suite.
 - 2026-11-19 (it. 2509, contrôle) : i18n-names après l'édition 154 (clés 3403-3406) : 25 écarts, les mêmes anciens faux positifs ;
