@@ -2273,4 +2273,5 @@ export default {
   3398: "A tip reminds you that clicking a faraway node of the great graph takes the shortest path.",
   3399: "Bag full: your current piece, {0}, is precious and won't be sold automatically. Click: open the bag to make room.",
   3400: "Nothing better in the bag: your gear is already the best.",
+  3401: "Nothing to reset: no skill taken.",
 };

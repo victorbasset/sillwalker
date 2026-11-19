@@ -3402,5 +3402,6 @@ export const KEYS = [
   "La surprise de la victoire finale attend ton retour : jamais par-dessus un jeu ou une vidéo en plein écran, ni quand le jeu est réduit ou la session verrouillée.",
   "Une astuce rappelle qu’un clic sur un nœud lointain du grand graphe prend le chemin le plus court.",
   "Sac plein : ta pièce actuelle, {0}, est précieuse et ne sera pas vendue d’office. Clic : ouvrir le sac pour faire de la place.",
-  "Rien de mieux dans le sac : ton équipement est déjà le meilleur."
+  "Rien de mieux dans le sac : ton équipement est déjà le meilleur.",
+  "Rien à réinitialiser : aucune compétence prise."
 ];

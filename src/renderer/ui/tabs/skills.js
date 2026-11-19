@@ -414,7 +414,10 @@ export class SkillsTab {
     this.el.querySelector('[data-action="k-reset"]').textContent = tx("Tout réinitialiser");
     // (it. 2134) rien de pris : « Annuler le dernier » et « Tout réinitialiser » grisés (ils semblaient cliquables et ne faisaient rien)
     { const none = !(S.skills.order || []).length && !(S.skills.outer || []).length;
-      this.el.querySelector('[data-action="k-undo"]').disabled = none; this.el.querySelector('[data-action="k-reset"]').disabled = none; }
+      this.el.querySelector('[data-action="k-undo"]').disabled = none;
+      // (it. 2425) grisé : sa bulle dit pourquoi
+      const rb = this.el.querySelector('[data-action="k-reset"]'); rb.disabled = none;
+      if (none) { rb.removeAttribute("title"); rb.dataset.title = tx("Rien à réinitialiser : aucune compétence prise."); } else { rb.removeAttribute("title"); delete rb.dataset.title; } }
   }
 
   onAction(a, b) {

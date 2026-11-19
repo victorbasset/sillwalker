@@ -2273,4 +2273,5 @@ export default {
   3398: "Wskazówka przypomina, że kliknięcie odległego węzła wielkiego grafu bierze najkrótszą ścieżkę.",
   3399: "Torba pełna: twój obecny przedmiot, {0}, jest cenny i nie zostanie sprzedany automatycznie. Kliknij: otwórz torbę, by zrobić miejsce.",
   3400: "Nic lepszego w torbie: twój ekwipunek jest już najlepszy.",
+  3401: "Nie ma czego resetować: nie wybrano żadnej umiejętności.",
 };

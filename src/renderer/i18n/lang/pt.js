@@ -2273,4 +2273,5 @@ export default {
   3398: "Uma dica lembra que um clique num nó distante do grande grafo pega o caminho mais curto.",
   3399: "Bolsa cheia: sua peça atual, {0}, é preciosa e não será vendida automaticamente. Clique: abrir a bolsa para abrir espaço.",
   3400: "Nada melhor na bolsa: seu equipamento já é o melhor.",
+  3401: "Nada para reiniciar: nenhuma habilidade escolhida.",
 };

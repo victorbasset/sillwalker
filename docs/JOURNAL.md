@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2425) : audit des boutons grisés sans bulle (tous les onglets, dev et fin de partie, sonde --stage) : seuls
+  « Tout réinitialiser » des Compétences (rien de pris) et « Maximum » de l'Atelier (parlant). Le premier a sa bulle (« Rien à
+  réinitialiser : aucune compétence prise. », clé 3401, 10 langues) ; nouvelle sonde : 0. 311/311.
 - 2026-11-19 (it. 2424, autotest) : un bouton grisé garde sa bulle au survol réel (sendInputEvent) : « Équiper le meilleur » sac vidé
   le temps du contrôle (la copie de test a une amélioration : sans cela le contrôle ne vérifiait rien). 311/311.
 - 2026-11-19 (it. 2423) : Aventure : « Équiper le meilleur » grisé a maintenant sa bulle (« Rien de mieux dans le sac : ton équipement
