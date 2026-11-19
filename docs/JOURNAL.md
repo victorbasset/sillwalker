@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2599, outils) : simulate.js : le joueur simulé agrandit le sac (UPGRADES, même prudence que l'Atelier : sous 10 % de
+  l'or) ; avant, jamais (sac de 24 à 90 Qi d'or dans la fin de partie de référence, des dizaines d'objets au sol par absence). 12 h,
+  guerrier : sac 48 (4 niveaux), aucun objet au sol. balance 12 h contre HEAD : 64,7 → 65,1 (+0,4, bruit). La fixture endgame-save.json
+  n'est pas régénérée (elle garde un sac de 24 : c'est aussi un cas utile, sac plein en fin de partie).
 - 2026-11-19 (it. 2598, doc) : CLAUDE.md : pages de « Quoi de neuf » (bouton des plus anciennes) et limite de lang-overflow (première page).
 - 2026-11-19 (it. 2597, contrôle) : nombre de pages de « Quoi de neuf » recompté sans limite (newsShown) : 40 pour 157 éditions ;
   la mesure de l'it. 2596 (boucle limitée à 40) les a donc toutes couvertes.

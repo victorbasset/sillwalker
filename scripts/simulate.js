@@ -8,7 +8,7 @@ import { TREES, VOIES, chosenVoie } from "../src/renderer/game/talents.js";
 import { CLASS_KEYS_BY_UNLOCK, canPartner, DUO_SYNERGIES } from "../src/renderer/game/classes.js";
 import { SKILL_TREE, canTakeSkill } from "../src/renderer/game/skilltree.js";
 import { CONSTELLATIONS, constellationCost } from "../src/renderer/game/prestige.js";
-import { CONSUMABLES, consumablePrice, WORKSHOP, workshopPrice } from "../src/renderer/game/shop.js";
+import { CONSUMABLES, consumablePrice, WORKSHOP, workshopPrice, UPGRADES, upgradePrice } from "../src/renderer/game/shop.js";
 import { SPELL_MAX, classSpells, spellPrice, spellRank } from "../src/renderer/game/spells.js";
 import { questDone } from "../src/renderer/game/quests.js";
 import { forgeCost } from "../src/renderer/game/rules.js";
@@ -57,6 +57,8 @@ function playerTurn() {
     const ws = WORKSHOP.filter((w) => !(w.max && ((g.S.workshop || {})[w.id] || 0) >= w.max)).sort((a, b) => workshopPrice(a, g.S) - workshopPrice(b, g.S))[0];
     if (!ws || workshopPrice(ws, g.S) > g.S.gold * 0.1 || !g.buyWorkshop(ws.id)) break;
   }
+  // (it. 2599) agrandissement du sac, même prudence (avant : jamais acheté, sac de 24 à 90 Qi d'or dans la fin de partie de référence)
+  for (const u of UPGRADES) while ((g.S.upgrades[u.id] || 0) < u.max && upgradePrice(u, g.S) <= g.S.gold * 0.1 && g.buyUpgrade(u.id));
   // Sorts (it. 469) : même prudence que l'Atelier (le rang le moins cher sous 10 % de l'or).
   for (let k = 0; k < 10; k++) {
     const sp = classSpells(g.S.cls).filter((x) => recordZone(g.S) >= x.zone && spellRank(g.S, x.id) < SPELL_MAX).sort((a, b) => spellPrice(a, spellRank(g.S, a.id)) - spellPrice(b, spellRank(g.S, b.id)))[0];
