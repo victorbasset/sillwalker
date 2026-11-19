@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2742) Retour d'absence d'un débutant (sac plein, 2 h ou 8 h) : la bulle « 🎒 Sac plein : une amélioration est restée au sol »
+  s'affichait la première et repoussait la bulle d'absence de 12 s (file des bulles) ; ouvrir le panneau entre-temps (ou --open-panel)
+  ne montrait PAS le résumé détaillé (absence 10 min : oui ; 2 h, 8 h : non). La bulle d'absence passe maintenant devant (app.js
+  showOffline : la bulle affichée repasse en tête de file avec le temps qui lui restait, au moins 4 s). Mesuré : bulle d'absence à
+  0,1 s (avant 11,8 s) ; panneau ouvert au lancement après 2 h et 8 h : résumé ouvert. npm test 377, autotest 328/328.
 - 2026-11-19 (it. 2741, REVUE GÉNÉRALE) : 12 h : ranger 62, paladin 65, chaman 69 (identiques aux revues précédentes) ; --perf : 19,7 / 19,3 %,
   mini 5,3 %, icône 0,8 % ; Quêtes en russe à 1280 px (« выполнено 234 задания », pluriel juste) propres ; texte japonais : aucun mot latin
   suspect. Rien à corriger.

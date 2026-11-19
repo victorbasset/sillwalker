@@ -342,8 +342,15 @@ async function boot() {
       return;
     }
     strip.welcomeBack();
+    // (it. 2742) la bulle d'absence passe devant : après une longue absence d'un débutant, « Sac plein : une amélioration est restée au
+    // sol » s'affichait d'abord et la repoussait de 12 s ; ouvrir le panneau entre-temps ne montrait pas le résumé. La bulle affichée
+    // repasse en tête de file avec le temps qui lui restait.
+    if (!toast.hidden && Date.now() < toastUntil && !(toastAction && toastAction.offline)) {
+      toastQueue.unshift([toast.innerHTML, toastAction, Math.max(4000, toastUntil - Date.now())]);
+      clearTimeout(toastTimer); toast.hidden = true; toastAction = null; toastUntil = 0;
+    }
     showToast(`${tx("Pendant ton absence ({0}) :", { 0: esc(sum.duration) })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: `<b>${fmt(sum.kills)}</b>` })}, <b>+${fmt(sum.gold + (sum.petGold || 0))}</b> ${tx("or{0}{1}{2}. Cliquer pour le détail.", { 0: sum.newLevel ? tx(", niveau ") + sum.newLevel : "", 1: sum.feathers ? `, <b>${txn(sum.feathers, "{n} plume du vent|{n} plumes du vent")}</b>` : "", 2: (sum.chests ? csep() + txn(sum.chests, "{n} coffre|{n} coffres", { n: `<b>${sum.chests}</b>` }) : "") + (sum.questsDone ? csep() + txn(sum.questsDone, "{n} quête accomplie|{n} quêtes accomplies", { n: `<b>${sum.questsDone}</b>` }) : "") })}${stepLine(sum)}`,
-      Object.assign(() => { openPanel(); panel.showOfflineSummary(sum); }, { offline: sum }));
+      Object.assign(() => { openPanel(); panel.showOfflineSummary(sum); }, { offline: sum }), 15000, false);
   }
   toast.addEventListener("click", () => {
     clearTimeout(toastTimer);
