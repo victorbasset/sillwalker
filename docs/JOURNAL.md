@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2636) Autotest : le contrôle du nom du boss couvre aussi les informations au milieu (réglage hudPos, nom réel puis
+  quadruplé) et vérifie qu'au milieu le nom ne passe pas sous les boutons : « edges:ok/ok center:ok/ok ». Vérifié qu'il attrape
+  l'ancien défaut (strip.js d'avant l'it. 2635 : ÉCHEC « center:ok/nom sous les boutons »). npm test 376, autotest 325/325.
 - 2026-11-19 (it. 2635) Bande, informations au milieu (réglage hudPos « center ») sur un écran étroit : à 1280 px en russe, le nom du
   boss passait sous les boutons et sous la barre du monstre (« Пурпурн… » seul lisible). Le nom se décale maintenant vers la droite pour
   commencer après les boutons (largeur mesurée une fois par nom, sans sortir de la bande) et la barre du monstre se cache si elle le
