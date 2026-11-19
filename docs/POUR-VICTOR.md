@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Journée du 19/11 (it. 2514-2570) : sac plein, à juger ; et deux commodités
+## Journée du 19/11 (it. 2514-2570) : sac plein à juger, moins de clics, lisibilité
 
 Ta règle « sac plein : l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
 - « À faire maintenant » (résumé d'absence, bulle du ☰, mode mini) : sac plein → « Agrandir le sac » puis « Sac plein : N objets

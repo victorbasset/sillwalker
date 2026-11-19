@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2571, REVUE GÉNÉRALE) : 12 h : druide 64, lancier 66, assassin 62 (habituels) ; --perf : 21,9 / 20,6 % juste après
+  les simulations, puis 19,1 / 19,9 %, mini 5,7 %, icône 0,5 % (charge passagère) ; Statistiques en polonais : « Zostawione na ziemi
+  (pełna torba) 9 » (la mise en scène utilisait un nom de sous-section invalide, « nums » : page mêlée, sans effet pour le joueur) ;
+  titre de la section du jour dans POUR-VICTOR corrigé. Rien à corriger dans le jeu.
 - 2026-11-19 (it. 2570, doc) : POUR-VICTOR : total des objets laissés au sol, éditions 154-157 ; section renommée « Journée du 19/11 ».
 - 2026-11-19 (it. 2569, contenu) : « Quoi de neuf » édition 157 (« max » du sac, « prêt à acheter ! » du mode mini, objets laissés au
   sol notés au journal et comptés aux statistiques ; it. 2542-2567) ; clés 3414-3416 dans les 9 langues. Autotest 322/322,
