@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2550, doc + contrôle) : POUR-VICTOR : « max » du sac ; lang-overflow all 1280 (Atelier compris) : 20 mesures, aucun
+  défilement ni débordement.
 - 2026-11-19 (it. 2549, moins de clics) : Atelier : « Sac plus grand » a enfin son bouton « max » comme les autres lignes (dès que
   l'or couvre deux niveaux ; prix du suivant calculé sur une copie de l'état) ; avant : 4 clics pour 4 niveaux. Vérifié : un clic, sac
   24 → 48, bouton retiré au maximum. Autotest 320/320.
