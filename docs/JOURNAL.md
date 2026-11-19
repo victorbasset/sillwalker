@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2490, décision) : cinématiques de la bande (aube, arrivée, chroniques) : réglage « Cinématiques de l'histoire »
+  respecté ; laissées avec « réduire les animations » (dans la bande, texte et petits effets ; seul le vol plein écran en est retiré).
 - 2026-11-19 (it. 2489, doc) : FINALE.md et POUR-VICTOR : libération et « réduire les animations ».
 - 2026-11-19 (it. 2488, dev) : option --reduced-motion (force-prefers-reduced-motion, dev seulement) ; vérifié : sans elle, la victoire
   sur le Briseur ouvre la libération ; avec elle, matchMedia vrai et pas de libération (it. 2487 confirmée). CLAUDE.md à jour. 319/319.
