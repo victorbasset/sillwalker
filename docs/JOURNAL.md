@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2462, contrôle) : « Language / Langue » (Réglages, settings.js:48) écrit en dur exprès : retrouvable quelle que soit
+  la langue choisie. Conforme.
 - 2026-11-19 (it. 2461, REVUE GÉNÉRALE) : 12 h : druide 64, prêtresse 64, gardien 65 ; --perf : 20,1 / 19,1 %, mini 5,4 %, icône 0,6 % ;
   Bestiaire en espagnol (fin de partie) : propre ; texte chinois : noms propres, touches, « Langue / Language » du sélecteur. Rien à corriger.
 - 2026-11-19 (it. 2460, contrôle) : mem-watch 10 min panneau ouvert : 573-606 Mo réels, plat (repère it. 2258 : 580-610).
