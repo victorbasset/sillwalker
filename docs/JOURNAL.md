@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2558, contrôle) : astuce du sac plein sur la bande en russe (« Мастерская (Лавка) увеличивает её на 6 мест ») :
+  traduite, tient dans sa bulle (vérification restée en suspens à l'it. 2557).
 - 2026-11-19 (it. 2557, doc + contrôle) : POUR-VICTOR : bulle du mode mini ; bande en russe (nom du boss, or, niveau) : propre.
 - 2026-11-19 (it. 2556, contrôle) : autres « or possédé / prix » du prochain déblocage : seulement la carte du héros (déjà « cliquer
   pour l'acheter » quand l'or suffit) et le mode mini (corrigé it. 2555). Rien d'autre.
