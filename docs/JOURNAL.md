@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2493, accessibilité) : <html lang> suit la langue choisie (ja, ru, en vérifiés) : prononciation juste des lecteurs d'écran.
 - 2026-11-19 (it. 2492, accessibilité) : boutons du mode mini sans nom : aucun.
 - 2026-11-19 (it. 2491, REVUE GÉNÉRALE) : 12 h : moine 62, barde 65, assassin 62 ; --perf : 19,7 / 19,3 %, mini 5,5 %, icône 0,4 % ;
   mode mini en anglais et chinois : propre. Rien à corriger.
