@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2520, contenu) : « Quoi de neuf » édition 155 (sac plein : remède en tête des choses à faire, coffre acheté sac
+  plein, pièces précieuses jamais vendues ni perdues d'office ; it. 2514-2518) ; clés 3408-3410 dans les 9 langues (« Agrandir le sac »
+  sans guillemets : le libellé du jeu est plus long). Autotest 320/320, lang-overflow all 1280 : 20 mesures, aucun défilement.
 - 2026-11-19 (it. 2519, contrôle) : autres pertes automatiques examinées (suite des it. 2517-2518) : Creuset (autoTransmute) et
   vente des inutiles (sellUseless) consomment les objets FORGÉS devenus inutiles (uselessItems ne garde que légendaires et pièces de
   panoplie à compléter). Gardé tel quel : objets du Marchand déjà forgés (it. 988), les exclure boucherait le sac (« le sac ne doit

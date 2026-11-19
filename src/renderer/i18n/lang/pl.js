@@ -2280,4 +2280,7 @@ export default {
   3405: "Jasny motyw: pomarańcz przedmiotów legendarnych jest czytelniejszy.",
   3406: "Jeśli system ma ustawione „ograniczanie animacji”, finałowa niespodzianka nie zaczyna się już sama; ▶ jej kroniki odtwarza ją ponownie.",
   3407: "Torba pełna: zbędny przedmiot {0} zostanie sprzedany, by zrobić miejsce.",
+  3408: "Pełna torba: powiększenie torby trafia na początek listy zadań (podsumowanie nieobecności, dymek ☰, tryb mini).",
+  3409: "Sklep: skrzynię kupisz nawet z pełną torbą; najtańszy zbędny przedmiot ustępuje jej miejsca.",
+  3410: "Pełna torba: przedmiot legendarny, z zestawu lub wykuty nigdy nie zostanie sprzedany ani utracony bez twojej zgody (skrzynie, Giermek).",
 };

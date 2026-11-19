@@ -2280,4 +2280,7 @@ export default {
   3405: "Light theme: the orange of legendary items is easier to read.",
   3406: "If your system is set to “reduce animations”, the final surprise no longer starts by itself; the ▶ of its chronicle replays it.",
   3407: "Bag full: {0} (useless) will be sold to make room.",
+  3408: "Bag full: enlarging the bag now tops the to-do list (away summary, ☰ tooltip, mini mode).",
+  3409: "Shop: a chest can be bought even with a full bag; the cheapest useless item makes room for it.",
+  3410: "Bag full: a legendary, set or forged piece is never sold or lost unless you ask (chests, Arms Valet).",
 };

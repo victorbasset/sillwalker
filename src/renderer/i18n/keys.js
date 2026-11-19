@@ -3409,5 +3409,8 @@ export const KEYS = [
   "Clavier : les puces de la carte du héros (bénédiction, panoplies, reliques) se parcourent avec Tab et montrent leur bulle.",
   "Thème clair : l’orange des objets légendaires est plus lisible.",
   "Si ton système est réglé sur « réduire les animations », la surprise finale ne se lance plus d’elle-même ; le ▶ de sa chronique la rejoue.",
-  "Sac plein : {0} (inutile) sera vendu pour faire de la place."
+  "Sac plein : {0} (inutile) sera vendu pour faire de la place.",
+  "Sac plein : agrandir le sac passe en tête des choses à faire (résumé d’absence, bulle du ☰, mode mini).",
+  "Boutique : un coffre s’achète même sac plein ; l’objet inutile le moins cher lui cède sa place.",
+  "Sac plein : une pièce légendaire, de panoplie ou forgée n’est plus jamais vendue ni perdue sans que tu le demandes (coffres, Valet d’armes)."
 ];

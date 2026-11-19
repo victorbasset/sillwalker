@@ -2280,4 +2280,7 @@ export default {
   3405: "Tema claro: o laranja dos itens lendários está mais legível.",
   3406: "Se o seu sistema estiver configurado para “reduzir animações”, a surpresa final não começa mais sozinha; o ▶ da sua crônica a repete.",
   3407: "Bolsa cheia: o item inútil {0} será vendido para abrir espaço.",
+  3408: "Bolsa cheia: aumentar a bolsa passa a liderar as tarefas (resumo da ausência, dica do ☰, modo mini).",
+  3409: "Loja: um baú pode ser comprado mesmo com a bolsa cheia; o item inútil mais barato cede o lugar.",
+  3410: "Bolsa cheia: uma peça lendária, de conjunto ou forjada nunca mais é vendida ou perdida sem você pedir (baús, Escudeiro de armas).",
 };

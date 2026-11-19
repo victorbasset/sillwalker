@@ -2280,4 +2280,7 @@ export default {
   3405: "Tema claro: el naranja de los objetos legendarios se lee mejor.",
   3406: "Si tu sistema está configurado para «reducir las animaciones», la sorpresa final ya no empieza sola; el ▶ de su crónica la repite.",
   3407: "Bolsa llena: el objeto inútil {0} se venderá para hacer sitio.",
+  3408: "Bolsa llena: agrandar la bolsa pasa a encabezar las tareas (resumen de ausencia, burbuja de ☰, modo mini).",
+  3409: "Tienda: un cofre se compra aunque la bolsa esté llena; el objeto inútil más barato le deja su sitio.",
+  3410: "Bolsa llena: una pieza legendaria, de conjunto o forjada ya nunca se vende ni se pierde sin que lo pidas (cofres, Ayuda de armas).",
 };
