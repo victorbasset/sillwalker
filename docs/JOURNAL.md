@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2645, contrôle) : Talents et Compétences (grand graphe) en anglais à 1280 px : propres (« Coup de Grâce » : emprunt
+  anglais voulu). Tour des onglets en anglais à 1280 px terminé (it. 2642-2645).
 - 2026-11-19 (it. 2644, contrôle) : Boutique (Marchand, sac plein : objets « Bag full », coffres achetables) et Carte (« Buy: Traveler's Map »)
   en anglais à 1280 px : propres.
 - 2026-11-19 (it. 2643, contrôle) : Statistiques et Ascension (onglet « ascension ») en anglais à 1280 px : propres (« Wealth and loot »
