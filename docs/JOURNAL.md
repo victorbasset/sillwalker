@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2546, contrôle) : semaine simulée (guerrier, 168 h) après le Valet d'armes (it. 2518) : courses 40-42 à
+  350 / 350 / 349 (palier de l'écho 350, repère it. 2332 : 350), 6 131-6 158 éclats. Fin de partie inchangée.
 - 2026-11-19 (it. 2545, contrôle) : hero-table HEROES=all 12 h, graines 7,3,11, après le Valet d'armes (it. 2518) : moyenne 64,9,
   écart 4,0 (identique au repère de l'it. 2452 ; chaman 66,7 en haut).
 - 2026-11-19 (it. 2544, doc + contrôle) : POUR-VICTOR : ligne du journal après une absence sac plein ; Statistiques > Carnet de
