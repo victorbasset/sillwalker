@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2637, contrôle) : bande de fin de partie à 1280 px (zone 150, lieutenant « Rycerz Zaćmienia · -5% PŻ · więzień… »)
+  en polonais et allemand : nom entier, barre du monstre cachée faute de place, aucune erreur.
 - 2026-11-19 (it. 2636) Autotest : le contrôle du nom du boss couvre aussi les informations au milieu (réglage hudPos, nom réel puis
   quadruplé) et vérifie qu'au milieu le nom ne passe pas sous les boutons : « edges:ok/ok center:ok/ok ». Vérifié qu'il attrape
   l'ancien défaut (strip.js d'avant l'it. 2635 : ÉCHEC « center:ok/nom sous les boutons »). npm test 376, autotest 325/325.
