@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2601, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, arbalétrier 66 (habituels) ; --perf (charge ≈ 1,6) : 19,3 / 19,3 %,
+  mini 5,7 %, icône 0,4 % ; « Quoi de neuf » page 2 en espagnol (édition 154 visible, « … y 391 novedades más antiguas. → ») : propre ;
+  texte russe : aucun mot latin suspect. Rien à corriger.
 - 2026-11-19 (it. 2600, contrôle) : semaine simulée (guerrier) avec l'agrandissement du sac (it. 2599) : dernières courses 350 / 349 / 350
   (40 courses au lieu de 42), 6 131-6 158 éclats : même palier, repère de CLAUDE.md inchangé.
 - 2026-11-19 (it. 2599, outils) : simulate.js : le joueur simulé agrandit le sac (UPGRADES, même prudence que l'Atelier : sous 10 % de
