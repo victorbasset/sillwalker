@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2675) Statistiques > Chiffres, écrans de portable : à 1280 px, le titre « Richesse et butin » passait sur deux lignes dans les
+  7 langues latines et cyrilliques (« Moments rares » aussi en de, ru), et sa liste commençait plus bas que les autres. Titres des cartes en
+  17 px (taille déjà utilisée par les quêtes) sous un panneau de 1334 px (@container) : fr, en, es, pt, pl sur une ligne à 1280 et 1366 px ;
+  de et ru gardent « Reichtum und Beute » / « Богатство и добыча » sur deux lignes ; 1600 et 1920 px inchangés (19 px). npm test 376,
+  autotest 326/326.
 - 2026-11-19 (it. 2674, contrôle) : tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire 13-18,
   ascension 20-41 min : identique à l'it. 2586.
 - 2026-11-19 (it. 2673, contrôle) : semaine du guerrier (simulate 168) : 40 courses, record 350, 6 158 éclats : palier habituel.
