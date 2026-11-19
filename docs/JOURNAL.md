@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2442) : puce de panoplie « coupée » (revue 2441) : la rangée des puces du héros est une rangée latérale (.hscroll,
+  data-hs="hero-chips" : molette, glisser) ; la fin est atteignable, conception voulue (CLAUDE.md, remède aux listes qui grandissent). Rien à changer.
 - 2026-11-19 (it. 2441, REVUE GÉNÉRALE) : 12 h : assassin 62, moine 62, paladin 65 ; --perf : 19,1 / 18,9 %, mini 5,4 %, icône 0,4 % ;
   Aventure en français et chinois à 1366 px : en français, la puce de panoplie de la carte du héros (« ◆ Plumage du phénix 2/4 »)
   est coupée par le bord de la carte, sans « 2/4 » ni points de suspension : à corriger (it. suivante).
