@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2544, doc + contrôle) : POUR-VICTOR : ligne du journal après une absence sac plein ; Statistiques > Carnet de
+  route (dev-data : une étape, « Prochaine étape : zone 60 ») : propre. Toutes les sous-sections revues aujourd'hui.
 - 2026-11-19 (it. 2543, contrôle) : Statistiques > Succès en français (34 / 72) : propre ; « grand graphe 0 / 222 » contre « 144 nœuds »
   des Compétences : deux ensembles distincts (fleur SKILL_NODE_COUNT, grand graphe SKILL_GRAPH_COUNT), voulu.
 - 2026-11-19 (it. 2542, plaisir de revenir) : Journal : après une absence sac plein, une ligne « Sac plein, objets laissés au sol : N. »
