@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2752) Retour d'absence pendant que la bande est cachée en cours de partie (réveil du PC pendant un jeu en plein écran,
+  session verrouillée) : la bulle partait sur la bande cachée et expirait. Le résumé attend maintenant le retour de la bande (setVisible).
+  Autotest « absence pendant une application en plein écran : le résumé attend le retour de la bande » : OK ; sans le correctif, ÉCHEC.
+  npm test 377, autotest 331/331.
 - 2026-11-20 (it. 2751, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, nécromancien 65 ; --perf : 19,5 / 19,3 %, mini 5,4 %, icône 0,5 % ;
   mode mini en anglais propre (« Lv. 1313 », « 447B ») ; texte coréen : seuls « Language / Langue » (sélecteur bilingue voulu) et les noms
   propres. Rien à corriger.

@@ -342,7 +342,8 @@ async function boot() {
     // bulle sur la bande cachée et se perdait (le voyant du mini montrait un conseil ordinaire)
     const m = mode ?? (init.layout && init.layout.mode);
     // (it. 2747) réduit en icône : le résumé attend l'ouverture de la bande ou du mini (avant : bulle sur la bande cachée, perdue après 15 s)
-    if (m === "mini" || m === "icon") {
+    // (it. 2752) bande cachée en cours de partie (application en plein écran, session verrouillée) : même attente que l'icône
+    if (m === "mini" || m === "icon" || (mode === "strip" && !visible)) {
       pendingOffline = sum;
       if (m === "mini") mini.setHint(awayHint(sum), true);
       return;
@@ -480,6 +481,7 @@ async function boot() {
   }
   function setVisible(v) {
     visible = v;
+    if (v && mode === "strip" && pendingOffline) { const sum = pendingOffline; pendingOffline = null; setTimeout(() => showOffline(sum), 400); } // (it. 2752)
     sound.setPaused(!v); // bande cachée : ni effets ni musique (un jeu ou une vidéo en plein écran a son propre son)
     music.hide(!v); // (it. 1559) et, au bout d'une minute, le morceau décodé libéré
     if (!v && panelOpen) closePanel(true);
