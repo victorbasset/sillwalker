@@ -2688,10 +2688,8 @@ export class Game {
     const rw = fixQuestEgg(S, Q.slots[i].reward), parts = []; // œuf promis trop tôt : un coffre à la place
     // Sac plein : la réclamation n'est jamais bloquée (avant : clic sans effet). Le coffre fait de la place en vendant
     // l'objet inutile le moins précieux ; s'il n'y en a pas, l'objet du coffre est vendu (son or est donné).
-    if (rw.chest && this.bagFull()) {
-      const worst = this.uselessItems().sort((a, b) => sellValue(a) - sellValue(b))[0];
-      if (worst) this.sell(worst);
-    }
+    // (it. 2517) même choix que le coffre de la boutique (chestRoom) : jamais une pièce de panoplie ni un objet forgé
+    if (rw.chest && this.bagFull()) { const worst = this.chestRoom(); if (worst) this.sell(worst); }
     if (rw.gold) { const gq = questGold(S, Q.slots[i]); S.gold += gq; parts.push(tx("{0} or", { 0: fmt(gq) })); } // (it. 990)
     if (rw.chest) {
       const it = this.newItem(rw.chest, S.best);

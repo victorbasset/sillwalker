@@ -1883,6 +1883,19 @@ test("coffre de la boutique, sac plein : l'objet inutile le moins cher cède sa 
   assert.equal(g.buyChest("chest_iron"), null); assert.equal(g.S.bag.map((b) => b.id).join(), ids, "sac inchangé");
 });
 
+test("coffre de quête, sac plein : jamais un objet forgé ni une pièce de panoplie vendus d'office (it. 2517)", () => {
+  const g = new Game(freshState()); g.S.best = 30;
+  for (const sl of Object.keys(g.S.equip)) if (!g.S.equip[sl]) { const it = g.newItem(0, 30); it.r = 3; it.set = null; it.plus = 0; it.slot = sl; g.S.equip[sl] = it; }
+  g.invalidateStats?.();
+  // sac plein d'objets inutiles mais forgés (+1)
+  while (!g.bagFull()) { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.plus = 1; it.il = 1; g.S.bag.push(it); }
+  const ids = g.S.bag.map((b) => b.id).join(), q = g.S.quests.slots[0];
+  q.reward = { chest: 2 }; q.progress = q.goal; const gold = g.S.gold;
+  g.claimQuest(q.uid);
+  assert.equal(g.S.bag.map((b) => b.id).join(), ids, "aucun objet forgé vendu");
+  assert.ok(g.S.gold > gold, "l'objet du coffre est vendu à la place (or donné)");
+});
+
 test("à faire : sac plein et agrandissement abordable → « Agrandir le sac » (it. 2269)", () => {
   const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
   while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));

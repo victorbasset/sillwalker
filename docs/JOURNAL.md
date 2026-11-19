@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2517, ne jamais trahir) : coffre de quête, sac plein : la place se fait par chestRoom (it. 2515) au lieu du
+  moins cher de uselessItems, qui pouvait vendre d'office un objet FORGÉ (plus > 0) ou une pièce de panoplie en surplus ; sans
+  objet ordinaire à vendre, l'objet du coffre est vendu (repli existant). Test (échoue avant), autotest 320/320.
 - 2026-11-19 (it. 2516, contrôle) : Familiers, Héros, Ascension en français (dev-data) : propres. 2 765 éclats non placés : la Carte
   du ciel (déblocage) les place seule, clics manuels avant l'achat (règle des commodités) ; rien à changer.
 - 2026-11-19 (it. 2515, moins de clics) : coffres de la Boutique, sac plein : l'achat vend d'abord l'objet inutile le moins cher
