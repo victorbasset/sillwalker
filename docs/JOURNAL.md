@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2662, contrôle) : sonde des cases à cocher (centre de la case contre la première ligne de son libellé), tous les onglets
+  et sous-sections à 1920 px : 18 cases, 0 décalage > 2 px. Pas de contrôle permanent ajouté (rien à garder).
 - 2026-11-19 (it. 2661, REVUE GÉNÉRALE) : 12 h : assassin 65, gladiateur 65, gardien des étoiles 69 ; --perf : 19,5 / 19,0 %, mini 5,4 %,
   icône 0,6 % ; Atelier en japonais (« 最大 » aligné sur le prix) propre ; texte polonais (24 712 lignes) : aucun mot français courant.
   Rien à corriger.
