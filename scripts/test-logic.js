@@ -2553,6 +2553,7 @@ test("Valet d'armes, sac plein : une ancienne pièce précieuse n'est jamais per
   assert.equal(g.addToBag(up), true); assert.equal(g.S.equip.weapon, up);
   assert.ok(g.S.bag.some((b) => b.id === forged.id), "la pièce forgée est gardée dans le sac");
   assert.equal(g.S.bag.length, g.S.bagSize, "le sac ne déborde pas"); assert.ok(g.S.gold > gold, "l'objet ordinaire est vendu");
+  assert.ok(g.S.log.slice(0, 4).some((l) => /Vendu|Sold/.test(JSON.stringify(l))), "(it. 2606) la vente se lit au journal : " + JSON.stringify(g.S.log.slice(0, 4)));
   // sac plein de légendaires : rien à vendre, l'amélioration reste au sol, la pièce précieuse reste équipée
   const leg = mk(4); g.S.equip.weapon = leg; g.invalidateStats();
   g.S.bag = []; while (!g.bagFull()) g.S.bag.push(mk(4));

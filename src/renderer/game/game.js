@@ -1230,7 +1230,8 @@ export class Game {
       const room = precious ? this.chestRoom() : null;
       if (hasUnlock(S, "armsValet") && S.settings.autoEquipDrops !== false && this.isUpgrade(it) && (!precious || room)) {
         const old = S.equip[it.slot];
-        if (room) { S.gold += sellValue(room); S.bag = S.bag.filter((b) => b.id !== room.id); }
+        // (it. 2606) en jeu, la vente se lit au journal (« Vendu : … », comme pour un coffre) ; pendant une absence, en silence
+        if (room) { if (quiet) { S.gold += sellValue(room); S.bag = S.bag.filter((b) => b.id !== room.id); } else this.sell(room); }
         S.bag.push(it); this.equip(it);
         if (old && !room) S.bag = S.bag.filter((b) => b.id !== old.id);
         if (!quiet) this.log(tx("Valet d’armes : ") + itemName(it) + tx(" équipé."));

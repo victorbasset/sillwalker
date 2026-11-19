@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2606, lisible) : Valet d'armes, pièce précieuse gardée : la vente de l'objet ordinaire passe par sell() en jeu
+  (« Vendu : X (+N or). » au journal, son des pièces), silencieuse pendant une absence ; avant, toujours silencieuse. Test, autotest.
 - 2026-11-19 (it. 2605, doc) : README : pages de « Quoi de neuf » (bouton des plus anciennes).
 - 2026-11-19 (it. 2604, langues) : pluriels de « … et N nouveautés plus anciennes » (bouton de l'it. 2594) pour 1, 3, 5, 22, 401 :
   russe (401 au singulier, 22 « few »), polonais (22 « starsze », 401 « starszych »), japonais (件) : corrects.
