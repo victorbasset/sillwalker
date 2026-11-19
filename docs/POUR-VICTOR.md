@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
-## Journée du 19/11 (it. 2514-2608) : sac plein à juger, moins de clics, lisibilité
+## Journée du 19/11 (it. 2514-2613) : sac plein à juger, moins de clics, lisibilité
 
 **Sac plein** : ta règle « l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
 - « À faire maintenant » (résumé d'absence, carte du héros, bulle du ☰, mode mini) : « Agrandir le sac » puis « Sac plein : N objets
@@ -34,7 +34,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 **Au prochain lancement** : « Quoi de neuf » montre les éditions 155 à 157 (sac plein, moins de clics, sac et lisibilité) ; la 154
 (accessibilité) ne tient pas dans la fenêtre (11 nouveautés au plus) : le bas de la fenêtre, « … et N nouveautés plus anciennes → »,
-est maintenant un bouton qui montre la page suivante (it. 2594 ; avant, les anciennes ne se lisaient nulle part).
+est maintenant un bouton qui montre la page suivante (it. 2594 ; avant, les anciennes ne se lisaient nulle part) ;
+« ← Plus récentes » y ramène à la première page (it. 2612).
 
 **Outils** : le joueur simulé agrandit maintenant son sac (avant, jamais : sac de 24 en fin de partie) ; équilibrage inchangé
 (64,7 → 65,1 sur 12 h, bruit ; semaine du guerrier toujours au palier 350).

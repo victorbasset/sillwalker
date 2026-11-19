@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2613, doc) : POUR-VICTOR : « ← Plus récentes » dans « Quoi de neuf ».
 - 2026-11-19 (it. 2612, moins de clics) : « Quoi de neuf », pages anciennes : bouton « ← Plus récentes » (retour à la première page ;
   avant, fermer et rouvrir). Clé 3417 dans les 9 langues. Les 40 pages vérifiées dans les 10 langues à 1280 px : sans défilement, retour
   correct ; contrôle de l'autotest étendu (323/323).
