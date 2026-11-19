@@ -1526,7 +1526,10 @@ export class Game {
     }
     this.invalidateStats();
     // (it. 1349) Trèfle à quatre feuilles au prorata de sa durée (ignoré hors ligne jusque-là)
-    const drops = Math.min(30, Math.floor(kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3));
+    // (it. 2731) arrondi au hasard (même moyenne) : l'arrondi par défaut donnait toujours 0 objet à un débutant (54 monstres en 10 min
+    // d'absence : 0,4 objet attendu), son retour ne rapportait jamais rien à ranger
+    const dropsRaw = kills * DROP_CHANCE * earlyPace(S) * (1 + (hs.drop + BUFF_EFFECTS.luck.drop * share("luck")) / 100) * 0.3;
+    const drops = Math.min(30, Math.floor(dropsRaw) + (rand() < dropsRaw % 1 ? 1 : 0));
     const grounded0 = +S.stats.grounded || 0; // (it. 2567) tout ce qui reste au sol pendant l'absence (coffres compris), pas seulement le butin des combats
     let best = -1, bestItem = null, onGround = 0, bestLost = null; // (it. 2523) bestLost : le plus rare ni gardé (sol, vente auto)
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire

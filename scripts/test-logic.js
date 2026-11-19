@@ -386,6 +386,17 @@ test("hors ligne : objets laissés au sol quand le sac est plein, comptés dans 
   assert.equal(g2.applyOffline(8 * 3600).onGround, 0);
 });
 
+test("hors ligne : un débutant absent 10 min rapporte parfois un objet (arrondi au hasard, it. 2731)", () => {
+  // avant : arrondi par défaut de ≈ 0,4 objet attendu → jamais rien à ranger au premier retour
+  let got = 0;
+  for (let k = 0; k < 40; k++) {
+    const g = new Game(freshState()); g.S.zone = 1; g.S.best = 1; g.S.prestige.count = 0; g.S.bag = [];
+    for (const s of Object.keys(g.S.equip)) g.S.equip[s] = null;
+    const sum = g.applyOffline(600);
+    if (sum.kept > 0 || Object.values(g.S.equip).some(Boolean)) got++;
+  }
+  assert.ok(got >= 12 && got < 40, "parfois un objet, pas à chaque fois : " + got + " / 40 (avant : ≈ 4, par les coffres seuls)");
+});
 test("hors ligne : parchemins et encens comptés au prorata de leur durée (it. 1348)", () => {
   const run = (buffs, unlocks) => {
     const g = new Game(freshState()); g.S.zone = 5; g.S.best = Math.max(g.S.best, 5); g.S.buffs = { ...buffs };

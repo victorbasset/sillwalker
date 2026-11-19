@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2731, REVUE GÉNÉRALE) : 12 h : mage 65, moine 65, lancier 65 ; --perf : 19,3 / 19,4 %, mini 5,6 %, icône 0,5 % ; texte
+  polonais : aucun mot français ou anglais courant ; retour d'un joueur neuf en russe (deux lancements) : newsSeen 160, « Пока тебя не
+  было » sans fenêtre de version (it. 2730 confirmé). Trouvé : ce résumé montrait « Objets gardés : 0 » pour 54 monstres en 10 min.
+  Le butin d'absence était arrondi par défaut (≈ 0,4 objet attendu → toujours 0) : arrondi au hasard, même moyenne (game.js
+  applyOffline). Test : 40 absences de 10 min d'un débutant → au moins 12 avec un objet (ancien code : 4, par les coffres seuls ;
+  nouveau : 24). npm test 377, autotest 327/327.
 - 2026-11-19 (it. 2730) BUG des nouveaux joueurs : au DEUXIÈME lancement, un tout nouveau joueur voyait « Nouveautés de la version 0.1.7 »
   (ce qui a changé depuis la 0.1.6 : sans objet pour lui). Cause : app.js ne marquait les éditions lues à la première visite que si
   newsDue(), qui exige un monstre vaincu, jamais vrai à ce moment ; newsSeen restait à 1 (valeur de départ), et au lancement suivant
