@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2664, contrôle) : --crawl en russe sur la partie de fin de partie (trois pluriels) : 701 clics en 24 s, aucune erreur.
 - 2026-11-19 (it. 2663, contrôle) : info-probe (ⓘ cachés) en polonais à 1280 px, panneau ouvert : IPROBE 0.
 - 2026-11-19 (it. 2662, contrôle) : sonde des cases à cocher (centre de la case contre la première ligne de son libellé), tous les onglets
   et sous-sections à 1920 px : 18 cases, 0 décalage > 2 px. Pas de contrôle permanent ajouté (rien à garder).
