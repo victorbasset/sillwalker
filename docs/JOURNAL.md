@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2624, contrôle) : Bestiaire > Panoplies (0 / 10, pièces portées et dans le sac) et Événements rares (1 / 18, « ??? »
+  avec probabilité) en français : propres.
 - 2026-11-19 (it. 2623, contrôle) : Bestiaire > Pouvoirs légendaires en français (29 / 30) : propre ; « ??? » à sa place dans l'ordre
   de la liste (chaque pouvoir garde sa position).
 - 2026-11-19 (it. 2622, contrôle) : mem-watch 10 min, panneau ouvert : 577 → 590 → 595 → 598 → 598 → 601 Mo, plat (repère 580-610) ;
