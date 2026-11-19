@@ -802,11 +802,13 @@ export const NEWS_MAX_EDITIONS = 3;
  *  sans défilement dans les 10 langues à 1280-1920 px) : les éditions d'une
  *  seule ligne laissaient la fenêtre presque vide alors que les plus anciennes passaient à la trappe. */
 export const NEWS_FILL_ITEMS = 11;
-export function newsShown(seen = 0) {
-  const eds = NEWS_EDITIONS.slice(Math.max(0, seen)).reverse();
+// (it. 2594) skip : éditions déjà montrées (pages suivantes : « … et N nouveautés plus anciennes » devient un bouton ; avant, rien ne
+// permettait de les lire, même depuis Réglages > Quoi de neuf). Renvoie aussi shown, le nombre d'éditions de cette page.
+export function newsShown(seen = 0, skip = 0) {
+  const eds = NEWS_EDITIONS.slice(Math.max(0, seen)).reverse().slice(Math.max(0, skip));
   let k = Math.min(NEWS_MAX_EDITIONS, eds.length), n = eds.slice(0, k).flat().length;
   while (k < eds.length && n + eds[k].length <= NEWS_FILL_ITEMS) n += eds[k++].length;
-  return { items: eds.slice(0, k).flat(), older: eds.slice(k).flat().length };
+  return { items: eds.slice(0, k).flat(), older: eds.slice(k).flat().length, shown: k };
 }
 
 /** Nouveautés à annoncer ? (pas pour une partie neuve : l'intro passe avant tout) */

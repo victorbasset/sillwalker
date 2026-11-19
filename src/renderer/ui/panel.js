@@ -1031,12 +1031,13 @@ export class Panel {
   }
 
   /** `seen` : dernière édition déjà lue (0 : toutes les éditions). */
-  showNews(seen = 0) {
+  showNews(seen = 0, skip = 0) {
     // Même gabarit que les autres fenêtres (titre #mt, contenu #mbody) : elles restent utilisables ensuite.
     $(this.root, "#mt").textContent = tx("Quoi de neuf");
-    const { items, older } = newsShown(seen);
+    const { items, older, shown } = newsShown(seen, skip);
+    // (it. 2594) les plus anciennes se lisent page par page (bouton), la fenêtre ne défile toujours pas
     $(this.root, "#mbody").innerHTML = `<ul class="lines newslist${items.length > 12 ? " dense" : ""}">${items.map((t) => `<li><span>${esc(tx(t))}</span></li>`).join("")}</ul>`
-      + (older ? `<p class="note">${esc(txn(older, "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."))}</p>` : "");
+      + (older ? `<p class="note"><button class="linkbtn lock" data-action="news-older" data-seen="${seen}" data-skip="${skip + shown}">${esc(txn(older, "… et {n} nouveauté plus ancienne.|… et {n} nouveautés plus anciennes."))} →</button></p>` : "");
     $(this.root, "#modal").hidden = false;
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
   }
@@ -1178,6 +1179,7 @@ export class Panel {
     if (a === "chron-play") { this.game.emit("chronicleReplay", { id: b.dataset.id }); return; }
     if (a === "relic-play") { this.game.emit("relicReplay", { id: b.dataset.id }); return; } // (it. 631) revoir la scène d'une relique
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
+    if (a === "news-older") { this.showNews(+b.dataset.seen || 0, +b.dataset.skip || 0); return; } // (it. 2594)
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));

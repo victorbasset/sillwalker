@@ -33,7 +33,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Japonais : compteur « つ » remplacé là où le nombre dépasse 9 (« マスタリーの段階 18 件 »).
 
 **Au prochain lancement** : « Quoi de neuf » montre les éditions 155 à 157 (sac plein, moins de clics, sac et lisibilité) ; la 154
-(accessibilité, déjà dans la section de la nuit ci-dessous) ne tient pas dans la fenêtre (11 nouveautés au plus).
+(accessibilité) ne tient pas dans la fenêtre (11 nouveautés au plus) : le bas de la fenêtre, « … et N nouveautés plus anciennes → »,
+est maintenant un bouton qui montre la page suivante (it. 2594 ; avant, les anciennes ne se lisaient nulle part).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non

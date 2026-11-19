@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2594, plaisir de revenir) : « Quoi de neuf » : « … et N nouveautés plus anciennes » devient un bouton qui montre la
+  page suivante (newsShown(seen, skip), même règle : 3 éditions puis complément sous 11) ; avant, les anciennes ne se lisaient nulle part,
+  même depuis Réglages > Quoi de neuf (l'édition 154, accessibilité, restait cachée). Libellé existant, aucune nouvelle clé. Test (toutes
+  les pages, dans l'ordre, sans doublon) ; en russe à 1280 : pages de 9, 10, 11, 8… sans défilement ; autotest 322/322, lang-overflow ok.
 - 2026-11-19 (it. 2593, contrôle) : newsShown vérifié (affirmation de POUR-VICTOR, it. 2592) : lu jusqu'à 152 ou 153 → 9 nouveautés
   montrées (éditions 155-157), 7 ou 4 plus anciennes signalées ; la 154 ne s'affiche pas, comme écrit.
 - 2026-11-19 (it. 2592, doc) : POUR-VICTOR : section du jour réorganisée (sac plein / moins de clics / Quoi de neuf / Linux) ; la 154

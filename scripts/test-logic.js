@@ -1226,6 +1226,11 @@ test("Quoi de neuf : rien pour une partie neuve, une fois pour une ancienne sauv
   assert.ok(sh.items.length === three || sh.items.length <= M_news_js.NEWS_FILL_ITEMS, "complément sous la limite : " + sh.items.length);
   assert.deepEqual(sh.items.slice(0, three), NEWS_EDITIONS.slice(-NEWS_MAX_EDITIONS).reverse().flat(), "les plus récentes d'abord");
   assert.equal(newsShown(NEWS_ID - 1).older, 0);
+  // (it. 2594) pages suivantes : toutes les nouveautés se lisent, chacune une fois, aucune page au-delà de la limite (sauf 3 éditions)
+  let skip = 0, seenItems = [], pages = 0;
+  while (pages < 500) { const p = newsShown(0, skip); seenItems.push(...p.items); pages++; if (!p.older) break; assert.ok(p.shown > 0); skip += p.shown; }
+  assert.equal(seenItems.length, NEWS_EDITIONS.flat().length, "toutes les nouveautés atteintes page après page");
+  assert.deepEqual(seenItems, NEWS_EDITIONS.slice().reverse().flat(), "dans l'ordre, sans doublon");
 });
 
 test("sorts (demande D) : propres à chaque héros, lancés en combat, gardés à l'ascension, sauvegarde abîmée", () => {
