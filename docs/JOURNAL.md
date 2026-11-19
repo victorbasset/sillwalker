@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2422) : Boutique : amélioration du marchand bloquée par le sac plein parce que la pièce équipée est précieuse
+  (canBuyWhenFull : légendaire, panoplie ou forgée, jamais vendue d'office) : la bulle de « Sac plein » le dit et nomme la pièce
+  (clé 3399, 10 langues ; vérifié en japonais sur dev-data : « 最初の英雄の星鉄のグレートヘルム »). 310/310.
 - 2026-11-19 (it. 2421, REVUE GÉNÉRALE) : 12 h : gladiateur 65, danseuse de lames 62, guerrier 65 ; --perf : 19,9 / 19,4 %, mini 5,4 %,
   icône 0,5 % ; Boutique et mode mini en japonais : propres. Rien à corriger.
 - 2026-11-19 (it. 2420, contrôle) : mem-watch 10 min (bande) après les changements de la nuit : 569-573 Mo réels de 420 à 570 s,

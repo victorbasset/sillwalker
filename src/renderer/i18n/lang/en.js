@@ -2271,4 +2271,5 @@ export default {
   3396: "Skills: node names stay readable, drawn above the nodes and slightly larger.",
   3397: "The final victory's surprise waits for you: never over a full-screen game or video, nor while the game is minimized or the session locked.",
   3398: "A tip reminds you that clicking a faraway node of the great graph takes the shortest path.",
+  3399: "Bag full: your current piece, {0}, is precious and won't be sold automatically. Click: open the bag to make room.",
 };

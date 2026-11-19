@@ -37,7 +37,7 @@ export class ShopTab {
     // (it. 1512) tip : bulle du bouton quand l'achat est possible (objet équipé dès l'achat, it. 1510)
     const buy = (action, id, price, block = "", cls = "", short = false, tip = "") =>
       // (it. 1663) sac plein : le bouton n'est plus une impasse grisée, il ouvre le sac (Aventure) pour faire de la place
-      block === tx("Sac plein") ? `<button class="buy full" data-tab="adventure" title="${esc(tx("Clic : ouvrir le sac (Aventure) pour vendre ou transmuter."))}">${esc(block)}</button>`
+      block === tx("Sac plein") ? `<button class="buy full" data-tab="adventure" title="${esc(tip || tx("Clic : ouvrir le sac (Aventure) pour vendre ou transmuter."))}">${esc(block)}</button>`
       : block ? `<button disabled class="buy">${esc(block)}</button>`
         : `<button data-action="${action}" data-id="${id}" class="buy ${cls}"${S.gold < price ? ` ${tx("disabled title=\"Pas assez d’or\"")}` : tip ? ` title="${esc(tip)}"` : short && fmtShort(price) !== fmt(price) ? ` title="${fmt(price)}"` : ""}><i class="coin"></i>${short ? fmtShort(price) : fmt(price)}</button>`;
 
@@ -53,7 +53,10 @@ export class ShopTab {
         ${it.power && POWER_INDEX[it.power] ? `<div class="sub power-mini one" title="${esc(POWER_INDEX[it.power].name)}">★ ${esc(POWER_INDEX[it.power].name)}</div>` : ""}
         ${it.set && SETS[it.set] ? `<div class="sub tint one" style="--c:${SETS[it.set].color}" title="${esc(SETS[it.set].name)}">◆ ${esc(SETS[it.set].name)}</div>` : ""}
         <div class="verdict ${d > 0.005 || !cur ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${up ? "▲ " : ""}${verdict}</div>
-        ${buy("s-item", it.id, it.price, full && !g.canBuyWhenFull(it) ? tx("Sac plein") : "", up ? "primary" : "", false, g.isUpgrade(it) ? (full && S.equip[it.slot] && g.canBuyWhenFull(it)
+        ${buy("s-item", it.id, it.price, full && !g.canBuyWhenFull(it) ? tx("Sac plein") : "", up ? "primary" : "", false, g.isUpgrade(it) ? (full && S.equip[it.slot] && !g.canBuyWhenFull(it)
+          // (it. 2422) amélioration bloquée : la pièce équipée est précieuse, jamais vendue d'office ; la bulle le dit
+          ? tx("Sac plein : ta pièce actuelle, {0}, est précieuse et ne sera pas vendue d’office. Clic : ouvrir le sac pour faire de la place.", { 0: itemName(S.equip[it.slot]) })
+          : full && S.equip[it.slot] && g.canBuyWhenFull(it)
           // (it. 2155) sac plein : l'ancienne pièce sera vendue, dit avant le clic
           ? tx("Clic : acheter et équiper ; sac plein, l’ancienne pièce sera vendue : {0}.", { 0: itemName(S.equip[it.slot]) })
           : tx("Clic : acheter et équiper tout de suite (il renforce ton héros).")) : "")}

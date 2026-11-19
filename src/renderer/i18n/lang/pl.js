@@ -2271,4 +2271,5 @@ export default {
   3396: "Umiejętności: nazwy węzłów pozostają czytelne, rysowane nad węzłami i nieco większe.",
   3397: "Niespodzianka ostatecznego zwycięstwa czeka na twój powrót: nigdy nad grą ani filmem na pełnym ekranie, ani gdy gra jest zminimalizowana lub sesja zablokowana.",
   3398: "Wskazówka przypomina, że kliknięcie odległego węzła wielkiego grafu bierze najkrótszą ścieżkę.",
+  3399: "Torba pełna: twój obecny przedmiot, {0}, jest cenny i nie zostanie sprzedany automatycznie. Kliknij: otwórz torbę, by zrobić miejsce.",
 };

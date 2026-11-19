@@ -3400,5 +3400,6 @@ export const KEYS = [
   "Compétences : clique sur un nœud lointain, le chemin le plus court se prend tout seul si tu as assez de points. Clique ici.",
   "Compétences : les noms des nœuds restent lisibles, posés au-dessus des nœuds et un peu plus grands.",
   "La surprise de la victoire finale attend ton retour : jamais par-dessus un jeu ou une vidéo en plein écran, ni quand le jeu est réduit ou la session verrouillée.",
-  "Une astuce rappelle qu’un clic sur un nœud lointain du grand graphe prend le chemin le plus court."
+  "Une astuce rappelle qu’un clic sur un nœud lointain du grand graphe prend le chemin le plus court.",
+  "Sac plein : ta pièce actuelle, {0}, est précieuse et ne sera pas vendue d’office. Clic : ouvrir le sac pour faire de la place."
 ];
