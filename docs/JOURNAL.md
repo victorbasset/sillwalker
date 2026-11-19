@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2549, moins de clics) : Atelier : « Sac plus grand » a enfin son bouton « max » comme les autres lignes (dès que
+  l'or couvre deux niveaux ; prix du suivant calculé sur une copie de l'état) ; avant : 4 clics pour 4 niveaux. Vérifié : un clic, sac
+  24 → 48, bouton retiré au maximum. Autotest 320/320.
 - 2026-11-19 (it. 2548, contrôle) : lang-overflow all 1920 AVEC l'état « tout au maximum » (max-save, sauté par NO_MAX aux
   mesures du jour) : 30 mesures (dont max 1920 et 1280 dans les 10 langues), aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2547, contrôle) : résumé d'absence sur la fin de partie (fixture, 3 h, français) : propre ; « Agrandir le sac » en tête,

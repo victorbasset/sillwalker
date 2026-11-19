@@ -114,6 +114,7 @@ export class ShopTab {
         <img src="${shopIconURL("bag", 4)}" alt="">
         <div class="si"><div class="nm">${esc(u.name)} <small>${have} / ${u.max}</small></div><div class="sub">${txn(S.bagSize, "{n} place · +6 par niveau|{n} places · +6 par niveau")}</div></div>
         ${maxed ? `<button disabled class="buy">${tx("Maximum")}</button>` : buy("s-up", u.id, upgradePrice(u, S))}
+        ${/* (it. 2549) « max » comme les autres lignes de l'Atelier : dès que l'or couvre deux niveaux (prix du suivant sur une copie) */ ""}${!maxed && have + 1 < u.max && S.gold >= upgradePrice(u, S) + upgradePrice(u, { ...S, upgrades: { ...S.upgrades, [u.id]: have + 1 } }) ? `<button class="quiet wsmax" data-action="s-upmax" data-id="${u.id}" title="${esc(tx("Acheter autant de niveaux que possible"))}">${tx("max")}</button>` : ""}
       </div>`;
     }).join("");
 
@@ -164,6 +165,7 @@ export class ShopTab {
     else if (a === "s-ws") g.buyWorkshop(id);
     else if (a === "s-wsmax") g.buyWorkshop(id, 999);
     else if (a === "s-up") g.buyUpgrade(id);
+    else if (a === "s-upmax") { let n = 0; while (n < 99 && g.buyUpgrade(id)) n++; }
     else if (a === "s-reroll") g.rerollShop();
     else if (a === "s-unlock") g.buyUnlock(id);
     else if (a === "s-autopot") { g.S.autoPotions = b.checked; g.autoBuyPotions(); g.changed(); }
