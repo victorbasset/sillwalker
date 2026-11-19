@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2507, contenu) : « Quoi de neuf » édition 154 (confort et accessibilité : bulles des boutons grisés, puces au
+  clavier, orange du thème clair, « réduire les animations ») ; clés 3403-3406 traduites dans les 9 langues ; « ton système » plutôt
+  que « Windows » (version Mac). Autotest 320/320.
 - 2026-11-19 (it. 2506, accessibilité) : fermeture des fenêtres : le focus revient à l'élément d'avant (closeModal, closeConfirm,
   it. 2170) ; parcours clavier complet (ouverture, Tab bouclé, retour).
 - 2026-11-19 (it. 2505, doc) : CLAUDE.md : règles d'accessibilité vérifiées par l'autotest et le test de contraste.

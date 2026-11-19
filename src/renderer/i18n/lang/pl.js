@@ -2275,4 +2275,8 @@ export default {
   3400: "Nic lepszego w torbie: twój ekwipunek jest już najlepszy.",
   3401: "Nie ma czego resetować: nie wybrano żadnej umiejętności.",
   3402: "Efekty dźwiękowe wyłączone: zaznacz „Efekty dźwiękowe”, aby posłuchać.",
+  3403: "Wyszarzone przyciski: dymek zawsze mówi dlaczego (nic lepszego w torbie, cenny przedmiot blokuje zakup, wyciszony dźwięk…).",
+  3404: "Klawiatura: plakietki na karcie bohatera (błogosławieństwo, zestawy, relikwie) obsłużysz klawiszem Tab, a pokazują swój dymek.",
+  3405: "Jasny motyw: pomarańcz przedmiotów legendarnych jest czytelniejszy.",
+  3406: "Jeśli system ma ustawione „ograniczanie animacji”, finałowa niespodzianka nie zaczyna się już sama; ▶ jej kroniki odtwarza ją ponownie.",
 };

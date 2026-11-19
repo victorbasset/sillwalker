@@ -2275,4 +2275,8 @@ export default {
   3400: "Nichts Besseres in der Tasche: Deine Ausrüstung ist schon die beste.",
   3401: "Nichts zurückzusetzen: keine Fertigkeit gewählt.",
   3402: "Soundeffekte aus: Hake „Soundeffekte“ an, um zuzuhören.",
+  3403: "Ausgegraute Schaltflächen: Eine Blase sagt immer, warum (nichts Besseres in der Tasche, ein wertvolles Teil blockiert einen Kauf, Ton aus …).",
+  3404: "Tastatur: Die Marken auf der Heldenkarte (Segen, Sets, Relikte) lassen sich mit Tab erreichen und zeigen ihre Blase.",
+  3405: "Helles Design: Das Orange legendärer Gegenstände ist besser lesbar.",
+  3406: "Ist dein System auf „Animationen reduzieren“ eingestellt, startet die letzte Überraschung nicht mehr von selbst; das ▶ ihrer Chronik spielt sie erneut ab.",
 };

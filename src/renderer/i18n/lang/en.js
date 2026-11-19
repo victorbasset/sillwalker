@@ -2275,4 +2275,8 @@ export default {
   3400: "Nothing better in the bag: your gear is already the best.",
   3401: "Nothing to reset: no skill taken.",
   3402: "Sound effects are off: tick “Sound effects” to listen.",
+  3403: "Greyed-out buttons: a tooltip always says why (nothing better in the bag, a precious piece blocking a purchase, sound off…).",
+  3404: "Keyboard: the chips on the hero card (blessing, sets, relics) can be reached with Tab and show their tooltip.",
+  3405: "Light theme: the orange of legendary items is easier to read.",
+  3406: "If your system is set to “reduce animations”, the final surprise no longer starts by itself; the ▶ of its chronicle replays it.",
 };

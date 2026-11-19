@@ -3404,5 +3404,9 @@ export const KEYS = [
   "Sac plein : ta pièce actuelle, {0}, est précieuse et ne sera pas vendue d’office. Clic : ouvrir le sac pour faire de la place.",
   "Rien de mieux dans le sac : ton équipement est déjà le meilleur.",
   "Rien à réinitialiser : aucune compétence prise.",
-  "Effets sonores coupés : coche « Effets sonores » pour écouter."
+  "Effets sonores coupés : coche « Effets sonores » pour écouter.",
+  "Boutons grisés : une bulle dit toujours pourquoi (rien de mieux dans le sac, pièce précieuse qui bloque un achat, son coupé…).",
+  "Clavier : les puces de la carte du héros (bénédiction, panoplies, reliques) se parcourent avec Tab et montrent leur bulle.",
+  "Thème clair : l’orange des objets légendaires est plus lisible.",
+  "Si ton système est réglé sur « réduire les animations », la surprise finale ne se lance plus d’elle-même ; le ▶ de sa chronique la rejoue."
 ];

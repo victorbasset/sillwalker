@@ -2275,4 +2275,8 @@ export default {
   3400: "Nada mejor en la bolsa: tu equipo ya es el mejor.",
   3401: "Nada que reiniciar: ninguna habilidad tomada.",
   3402: "Efectos de sonido apagados: marca «Efectos de sonido» para escuchar.",
+  3403: "Botones en gris: una burbuja siempre dice por qué (nada mejor en la bolsa, una pieza valiosa que bloquea una compra, sonido apagado…).",
+  3404: "Teclado: las insignias de la ficha del héroe (bendición, conjuntos, reliquias) se recorren con Tab y muestran su burbuja.",
+  3405: "Tema claro: el naranja de los objetos legendarios se lee mejor.",
+  3406: "Si tu sistema está configurado para «reducir las animaciones», la sorpresa final ya no empieza sola; el ▶ de su crónica la repite.",
 };
