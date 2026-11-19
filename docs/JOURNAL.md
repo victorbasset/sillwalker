@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2730) BUG des nouveaux joueurs : au DEUXIÈME lancement, un tout nouveau joueur voyait « Nouveautés de la version 0.1.7 »
+  (ce qui a changé depuis la 0.1.6 : sans objet pour lui). Cause : app.js ne marquait les éditions lues à la première visite que si
+  newsDue(), qui exige un monstre vaincu, jamais vrai à ce moment ; newsSeen restait à 1 (valeur de départ), et au lancement suivant
+  releaseFor(1) renvoyait la 0.1.7. Marquage sans condition à la première visite. Vérifié en deux lancements (partie neuve, 30 s, puis
+  10 min d'absence) : newsSeen 160, le retour montre « Pendant ton absence » et plus la fenêtre de version. Touche la 0.1.7 distribuée.
+  npm test 376, autotest 327/327.
 - 2026-11-19 (it. 2729, contrôle) : version Linux construite dans le dossier temporaire (electron-builder --linux dir, 287 Mo ; dist-itch/
   intact) et lancée 15 s avec un HOME temporaire : partie neuve créée (zone 1), aucune erreur ; dossiers supprimés ensuite.
 - 2026-11-19 (it. 2728, contrôle) : --perf sur batterie (20 images/s) : bande 15,2 % (repère 15,3 %) ; utilisateur absent (--idle,

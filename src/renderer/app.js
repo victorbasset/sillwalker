@@ -570,7 +570,9 @@ async function boot() {
   // Après une mise à jour : une bulle « Quoi de neuf » (un clic ouvre la liste), une seule fois.
   // (it. 1546) partie neuve : rien à annoncer (la fenêtre « Nouveautés de la version » s'ouvrait par-dessus l'intro
   // d'un tout nouveau joueur) ; toutes les éditions comptent comme lues
-  if (firstVisit && newsDue(game.S)) markNews(game.S);
+  // (it. 2730) sans condition : newsDue exige un monstre vaincu, jamais vrai à la première visite ; le marquage n'avait donc pas lieu
+  // et, au lancement SUIVANT, un tout nouveau joueur voyait « Nouveautés de la version 0.1.7 » (newsSeen resté à 1)
+  if (firstVisit) markNews(game.S);
   else if (newsDue(game.S)) {
     const seen = game.S.settings.newsSeen || 0; // éditions déjà lues : on montre seulement les suivantes
     markNews(game.S);

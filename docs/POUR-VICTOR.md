@@ -52,6 +52,10 @@ bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
   « Language / Langue » passaient à la ligne) ; « Gold und Beute » / « Золото и добыча » plus courts (it. 2675-2677).
 Édition « Quoi de neuf » 159 publiée pour ces retouches (it. 2679).
 
+**Bug corrigé, présent dans la 0.1.7 distribuée (it. 2730)** : un TOUT NOUVEAU joueur voyait, à son deuxième lancement, la fenêtre
+« Nouveautés de la version 0.1.7 » (sans objet pour lui). Corrigé pour la prochaine version : à la première visite, toutes les nouveautés
+comptent comme lues.
+
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest
 attendent les polices) ; deux défauts cachés sont apparus et sont corrigés :
