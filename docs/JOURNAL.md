@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2680, contrôle) : fenêtre « Quoi de neuf » (édition 159) en français et en russe à 1920 px : trois nouveautés sur deux
+  colonnes, guillemets insécables, rien de coupé.
 - 2026-11-19 (it. 2679) « Quoi de neuf », édition 159 (lisibilité sur un écran de portable) : barre du monstre et nom du boss sur la bande
   (it. 2633-2635), titres des cartes des Statistiques et des Réglages sur une ligne (it. 2675-2677), Atelier aligné et ✦ des achats dans
   « À faire maintenant » (it. 2640, 2653). Clés 3422-3424 traduites dans les 9 langues (libellés cités tels qu'au jeu). npm test 376,
