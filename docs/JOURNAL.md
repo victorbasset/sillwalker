@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2585, contrôle) : early-pace après les changements du jour : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
+  (identique aux relevés précédents).
 - 2026-11-19 (it. 2584, contrôle) : --crawl sur la fin de partie (fixture) en japonais : 707 clics en 24 s, aucune erreur.
 - 2026-11-19 (it. 2583, contrôle) : --crawl sur une partie NEUVE en polonais (peu d'onglets, aucun déblocage) : 73 clics, aucune erreur.
 - 2026-11-19 (it. 2582, doc) : CLAUDE.md : la charge des autres services du serveur fausse --perf de ≈ 2 points ; comparer à l'ancien
