@@ -1698,6 +1698,12 @@ export class StripRenderer {
         monFits = fits && mx + BW + 24 <= (this.bossL == null ? lim : Math.min(rl, this.bossL));
       }
     }
+    // (it. 2635) au milieu aussi : pas de barre du monstre par-dessus le nom du boss
+    if (monFits && this.centerHud) {
+      const now = performance.now();
+      if (now - (this.bossCT || 0) > 500) { this.bossCT = now; const t = this.bossTag, r = t && t.isConnected ? t.getBoundingClientRect() : null; this.bossC = r && r.width > 0 ? [r.left, r.right] : null; }
+      if (this.bossC && mx + BW + 8 > this.bossC[0] && mx < this.bossC[1] + 8) monFits = false;
+    }
     // (it. 1536, demande de Victor) la barre du monstre reste affichée entre deux combats : le dernier monstre, vide
     const fight = R.mode === "fight" && R.mon;
     this.hpHero.visible(fits); this.hpMon.visible(monFits);
@@ -1760,6 +1766,14 @@ export class StripRenderer {
     if (!t || !t.isConnected) return;
     let off = 40;
     if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(this.fights()) + this.bossW / 2 + off - (this.hudRLeft - 8));
+    // (it. 2635) informations au milieu sur un écran étroit (réglage) : le nom passait sous les boutons ; décalé vers la
+    // droite pour commencer après eux, sans sortir de la bande (largeur mesurée une fois par nom)
+    else if (this.centerHud && this.hudSpan) {
+      if (t.dataset.w === undefined || t.dataset.wt !== t.textContent) { t.dataset.wt = t.textContent; t.dataset.w = t.offsetWidth; }
+      const w = +t.dataset.w || 0, ax = this.fightX(this.fights()) + this.bossW / 2;
+      const need = this.hudSpan[1] + 8 + w - ax, cap = this.W - 4 - ax;
+      if (need > off) off = Math.min(need, Math.max(off, cap));
+    }
     const v = `calc(-100% + ${Math.round(off)}px) 0`;
     if (t.style.translate !== v || this.tagsFor !== this.slotKey) { t.style.translate = v; this.bossObs = null; this.tagsFor = this.slotKey; this.clearQueueTags(); }
   }
