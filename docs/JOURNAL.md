@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2534, contrôle) : TALENTS-UX.md : aucun point ouvert ; Bestiaire en français (dev-data, 83 / 84) : propre. Tous
+  les onglets revus aujourd'hui (it. 2513-2534) ; « À faire » : les liens restants demandent un choix ou un déblocage (voulu).
 - 2026-11-19 (it. 2533, doc + contrôle) : POUR-VICTOR : sort appris d'un clic depuis « À faire » ; --crawl en japonais : 548 clics,
   aucune erreur.
 - 2026-11-19 (it. 2532, moins de clics) : « À faire maintenant » : « ✦ Sort à apprendre : X » (et du compagnon) apprend le sort d'un
