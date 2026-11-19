@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2444, contrôle) : lang-overflow 10 langues à 1600 px (dev et fin de partie) : aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2443, contrôle) : rangée des puces du héros à 1366 px : fondu de bord droit visible (.hscroll.more-r) : la suite
   est signalée ; conforme.
 - 2026-11-19 (it. 2442) : puce de panoplie « coupée » (revue 2441) : la rangée des puces du héros est une rangée latérale (.hscroll,
