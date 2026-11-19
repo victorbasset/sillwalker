@@ -3415,5 +3415,8 @@ export const KEYS = [
   "Sac plein : une pièce légendaire, de panoplie ou forgée n’est plus jamais vendue ni perdue sans que tu le demandes (coffres, Valet d’armes).",
   "Un déblocage annoncé ailleurs que dans la boutique (Carte, Familiers, Compétences…) s’achète d’un clic sur place quand tu as l’or.",
   "Choses à faire : un sort abordable s’apprend d’un clic, sans passer par l’onglet des héros.",
-  "Retour d’absence : le meilleur butin perdu montre son nom au survol."
+  "Retour d’absence : le meilleur butin perdu montre son nom au survol.",
+  "Atelier : « max » agrandit aussi le sac de tous ses niveaux d’un clic.",
+  "Mode mini : la bulle annonce « prêt à acheter ! » quand l’or suffit pour le prochain déblocage.",
+  "Objets laissés au sol faute de place : le journal le note après une absence, et les statistiques en gardent le total."
 ];

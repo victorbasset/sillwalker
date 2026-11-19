@@ -2286,4 +2286,7 @@ export default {
   3411: "Um desbloqueio anunciado fora da loja (Mapa, Mascotes, Habilidades…) é comprado com um clique ali mesmo quando você tem o ouro.",
   3412: "Tarefas: um feitiço acessível é aprendido com um clique, sem passar pela aba dos heróis.",
   3413: "Volta da ausência: o melhor saque perdido mostra o nome ao passar o mouse.",
+  3414: "Oficina: “máx.” agora também aumenta a bolsa em todos os níveis com um clique.",
+  3415: "Modo mini: a dica avisa “pronto para comprar!” quando o ouro basta para o próximo desbloqueio.",
+  3416: "Itens deixados no chão por falta de espaço: o registro anota após uma ausência e as estatísticas guardam o total.",
 };

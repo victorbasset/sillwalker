@@ -2286,4 +2286,7 @@ export default {
   3411: "Eine außerhalb des Ladens angezeigte Freischaltung (Karte, Begleiter, Fertigkeiten…) kaufst du mit einem Klick direkt dort, wenn du das Gold hast.",
   3412: "Zu tun: Ein bezahlbarer Zauber wird mit einem Klick gelernt, ohne Umweg über den Heldentab.",
   3413: "Rückkehr: Die beste verlorene Beute zeigt beim Überfahren ihren Namen.",
+  3414: "Werkstatt: „max.“ vergrößert jetzt auch die Tasche um alle Stufen mit einem Klick.",
+  3415: "Mini-Modus: Die Blase sagt „bereit zum Kauf!“, wenn das Gold für die nächste Freischaltung reicht.",
+  3416: "Gegenstände, die mangels Platz liegen bleiben: Das Protokoll vermerkt sie nach einer Abwesenheit, die Statistik zählt sie mit.",
 };

@@ -2286,4 +2286,7 @@ export default {
   3411: "An unlock announced outside the shop (Map, Pets, Skills…) can be bought in one click right there when you have the gold.",
   3412: "To-do: an affordable spell is learned in one click, without going to the heroes tab.",
   3413: "Back from away: the best lost loot shows its name on hover.",
+  3414: "Workshop: “max” now also enlarges the bag by all its levels in one click.",
+  3415: "Mini mode: the tooltip says “ready to buy!” when you have enough gold for the next unlock.",
+  3416: "Items left on the ground for lack of space: the log notes it after an absence, and the stats keep the total.",
 };

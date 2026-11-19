@@ -2286,4 +2286,7 @@ export default {
   3411: "Un desbloqueo anunciado fuera de la tienda (Mapa, Mascotas, Habilidades…) se compra con un clic allí mismo cuando tienes el oro.",
   3412: "Tareas: un hechizo asequible se aprende con un clic, sin pasar por la pestaña de héroes.",
   3413: "Regreso de una ausencia: el mejor botín perdido muestra su nombre al pasar el ratón.",
+  3414: "Taller: «máx.» también agranda la bolsa todos sus niveles con un clic.",
+  3415: "Modo mini: la burbuja dice «¡listo para comprar!» cuando el oro alcanza para el próximo desbloqueo.",
+  3416: "Objetos que quedan en el suelo por falta de espacio: el registro lo anota tras una ausencia y las estadísticas guardan el total.",
 };

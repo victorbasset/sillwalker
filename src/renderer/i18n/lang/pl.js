@@ -2286,4 +2286,7 @@ export default {
   3411: "Odblokowanie pokazane poza sklepem (Mapa, Pupile, Umiejętności…) kupisz jednym kliknięciem na miejscu, gdy masz złoto.",
   3412: "Do zrobienia: przystępne zaklęcie poznasz jednym kliknięciem, bez przechodzenia do karty bohaterów.",
   3413: "Powrót po nieobecności: najlepszy utracony łup pokazuje swoją nazwę po najechaniu.",
+  3414: "Warsztat: „maks.” powiększa też torbę o wszystkie poziomy jednym kliknięciem.",
+  3415: "Tryb mini: dymek mówi „gotowe do kupienia!”, gdy złota wystarcza na następne odblokowanie.",
+  3416: "Przedmioty zostawione na ziemi z braku miejsca: dziennik zapisuje to po nieobecności, a statystyki liczą łącznie.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2569, contenu) : « Quoi de neuf » édition 157 (« max » du sac, « prêt à acheter ! » du mode mini, objets laissés au
+  sol notés au journal et comptés aux statistiques ; it. 2542-2567) ; clés 3414-3416 dans les 9 langues. Autotest 322/322,
+  lang-overflow all 1280 : aucun défilement.
 - 2026-11-19 (it. 2568, contrôle) : max-save : stats.grounded = 987 654 (ligne « Laissés au sol » au pire cas) ; lang-overflow all 1280
   avec l'état maximum : 40 mesures, aucun défilement ni mot coupé.
 - 2026-11-19 (it. 2567, lisible) : Statistiques > Chiffres : « Laissés au sol (sac plein) N » (S.stats.grounded, compté dans
