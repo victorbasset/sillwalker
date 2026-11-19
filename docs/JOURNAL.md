@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2474) : audit « texte coupé par … sans bulle » (tous les onglets et sous-sections, en et de, 1366 px) : aucun ;
+  devient un contrôle de l'autotest. 317/317.
 - 2026-11-19 (it. 2473, contrôle) : save-fuzz (dev) : ok.
 - 2026-11-19 (it. 2472, contrôle) : stall-check : 60 parties, 0 figée.
 - 2026-11-19 (it. 2471, REVUE GÉNÉRALE) : 12 h : gladiateur 65, lancier 66, nécromancien 62 ; --perf : 19,4 / 19,7 %, mini 5,6 %, icône 0,6 % ;
