@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2408, bon voisin) : cinématique de libération : suit « Économie d'énergie » (15 images/s au lieu de 30 ; data.eco
+  envoyé par app.js, pas de temps plafonné à 0,1 s au lieu de 0,06 pour garder la même vitesse). Capture en économie d'énergie à 8 s :
+  scène normale (« Free! »). 307/307.
 - 2026-11-19 (it. 2407, contrôle) : balance.mjs 12 v0.1.7 : 64,7 / 64,7, identique classe par classe ; succès du grand graphe
   calculés sur GRAPH_MAX_TAKE (222) : rien d'ancien à corriger.
 - 2026-11-19 (it. 2406, doc) : POUR-VICTOR : l'annonce du grand graphe complet reviendra sur sa partie (it. 2405).

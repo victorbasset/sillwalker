@@ -597,6 +597,7 @@ async function boot() {
       frames: { walk1: h.walk1.toDataURL(), walk2: h.walk2.toDataURL() },
       partner: ps ? { walk1: ps.walk1.toDataURL(), walk2: ps.walk2.toDataURL() } : null,
       from, texts: { title: tx("Libre !"), sub: tx("Le Rebord ne te retient plus.") }, duration: window.__finaleMs || 26000,
+      eco: !!S.settings.eco,
     });
   };
   if (init.isDev) window.__playFinale = playFinale; // autotest et captures
