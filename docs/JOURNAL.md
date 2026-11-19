@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2744) Contrôle : résumé d'absence d'un débutant (10 min de jeu, sac plein, 8 h d'absence) à 1920 px : propre ; « Sac plein »
+  en tête des actions, plafond de 8 h expliqué, « Légendaire · pas gardé » (40 légendaires de Poupouce restés au sol : règle voulue par
+  Victor, « tant pis », addToBag). Rien à corriger.
 - 2026-11-19 (it. 2743) docs/POUR-VICTOR.md : priorité de la bulle d'absence (it. 2742) ajoutée avec les autres corrections du retour.
 - 2026-11-19 (it. 2742) Retour d'absence d'un débutant (sac plein, 2 h ou 8 h) : la bulle « 🎒 Sac plein : une amélioration est restée au sol »
   s'affichait la première et repoussait la bulle d'absence de 12 s (file des bulles) ; ouvrir le panneau entre-temps (ou --open-panel)
