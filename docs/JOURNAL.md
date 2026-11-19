@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2477, autotest) : contrôle « tout élément cliquable est atteignable au clavier » (tous les onglets). 318/318.
 - 2026-11-19 (it. 2476, accessibilité) : éléments cliquables ([data-action], [data-tab]) hors boutons et sans tabindex, tous les onglets et
   sous-sections, fin de partie : aucun (SVG exclus : nœuds des Compétences et zones de la Carte ont leur clavier propre).
 - 2026-11-19 (it. 2475, contrôle) : texte coupé sans bulle, fin de partie à 1280 px, russe et japonais, toutes sous-sections : aucun.
