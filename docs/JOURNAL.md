@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2407, contrôle) : balance.mjs 12 v0.1.7 : 64,7 / 64,7, identique classe par classe ; succès du grand graphe
+  calculés sur GRAPH_MAX_TAKE (222) : rien d'ancien à corriger.
 - 2026-11-19 (it. 2406, doc) : POUR-VICTOR : l'annonce du grand graphe complet reviendra sur sa partie (it. 2405).
 - 2026-11-19 (it. 2405) : ancienne sauvegarde au grand graphe rempli avant l'allègement (it. 2332) : graphFullSeen restait vrai alors
   que le nettoyage retire des nœuds : l'annonce « grand graphe complet » ne serait jamais revenue en le remplissant de nouveau.
