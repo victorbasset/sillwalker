@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2533, doc + contrôle) : POUR-VICTOR : sort appris d'un clic depuis « À faire » ; --crawl en japonais : 548 clics,
+  aucune erreur.
 - 2026-11-19 (it. 2532, moins de clics) : « À faire maintenant » : « ✦ Sort à apprendre : X » (et du compagnon) apprend le sort d'un
   clic sur place (todoDirect / todoDo, todoNow donne sid) ; avant : « → » ouvrait Héros > Sorts, où il fallait le chercher. Vérifié
   dans le résumé d'absence (dev-data, 3 h) : Tourbillon appris, ligne « ✓ », résumé ouvert. Test (sid), autotest 320/320.
