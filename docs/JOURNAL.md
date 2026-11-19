@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2678, contrôle) : sonde des titres de cartes d'une même rangée de hauteurs différentes, tous les onglets et sous-sections à
+  1280 px (fr, de, ru, en) : seuls Talents (portrait du héros dans le titre, voulu) et l'Atelier (seul sur sa rangée ; capture russe : une
+  ligne, mesure faussée par une autre sous-section) ; aucun autre titre sur deux lignes après les it. 2675-2677.
 - 2026-11-19 (it. 2677) Réglages, écrans de portable : « Language / Langue » (titre bilingue) passait sur deux lignes à 1280 px dans les
   10 langues. Même règle que les Statistiques (it. 2675 : titres en 17 px sous un panneau de 1334 px) : six titres sur une ligne à 1280
   et 1366 px (fr, de, ru mesurés). npm test 376, autotest 326/326.
