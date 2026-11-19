@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2499, accessibilité) : barres de progression (.bar) sans role="progressbar", mais toujours accompagnées de leur
+  valeur en texte (kv « 70 / 70 », expérience, avant le boss) : l'information est lue ; rien de nécessaire.
 - 2026-11-19 (it. 2498, accessibilité) : onglets et sous-sections : role="tablist" / "tab", aria-selected tenu à jour (panel.js 420,
   subtabs.js) ; rien à ajouter.
 - 2026-11-19 (it. 2497, accessibilité) : fenêtre de confirmation : aria-describedby="cbody" (le texte qui dit ce qui sera perdu est
