@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2519, contrôle) : autres pertes automatiques examinées (suite des it. 2517-2518) : Creuset (autoTransmute) et
+  vente des inutiles (sellUseless) consomment les objets FORGÉS devenus inutiles (uselessItems ne garde que légendaires et pièces de
+  panoplie à compléter). Gardé tel quel : objets du Marchand déjà forgés (it. 988), les exclure boucherait le sac (« le sac ne doit
+  jamais se bloquer ») ; automatismes achetés = choix du joueur. Les coffres et le Valet (it. 2517-2518) restent plus prudents
+  (aucune vente d'objet forgé que le joueur n'a pas demandée).
 - 2026-11-19 (it. 2518, ne jamais trahir) : Valet d'armes, sac plein : l'ancienne pièce était retirée du sac et PERDUE, même
   légendaire, de panoplie ou forgée. Maintenant : pièce précieuse → un objet inutile ordinaire est vendu (chestRoom) pour la garder
   dans le sac ; sans place possible, le nouvel objet reste au sol (règle du sac plein). Pièce ordinaire : comme avant. Test (échoue
