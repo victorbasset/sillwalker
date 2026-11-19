@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2714, contrôle) : --overflow-report sur une partie NEUVE (dossier vide, --lang) dans les 10 langues à 1280 px : aucun
+  (le rapport ne compte pas les textes coupés avec « … » et bulle, comme « Handschuhe: le… » avant l'it. 2697 : seulement en capture).
 - 2026-11-19 (it. 2713, contrôle) : --dump-text d'une partie neuve en chinois et en japonais (≈ 1 810 lignes chacune) : aucun mot latin suspect.
 - 2026-11-19 (it. 2712, contrôle) : --dump-text d'une partie NEUVE en russe (1 811 lignes, onglets fermés, astuces de début) : aucun mot
   latin suspect (noms propres, touches, noms des langues seulement).
