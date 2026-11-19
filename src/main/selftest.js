@@ -1725,6 +1725,14 @@ async function runSelfTest(strip) {
   strip.setFullscreenApp(false);
   const fsAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
   check("libération : jamais par-dessus une application en plein écran, jouée après", fsBlocked && fsAfter === "true true", fsBlocked + " / " + fsAfter);
+  // (it. 2412) jeu réduit à son icône : la libération attend que la bande revienne
+  await strip.setMode("icon"); await sleep(300);
+  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await sleep(1500);
+  const icBlocked = !(await js("window.sillwalker.finaleOpen()"));
+  await strip.setMode("strip");
+  const icAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
+  check("libération : attend que la bande revienne quand le jeu est réduit à son icône", icBlocked && icAfter === "true true", icBlocked + " / " + icAfter);
 
   await click("#menu-btn");
   await sleep(400);

@@ -167,7 +167,12 @@ function start() {
     let finalePending = null, finaleLast = null;
     strip.onFullscreen = (on) => {
       if (on) { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } }
-      else if (finalePending) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden) playFinaleWin(d); else finalePending = d; }, 1500); }
+      else if (finalePending && strip.isShown()) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden && strip.isShown()) playFinaleWin(d); else finalePending = d; }, 1500); }
+    };
+    // (it. 2412) jeu réduit à son icône (bande cachée par le joueur) : la scène attend que la bande revienne
+    strip.onModeChange = (mode) => {
+      if (mode === "icon") { if (finale.finaleOpen()) { finalePending = finaleLast; finale.closeFinale(); } }
+      else if (finalePending && !strip.fsHidden) { const d = finalePending; finalePending = null; setTimeout(() => { if (!strip.fsHidden && strip.isShown()) playFinaleWin(d); else finalePending = d; }, 1500); }
     };
     const playFinaleWin = (data) => {
       finaleLast = data;
@@ -176,7 +181,7 @@ function start() {
     };
     ipcMain.on("finale:play", (_e, data) => {
       if (!data || typeof data !== "object") return;
-      if (strip.fsHidden) { finalePending = data; return; }
+      if (strip.fsHidden || !strip.isShown()) { finalePending = data; return; }
       playFinaleWin(data);
     });
     ipcMain.on("finale:end", () => finale.closeFinale());

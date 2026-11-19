@@ -193,6 +193,7 @@ class StripWindow {
       }
     } finally {
       this.switching = false;
+      this.onModeChange?.(this.mode()); // (it. 2412) main.js : la libération attend que la bande soit de nouveau affichée
       this.notify();
     }
   }

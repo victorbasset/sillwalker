@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2412, bon voisin) : jeu réduit à son icône (bande cachée par le joueur) : la cinématique de libération attend que la
+  bande revienne (StripWindow.onModeChange ; si on réduit pendant la scène, elle se ferme et sera rejouée). Contrôle de l'autotest en
+  fin de parcours. 309/309.
 - 2026-11-19 (it. 2411, REVUE GÉNÉRALE) : 12 h : arbalétrier 64, lancier 66, cryomancienne 65 ; --perf : 20,0 / 19,1 %, mini 5,5 %,
   icône 0,6 % ; Statistiques en chinois à 1920 px (fin de partie) : propre. Rien à corriger.
 - 2026-11-19 (it. 2410, bon voisin) : cinématique de libération jamais par-dessus une application en plein écran : main.js la met en
