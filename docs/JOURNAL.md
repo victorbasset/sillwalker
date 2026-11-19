@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2454, doc) : CLAUDE.md : repère hero-table de l'it. 2452 (64,9, écart 4,0).
 - 2026-11-19 (it. 2453, équilibrage) : nécromancien (le plus bas du tableau, 62,7) sur 7 graines (7,3,11,21,31,41,51) : 62, 61, 64,
   66, 62, 64, 64 → 63,3, soit −1,6 zone : dans le bruit, pas de retouche.
 - 2026-11-19 (it. 2452, équilibrage) : hero-table 20 héros, 12 h, graines 7/3/11 : moyenne 64,9, écart 4,0 (nécromancien 62,7 →
