@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2630, contrôle) : i18n-names : 25 écarts, tous anciens (déclinaisons allemandes et coréennes, tournures voulues) ;
+  aucun parmi les clés du jour (3395-3421).
 - 2026-11-19 (it. 2629, contrôle) : stall-check (sauvegardes avancées, 20 héros) : 60 parties, 0 figées.
 - 2026-11-19 (it. 2628, contrôle) : fuzz 60 graines après les changements du sac plein, du coffre et du Valet d'armes : 1200 parties,
   0 bloquées.
