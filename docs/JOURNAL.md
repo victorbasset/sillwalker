@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2748) Autotest : « absence pendant le mode icône : le résumé attend l'ouverture de la bande » (window.__offlineToast en
+  dev ; passe en icône, envoie un résumé, revient à la bande). OK ; sans le correctif de l'it. 2747 : ÉCHEC (bulle montrée sur la bande
+  cachée). npm test 377, autotest 329/329.
 - 2026-11-20 (it. 2747) Retour d'absence, jeu lancé AVEC WINDOWS (main.js : au démarrage de session, le mode icône est respecté) : la bulle
   d'absence partait sur la bande cachée et expirait au bout de 15 s ; ouvrir la bande ensuite ne montrait rien. Le résumé attend
   maintenant (pendingOffline, comme en mode mini) et s'affiche à l'ouverture de la bande, ou au voyant du mini. Mesuré avec atLogin forcé

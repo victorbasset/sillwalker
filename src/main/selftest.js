@@ -1856,6 +1856,16 @@ async function runSelfTest(strip) {
   await strip.setMode("strip");
   const icAfter = await js("(async () => { let opened = false; for (let i = 0; i < 60 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
   check("libération : attend que la bande revienne quand le jeu est réduit à son icône", icBlocked && icAfter === "true true", icBlocked + " / " + icAfter);
+  // (it. 2746-2747) résumé d'absence arrivé pendant que le jeu est réduit à son icône (lancement avec Windows) : il attend la bande
+  // (avant : bulle sur la bande cachée, expirée sans être vue)
+  {
+    await strip.setMode("icon"); await sleep(300);
+    await js("(() => { window.__offlineToast({ seconds: 30000, duration: '8 h', zone: 'Z', kills: 4321, gold: 10, xp: 10, steps: [] }); return 1; })()");
+    const hidden = await js("(() => { const t = document.getElementById('toast'); return !t.hidden && /4[\\s\\u00a0\\u202f,.]?321/.test(t.textContent); })()");
+    await strip.setMode("strip");
+    const shown = await js("(async () => { for (let i = 0; i < 40; i++) { await new Promise((r) => setTimeout(r, 100)); const t = document.getElementById('toast'); if (!t.hidden && /4[\\s\\u00a0\\u202f,.]?321/.test(t.textContent)) { t.hidden = true; return true; } } return false; })()");
+    check("absence pendant le mode icône : le résumé attend l'ouverture de la bande", !hidden && shown, hidden + " / " + shown);
+  }
   // (it. 2415) session verrouillée : la libération attend le retour du joueur
   strip.setLocked(true); await sleep(200);
   await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
