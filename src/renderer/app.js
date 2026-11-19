@@ -601,7 +601,8 @@ async function boot() {
     });
   };
   if (init.isDev) window.__playFinale = playFinale; // autotest et captures
-  game.on("starbreaker", ({ first }) => { if (first && game.S.settings.cinematics !== false) setTimeout(playFinale, 1500); });
+  // (it. 2487) « réduire les animations » du système : pas de vol automatique sur tout l'écran (le ▶ de la chronique le rejoue sur demande)
+  game.on("starbreaker", ({ first }) => { if (first && game.S.settings.cinematics !== false && !window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) setTimeout(playFinale, 1500); });
   game.on("chronicleReplay", ({ id }) => {
     const c = CHRONICLES.find((x) => x.id === id);
     if (!c) return;
