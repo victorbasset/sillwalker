@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2559, contrôle) : barre du prochain déblocage du mode mini : pas cliquable en soi (la zone ouvre le panneau, où il
+  s'achète d'un clic) : rien à changer. Fuzz FUZZ_DAYMOD=all : 1 200 parties, 0 bloquée ; stall-check STALL_DAYMOD=all : 0 figée.
 - 2026-11-19 (it. 2558, contrôle) : astuce du sac plein sur la bande en russe (« Мастерская (Лавка) увеличивает её на 6 мест ») :
   traduite, tient dans sa bulle (vérification restée en suspens à l'it. 2557).
 - 2026-11-19 (it. 2557, doc + contrôle) : POUR-VICTOR : bulle du mode mini ; bande en russe (nom du boss, or, niveau) : propre.
