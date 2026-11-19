@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2498, accessibilité) : onglets et sous-sections : role="tablist" / "tab", aria-selected tenu à jour (panel.js 420,
+  subtabs.js) ; rien à ajouter.
 - 2026-11-19 (it. 2497, accessibilité) : fenêtre de confirmation : aria-describedby="cbody" (le texte qui dit ce qui sera perdu est
   lu avec le titre) ; #modal et #confirm déjà en dialog / alertdialog modaux. 320/320.
 - 2026-11-19 (it. 2496, accessibilité) : bulle de la bande (#toast) et « Prochaine découverte » ont role="status" (annoncés poliment
