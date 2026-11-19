@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2602, design) : bouton « … et N nouveautés plus anciennes → » : trait plein et couleur du texte (classe more) ;
+  avant, le style « lock » (pointillé grisé) le faisait passer pour un lien verrouillé. Autotest 323/323.
 - 2026-11-19 (it. 2601, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, arbalétrier 66 (habituels) ; --perf (charge ≈ 1,6) : 19,3 / 19,3 %,
   mini 5,7 %, icône 0,4 % ; « Quoi de neuf » page 2 en espagnol (édition 154 visible, « … y 391 novedades más antiguas. → ») : propre ;
   texte russe : aucun mot latin suspect. Rien à corriger.
