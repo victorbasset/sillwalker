@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2447, contrôle) : contour de focus des puces du héros : règle générale [tabindex]:focus-visible (3 px, --accent) ;
+  rien à ajouter (le contour peut être rogné de 2 px par la rangée .hscroll, sans gêner la lecture).
 - 2026-11-19 (it. 2446, accessibilité) : puces de la carte du héros (bénédiction du jour, panoplies, reliques, effets) atteignables
   au clavier (tabindex 0) : leur bulle s'affiche au focus (même mécanisme que les ⓘ, it. 2149) ; focus gardé 4 s malgré la mise à
   jour du panneau ; contrôle de l'autotest. 315/315.
