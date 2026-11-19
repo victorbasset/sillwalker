@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2654, contrôle) : autres usages de button.buy (margin-top: auto) : Marchand, potions, coffres, œuf, déblocages :
+  tous dans des cartes en colonne (le bouton descend en bas de la carte, voulu) ; seules les lignes de l'Atelier étaient en rangée.
 - 2026-11-19 (it. 2653) Boutique > Atelier : sur chaque ligne, le bouton du prix tombait ≈ 4 px plus bas que le bouton « max » voisin
   (button.buy { margin-top: auto } des cartes du Marchand : 8,5 px de marge dans une ligne centrée). `.wsline .buy { margin-top: 0 }` :
   haut des boutons 186,4 / 186,7 px (avant 190,6 / 186,7), hauteur de ligne inchangée. Vu en allemand à 1280 px. npm test 376, autotest 325/325.
