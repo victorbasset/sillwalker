@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2542, plaisir de revenir) : Journal : après une absence sac plein, une ligne « Sac plein, objets laissés au sol : N. »
+  suit « Pendant 2 h : … » (texte déjà traduit, catégorie déjà classée) ; avant, seul le résumé d'absence, une fois fermé, le disait.
+  Test (échoue avant), autotest 320/320.
 - 2026-11-19 (it. 2541, REVUE GÉNÉRALE) : 12 h : gladiateur 65, chaman 69, arbalétrier 64 (habituels ; chaman en haut du tableau
   depuis l'it. 2452) ; --perf : 19,5 / 19,2 %, mini 5,5 %, icône 0,5 % ; Aventure en coréen et mode mini en espagnol (« 447 mil M ») :
   propres ; texte polonais : aucun mot français (« Le » = « Leśny », frontière de mot du motif). Rien à corriger.

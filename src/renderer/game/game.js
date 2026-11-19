@@ -1587,6 +1587,8 @@ export class Game {
       (summary.newLevel ? tx(", niveau ") + S.lvl : "") +
       // (it. 844) rien gardé : pas de « 0 objet gardé » dans le journal
       (summary.kept ? tx(", ") + txn(summary.kept, "{n} objet gardé.|{n} objets gardés.") : cend()));
+    // (it. 2542) sac plein pendant l'absence : la perte reste écrite au journal (avant, seul le résumé, fermé ensuite, la disait)
+    if (onGround > 0) this.log(tx("Sac plein, objets laissés au sol : {0}.", { 0: onGround }));
     this.changed();
     return summary;
   }
