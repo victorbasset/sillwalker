@@ -58,6 +58,8 @@ attendent les polices) ; deux défauts cachés sont apparus et sont corrigés :
 - Ascension en russe sur un portable (1280 px) : l'onglet défilait de 5 px (liste « gardé / perdu » resserrée).
 - Japonais : un titre de panneau ne se coupe plus entre deux caractères (« 戦 / 士 » dans les Talents).
 Mesure complète relancée ensuite (10 langues, 4 largeurs, fin de partie, 130 %, état maximal) : plus rien.
+- Équipement : un emplacement vide s'affiche sur deux lignes (« Gants » / « vide »), comme un objet porté ; en allemand sur un
+  portable, « Handschuhe: le… » était coupé dès le premier écran d'une partie neuve (it. 2697).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non
