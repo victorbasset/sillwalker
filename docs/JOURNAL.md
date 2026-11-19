@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2736, contrôle) : partie neuve en français, ≈ 30 min de jeu (--speed=10, 180 s) sans aucun clic : niveau 23, zone 10
+  (record 11), sac plein, équipement vide (personne n'équipe) ; onglets ouverts au fil du jeu, « Acheter : Œil du connaisseur » toujours
+  proposé. Aucune erreur. Détail : la bulle de parole du héros (« Aïe… je reviens. ») passe sur la rangée des barres de vie de la bande.
 - 2026-11-19 (it. 2735, contrôle) : partie neuve en allemand à 1280 px, ≈ 10 min de jeu (--speed=10, 60 s) : propre ; emplacements vides
   sur deux lignes (it. 2697), « Kaufen: Kennerblick (300 Gold) » sous le sac, rien de coupé ni de défilement.
 - 2026-11-19 (it. 2734, contrôle) : partie neuve en français à --speed=10 pendant 60 s (≈ 10 min de jeu), sans aucun clic : niveau 13,
