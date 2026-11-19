@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2735, contrôle) : partie neuve en allemand à 1280 px, ≈ 10 min de jeu (--speed=10, 60 s) : propre ; emplacements vides
+  sur deux lignes (it. 2697), « Kaufen: Kennerblick (300 Gold) » sous le sac, rien de coupé ni de défilement.
 - 2026-11-19 (it. 2734, contrôle) : partie neuve en français à --speed=10 pendant 60 s (≈ 10 min de jeu), sans aucun clic : niveau 13,
   zone 8, 18 objets dans le sac, tous signalés ▲ ; équipement vide souligné en vert, « double-clic : équiper », et le lien « Acheter : Œil
   du connaisseur (300 or) » (bouton « Équiper le meilleur ») : le chemin vers l'équipement est indiqué. Aucune erreur. Détail : l'annonce
