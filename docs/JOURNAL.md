@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2674, contrôle) : tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire 13-18,
+  ascension 20-41 min : identique à l'it. 2586.
 - 2026-11-19 (it. 2673, contrôle) : semaine du guerrier (simulate 168) : 40 courses, record 350, 6 158 éclats : palier habituel.
 - 2026-11-19 (it. 2672, contrôle) : mode mini en allemand, russe et portugais (« Stf. 1313 · 447 Mrd », « Ур. 1313 · 447 млрд »,
   « Nv. 1313 · 447 B ») : tout tient, rien de coupé.
