@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2620, contrôle) : boutons « Voir les raccourcis » et « Quoi de neuf » des Réglages : sans bulle mais libellés
+  explicites ; la pagination s'annonce dans la fenêtre (bouton du bas). Rien à ajouter.
 - 2026-11-19 (it. 2619, lisible) : bouton « Version 0.1.7 » des Réglages : bulle « Notes de cette version et des précédentes (← / →) »
   (clé 3421, 9 langues) ; avant, aucune bulle, la relecture des versions précédentes (it. 2614) ne se devinait pas. Autotest.
 - 2026-11-19 (it. 2618, doc) : autotest chronométré : ≈ 145 s pour 324 vérifications (CLAUDE.md).
