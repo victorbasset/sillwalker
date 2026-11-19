@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2632, contrôle) : Héros en japonais, 1920 px (onglet « class ») : propre ; boutons « 昇天後にプレイ » / « デュオに加える »
+  sur deux lignes quand ils sont côte à côte : le cas connu des libellés (Idées, P3 it. 2213, à décider avec Victor).
 - 2026-11-19 (it. 2631, REVUE GÉNÉRALE) : 12 h : moine 65, prêtresse 64, artificier 64 ; --perf : 20,3 / 19,3 %, mini 5,3 %,
   icône 0,6 % ; texte japonais : aucun mot latin suspect. Capture de l'Aventure en japonais : la pastille de la bénédiction du jour
   finissait par « 。 » (« Poupouce ×10。 ») ; en français aussi par un point : retiré du texte de la pastille (panel.js ; la bulle
