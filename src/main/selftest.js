@@ -1496,6 +1496,13 @@ async function runSelfTest(strip) {
   // (it. 2435-2436) toute image a un texte de remplacement (alt="" pour un décor), bande, mode mini et onglets déjà construits
   const noAlt = await js("[...document.querySelectorAll('img:not([alt])')].map((i) => i.className || i.parentElement.className).slice(0, 5).join(',') || 'ok'");
   check("accessibilité : aucune image sans texte de remplacement", noAlt === "ok", noAlt);
+  // (it. 2438-2439) chaque bouton visible du panneau a un nom (texte, aria-label ou bulle), dans tous les onglets
+  const btnNo = await js(`(async () => { const P = window.__panel, keep = P.tab, out = [];
+    const named = (b) => (b.textContent || "").replace(/[\\s▲▼◀▶✕×⋯…↻⟳⇅⇵←→↑↓↺]/g, "").length > 0 || b.getAttribute("aria-label") || b.title || b.dataset.title || b.getAttribute("aria-labelledby");
+    for (const t of Object.keys(P.tabs)) { P.setTab(t); P.renderAll(); await new Promise((r) => setTimeout(r, 100));
+      for (const b of document.querySelectorAll('#panel button, #panel [role=button]')) if (b.offsetParent && !named(b)) out.push(t + ":" + (b.dataset.action || b.className)); }
+    P.setTab(keep); P.renderAll(); return out.length ? [...new Set(out)].slice(0, 5).join(" | ") : "ok"; })()`);
+  check("accessibilité : chaque bouton du panneau a un nom", btnNo === "ok", btnNo);
 
   // (it. 2119) touche Z dans les Talents : annule le dernier clic sur un talent
   const talZ = await js("(async () => { const g = window.__game, S = g.S, P = window.__panel, keepTab = P.tab, keepR = JSON.stringify(S.talents[S.cls] || {}), keepL = S.lvl; S.lvl += 8; g.invalidateStats(); P.setTab('talents'); P.renderAll(); await new Promise((r) => setTimeout(r, 150)); const sum = () => Object.values(S.talents[S.cls] || {}).reduce((a, b) => a + b, 0); const s0 = sum(); const t = document.querySelector('[data-pane=talents] .talent.can:not(.voie)'); if (!t) { S.lvl = keepL; return 'aucun talent ouvert'; } t.click(); await new Promise((r) => setTimeout(r, 150)); const s1 = sum(); const ok = P.onKey ? P.onKey({ key: 'z', target: document.body, preventDefault() {} }) : 'pas de onKey'; await new Promise((r) => setTimeout(r, 100)); const s2 = sum(); S.talents[S.cls] = JSON.parse(keepR); S.lvl = keepL; g.lastLearn = null; g.invalidateStats(); P.setTab(keepTab); P.renderAll(); return [s1 > s0, s2 === s0].join(' '); })()");

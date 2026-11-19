@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2439, autotest) : contrôle « chaque bouton visible du panneau a un nom » dans tous les onglets. 314/314.
 - 2026-11-19 (it. 2438, accessibilité) : boutons sans nom (texte, aria-label ou bulle) dans tous les onglets et en-tête, fin de partie :
   aucun (seul « confirm-ok » de la fenêtre de confirmation cachée, rempli à l'ouverture).
 - 2026-11-19 (it. 2437, accessibilité) : champs (cases, curseurs, listes) sans nom accessible, tous les onglets, fin de partie : aucun.
