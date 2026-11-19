@@ -2293,4 +2293,5 @@ export default {
   3418: "Novedades: las novedades más antiguas se leen página a página, hasta la primera.",
   3419: "Ajustes: las notas de cada versión se pueden releer, de la más reciente a las más antiguas (← / →).",
   3420: "Ayuda de armas: cuando vende un objeto para conservar una pieza valiosa, el diario lo indica.",
+  3421: "Notas de esta versión y de las anteriores (← / →)",
 };

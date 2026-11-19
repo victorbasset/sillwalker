@@ -2293,4 +2293,5 @@ export default {
   3418: "Co nowego: starsze nowości czyta się strona po stronie, aż do pierwszej.",
   3419: "Ustawienia: notatki każdej wersji można przeczytać ponownie, od najnowszej do najstarszych (← / →).",
   3420: "Giermek: gdy sprzedaje przedmiot, by zachować cenny, dziennik to odnotowuje.",
+  3421: "Notatki tej i wcześniejszych wersji (← / →)",
 };

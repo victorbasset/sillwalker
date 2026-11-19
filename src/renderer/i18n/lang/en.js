@@ -2293,4 +2293,5 @@ export default {
   3418: "What’s new: older news can be read page by page, all the way to the very first.",
   3419: "Settings: each version’s notes can be read again, from the latest to the oldest (← / →).",
   3420: "Arms Valet: when it sells an item to keep a precious piece, the log says so.",
+  3421: "Notes for this version and earlier ones (← / →)",
 };

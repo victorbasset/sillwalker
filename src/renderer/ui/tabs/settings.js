@@ -94,7 +94,7 @@ export class SettingsTab {
       <article class="panel"><h2><span class="hicon"><img src="${shopIconURL("keys", 3)}" alt="">${tx("Aide")}</span></h2>
         <!-- (it. 1068) « Quoi de neuf » relisible : la bulle du lancement ne dure que 15 s et les nouveautés étaient
              marquées lues dès le lancement : manquée, l'édition était perdue -->
-        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button><button data-action="shownews" class="quiet">${tx("Quoi de neuf")}</button><button data-action="showrelease" class="quiet">${tx("Version {0}", { 0: NEWS_RELEASES[NEWS_RELEASES.length - 1].version })}</button></div>
+        <div class="row"><button data-action="showkeys" class="quiet">${tx("Voir les raccourcis")}</button><button data-action="shownews" class="quiet">${tx("Quoi de neuf")}</button><button data-action="showrelease" class="quiet" title="${esc(tx("Notes de cette version et des précédentes (← / →)"))}">${tx("Version {0}", { 0: NEWS_RELEASES[NEWS_RELEASES.length - 1].version })}</button></div>
       </article>
       </div>
     </div>`;

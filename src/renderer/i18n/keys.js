@@ -3422,5 +3422,6 @@ export const KEYS = [
   "← Plus récentes",
   "Quoi de neuf : les nouveautés plus anciennes se lisent page par page, jusqu’à la toute première.",
   "Réglages : les notes de chaque version se relisent, de la plus récente aux plus anciennes (← / →).",
-  "Valet d’armes : quand il vend un objet pour garder une pièce précieuse, le journal le dit."
+  "Valet d’armes : quand il vend un objet pour garder une pièce précieuse, le journal le dit.",
+  "Notes de cette version et des précédentes (← / →)"
 ];

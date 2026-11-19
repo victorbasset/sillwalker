@@ -2293,4 +2293,5 @@ export default {
   3418: "Neuigkeiten: Ältere Neuigkeiten lassen sich Seite für Seite lesen, bis zur allerersten.",
   3419: "Einstellungen: Die Notizen jeder Version lassen sich erneut lesen, von der neuesten bis zu den ältesten (← / →).",
   3420: "Waffenknecht: Verkauft er einen Gegenstand, um ein wertvolles Teil zu behalten, steht es im Protokoll.",
+  3421: "Notizen zu dieser und früheren Versionen (← / →)",
 };
