@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2689) Autotest : les contrôles « aucun onglet ne défile » (1920, 1366, 1280 px) attendent aussi les polices (premier
+  passage sur chaque onglet, puis document.fonts.ready), comme --overflow-report depuis l'it. 2685. Toujours « aucun » ; 326/326.
 - 2026-11-19 (it. 2688, contrôle) : lang-overflow complet (10 langues × 1920, 1600, 1366, 1280 ; fin 1280 / 1600 ; × 130 % ; max) avec la
   mesure corrigée de l'it. 2685 : aucun défilement ni mot coupé. Plus d'autre défaut caché après les it. 2686-2687.
 - 2026-11-19 (it. 2687) Japonais, état maximal, 1280 px : titre « 戦 / 士 » (Talents) coupé entre deux caractères à côté d'un long

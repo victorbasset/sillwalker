@@ -1060,6 +1060,9 @@ async function runSelfTest(strip) {
   check("cinématiques : intro, arrivée, victoire, générique, chronique et héros libéré jouées, un clic les passe", cin === "true true true true true true true" && gone === true, cin + " / " + gone);
   // Demande 18 / 32 : aucun onglet ne défile verticalement à cette taille de fenêtre (largeur de l'écran de Victor).
   const OVF_JS = "(() => { const p = document.getElementById('panel'), P = window.__panel, cur = P.tab, out = [], kept = new Set(P.kept); P.kept.clear(); if (window.innerWidth < 1800) return 'fenêtre étroite'; for (const id of ['adventure','talents','skills','quests','shop','pets','class','ascension','bestiary','stats','map','settings']) { if (!document.querySelector('[data-tab=' + id + ']') || document.querySelector('[data-tab=' + id + ']').getClientRects().length === 0) continue; P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + '=' + o + (id === 'adventure' ? '[' + [...document.querySelectorAll('[data-pane=adventure] .grid > article')].map((x) => x.id + ':' + (x.lastElementChild ? Math.round(x.lastElementChild.getBoundingClientRect().bottom - x.getBoundingClientRect().top) : 0) + '/' + [...x.children].map((c) => c.className.split(' ')[0] + Math.round(c.getBoundingClientRect().height)).join('.')).join(',') + ' sel=' + !!P.selected + ']' : '')); } kept.forEach((k) => P.kept.add(k)); P.setTab(cur); P.renderAll(); return out.join(' ') || 'aucun'; })()";
+  // (it. 2689) comme --overflow-report (it. 2685) : un premier passage affiche chaque onglet, puis on attend les polices (une
+  // police n'est chargée qu'au premier texte qui la demande : mesuré trop tôt, un texte trop long semblait tenir)
+  await js(OVF_JS); await js("document.fonts.ready.then(() => 'ok')");
   const ovf = await js(OVF_JS);
   check("aucun onglet ne défile verticalement (1920 px)", ovf === "aucun" || ovf === "fenêtre étroite", ovf);
   // Écran de portable (1366 px) : la fenêtre est rétrécie le temps de la mesure (seuil de largeur abaissé).
@@ -1067,6 +1070,7 @@ async function runSelfTest(strip) {
   for (const w of [1366, 1280]) {
     strip.win.setBounds({ ...bLap, width: w });
     await sleep(900);
+    await js("document.fonts.ready.then(() => 'ok')");
     const ovf2 = await js(OVF_JS.replace("window.innerWidth < 1800", "window.innerWidth < 1200"));
     check(`aucun onglet ne défile verticalement (${w} px, écran de portable)`, ovf2 === "aucun", ovf2);
     if (w === 1366) { // sous-onglets des Statistiques (la liste des succès grandit à chaque ajout)
