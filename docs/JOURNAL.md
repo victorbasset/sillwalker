@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2475, contrôle) : texte coupé sans bulle, fin de partie à 1280 px, russe et japonais, toutes sous-sections : aucun.
 - 2026-11-19 (it. 2474) : audit « texte coupé par … sans bulle » (tous les onglets et sous-sections, en et de, 1366 px) : aucun ;
   devient un contrôle de l'autotest. 317/317.
 - 2026-11-19 (it. 2473, contrôle) : save-fuzz (dev) : ok.
