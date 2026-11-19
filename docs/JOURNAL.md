@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2595, test) : autotest « Quoi de neuf : les nouveautés plus anciennes se lisent page par page » (page suivante
+  différente, sans défilement, focus gardé dans la fenêtre) ; 323/323.
 - 2026-11-19 (it. 2594, plaisir de revenir) : « Quoi de neuf » : « … et N nouveautés plus anciennes » devient un bouton qui montre la
   page suivante (newsShown(seen, skip), même règle : 3 éditions puis complément sous 11) ; avant, les anciennes ne se lisaient nulle part,
   même depuis Réglages > Quoi de neuf (l'édition 154, accessibilité, restait cachée). Libellé existant, aucune nouvelle clé. Test (toutes
