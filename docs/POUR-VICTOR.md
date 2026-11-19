@@ -69,6 +69,8 @@ Mesure complète relancée ensuite (10 langues, 4 largeurs, fin de partie, 130 %
 - Familiers : une expédition en cours affiche « ⏳ 7 h 59 » (son nom au survol) ; « Große Expedition » était coupé sur chaque carte (it. 2716).
 - Nom de zone : le signe + d'une zone bouclée ne passe plus seul à la ligne (it. 2701-2702).
 Édition « Quoi de neuf » 160 publiée pour ces retouches (it. 2718).
+- Bande : la bulle de parole du héros ne passe plus sur les barres de vie de la rangée (partie neuve) ni sur le nom du boss
+  (repoussée par la pastille de l'or) ; l'autotest le vérifie pour le nom du boss (it. 2737-2739).
 
 **Linux (prochaine version)** : « desktopName » ajouté pour que la fenêtre se relie à son raccourci sous Wayland (icône de la barre
 des tâches) ; sauvegarde toujours dans ~/.config/Sillwalker (vérifié). Les versions Windows et Linux se construisent (vérifié, non

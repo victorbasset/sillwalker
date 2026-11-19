@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2740) docs/POUR-VICTOR.md : bulle de parole du héros (it. 2737-2739) ajoutée au résumé de la soirée.
 - 2026-11-19 (it. 2739) Autotest : « la bulle de parole du héros ne couvre pas le nom du boss » (réplique urgente forcée, délai entre
   répliques remis à zéro ; bulle absente = échec, pour ne pas passer à vide comme au premier essai). OK ; avec strip.js d'avant l'it. 2738 :
   ÉCHEC « chevauche 1528-1658 / 1513-1653 ». npm test 377, autotest 328/328.
