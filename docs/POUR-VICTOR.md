@@ -64,6 +64,8 @@ Et au retour d'une longue absence avec le sac plein, la bulle « Sac plein : une
 bulle d'absence pendant 12 s : ouvrir le panneau à ce moment ne montrait pas le résumé. La bulle d'absence passe maintenant en premier (it. 2742).
 Joueur en MODE MINI : au lancement après une absence, le résumé se perdait (envoyé sur la bande cachée). Le voyant du mini l'annonce
 maintenant (« Ton résumé d'absence t'attend ») ; un clic agrandit et l'affiche (it. 2746).
+Même chose pour le jeu lancé avec Windows (il démarre réduit en icône) : le résumé de la nuit expirait sans être vu ; il attend
+maintenant l'ouverture de la bande (it. 2747).
 
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2747) Retour d'absence, jeu lancé AVEC WINDOWS (main.js : au démarrage de session, le mode icône est respecté) : la bulle
+  d'absence partait sur la bande cachée et expirait au bout de 15 s ; ouvrir la bande ensuite ne montrait rien. Le résumé attend
+  maintenant (pendingOffline, comme en mode mini) et s'affiche à l'ouverture de la bande, ou au voyant du mini. Mesuré avec atLogin forcé
+  (retouche TEMP de main.js, retirée), settings mode=icon, 8 h d'absence, bande ouverte à 20 s : avant, aucune bulle d'absence ; après,
+  « Pendant ton absence (8 h)… » à 0,5 s. npm test 377, autotest 328/328.
 - 2026-11-20 (it. 2746) Retour d'absence en MODE MINI : au lancement, showOffline voyait mode = null (disposition appliquée plus tard) et
   envoyait la bulle sur la bande cachée : le résumé se perdait (voyant du mini : un conseil ordinaire). Il lit maintenant la disposition
   prévue (init.layout.mode). Le voyant dit « Ton résumé d’absence t’attend : clique pour agrandir. » (clé 3429, 10 langues) ; un clic

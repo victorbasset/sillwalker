@@ -301,6 +301,7 @@ async function boot() {
       restartLoop();
       // Résumé d'absence gardé pendant le mode mini : montré dès qu'on agrandit.
       if (mode === "strip" && pendingOffline) { const sum = pendingOffline; pendingOffline = null; mini.setHint(null); setTimeout(() => showOffline(sum), 400); }
+      if (mode === "mini" && pendingOffline) mini.setHint(awayHint(pendingOffline), true); // (it. 2747) venu de l'icône
       clickThrough.refresh();
     }
   }
@@ -333,14 +334,17 @@ async function boot() {
   /** Étape du carnet franchie pendant l'absence (la dernière, la plus marquante) : une ligne en plus dans la bulle. */
   const stepText = (sum) => (sum.steps || []).map(journeyText).filter(Boolean).pop() || "";
   const stepLine = (sum) => { const t = stepText(sum); return t ? `<br>✦ <b>${esc(t)}</b>` : ""; };
+  const awayHint = (sum) => `${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold + (sum.petGold || 0)) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`;
   function showOffline(sum) {
     // Absence très courte (mise en veille d'une minute…) : le journal suffit, pas de bulle qui dérange.
     if (sum.seconds < OFFLINE_TOAST_MIN_S) return;
     // (it. 2746) au lancement, la disposition n'est pas encore appliquée (mode = null) : lancé en mode mini, le résumé partait en
     // bulle sur la bande cachée et se perdait (le voyant du mini montrait un conseil ordinaire)
-    if ((mode ?? (init.layout && init.layout.mode)) === "mini") {
+    const m = mode ?? (init.layout && init.layout.mode);
+    // (it. 2747) réduit en icône : le résumé attend l'ouverture de la bande ou du mini (avant : bulle sur la bande cachée, perdue après 15 s)
+    if (m === "mini" || m === "icon") {
       pendingOffline = sum;
-      mini.setHint(`${tx("Pendant ton absence ({0}) :", { 0: sum.duration })} ${txn(sum.kills, "{n} monstre|{n} monstres", { n: fmt(sum.kills) })}, +${tx("{0} or", { 0: fmt(sum.gold + (sum.petGold || 0)) })}${stepText(sum) ? " · ✦ " + stepText(sum) : ""}`, true);
+      if (m === "mini") mini.setHint(awayHint(sum), true);
       return;
     }
     strip.welcomeBack();
