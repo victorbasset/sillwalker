@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2586, contrôle) : tab-pace : talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire
+  13-18, ascension 20-41 (inchangé). Tous les contrôles de rythme et d'équilibre du jour sont identiques aux repères.
 - 2026-11-19 (it. 2585, contrôle) : early-pace après les changements du jour : à 60 min, niveau 39-41, zone 23-25, 6,3 déblocages
   (identique aux relevés précédents).
 - 2026-11-19 (it. 2584, contrôle) : --crawl sur la fin de partie (fixture) en japonais : 707 clics en 24 s, aucune erreur.
