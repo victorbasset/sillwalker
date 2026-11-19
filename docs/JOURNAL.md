@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2427) : boutons grisés sans bulle, chaque sous-section aussi (Bestiaire, Boutique, Statistiques, Familiers, Héros) :
+  partie neuve, dev et fin de partie : 0 ; le contrôle de l'autotest parcourt maintenant les sous-sections. 312/312.
 - 2026-11-19 (it. 2426) : contrôle permanent de l'autotest : aucun bouton grisé sans bulle dans tous les onglets (« Maximum »
   excepté). Il a trouvé Réglages > Son « Écouter » grisé quand les effets sonores sont coupés : bulle « Effets sonores coupés :
   coche « Effets sonores » pour écouter. » (clé 3402, 10 langues, libellé cité tel que traduit). 312/312.

@@ -1485,9 +1485,12 @@ async function runSelfTest(strip) {
     check("bouton grisé : sa bulle s'affiche au survol (« Équiper le meilleur »)", !has || /\S/.test(tipTxt) && tipTxt !== "cachée", tipTxt);
   }  // (it. 2425-2426) aucun bouton grisé sans explication (bulle sur lui ou sur un parent), dans tous les onglets ; « Maximum » parle seul
   const disNo = await js(`(async () => { const P = window.__panel, keep = P.tab, { t: tr } = await import("./i18n/index.js"), out = [];
-    for (const t of Object.keys(P.tabs)) { P.setTab(t); P.renderAll(); await new Promise((r) => setTimeout(r, 120));
-      for (const b of document.querySelectorAll('[data-pane="' + t + '"]:not([hidden]) button[disabled]')) {
-        if (b.closest("[title],[data-title]") || b.textContent.trim() === tr("Maximum")) continue; out.push(t + ":" + b.textContent.trim().slice(0, 30)); } }
+    const SUBS = { bestiary: ["codex", "powers", "sets", "bosses", "elites", "events", "blessings"], shop: ["shop", "unlocks", "workshop"], stats: ["numbers", "ach", "journey", "log"], pets: ["unknown"], class: ["locked"] };
+    const scan = (t) => { for (const b of document.querySelectorAll('[data-pane="' + t + '"]:not([hidden]) button[disabled]')) {
+        if (b.closest("[title],[data-title]") || b.textContent.trim() === tr("Maximum")) continue; out.push(t + "/" + (P.tabs[t].sec || "") + ":" + b.textContent.trim().slice(0, 30)); } };
+    for (const t of Object.keys(P.tabs)) { P.setTab(t); P.renderAll(); await new Promise((r) => setTimeout(r, 120)); scan(t);
+      // (it. 2427) chaque sous-section aussi
+      for (const sec of SUBS[t] || []) { const k = P.tabs[t].sec; P.tabs[t].sec = sec; P.renderAll(); if (P.tabs[t].sec === sec) scan(t); P.tabs[t].sec = k; P.renderAll(); } }
     P.setTab(keep); P.renderAll(); return out.length ? out.join(" | ") : "ok"; })()`);
   check("boutons grisés : chacun dit pourquoi (bulle), dans tous les onglets", disNo === "ok", disNo);
 
