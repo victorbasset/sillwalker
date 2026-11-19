@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2703, contrôle) : lang-overflow all 1280 après les espaces insécables des noms de zone (it. 2701-2702) : aucun.
 - 2026-11-19 (it. 2702) Marque de boucle « + » collée au nom de zone aussi dans le résumé d'absence (« … a continué de farmer X + ») et la
   carte d'un héros prisonnier (Héros) ; zoneName() reste inchangé (la bande, au canevas, n'a pas l'espace insécable). npm test 376, 326/326.
 - 2026-11-19 (it. 2701, REVUE GÉNÉRALE) : 12 h : arbalétrier 66, prêtresse 64, cryomancien 62 ; --perf : 19,7 / 19,0 %, mini 5,5 %, icône 0,5 % ;
