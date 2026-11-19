@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2530, contrôle) : Compétences en français (dev-data, 686 points libres, 0 / 144 nœuds) : propre ; noms des
+  nœuds lisibles, « Dépenser automatiquement » mis en avant.
 - 2026-11-19 (it. 2529, test + doc) : test de lockLink (lien vers la boutique sans or, achat direct goal-buy avec l'or, classe
   lock buy ; échoue avec l'ancien locks.js) ; POUR-VICTOR : bulle du butin perdu et achat direct des déblocages.
 - 2026-11-19 (it. 2528, contrôle) : après l'achat direct des déblocages (it. 2527) : lang-overflow all 1920,1600,1366 (fin de
