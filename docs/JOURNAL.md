@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2652, contrôle) : Boutique > Déblocages en allemand à 1280 px (14 / 26, rangée défilante, « Karte des Reisenden » à
+  90 k mise en avant) : propre.
 - 2026-11-19 (it. 2651, REVUE GÉNÉRALE) : 12 h : paladin 65, berserker 65, chaman 69 ; --perf (charge 4) : 19,8 / 19,0 %, mini 5,6 %,
   icône 0,5 % ; Aventure en chinois (pastille « Poupouce ×10 » sans 。, it. 2631) propre ; texte chinois : aucun mot latin suspect.
   Rien à corriger.
