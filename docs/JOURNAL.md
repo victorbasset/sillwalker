@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2607, contrôle) : après la retouche du Valet (it. 2606) : save-fuzz ok (1 267 corruptions), fuzz 1 200 parties 0 bloquée.
 - 2026-11-19 (it. 2606, lisible) : Valet d'armes, pièce précieuse gardée : la vente de l'objet ordinaire passe par sell() en jeu
   (« Vendu : X (+N or). » au journal, son des pièces), silencieuse pendant une absence ; avant, toujours silencieuse. Test, autotest.
 - 2026-11-19 (it. 2605, doc) : README : pages de « Quoi de neuf » (bouton des plus anciennes).
