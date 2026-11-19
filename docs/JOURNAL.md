@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2528, contrôle) : après l'achat direct des déblocages (it. 2527) : lang-overflow all 1920,1600,1366 (fin de
+  partie et 130 % compris) : 50 mesures, aucun défilement ; --crawl en allemand : 539 clics, aucune erreur.
 - 2026-11-19 (it. 2527, moins de clics) : liens « 🔒 déblocage · prix » (ui/locks.js : Carte, Familiers, Compétences, forge du
   sac) : disponible ET abordable → « Acheter : X (N or) », un clic l'achète sur place (goal-buy, comme « Prochain déblocage »).
   Avant : le lien ouvrait la boutique, puis il fallait y chercher la carte. Classe lock.buy (même taille que le lien, trait plein,
