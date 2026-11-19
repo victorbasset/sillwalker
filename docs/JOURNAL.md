@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2440, vérification) : échappement du contrôle « boutons nommés » : « \\s » du gabarit de selftest.js devient « \s »
+  dans le code injecté (/[\s▲▼…]/) : le contrôle retire bien les espaces, il détecte un bouton sans nom.
 - 2026-11-19 (it. 2439, autotest) : contrôle « chaque bouton visible du panneau a un nom » dans tous les onglets. 314/314.
 - 2026-11-19 (it. 2438, accessibilité) : boutons sans nom (texte, aria-label ou bulle) dans tous les onglets et en-tête, fin de partie :
   aucun (seul « confirm-ok » de la fenêtre de confirmation cachée, rempli à l'ouverture).
