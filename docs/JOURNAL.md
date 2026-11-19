@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2629, contrôle) : stall-check (sauvegardes avancées, 20 héros) : 60 parties, 0 figées.
 - 2026-11-19 (it. 2628, contrôle) : fuzz 60 graines après les changements du sac plein, du coffre et du Valet d'armes : 1200 parties,
   0 bloquées.
 - 2026-11-19 (it. 2627, contrôle) : Bestiaire (monstres) en polonais, 1920 px : 83 / 84, noms longs sur deux lignes (« Niedźwiedź
