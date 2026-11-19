@@ -163,7 +163,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **10 langues** : anglais (par défaut), chinois simplifié, russe, espagnol, portugais (Brésil), allemand, japonais,
   français, polonais, coréen. Choix dans Réglages (rechargement du panneau), menu de l'icône traduit aussi.
 - **Quoi de neuf** : après une mise à jour, une bulle sur la bande ouvre la liste des nouveautés (game/news.js) ;
-  relisible à tout moment dans Réglages > Aide (les trois dernières éditions).
+  relisible à tout moment dans Réglages > Aide (les trois dernières éditions, puis d'autres sous 11 nouveautés) ; « … et N
+  nouveautés plus anciennes → » montre la page suivante, jusqu'à la toute première édition (it. 2594).
 - **Début de partie tranquille** : pendant la toute première course, l'or, l'expérience et le butin des monstres
   ordinaires sont réduits (35 % au départ, plein régime en zone 15 ; `earlyPace`, rules.js) : moins d'objets et de
   déblocages d'un coup. Aucun effet après une ascension ; la progression sur 12 h est inchangée.
