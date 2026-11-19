@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2411, REVUE GÉNÉRALE) : 12 h : arbalétrier 64, lancier 66, cryomancienne 65 ; --perf : 20,0 / 19,1 %, mini 5,5 %,
+  icône 0,6 % ; Statistiques en chinois à 1920 px (fin de partie) : propre. Rien à corriger.
 - 2026-11-19 (it. 2410, bon voisin) : cinématique de libération jamais par-dessus une application en plein écran : main.js la met en
   attente (strip.fsHidden) et la joue 1,5 s après la fin du plein écran ; si le plein écran commence pendant la scène, elle se ferme et
   sera rejouée en entier (StripWindow.onFullscreen). Contrôle de l'autotest en fin de parcours (cacher la bande change l'état des
