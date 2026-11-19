@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2555, lisible d'un coup d'œil) : bulle du mode mini, or suffisant : « Prochain déblocage : Carte du voyageur · 90 k or ·
+  prêt à acheter ! » (clé 1423, déjà traduite et inutilisée) ; avant : « 447,22 Md / 90 k or », l'avoir plus grand que le prix.
+  Vérifié (dev-data, mini) ; autotest 322/322.
 - 2026-11-19 (it. 2554, doc) : CLAUDE.md : autotest ≈ 146 s pour 322 vérifications (mesuré).
 - 2026-11-19 (it. 2553, test) : autotest « À faire : un sort abordable s'apprend d'un clic » (todoDirect vrai, todoDo apprend le
   sort, état rendu ensuite) ; 322/322.

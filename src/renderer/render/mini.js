@@ -385,7 +385,8 @@ export class MiniRenderer {
         this.goalWrap.classList.toggle("ready", ok && S.gold >= u.price);
         // (it. 930) temps estimé au rythme actuel, comme sur la carte du héros (it. 928)
         const eta = ok && S.gold < u.price ? game.goldEta(u.price - S.gold) : null, etaTxt = eta != null && eta < 48 * 3600 ? " · " + tx("≈ {0}", { 0: durText(Math.max(60, eta)) }) : "";
-        tip.push(tx("Prochain déblocage") + colon() + u.name + " · " + (ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}` : tx("Atteindre la zone {0}", { 0: u.zone }) + ` (${tx("record {0}", { 0: rec })})`)); // (it. 1640) comme la boutique (retour de Kreen)
+        // (it. 2555) or suffisant : « 90 k or · prêt à acheter ! » (avant : « 447,22 Md / 90 k or », avoir plus grand que le prix)
+        tip.push(tx("Prochain déblocage") + colon() + u.name + " · " + (ok && S.gold >= u.price ? `${tx("{0} or", { 0: fmt(u.price) })} · ${tx("prêt à acheter !")}` : ok ? `${fmt(S.gold)} / ${tx("{0} or", { 0: fmt(u.price) })}${etaTxt}` : tx("Atteindre la zone {0}", { 0: u.zone }) + ` (${tx("record {0}", { 0: rec })})`)); // (it. 1640) comme la boutique (retour de Kreen)
       }
       // Actions qui attendent le joueur (quêtes, sac, déblocage…) : un point doré près du niveau, détail au survol.
       const todo = game.todoNow();
