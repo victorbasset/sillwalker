@@ -678,6 +678,11 @@ async function runSelfTest(strip) {
     const r = await js("new Promise((ok) => { const S = window.__game.S, st = window.__strip; const keep = S.settings.hudBars; S.settings.hudBars = true; st.updateHudBars(); const on = !document.querySelector('.hudbar.hero').hidden; S.settings.hudBars = false; st.updateHudBars(); const off = [...document.querySelectorAll('.hudbar')].every((x) => x.hidden); S.settings.hudBars = keep; st.updateHudBars(); ok(on + ' ' + off + ' ' + (st.W || 0)); })");
     check("bande : barres de vie en haut (réglage)", /^true true/.test(r) || (/^false true (\d+)/.test(r) && +r.split(" ")[2] < 1200), r);
   }
+  // (it. 2633) la barre du monstre se règle sur le bord gauche réel du nom du boss : jamais par-dessus, même avec un nom très long
+  {
+    const r = await js("new Promise((ok) => { const st = window.__strip, t = st.bossTag; if (!t || !t.isConnected || st.centerHud) { ok('sans objet'); return; } const keep = t.textContent; const probe = () => { st.bossLT = 0; st.updateHudBars(); const b = document.querySelector('.hudbar.mon'); if (!b || b.hidden) return 'cachée'; const br = b.getBoundingClientRect().right, tl = t.getBoundingClientRect().left; return br + 8 <= tl ? 'ok' : 'chevauche ' + Math.round(br) + '>' + Math.round(tl); }; const a = probe(); t.textContent = keep + ' ' + keep + ' ' + keep + ' ' + keep; const c = probe(); t.textContent = keep; st.bossLT = 0; st.updateHudBars(); ok(a + ' / ' + c); })");
+    check("bande : la barre du monstre ne passe pas sous le nom du boss", r === "sans objet" || !/chevauche/.test(r), r);
+  }
   // (it. 1528, demande de Victor) survoler un objet ne fait jamais défiler le panneau (une longue bulle dépassait en
   // bas : la barre de défilement apparaissait et la page sautait)
   {

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2634) Autotest : contrôle « la barre du monstre ne passe pas sous le nom du boss » (nom réel, puis nom quadruplé ;
+  « ok / ok » à 1920 px), garde-fou de l'it. 2633. npm test 376, autotest 325/325.
 - 2026-11-19 (it. 2633) Bande, écran étroit : la barre de vie du monstre (rangée d'informations, réglage hudBars) était cachée à
   1280 px, faute des 300 px réservés au nom du boss, même quand un nom court laissait la place. Elle se règle maintenant sur le bord
   gauche RÉEL du nom (getBoundingClientRect, relu au plus deux fois par seconde ; 300 px seulement si le nom n'est pas mesurable).
