@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2482, accessibilité) : sonde de contraste des textes (WCAG, < 3:1) dans les deux thèmes : faux positifs sur les fonds
+  en dégradé (Talents, étoiles des quêtes, vérifiés en capture) ; un vrai : légendaire en thème clair (--r4 #c97a00, 2,9:1 sur
+  #fcf8f0) foncé en #a96500 (4,4:1), capture de la Boutique : lisible. 319/319.
 - 2026-11-19 (it. 2481, REVUE GÉNÉRALE) : 12 h : arbalétrier 64, artificier 65, cryomancienne 65 ; --perf : 19,4 / 19,1 %, mini 5,5 %,
   icône 0,4 % ; Quêtes en allemand à 1920 px : propres. Rien à corriger.
 - 2026-11-19 (it. 2480, autotest) : contrôle « aucun identifiant HTML en double » (après le parcours des onglets). 319/319.
