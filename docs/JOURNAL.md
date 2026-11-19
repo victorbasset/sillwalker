@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2660, contrôle) : mem-watch 10 min, bande seule, après les retouches de la bande (it. 2633-2635) :
+  556 → 569 → 575 → 576 → 576 → 568 Mo, plat (repère 565-575).
 - 2026-11-19 (it. 2659) CLAUDE.md : autotest ≈ 147 s pour 326 vérifications (mesuré) ; règle d'accessibilité « boutons voisins alignés » (it. 2655).
 - 2026-11-19 (it. 2658) docs/POUR-VICTOR.md : alignement de l'Atelier et contrôle des boutons voisins ajoutés au résumé de la fin d'après-midi.
 - 2026-11-19 (it. 2657, contrôle) : thème clair à 1280 px, Atelier (prix et « max » alignés, it. 2653) et Aventure (pastille de bénédiction
