@@ -343,7 +343,8 @@ async function boot() {
     const m = mode ?? (init.layout && init.layout.mode);
     // (it. 2747) réduit en icône : le résumé attend l'ouverture de la bande ou du mini (avant : bulle sur la bande cachée, perdue après 15 s)
     // (it. 2752) bande cachée en cours de partie (application en plein écran, session verrouillée) : même attente que l'icône
-    if (m === "mini" || m === "icon" || (mode === "strip" && !visible)) {
+    // (it. 2753) au lancement, `visible` n'est pas encore réglé : lire init.visible (jeu en plein écran déjà ouvert)
+    if (m === "mini" || m === "icon" || (m === "strip" && !(mode === null ? init.visible !== false : visible))) {
       pendingOffline = sum;
       if (m === "mini") mini.setHint(awayHint(sum), true);
       return;

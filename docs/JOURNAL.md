@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2753) Retour d'absence, jeu lancé pendant une application en plein écran : au lancement, `visible` n'est pas encore
+  réglé (faux par défaut, et le test de l'it. 2752 ne s'appliquait qu'après) ; showOffline lit maintenant init.visible. Trace (retouche TEMP,
+  retirée) : init.visible faux → résumé mis en attente, montré dès que la bande devient visible. npm test 377, autotest 331/331.
 - 2026-11-20 (it. 2752) Retour d'absence pendant que la bande est cachée en cours de partie (réveil du PC pendant un jeu en plein écran,
   session verrouillée) : la bulle partait sur la bande cachée et expirait. Le résumé attend maintenant le retour de la bande (setVisible).
   Autotest « absence pendant une application en plein écran : le résumé attend le retour de la bande » : OK ; sans le correctif, ÉCHEC.
