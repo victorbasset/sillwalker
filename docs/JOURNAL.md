@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2579, contrôle) : « À faire » de la carte du héros (dev-data) : même ordre et mêmes actions que le résumé d'absence
+  (sac en tête, ✦ actions directes, goal-buy, sort d'un clic ; maîtrises et constellations en liens).
 - 2026-11-19 (it. 2578, contrôle) : construction Windows (dir + zip itch) du code du jour dans un dossier temporaire : réussie, zip de
   160 Mo, Sillwalker.exe et app.asar présents (pas lancée : pas de Wine sur le serveur). Dossier supprimé.
 - 2026-11-19 (it. 2577, doc) : POUR-VICTOR : desktopName sous Linux (à voir si un joueur Linux le signale).
