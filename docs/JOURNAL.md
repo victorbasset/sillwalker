@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2512, contrôle) : mode mini en français et en coréen (complément de la revue 2511) : niveau, or, zone et série
+  lisibles, boutons alignés ; rien à corriger.
 - 2026-11-19 (it. 2511, REVUE GÉNÉRALE) : 12 h : mage 66, nécromancien 62, samouraï 65 (habituels) ; --perf : 19,6 / 19,9 %, mini
   5,4 %, icône 0,7 % ; « Quoi de neuf » en japonais (éditions 153-154, --stage panel.showNews) : propre ; texte russe : aucun mot latin
   suspect (« --- attributs » = repère de l'extraction, « Poupouce » = nom d'un familier). Rien à corriger.
