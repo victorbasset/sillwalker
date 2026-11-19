@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2702) Marque de boucle « + » collée au nom de zone aussi dans le résumé d'absence (« … a continué de farmer X + ») et la
+  carte d'un héros prisonnier (Héros) ; zoneName() reste inchangé (la bande, au canevas, n'a pas l'espace insécable). npm test 376, 326/326.
 - 2026-11-19 (it. 2701, REVUE GÉNÉRALE) : 12 h : arbalétrier 66, prêtresse 64, cryomancien 62 ; --perf : 19,7 / 19,0 %, mini 5,5 %, icône 0,5 % ;
   texte coréen : aucun mot latin suspect. Aventure en portugais à 1366 px : la marque de boucle « + » du nom de zone passait seule à la
   ligne (« Bosque de cogumelos gigantes / + ») : collée au nom par une espace insécable dans la carte de la Zone (panel.js ; pas sur la

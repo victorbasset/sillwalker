@@ -53,7 +53,7 @@ export class ClassesTab {
         return `<article class="panel classcard locked">
           <div class="detail-head"><img class="silhouette" src="${classPortraitURL(k)}" alt=""><div>
             <div class="nm">${esc(c.name)}</div><div class="sub">${esc(c.role)}</div></div></div>
-          <p class="cdesc">${tx("Retenu prisonnier en")} <b>${tx("zone {0}", { 0: z })}</b> (${esc(zoneName(z))}).</p>
+          <p class="cdesc">${tx("Retenu prisonnier en")} <b>${tx("zone {0}", { 0: z })}</b> (${esc(zoneName(z)).replace(/ ([+＋])/g, "\u00a0$1")}).</p>
           <p class="note">${tx("Bats le boss de cette zone pour le libérer.{0}", { 0: S.best >= z ? tx(" Tu y es déjà passé : retournes-y pour le vaincre.") : "" })}</p>
         </article>`;
       }

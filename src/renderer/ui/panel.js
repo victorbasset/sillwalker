@@ -544,7 +544,7 @@ export class Panel {
     // une seule colonne de 420 px, 816 px de contenu pour 457 visibles : les actions étaient sous le pli)
     $(this.root, "#mbody").innerHTML =
       `<div class="modalwide offgrid"><div>
-      <p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone), 1: esc(sum.duration) })}</p>
+      <p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone).replace(/ ([+＋])/g, "\u00a0$1"), 1: esc(sum.duration) })}</p>
       <ul class="lines">
         <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
         ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
