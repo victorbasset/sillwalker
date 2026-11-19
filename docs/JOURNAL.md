@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2719, contrôle) : édition 160 à l'écran en allemand et en coréen (1920 px) : trois nouveautés, ⏳ affiché, rien de coupé.
 - 2026-11-19 (it. 2718) « Quoi de neuf », édition 160 (lisibilité, suite) : emplacements vides (it. 2697), expédition « ⏳ durée » (it. 2716),
   écrans de portable : Ascension russe, titres japonais, signe + des zones (it. 2686-2702). Clés 3426-3428, 9 langues (« vide » cité tel
   que traduit). npm test 376, autotest 326/326, lang-overflow all 1280 : aucun.
