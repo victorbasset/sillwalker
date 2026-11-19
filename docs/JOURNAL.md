@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2682) CLAUDE.md : ckpool ajouté aux services du serveur qui faussent --perf (93 % d'un cœur à l'it. 2681).
 - 2026-11-19 (it. 2681, REVUE GÉNÉRALE) : 12 h : samouraï 69, barde 65, cryomancien 62 ; --perf : bande 21,5 % puis 19,3 % à la relance
   (ckpool à 93 % d'un cœur sur le serveur : bruit), panneau 20,7 %, mini 5,9 %, icône 0,5 % ; Statistiques en coréen à 1280 px (titres
   sur une ligne) propres ; texte japonais : aucun mot latin suspect. Rien à corriger.
