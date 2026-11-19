@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2486, contrôle) : daltonisme : rareté lisible sans couleur (RARITY_PIP • •• ••• ★, panel.js) et repère des lignes
+  importantes du journal (it. 1725) déjà en place ; rien à ajouter.
 - 2026-11-19 (it. 2485, doc) : POUR-VICTOR : orange des légendaires en thème clair et test de contraste.
 - 2026-11-19 (it. 2484, test) : contraste des jetons (ink, muted, good, bad, accent, raretés) ≥ 3:1 sur --panel ET --bg, dans les deux
   thèmes (test-logic). Vérifié qu'il attrape l'ancien orange (#c97a00 : 2,65:1 sur --bg) ; sur --panel seul il passait (3,16:1).
