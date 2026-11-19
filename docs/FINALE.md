@@ -38,3 +38,5 @@
   application en plein écran, ni jeu réduit à son icône, ni session verrouillée (strip.renderVisible, it. 2415) : main.js la met en attente (finalePending) et la joue 1,5 s
   après le retour de la bande ; si le plein écran commence ou si l'on réduit pendant la scène, elle se ferme et sera rejouée en
   entier (StripWindow.onFullscreen / onModeChange). Autotest : deux contrôles en fin de parcours.
+- it. 2487-2488 : réglage système « réduire les animations » (prefers-reduced-motion) : pas de vol automatique après la victoire
+  (le ▶ de « Le ciel rallumé » la rejoue sur demande). Vérifiable avec l'option de dev --reduced-motion.
