@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2556, contrôle) : autres « or possédé / prix » du prochain déblocage : seulement la carte du héros (déjà « cliquer
+  pour l'acheter » quand l'or suffit) et le mode mini (corrigé it. 2555). Rien d'autre.
 - 2026-11-19 (it. 2555, lisible d'un coup d'œil) : bulle du mode mini, or suffisant : « Prochain déblocage : Carte du voyageur · 90 k or ·
   prêt à acheter ! » (clé 1423, déjà traduite et inutilisée) ; avant : « 447,22 Md / 90 k or », l'avoir plus grand que le prix.
   Vérifié (dev-data, mini) ; autotest 322/322.
