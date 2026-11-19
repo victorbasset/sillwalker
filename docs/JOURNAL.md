@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2433, contrôle) : Familiers : « Compagnon actuel » grisé hérite de la bulle de sa carte (phrase d'ambiance) ; son
+  libellé dit déjà pourquoi (comme « Maximum ») : laissé tel quel.
 - 2026-11-19 (it. 2432, contrôle) : --crawl d'une partie neuve en russe : aucune erreur.
 - 2026-11-19 (it. 2431, REVUE GÉNÉRALE) : 12 h : ranger 64, mage 66, barde 65 ; --perf : 19,4 / 19,5 %, mini 5,4 %, icône 0,7 % ;
   Familiers en anglais : propres ; texte russe : seuls noms propres, touches et noms de langues. Rien à corriger.
