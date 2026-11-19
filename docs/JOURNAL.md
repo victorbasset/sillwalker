@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2684, essai abandonné) : contrôle « titre de carte sur deux lignes » ajouté au rapport --overflow-report (lang-overflow) :
+  il ne voyait PAS le défaut des it. 2675-2677 (règle des 17 px retirée : « aucun ») alors que la sonde --open-panel le voit à la même
+  largeur. Diagnostic : dans le rapport, Statistiques 5 titres à 27 px et Réglages 4 cartes (6 avec --open-panel) : le rapport mesure
+  le panneau dans un autre état (à comprendre : la mesure de lang-overflow ne verrait-elle pas d'autres débordements du panneau
+  ouvert ?). Retiré ; noté en Idées.
 - 2026-11-19 (it. 2683, contrôle) : sonde des titres de cartes sur la partie de fin de partie à 1280 px (de, ru) : seuls les deux faux
   positifs connus (portrait des Talents, Atelier) ; aucun titre sur deux lignes.
 - 2026-11-19 (it. 2682) CLAUDE.md : ckpool ajouté aux services du serveur qui faussent --perf (93 % d'un cœur à l'it. 2681).
@@ -8676,6 +8681,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 2684) --overflow-report ne mesure pas le panneau dans l'état de --open-panel : Réglages 4 cartes au lieu de 6, titres des
+  Statistiques sur une ligne à 1280 px là où le panneau ouvert les coupait (it. 2675). Comprendre la différence (panneau fermé ?
+  polices pas encore chargées ? sections repliées ?) : si la mesure est faussée, lang-overflow peut manquer des défauts.
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
   ESSAI it. 2215, annulé : sorts déplacés dans l'en-tête (à droite du nom) : les boutons restaient sur deux lignes (« Jouer à /
