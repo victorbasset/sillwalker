@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2712, contrôle) : --dump-text d'une partie NEUVE en russe (1 811 lignes, onglets fermés, astuces de début) : aucun mot
+  latin suspect (noms propres, touches, noms des langues seulement).
 - 2026-11-19 (it. 2711, REVUE GÉNÉRALE) : 12 h : guerrier 65, assassin 65, druide 65 ; --perf : 19,8 / 19,1 %, mini 5,6 %, icône 0,5 % ;
   Aventure en espagnol à 1600 px (« Bosque de setas gigantes + » sur une ligne) propre ; texte chinois : aucun mot latin suspect.
   Rien à corriger.
