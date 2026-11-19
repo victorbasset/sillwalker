@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2514, plaisir de revenir) : « À faire maintenant » : sac plein → « Agrandir le sac » puis « Sac plein : N objets à
+  vendre » en TÊTE de liste (game.todoNow). Résumé d'absence de dev-data (3 h) : « Meilleur butin : Légendaire · pas gardé », 14 objets
+  laissés au sol, et le remède venait en 8e et dernière ligne. La perte au sol reste voulue (Victor : « tant pis ») ; seul l'ordre
+  change (aussi bulle du ☰ et mode mini, même liste). Test (échoue sans le changement), autotest 320/320, capture vérifiée.
 - 2026-11-19 (it. 2513, contrôle) : Aventure en français : « Expérience 6,80 Md / 1,54e105 » vient du niveau 1 313 de dev-data
   (commandes DEV) ; xpNeed reste en suffixes jusqu'au niveau ≈ 400 (7,84e32), fin de partie à 48 h : niveau 183 (5,15 Qa). Rien à corriger.
 - 2026-11-19 (it. 2512, contrôle) : mode mini en français et en coréen (complément de la revue 2511) : niveau, or, zone et série

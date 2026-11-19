@@ -1867,6 +1867,10 @@ test("à faire : sac plein et agrandissement abordable → « Agrandir le sac »
   const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
   while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
   assert.ok(g.todoNow().some((t) => t.id === "bagUp"), "proposé");
+  // (it. 2514) en tête de liste, avant le tri du sac, même avec d'autres actions (quête à réclamer, points de talent)
+  g.S.quests.slots[0].progress = g.S.quests.slots[0].goal; g.S.lvl = 20;
+  const ids = g.todoNow().map((t) => t.id); assert.ok(ids.length > 2, JSON.stringify(ids));
+  assert.deepEqual(ids.slice(0, 2), ["bagUp", "bagFull"], JSON.stringify(ids));
   const size = g.S.bagSize; assert.ok(g.buyUpgrade("bag")); assert.equal(g.S.bagSize, size + 6);
   assert.ok(!g.todoNow().some((t) => t.id === "bagUp"), "sac plus plein : plus proposé");
   g.S.gold = 0; while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));

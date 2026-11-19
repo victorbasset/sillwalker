@@ -2851,6 +2851,9 @@ export class Game {
     // Marchand : une amélioration abordable (sans renouveler le stock ici)
     const offer = this.merchantUpgrade(now);
     if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });
+    // (it. 2514) sac plein : chaque butin suivant reste au sol (légendaires compris, résumé d'absence « Meilleur butin : Légendaire ·
+    // pas gardé ») ; seule action qui coûte à chaque minute : en tête, le remède (agrandir) avant le tri
+    if (this.bagFull()) { const rank = (t) => (t.id === "bagUp" ? 0 : t.id === "bagFull" ? 1 : 2); out.sort((a, b) => rank(a) - rank(b)); }
     return out.filter((t) => !t.tab || tabReady(S, t.tab)); // pas de lien vers un onglet encore fermé
   }
 
