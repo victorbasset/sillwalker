@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2551, REVUE GÉNÉRALE) : 12 h : nécromancien 62, danseuse de lames 62, cryomancien 65 (habituels) ; --perf : 19,8 /
+  18,9 %, mini 5,6 %, icône 0,5 % ; Atelier en allemand (« max. » de la sacoche aligné) : propre ; --crawl en russe : 510 clics, aucune
+  erreur. Rien à corriger.
 - 2026-11-19 (it. 2550, doc + contrôle) : POUR-VICTOR : « max » du sac ; lang-overflow all 1280 (Atelier compris) : 20 mesures, aucun
   défilement ni débordement.
 - 2026-11-19 (it. 2549, moins de clics) : Atelier : « Sac plus grand » a enfin son bouton « max » comme les autres lignes (dès que
