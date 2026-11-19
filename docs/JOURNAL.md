@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2691, REVUE GÉNÉRALE) : 12 h : druide 65, danseur de lames 66, gardien des étoiles 69 ; --perf : 19,8 / 18,9 %, mini 5,5 %,
+  icône 0,5 % ; Talents en russe à 1280 px propres ; texte allemand : aucun mot français ou anglais courant (« des » = article allemand).
+  Rien à corriger.
 - 2026-11-19 (it. 2690) docs/POUR-VICTOR.md : la mesure des polices (it. 2685, 2689) et les deux défauts qu'elle a révélés (it. 2686-2687).
 - 2026-11-19 (it. 2689) Autotest : les contrôles « aucun onglet ne défile » (1920, 1366, 1280 px) attendent aussi les polices (premier
   passage sur chaque onglet, puis document.fonts.ready), comme --overflow-report depuis l'it. 2685. Toujours « aucun » ; 326/326.
