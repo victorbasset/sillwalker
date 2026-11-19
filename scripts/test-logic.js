@@ -1896,6 +1896,17 @@ test("coffre de quête, sac plein : jamais un objet forgé ni une pièce de pano
   assert.ok(g.S.gold > gold, "l'objet du coffre est vendu à la place (or donné)");
 });
 
+test("lien d'un déblocage : achat direct s'il est disponible et abordable, sinon lien vers la boutique (it. 2527)", () => {
+  const g = new Game(freshLocked()); const u = UNLOCKS.find((x) => x.id === "travelMap");
+  g.S.best = Math.max(u.zone, 30); g.S.unlocks = {}; g.S.tabsOpen = { ...(g.S.tabsOpen || {}), shop: true };
+  g.S.gold = 0; const poor = lockLink(g.S, "travelMap");
+  assert.ok(/data-tab="shop"/.test(poor) && !/goal-buy/.test(poor), poor);
+  g.S.gold = u.price; const rich = lockLink(g.S, "travelMap");
+  assert.ok(/data-action="goal-buy"/.test(rich) && /data-id="travelMap"/.test(rich) && !/data-tab/.test(rich), rich);
+  assert.ok(/class="linkbtn lock buy"/.test(rich), "même taille que le lien (classe lock)");
+  g.S.unlocks.travelMap = true; assert.equal(lockLink(g.S, "travelMap"), "");
+});
+
 test("à faire : sac plein et agrandissement abordable → « Agrandir le sac » (it. 2269)", () => {
   const g = new Game(freshState()); g.S.unlocks.workshop = true; g.S.gold = 1e9;
   while (!g.bagFull()) g.S.bag.push(g.newItem(0, 1));
