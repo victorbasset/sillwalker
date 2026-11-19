@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2603, contrôle) : bouton « plus anciennes » de « Quoi de neuf » en thème clair : texte sombre (--ink), trait plein,
+  lisible.
 - 2026-11-19 (it. 2602, design) : bouton « … et N nouveautés plus anciennes → » : trait plein et couleur du texte (classe more) ;
   avant, le style « lock » (pointillé grisé) le faisait passer pour un lien verrouillé. Autotest 323/323.
 - 2026-11-19 (it. 2601, REVUE GÉNÉRALE) : 12 h : guerrier 65, mage 65, arbalétrier 66 (habituels) ; --perf (charge ≈ 1,6) : 19,3 / 19,3 %,
