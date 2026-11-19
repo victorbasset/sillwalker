@@ -48,4 +48,7 @@ function closeFinale() { if (current && !current.isDestroyed()) current.close();
 
 const finaleOpen = () => !!(current && !current.isDestroyed());
 
-module.exports = { openFinale, closeFinale, finaleOpen };
+// (it. 2495) autotest : la fenêtre en cours (langue de la page)
+const finaleWin = () => (current && !current.isDestroyed() ? current : null);
+
+module.exports = { openFinale, closeFinale, finaleOpen, finaleWin };

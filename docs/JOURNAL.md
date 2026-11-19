@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2495, autotest) : langue de la fenêtre de la libération lue par le processus principal (finaleWin exporté) : « en »
+  comme la bande (finale.html part en « fr ») : l'it. 2494 est vérifiée. 320/320.
 - 2026-11-19 (it. 2494, accessibilité) : fenêtre de la libération : finale.html déclarait lang="fr" en dur ; la langue de la bande
   lui est transmise (data.lang) et appliquée. Lecture directe de la langue de cette fenêtre non faite. 319/319.
 - 2026-11-19 (it. 2493, accessibilité) : <html lang> suit la langue choisie (ja, ru, en vérifiés) : prononciation juste des lecteurs d'écran.

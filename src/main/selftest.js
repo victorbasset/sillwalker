@@ -1596,6 +1596,16 @@ async function runSelfTest(strip) {
   // (it. 2372) le ▶ de la chronique « Le ciel rallumé » rejoue aussi la libération sur tout l'écran
   const finRe = await js("(async () => { window.__finaleMs = 3000; window.__game.emit('chronicleReplay', { id: 'dawn' }); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; window.__strip?.juice?.cine && (window.__strip.juice.cine.done = true); return opened + ' ' + closed; })()");
   check("chronique « Le ciel rallumé » : le ▶ rejoue la libération (ouverte puis fermée seule)", finRe === "true true", finRe);
+  // (it. 2494-2495) la fenêtre de la libération déclare la langue de la bande (finale.html part en « fr »)
+  {
+    await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+    let fw = null; for (let i = 0; i < 40 && !fw; i++) { await sleep(100); fw = require("./finale-window").finaleWin(); }
+    await sleep(600);
+    const fl = fw ? await fw.webContents.executeJavaScript("document.documentElement.lang") : "pas de fenêtre", sl = await js("document.documentElement.lang");
+    for (let i = 0; i < 80 && require("./finale-window").finaleOpen(); i++) await sleep(100);
+    await js("(() => { window.__finaleMs = 0; return 1; })()");
+    check("libération : la fenêtre déclare la langue du joueur", fl === sl, fl + " / " + sl);
+  }
   // (it. 2386-2387) Compétences : noms posés au-dessus des nœuds (groupes .sklbls), aucun ne recouvre un autre nom
   const lblOv = await js(`(async () => { const P = window.__panel; P.setTab("skills"); P.renderAll(); await new Promise((r) => setTimeout(r, 300));
     const pane = document.querySelector('[data-pane=skills]:not([hidden])'), svgEl = pane?.querySelector('.skillsvg'); if (!svgEl) return "pas de graphe";
