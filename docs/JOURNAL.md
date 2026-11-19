@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2421, REVUE GÉNÉRALE) : 12 h : gladiateur 65, danseuse de lames 62, guerrier 65 ; --perf : 19,9 / 19,4 %, mini 5,4 %,
+  icône 0,5 % ; Boutique et mode mini en japonais : propres. Rien à corriger.
 - 2026-11-19 (it. 2420, contrôle) : mem-watch 10 min (bande) après les changements de la nuit : 569-573 Mo réels de 420 à 570 s,
   plat (mode bas de la mesure bimodale).
 - 2026-11-19 (it. 2419, contrôle) : --crawl en coréen sur la fin de partie à graphe plein : aucune erreur.
