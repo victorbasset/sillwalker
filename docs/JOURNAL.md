@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2685) --overflow-report (donc lang-overflow) mesurait certains onglets avec la POLICE DE SECOURS : le navigateur ne charge
+  une police (graisse, alphabet) qu'au premier texte qui la demande, et le rapport mesurait chaque onglet aussitôt après son premier
+  rendu (sonde : à 1,5 s, polices « loading », titres des Statistiques sur une ligne ; à 2,8 s, « loaded », sur deux). Chaque onglet est
+  maintenant affiché d'abord, puis on attend document.fonts.ready. lang-overflow all 1280 révèle aussitôt deux défauts cachés :
+  ru 1280 Ascension défile de 5 px (ligne « Вознестись к звёздам ») ; ja max 1280 titres « 戦士 » (Talents) et « 昇天 » (Ascension)
+  coupés entre deux caractères. À corriger aux itérations suivantes (Idées, P1). npm test 376, autotest 326/326.
 - 2026-11-19 (it. 2684, essai abandonné) : contrôle « titre de carte sur deux lignes » ajouté au rapport --overflow-report (lang-overflow) :
   il ne voyait PAS le défaut des it. 2675-2677 (règle des 17 px retirée : « aucun ») alors que la sonde --open-panel le voit à la même
   largeur. Diagnostic : dans le rapport, Statistiques 5 titres à 27 px et Réglages 4 cartes (6 avec --open-panel) : le rapport mesure
@@ -8681,9 +8687,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 2684) --overflow-report ne mesure pas le panneau dans l'état de --open-panel : Réglages 4 cartes au lieu de 6, titres des
-  Statistiques sur une ligne à 1280 px là où le panneau ouvert les coupait (it. 2675). Comprendre la différence (panneau fermé ?
-  polices pas encore chargées ? sections repliées ?) : si la mesure est faussée, lang-overflow peut manquer des défauts.
+- P1 (it. 2685) Défauts révélés par la mesure corrigée : ru 1280 Ascension défile de 5 px (« Вознестись к звёздам ») ; ja max 1280
+  titres « 戦士 » (Talents) et « 昇天 » (Ascension) coupés entre deux caractères. Relancer aussi lang-overflow à 1920, 1600, 1366
+  et sur la fin de partie (autres défauts possibles, cachés depuis longtemps).
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
   lignes (en-têtes de cartes inégaux, comme les familiers avant l'it. 2207). À reprendre si Victor le signale.
   ESSAI it. 2215, annulé : sorts déplacés dans l'en-tête (à droite du nom) : les boutons restaient sur deux lignes (« Jouer à /

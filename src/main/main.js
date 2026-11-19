@@ -241,6 +241,12 @@ function start() {
       }, 1500);
       // Défilement de chaque onglet (langues aux mots longs, petits écrans) : « [overflow] aucun » ou « onglet=px … ».
       if (flags.overflowReport) setTimeout(async () => {
+        // (it. 2685) le navigateur ne charge une police (graisse, alphabet) qu'au premier texte qui la demande : mesuré aussitôt
+        // après le premier rendu, un onglet l'était avec la police de secours, plus étroite (« Richesse et butin » sur une ligne
+        // dans ce rapport, sur deux dans le jeu, it. 2684). Chaque onglet est d'abord affiché, puis on attend les polices.
+        await strip.win.webContents.executeJavaScript(`(async () => { const P = window.__panel;
+          for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) { try { P.setTab(id); P.renderAll(); } catch (e) {} }
+          await document.fonts.ready; await new Promise((f) => setTimeout(f, 300)); await document.fonts.ready; })()`).catch(() => {});
         const r = await strip.win.webContents.executeJavaScript(`(() => { const p = document.getElementById("panel"), P = window.__panel, out = []; P.kept.clear();
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
             const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
