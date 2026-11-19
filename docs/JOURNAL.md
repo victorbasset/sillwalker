@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-19 (it. 2399, contrôle) : mode mini de la fin de partie en allemand et russe : niveau, or (6,57 Qi), zone sur une ligne,
+  duo et monstre suivant à leur place.
 - 2026-11-19 (it. 2398, contrôle) : first-minutes (1er objet 42-82 s, boss 70-82 s) et tab-pace (talents 1 min, boutique 7-11 min,
   ascension 20-41 min) : début inchangé. Clavier des Compétences vu : flèches entre nœuds prenables, Entrée prend (chemin pas à pas).
 - 2026-11-19 (it. 2397, contrôle) : résumé d'absence de 8 h sur la fin de partie (graphe plein) à 1920 px : complet, cinq actions
