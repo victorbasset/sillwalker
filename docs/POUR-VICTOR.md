@@ -15,9 +15,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   héros, deux colonnes au-delà de 8 (it. 2920). lang-overflow mesure ce pire cas dans les 10 langues (it. 2924).
 - **Puis** (éditions 168-169) : la note « N autres choses à faire → » ouvre la liste entière (it. 2934) ; le déblocage à acheter suit les
   quêtes (it. 2936). Sac plein : pendant l'absence, rangement par valeur (Poupouce, épiques des champions, coffres, puis butin du plus rare
-  au moins rare, it. 2943-2945) ; en jeu comme hors ligne, le coffre au trésor trouvé en chemin fait place comme celui de la boutique
-  (it. 2947, à relire : la règle ne visait que boutique et quêtes). **Annulé (it. 2956)** : contredisait ta demande n° 14 (it. 221, « plus de vente ni d'échange automatique ») ; l'édition 170 de
-  « Quoi de neuf » corrige l'annonce de l'édition 169. L'ordre de rangement de l'absence (it. 2943-2945) reste : il ne vend rien. Un sac déjà plein au départ : toujours ta question (it. 2744).
+  au moins rare, it. 2943-2945 ; rien n'est vendu). Le coffre trouvé en chemin a fait place quelques itérations (it. 2947), ANNULÉ à
+  l'it. 2956 : contraire à ta demande n° 14 (« plus de vente ni d'échange automatique ») ; l'édition 170 corrige l'annonce de la 169. Un sac déjà plein au départ : toujours ta question (it. 2744).
 - **À toi de dire** (détails plus bas) : chasses lentes après la Carte (it. 2869) ; combien doit rapporter une absence (it. 2886-2888) ;
   pourcentages collés en pt et pl (it. 2859) ; écart entre sortes d'élites et or en fin de course (Idées du journal, it. 2877, 2896).
 - **Nouveaux outils** : scripts/quest-pace.mjs (rythme des quêtes), scripts/fight-odds.mjs (défaites par adversaire).
@@ -39,8 +38,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (it. 2943-2945, sans toucher au sac plein d'avance : pendant l'absence, les objets se rangent maintenant par ordre de valeur
   (légendaires de Poupouce, épiques des champions, coffres, puis le butin ordinaire du plus rare au moins rare) : ils prennent les
   places LIBRES avant l'ordinaire. Un sac déjà plein au départ garde le même comportement : ta décision reste à prendre.)
-  (it. 2950) Même question en jeu ouvert pour l'épique garanti d'un champion : sac plein, il reste au sol, alors que le coffre au trésor
-  fait maintenant place (it. 2947). Si tu dis oui pour les légendaires, l'épique des champions suivrait la même règle (une ligne).
+  (it. 2950) Même question en jeu ouvert pour l'épique garanti d'un champion : sac plein, il reste au sol (ta demande n° 14 ; le coffre
+  trouvé en chemin aussi, depuis l'annulation de l'it. 2956). Si tu dis oui pour les légendaires, l'épique suivrait la même règle.
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
 - **(it. 2886-2887) Question : combien rapporte une absence ?** Le jeu dit qu'elle rapporte « un peu moins que de laisser le jeu ouvert ».
