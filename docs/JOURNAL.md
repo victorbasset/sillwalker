@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2784) Contrôle : annonce d'un événement (« Ruée des gobelins ! … », grande bannière, 524-548) et « Nouveau record »
+  lancés ensemble : la seconde se place dessous (557-576), sans chevauchement (it. 2775) ; le nom du boss (503-519) reste dégagé.
+  Rien à corriger.
 - 2026-11-20 (it. 2783) Autotest : « mode mini : deux moments simultanés s'affichent l'un après l'autre ». OK ; avec mini.js d'avant
   l'it. 2782 : ÉCHEC « BBB puis BBB ». npm test 378, autotest 336/336.
 - 2026-11-20 (it. 2782) Mode mini : un « moment » (texte sur la scène) remplaçait aussitôt le précédent ; boss vaincu → « ★ Légendaire ! »
