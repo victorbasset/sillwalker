@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3028) CLAUDE.md : une entrée rassemble les usages de la partie d'une semaine (outils, options, régénération).
 - 2026-11-21 (it. 3027) Contrôle : partie d'une semaine en mode « icône seule » 40 s : aucune erreur, pas d'errors.log, 1 victoire (rythme de sa zone record, 5 en 120 s à l'it. 2984).
 - 2026-11-21 (it. 3026) Contrôle « nouveau joueur » : partie neuve en anglais, 90 s de jeu (--speed=3), panneau : deux bottes marquées amélioration et « double-click: equip », prochaine découverte zone 3 et son bonus, annonces « New record » et « Achievement: First boss » empilées sans se gêner. Rien à corriger.
 - 2026-11-21 (it. 3025) Contrôle : partie d'une semaine sur batterie (--battery, 20 images/s) : bande 26,8 → 20,9 %, panneau 28,2 → 22,7 %, mini 7,2 → 6,7 % ; un joueur avancé sur portable revient au coût d'une partie ordinaire.

@@ -54,6 +54,11 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   Ni une simulation lancée en parallèle (it. 1861 : deux semaines `simulate.js` en même temps faisaient monter la bande de
   18,3 à 25,4 % et l'icône seule de 0,5 à 1 %). Pour attendre la fin d'un script : `pgrep -f "<nom>"` se trouve lui-même
   dans la boucle d'attente (sa ligne de commande contient le nom) : attendre le fichier de sortie, pas le processus.
+- Partie d'une SEMAINE (scripts/fixtures/week-save.json, it. 2976 : record 353, or ≈ 2e39, PV en milliards, constellations toutes au
+  maximum, sac plein) : elle a révélé en une soirée deux débordements, des nombres illisibles et un plantage du résumé d'absence que les
+  autres sauvegardes de test cachaient. Elle est prise par lang-overflow (« xx semaine 1280 », NO_WEEK=1), stall-check, save-fuzz
+  (FUZZ_BASE=semaine), perf (PERF_SAVE=…), mem-watch (MEM_SAVE=…). Régénérer : DUMP=scripts/fixtures/week-save.json node
+  --experimental-default-type=module scripts/simulate.js 168 warrior, puis vider son journal (« log »).
 - Parties bloquées : `node --experimental-default-type=module scripts/fuzz.mjs [graines] [minutes]` lance beaucoup de
   nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). `FUZZ_DAYMOD=<clé|all>` : avec une bénédiction du jour active (it. 1278 ; elles changent la file : élites, gobelins, champions). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
