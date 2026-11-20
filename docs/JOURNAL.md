@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2835) Contrôle : textes écrits en dur hors tx dans le code de l'interface (attributs title/aria-label/alt, texte entre balises) :
+  seuls « Sillwalker » et « Language / Langue », voulus. Rien à corriger.
 - 2026-11-20 (it. 2834) Contrôle : bulles et noms accessibles de la bande et du mini (title, data-title, aria-label) en russe : tout traduit,
   y compris la liste « À faire » du bouton du panneau. Rien à corriger.
 - 2026-11-20 (it. 2833) « Quoi de neuf » : édition 165 (durées sans partie nulle, note de plafond du débutant, bulle du héros qui se tait
