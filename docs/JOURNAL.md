@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2756) Portugais : six traductions récentes écrites en portugais d'Europe (« espera-te », « clica », « Regresso »,
+  « por vezes », « o teu herói », « avaliam-te ») repassées en brésilien, la variante choisie à l'it. 1533 (clés 3229, 3232, 3429-3432).
+  Recherche des marques européennes (tua, teu, -te, clica, ecrã, por vezes) dans pt.js : plus aucune. npm test 377, autotest 331/331.
 - 2026-11-20 (it. 2755) Contrôle : --crawl en allemand sur la partie de fin de partie (scripts/fixtures/endgame-save.json) : 702 clics en
   24 s, aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2754) Contrôle en polonais (trois pluriels) : --crawl sur dev-data, 527 clics en 19 s, aucune erreur ; texte de
