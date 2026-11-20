@@ -723,6 +723,16 @@ async function runSelfTest(strip) {
           ok(!b.width ? 'bulle absente' : (b.right > n.left && b.left < n.right && b.bottom > n.top && b.top < n.bottom) ? 'chevauche ' + Math.round(b.left) + '-' + Math.round(b.right) + ' / ' + Math.round(n.left) + '-' + Math.round(n.right) : 'ok'); }, 700); }, 3000); })`);
     check("bande : une bannière passe à côté de la bulle de parole du héros", r === "ok" || r === "sans objet", r);
   }
+  // (it. 2797) pas de place entre les barres de vie et le nom du boss (cas d'un écran de 1280 px) : la bulle se tait au lieu de passer
+  // sur la barre du héros. Barres et nom du boss figés autour du héros (updateHudBars suspendu le temps du contrôle).
+  {
+    const r = await js(`new Promise((ok) => { const st = window.__strip; if (!st.active || st.centerHud) { ok('sans objet'); return; }
+      const keepU = st.updateHudBars, keepB = st.hpBars, keepL = st.bossL; st.updateHudBars = () => {};
+      const hx = st.heroX + st.hero.w / 2; st.hpBars = [[0, hx + 40]]; st.bossL = hx + 160; st.saidAt = -1e9; st.say(['Plus ils sont gros, plus ils tombent fort.'], true);
+      setTimeout(() => { const b = st.bubble.getBoundingClientRect(), hid = st.bubble.hidden || !b.width; st.updateHudBars = keepU; st.hpBars = keepB; st.bossL = keepL; st.bubbleT = 0;
+        ok(hid ? 'ok' : 'bulle affichée ' + Math.round(b.left) + '-' + Math.round(b.right) + ' sur la barre 0-' + Math.round(hx + 40)); }, 600); })`);
+    check("bande : sans place entre les barres de vie et le nom du boss, la bulle du héros se tait", r === "ok" || r === "sans objet", r);
+  }
   // (it. 2738) repoussée par la pastille de l'or, la bulle de parole du héros couvrait le nom du boss ; elle passe à sa gauche
   {
     const r = await js(`new Promise((ok) => { const st = window.__strip; if (!st.bossTag || !st.bossTag.isConnected || st.centerHud) { ok('sans objet'); return; } if (!st.active) { ok('bande inactive'); return; } st.saidAt = -1e9; st.bossLT = 0; st.updateHudBars(); st.say(["Rendez-moi cet or !"], true);

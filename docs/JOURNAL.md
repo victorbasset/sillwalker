@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2798) Autotest : « bande : sans place entre les barres de vie et le nom du boss, la bulle du héros se tait » (barres et
+  nom figés autour du héros). OK ; avec strip.js d'avant l'it. 2797 : ÉCHEC « bulle affichée 1413-1659 sur la barre ». npm test 379,
+  autotest 337/337.
 - 2026-11-20 (it. 2797) Bande à 1280 px : la bulle de parole du héros (« Plus ils sont gros, plus ils tombent fort. ») passait sur la barre de
   vie du héros : entre les barres (379-603) et le nom du boss (846), pas de place pour ses 240 px, et la règle du nom du boss (it. 2738),
   appliquée en dernier, la renvoyait sur la barre. Après toutes les règles, une bulle qui chevauche encore une barre ou la pastille se tait
