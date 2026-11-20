@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2870) Outil : scripts/quest-pace.mjs (durée moyenne de chaque sorte de quête sur des parties neuves), cité dans CLAUDE.md.
+  Champions à 159 min : voulu (1 monstre sur 200, jusqu'à 3 pour une quête 3 étoiles ; « objectif de patience »).
 - 2026-11-20 (it. 2869) Mesure des quêtes sur 3 parties de 12 h (durée moyenne par sorte) : chasses 69 min, contre 10-16 min pour les autres
   sortes courantes ; noté dans « Idées » pour Victor (choix de jeu). Pas de changement.
 - 2026-11-20 (it. 2868) Dix premières minutes : les quêtes sont tirées dès la zone 1, l'onglet Quêtes ne s'ouvre que vers 4-5 min ; une chasse
