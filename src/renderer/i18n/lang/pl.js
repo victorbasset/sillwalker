@@ -2310,4 +2310,6 @@ export default {
   3435: "Powrót: podsumowanie czeka też, aż pasek wróci po grze lub filmie na pełnym ekranie.",
   3436: "Pasek: ogłoszenia (legendarny łup, nowy rekord, wydarzenie) nie nachodzą już na siebie ani na dymek bohatera.",
   3437: "Tryb mini: dwa momenty naraz („Legendarny!”, potem „Nowy rekord”) wyświetlają się jeden po drugim.",
+  3438: "Pupile i Sklep: pozostały czas podaje jednostkę każdej liczby we wszystkich językach.",
+  3439: "Pasek: przy długiej nazwie strefy trwające wydarzenie jest skracane (⏳ i sekundy) zamiast obcinane.",
 };

@@ -3439,5 +3439,7 @@ export const KEYS = [
   "Retour d’absence : un déblocage acheté dans « À faire maintenant » rend aussitôt ses actions faisables d’un clic, une ligne devenue inutile passe à ✓, et la fenêtre reste ouverte ; rien ne bouge sous le curseur.",
   "Retour d’absence : le résumé attend aussi que la bande revienne après un jeu ou une vidéo en plein écran.",
   "Bande : les annonces (butin légendaire, nouveau record, événement) ne se chevauchent plus entre elles ni sur la bulle de parole du héros.",
-  "Mode mini : deux moments qui arrivent ensemble (« Légendaire ! » puis « Nouveau record ») s’affichent l’un après l’autre."
+  "Mode mini : deux moments qui arrivent ensemble (« Légendaire ! » puis « Nouveau record ») s’affichent l’un après l’autre.",
+  "Familiers et Boutique : le temps restant indique l’unité de chaque nombre dans toutes les langues.",
+  "Bande : avec un nom de zone long, l’événement en cours s’abrège (⏳ et les secondes) au lieu d’être coupé."
 ];

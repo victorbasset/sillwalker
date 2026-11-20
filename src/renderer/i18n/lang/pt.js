@@ -2310,4 +2310,6 @@ export default {
   3435: "Volta da ausência: o resumo também espera a faixa voltar depois de um jogo ou vídeo em tela cheia.",
   3436: "Faixa: os anúncios (saque lendário, novo recorde, evento) não se sobrepõem mais entre si nem ao balão de fala do herói.",
   3437: "Modo mini: dois momentos que chegam juntos (“Lendário!” e depois “Novo recorde”) aparecem um depois do outro.",
+  3438: "Mascotes e Loja: o tempo restante mostra a unidade de cada número em todos os idiomas.",
+  3439: "Faixa: com um nome de zona longo, o evento em andamento é abreviado (⏳ e os segundos) em vez de ser cortado.",
 };

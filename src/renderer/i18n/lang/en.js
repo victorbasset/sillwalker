@@ -2310,4 +2310,6 @@ export default {
   3435: "Returning: the summary also waits for the strip to come back after a fullscreen game or video.",
   3436: "Strip: announcements (legendary loot, new record, events) no longer overlap each other or the hero’s speech bubble.",
   3437: "Mini mode: two moments arriving together (“Legendary!” then “New record”) now show one after the other.",
+  3438: "Pets and Shop: the time left shows the unit of each number in every language.",
+  3439: "Strip: with a long zone name, the current event is shortened (⏳ and the seconds) instead of being cut off.",
 };

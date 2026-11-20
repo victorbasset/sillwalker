@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2792) « Quoi de neuf » : édition 164 (temps restant avec unités ; événement abrégé sur la bande), clés 3438-3439,
+  10 langues, noms d'onglets vérifiés. Talents en japonais à 1280 px : propres.
 - 2026-11-20 (it. 2791, REVUE GÉNÉRALE) : 12 h : danseur de lames 66, artificier 64, gardien des étoiles 69 ; --perf (charge 2,8) : bande
   20,3 %, panneau 19,6 %, mini 5,5 %, icône 0,8 % ; Familiers en anglais à 1366 px propres (« 7 h 59 min ») ; texte polonais : rien de
   français. Rien à corriger.

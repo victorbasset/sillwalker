@@ -2310,4 +2310,6 @@ export default {
   3435: "Rückkehr: Die Übersicht wartet auch, bis die Leiste nach einem Spiel oder Video im Vollbild zurückkommt.",
   3436: "Leiste: Ankündigungen (legendäre Beute, neuer Rekord, Ereignis) überlappen sich nicht mehr gegenseitig oder mit der Sprechblase des Helden.",
   3437: "Mini-Modus: Zwei gleichzeitige Momente („Legendär!“, dann „Neuer Rekord“) erscheinen nacheinander.",
+  3438: "Begleiter und Laden: Die Restzeit zeigt in allen Sprachen die Einheit jeder Zahl.",
+  3439: "Leiste: Bei langem Zonennamen wird das laufende Ereignis abgekürzt (⏳ und die Sekunden), statt abgeschnitten zu werden.",
 };

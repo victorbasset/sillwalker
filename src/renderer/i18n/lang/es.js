@@ -2310,4 +2310,6 @@ export default {
   3435: "Regreso: el resumen también espera a que vuelva la banda tras un juego o un vídeo a pantalla completa.",
   3436: "Banda: los anuncios (botín legendario, nuevo récord, evento) ya no se superponen entre sí ni sobre la burbuja de diálogo del héroe.",
   3437: "Modo mini: dos momentos que llegan juntos («¡Legendario!» y luego «Nuevo récord») se muestran uno tras otro.",
+  3438: "Mascotas y Tienda: el tiempo restante indica la unidad de cada número en todos los idiomas.",
+  3439: "Banda: con un nombre de zona largo, el evento en curso se abrevia (⏳ y los segundos) en vez de cortarse.",
 };
