@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2887) Après l'it. 2886 : save-fuzz dev 1267 et fin 1225 corruptions, ok. docs/POUR-VICTOR.md : question « combien rapporte
+  une absence » (27-53 % de l'or d'une heure de jeu, la note dit « un peu moins »).
 - 2026-11-20 (it. 2886) Absence : les élites et champions vaincus hors ligne (comptés pour les quêtes et les statistiques depuis les it. 882 et
   1262) n'étaient payés que comme des monstres ordinaires ; ils rapportent maintenant leur or (×4, champion ×5 de plus) et leur expérience
   (×3, ×4). Or d'une heure d'absence rapporté à une heure de jeu (3 parties) : 0,22 / 0,46 / 0,29 → 0,27 / 0,53 / 0,36 ; le reste est

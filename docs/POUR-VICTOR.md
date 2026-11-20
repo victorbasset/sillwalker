@@ -19,6 +19,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
+- **(it. 2886-2887) Question : combien rapporte une absence ?** Le jeu dit qu'elle rapporte « un peu moins que de laisser le jeu ouvert ».
+  Mesuré (une heure d'absence contre une heure de jeu, 3 parties) : 74-83 % des victoires, mais 27-53 % de l'or (après l'it. 2886, qui
+  paie enfin les élites et champions de l'absence comme en jeu ; 22-46 % avant). L'écart restant vient des boss, événements et coffres,
+  exclus hors ligne par choix. Garder ainsi (et dire « moins » plutôt que « un peu moins ») ou rapprocher l'or ?
 - **(it. 2874) Fait, à relire : champions rééquilibrés.** Ils étaient plus forts que le boss de leur zone (PV ×7,5 et attaque ×1,95 d'un
   monstre normal) : le héros perdait 94-96 % de ces combats, chaque champion remettait la zone à zéro et la quête « Vaincre un champion »
   n'avançait presque qu'hors ligne. Maintenant PV ×3,9 et attaque ×1,5 (élite + 30 % de PV) : défaites 23 % (2 h) à 46 % (12 h), contre
