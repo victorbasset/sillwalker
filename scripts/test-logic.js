@@ -282,6 +282,23 @@ test("menu de l'icône (it. 2829) : chaque texte de src/main/i18n.js existe dans
   assert.equal(miss.length, 0, miss.slice(0, 6).join(", "));
 });
 
+test("quêtes (it. 2868) : à l'ouverture de l'onglet Quêtes, une chasse d'un monstre laissé derrière est retirée", () => {
+  const g = new Game(freshState());
+  const S = g.S;
+  S.zone = S.best = 8;
+  const here = g.zoneDef().monsters;
+  const gone = Object.keys(MONSTERS).find((t) => !here.includes(t) && !MONSTERS[t].boss);
+  g.ensureQuests();
+  S.quests.slots[0] = { uid: 900, kind: "hunt", type: gone, goal: 25, progress: 3, stars: 1, reward: { gold: 10 } };
+  S.quests.slots[1] = { uid: 901, kind: "hunt", type: here[0], goal: 25, progress: 3, stars: 1, reward: { gold: 10 } };
+  S.quests.slots[2] = { uid: 902, kind: "hunt", type: gone, goal: 5, progress: 5, stars: 1, reward: { gold: 10 } };
+  g.freshenQuests();
+  assert.ok(S.quests.slots[0].uid !== 900, "chasse d'un monstre absent : retirée");
+  assert.ok(!(S.quests.slots[0].kind === "hunt" && S.quests.slots[0].type === gone), "pas la même chasse");
+  assert.equal(S.quests.slots[1].uid, 901, "chasse d'un monstre présent : gardée");
+  assert.equal(S.quests.slots[2].uid, 902, "chasse accomplie : gardée (à réclamer)");
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

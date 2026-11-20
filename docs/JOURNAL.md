@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2868) Dix premières minutes : les quêtes sont tirées dès la zone 1, l'onglet Quêtes ne s'ouvre que vers 4-5 min ; une chasse
+  d'un monstre déjà laissé derrière (« absent d'ici · zone 1 », 3/25) accueillait le nouveau joueur. À la première ouverture de l'onglet,
+  ces chasses sont retirées gratuitement (game.js freshenQuests). Attente entre l'ouverture et la première quête accomplie, 12 graines :
+  68 → 39 s en moyenne (graine 2 : 326 → 229 s). Test ; npm test 383, autotest 337/337, simulate 8 h : 58.
 - 2026-11-20 (it. 2867) Rectificatif de l'it. 2866 : agrandie, la capture montre « Crit 258 k » (coup critique), pas une bulle « Oui »
   recouverte. Aucun chevauchement ; d'ailleurs la bulle (z-index 6) passe au-dessus des nombres (4). Rien à corriger.
 - 2026-11-20 (it. 2866) Recherche d'amélioration : retour après 3 h (fr, 1366 px) et partie neuve à 75 s : propres. Un nombre de dégâts

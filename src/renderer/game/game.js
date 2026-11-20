@@ -304,7 +304,7 @@ export class Game {
     // victoire) ; le temps continue, donc la vie de la file aussi. Jamais posé par le jeu lui-même.
     if (R.devFreeze) return;
     // Onglets débloqués au fur et à mesure (tabs.js) : vérifié une fois par seconde, annoncé par l'interface.
-    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
+    if ((R.tabT = (R.tabT || 0) + dt) >= 1) { R.tabT = 0; const fresh = openTabs(this.S); if (fresh.includes("quests")) this.freshenQuests(); if (fresh.length) this.emit("tabOpen", { ids: fresh }); // (it. 1105) le grand graphe s'ouvre : annoncé une fois
       // (it. 1740) Statistiques ouvert tôt pour le Journal (it. 1729) : chiffres, succès et carnet de route arrivent à la zone 40,
       // annoncés une fois (pastille « new » de l'onglet et bulle)
       if (!this.S.statsFullSeen && statsFull(this.S)) { this.S.statsFullSeen = true; if (this.S.tabsOpen && this.S.tabsOpen.stats) { this.S.tabsOpen.stats = "new"; this.emit("statsFull"); } }
@@ -2744,6 +2744,16 @@ export class Game {
     const up = new Set(this.S.bag.filter((it) => this.isUpgrade(it)).map((it) => it.id));
     this.S.bag.sort((a, b) => (up.has(b.id) - up.has(a.id)) || (b.r - a.r) || ((b.il || 0) - (a.il || 0)));
     this.changed();
+  }
+
+  /** (it. 2868) À l'ouverture de l'onglet Quêtes, les quêtes tirées dès la zone 1 sont là depuis plusieurs minutes : une chasse
+   *  d'un monstre que le héros a laissé derrière lui (« absent d'ici · zone 1 ») accueillait le nouveau joueur, bloquée (graine 2 de
+   *  first-minutes : 3/25, première quête accomplie 5 min 26 s après l'ouverture). Elle est retirée, gratuitement. */
+  freshenQuests() {
+    const Q = this.S.quests, here = this.zoneDef().monsters;
+    Q.slots.forEach((q, i) => {
+      if (q && q.kind === "hunt" && !questDone(q) && !here.includes(q.type)) Q.slots[i] = makeQuest(this.S, Q.nextUid++, Q.slots.map((x) => x.kind));
+    });
   }
 
   rerollQuest(uid) {
