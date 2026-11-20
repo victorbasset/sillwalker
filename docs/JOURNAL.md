@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2983) Contrôle : résumé d'absence (8 h) de la partie d'une semaine, russe, 1280 px : tient, aucune erreur ; montants en
+  suffixes longs (« +122,23 Dd » d'or). Sac plein 48/48 : 36 objets au sol, dont le légendaire de Poupouce et 4 épiques de champions ; ajouté
+  comme cas concret à la question 1 de POUR-VICTOR (règle inchangée, demande n° 14).
 - 2026-11-20 (it. 2982) stall-check joue aussi la partie d'une semaine (week-save.json) : 80 parties, 0 figées ; avec STALL_DAYMOD=all : 80, 0.
 - 2026-11-20 (it. 2981, REVUE GÉNÉRALE) : 12 h : paladin 65, samouraï 69, chaman 62 ; --perf (charge 1,8) : 19,8 / 19,5 %, mini 5,5 %,
   icône 0,47 % ; Quêtes en chinois propre ; texte coréen : mots latins = touches et noms des langues. POUR-VICTOR : résumé de la soirée.

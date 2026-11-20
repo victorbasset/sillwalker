@@ -17,6 +17,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 1. Sac plein : un légendaire (et l'épique d'un champion) prend-il la place de l'objet inutile le moins cher ? (it. 2744, 2950) [oui, sans
    toucher aux objets précieux ; sinon garder « tant pis », ta demande n° 14]
+   Cas concret (it. 2983, partie d'une semaine simulée) : sac plein 48/48, retour après 8 h : 36 objets laissés au sol, dont le légendaire
+   de Poupouce (« Légendaire · non gardé ») et les épiques des 4 champions ; 0 objet gardé.
 2. Absence : 27-53 % de l'or d'une heure de jeu, la note dit « un peu moins » (it. 2886-2888) [garder l'écart, écrire « moins »]
 3. Chasses lentes après la Carte du voyageur (69 min contre 11 pour « vaincre N monstres », it. 2869) [cible qui suit la zone, avancée gardée]
 4. « 15 % » espacé en portugais et polonais, alors que l'usage local colle « 15% » (it. 2859) [usage local : coller en pt et pl]
