@@ -48,7 +48,7 @@ import * as M_quests_js from "../src/renderer/game/quests.js";
 import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
-import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF } from "../src/renderer/game/format.js";
+import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF, countdown } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
 import { bossHpFactor as bossHpFactor2058 } from "../src/renderer/game/story.js";
@@ -1689,6 +1689,15 @@ test("quête « proie » : seule la bonne sorte d'élite compte, en jeu et penda
   h.applyOffline(8 * 3600); assert.ok(h.S.quests.slots[0].progress > 0, "hors ligne : " + h.S.quests.slots[0].progress);
   const k = new Game(freshState()); k.S.quests.slots = [{ uid: 902, kind: "prey", type: "affixe_disparu", goal: 1, progress: 0, reward: { gold: 1 } }];
   k.ensureQuests(); assert.ok(k.S.quests.slots.every((q) => q.kind !== "prey" || ELITE_AFFIXES[q.type]), "sorte inconnue remplacée");
+});
+
+test("compte à rebours (it. 2786-2787) : « 7 h 59 » en français, chaque nombre avec son unité ailleurs", () => {
+  const before = getLang();
+  try {
+    setLang("fr"); assert.equal(countdown(7 * 3600 + 59 * 60), "7 h 59"); assert.equal(countdown(12 * 60 + 5), "12 min 05");
+    setLang("de"); assert.equal(countdown(7 * 3600 + 59 * 60), "7 Std. 59 Min."); assert.ok(/\ss$/.test(countdown(12 * 60 + 5)), countdown(725));
+    setLang("ja"); assert.ok(/時間\s\d+\s分$/.test(countdown(7 * 3600 + 59 * 60)), countdown(28740));
+  } finally { setLang(before); }
 });
 
 test("effets au-delà de 1000 : séparateur des milliers (it. 1002 : « +26571 % attaque » de la Lueur stellaire)", () => {

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2787) Boutique : même défaut que les Familiers (it. 2786) dans le temps restant d'un élixir ou d'un effet actif (mmss,
+  « 7 Std. 59 »). Règle mise en commun : format.js countdown (français « 7 h 59 », ailleurs « 7 Std. 59 Min. ») ; shop.js et pets.js
+  l'utilisent. Test logique « compte à rebours » (fr, de, ja). npm test 379, autotest 336/336, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2786) Familiers : temps restant d'une expédition « 7 Std. 59 » (de), « 7 時間 59 » (ja)… : le second nombre n'avait pas
   d'unité (« 7 h 59 » ne se lit qu'en français). Hors français, chaque nombre garde son unité : « 7 Std. 59 Min. », « 7 ч 59 мин »,
   « 7 時間 59 分 », « 12 min 5 s » (pets.js left). Mesuré à 1280 px en ru, pl, ja : 19 expéditions, aucune coupée ; lang-overflow all 1280 :

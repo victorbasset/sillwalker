@@ -11,7 +11,7 @@ import {
   consumablePrice, chestPrice, upgradePrice, rerollPrice, workshopPrice, eggPrice,
 } from "../../game/shop.js";
 import { describeEffects } from "../../game/talents.js";
-import { fmt, fmtShort, esc, unit, uH, uMin } from "../../game/format.js";
+import { fmt, fmtShort, esc, unit, uH, uMin, countdown } from "../../game/format.js";
 import { itemIconURL } from "../../render/sprites.js";
 import { npcHTML } from "../npc.js";
 import { shopIconURL } from "../../render/shopart.js";
@@ -20,7 +20,7 @@ import { SETS } from "../../game/sets.js";
 import { UNLOCKS, hasUnlock, nextUnlock, unlockAvailable, recordZone } from "../../game/unlocks.js";
 import { lockLink as lockLinkS } from "../locks.js";
 
-const mmss = (s) => { s = Math.max(0, Math.ceil(s)); const m = Math.floor(s / 60); return m >= 60 ? `${uH(Math.floor(m / 60))} ${String(m % 60).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
+const mmss = (s) => countdown(s); // (it. 2787) unités dans chaque langue (format.js)
 /** Effet court affiché sous chaque consommable. */
 const SHORT = { potion: tx("Rend 50 % des PV"), elixir: tx("+25 % d’attaque"), fortune: tx("+50 % d’or"), wisdom: tx("+50 % d’expérience"), haste: tx("+30 % de vitesse"), luck: tx("+40 % de butin"), iron: tx("+30 % PV et défense"), lure: tx("+100 % d’élites") };
 

@@ -68,6 +68,12 @@ export const listJoin = (arr) => { try { return new Intl.ListFormat(LOCALE[getLa
 /** Pourcentage : « 12,5 % » en français, « 12.5% » en anglais. */
 /** Unités de durée traduites (« 3 h », « 12 min », « 40 s » ; ч / мин / с en russe…). */
 export const uH = (n) => tx("{0} h", { 0: n }), uMin = (n) => tx("{0} min", { 0: n }), uS = (n) => tx("{0} s", { 0: n });
+/** (it. 2786-2787) Compte à rebours (secondes) : « 7 h 59 », « 12 min 05 » en français ; ailleurs, chaque nombre garde son unité
+    (« 7 Std. 59 » ou « 7 時間 59 » laissaient le second nombre sans unité) : « 7 Std. 59 Min. », « 12 Min. 5 s ». */
+export const countdown = (sec) => {
+  const s = Math.max(0, Math.ceil(sec)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), fr = getLang() === "fr";
+  return h ? `${uH(h)} ${fr ? String(m).padStart(2, "0") : uMin(m)}` : `${uMin(m)} ${fr ? String(s % 60).padStart(2, "0") : uS(s % 60)}`;
+};
 /** Durée lisible : « 40 s », « 12 min », « 3 h 5 min ». */
 export const durText = (sec) => {
   sec = Math.max(0, Math.round(sec || 0));
