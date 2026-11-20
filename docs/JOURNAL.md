@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2782) Mode mini : un « moment » (texte sur la scène) remplaçait aussitôt le précédent ; boss vaincu → « ★ Légendaire ! »
+  effacé par « Nouveau record » dans la même seconde. File de 3 au plus, chacun visible au moins 2 s, sans doublon (mini.js showMoment,
+  nextMoment). Mesuré (loot légendaire puis record, émis ensemble) : avant, le record seul ; après, Légendaire 0-2 s puis record.
+  npm test 378, autotest 335/335.
 - 2026-11-20 (it. 2781, REVUE GÉNÉRALE) : 12 h : gladiateur 65, barde 65, cryomancien 62 ; --perf : bande 20,5 % (charge 2) puis 19,95 %
   remesurée, panneau 19,9 %, mini 5,8 %, icône 0,4 % ; bande en allemand à 1366 px propre ; texte espagnol : rien de français.
   Rien à corriger.

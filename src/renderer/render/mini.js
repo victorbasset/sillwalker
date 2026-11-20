@@ -122,6 +122,17 @@ export class MiniRenderer {
 
   /** Moment marquant : texte sur la scène et liseré doré (4 s), sans boucle ni clignotement. */
   showMoment(text, title) {
+    // (it. 2782) un moment en remplaçait un autre aussitôt (boss vaincu : « ★ Légendaire ! » effacé par « Nouveau record » dans la même
+    // seconde) : file de 3 au plus, chacun visible au moins 2 s ; un moment identique n'est pas répété
+    const now = Date.now();
+    this.momentQ = this.momentQ || [];
+    if (!this.moment.hidden && now - (this.momentAt || 0) < 2000) {
+      if (this.moment.textContent !== text && !this.momentQ.some((m) => m[0] === text) && this.momentQ.length < 3) this.momentQ.push([text, title]);
+      clearTimeout(this.momentNext);
+      this.momentNext = setTimeout(() => this.nextMoment(), 2000 - (now - this.momentAt));
+      return;
+    }
+    this.momentAt = now;
     clearTimeout(this.momentTimer);
     this.moment.textContent = text;
     this.moment.title = title || "";
@@ -129,6 +140,12 @@ export class MiniRenderer {
     this.root.classList.remove("moment"); void this.root.offsetWidth; this.root.classList.add("moment");
     mark("moment");
     this.momentTimer = setTimeout(() => { this.moment.hidden = true; this.root.classList.remove("moment"); mark("moment"); }, 4000);
+  }
+  nextMoment() {
+    const m = this.momentQ && this.momentQ.shift();
+    if (!m) return;
+    this.momentAt = 0; this.showMoment(m[0], m[1]);
+    if (this.momentQ.length) this.momentNext = setTimeout(() => this.nextMoment(), 2000);
   }
 
   setActive() { this.lastDraw = 0; }
