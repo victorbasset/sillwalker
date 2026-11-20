@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2788) Bande : nom de zone long + événement (« Zone 57 Champignonnière géante + … Ruée des gobelins 30 s ») dépassait la
+  pastille de gauche (canvas de 520 px) : le « s » était rogné (vu à l'it. 2738). Trop long, l'événement s'abrège en « ⏳ 27 s » à sa
+  couleur (strip.js, son nom reste dans l'annonce et le panneau) ; HUD_L_W inchangé (il décide aussi de la disposition centrée).
+  Capture en fr et ru : tout tient. Durées « {0} h {1} » ailleurs : seules dates et couleurs utilisent padStart. npm test 379, autotest 336/336.
 - 2026-11-20 (it. 2787) Boutique : même défaut que les Familiers (it. 2786) dans le temps restant d'un élixir ou d'un effet actif (mmss,
   « 7 Std. 59 »). Règle mise en commun : format.js countdown (français « 7 h 59 », ailleurs « 7 Std. 59 Min. ») ; shop.js et pets.js
   l'utilisent. Test logique « compte à rebours » (fr, de, ja). npm test 379, autotest 336/336, lang-overflow all 1280 : aucun.

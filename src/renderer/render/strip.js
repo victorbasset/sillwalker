@@ -1662,7 +1662,7 @@ export class StripRenderer {
     const ev = Object.entries(this.game.R.events || {}).find(([id, t]) => t > 0 && EVENTS[id]);
     // Héros bloqué (demande 22) : « ⚠ bloqué » en rouge, visible d'un coup d'œil sans ouvrir le panneau.
     const stuck = this.game.stuckInfo();
-    const rec = recordZone(S), recTxt = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : stuck ? "⚠ " + tx("bloqué") : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
+    const rec = recordZone(S); let recTxt = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : stuck ? "⚠ " + tx("bloqué") : S.zone < rec ? tx("record {0}", { 0: rec }) : "";
     const recCol = ev ? EVENTS[ev[0]].color : stuck ? "#ff6b5a" : "#a29ec2";
     const key = label + "|" + S.kills + "/" + this.game.lineup().length + "|" + recTxt; // (it. 1852) longueur de la série
     if (key === this.hudLKey) return;
@@ -1670,7 +1670,11 @@ export class StripRenderer {
     const ctx = this.hudL.ctx;
     ctx.clearRect(0, 0, HUD_L_W, HUD_H);
     ctx.font = FONT;
-    const lw0 = ctx.measureText(label).width, rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
+    const lw0 = ctx.measureText(label).width;
+    // (it. 2788) nom de zone long + événement : « Ruée des gobelins 30 s » dépassait la pastille (520 px) et le « s » était rogné ;
+    // trop long, l'événement s'abrège en « ⏳ 30 s » à sa couleur (son nom reste dans l'annonce et dans le panneau)
+    if (ev && ctx.measureText(recTxt).width > Math.min(HUD_L_W, this.W) - 8 - (40 + lw0 + this.game.lineup().length * 9)) recTxt = "⏳ " + uS(Math.ceil(ev[1]));
+    const rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
     this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + this.game.lineup().length * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
     drawPill(ctx, 3, this.hudLRight, HUD_H);
     if (this.centerHud) { this.hudLX = Math.round(this.W / 2 - 6 - this.hudLRight); this.hudL.c.style.left = this.hudLX + "px"; this.placeTab(); }
