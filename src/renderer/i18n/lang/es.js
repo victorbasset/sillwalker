@@ -2321,4 +2321,5 @@ export default {
   3446: "Porcentajes escritos igual en todas partes en español, portugués, alemán, polaco y ruso.",
   3447: "Mientras no estás, las élites y los campeones derrotados dan su oro y su experiencia, como en el juego.",
   3448: "Mientras no estás, cada campeón derrotado deja su objeto épico, como Poupouce deja su legendario.",
+  3449: "{n} cosa más por hacer en la tarjeta del héroe|{n} cosas más por hacer en la tarjeta del héroe",
 };

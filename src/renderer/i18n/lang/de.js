@@ -2321,4 +2321,5 @@ export default {
   3446: "Prozentangaben überall einheitlich geschrieben: auf Spanisch, Portugiesisch, Deutsch, Polnisch und Russisch.",
   3447: "Während deiner Abwesenheit bringen besiegte Eliten und Champions ihr Gold und ihre Erfahrung, wie im Spiel.",
   3448: "Während deiner Abwesenheit hinterlässt jeder besiegte Champion seinen epischen Gegenstand, so wie Poupouce seinen legendären.",
+  3449: "{n} weitere Aufgabe auf der Heldenkarte|{n} weitere Aufgaben auf der Heldenkarte",
 };

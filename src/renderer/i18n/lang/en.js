@@ -2321,4 +2321,5 @@ export default {
   3446: "Percentages are now written the same way everywhere in Spanish, Portuguese, German, Polish and Russian.",
   3447: "While you're away, defeated elites and champions now pay their gold and experience, just like in play.",
   3448: "While you're away, each defeated champion leaves its epic item, just as Poupouce leaves its legendary.",
+  3449: "{n} more thing to do on the hero card|{n} more things to do on the hero card",
 };

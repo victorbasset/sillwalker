@@ -2321,4 +2321,5 @@ export default {
   3446: "Procenty zapisywane wszędzie tak samo po hiszpańsku, portugalsku, niemiecku, polsku i rosyjsku.",
   3447: "Nieobecność: pokonane elity i czempioni dają złoto i doświadczenie jak w grze.",
   3448: "Nieobecność: każdy pokonany czempion zostawia epicki przedmiot, jak Poupouce legendarny.",
+  3449: "{n} kolejna rzecz do zrobienia na karcie bohatera|{n} kolejne rzeczy do zrobienia na karcie bohatera|{n} kolejnych rzeczy do zrobienia na karcie bohatera",
 };

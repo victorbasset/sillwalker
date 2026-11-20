@@ -569,7 +569,7 @@ export class Panel {
         ${sum.transmuted ? `<li><span>${tx("Creuset perpétuel")}</span><b>${txn(sum.transmuted, "{n} objet transmuté|{n} objets transmutés")}</b></li>` : ""}
         ${sum.petWork ? `<li><span>${tx("Grand intendant")}</span><b>${txn(sum.petWork, "{n} tâche de familier|{n} tâches de familiers")}${sum.petGold ? " · +" + tx("{0} or", { 0: fmt(sum.petGold) }) : ""}</b></li>` : ""}
       </ul></div><div>
-      ${this.todoHtml()}
+      ${this.todoHtml(8)}
       <p class="note">${sum.capped
         // (it. 2826) la constellation de la Lune n'est citée qu'une fois l'Ascension ouverte (un débutant ne la connaît pas encore)
         ? (tabOpen(this.game.S, "ascension") ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH }) : tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus.", { 0: sum.capH }))
@@ -585,8 +585,10 @@ export class Panel {
   }
 
   /** « À faire maintenant » : un bouton par action disponible, qui mène droit au bon onglet. */
-  todoHtml() {
-    const list = this.game.todoNow();
+  /** (it. 2919) max : le résumé d'absence n'en montre que 8 (dès 10 lignes, sa fenêtre défilait : 21 px en polonais, 4 en français ;
+   *  la liste n'a pas de plafond, 16 sortes de lignes) ; les autres restent dans « À faire » de la carte du héros, une note le dit */
+  todoHtml(max = Infinity) {
+    const all = this.game.todoNow(), list = all.slice(0, max), more = all.length - list.length;
     if (!list.length) return "";
     return `<h3 class="todo-h">${tx("À faire maintenant")}</h3>
       ${list.map((t) => t.id === "unlock" && t.uid // déblocage payable : acheté d'un clic, comme depuis la carte du héros
@@ -595,7 +597,7 @@ export class Panel {
           ? `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="merchant">${esc(tx("Acheter et équiper : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)
           ? this.todoDoBtn(t)
-          : `<button class="linkbtn" data-todo="${t.id}" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}`;
+          : `<button class="linkbtn" data-todo="${t.id}" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}${more > 0 ? `<p class="note tight todo-more">${esc(txn(more, "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros"))}</p>` : ""}`;
   }
   todoDoBtn(t) { return `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`; }
 

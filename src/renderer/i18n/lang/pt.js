@@ -2321,4 +2321,5 @@ export default {
   3446: "Porcentagens escritas do mesmo jeito em todo lugar em espanhol, português, alemão, polonês e russo.",
   3447: "Enquanto você está fora, as elites e os campeões derrotados dão seu ouro e sua experiência, como no jogo.",
   3448: "Enquanto você está fora, cada campeão derrotado deixa seu item épico, como Poupouce deixa seu lendário.",
+  3449: "{n} coisa a mais para fazer no cartão do herói|{n} coisas a mais para fazer no cartão do herói",
 };

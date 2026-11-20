@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2919) Retour d'absence : la liste « À faire » n'a pas de plafond (16 sortes de lignes) ; mesuré en dupliquant les lignes, la
+  fenêtre défilait dès 10 lignes (21 px en polonais, 4 en français, jusqu'à 218 px à 16) : la cause du dépassement polonais intermittent
+  (it. 2916-2918). Le résumé n'en montre que 8 ; une note compte les autres (« 4 autres choses à faire dans la carte du héros », clé 3449,
+  pluriels dans les 10 langues), la liste complète reste dans la carte du héros. 8 à 16 lignes en pl, fr, ru, de à 1280 : 0 px. Contrôle
+  d'autotest (16 lignes : 8 montrées, note, rien ne défile) ; npm test 387, autotest 338/338, lang-overflow complet : aucun.
 - 2026-11-20 (it. 2918) Outil : quand « absence-pire » dépasse, lang-overflow dit aussi le nombre de lignes « À faire » et la plus longue
   (« absence-pire=23(à-faire:8, plus-longue:«…») ») ; vérifié en forçant le relevé (ru 1280 : 8 puis 3 lignes), seuil remis : aucun.
 - 2026-11-20 (it. 2917) Rectificatif de l'it. 2916 : la mesure « absence-pire » lit bien le résumé d'absence (vérifié), et les longues phrases
@@ -9227,7 +9232,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
+- RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
   longues phrases de l'édition 167 (aucun), résumé polonais après 8 h d'absence à 1280 (dépassement 0), nouvelle passe « all » (aucun).
   Mesuré EN DERNIER sur une copie qui continue de jouer : sans doute une liste « À faire » plus longue selon l'état. À surveiller ; si ça
   revient, relever le contenu de la fenêtre (titre et lignes) au moment de la mesure. It. 2918 : la mesure le relève d'elle-même.
