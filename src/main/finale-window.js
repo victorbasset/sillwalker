@@ -25,7 +25,9 @@ function openFinale({ strip, preload, url, ghost }, data) {
   win.setIgnoreMouseEvents(true);            // clics toujours traversants
   win.setAlwaysOnTop(true, TOP_LEVEL);
   if (process.platform === "darwin") win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: false });
-  const duration = Math.max(3000, Math.min(60000, +data.duration || 26000));
+  // (it. 3007) plancher à 1 s au lieu de 3 : en jeu la durée vaut toujours 26 s ; seul l'autotest (window.__finaleMs) la raccourcit,
+  // et le plancher de 3 s relevait ses 1,5 s demandées (six contrôles de la libération, ≈ 5,6 s chacun)
+  const duration = Math.max(1000, Math.min(60000, +data.duration || 26000));
   const close = () => { if (!win.isDestroyed()) win.close(); };
   const guard = setTimeout(close, duration + 4000);
   const onDone = (e) => { if (e.sender === win.webContents) close(); };

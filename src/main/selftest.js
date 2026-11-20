@@ -1704,14 +1704,14 @@ async function runSelfTest(strip) {
   const tabFail = await js("(async () => { const P = window.__panel, t = P.tabs.stats, keep = t.render, keepTab = P.tab; let n = 0; t.render = () => { n++; throw Object.assign(new Error('échec simulé (contrôle)'), { simulated: true }); }; window.__game.S.tabsOpen.stats = true; P.setTab('stats'); await new Promise((r) => setTimeout(r, 1500)); const tries = n, dirty = P.dirty; t.render = keep; P.renderErrs && P.renderErrs.delete('stats'); P.setTab('adventure'); const ok = !!document.querySelector('[data-pane=adventure]:not([hidden]) #xpbar'); P.setTab(keepTab); return [tries <= 3, dirty === false, ok].join(' ') + ' ' + tries; })()");
   check("panneau : un onglet en erreur ne retente pas le rendu à chaque image, les autres s'affichent", /^true true true/.test(tabFail), tabFail);
   // (it. 2342) cinématique de libération : la fenêtre sur tout l'écran s'ouvre, puis se ferme d'elle-même (jamais oubliée au-dessus)
-  const finWin = await js("(async () => { window.__finaleMs = 3000; window.__playFinale(); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
+  const finWin = await js("(async () => { window.__finaleMs = 1500; window.__playFinale(); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; return opened + ' ' + closed; })()");
   check("cinématique de libération : la fenêtre plein écran s'ouvre puis se ferme seule", finWin === "true true", finWin);
   // (it. 2372) le ▶ de la chronique « Le ciel rallumé » rejoue aussi la libération sur tout l'écran
-  const finRe = await js("(async () => { window.__finaleMs = 3000; window.__game.emit('chronicleReplay', { id: 'dawn' }); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; window.__strip?.juice?.cine && (window.__strip.juice.cine.done = true); return opened + ' ' + closed; })()");
+  const finRe = await js("(async () => { window.__finaleMs = 1500; window.__game.emit('chronicleReplay', { id: 'dawn' }); let opened = false; for (let i = 0; i < 40 && !opened; i++) { await new Promise((r) => setTimeout(r, 100)); opened = await window.sillwalker.finaleOpen(); } let closed = false; for (let i = 0; i < 100 && !closed; i++) { await new Promise((r) => setTimeout(r, 100)); closed = !(await window.sillwalker.finaleOpen()); } window.__finaleMs = 0; window.__strip?.juice?.cine && (window.__strip.juice.cine.done = true); return opened + ' ' + closed; })()");
   check("chronique « Le ciel rallumé » : le ▶ rejoue la libération (ouverte puis fermée seule)", finRe === "true true", finRe);
   // (it. 2494-2495) la fenêtre de la libération déclare la langue de la bande (finale.html part en « fr »)
   {
-    await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+    await js("(() => { window.__finaleMs = 1500; window.__playFinale(); return 1; })()");
     let fw = null; for (let i = 0; i < 40 && !fw; i++) { await sleep(100); fw = require("./finale-window").finaleWin(); }
     await sleep(600);
     const fl = fw ? await fw.webContents.executeJavaScript("document.documentElement.lang") : "pas de fenêtre", sl = await js("document.documentElement.lang");
@@ -1914,7 +1914,7 @@ async function runSelfTest(strip) {
   if (process.env.SELFTEST_SHOT3) require("fs").writeFileSync(process.env.SELFTEST_SHOT3, (await wc.capturePage()).toPNG());
   // (it. 2410, bon voisin ; en fin de parcours : la bande cachée puis rendue change l'état des contrôles suivants) application en plein écran : la libération attend sa fin, puis se joue
   strip.setFullscreenApp(true); await sleep(200);
-  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await js("(() => { window.__finaleMs = 1500; window.__playFinale(); return 1; })()");
   await sleep(800);
   const fsBlocked = !(await js("window.sillwalker.finaleOpen()"));
   strip.setFullscreenApp(false);
@@ -1922,7 +1922,7 @@ async function runSelfTest(strip) {
   check("libération : jamais par-dessus une application en plein écran, jouée après", fsBlocked && fsAfter === "true true", fsBlocked + " / " + fsAfter);
   // (it. 2412) jeu réduit à son icône : la libération attend que la bande revienne
   await strip.setMode("icon"); await sleep(300);
-  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await js("(() => { window.__finaleMs = 1500; window.__playFinale(); return 1; })()");
   await sleep(800);
   const icBlocked = !(await js("window.sillwalker.finaleOpen()"));
   await strip.setMode("strip");
@@ -1958,7 +1958,7 @@ async function runSelfTest(strip) {
   }
   // (it. 2415) session verrouillée : la libération attend le retour du joueur
   strip.setLocked(true); await sleep(200);
-  await js("(() => { window.__finaleMs = 3000; window.__playFinale(); return 1; })()");
+  await js("(() => { window.__finaleMs = 1500; window.__playFinale(); return 1; })()");
   await sleep(800);
   const lkBlocked = !(await js("window.sillwalker.finaleOpen()"));
   strip.setLocked(false);

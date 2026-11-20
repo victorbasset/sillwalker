@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3007) Autotest plus court (suite de l'it. 3006) : la vraie cause était le plancher de 3 s de la durée dans
+  finale-window.js (Math.max(3000, …)), qui relevait les 1,5 s demandées. Plancher à 1 s (en jeu : toujours 26 s), __finaleMs 1500 dans
+  les 6 contrôles : 166 → 157-158 s, contrôles de libération 5,6 → 4,1-4,3 s ; trois passages 341/341.
 - 2026-11-20 (it. 3006) Essai annulé : autotest plus court. SELFTEST_TIMES : les 12 plus lents ≈ 50 s sur 166 (proie en meute 9,5 s, trois
   attentes de la libération 5,6-5,8 s). __finaleMs 3000 → 1500 dans les 6 contrôles de la libération : aucun gain (5,6-5,8 s, 165-167 s sur
   trois passages, 341/341) : la durée vient d'ailleurs (attentes fixes de la fenêtre de libération). Modification retirée.
