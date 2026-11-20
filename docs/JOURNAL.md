@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2816) Contrôle : temps restant d'un effet actif en Boutique (it. 2787), effet posé par une mise en scène : « 7 時間 59 分 »,
+  « 7 Std. 59 Min. », « 7 h 59 ». Rien à corriger.
 - 2026-11-20 (it. 2815) Contrôle : le mot « déblocage » de l'édition 162 suit le vocabulaire du jeu dans les 9 langues (ru « улучшение »
   = « Улучшения » du jeu, de « Freischaltung », ja « 解放 », ko « 해금 »…). Rien à corriger.
 - 2026-11-20 (it. 2814) Contrôle : fenêtre « Quoi de neuf » des éditions 161-164 en russe et japonais (panel.showNews(160)) : 9 nouveautés
