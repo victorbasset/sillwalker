@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2861, REVUE GÉNÉRALE) : 12 h : ranger 62, nécromancien 65, barde 65 ; --perf (charge 2,3) : 20,2 / 19,6 %, mini 5,5 %, icône
+  0,5 % ; pourcentages après les it. 2858-2860 : aucune double espace dans es, pt, de, pl, ru ; texte russe affiché : 0 « % » collé, 0 double
+  espace. Rien à corriger.
 - 2026-11-20 (it. 2860) Correction de l'it. 2858 : deux clés écrivent « 100{0}% » / « 10{0}% » où le code passe NB pour {0} (l'espace) :
   le remplacement en avait fait « {0} % » (double espace) dans es, pt, de, pl, ru. Rétabli ; le test accepte « chiffre{n}% » et refuse
   « chiffre{n} % ». Français vérifié : 5 « % » collés, tous voulus (ces deux clés, transformation CSS, texte de nouveauté). npm test 382,
