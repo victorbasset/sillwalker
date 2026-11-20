@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2995) Contrôle : info-probe (ⓘ cachés) sur la partie d'une semaine à 1280 et 1920 px : IPROBE 0.
 - 2026-11-20 (it. 2994) Contrôle : fuzz.mjs 60 graines, sans et avec bénédictions du jour (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquées, deux fois.
 - 2026-11-20 (it. 2993) Contrôle : mem-watch 10 min sur la partie d'une semaine (MEM_SAVE=scripts/fixtures/week-save.json) : 608-622 Mo, plat ; même niveau que dev-data (607-617, it. 2966).
 - 2026-11-20 (it. 2992) Suite de la revue 2991 : arbalétrier (clé arbalest) 12 h : record 61 ; capture du mode mini en français propre (« Niv. 1313 », « 447 Md »).
