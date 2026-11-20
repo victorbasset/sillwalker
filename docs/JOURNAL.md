@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2993) Contrôle : mem-watch 10 min sur la partie d'une semaine (MEM_SAVE=scripts/fixtures/week-save.json) : 608-622 Mo, plat ; même niveau que dev-data (607-617, it. 2966).
 - 2026-11-20 (it. 2992) Suite de la revue 2991 : arbalétrier (clé arbalest) 12 h : record 61 ; capture du mode mini en français propre (« Niv. 1313 », « 447 Md »).
 - 2026-11-20 (it. 2991, REVUE GÉNÉRALE) : 12 h : mage 62, guerrier 64 (« archer » : clé inconnue, aucune simulation) ; --perf (charge 1,4) :
   19,6 / 19,7 %, mini 5,6 %, icône 0,47 % ; Boutique en coréen propre ; texte polonais sans français. Rien à corriger.
