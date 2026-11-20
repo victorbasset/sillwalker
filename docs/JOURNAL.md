@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2849) ANNULE l'it. 2848 : avec le ✦, « Kaufen und ausrüsten : … » passait sur deux lignes et le résumé d'absence au pire
+  cas défilait de 7 px en allemand à 1280 px (lang-overflow « de 1280 : absence-pire=7 »). L'it. 2848 avait été committée avant de lire la
+  mesure (commande enchaînée) : ne plus enchaîner mesure et commit. ✦ retiré de cette ligne ; de 1280 : aucun. npm test 381, autotest 337/337.
 - 2026-11-20 (it. 2848) « À faire » : « Acheter et équiper : X » (marchand, d'un clic) prend aussi le ✦ (seule action d'un clic sans lui) ;
   le clic le remplace par ✓ comme les autres. npm test 381, autotest 337/337, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2847) Liens « Acheter : X (N or) » des onglets (Carte, Familiers, Compétences, forge ; locks.js) : sans le ✦ des actions d'un
