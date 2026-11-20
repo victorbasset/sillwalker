@@ -383,6 +383,24 @@ test("absence (it. 2944) : sac presque plein, l'objet d'un coffre au trésor pas
   assert.equal(rare, Math.min(g.S.stats.chests, 2), `objets rares rangés ${rare} pour ${g.S.stats.chests} coffres, sac de 2`);
 });
 
+test("absence (it. 2945) : sac presque plein, le butin ordinaire le plus rare est rangé d'abord", () => {
+  // plusieurs tirages : avec l'ancien ordre, les graines 2 et 4 gardaient un objet commun et laissaient un épique au sol
+  for (const sd of [1, 2, 3, 4, 5]) {
+    setRandom(seeded(sd));
+    const g = new Game(freshState());
+    // zone facile : beaucoup de butin
+    g.S.zone = g.S.best = 10; g.S.lvl = 80; g.invalidateStats();
+    g.S.bag = []; g.S.bagSize = 4; g.S.autoSell = {};
+    const oc = CHAMPION_T.chance, ochest = CHEST_T.normal;
+    CHAMPION_T.chance = 0; CHEST_T.normal = 0; // seulement le butin ordinaire
+    let sum;
+    try { sum = g.applyOffline(8 * 3600); } finally { CHAMPION_T.chance = oc; CHEST_T.normal = ochest; }
+    const kept = g.S.bag.map((it) => it.r);
+    assert.equal(kept.length, 4, "sac rempli");
+    assert.ok(sum.bestLostR <= Math.min(...kept), `graine ${sd} : perdu de rareté ${sum.bestLostR}, gardés ${kept.join(",")}`);
+  }
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

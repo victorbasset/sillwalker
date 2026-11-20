@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2945) Absence : le butin ordinaire est tiré d'avance et rangé du plus rare au moins rare (avant : au fil du tirage ; le
+  remplacement du sac ne suffisait pas toujours : 1 graine sur 5 gardait un objet commun et laissait un rare au sol). Test sur 5 graines
+  (échoue avant) ; npm test 391, autotest 339/339, save-fuzz 1267 ok.
 - 2026-11-20 (it. 2944) Absence, suite de l'it. 2943 : les coffres au trésor (objet rare au moins) étaient ouverts après le butin ordinaire,
   leur objet restait au sol dans un sac plein. Ordre de rangement : légendaires de Poupouce, épiques des champions, coffres, puis butin
   ordinaire. Test (sac de 2, 3 coffres : 1 objet rare rangé avant, 2 après) ; npm test 390, autotest 339/339, save-fuzz 1267 ok.

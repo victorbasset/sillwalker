@@ -1547,10 +1547,14 @@ export class Game {
     // au sol dès que le sac se remplissait (fin de partie, sac de 24 : 1 épique rangé sur 7 champions)
     // (it. 2944) puis les coffres (au moins un objet rare : rare, épique ou légendaire), avant le butin ordinaire : ouverts après, leur objet
     // restait au sol dès que le sac s'était rempli d'objets ordinaires
-    const kinds = [...Array(poupouce).fill("pp"), ...Array(champs).fill("ch"), ...Array(chests).fill("chest"), ...Array(drops).fill("drop")];
+    // (it. 2945) le butin ordinaire tiré d'avance et rangé du plus rare au moins rare : tiré au fil de l'eau, un légendaire venu en
+    // dernier restait au sol derrière des objets communs
+    const dropItems = Array.from({ length: drops }, () => this.newItem(0)).sort((a, b) => b.r - a.r);
+    const kinds = [...Array(poupouce).fill("pp"), ...Array(champs).fill("ch"), ...Array(chests).fill("chest"), ...dropItems.map(() => "drop")];
+    let di = 0;
     for (const kind of kinds) {
       if (kind === "chest") { this.openChest(); continue; }
-      const it = this.newItem(kind === "pp" ? LEGENDARY : kind === "ch" ? CHAMPION.minRarity : 0);
+      const it = kind === "drop" ? dropItems[di++] : this.newItem(kind === "pp" ? LEGENDARY : CHAMPION.minRarity);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
       if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)
