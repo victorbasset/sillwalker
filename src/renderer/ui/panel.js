@@ -590,7 +590,7 @@ export class Panel {
         btns.pop().remove();
         let note = col.querySelector(".todo-more");
         if (!note) { note = document.createElement("p"); note.className = "note tight todo-more"; btns[btns.length - 1].after(note); }
-        note.textContent = txn(all - btns.length, "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros");
+        note.innerHTML = this.todoMoreBtn(all - btns.length);
       } }
     // « Continuer » reçoit le focus sans faire défiler : le résumé s'ouvre en haut (titre et durée visibles).
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
@@ -610,7 +610,7 @@ export class Panel {
           ? `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="merchant">${esc(tx("Acheter et équiper : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)
           ? this.todoDoBtn(t)
-          : `<button class="linkbtn" data-todo="${t.id}" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}${more > 0 ? `<p class="note tight todo-more">${esc(txn(more, "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros"))}</p>` : ""}`;
+          : `<button class="linkbtn" data-todo="${t.id}" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}${more > 0 ? `<p class="note tight todo-more">${this.todoMoreBtn(more)}</p>` : ""}`;
   }
   todoDoBtn(t) { return `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`; }
 
@@ -650,6 +650,11 @@ export class Panel {
       return `<li class="chron"><b>${num(n + 1)}${esc(tx(e.c.title))}</b>${play(e.c)}<p>${esc(tx(e.c.text))}</p></li>`;
     }).join("");
     return `<details class="more chronbox" data-keep="hero-chron"${this.kept.has("hero-chron") ? " open" : ""}><summary>📜 ${tx("Chroniques ({0} / {1})", { 0: got.length, 1: CHRONICLES.length })}</summary><ul class="chronlist">${items}</ul></details>`;
+  }
+
+  /** (it. 2934) la note des lignes en trop est un lien : un clic ouvre la liste complète (carte du héros, fenêtre large) au lieu de la chercher */
+  todoMoreBtn(n) {
+    return `<button class="linkbtn lock more" data-action="open-todo">${esc(txn(n, "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros"))} →</button>`;
   }
 
   todoBox() {
@@ -1219,6 +1224,12 @@ export class Panel {
     if (a === "relic-play") { this.game.emit("relicReplay", { id: b.dataset.id }); return; } // (it. 631) revoir la scène d'une relique
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); this.refreshTodoLinks(b.parentElement); return; }
     if (a === "release-nav") { const r = NEWS_RELEASES.find((x) => x.version === b.dataset.v); if (r) this.showRelease(r); return; } // (it. 2614)
+    if (a === "open-todo") { // (it. 2934) note du résumé d'absence : la liste « À faire » complète, d'un clic
+      this.setTab("adventure"); this.renderAll();
+      const d = this.root.querySelector("[data-pane=adventure]:not([hidden]) [data-keep=hero-todo]");
+      if (d) this.showDetails(d);
+      return;
+    }
     if (a === "news-older") { this.showNews(+b.dataset.seen || 0, +b.dataset.skip || 0); return; } // (it. 2594)
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); this.refreshTodoLinks(b.parentElement); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }

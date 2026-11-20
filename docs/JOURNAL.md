@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2934) Retour d'absence : la note « N autres choses à faire dans la carte du héros » est un lien (→) : un clic ouvre la
+  liste « À faire » complète dans la fenêtre large (avant : fermer, trouver la carte, ouvrir « À faire »). Vérifié : « À faire (16) », 16
+  boutons ; contrôle d'autotest étendu au clic. npm test 387, autotest 339/339, lang-overflow complet : aucun.
 - 2026-11-20 (it. 2933) Contrôle : mode mini au démarrage après 5 h d'absence (de, ru) : l'avis « résumé d'absence » est une ampoule 💡
   (texte au survol), rien ne déborde. Rien à corriger.
 - 2026-11-20 (it. 2932) Contrôle : quêtes au pire cas forcé (3 étoiles, toutes les récompenses à la fois : or, coffre légendaire, élixir,
