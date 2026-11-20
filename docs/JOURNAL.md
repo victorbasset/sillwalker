@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2794) Contrôle du début de partie : first-minutes (premier objet 42-82 s, premier boss 70-82 s, 1er déblocage
+  345-408 s) ; early-pace (60 min : niveau 39-41, zone 23-25, 6,3 déblocages). Rien à corriger.
 - 2026-11-20 (it. 2793) Contrôle : mode mini en russe et en allemand (dev-data) : « Ур. 1313 », « 447 млрд », « Stf. 1313 », « 447 Mrd »
   tiennent dans les 370 px. Rien à corriger.
 - 2026-11-20 (it. 2792) « Quoi de neuf » : édition 164 (temps restant avec unités ; événement abrégé sur la bande), clés 3438-3439,
