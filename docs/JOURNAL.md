@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2842) Contrôle : résumé d'absence du débutant (8 h) en chinois à 1280 px : propre, note de plafond courte (it. 2826).
+  Rien à corriger.
 - 2026-11-20 (it. 2841, REVUE GÉNÉRALE) : 12 h : samouraï 69, gladiateur 65, cryomancien 62 ; --perf : 20,1 / 19,3 %, mini 5,7 %, icône 0,5 % ;
   Aventure en anglais à 1366 px propre ; texte coréen : noms propres seulement. Rien à corriger.
 - 2026-11-20 (it. 2840) Perf des modes économes après les retouches de la nuit : --battery 15,1 % (repère 15,2), --idle 9,8 % (repère 9,9).
