@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2877) Mesures : « Atteindre la zone N » (record + 2 à 5) lente par nature, objectif lointain, gardée ; défaites contre les
+  élites par sorte notées dans « Idées » (18 à 50 %). Pas de changement.
 - 2026-11-20 (it. 2876) « Quoi de neuf », édition 166 : champions battables (it. 2874), chasses dès la Carte du voyageur (it. 2873),
   pourcentages harmonisés (it. 2858-2860) ; clés 3444-3446 traduites dans les 9 langues. npm test 385, autotest 337/337, lang-overflow
   complet (10 langues) : aucun.
@@ -9138,6 +9140,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2877) Élites, défaites par sorte (3 parties × 12 h) : Vampirique 50 %, Colossal 47 %, Blindé 45 %, Régénérant 35 %, Furieux 32 %,
+  Rapide 28 %, Fuyant 24 %, Givré et Épineux 20 %, Explosif 19 %, Venimeux 18 %. Écart voulu ou à resserrer (vers 20-40 %) ? Les
+  descriptions citent les chiffres (10 langues à reprendre). Pas l'impasse des champions (95 %, it. 2874).
 - P3 (it. 2869) Chasses : chaque monstre ne vit en général que dans UNE zone (10 victoires par zone, ~7 espèces) ; une chasse de 15-30
   n'aboutit que quand le héros piétine ou revient en arrière (Carte du voyageur). 3 parties de 12 h : 18 chasses, 16 accomplies en 69 min
   en moyenne, contre 11 min pour « Vaincre N monstres ». Choix de jeu (aller chercher le monstre) : à proposer à Victor avant de changer
