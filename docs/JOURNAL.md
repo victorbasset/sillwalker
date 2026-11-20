@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3023) Contrôle après minuit (bénédiction du jour : bulwark le 21/11, après giants le 20, pets le 22) : npm test 392, autotest 342/342.
 - 2026-11-20 (it. 3022) Contrôle : --crawl sur la partie d'une semaine en pl, ru, es (917-926 clics) : 0 erreur.
 - 2026-11-20 (it. 3021, REVUE GÉNÉRALE) : 12 h : prêtresse 64, cryomancien 62, barde 65 ; --perf (charge 3,5) : 19,7 / 19,5 %, mini 5,7 %,
   icône 0,47 % ; Familiers en polonais propres ; nom du boss polonais agrandi ×4 : s'arrête avant la pastille d'or (aucun chevauchement) ;
