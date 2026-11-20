@@ -299,6 +299,17 @@ test("quêtes (it. 2868) : à l'ouverture de l'onglet Quêtes, une chasse d'un m
   assert.equal(S.quests.slots[2].uid, 902, "chasse accomplie : gardée (à réclamer)");
 });
 
+test("quêtes (it. 2873) : pas de chasse avant la Carte du voyageur", () => {
+  const S = freshState();
+  S.zone = S.best = 8;
+  S.unlocks.travelMap = false;
+  for (let i = 0; i < 300; i++) assert.notEqual(makeQuest(S, i).kind, "hunt", "chasse tirée sans la Carte");
+  S.unlocks.travelMap = true;
+  let hunts = 0;
+  for (let i = 0; i < 300; i++) if (makeQuest(S, i).kind === "hunt") hunts++;
+  assert.ok(hunts > 0, "chasses tirées avec la Carte");
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

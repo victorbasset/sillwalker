@@ -47,6 +47,10 @@ export const QUEST_TEMPLATES = {
     make: (S) => { const goal = randInt(4, 8) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5) } }; },
   },
   hunt: {
+    // (it. 2873) un monstre ne vit en général que dans une zone et le début de partie en change toutes les une à deux minutes : avant la
+    // Carte du voyageur (zone 22, un clic pour y retourner), 4 chasses sur 12 aboutissaient en 2 h (quest-pace, 6 graines), un tiers
+    // des quêtes immobilisé ; elles n'arrivent qu'avec la Carte
+    ok: (S) => !!(S.unlocks && S.unlocks.travelMap),
     text: (q) => (fr() ? tx("Chasser {0} {1}{2}", { 0: q.goal, 1: q.goal > 1 ? frPlural(MONSTERS[q.type].name) : MONSTERS[q.type].name.toLowerCase(), 2: "" })
       : tx("Chasser : {1} ×{0}", { 0: q.goal, 1: MONSTERS[q.type].name })),
     make: (S) => {

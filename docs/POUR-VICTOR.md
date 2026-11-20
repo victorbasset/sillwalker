@@ -22,6 +22,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **(it. 2869) Question : quêtes de chasse.** Un monstre ne vit en général que dans une zone : une chasse (« Chasser 25 crapauds »)
   n'aboutit que si le héros piétine ou revient en arrière. Sur 3 parties de 12 h : 69 min en moyenne, contre 11 min pour « Vaincre N
   monstres ». C'est voulu (aller chercher le monstre, Carte du voyageur) ou faut-il que la cible suive la zone ?
+  (it. 2873, fait sans attendre : plus de chasse AVANT la Carte du voyageur, zone 22 ; en 2 h, 9 chasses sur 38 aboutissaient et les
+  quêtes accomplies passent de 309 à 385 sur 24 parties. La question reste ouverte pour la suite de la partie.)
 - **(it. 2858)** : pourcentages harmonisés sur la règle du projet (« 15 % » espacé en fr, es, pt, de, pl, ru) : 667 textes traduits
   collaient « 15% » (surtout pt, pl, ru) à côté de « +30 % » du formateur. En portugais du Brésil et en polonais, l'usage courant est
   plutôt « 15% » collé : si tu préfères l'usage local, il suffit de retirer pt et pl de la liste SPACED (format.js) et d'inverser le test.

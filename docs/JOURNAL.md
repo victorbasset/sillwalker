@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2873) Quêtes du début : plus de chasse tirée avant la Carte du voyageur (zone 22). Un monstre ne vit que dans une zone et
+  le héros en change toutes les une à deux minutes : en 2 h, 9 chasses sur 38 aboutissaient (24 graines), une quête sur trois restait
+  immobilisée. Quêtes accomplies en 2 h, 24 graines : 309 → 385 (+25 %). Les chasses déjà tirées restent valables. Test ; npm test 384,
+  autotest 337/337, simulate 8 h : 58.
 - 2026-11-20 (it. 2872) Contrôle : étal du Marchand plus faible que l'équipement (dev-data, zone 57 : −14 à −33 % de puissance) : voulu
   (peu commun / rare, déjà forgé au niveau moyen porté depuis l'it. 988 ; recours, amélioré par le Marchand attitré). Pas de changement.
 - 2026-11-20 (it. 2871, REVUE GÉNÉRALE) : 12 h : moine 65, chaman 69, artificier 64 ; --perf (charge 2,0) : 19,8 / 19,9 %, mini 5,5 %,
@@ -9127,7 +9131,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - P3 (it. 2869) Chasses : chaque monstre ne vit en général que dans UNE zone (10 victoires par zone, ~7 espèces) ; une chasse de 15-30
   n'aboutit que quand le héros piétine ou revient en arrière (Carte du voyageur). 3 parties de 12 h : 18 chasses, 16 accomplies en 69 min
   en moyenne, contre 11 min pour « Vaincre N monstres ». Choix de jeu (aller chercher le monstre) : à proposer à Victor avant de changer
-  (pistes : cible qui suit la zone en gardant l'avancée, ou objectif réduit).
+  (pistes : cible qui suit la zone en gardant l'avancée, ou objectif réduit). It. 2873 : plus de chasse avant la Carte du voyageur.
 - FAIT (it. 2806) P3 (it. 2789) Autotest pour l'it. 2788 (événement abrégé dans la pastille de gauche) : trois essais non probants (passent aussi
   sur l'ancien code : en anglais « Goblin Rush » tient ; nom de zone allongé, la recherche du cas limite ne le trouvait pas). Piste :
   isoler le choix du texte dans une fonction pure de strip.js (largeurs en paramètres) et la tester dans test-logic.
