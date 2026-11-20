@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2947) Sac plein : le coffre au trésor trouvé en chemin fait place comme celui de la boutique ou d'une quête (it. 2515) :
+  l'objet inutile le moins cher (jamais précieux) est vendu si le butin du coffre (rare au moins) est plus rare ; avant, il restait au sol.
+  Aussi pendant l'absence (même fonction). Les légendaires de Poupouce restent la question de Victor (it. 2744). Test (échoue avant) ;
+  npm test 392, autotest 339/339, save-fuzz 1267 ok. README.
 - 2026-11-20 (it. 2946) docs/POUR-VICTOR.md : la question des légendaires perdus (it. 2744) complétée par l'ordre de rangement de l'absence (it. 2943-2945).
 - 2026-11-20 (it. 2945) Absence : le butin ordinaire est tiré d'avance et rangé du plus rare au moins rare (avant : au fil du tirage ; le
   remplacement du sac ne suffisait pas toujours : 1 graine sur 5 gardait un objet commun et laissait un rare au sol). Test sur 5 graines

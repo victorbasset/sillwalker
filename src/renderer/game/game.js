@@ -2535,6 +2535,11 @@ export class Game {
     S.potions = Math.min(POTION_MAX, S.potions + 1);
     this.log(`${tx("Coffre au trésor ! +{0} or, une potion et {1}.", { 0: fmt(gold), 1: itemName(item) })}`);
     this.emit("chest", { gold, item });
+    // (it. 2947) sac plein : le coffre trouvé en chemin fait place comme celui de la boutique ou d'une quête (it. 2515), en vendant
+    // l'objet inutile le moins cher (jamais un objet précieux), s'il est moins rare que son butin ; avant, son objet (rare au moins)
+    // restait au sol (aussi pendant l'absence, qui ouvre ses coffres ici)
+    const room = this.chestRoom();
+    if (room && item.r > room.r) this.sell(room);
     this.addToBag(item);
     this.emit("loot", { item, chest: true, ground: this.R.grounded === item.id });
     this.changed();
