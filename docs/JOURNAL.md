@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2755) Contrôle : --crawl en allemand sur la partie de fin de partie (scripts/fixtures/endgame-save.json) : 702 clics en
+  24 s, aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2754) Contrôle en polonais (trois pluriels) : --crawl sur dev-data, 527 clics en 19 s, aucune erreur ; texte de
   l'interface (--dump-text) : aucun mot français hors noms des langues du sélecteur. Rien à corriger.
 - 2026-11-20 (it. 2753) Retour d'absence, jeu lancé pendant une application en plein écran : au lancement, `visible` n'est pas encore
