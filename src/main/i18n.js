@@ -22,6 +22,8 @@ const T = {
   lvl:      { fr: "Niv.", en: "Lv.", zh: "等级", ru: "Ур.", es: "Nv.", pt: "Nv.", de: "Stf.", ja: "Lv.", pl: "Poz.", ko: "Lv." },
   zone:     { fr: "Zone", en: "Zone", zh: "区域", ru: "Зона", es: "Zona", pt: "Zona", de: "Zone", ja: "エリア", pl: "Strefa", ko: "지역" },
   record:   { fr: "record", en: "best", zh: "纪录", ru: "рекорд", es: "récord", pt: "recorde", de: "Rekord", ja: "記録", pl: "rekord", ko: "기록" },
+  // (it. 3014) infobulle de l'icône quand la page est tombée trop souvent (main.js : plus de rechargement automatique)
+  stopped:  { fr: "Sillwalker s’est arrêté : quitte-le puis relance-le", en: "Sillwalker has stopped: quit and restart it", zh: "Sillwalker 已停止：请退出后重新启动", ru: "Sillwalker остановился: закройте и запустите его снова", es: "Sillwalker se ha detenido: ciérralo y vuelve a abrirlo", pt: "O Sillwalker parou: feche-o e abra de novo", de: "Sillwalker wurde angehalten: beenden und neu starten", ja: "Sillwalker が停止しました：終了して再起動してください", pl: "Sillwalker się zatrzymał: zamknij go i uruchom ponownie", ko: "Sillwalker가 멈췄습니다: 종료 후 다시 실행하세요" },
   gold:     { fr: "or", en: "gold", zh: "金币", ru: "золота", es: "oro", pt: "ouro", de: "Gold", ja: "ゴールド", pl: "złota", ko: "골드" },
 };
 let lang = "en";

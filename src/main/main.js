@@ -459,7 +459,11 @@ function start() {
       crashTimes = crashTimes.filter((t) => now - t < 60000); crashTimes.push(now);
       if (!quitting && d.reason !== "clean-exit") {
         if (crashTimes.length <= 3) strip.win.reload();
-        else logError("[page arrêtée] trop d'arrêts en une minute : plus de rechargement automatique");
+        else {
+          logError("[page arrêtée] trop d'arrêts en une minute : plus de rechargement automatique");
+          // (it. 3014) la bande reste vide : l'infobulle de l'icône le dit (aucune fenêtre ne s'ouvre, le focus n'est jamais volé)
+          try { if (trayCtl) trayCtl.tray.setToolTip(require("./i18n").L("stopped")); } catch { /* icône absente */ }
+        }
       }
     });
     // Arrêt / déconnexion de Windows : dernière sauvegarde.
