@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2908) Contrôle : mem-watch panneau ouvert, 10 min : 587-607 Mo, fin à 598 (repère it. 2258 : 580-610, plat).
 - 2026-11-20 (it. 2907) Contrôle visuel : résumé d'absence de 5 h sur la fin de partie (anglais, sac vidé) après les it. 2886 et 2905 :
   130 élites, 7 champions, 24 objets gardés, 14 au sol, Poupouce 2 (+1 légendaire, l'autre au sol) ; mise en page propre.
 - 2026-11-20 (it. 2906) Contrôle après l'it. 2905 : save-fuzz fin de partie 1225 corruptions et version 0.1.2 1169 corruptions, ok.
