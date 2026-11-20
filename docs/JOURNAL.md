@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2911, REVUE GÉNÉRALE) : 12 h : ranger 65, samouraï 69, danseuse de lames 62 ; --perf (charge 2,6) : 20,4 / 18,9 %, mini
+  5,4 %, icône 0,57 % ; texte chinois : aucun mot non traduit ; Statistiques en polonais à 1366 : propres (pourcentages espacés). Rien à corriger.
 - 2026-11-20 (it. 2910) Le code de sortie 1 de l'it. 2909 venait de « git checkout perf-report.json » (fichier non suivi par git), pas de
   scripts/perf.mjs : mesures valides, rien à corriger dans le dépôt.
 - 2026-11-20 (it. 2909) Contrôle : --perf --battery 14,95 % (repère du matin 15,1) et --idle 9,99 % (9,8), charge 1,7. Idées relues :
