@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2952) Contrôle après les it. 2943-2947 : --crawl en allemand, 8 h d'absence au lancement : 531 clics en 18 s, aucune erreur.
 - 2026-11-20 (it. 2951, REVUE GÉNÉRALE) : 12 h : assassin 62, druide 64, arbalétrier 61 ; --perf (charge 2,2) : 19,7 / 19,4 %, mini 5,6 %,
   icône 0,47 % ; texte polonais sans français ; résumé d'absence coréen à 1366 : propre (sac plein dès le départ : l'épique du champion
   n'est pas gardé, le cas de la question it. 2744 / 2950). Rien à corriger.
