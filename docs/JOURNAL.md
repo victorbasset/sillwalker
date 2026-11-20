@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2852) docs/POUR-VICTOR.md : ✦ des liens d'achat (it. 2847-2849), espace du résumé chinois (it. 2843).
 - 2026-11-20 (it. 2851, REVUE GÉNÉRALE) : 12 h : lancier 65, prêtresse 64, artificier 64 ; --perf : 19,6 / 19,1 %, mini 5,4 %, icône 0,7 % ;
   lang-overflow complet après les it. 2847-2849 : aucun ; texte espagnol : rien de français ni « ordenador ». Rien à corriger.
 - 2026-11-20 (it. 2850) Mémoire « commit après vérification » étendue à toute mesure (lang-overflow, perf, fuzz) après l'it. 2848.
