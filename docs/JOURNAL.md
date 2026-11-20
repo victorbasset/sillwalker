@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2808) Contrôle : trois bannières (deux grandes, une normale) : 527-551, 557-581, 590-609 dans une bande 500-620 ; le
+  décalage cumulé (+16 px) reste dans la bande, sans chevauchement. Rien à corriger.
 - 2026-11-20 (it. 2807) Autotest : durées (SELFTEST_TIMES) ; « une bannière passe à côté de la bulle » 3,7 s. Essai à 300 ms : passait aussi
   sans le correctif (bannières du contrôle précédent encore là, la nouvelle prenait une ligne plus basse) ; attente de 3 s gardée et
   expliquée en commentaire. Les plus lents restent les trois attentes de la libération (5,6-5,8 s, minimum de la cinématique).
