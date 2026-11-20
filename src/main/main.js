@@ -377,9 +377,9 @@ function start() {
           if (window.__showOffline && window.__game && window.__panel) { const g = window.__game, P = window.__panel, orig = g.todoNow, base = orig.call(g);
             if (base.length) { g.todoNow = () => Array.from({ length: 16 }, (_, i) => base[i % base.length]);
               try { window.__showOffline({ seconds: 30000, zone: "Z", duration: "8 h", kills: 1234, elites: 12, champions: 3, gold: 1e10, petGold: 2e9, xp: 3e8, newLevel: 1320, steps: [], kept: 5, best: 4, onGround: 22, feathers: 2, chests: 3, goblins: 4, poupouce: 1, questsDone: 6, spells: 3, forged: 4, anviled: 2, herbs: 5, traded: 2, transmuted: 9, petWork: 30, capH: 16 });
-                const m = document.querySelector("#modal"), mb = m.querySelector(".panel"), o1 = mb.scrollHeight - mb.clientHeight; if (o1 > 2) out.push("à-faire16-absence=" + o1); m.hidden = true;
+                const m = document.querySelector("#modal"), mb = m.querySelector(".panel"), o1 = mb.scrollHeight - mb.clientHeight; const diag = () => { const bs = [...document.querySelectorAll("#mbody .linkbtn")].map((e) => e.textContent.trim()); return "(" + (document.querySelector("#mt") || {}).textContent + " · " + bs.length + " boutons · plus long «" + bs.reduce((x, y) => (y.length > x.length ? y : x), "").slice(0, 40) + "»)"; }; if (o1 > 2) out.push("à-faire16-absence=" + o1 + diag()); m.hidden = true;
                 P.kept.clear(); P.setTab("adventure"); P.renderAll(); const d = document.querySelector("[data-pane=adventure]:not([hidden]) [data-keep=hero-todo]");
-                if (d) { d.querySelector("summary").click(); const o2 = mb.scrollHeight - mb.clientHeight; if (o2 > 2) out.push("à-faire16-carte=" + o2); m.hidden = true; }
+                if (d) { d.querySelector("summary").click(); const o2 = mb.scrollHeight - mb.clientHeight; if (o2 > 2) out.push("à-faire16-carte=" + o2 + diag()); m.hidden = true; }
               } finally { g.todoNow = orig; } } }
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
         // (it. 1027) astuces : chacune dans la bulle (trois lignes au plus, it. 1026) ; celles qui seraient coupées par « … »

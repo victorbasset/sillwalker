@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2926) Outil : « à-faire16-absence / -carte » disent en cas de dépassement le titre de la fenêtre, le nombre de boutons et le
+  plus long (vérifié en forçant : « 218(Podczas twojej nieobecności · 16 boutons · plus long «2765 odłamków…») »), pour expliquer un cas
+  comme celui de l'it. 2924, non reproduit. Mesure normale pl 1280 : aucun.
 - 2026-11-20 (it. 2925) Suite de l'it. 2924 : en fin de partie (de, 1600, configuration exacte de lang-overflow), « À faire » ne compte que
   deux lignes courtes (« 129 Talentpunkte… », « 16 Expeditionen… ») ; avec l'ANCIEN style des deux colonnes, plus aucun dépassement :
   les 27-37 px de l'it. 2924 dépendaient de l'état du moment (non reproduits). Boutons resserrés gardés (marge en plus, sans risque).
