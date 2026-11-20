@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2828) Contrôle : textes du processus principal (src/main/i18n.js, menu de l'icône, hors npm test) : 21 clés × 10 langues,
+  aucune manquante ; portugais déjà brésilien (« Tela », « Embaixo da tela »). Rien à corriger.
 - 2026-11-20 (it. 2827) Contrôle (suite de l'it. 2826) : autres mentions des constellations : bulle des éclats d'étoile en récompense de quête
   (n'existe qu'avec des éclats) et aide des Compétences (explique la provenance des points) ; rien d'autre ne les cite trop tôt.
 - 2026-11-20 (it. 2826) Résumé d'absence d'un débutant : « Plafond de 8 h atteint… La constellation de la Lune l'allonge. » citait une
