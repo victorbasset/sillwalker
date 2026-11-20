@@ -423,10 +423,18 @@ function start() {
     // (it. 828) Journal des erreurs pour les joueurs (userData/errors.log, 200 Ko au plus, l'ancien gardé en .old) : un
     // joueur qui signale un bug peut le joindre à son avis. Seulement les erreurs, avec la version du jeu.
     const errLog = path.join(app.getPath("userData"), "errors.log");
+    // (it. 3003) un même message n'est écrit qu'une fois par minute (avec le nombre de répétitions tues) : une erreur qui revient à
+    // chaque image (30 fois par seconde) faisait 30 écritures disque synchrones par seconde et faisait tourner le journal sans cesse
+    const errSeen = new Map(); // texte -> { t: dernière écriture, n: répétitions tues depuis }
     const logError = (text) => {
+      const now = Date.now(), seen = errSeen.get(text);
+      if (seen && now - seen.t < 60000) { seen.n++; return; }
+      const rep = seen && seen.n ? ` (répété ${seen.n} fois depuis)` : "";
+      errSeen.set(text, { t: now, n: 0 });
+      if (errSeen.size > 200) errSeen.delete(errSeen.keys().next().value);
       try {
         if (fs.existsSync(errLog) && fs.statSync(errLog).size > 200 * 1024) fs.renameSync(errLog, errLog + ".old");
-        fs.appendFileSync(errLog, `${new Date().toISOString()} v${app.getVersion()} ${text}\n`);
+        fs.appendFileSync(errLog, `${new Date().toISOString()} v${app.getVersion()} ${text}${rep}\n`);
       } catch { /* journal facultatif */ }
     };
     strip.win.webContents.on("console-message", (e) => {

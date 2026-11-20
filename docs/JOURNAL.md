@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3003) Journal des erreurs (main.js logError, userData/errors.log) : un même message écrit une fois par minute au plus,
+  avec le nombre de répétitions tues ; une erreur répétée à chaque image faisait 30 écritures disque synchrones par seconde. Vérifié
+  (mise en scène : ≈ 90 erreurs identiques en 3 s) : 1 ligne. Autotest 341/341.
 - 2026-11-20 (it. 3002) Panneau : dessin protégé partie par partie (panel.js renderAll, safe) : un onglet qui plantait laissait dirty à
   vrai et le rendu était retenté à chaque image (30 erreurs/s, processeur occupé, pastilles figées) ; dans l'Aventure, une carte en erreur
   empêchait les suivantes. Erreur signalée une fois par partie, le reste s'affiche. Autotest : nouveau contrôle (Statistiques en échec
