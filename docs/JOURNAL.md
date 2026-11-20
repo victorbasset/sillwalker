@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2897) Vérifié : à l'ascension, les quêtes repartent d'un état neuf (seule la réclamation automatique est gardée) : aucune
+  chasse d'un monstre de fin de course ne reste hors de portée. Pas de changement.
 - 2026-11-20 (it. 2896) Mesure de l'or accumulé en fin de course (dev-data, simulation 12 h) : noté P3 dans « Idées ». Pas de changement.
 - 2026-11-20 (it. 2895) Contrôle : carte d'une chasse d'un monstre absent (mise en scène : sanglier en zone 57, Carte du voyageur) en russe à
   1280 px : bouton « здесь нет · зона 34 » à côté de la progression, sans débordement.
