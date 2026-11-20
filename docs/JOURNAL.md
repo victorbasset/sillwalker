@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2840) Perf des modes économes après les retouches de la nuit : --battery 15,1 % (repère 15,2), --idle 9,8 % (repère 9,9).
+  Rien à corriger.
 - 2026-11-20 (it. 2839) Contrôle : i18n-names (noms du jeu cités) : 25 écarts, tous des faux positifs grammaticaux connus et antérieurs
   (déclinaisons de, particules ko, synonymes) ; aucune clé de la nuit (3422+). Rien à corriger.
 - 2026-11-20 (it. 2838) Contrôle : Bestiaire en polonais à 1280 px : propre (noms longs sur deux lignes, bulle du PNJ abrégée, voulu).
