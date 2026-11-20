@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3006) Essai annulé : autotest plus court. SELFTEST_TIMES : les 12 plus lents ≈ 50 s sur 166 (proie en meute 9,5 s, trois
+  attentes de la libération 5,6-5,8 s). __finaleMs 3000 → 1500 dans les 6 contrôles de la libération : aucun gain (5,6-5,8 s, 165-167 s sur
+  trois passages, 341/341) : la durée vient d'ailleurs (attentes fixes de la fenêtre de libération). Modification retirée.
 - 2026-11-20 (it. 3005) Contrôle après les filets des it. 2997-3003 : --perf (charge 1,0) bande 20,1 %, panneau 19,5 %, mini 5,4 %, icône 0,53 % (inchangé) ; --crawl fr 509 clics, 0 erreur.
 - 2026-11-20 (it. 3004) CLAUDE.md, pièges connus : les filets contre les erreurs (it. 2979-3003), comment les tester (simulated, __offlineFail).
 - 2026-11-20 (it. 3003) Journal des erreurs (main.js logError, userData/errors.log) : un même message écrit une fois par minute au plus,
