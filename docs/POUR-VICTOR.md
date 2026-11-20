@@ -4,6 +4,15 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Soirée du 20/11 (it. 2961-2981) : une partie d'une semaine passée au crible
+
+- **Plantage corrigé** (it. 2978, introduit le matin même à l'it. 2944, jamais publié) : le retour d'absence d'un héros avancé (bonus de
+  coffres) plantait. Et désormais, une erreur dans ce calcul ne peut plus bloquer le démarrage du jeu (it. 2979).
+- Très grands nombres : l'or d'une semaine de jeu (≈ 1e39) ne s'affiche plus « 1.97e39 » mais « 1.97Dd » (suffixes jusqu'à 1e63, it. 2972) ;
+  les bulles « valeur exacte » des tuiles du héros ne montrent plus 20 à 40 chiffres faux (it. 2974).
+- Débordements d'une partie avancée : PV et attaque en milliards coupés en russe, allemand, polonais (it. 2975) ; Ascension en espagnol
+  quand toutes les constellations sont au maximum (it. 2976). Une partie d'une semaine fait maintenant partie des mesures automatiques.
+
 ## Tes décisions en attente, en une ligne chacune (it. 2962) — ma recommandation entre crochets
 
 1. Sac plein : un légendaire (et l'épique d'un champion) prend-il la place de l'objet inutile le moins cher ? (it. 2744, 2950) [oui, sans

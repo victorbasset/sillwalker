@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2981, REVUE GÉNÉRALE) : 12 h : paladin 65, samouraï 69, chaman 62 ; --perf (charge 1,8) : 19,8 / 19,5 %, mini 5,5 %,
+  icône 0,47 % ; Quêtes en chinois propre ; texte coréen : mots latins = touches et noms des langues. POUR-VICTOR : résumé de la soirée.
 - 2026-11-20 (it. 2980) Contrôle, suite de l'it. 2978 : autres constructions qui plantent sur un nombre décimal ou négatif. Array(n) :
   seulement les trois de applyOffline (corrigées) ; Array.from({ length }) tronque sans planter ; .repeat(n) : loopMark (n ≥ 1), étoiles des
   quêtes (bornées à 1-3 par migrate, it. 905), heroart (dessins fixes). Rien d'autre à corriger.
