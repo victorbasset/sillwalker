@@ -286,8 +286,10 @@ test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et rus
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {
     const src = fs.readFileSync(new URL(`../src/renderer/i18n/lang/${l}.js`, import.meta.url), "utf8");
-    const bad = src.match(/[0-9}]%/g) || [];
+    // « 100{0}% » : {0} porte lui-même l'espace insécable (NB) ; seul un chiffre ou une variable seule collés au % sont fautifs
+    const bad = src.match(/[0-9]%|(?<![0-9])\{\d+\}%/g) || [];
     assert.equal(bad.length, 0, `${l} : ${bad.length} « % » collés`);
+    assert.equal((src.match(/[0-9]\{\d+\} %/g) || []).length, 0, `${l} : espace en double après une variable d'espace`);
   }
 });
 
