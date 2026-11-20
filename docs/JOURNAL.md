@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2964) CLAUDE.md : comparer la performance dans un git worktree demande d'y copier dev-data et lier node_modules (it. 2963).
 - 2026-11-20 (it. 2963) Contrôle : performance de la journée, code du matin (bee379f7) contre l'actuel, en alternance (charge 0,9-1,3) :
   bande 19,59 / 19,31 % contre 19,72 / 19,55 % ; mini 5,53 / 6,06 % contre 5,43 / 5,40 %. Même niveau (bruit). (Une copie de dev-data
   est nécessaire dans le worktree : sans elle, perf ne mesure rien.)

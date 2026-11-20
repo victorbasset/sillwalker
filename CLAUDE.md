@@ -160,7 +160,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Repère actuel (it. 800, copie neuve de dev-data) : bande ≈ 19,5 %, panneau ≈ 20-21 %, mini ≈ 6,6 %, icône ≈ 0,5 % ;
   depuis l'it. 964, bande ≈ 20,5 % : le boss de zone 55 de dev-data a changé de capacités (venin + coup dévastateur,
   plus d'effets à l'écran ; it. 972, dichotomie par commits). Le repère dépend de ce combat : comparer deux commits
-  sur la même copie, jamais un chiffre à un repère d'une autre époque (scripts de l'it. 972 : dossier de travail git)
+  sur la même copie, jamais un chiffre à un repère d'une autre époque (scripts de l'it. 972 : dossier de travail git) ; dans un git worktree, copier dev-data (non suivi par git) et lier node_modules, sinon perf ne mesure rien, sans erreur (it. 2963)
   (stable depuis l'it. 597). Sous Windows chez Victor (Gestionnaire des tâches, it. 763) : ≈ 19,8 % d'un cœur et
   ≈ 380 Mo de mémoire privée.
 - Son (impossible à écouter sur le serveur) : l'autotest rend hors ligne (OfflineAudioContext) tous les sons de
