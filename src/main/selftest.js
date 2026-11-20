@@ -678,6 +678,12 @@ async function runSelfTest(strip) {
       } finally { g.hasUpgradeCached = keepUp; if (had) S.unlocks.bulkEquip = had; else delete S.unlocks.bulkEquip; document.querySelector('#modal [data-action=closemodal]')?.click(); } })()`);
     check("retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, une ligne sans objet passe à ✓, sur place", r === "ok", r);
   }
+  // (it. 2769) « À faire » : chaque action d'un clic (achat de déblocage, ✦, marchand) garde la fenêtre ouverte (avant : l'achat la fermait)
+  {
+    const r = await js(`(() => { const g = window.__game, keep = g.todoNow; g.todoNow = () => [{ id: "unlock", uid: "bulkEquip", name: "X", price: 1, tab: "shop" }, { id: "merchant", name: "Y", price: 1, tab: "shop" }, ...keep.call(g)];
+      try { const d = document.createElement("div"); d.innerHTML = window.__panel.todoHtml(); const acts = [...d.querySelectorAll("button[data-action]")]; const bad = acts.filter((b) => !b.hasAttribute("data-keepopen")); return acts.length >= 2 && !bad.length ? "ok" : bad.map((b) => b.dataset.action).join(", ") || "aucune action"; } finally { g.todoNow = keep; } })()`);
+    check("« À faire » : les actions d'un clic gardent la fenêtre ouverte", r === "ok", r);
+  }
   // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
   await click('[data-tab="adventure"]');
   await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");

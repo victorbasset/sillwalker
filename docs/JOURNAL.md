@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2770) Autotest : « « À faire » : les actions d'un clic gardent la fenêtre ouverte » (todoHtml avec un déblocage et un
+  achat du marchand simulés : tout bouton data-action porte data-keepopen). OK ; sans le correctif de l'it. 2769 : ÉCHEC « goal-buy ».
+  npm test 378, autotest 333/333.
 - 2026-11-20 (it. 2769) Carte du héros > « À faire (N) » (grande fenêtre, MODAL_DETAILS) : « ✦ Acheter : <déblocage> » FERMAIT la fenêtre
   (pas de data-keepopen, contrairement aux autres actions « ✦ ») ; pour l'action suivante, il fallait la rouvrir. Elle reste ouverte
   maintenant, comme le résumé d'absence : la ligne passe à « ✓ », les lignes rendues faisables deviennent « ✦ » (it. 2764), rien ne bouge
