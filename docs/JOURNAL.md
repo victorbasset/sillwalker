@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3031, REVUE GÉNÉRALE) : 12 h : nécromancien 62, moine 64, gardien des étoiles 67 ; --perf (charge 2,2) : 19,7 / 19,5 %,
+  mini 5,3 %, icône 0,73 % ; Carte en japonais propre ; texte portugais : mots relevés en portugais du Brésil (expedição, você). Rien à corriger.
 - 2026-11-21 (it. 3030) Contrôle : partie de deux semaines : absence de 16 h ramenée en zones 401/350/250/100/20 (1 220 à 61 023 victoires, coffres 2-5) : aucun plantage ; --crawl de 934 clics, 0 erreur.
 - 2026-11-21 (it. 3029) Contrôle : partie de DEUX semaines (simulate.js 336 warrior : zone 401, niveau 460, or 1,54e44) : --overflow-report
   ru, de, pl, es à 1280 px : aucun ; texte russe : aucune rangée de chiffres ni notation scientifique (l'expérience du niveau 460 a ses
