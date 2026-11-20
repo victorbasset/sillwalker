@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2823) Contrôle : marques d'aide « .help » (⚠, ⓘ) atteignables au clavier : panel.js leur donne tabindex 0 et role note
+  à chaque rendu (9 sans tabindex écrit, tous rattrapés). Rien à corriger.
 - 2026-11-20 (it. 2822) Contrôle : « ⚠ » de la ligne « Gobelin doré » (Statistiques > Probabilités) : bulle « ils s'enfuient : héros trop lent
   ici ». Rien à corriger.
 - 2026-11-20 (it. 2821, REVUE GÉNÉRALE) : 12 h : nécromancien 65, druide 65, berserker 65 ; --perf (charge 2,8) : 19,7 / 19,3 %, mini 5,5 %,
