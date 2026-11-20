@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2866) Recherche d'amélioration : retour après 3 h (fr, 1366 px) et partie neuve à 75 s : propres. Un nombre de dégâts
+  recouvrait la bulle « Oui » du héros sur une capture : les nombres évitent déjà la bulle (strip.js speechObstacle, it. 1653) ; le nombre
+  était sans doute né avant la bulle. Pas de changement.
 - 2026-11-20 (it. 2865) Contrôle : stall-check avec STALL_DAYMOD=all (une bénédiction du jour par héros) : 60 parties, 0 figées.
 - 2026-11-20 (it. 2864) Contrôle : fuzz.mjs 60 graines : 1200 parties, 0 bloquées. Rien à corriger.
 - 2026-11-20 (it. 2863) Contrôle des guillemets par langue : es et ru « », de „“, pl „”, en et pt “”, ja 「」 ; zh (“ 63, 「 118) et ko
