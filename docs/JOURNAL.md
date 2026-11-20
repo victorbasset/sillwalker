@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2757) Portugais, suite de l'it. 2756 : guillemets européens « » (73 lignes) remplacés par “ ” (usage brésilien, déjà
+  42 lignes) ; « são precisas … para os vencer » → « são necessárias … para vencê-los » (clé 3250). Conjugaison en « tu » et vocabulaire
+  européen (utilizador, ficheiro, rato, registo, ecrã…) cherchés : aucun. i18n-quotes ignore le style des guillemets. npm test 377,
+  autotest 331/331.
 - 2026-11-20 (it. 2756) Portugais : six traductions récentes écrites en portugais d'Europe (« espera-te », « clica », « Regresso »,
   « por vezes », « o teu herói », « avaliam-te ») repassées en brésilien, la variante choisie à l'it. 1533 (clés 3229, 3232, 3429-3432).
   Recherche des marques européennes (tua, teu, -te, clica, ecrã, por vezes) dans pt.js : plus aucune. npm test 377, autotest 331/331.
