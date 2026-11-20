@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2819) Contrôle : Réglages en polonais à 1280 px : propres. Rien à corriger.
 - 2026-11-20 (it. 2818) Statistiques (temps de jeu, durées) : « 3 j 0 h » et « 2 h 0 min » possibles ; les parties nulles sont omises
   (stats.js dur, comme durText). Recherche des autres « heures + minutes » : expéditions en heures rondes (30, 120, 480 min), sans défaut.
   npm test 380, autotest 337/337.
