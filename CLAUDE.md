@@ -58,7 +58,7 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   nouvelles parties (les 20 héros) et signale celles qui ne progressent pas (60 graines = 1200 parties, ≈ 1 min). `FUZZ_DAYMOD=<clé|all>` : avec une bénédiction du jour active (it. 1278 ; elles changent la file : élites, gobelins, champions). À relancer après
   tout changement des monstres, élites, champions ou de la mort du héros.
 - Parties figées dans des sauvegardes avancées (it. 1964) : `node --experimental-default-type=module scripts/stall-check.mjs [heures=2]`
-  (dev-data, fin de partie, 0.1.2 × les 20 héros, ≈ 25 s ; « 60 parties, 0 figées » attendu ; `STALL_DAYMOD=all` : une
+  (dev-data, fin de partie, 0.1.2, semaine depuis l'it. 2982 × les 20 héros ; « 80 parties, 0 figées » attendu ; `STALL_DAYMOD=all` : une
   bénédiction du jour par héros). fuzz.mjs ne voit que des parties
   neuves : l'impasse « boss qui se régénère contre héros qui encaisse tout » (it. 1958) et celle du serviteur du nécromancien
   (it. 1964) n'apparaissaient qu'en partie avancée. Garde-fous dans game.js (emportement après 90 s, abandon après 3 min).

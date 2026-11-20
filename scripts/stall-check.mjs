@@ -15,7 +15,8 @@ const { DAY_MOD_KEYS } = await import(root + "daymods.js");
 const DM = process.env.STALL_DAYMOD || "";
 const H = +process.argv[2] || 2;
 const here = new URL("./", import.meta.url).pathname;
-const SAVES = { "dev-data": here + "../dev-data/save.json", fin: here + "fixtures/endgame-save.json", "0.1.2": here + "fixtures/save-0.1.2.json" };
+// (it. 2982) « semaine » : la partie d'une semaine (record 353, constellations au maximum ; it. 2976, y a trouvé deux défauts et un plantage)
+const SAVES = { "dev-data": here + "../dev-data/save.json", fin: here + "fixtures/endgame-save.json", "0.1.2": here + "fixtures/save-0.1.2.json", semaine: here + "fixtures/week-save.json" };
 let bad = 0, n = 0;
 for (const [label, path] of Object.entries(SAVES)) {
   const raw = readFileSync(path, "utf8");
