@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2907) Contrôle visuel : résumé d'absence de 5 h sur la fin de partie (anglais, sac vidé) après les it. 2886 et 2905 :
+  130 élites, 7 champions, 24 objets gardés, 14 au sol, Poupouce 2 (+1 légendaire, l'autre au sol) ; mise en page propre.
 - 2026-11-20 (it. 2906) Contrôle après l'it. 2905 : save-fuzz fin de partie 1225 corruptions et version 0.1.2 1169 corruptions, ok.
 - 2026-11-20 (it. 2905) Absence : chaque champion vaincu hors ligne laisse son objet épique garanti, comme en jeu (et comme Poupouce et son
   légendaire, it. 1730) ; avant, rien (environ 2 champions par heure d'absence au-delà de la zone 5). Les élites gardent le butin réduit de
