@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2958) Contrôle après les it. 2943-2956 : fuzz 1200 parties, 0 bloquées ; stall-check 60 parties, 0 figées.
 - 2026-11-20 (it. 2957) docs/POUR-VICTOR.md : récapitulatif et question it. 2950 remis d'accord avec l'annulation de l'it. 2947 (it. 2956).
 - 2026-11-20 (it. 2956) ANNULÉ l'it. 2947 (le coffre trouvé en chemin vendait un objet pour faire place) : demande n° 14 de Victor (it. 221),
   « sac plein : le butin reste au sol, perdu (plus de vente ni d'échange automatique) ». Code, test et README retirés à la main (pas de git
