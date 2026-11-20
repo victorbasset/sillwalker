@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2771, REVUE GÉNÉRALE) : 12 h : samouraï 69, lancier 65, prêtresse 64 ; --perf : 19,7 / 20,1 %, mini 5,6 %, icône 0,5 % ;
+  résumé d'absence du débutant en japonais à 1280 px propre ; texte russe de la fin de partie : suffixes latins « Qa », « Qi » à côté de
+  « млрд » (noté en idée P3). Rien d'autre.
 - 2026-11-20 (it. 2770) Autotest : « « À faire » : les actions d'un clic gardent la fenêtre ouverte » (todoHtml avec un déblocage et un
   achat du marchand simulés : tout bouton data-action porte data-keepopen). OK ; sans le correctif de l'it. 2769 : ÉCHEC « goal-buy ».
   npm test 378, autotest 333/333.
@@ -8900,6 +8903,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (revue it. 2771) Russe : le milliard s'abrège « млрд » mais « k », « M », « T », « Qa », « Qi » restent latins (format.js HUGE, choix
+  commun à toutes les langues depuis l'it. 872) : mélange visible en fin de partie (294 « Qa » dans le texte de l'interface). Piste :
+  « тыс. », « млн », « трлн »… mesurés avec lang-overflow (plus longs) ; à juger avec Victor.
 - CLOS (it. 2688 : lang-overflow complet, aucun) P1 (it. 2685) Défauts révélés par la mesure corrigée : FAITS (it. 2686 : ru 1280 Ascension ; it. 2687 : titres japonais). Relancer aussi lang-overflow à 1920, 1600, 1366
   et sur la fin de partie (autres défauts possibles, cachés depuis longtemps).
 - P3 (it. 2213) Héros à 1280 px : boutons « Jouer à l'ascension » / « Prendre en duo » sur deux lignes, sous-titre du Mage sur deux
