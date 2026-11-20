@@ -344,10 +344,13 @@ export class Juice {
       old.node.remove();
       this.parts.splice(this.parts.indexOf(old), 1);
     }
+    // (it. 2775) une grande bannière (butin légendaire : 29 px de haut) débordait de 8 px sur la ligne du dessous (24 px) : les bannières
+    // posées sous une grande descendent d'autant, une fois pour toutes (pas de saut quand la grande s'efface)
+    const dy = this.parts.filter((p) => p.slot != null && p.slot < slot && p.big).length * 8;
     this.add(node, (p) => {
-      p.slot = slot;
+      p.slot = slot; p.big = !!big;
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
-      this.place(node, cx, 28 + slot * 24 - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
+      this.place(node, cx, 28 + slot * 24 + dy - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;
       if (node._o !== o) { node._o = o; node.style.opacity = o; }
       return k < 1;

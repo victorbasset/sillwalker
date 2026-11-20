@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2775) Bande : une grande bannière (butin légendaire, 20 px, 29 px de haut) débordait de 8 px sur la ligne suivante
+  (24 px d'écart) : « 신기록: 지역 7! » passait sur « 영웅: … 반지 » (it. 2774). Une bannière posée sous une grande descend de 8 px, calculé
+  à sa création (juice.js banner, p.big). Mesuré en coréen : avant 527-556 / 548-572 (chevauchement 8 px) ; après 527-556 / 557-581.
+  npm test 378, autotest 333/333.
 - 2026-11-20 (it. 2774) Contrôle : partie neuve en coréen à 1366 px (7 min 30 de jeu à ×10) : panneau propre ; sur la bande, deux annonces
   flottantes se chevauchent (noté en idée P3, à revoir à vitesse normale).
 - 2026-11-20 (it. 2773) docs/POUR-VICTOR.md : « À faire » qui reste ouvert (it. 2769), éditions 161-162, question des suffixes russes (it. 2771).
@@ -8909,7 +8913,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 2774) Bande, partie neuve à vitesse ×10 : deux annonces flottantes (butin légendaire « 영웅: … 반지 » et « 신기록: 지역 7! »)
+- FAIT (it. 2775) P3 (it. 2774) Bande, partie neuve à vitesse ×10 : deux annonces flottantes (butin légendaire « 영웅: … 반지 » et « 신기록: 지역 7! »)
   se chevauchent en partie près du boss. Vérifier à vitesse normale (les événements y sont plus espacés) avant de toucher à l'empilement.
 - P3 (revue it. 2771) Russe : le milliard s'abrège « млрд » mais « k », « M », « T », « Qa », « Qi » restent latins (format.js HUGE, choix
   commun à toutes les langues depuis l'it. 872) : mélange visible en fin de partie (294 « Qa » dans le texte de l'interface). Piste :
