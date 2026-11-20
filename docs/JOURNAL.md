@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2813) Contrôle : hero-table (20 héros, 12 h, graines 7/3/11) : moyenne 65,1, écart 5,0 (ranger 62,7 → samouraï, gladiateur,
+  gardien des étoiles 67,7), identique à la référence de l'it. 2609. Rien à corriger.
 - 2026-11-20 (it. 2812) docs/POUR-VICTOR.md : section « Nuit du 19 au 20/11 (it. 2737-2811) » en tête (questions à trancher, retour
   d'absence, bande et mini, langues), au lieu d'un long paragraphe ajouté au fil de l'eau dans la section du 19/11.
 - 2026-11-20 (it. 2811, REVUE GÉNÉRALE) : 12 h : paladin 65, moine 65, barde 65 ; --perf : 19,9 / 19,5 %, mini 5,5 %, icône 0,5 % ; bande en
