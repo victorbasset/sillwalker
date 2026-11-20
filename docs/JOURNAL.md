@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2883) hero-table 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (65,1 à l'it. 2609), écart 6,7 (assassin 62,0 → gardien
+  des étoiles 68,7). Assassin comparé à l'ancien code sur 7 graines : −3 zones après l'it. 2874, cause non trouvée : noté P2 dans « Idées ».
 - 2026-11-20 (it. 2882) Contrôle : bande à 21,4 % à la revue 2881 (charge 4,2) ; comparée aussitôt, en alternance, au commit d'avant les
   changements du jour (2080b62c) : ancien 19,85 / 19,82 %, actuel 19,65 / 19,75 % (charge 0,9). La charge seule. Rien à corriger.
 - 2026-11-20 (it. 2881, REVUE GÉNÉRALE) : 12 h : paladin 65, gladiateur 69, cryomancien 62 ; --perf (charge 4,2, élevée) : 21,4 / 21,1 %,
@@ -9151,6 +9153,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 2883) Assassin après les champions battables (it. 2874) : 12 h, 7 graines (7,3,11,21,31,41,51) : 66,0 avant → 63,0 après ; le commit
+  des chasses seules (3735030c) : 65,5 sur 4 graines. Cause non trouvée (rien de propre aux champions chez l'assassin, même nombre
+  d'ascensions) ; ses parties nouvelles butent toutes sur le mur 62 (paliers). Pistes : fight-odds assassin avant / après, journal des
+  courses ; les autres héros ne bougent pas (balance.mjs −0,4, gardien des étoiles 68,0 → 68,7).
 - P3 (it. 2877) Élites, défaites par sorte (3 parties × 12 h) : Vampirique 50 %, Colossal 47 %, Blindé 45 %, Régénérant 35 %, Furieux 32 %,
   Rapide 28 %, Fuyant 24 %, Givré et Épineux 20 %, Explosif 19 %, Venimeux 18 %. Écart voulu ou à resserrer (vers 20-40 %) ? Les
   descriptions citent les chiffres (10 langues à reprendre). Pas l'impasse des champions (95 %, it. 2874).
