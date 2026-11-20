@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2778) --perf après les retouches des bannières (it. 2775-2777) : bande 19,9 %, panneau 19,4 %, mini 5,5 %, icône 0,5 %
+  (dans le bruit des mesures du jour, 19,5-19,8 %). docs/POUR-VICTOR.md : bannières.
 - 2026-11-20 (it. 2777) Bande : une bannière (« Nouveau record : zone 57 ! », placée à 120 px du héros) débordait de 3 à 9 px sur la bulle
   de parole du héros lancée au même moment. Elle passe maintenant à côté (à droite, sinon à gauche : le bord droit est réservé aux boutons),
   vérifié pendant son apparition (0,25 s) car la bulle n'a sa place qu'à l'image suivante. Mesuré : 1920 px, bannière 1428-1632 sur bulle

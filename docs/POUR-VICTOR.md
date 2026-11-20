@@ -70,7 +70,8 @@ Et au réveil du PC pendant un jeu en plein écran : le résumé attend que la b
 Résumé d'absence : acheter l'Œil du connaisseur depuis « À faire maintenant » rend aussitôt « ✦ Un objet plus puissant… » faisable
 d'un clic, à la même place (it. 2764).
 Et une ligne devenue sans objet (« Sac plein » après avoir équipé le meilleur) passe à « ✓ » sur place (it. 2766).
-Carte du héros > « À faire » : acheter un déblocage ne ferme plus la fenêtre (it. 2769). Éditions « Quoi de neuf » 161 et 162
+Bande : les annonces (« Nouveau record », butin légendaire) ne se chevauchent plus entre elles ni sur la bulle de parole du héros
+(it. 2775-2777). Carte du héros > « À faire » : acheter un déblocage ne ferme plus la fenêtre (it. 2769). Éditions « Quoi de neuf » 161 et 162
 publiées pour tout cela (it. 2749, 2772).
 - **À toi de dire (revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M »,
   « T », « Qa ») ; passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
