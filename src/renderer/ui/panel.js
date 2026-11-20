@@ -105,6 +105,11 @@ function exactTip(v, shown) {
   return t === shown ? "" : ` title="${esc(t)}"`;
 }
 
+/** (it. 2975) Valeur de tuile de 8 caractères ou plus (« 2,58 млрд », « 2,58 Mrd », « 2,58 mld » : le milliard s'écrit en
+ *  toutes lettres en russe, allemand, polonais) : police réduite. À 1280 px, la case n'a que 78 px pour 7 caractères ; après une
+ *  semaine de jeu, PV et attaque en milliards se coupaient en « 2,58 м… ». */
+const longCls = (shown) => (String(shown).length >= 8 ? ' class="long"' : "");
+
 /** (it. 864) Tuile de statistique du héros : au-delà du million, valeur abrégée (exacte au survol) pour tenir dans
  *  sa colonne (une grande valeur élargissait la colonne, le libellé voisin passait sur deux lignes et l'Aventure
  *  défilait, polonais à 1280 px). */
@@ -112,13 +117,13 @@ function tileStat(label, k, v) {
   // (it. 872) abrégée dès 100 000 : à 1280 px, six chiffres (« 863392 » PV) dépassaient d'un pixel la case et se
   // coupaient en « 86339… » ; en dessous, séparateur des milliers de la langue ; valeur complète au survol
   const pc = fmtStat(k, v), short = /%/.test(pc) ? pc : v >= 1e5 ? fmtShort(v) : fmtFull(v);
-  return `<span>${esc(label)}</span><b${v >= 1e5 && short !== pc ? exactTip(v, short) : ""}>${short}</b>`;
+  return `<span>${esc(label)}</span><b${longCls(short)}${v >= 1e5 && short !== pc ? exactTip(v, short) : ""}>${short}</b>`;
 }
 
 /** (it. 876) Tuile « Puissance » : même abréviation que les autres tuiles (« 224.92T » se coupait à 1280 px). */
 function tilePower(v) {
   v = Math.round(v);
-  return v >= 1e5 ? `<b${exactTip(v, fmtShort(v))}>${fmtShort(v)}</b>` : `<b>${fmtFull(v)}</b>`;
+  return v >= 1e5 ? `<b${longCls(fmtShort(v))}${exactTip(v, fmtShort(v))}>${fmtShort(v)}</b>` : `<b>${fmtFull(v)}</b>`;
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */

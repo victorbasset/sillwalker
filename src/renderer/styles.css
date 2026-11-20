@@ -649,6 +649,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .tile span { font-size: 12px; color: var(--muted); }
 .tile b { font-size: 20px; font-weight: 400; color: var(--ink); line-height: 1.1; white-space: nowrap; }
 .tile.power b { color: var(--accent); }
+/* (it. 2975) valeur de 8 caractères ou plus (milliard en toutes lettres : « 2,58 млрд ») : coupée à 1280 px en 20 px */
+.tile b.long { font-size: 15px; line-height: calc(20px * 1.1); }
 details.more summary { cursor: pointer; color: var(--muted); margin: 6px 0 2px; }
 details.more summary:hover { color: var(--accent); }
 .linkbtn.warn { border-color: var(--bad); color: var(--bad); }

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2975) Tuiles du héros à 1280 px en russe, allemand, polonais : après une semaine de jeu (partie simulée, it. 2972), PV et
+  attaque en milliards s'écrivent « 2,58 млрд / Mrd / mld » (8-9 caractères pour 78 px) et se coupaient en « 2,58 м… » (--overflow-report :
+  adventure-tuile=2). Une valeur de 8 caractères ou plus prend une police de 15 px au lieu de 20 (taille déjà employée ; même hauteur de
+  ligne) : aucun débordement en ru, de, pl à 1280 et 1366 px, capture vérifiée. Trouvé en extrayant le texte et en mesurant cette partie
+  d'une semaine (texte : aucune rangée de chiffres ni NaN). Autotest 339/339.
 - 2026-11-20 (it. 2974) Bulles « valeur exacte » des tuiles du héros (puissance, PV, attaque…) : au-delà de 1e15, elles montraient une
   rangée de chiffres faux (précision des nombres : « 676,360,639,466,176,500,000 » pour la puissance de l'état max ; 40 chiffres et plus
   en fin de semaine). Désormais complète jusqu'à 1e15, puis abrégée à deux décimales (« 676.36Qi »), ou absente si elle répète la tuile
@@ -9365,6 +9370,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 2975) lang-overflow ne mesure aucune partie d'une SEMAINE : la fin de partie (fixture, 48 h) n'a pas de PV ni d'attaque en
+  milliards, d'où le défaut de l'it. 2975 resté caché. Piste : fixture scripts/fixtures/week-save.json (DUMP= de simulate.js 168 warrior,
+  sans le journal) et une mesure « xx semaine 1280 » dans lang-overflow (taille du fichier à surveiller).
 - FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
