@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2966) Contrôle : mem-watch bande 10 min : 607-617 Mo, plat (niveau haut de la mesure bimodale ; matin 612-626).
 - 2026-11-20 (it. 2965) Contrôle : lang-overflow « all » avec FIN_WIDTHS=1280,1366,1600,1920 (fin de partie à 4 largeurs, « À faire » à 16 lignes compris) : aucun.
 - 2026-11-20 (it. 2964) CLAUDE.md : comparer la performance dans un git worktree demande d'y copier dev-data et lier node_modules (it. 2963).
 - 2026-11-20 (it. 2963) Contrôle : performance de la journée, code du matin (bee379f7) contre l'actuel, en alternance (charge 0,9-1,3) :
