@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2959) Vérifié (méthode de l'it. 2955) : la force des champions (×2,5 PV, ×1,3 attaque) vient d'une itération automatique
+  (c804d9ab, 8/11), sans demande de Victor dans le commit ni le journal : le rééquilibrage de l'it. 2874 ne contredit aucune décision.
 - 2026-11-20 (it. 2958) Contrôle après les it. 2943-2956 : fuzz 1200 parties, 0 bloquées ; stall-check 60 parties, 0 figées.
 - 2026-11-20 (it. 2957) docs/POUR-VICTOR.md : récapitulatif et question it. 2950 remis d'accord avec l'annulation de l'it. 2947 (it. 2956).
 - 2026-11-20 (it. 2956) ANNULÉ l'it. 2947 (le coffre trouvé en chemin vendait un objet pour faire place) : demande n° 14 de Victor (it. 221),
