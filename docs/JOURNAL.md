@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2906) Contrôle après l'it. 2905 : save-fuzz fin de partie 1225 corruptions et version 0.1.2 1169 corruptions, ok.
 - 2026-11-20 (it. 2905) Absence : chaque champion vaincu hors ligne laisse son objet épique garanti, comme en jeu (et comme Poupouce et son
   légendaire, it. 1730) ; avant, rien (environ 2 champions par heure d'absence au-delà de la zone 5). Les élites gardent le butin réduit de
   l'absence (nombreuses ; 30 % du taux de jeu, 30 objets au plus, voulu). Test (échoue avant : 0 épique pour 9 champions) ; npm test 387,
