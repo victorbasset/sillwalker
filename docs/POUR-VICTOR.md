@@ -31,6 +31,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **(it. 2744)** : un débutant (10 min de jeu, sac plein) absent 8 h a vaincu 40 fois Poupouce : ses 40 légendaires sont
   TOUS restés au sol (« Légendaire · pas gardé »). Proposition : un légendaire prend la place de l'objet inutile ordinaire le moins cher
   (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
+  (it. 2943-2945, sans toucher au sac plein d'avance : pendant l'absence, les objets se rangent maintenant par ordre de valeur
+  (légendaires de Poupouce, épiques des champions, coffres, puis le butin ordinaire du plus rare au moins rare) : ils prennent les
+  places LIBRES avant l'ordinaire. Un sac déjà plein au départ garde le même comportement : ta décision reste à prendre.)
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
 - **(it. 2886-2887) Question : combien rapporte une absence ?** Le jeu dit qu'elle rapporte « un peu moins que de laisser le jeu ouvert ».
