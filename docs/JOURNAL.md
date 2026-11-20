@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2921, REVUE GÉNÉRALE) : 12 h : nécromancien 62, gardien des étoiles 67, chaman 62 ; --perf (charge 2,6) : 20,1 / 19,7 %,
+  mini 5,4 %, icône 0,43 % ; résumé d'absence en russe à 1366 (8 lignes « À faire », plafond de l'it. 2919 atteint sans note) : propre ;
+  texte allemand extrait. Rien à corriger.
 - 2026-11-20 (it. 2920) Carte du héros : « À faire », ouverte dans la fenêtre large, défilait dès 12 lignes (105 px, 263 à 16, pl comme fr) ;
   au-delà de 8 lignes, deux colonnes (.todocols.two) : 0 px à 12 et 16. Contrôle d'autotest placé à la fin (plus tôt, il décalait la
   vérification « proie en meute », qui échouait 3 fois sur 3). npm test 387, autotest 339/339 deux fois, lang-overflow complet : aucun.
