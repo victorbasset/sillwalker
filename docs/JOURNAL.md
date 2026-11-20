@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2811, REVUE GÉNÉRALE) : 12 h : paladin 65, moine 65, barde 65 ; --perf : 19,9 / 19,5 %, mini 5,5 %, icône 0,5 % ; bande en
+  coréen à 1600 px propre ; texte portugais : aucune marque européenne ni français. Rien à corriger.
 - 2026-11-20 (it. 2810) Contrôle : tab-pace (talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire
   13-18, ascension 20-41 min). Rien à corriger.
 - 2026-11-20 (it. 2809) Bulle du héros près du boss : 1366 px → cachée aussi (barres jusqu'à 819, nom du boss à 961 : 142 px pour une bulle
