@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3011, REVUE GÉNÉRALE) : 12 h : lancier 62, danseur de lames 62, artificier 59 (graine 7, comme à l'it. 3008) ; --perf
+  (charge 2,6) : 20,0 / 19,7 %, mini 5,6 %, icône 0,6 % (inchangé après les protections de la boucle d'image) ; Talents en russe propres ;
+  texte allemand : « des » = article allemand, pas de français. Rien à corriger.
 - 2026-11-20 (it. 3010) Boucle d'image protégée (app.js guard) : simulation, dessin de la bande ou du mini, mise à jour du panneau, chacun à
   part ; une erreur répétée du dessin empêchait la mise à jour du panneau, et se signalait 30 fois par seconde (désormais une fois par
   minute et par étape). Vérifié (mise en scène, dessin en échec 3 s) : panneau rafraîchi 11 fois, une seule erreur ; autotest : nouveau
