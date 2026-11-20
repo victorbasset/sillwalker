@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2776) Autotest : « bande : une bannière ne passe pas sous la grande bannière du dessus ». OK ; avec juice.js d'avant
+  l'it. 2775 : ÉCHEC « chevauchement 3 px » (police latine ; 8 px en coréen). npm test 378, autotest 334/334.
 - 2026-11-20 (it. 2775) Bande : une grande bannière (butin légendaire, 20 px, 29 px de haut) débordait de 8 px sur la ligne suivante
   (24 px d'écart) : « 신기록: 지역 7! » passait sur « 영웅: … 반지 » (it. 2774). Une bannière posée sous une grande descend de 8 px, calculé
   à sa création (juice.js banner, p.big). Mesuré en coréen : avant 527-556 / 548-572 (chevauchement 8 px) ; après 527-556 / 557-581.

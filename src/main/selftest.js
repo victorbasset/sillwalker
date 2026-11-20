@@ -700,6 +700,14 @@ async function runSelfTest(strip) {
     const r = await js("new Promise((ok) => { const S = window.__game.S, st = window.__strip; const keep = S.settings.hudBars; S.settings.hudBars = true; st.updateHudBars(); const on = !document.querySelector('.hudbar.hero').hidden; S.settings.hudBars = false; st.updateHudBars(); const off = [...document.querySelectorAll('.hudbar')].every((x) => x.hidden); S.settings.hudBars = keep; st.updateHudBars(); ok(on + ' ' + off + ' ' + (st.W || 0)); })");
     check("bande : barres de vie en haut (réglage)", /^true true/.test(r) || (/^false true (\d+)/.test(r) && +r.split(" ")[2] < 1200), r);
   }
+  // (it. 2775) une grande bannière (butin légendaire) et une normale lancées ensemble ne se chevauchent pas (avant : 8 px)
+  {
+    const r = await js(`new Promise((ok) => { const j = window.__strip.juice; if (!j || !j.active) { ok('sans objet'); return; } const n0 = document.querySelectorAll('.banner').length;
+      j.banner('Légendaire : Anneau des sept vents', '#c9a0ff', 900, true); j.banner('Nouveau record : zone 7 !', '#9fe0a8', 900);
+      setTimeout(() => { const bs = [...document.querySelectorAll('.banner')].slice(n0).map((b) => b.getBoundingClientRect()); if (bs.length < 2) { ok('bannières absentes'); return; }
+        ok(bs[1].top >= bs[0].bottom - 1 ? 'ok' : 'chevauchement ' + Math.round(bs[0].bottom - bs[1].top) + ' px'); }, 600); })`);
+    check("bande : une bannière ne passe pas sous la grande bannière du dessus", r === "ok" || r === "sans objet", r);
+  }
   // (it. 2738) repoussée par la pastille de l'or, la bulle de parole du héros couvrait le nom du boss ; elle passe à sa gauche
   {
     const r = await js(`new Promise((ok) => { const st = window.__strip; if (!st.bossTag || !st.bossTag.isConnected || st.centerHud) { ok('sans objet'); return; } if (!st.active) { ok('bande inactive'); return; } st.saidAt = -1e9; st.bossLT = 0; st.updateHudBars(); st.say(["Rendez-moi cet or !"], true);
