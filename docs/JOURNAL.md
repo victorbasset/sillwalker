@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2815) Contrôle : le mot « déblocage » de l'édition 162 suit le vocabulaire du jeu dans les 9 langues (ru « улучшение »
+  = « Улучшения » du jeu, de « Freischaltung », ja « 解放 », ko « 해금 »…). Rien à corriger.
 - 2026-11-20 (it. 2814) Contrôle : fenêtre « Quoi de neuf » des éditions 161-164 en russe et japonais (panel.showNews(160)) : 9 nouveautés
   sur deux colonnes, rien de coupé, sablier ⏳ rendu. Rien à corriger.
 - 2026-11-20 (it. 2813) Contrôle : hero-table (20 héros, 12 h, graines 7/3/11) : moyenne 65,1, écart 5,0 (ranger 62,7 → samouraï, gladiateur,
