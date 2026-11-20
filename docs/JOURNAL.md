@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2865) Contrôle : stall-check avec STALL_DAYMOD=all (une bénédiction du jour par héros) : 60 parties, 0 figées.
 - 2026-11-20 (it. 2864) Contrôle : fuzz.mjs 60 graines : 1200 parties, 0 bloquées. Rien à corriger.
 - 2026-11-20 (it. 2863) Contrôle des guillemets par langue : es et ru « », de „“, pl „”, en et pt “”, ja 「」 ; zh (“ 63, 「 118) et ko
   (「 101, “ 13) mélangent deux styles, depuis longtemps (ko 2266-2281, 2966, 3379), tous deux d'usage courant : laissé.
