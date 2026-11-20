@@ -427,10 +427,16 @@ async function boot() {
   /* ---------- Sauvegarde ---------- */
   function saveNow() {
     game.S.last = Date.now();
-    return api.writeSave(JSON.stringify(game.S)).catch((e) => console.error("save", e));
+    // (it. 2998) la mise en texte aussi est protégée (le .catch ne voit que l'écriture) : une erreur ici, levée dans le setInterval,
+    // ne se voyait pas, et à la fermeture elle empêchait l'enregistrement final
+    let data;
+    try { data = JSON.stringify(game.S); } catch (e) { console.error("save", e); return Promise.resolve(); }
+    return api.writeSave(data).catch((e) => console.error("save", e));
   }
   setInterval(saveNow, AUTOSAVE_MS);
-  api.onFlushRequest(async () => { checkAchievements(false); await saveNow(); });
+  // (it. 2998) fermeture : la vérification des succès ne peut plus empêcher l'enregistrement final (avant : une erreur dans
+  // checkAchievements, et tout ce qui s'était passé depuis le dernier enregistrement automatique était perdu)
+  api.onFlushRequest(async () => { try { checkAchievements(false); } catch (e) { console.error("fermeture, succès :", e); } await saveNow(); });
 
   /* (it. 2979) Progression hors ligne protégée : une erreur dans son calcul (it. 2978 : nombre de coffres décimal) arrêtait le
      démarrage, et le jeu restait figé à CHAQUE lancement (même sauvegarde, même absence recalculée). Désormais : erreur signalée, pas de

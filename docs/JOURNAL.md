@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2998) Enregistrement protégé : à la fermeture, une erreur dans la vérification des succès empêchait l'enregistrement
+  final (perte de tout depuis le dernier enregistrement automatique, 15 s au plus) ; la mise en texte de saveNow est aussi protégée (le
+  .catch ne voyait que l'écriture). Démontré (échec forcé TEMP, repère posé 2 s avant la fermeture, autosave à 15 s) : ancien code,
+  sauvegarde sans le repère (13 479 victoires) ; nouveau, repère sauvé (999 999). Autotest 340/340.
 - 2026-11-20 (it. 2997) Démarrage : étapes secondaires protégées (app.js soft) : photo de la visite, résumé d'absence, succès, bénédiction du
   jour. Une erreur dans l'une d'elles arrêtait le démarrage avant l'affichage de la fenêtre et api.ready(), à chaque lancement. Vérifié
   (échecs forcés TEMP sur succès et bénédiction) : erreurs signalées, bande affichée, or 421,8 → 447,2 Md en 4 s. Autotest 340/340.
