@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2768) Contrôle après les retouches du résumé d'absence (it. 2764-2767) : --crawl en russe sur dev-data (509 clics,
+  17 s) et sur le débutant au sac plein de retour après 8 h (227 clics, 9 s) : aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2767) Autotest : le contrôle de l'it. 2765 vérifie aussi qu'une ligne-lien devenue sans objet passe à « ✓ », grisée,
   avec bulle, à sa place (it. 2766). OK ; sans le correctif : ÉCHEC « sans objet 1 : … masteryPick ». npm test 378, autotest 332/332.
 - 2026-11-20 (it. 2766) Résumé d'absence, suite de l'it. 2764 : après une action « ✦ » ou un achat, une ligne qui n'a plus lieu d'être
