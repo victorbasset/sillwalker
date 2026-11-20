@@ -2322,4 +2322,7 @@ export default {
   3447: "Mientras no estás, las élites y los campeones derrotados dan su oro y su experiencia, como en el juego.",
   3448: "Mientras no estás, cada campeón derrotado deja su objeto épico, como Poupouce deja su legendario.",
   3449: "{n} cosa más por hacer en la tarjeta del héroe|{n} cosas más por hacer en la tarjeta del héroe",
+  3450: "Al volver: «Qué hacer ahora» ya no hace desplazar la ventana; si hay demasiadas líneas, un enlace abre la lista completa.",
+  3451: "«Qué hacer ahora»: el desbloqueo por comprar va justo después de las misiones por cobrar.",
+  3452: "Tarjeta del héroe: una lista larga de tareas se ordena en dos columnas.",
 };

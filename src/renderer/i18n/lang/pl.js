@@ -2322,4 +2322,7 @@ export default {
   3447: "Nieobecność: pokonane elity i czempioni dają złoto i doświadczenie jak w grze.",
   3448: "Nieobecność: każdy pokonany czempion zostawia epicki przedmiot, jak Poupouce legendarny.",
   3449: "{n} kolejna rzecz do zrobienia na karcie bohatera|{n} kolejne rzeczy do zrobienia na karcie bohatera|{n} kolejnych rzeczy do zrobienia na karcie bohatera",
+  3450: "Powrót: „Do zrobienia teraz” nie przewija już okna; gdy linii jest za dużo, link otwiera pełną listę.",
+  3451: "„Do zrobienia teraz”: odblokowanie do kupienia jest zaraz po zadaniach do odebrania.",
+  3452: "Karta bohatera: długa lista zadań układa się w dwie kolumny.",
 };

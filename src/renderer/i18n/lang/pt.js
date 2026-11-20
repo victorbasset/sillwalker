@@ -2322,4 +2322,7 @@ export default {
   3447: "Enquanto você está fora, as elites e os campeões derrotados dão seu ouro e sua experiência, como no jogo.",
   3448: "Enquanto você está fora, cada campeão derrotado deixa seu item épico, como Poupouce deixa seu lendário.",
   3449: "{n} coisa a mais para fazer no cartão do herói|{n} coisas a mais para fazer no cartão do herói",
+  3450: "Ao voltar: “O que fazer agora” não faz mais a janela rolar; se houver linhas demais, um link abre a lista completa.",
+  3451: "“O que fazer agora”: o desbloqueio a comprar vem logo depois das missões a receber.",
+  3452: "Cartão do herói: uma lista longa de tarefas fica em duas colunas.",
 };

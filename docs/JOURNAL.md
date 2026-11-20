@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2937) « Quoi de neuf », édition 168 : « À faire maintenant » sans défilement et lien vers la liste complète (it. 2919-2934),
+  déblocage après les quêtes (it. 2936), deux colonnes dans la carte du héros (it. 2920) ; clés 3450-3452, 9 langues (libellés cités tels
+  que traduits). npm test 388 ; autotest 338/339 puis 339/339 deux fois (« proie en meute » instable, noté P2) ; lang-overflow : aucun.
 - 2026-11-20 (it. 2936) « À faire » : le déblocage à acheter suit maintenant les quêtes à réclamer (avant : 6e, après paliers et points ;
   le résumé d'absence peut n'en montrer que 5, it. 2927, et l'achat qui fait progresser disparaissait derrière la note). Sac plein : ses
   deux lignes restent en tête ; tri stable pour le reste. Test (échoue avant : « quests talents skills unlock ») ; npm test 388, autotest 339/339.
@@ -9277,6 +9280,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
+  (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
   longues phrases de l'édition 167 (aucun), résumé polonais après 8 h d'absence à 1280 (dépassement 0), nouvelle passe « all » (aucun).
   Mesuré EN DERNIER sur une copie qui continue de jouer : sans doute une liste « À faire » plus longue selon l'état. À surveiller ; si ça

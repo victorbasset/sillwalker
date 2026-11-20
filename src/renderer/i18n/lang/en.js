@@ -2322,4 +2322,7 @@ export default {
   3447: "While you're away, defeated elites and champions now pay their gold and experience, just like in play.",
   3448: "While you're away, each defeated champion leaves its epic item, just as Poupouce leaves its legendary.",
   3449: "{n} more thing to do on the hero card|{n} more things to do on the hero card",
+  3450: "Coming back: “Things to do now” no longer makes the window scroll; if there are too many lines, a link opens the full list.",
+  3451: "“Things to do now”: the unlock to buy now comes right after the quests to claim.",
+  3452: "Hero card: a long to-do list is laid out in two columns.",
 };

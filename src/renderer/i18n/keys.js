@@ -3451,5 +3451,8 @@ export const KEYS = [
   "Pourcentages écrits partout de la même façon en espagnol, portugais, allemand, polonais et russe.",
   "Pendant ton absence, les élites et les champions vaincus rapportent leur or et leur expérience, comme en jeu.",
   "Pendant ton absence, chaque champion vaincu laisse son objet épique, comme Poupouce laisse son légendaire.",
-  "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros"
+  "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros",
+  "Retour d’absence : « À faire maintenant » ne fait plus défiler la fenêtre ; s’il y a trop de lignes, un lien ouvre la liste complète.",
+  "« À faire maintenant » : le déblocage à acheter vient juste après les quêtes à réclamer.",
+  "Carte du héros : une longue liste de choses à faire se range sur deux colonnes."
 ];

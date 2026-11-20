@@ -2322,4 +2322,7 @@ export default {
   3447: "Während deiner Abwesenheit bringen besiegte Eliten und Champions ihr Gold und ihre Erfahrung, wie im Spiel.",
   3448: "Während deiner Abwesenheit hinterlässt jeder besiegte Champion seinen epischen Gegenstand, so wie Poupouce seinen legendären.",
   3449: "{n} weitere Aufgabe auf der Heldenkarte|{n} weitere Aufgaben auf der Heldenkarte",
+  3450: "Rückkehr: „Jetzt zu tun“ lässt das Fenster nicht mehr scrollen; bei zu vielen Zeilen öffnet ein Link die ganze Liste.",
+  3451: "„Jetzt zu tun“: Die zu kaufende Freischaltung steht direkt nach den abholbaren Quests.",
+  3452: "Heldenkarte: Eine lange Aufgabenliste wird in zwei Spalten angeordnet.",
 };
