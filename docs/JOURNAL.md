@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2827) Contrôle (suite de l'it. 2826) : autres mentions des constellations : bulle des éclats d'étoile en récompense de quête
+  (n'existe qu'avec des éclats) et aide des Compétences (explique la provenance des points) ; rien d'autre ne les cite trop tôt.
 - 2026-11-20 (it. 2826) Résumé d'absence d'un débutant : « Plafond de 8 h atteint… La constellation de la Lune l'allonge. » citait une
   constellation qu'il ne connaît pas (onglet Ascension fermé). La seconde phrase ne paraît qu'une fois l'Ascension ouverte (clé 3440,
   10 langues). Mesuré : débutant → phrase courte ; fin de partie (16 h) → avec la Lune. npm test 380, autotest 337/337.
