@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3008) Contrôle : hero-table 12 h × 3 graines (20 héros) : moyenne 64,8, écart 6,7 (gardien des étoiles 68,7 → assassin 62,0) ; noté en Idées (P3).
 - 2026-11-20 (it. 3007) Autotest plus court (suite de l'it. 3006) : la vraie cause était le plancher de 3 s de la durée dans
   finale-window.js (Math.max(3000, …)), qui relevait les 1,5 s demandées. Plancher à 1 s (en jeu : toujours 26 s), __finaleMs 1500 dans
   les 6 contrôles : 166 → 157-158 s, contrôles de libération 5,6 → 4,1-4,3 s ; trois passages 341/341.
@@ -9444,6 +9445,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 3008) Écart entre héros revenu à 6,7 zones (hero-table 12 h, graines 7/3/11 ; it. 2609 : 5,0 ; it. 2452 : 4,0) : gardien des
+  étoiles 68,7, samouraï et gladiateur 67,7 ; assassin 62,0, mage 62,3. Moyenne 64,8 (65,1). Avant de régler un héros : 7 graines
+  (CLAUDE.md, paliers des murs 62/65/69), comparer à l'ancien réglage en worktree.
 - P3 (it. 2984) Performance d'une partie d'une semaine : bande ≈ 26 % (dev-data ≈ 20,5), panneau ≈ 28 % (19,3), mini 6,9 % (5,5), icône 0,9 %
   (0,5). Ni la simulation (58 ms pour 120 s de jeu), ni le panneau (aucun redessin complet en 20 s) : la bande a plus d'effets (en 20 s :
   120 attaques contre 72, 78 perçages, 22 sorts, 20 coups du compagnon, 20 du serviteur, 13 tirs du drone). Compagnon ≈ 2,5 points ; masquer
