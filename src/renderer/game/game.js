@@ -1481,11 +1481,20 @@ export class Game {
     const px = S.zone >= POUPOUCE.minZone ? kills * POUPOUCE.chance * (activeDayMod(S)?.poupouce || 1) : 0;
     const poupouce = Math.floor(px) + (rand() < px % 1 ? 1 : 0);
     if (poupouce) S.stats.poupouce = (+S.stats.poupouce || 0) + poupouce;
-    const gold = Math.round((kills + goblins * (MONSTERS.goblin.gold - 1) + poupouce * (POUPOUCE.gold - 1)) * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
+    // (it. 882, 1348) élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des champions,
+    // Encens de chasse au prorata)
+    const elites = this.offlineElites(kills, { ...hs, elites: (hs.elites || 0) + BUFF_EFFECTS.lure.elites * share("lure") });
+    // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) ; (it. 1276) dans le résumé d'absence
+    let champs = 0;
+    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1); champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0); }
+    // (it. 2886) comptées vaincues mais payées comme des monstres ordinaires : une élite rapporte ×4 en or et ×3 en expérience en jeu,
+    // un champion ×5 et ×4 de plus ; hors ligne, l'or ne valait que 22 à 46 % de celui d'une heure en jeu (victoires : 74 à 83 %)
+    const eliteGold = elites * (ELITE.gold - 1) + champs * ELITE.gold * (CHAMPION.gold - 1), eliteXp = elites * (ELITE.xp - 1) + champs * ELITE.xp * (CHAMPION.xp - 1);
+    const gold = Math.round((kills + eliteGold + goblins * (MONSTERS.goblin.gold - 1) + poupouce * (POUPOUCE.gold - 1)) * b.gold * earlyPace(S) * (1 + hs.gold / 100 + BUFF_EFFECTS.fortune.gold / 100 * share("fortune")));
     if (goblins) { S.stats.goblins = (S.stats.goblins || 0) + goblins; this.questProgress("goblin", goblins); }
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     S.stats.offlineTime = (S.stats.offlineTime || 0) + sec;
-    const xp = Math.round(kills * b.xp * earlyPace(S) * (1 + hs.xp / 100 + BUFF_EFFECTS.wisdom.xp / 100 * share("wisdom")));
+    const xp = Math.round((kills + eliteXp) * b.xp * earlyPace(S) * (1 + hs.xp / 100 + BUFF_EFFECTS.wisdom.xp / 100 * share("wisdom")));
     S.gold += gold;
     S.stats.kills += kills;
     const types = zoneDef(S.zone).monsters;
@@ -1496,12 +1505,7 @@ export class Game {
     // (it. 882) Élites rencontrées pendant l'absence, aux mêmes chances qu'en jeu (bénédiction du jour, Appât des
     // champions) : avant, une quête « élites » restait à 0 toute la nuit malgré des milliers de victoires.
     // (it. 1348) l'Encens de chasse compte aussi, au prorata de sa durée restante
-    const elites = this.offlineElites(kills, { ...hs, elites: (hs.elites || 0) + BUFF_EFFECTS.lure.elites * share("lure") });
-    // (it. 1262) champions vaincus pendant l'absence (chance par monstre, dès CHAMPION.minZone) : la quête « Vaincre un
-    // champion » avance aussi hors ligne, comme les autres
-    let champs = 0; // (it. 1276) dans le résumé d'absence
-    if (S.zone >= CHAMPION.minZone) { const x = kills * CHAMPION.chance * (activeDayMod(S)?.champion || 1); champs = Math.floor(x) + (rand() < x % 1 ? 1 : 0);
-      if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); } }
+    if (champs) { S.stats.champions = (S.stats.champions || 0) + champs; this.questProgress("champion", champs); }
     if (elites) { S.stats.elites += elites; this.questProgress("elite", elites);
       // (it. 946) proies pendant l'absence : chaque élite a une sorte au hasard (1 chance sur na d'être la bonne)
       const na = Object.keys(ELITE_AFFIXES).length;

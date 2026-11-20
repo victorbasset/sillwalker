@@ -316,6 +316,19 @@ test("champions (it. 2874) : plus coriaces qu'une élite, moins qu'un boss de le
   assert.ok(ch.hp < boss.hp && ch.atk <= boss.atk * 1.01, "pas plus fort que le boss de la zone");
 });
 
+test("absence (it. 2886) : les élites vaincues hors ligne rapportent leur or et leur expérience d'élite", () => {
+  const run = (n) => {
+    const g = new Game(freshState());
+    g.S.zone = g.S.best = 20; g.S.lvl = 60; g.invalidateStats();
+    g.offlineElites = () => n;
+    const g0 = g.S.gold, l0 = g.S.lvl;
+    g.applyOffline(3600);
+    return { gold: g.S.gold - g0, lvl: g.S.lvl };
+  };
+  const without = run(0), withE = run(200);
+  assert.ok(withE.gold > without.gold * 1.2, `or avec élites ${withE.gold} contre ${without.gold}`);
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

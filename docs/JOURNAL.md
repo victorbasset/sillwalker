@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2886) Absence : les élites et champions vaincus hors ligne (comptés pour les quêtes et les statistiques depuis les it. 882 et
+  1262) n'étaient payés que comme des monstres ordinaires ; ils rapportent maintenant leur or (×4, champion ×5 de plus) et leur expérience
+  (×3, ×4). Or d'une heure d'absence rapporté à une heure de jeu (3 parties) : 0,22 / 0,46 / 0,29 → 0,27 / 0,53 / 0,36 ; le reste est
+  voulu (boss, événements, coffres exclus hors ligne). Test ; npm test 386, autotest 337/337, simulate 8 h : 58.
 - 2026-11-20 (it. 2885) docs/POUR-VICTOR.md : rééquilibrage des champions (it. 2874) à relire, chiffres et retour arrière.
 - 2026-11-20 (it. 2884) Enquête assassin (it. 2883) : fight-odds 12 h avant / après : seuls les champions changent (95 → 47 % de défaites ;
   élites 31 → 30 %, boss 55 → 58 %). Code actuel avec les ANCIENNES valeurs des champions, 7 graines : 64,3 (ancien code 66,0, actuel 63,0) :
