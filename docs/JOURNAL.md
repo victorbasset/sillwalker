@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2763) Contrôle de non-régression : fuzz.mjs (30 graines, bénédictions du jour : all) « 600 parties, 0 bloquées » ;
+  stall-check.mjs « 60 parties, 0 figées ». Rien à corriger.
 - 2026-11-20 (it. 2762) Contrôles : 1) l'expérience en notation scientifique (« 1,54e105 », revue it. 2761) ne touche pas un vrai joueur
   (fin de partie d'une semaine : niveau 183, xpNeed ≈ 5e15, affiché avec suffixe ; l'écriture « e » commence vers le niveau 400) ;
   2) résumé d'absence du débutant (sac plein, 8 h) en anglais à 1280 px : propre, rien de coupé. Rien à corriger.
