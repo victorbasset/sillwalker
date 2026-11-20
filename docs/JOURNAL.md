@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3026) Contrôle « nouveau joueur » : partie neuve en anglais, 90 s de jeu (--speed=3), panneau : deux bottes marquées amélioration et « double-click: equip », prochaine découverte zone 3 et son bonus, annonces « New record » et « Achievement: First boss » empilées sans se gêner. Rien à corriger.
 - 2026-11-21 (it. 3025) Contrôle : partie d'une semaine sur batterie (--battery, 20 images/s) : bande 26,8 → 20,9 %, panneau 28,2 → 22,7 %, mini 7,2 → 6,7 % ; un joueur avancé sur portable revient au coût d'une partie ordinaire.
 - 2026-11-21 (it. 3024) Relecture : README sans mention à corriger (formatage, filets) ; Idées ouvertes (P3) : toutes attendent une décision de Victor (POUR-VICTOR, décisions 1-9), sauf l'autotest (traité en partie, it. 3007).
 - 2026-11-21 (it. 3023) Contrôle après minuit (bénédiction du jour : bulwark le 21/11, après giants le 20, pets le 22) : npm test 392, autotest 342/342.
