@@ -1,13 +1,17 @@
 // Onglet Familiers : collection, œufs à faire éclore, familier actif.
 import { npcHTML } from "../npc.js";
 import { subtabsHTML } from "../subtabs.js";
-import { t as tx, txn, lc } from "../../i18n/index.js";
+import { t as tx, txn, lc, getLang } from "../../i18n/index.js";
 import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
 import { activeDayMod } from "../../game/daymods.js";
-import { esc, uH, uMin } from "../../game/format.js";
+import { esc, uH, uMin, uS } from "../../game/format.js";
 
-const left = (ms) => { const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60); return h ? `${uH(h)} ${String(m).padStart(2, "0")}` : `${uMin(m)} ${String(s % 60).padStart(2, "0")}`; };
+// (it. 2786) « 7 h 59 » ne se lit qu'en français : ailleurs, chaque nombre garde son unité (« 7 Std. 59 », « 7 時間 59 » laissaient le 59 nu)
+const left = (ms) => {
+  const s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), fr = getLang() === "fr";
+  return h ? `${uH(h)} ${fr ? String(m).padStart(2, "0") : uMin(m)}` : `${uMin(m)} ${fr ? String(s % 60).padStart(2, "0") : uS(s % 60)}`;
+};
 const dur = (min) => (min >= 60 ? uH(min / 60) : uMin(min));
 import { petURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
