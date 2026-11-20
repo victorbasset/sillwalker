@@ -97,6 +97,14 @@ const EXTRA_STATS = [
 // Repère de rareté en forme (pas seulement en couleur) : lisible pour les daltoniens.
 const RARITY_PIP = ["", "•", "••", "•••", "★"]; // rareté lisible sans les couleurs (daltonisme) : peu commun → légendaire
 
+/** (it. 2974) Bulle « valeur exacte » d'une tuile abrégée : complète jusqu'au million de milliards ; au-delà, les chiffres ne
+ *  sont plus exacts (précision des nombres) et la bulle devenait une rangée de 20 à 40 chiffres (« 676,360,639,466,176,500,000 »,
+ *  puissance en fin de partie) : valeur abrégée à deux décimales (fmt), ou pas de bulle si elle répète la tuile. */
+function exactTip(v, shown) {
+  const t = v < 1e15 ? fmtFull(v) : fmt(v);
+  return t === shown ? "" : ` title="${esc(t)}"`;
+}
+
 /** (it. 864) Tuile de statistique du héros : au-delà du million, valeur abrégée (exacte au survol) pour tenir dans
  *  sa colonne (une grande valeur élargissait la colonne, le libellé voisin passait sur deux lignes et l'Aventure
  *  défilait, polonais à 1280 px). */
@@ -104,13 +112,13 @@ function tileStat(label, k, v) {
   // (it. 872) abrégée dès 100 000 : à 1280 px, six chiffres (« 863392 » PV) dépassaient d'un pixel la case et se
   // coupaient en « 86339… » ; en dessous, séparateur des milliers de la langue ; valeur complète au survol
   const pc = fmtStat(k, v), short = /%/.test(pc) ? pc : v >= 1e5 ? fmtShort(v) : fmtFull(v);
-  return `<span>${esc(label)}</span><b${v >= 1e5 && short !== pc ? ` title="${esc(fmtFull(v))}"` : ""}>${short}</b>`;
+  return `<span>${esc(label)}</span><b${v >= 1e5 && short !== pc ? exactTip(v, short) : ""}>${short}</b>`;
 }
 
 /** (it. 876) Tuile « Puissance » : même abréviation que les autres tuiles (« 224.92T » se coupait à 1280 px). */
 function tilePower(v) {
   v = Math.round(v);
-  return v >= 1e5 ? `<b title="${esc(fmtFull(v))}">${fmtShort(v)}</b>` : `<b>${fmtFull(v)}</b>`;
+  return v >= 1e5 ? `<b${exactTip(v, fmtShort(v))}>${fmtShort(v)}</b>` : `<b>${fmtFull(v)}</b>`;
 }
 
 /** Sections repliables de l'Aventure ouvertes dans la fenêtre large (data-keep). */

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2974) Bulles « valeur exacte » des tuiles du héros (puissance, PV, attaque…) : au-delà de 1e15, elles montraient une
+  rangée de chiffres faux (précision des nombres : « 676,360,639,466,176,500,000 » pour la puissance de l'état max ; 40 chiffres et plus
+  en fin de semaine). Désormais complète jusqu'à 1e15, puis abrégée à deux décimales (« 676.36Qi »), ou absente si elle répète la tuile
+  (panel.js exactTip). Trouvé en cherchant dans le texte de l'état max (en, ru) les nombres de plus de 12 chiffres et les « e+ » : plus
+  aucun, hors l'expérience du niveau 1200 imposé par max-save (« 1.74e96 », irréaliste). Autotest 339/339.
 - 2026-11-20 (it. 2973) Suites de l'it. 2972 : max-save.mjs garde désormais de très grands montants (or 8,88e50, or gagné 8,88e53,
   plus gros coup 8,88e47 : « 888,00 Qid / Sxd / Qad ») ; avant, l'état « tout au maximum » gardait l'or de la fin de partie et aucune
   mesure ne voyait les suffixes longs. lang-overflow « all » (fin de partie 1280 et 1920, puis état max à 1920 et 1280) : aucun ;
