@@ -70,6 +70,7 @@ import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/rend
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
 import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T, CHAMPION as CHAMPION_T } from "../src/renderer/game/data.js";
+import { CHEST as CHEST_T } from "../src/renderer/game/events.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { POUPOUCE as POUPOUCE_1730, MONSTERS as MONSTERS_1730 } from "../src/renderer/game/data.js";
 import { NPCS as NPCS_1739, npcLine as npcLine1739 } from "../src/renderer/game/npcs.js";
@@ -368,6 +369,18 @@ test("absence (it. 2943) : sac presque plein, les épiques des champions passent
   const champs = sum.champions || 0;
   assert.ok(champs >= 1, "au moins un champion");
   assert.equal(sum.champEpics, Math.min(champs, 3), `épiques rangés ${sum.champEpics} pour ${champs} champions, sac de 3`);
+});
+
+test("absence (it. 2944) : sac presque plein, l'objet d'un coffre au trésor passe avant le butin ordinaire", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 20; g.S.lvl = 60; g.invalidateStats();
+  g.S.bag = []; g.S.bagSize = 2; g.S.autoSell = {};
+  const old = CHEST_T.normal, oc = CHAMPION_T.chance;
+  CHEST_T.normal = 0.05; CHAMPION_T.chance = 0; // des coffres, pas de champion
+  try { g.applyOffline(7200); } finally { CHEST_T.normal = old; CHAMPION_T.chance = oc; }
+  assert.ok((g.S.stats.chests || 0) >= 1, "au moins un coffre");
+  const rare = g.S.bag.filter((it) => it.r >= 2).length;
+  assert.equal(rare, Math.min(g.S.stats.chests, 2), `objets rares rangés ${rare} pour ${g.S.stats.chests} coffres, sac de 2`);
 });
 
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {

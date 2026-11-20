@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2944) Absence, suite de l'it. 2943 : les coffres au trésor (objet rare au moins) étaient ouverts après le butin ordinaire,
+  leur objet restait au sol dans un sac plein. Ordre de rangement : légendaires de Poupouce, épiques des champions, coffres, puis butin
+  ordinaire. Test (sac de 2, 3 coffres : 1 objet rare rangé avant, 2 après) ; npm test 390, autotest 339/339, save-fuzz 1267 ok.
 - 2026-11-20 (it. 2943) Absence : 1) le résumé dit ce que les champions ont laissé (« 7 (+7 objets épiques) », comme Poupouce ; clé 3453,
   pluriels 10 langues) ; 2) en le faisant, vu que les objets GARANTIS étaient rangés après le butin ordinaire : fin de partie, sac de 24 :
   1 épique rangé sur 7, les 6 autres au sol. Légendaires de Poupouce et épiques des champions passent maintenant d'abord (7 sur 7 ; le sol

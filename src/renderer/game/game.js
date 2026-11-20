@@ -1539,10 +1539,17 @@ export class Game {
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
     let ppLeg = 0; let chEpic = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
     // (it. 2905) chaque champion vaincu pendant l'absence laisse aussi son objet épique garanti, comme en jeu et comme Poupouce
+    // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
+    const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
+    const dmc = (activeDayMod(S)?.chest || 1) * (1 + (hs.chests || 0) / 100), feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
+    if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     // (it. 2943) les objets garantis d'abord (légendaires de Poupouce, épiques des champions) : rangés après le butin ordinaire, ils restaient
     // au sol dès que le sac se remplissait (fin de partie, sac de 24 : 1 épique rangé sur 7 champions)
-    const kinds = [...Array(poupouce).fill("pp"), ...Array(champs).fill("ch"), ...Array(drops).fill("drop")];
+    // (it. 2944) puis les coffres (au moins un objet rare : rare, épique ou légendaire), avant le butin ordinaire : ouverts après, leur objet
+    // restait au sol dès que le sac s'était rempli d'objets ordinaires
+    const kinds = [...Array(poupouce).fill("pp"), ...Array(champs).fill("ch"), ...Array(chests).fill("chest"), ...Array(drops).fill("drop")];
     for (const kind of kinds) {
+      if (kind === "chest") { this.openChest(); continue; }
       const it = this.newItem(kind === "pp" ? LEGENDARY : kind === "ch" ? CHAMPION.minRarity : 0);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
@@ -1555,11 +1562,6 @@ export class Game {
       if (!kept && (!bestLost || it.r > bestLost.r)) bestLost = it;
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
-    // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
-    const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
-    const dmc = (activeDayMod(S)?.chest || 1) * (1 + (hs.chests || 0) / 100), feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
-    if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
-    for (let i = 0; i < chests; i++) this.openChest();
     // Automatismes achetés : ils ont « travaillé » pendant l'absence (une seule ligne de journal chacun).
     // (it. 843) Grimoire des sorts : comme en jeu, au plus 3 rangs par minute d'absence, chacun à moins d'un dixième de
     // l'or (avant, il ne faisait rien hors ligne et l'or de la nuit attendait le retour).
