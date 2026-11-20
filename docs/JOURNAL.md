@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3018) Contrôle : IDLE=1 (joueur absent) guerrier 12 h : record 16 à 11-12 h, zone 15, niveau 47 ; même repère qu'à l'it. 698 (16 à 12 h). Le jeu avance seul comme avant.
 - 2026-11-20 (it. 3017) Contrôle : lang-overflow « all » complet (4 largeurs, fin de partie, 130 %, état max, semaine) après les changements de la soirée : aucun.
 - 2026-11-20 (it. 3016) Contrôle : fermeture avec une page tombée (main.js flushRenderer) : délai maximal FLUSH_TIMEOUT_MS, et un envoi qui échoue rejette la promesse, le .finally quitte quand même. Rien à corriger.
 - 2026-11-20 (it. 3015) POUR-VICTOR : l'infobulle « Sillwalker s'est arrêté » (it. 3014) ajoutée aux vérifications à faire sous Windows.
