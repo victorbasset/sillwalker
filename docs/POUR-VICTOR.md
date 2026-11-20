@@ -38,6 +38,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (it. 2943-2945, sans toucher au sac plein d'avance : pendant l'absence, les objets se rangent maintenant par ordre de valeur
   (légendaires de Poupouce, épiques des champions, coffres, puis le butin ordinaire du plus rare au moins rare) : ils prennent les
   places LIBRES avant l'ordinaire. Un sac déjà plein au départ garde le même comportement : ta décision reste à prendre.)
+  (it. 2950) Même question en jeu ouvert pour l'épique garanti d'un champion : sac plein, il reste au sol, alors que le coffre au trésor
+  fait maintenant place (it. 2947). Si tu dis oui pour les légendaires, l'épique des champions suivrait la même règle (une ligne).
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
 - **(it. 2886-2887) Question : combien rapporte une absence ?** Le jeu dit qu'elle rapporte « un peu moins que de laisser le jeu ouvert ».
