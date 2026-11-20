@@ -593,8 +593,21 @@ export class Panel {
         : t.id === "merchant" && t.name // amélioration du marchand : achetée et équipée d'un clic
           ? `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="merchant">${esc(tx("Acheter et équiper : {0} ({1} or)", { 0: t.name, 1: fmt(t.price) }))}</button>`
         : this.todoDirect(t) // action faisable d'un clic ici (déblocage « tout d'un coup » acquis)
-          ? `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`
-          : `<button class="linkbtn" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}`;
+          ? this.todoDoBtn(t)
+          : `<button class="linkbtn" data-todo="${t.id}" data-tab="${t.tab}"${t.sec ? ` data-sec="${t.sec}"` : ""}>${esc(todoLabel(t))} →</button>`).join("")}`;
+  }
+  todoDoBtn(t) { return `<button class="linkbtn" data-action="todo-do" data-keepopen data-what="${t.id}">✦ ${esc(todoLabel(t))}</button>`; }
+
+  /** (it. 2764) Déblocage acheté depuis « À faire maintenant » (l'Œil du connaisseur…) : les lignes qu'il rend faisables d'un
+   *  clic le deviennent SUR PLACE (avant : « Un objet plus puissant… → » restait un simple lien jusqu'au prochain résumé). Rien
+   *  ne bouge : chaque ligne garde sa position, la ligne achetée reste « ✓ ». */
+  refreshTodoLinks(box) {
+    if (!box) return;
+    const now = this.game.todoNow();
+    for (const el of box.querySelectorAll("button[data-todo]")) {
+      const t = now.find((x) => x.id === el.dataset.todo);
+      if (t && this.todoDirect(t)) el.outerHTML = this.todoDoBtn(t);
+    }
   }
 
   /** « À faire » dans la carte du héros (repliable) : les mêmes lignes et actions que le résumé de retour. */
@@ -1188,7 +1201,7 @@ export class Panel {
     if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
     if (a === "release-nav") { const r = NEWS_RELEASES.find((x) => x.version === b.dataset.v); if (r) this.showRelease(r); return; } // (it. 2614)
     if (a === "news-older") { this.showNews(+b.dataset.seen || 0, +b.dataset.skip || 0); return; } // (it. 2594)
-    if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); return; } // le résumé d'absence reste ouvert
+    if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); this.refreshTodoLinks(b.parentElement); return; } // le résumé d'absence reste ouvert
     if (a === "reveal-equip") { const it = g.findBagItem(+b.dataset.id); if (it) g.equip(it); $(this.root, "#modal").hidden = true; this.renderAll(); return; }
     const owner = TABS.find((x) => x.prefix && a.startsWith(x.prefix));
     if (owner) { this.tabs[owner.id].onAction(a, b, e); this.renderAll(); return; }

@@ -67,6 +67,8 @@ maintenant (« Ton résumé d'absence t'attend ») ; un clic agrandit et l'affic
 Même chose pour le jeu lancé avec Windows (il démarre réduit en icône) : le résumé de la nuit expirait sans être vu ; il attend
 maintenant l'ouverture de la bande (it. 2747).
 Et au réveil du PC pendant un jeu en plein écran : le résumé attend que la bande revienne (it. 2752).
+Résumé d'absence : acheter l'Œil du connaisseur depuis « À faire maintenant » rend aussitôt « ✦ Un objet plus puissant… » faisable
+d'un clic, à la même place (it. 2764).
 
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest

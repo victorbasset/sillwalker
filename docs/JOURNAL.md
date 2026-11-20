@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2764) Résumé d'absence : acheter un déblocage depuis « À faire maintenant » (« ✦ Acheter : Œil du connaisseur », dernière
+  ligne du débutant au sac plein) ne changeait rien aux autres lignes : « Un objet plus puissant t'attend dans le sac → » restait un lien
+  vers le sac. Les lignes rendues faisables d'un clic deviennent « ✦ … » SUR PLACE (panel.js refreshTodoLinks, data-todo ; aucune ligne
+  ne bouge, l'achetée reste « ✓ »). Mesuré (débutant, 8 h) : avant, aucune ligne changée ; après, « todo-do:✦ Un objet plus puissant… ».
+  npm test 378, autotest 331/331.
 - 2026-11-20 (it. 2763) Contrôle de non-régression : fuzz.mjs (30 graines, bénédictions du jour : all) « 600 parties, 0 bloquées » ;
   stall-check.mjs « 60 parties, 0 figées ». Rien à corriger.
 - 2026-11-20 (it. 2762) Contrôles : 1) l'expérience en notation scientifique (« 1,54e105 », revue it. 2761) ne touche pas un vrai joueur
