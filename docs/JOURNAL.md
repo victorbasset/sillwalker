@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2789) Essai d'autotest pour l'it. 2788 abandonné : non probant (voir Idées, P3). Le correctif reste vérifié par
+  captures en fr et ru (it. 2788). Rien de changé dans le jeu.
 - 2026-11-20 (it. 2788) Bande : nom de zone long + événement (« Zone 57 Champignonnière géante + … Ruée des gobelins 30 s ») dépassait la
   pastille de gauche (canvas de 520 px) : le « s » était rogné (vu à l'it. 2738). Trop long, l'événement s'abrège en « ⏳ 27 s » à sa
   couleur (strip.js, son nom reste dans l'annonce et le panneau) ; HUD_L_W inchangé (il décide aussi de la disposition centrée).
@@ -8951,6 +8953,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2789) Autotest pour l'it. 2788 (événement abrégé dans la pastille de gauche) : trois essais non probants (passent aussi
+  sur l'ancien code : en anglais « Goblin Rush » tient ; nom de zone allongé, la recherche du cas limite ne le trouvait pas). Piste :
+  isoler le choix du texte dans une fonction pure de strip.js (largeurs en paramètres) et la tester dans test-logic.
 - FAIT (it. 2775) P3 (it. 2774) Bande, partie neuve à vitesse ×10 : deux annonces flottantes (butin légendaire « 영웅: … 반지 » et « 신기록: 지역 7! »)
   se chevauchent en partie près du boss. Vérifier à vitesse normale (les événements y sont plus espacés) avant de toucher à l'empilement.
 - P3 (revue it. 2771) Russe : le milliard s'abrège « млрд » mais « k », « M », « T », « Qa », « Qi » restent latins (format.js HUGE, choix
