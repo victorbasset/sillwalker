@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2968) Contrôle : autotest deux fois, 339/339 ; « proie en meute » -3 puis -6 (seuil -2,5 : marge mince, noté P3).
 - 2026-11-20 (it. 2967) CLAUDE.md, pièges connus : « À faire » sans plafond, ce qui le garde et comment le mesurer (it. 2916-2934).
 - 2026-11-20 (it. 2966) Contrôle : mem-watch bande 10 min : 607-617 Mo, plat (niveau haut de la mesure bimodale ; matin 612-626).
 - 2026-11-20 (it. 2965) Contrôle : lang-overflow « all » avec FIN_WIDTHS=1280,1366,1600,1920 (fin de partie à 4 largeurs, « À faire » à 16 lignes compris) : aucun.
@@ -9342,6 +9343,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2968) Autotest « proie en meute » : médiane -3 et -6 sur deux passages (seuil -2,5, it. 2938) : marge mince. Piste : mesurer plus
+  longtemps (moyenne sur 6-8 s, plusieurs vagues de la vie propre) pour remettre un seuil plus net.
 - FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
