@@ -377,6 +377,11 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   objet au niveau record peut être équipé tout seul par le Valet d'armes (il quitte le sac) : un contrôle qui suppose un objet ordinaire
   dans le sac force `r = 0`, `set = null`, `plus = 0` et un niveau 1. Contrôle instable : `SELFTEST_TIMES=1` et une mise en scène qui
   rejoue le cas 30 fois (it. 2216) trouvent la cause vite.
+- « À faire » (game.todoNow) n'a pas de plafond (16 sortes de lignes) ; dev-data n'en a que ≈ 8 : un dépassement n'y apparaît
+  que selon l'état du moment (« pl absence-pire=23 » intermittent, it. 2916-2927). Le résumé d'absence garde ce qui tient (8 au plus,
+  moins si un libellé passe sur deux lignes ; panel.js, après l'affichage) et une note-lien ouvre la liste entière ; la carte du héros
+  passe sur deux colonnes au-delà de 8. Pire cas mesuré par l'autotest et lang-overflow (« à-faire16-… », 16 lignes dupliquées) ; une
+  nouvelle sorte de ligne s'ajoute sans risque, mais un libellé très long se vérifie avec ces mesures.
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Accessibilité (it. 2422-2499) : l'autotest vérifie dans tous les onglets que chaque bouton grisé a une bulle (« Maximum » excepté),
   que tout texte coupé (…) garde une bulle, que tout élément cliquable hors bouton a un tabindex (SVG exclus), que chaque bouton
