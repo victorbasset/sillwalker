@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2793) Contrôle : mode mini en russe et en allemand (dev-data) : « Ур. 1313 », « 447 млрд », « Stf. 1313 », « 447 Mrd »
+  tiennent dans les 370 px. Rien à corriger.
 - 2026-11-20 (it. 2792) « Quoi de neuf » : édition 164 (temps restant avec unités ; événement abrégé sur la bande), clés 3438-3439,
   10 langues, noms d'onglets vérifiés. Talents en japonais à 1280 px : propres.
 - 2026-11-20 (it. 2791, REVUE GÉNÉRALE) : 12 h : danseur de lames 66, artificier 64, gardien des étoiles 69 ; --perf (charge 2,8) : bande
