@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2949) docs/POUR-VICTOR.md : récapitulatif étendu aux it. 2931-2948 (sac plein, objets précieux, « À faire »).
 - 2026-11-20 (it. 2948) « Quoi de neuf », édition 169 : rangement par valeur pendant l'absence (it. 2943-2945), coffre au trésor qui fait place
   (it. 2947), épiques des champions dans le résumé (it. 2943) ; clés 3454-3456, 9 langues. npm test 392, autotest 339/339, lang-overflow : aucun.
 - 2026-11-20 (it. 2947) Sac plein : le coffre au trésor trouvé en chemin fait place comme celui de la boutique ou d'une quête (it. 2515) :
