@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2931, REVUE GÉNÉRALE) : 12 h : moine 64, barde 65, lancier 62 ; --perf (charge 2,9) : 20,2 / 19,5 %, mini 5,4 %, icône
+  0,47 % ; texte portugais : aucun français (« la » = « movê-la », pronom portugais) ; résumé d'absence en japonais à 1366 : propre.
+  Rien à corriger.
 - 2026-11-20 (it. 2930) docs/POUR-VICTOR.md : récapitulatif de la journée étendu aux it. 2904-2929 (butin des champions hors ligne, « À faire »).
 - 2026-11-20 (it. 2929) Contrôle (suite de l'it. 2928) : 16 lignes « Acheter et équiper : <nom d'objet long> » (marchand, mise en scène),
   1280 px, es, pl, de, ru, fr : résumé d'absence réduit à 5 lignes et carte du héros en deux colonnes, 0 px partout.
