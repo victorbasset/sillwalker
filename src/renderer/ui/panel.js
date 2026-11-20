@@ -579,6 +579,19 @@ export class Panel {
     { const og = $(this.root, "#mbody .offgrid"); if (og && og.firstElementChild.querySelectorAll("li").length > 11) og.classList.add("long"); }
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
+    // (it. 2927) 8 lignes « À faire » ne tiennent pas toujours : un libellé long (« Comprar y equipar: Túnica de cuero celeste… ») passe
+    // sur deux lignes et la fenêtre défilait de 14 px (es, 1280). Tant qu'elle défile, la dernière ligne s'efface (4 au moins restent) ;
+    // la note compte toutes celles qui sont dans la carte du héros
+    { const pan = $(this.root, "#modal .panel"), og = $(this.root, "#mbody .offgrid"), col = og && og.lastElementChild;
+      const btns = col ? [...col.querySelectorAll(":scope > button")] : [];
+      const all = this.game.todoNow().length;
+      // la note est posée (ou mise à jour) à chaque retrait : la mesure suivante compte sa hauteur
+      while (pan.scrollHeight - pan.clientHeight > 1 && btns.length > 4) {
+        btns.pop().remove();
+        let note = col.querySelector(".todo-more");
+        if (!note) { note = document.createElement("p"); note.className = "note tight todo-more"; btns[btns.length - 1].after(note); }
+        note.textContent = txn(all - btns.length, "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros");
+      } }
     // « Continuer » reçoit le focus sans faire défiler : le résumé s'ouvre en haut (titre et durée visibles).
     $(this.root, "#modal [data-action=closemodal]").focus({ preventScroll: true });
     $(this.root, "#modal .panel").scrollTop = 0;

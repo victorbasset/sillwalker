@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2927) Retour d'absence : le relevé de l'it. 2926 a montré « es 1280 : à-faire16-absence=14 (8 boutons, plus long « Comprar
+  y equipar: Túnica de cuero celes… ») » : 8 lignes ne tiennent pas quand l'une passe sur deux lignes. Après l'affichage, tant que la fenêtre
+  défile, la dernière ligne s'efface (4 au moins) et la note compte les autres (posée à chaque retrait, sa hauteur comptée). Pire cas forcé
+  (16 fois la ligne la plus longue) : es et pl 5 lignes + « 11 … », de et ru 8 + « 8 … », 0 px partout. Autotest 339/339, lang-overflow : aucun.
 - 2026-11-20 (it. 2926) Outil : « à-faire16-absence / -carte » disent en cas de dépassement le titre de la fenêtre, le nombre de boutons et le
   plus long (vérifié en forçant : « 218(Podczas twojej nieobecności · 16 boutons · plus long «2765 odłamków…») »), pour expliquer un cas
   comme celui de l'it. 2924, non reproduit. Mesure normale pl 1280 : aucun.
