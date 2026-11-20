@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2899) Contrôle : partie de fin de partie en anglais, panneau ouvert, 3 min à ×10 (≈ 30 min de jeu) : aucune erreur ni
+  avertissement de l'interface.
 - 2026-11-20 (it. 2898) Revu : les bénédictions du jour sont toutes des bonus (PV, or, dégâts, ou plus d'élites, gobelins, champions) ;
   aucune ne renforce les monstres. Le Jour des champions (×4) redevient une bonne journée depuis l'it. 2874. Pas de changement.
 - 2026-11-20 (it. 2897) Vérifié : à l'ascension, les quêtes repartent d'un état neuf (seule la réclamation automatique est gardée) : aucune
