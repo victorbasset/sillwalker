@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2855) Contrôle de stabilité : autotest deux fois de suite, 337/337 les deux fois (contrôles ajoutés dans la nuit compris).
 - 2026-11-20 (it. 2854) Contrôle : fuzz.mjs 60 graines « 1200 parties, 0 bloquées ». Rien à corriger.
 - 2026-11-20 (it. 2853) Contrôle (suite de l'it. 2843) : 29 traductions zh espacent une variable entre caractères chinois ; surtout des nombres
   (« 区域 {0} », « 等级 {0} »), 4-5 noms (atelier, constellation, objets, panoplie). Convention cohérente des traductions zh : laissée.
