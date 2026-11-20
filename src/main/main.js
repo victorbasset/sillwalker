@@ -372,6 +372,15 @@ function start() {
               const lines = [...document.querySelectorAll("#modal .todo-h ~ *")].filter((e) => e.offsetHeight).map((e) => e.innerText.trim()).filter(Boolean);
               const longest = lines.reduce((a, b) => (b.length > a.length ? b : a), "");
               out.push("absence-pire=" + o + "(à-faire:" + lines.length + ", plus-longue:«" + longest.slice(0, 50) + "»)"); } document.querySelector("#modal").hidden = true; }
+          // (it. 2924) « À faire » au pire cas (16 lignes, la liste n'a pas de plafond) dans chaque langue et largeur : résumé d'absence (8 lignes et
+          // une note, it. 2919) et carte du héros (deux colonnes, it. 2920) ; l'autotest ne les mesure qu'en anglais. « à-faire16-absence=N », « à-faire16-carte=N »
+          if (window.__showOffline && window.__game && window.__panel) { const g = window.__game, P = window.__panel, orig = g.todoNow, base = orig.call(g);
+            if (base.length) { g.todoNow = () => Array.from({ length: 16 }, (_, i) => base[i % base.length]);
+              try { window.__showOffline({ seconds: 30000, zone: "Z", duration: "8 h", kills: 1234, elites: 12, champions: 3, gold: 1e10, petGold: 2e9, xp: 3e8, newLevel: 1320, steps: [], kept: 5, best: 4, onGround: 22, feathers: 2, chests: 3, goblins: 4, poupouce: 1, questsDone: 6, spells: 3, forged: 4, anviled: 2, herbs: 5, traded: 2, transmuted: 9, petWork: 30, capH: 16 });
+                const m = document.querySelector("#modal"), mb = m.querySelector(".panel"), o1 = mb.scrollHeight - mb.clientHeight; if (o1 > 2) out.push("à-faire16-absence=" + o1); m.hidden = true;
+                P.kept.clear(); P.setTab("adventure"); P.renderAll(); const d = document.querySelector("[data-pane=adventure]:not([hidden]) [data-keep=hero-todo]");
+                if (d) { d.querySelector("summary").click(); const o2 = mb.scrollHeight - mb.clientHeight; if (o2 > 2) out.push("à-faire16-carte=" + o2); m.hidden = true; }
+              } finally { g.todoNow = orig; } } }
           return innerWidth + " " + (out.join(" ") || "aucun"); })()`).catch((e) => "erreur " + e.message);
         // (it. 1027) astuces : chacune dans la bulle (trois lignes au plus, it. 1026) ; celles qui seraient coupées par « … »
         const hc = await strip.win.webContents.executeJavaScript(`(async () => { const H = (await import("./ui/hints.js")).HINTS, G = window.__game,

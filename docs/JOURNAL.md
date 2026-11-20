@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2924) lang-overflow mesure aussi « À faire » au pire cas (16 lignes) dans chaque langue et largeur : « à-faire16-absence »
+  et « à-faire16-carte » (vérifié : sans le plafond de l'it. 2919, « à-faire16-absence=218 » en pl). Première passe : la carte du héros
+  défilait encore de 27-37 px en fin de partie (de, pl, ru, pt) ; boutons des deux colonnes resserrés (marge 1 px, 12 px, interligne 1,2).
+  lang-overflow complet : aucun ; npm test 387, autotest 339/339.
 - 2026-11-20 (it. 2923) Revu après l'it. 2919 : les autres sections ouvertes dans la fenêtre large (ms-picks : paliers d'UNE maîtrise jusqu'au
   rang 400 ; automatismes, ascension, chances, statistiques, chroniques) sont bornées ou couvertes par max-save (lang-overflow « max ») ;
   « À faire » était la seule liste dont la longueur dépend de l'état du moment. Pas de changement.

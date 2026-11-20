@@ -983,7 +983,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 .todobox .linkbtn { display: block; width: 100%; margin: 3px 0; text-align: left; }
 /* (it. 2920) « À faire » de plus de 8 lignes dans la fenêtre large : deux colonnes (16 lignes défilaient de 263 px) */
 .todocols.two { display: grid; grid-template-columns: 1fr 1fr; column-gap: 8px; align-items: start; }
-.todocols.two .linkbtn { margin: 3px 0; }
+/* (it. 2924) fin de partie : libellés plus longs, sur deux lignes ; 16 lignes défilaient encore de 37 px (de, pl, ru, pt) : boutons resserrés */
+.todocols.two .linkbtn { margin: 1px 0; font-size: 12px; line-height: 1.2; padding-top: 2px; padding-bottom: 2px; }
 .ucard.later { justify-content: center; opacity: .7; border-style: dashed; }
 .ucard.later .sub { flex: none; margin: auto 0; font-size: 12px; }
 .bagdetail { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--line); }
