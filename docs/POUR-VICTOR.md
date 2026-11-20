@@ -19,6 +19,11 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
+- **(it. 2874) Fait, à relire : champions rééquilibrés.** Ils étaient plus forts que le boss de leur zone (PV ×7,5 et attaque ×1,95 d'un
+  monstre normal) : le héros perdait 94-96 % de ces combats, chaque champion remettait la zone à zéro et la quête « Vaincre un champion »
+  n'avançait presque qu'hors ligne. Maintenant PV ×3,9 et attaque ×1,5 (élite + 30 % de PV) : défaites 23 % (2 h) à 46 % (12 h), contre
+  25-31 % pour une élite. Équilibrage général inchangé (−0,4 zone ; semaine 361). Pour revenir en arrière : data.js, CHAMPION hp 2.5, atk 1.3.
+  Nouvel outil : scripts/fight-odds.mjs (taux de défaite par adversaire).
 - **(it. 2869) Question : quêtes de chasse.** Un monstre ne vit en général que dans une zone : une chasse (« Chasser 25 crapauds »)
   n'aboutit que si le héros piétine ou revient en arrière. Sur 3 parties de 12 h : 69 min en moyenne, contre 11 min pour « Vaincre N
   monstres ». C'est voulu (aller chercher le monstre, Carte du voyageur) ou faut-il que la cible suive la zone ?

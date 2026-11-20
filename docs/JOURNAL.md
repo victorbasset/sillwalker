@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2885) docs/POUR-VICTOR.md : rééquilibrage des champions (it. 2874) à relire, chiffres et retour arrière.
 - 2026-11-20 (it. 2884) Enquête assassin (it. 2883) : fight-odds 12 h avant / après : seuls les champions changent (95 → 47 % de défaites ;
   élites 31 → 30 %, boss 55 → 58 %). Code actuel avec les ANCIENNES valeurs des champions, 7 graines : 64,3 (ancien code 66,0, actuel 63,0) :
   les champions comptent pour ≈ 1 zone, le reste est la trajectoire (une graine de 60 à 67 selon le réglage). Bruit probable ; gardé.
