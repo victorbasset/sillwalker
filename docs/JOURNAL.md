@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2780) mem-watch 10 min (bande) après les retouches des bannières et bulles : 612-626 Mo de 420 à 570 s, plat (mode haut
+  de la mesure bimodale ≈ 570 / 625 Mo). Pas de fuite.
 - 2026-11-20 (it. 2779) Contrôle : lang-overflow complet (10 langues, 1920/1600/1366/1280 px, fin de partie, 130 %, pire cas) après les
   retouches du jour : « aucun défilement ni mot coupé ». Rien à corriger.
 - 2026-11-20 (it. 2778) --perf après les retouches des bannières (it. 2775-2777) : bande 19,9 %, panneau 19,4 %, mini 5,5 %, icône 0,5 %
