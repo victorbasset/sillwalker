@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2902) Mesure : partie de fin de partie (fixture, record 150 = mur), 30 min simulées : 77 victoires, 6 défaites (toutes contre
+  le boss de la zone 150), combat 94 % du temps, ≈ 20 s par monstre ; zones 149-150. C'est le mur du record (l'ascension le franchit),
+  pas un défaut ; explique les 91 victoires en 28 min de l'it. 2900.
 - 2026-11-20 (it. 2901, REVUE GÉNÉRALE) : 12 h : guerrier 64, mage 62, prêtresse 64 ; --perf (charge 2,3) : 19,7 / 19,4 %, mini 5,4 %, icône
   0,73 % ; texte coréen : aucun mot non traduit ; mode mini en espagnol (« 447 mil M ») : propre. Rien à corriger.
 - 2026-11-20 (it. 2900) Contrôle refait avec --speed=10 (vérifié : 300 s de jeu pour 30 s réelles) : fin de partie en anglais, panneau ouvert,
