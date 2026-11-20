@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2796) Contrôle : --crawl en chinois sur la partie de fin de partie : 739 clics en 26 s, aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2795) Contrôle clavier du résumé d'absence (débutant, 8 h) : focus sur « Continuer » à l'ouverture ; 7 éléments
   atteignables (meilleur butin, 5 actions, Continuer ; les lignes « ✓ » grisées sont sautées) ; Échap ferme. Rien à corriger.
 - 2026-11-20 (it. 2794) Contrôle du début de partie : first-minutes (premier objet 42-82 s, premier boss 70-82 s, 1er déblocage
