@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2869) Mesure des quêtes sur 3 parties de 12 h (durée moyenne par sorte) : chasses 69 min, contre 10-16 min pour les autres
+  sortes courantes ; noté dans « Idées » pour Victor (choix de jeu). Pas de changement.
 - 2026-11-20 (it. 2868) Dix premières minutes : les quêtes sont tirées dès la zone 1, l'onglet Quêtes ne s'ouvre que vers 4-5 min ; une chasse
   d'un monstre déjà laissé derrière (« absent d'ici · zone 1 », 3/25) accueillait le nouveau joueur. À la première ouverture de l'onglet,
   ces chasses sont retirées gratuitement (game.js freshenQuests). Attente entre l'ouverture et la première quête accomplie, 12 graines :
@@ -9115,6 +9117,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2869) Chasses : chaque monstre ne vit en général que dans UNE zone (10 victoires par zone, ~7 espèces) ; une chasse de 15-30
+  n'aboutit que quand le héros piétine ou revient en arrière (Carte du voyageur). 3 parties de 12 h : 18 chasses, 16 accomplies en 69 min
+  en moyenne, contre 11 min pour « Vaincre N monstres ». Choix de jeu (aller chercher le monstre) : à proposer à Victor avant de changer
+  (pistes : cible qui suit la zone en gardant l'avancée, ou objectif réduit).
 - FAIT (it. 2806) P3 (it. 2789) Autotest pour l'it. 2788 (événement abrégé dans la pastille de gauche) : trois essais non probants (passent aussi
   sur l'ancien code : en anglais « Goblin Rush » tient ; nom de zone allongé, la recherche du cas limite ne le trouvait pas). Piste :
   isoler le choix du texte dans une fonction pure de strip.js (largeurs en paramètres) et la tester dans test-logic.

@@ -19,6 +19,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
+- **(it. 2869) Question : quêtes de chasse.** Un monstre ne vit en général que dans une zone : une chasse (« Chasser 25 crapauds »)
+  n'aboutit que si le héros piétine ou revient en arrière. Sur 3 parties de 12 h : 69 min en moyenne, contre 11 min pour « Vaincre N
+  monstres ». C'est voulu (aller chercher le monstre, Carte du voyageur) ou faut-il que la cible suive la zone ?
 - **(it. 2858)** : pourcentages harmonisés sur la règle du projet (« 15 % » espacé en fr, es, pt, de, pl, ru) : 667 textes traduits
   collaient « 15% » (surtout pt, pl, ru) à côté de « +30 % » du formateur. En portugais du Brésil et en polonais, l'usage courant est
   plutôt « 15% » collé : si tu préfères l'usage local, il suffit de retirer pt et pl de la liste SPACED (format.js) et d'inverser le test.
