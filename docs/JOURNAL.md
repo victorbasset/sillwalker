@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2973) Suites de l'it. 2972 : max-save.mjs garde désormais de très grands montants (or 8,88e50, or gagné 8,88e53,
+  plus gros coup 8,88e47 : « 888,00 Qid / Sxd / Qad ») ; avant, l'état « tout au maximum » gardait l'or de la fin de partie et aucune
+  mesure ne voyait les suffixes longs. lang-overflow « all » (fin de partie 1280 et 1920, puis état max à 1920 et 1280) : aucun ;
+  capture des Statistiques en allemand à 1280 px : tout tient.
 - 2026-11-20 (it. 2972) Grands nombres : suffixes prolongés de Ud (1e36) à Vg (1e63), notation scientifique seulement au-delà de 1e66
   (format.js). Une semaine simulée (guerrier, record 353) finit avec 1,97e39 d'or (« 1.97e39 » dans la bande et le mode mini, désormais
   « 1.97Dd ») et 3,07e41 d'or gagné au total (Statistiques). Captures à 8,88e50 (« 888.00Qid », le plus large) : bande, mini en anglais

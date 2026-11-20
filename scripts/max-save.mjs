@@ -43,5 +43,8 @@ s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, true]));
 s.stats.champions = 12345; s.stats.elites = Math.max(s.stats.elites || 0, 987654);
 s.stats.poupouce = 4242; // (it. 1553) ligne « Poupouce vaincus » des Statistiques
 s.stats.grounded = 987654; // (it. 2567) ligne « Laissés au sol (sac plein) » des Statistiques
+// (it. 2973) montants des suffixes prolongés (it. 2972 : Ud à Vg), parmi les plus larges : « 888.00Qid », « 888.00Sxd »,
+// « 888.00Qad » (or, or gagné au total, plus gros coup ; une semaine de jeu en est à ≈ 2e39 d'or)
+s.gold = 8.88e50; s.stats.goldTotal = 8.88e53; s.stats.maxHit = 8.88e47;
 fs.writeFileSync(process.argv[2], JSON.stringify(s));
 console.log("ok", s.skills.outer.length + " nœuds", Object.keys(s.bestiary).length, CODEX_ENTRIES.length, Object.keys(POWERS).length, ACHIEVEMENTS.length);
