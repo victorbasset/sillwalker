@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2848) « À faire » : « Acheter et équiper : X » (marchand, d'un clic) prend aussi le ✦ (seule action d'un clic sans lui) ;
+  le clic le remplace par ✓ comme les autres. npm test 381, autotest 337/337, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2847) Liens « Acheter : X (N or) » des onglets (Carte, Familiers, Compétences, forge ; locks.js) : sans le ✦ des actions d'un
   clic que porte le même achat dans « À faire » (it. 2717). ✦ ajouté. npm test 381, autotest 337/337, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2846) Contrôle : Carte en allemand à 1366 px : propre. Rien à corriger.
