@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2933) Contrôle : mode mini au démarrage après 5 h d'absence (de, ru) : l'avis « résumé d'absence » est une ampoule 💡
+  (texte au survol), rien ne déborde. Rien à corriger.
 - 2026-11-20 (it. 2932) Contrôle : quêtes au pire cas forcé (3 étoiles, toutes les récompenses à la fois : or, coffre légendaire, élixir,
   20 potions, éclats, œuf, vitesse), de, ru, pl à 1280 : les pastilles passent à la ligne dans la carte, 0 défilement. Rien à corriger.
 - 2026-11-20 (it. 2931, REVUE GÉNÉRALE) : 12 h : moine 64, barde 65, lancier 62 ; --perf (charge 2,9) : 20,2 / 19,5 %, mini 5,4 %, icône
