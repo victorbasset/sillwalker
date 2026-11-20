@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2980) Contrôle, suite de l'it. 2978 : autres constructions qui plantent sur un nombre décimal ou négatif. Array(n) :
+  seulement les trois de applyOffline (corrigées) ; Array.from({ length }) tronque sans planter ; .repeat(n) : loopMark (n ≥ 1), étoiles des
+  quêtes (bornées à 1-3 par migrate, it. 905), heroart (dessins fixes). Rien d'autre à corriger.
 - 2026-11-20 (it. 2979) Progression hors ligne protégée (app.js offlineSafe) : une erreur dans applyOffline (comme celle de l'it. 2978)
   arrêtait le démarrage, et la même absence recalculée à chaque lancement aurait figé la partie pour toujours. Erreur signalée dans la
   console, pas de résumé, le jeu continue (aussi au retour de veille). Vérifié au démarrage (échec forcé TEMP, dev-data, 5 h d'absence) :
