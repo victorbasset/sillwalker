@@ -16,21 +16,24 @@ export const dec = (s) => (COMMA.has(getLang()) ? s.replace(".", ",") : s);
 export const locInt = (n, L = getLang()) => n.toLocaleString(LOCALE[L] || "en-US").replace(/\u202f/g, NB);
 export const unit = (u) => (SPACED.has(getLang()) ? NB : "") + u;
 
-/** Grands nombres au-delà du millier de milliards (abréviations habituelles des jeux idle), puis notation scientifique. */
-const HUGE = [[1e33, "Dc"], [1e30, "No"], [1e27, "Oc"], [1e24, "Sp"], [1e21, "Sx"], [1e18, "Qi"], [1e15, "Qa"], [1e12, "T"]];
+/** Grands nombres au-delà du millier de milliards (abréviations habituelles des jeux idle), puis notation scientifique.
+    (it. 2972) prolongés de Ud (1e36) à Vg (1e63) : en une semaine de jeu, l'or d'une course atteint ≈ 2e39 (simulation, zone 353) et
+    s'affichait « 1.97e39 » dans la bande et le mode mini ; la notation scientifique ne reprend qu'à 1e66 (TOP). */
+const HUGE = [[1e63, "Vg"], [1e60, "Nod"], [1e57, "Ocd"], [1e54, "Spd"], [1e51, "Sxd"], [1e48, "Qid"], [1e45, "Qad"], [1e42, "Td"], [1e39, "Dd"], [1e36, "Ud"], [1e33, "Dc"], [1e30, "No"], [1e27, "Oc"], [1e24, "Sp"], [1e21, "Sx"], [1e18, "Qi"], [1e15, "Qa"], [1e12, "T"]];
+const TOP = 1e66;
 const sci = (n) => { const e = Math.floor(Math.log10(n)); return dec((n / 10 ** e).toFixed(2)) + "e" + e; };
 
 /** (it. 872) Paliers d'abréviation, du plus grand au plus petit (k compris). */
 const steps = (L) => [...HUGE, [1e9, BIG[L] || "B"], [1e6, "M"], [1e3, "k"]];
 /** (it. 872) Un arrondi qui atteint 1000 passe au palier supérieur : « 1,00 M » et non « 1000 k » (999 999 d'or),
     « 1,00 Md » et non « 1000,00 M ». Au-delà du dernier palier : notation scientifique. */
-const bump = (L, i) => (i > 0 ? dec("1.00") + unit(steps(L)[i - 1][1]) : sci(1e36));
+const bump = (L, i) => (i > 0 ? dec("1.00") + unit(steps(L)[i - 1][1]) : sci(TOP));
 
 export function fmt(n) {
   n = Math.floor(n);
   const L = getLang();
   if (!Number.isFinite(n)) return "∞";
-  if (n >= 1e36) return sci(n);
+  if (n >= TOP) return sci(n);
   const st = steps(L);
   for (let i = 0; i < st.length - 1; i++) {
     const [v, u] = st[i];
@@ -50,7 +53,7 @@ export function fmtShort(n) {
   n = Math.floor(n);
   const L = getLang();
   if (!Number.isFinite(n)) return "∞";
-  if (n >= 1e36) return sci(n);
+  if (n >= TOP) return sci(n);
   const st = steps(L);
   for (let i = 0; i < st.length; i++) {
     const [v, u] = st[i];

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2972) Grands nombres : suffixes prolongés de Ud (1e36) à Vg (1e63), notation scientifique seulement au-delà de 1e66
+  (format.js). Une semaine simulée (guerrier, record 353) finit avec 1,97e39 d'or (« 1.97e39 » dans la bande et le mode mini, désormais
+  « 1.97Dd ») et 3,07e41 d'or gagné au total (Statistiques). Captures à 8,88e50 (« 888.00Qid », le plus large) : bande, mini en anglais
+  et en russe (« 888 Qid ») : tout tient. Tests mis à jour ; autotest 339/339. (Revue it. 2971 : l'expérience « 1.54e105 » de dev-data,
+  niveau irréaliste, reste en notation scientifique : idée retirée.)
 - 2026-11-20 (it. 2971, REVUE GÉNÉRALE) : 12 h : rôdeur 65, nécromancien 62, moine 64 ; --perf (charge 2,2) : 20,0 / 19,3 %, mini 5,5 %,
   icône 0,5 % ; captures mini en japonais et Aventure en anglais propres ; texte japonais : mots latins = noms propres, touches, noms
   des langues. Noté en Idées (P3) : « 1.54e105 » d'expérience, propre à dev-data.
@@ -9351,8 +9356,6 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (revue it. 2971) Expérience « 6.80B / 1.54e105 » (notation scientifique) sur la carte du héros de dev-data : niveau 1313 gonflé à la
-  main ; la fin de partie simulée s'arrête au niveau 199. Ne concerne qu'un état irréaliste : à revoir seulement si un joueur dépasse ≈ 300.
 - FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les

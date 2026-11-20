@@ -2659,7 +2659,13 @@ test("grands nombres : suffixes au-delà du billion, puis notation scientifique"
     assert.equal(fmtN(1.113e22), "11.13Sx");
     assert.equal(fmtN(5e15), "5.00Qa");
     assert.equal(fmtN(4.3e12), "4.30T");
-    assert.equal(fmtN(2e40), "2.00e40");
+    // (it. 2972) suffixes prolongés jusqu'à Vg (1e63) : l'or d'une semaine de jeu (≈ 2e39) ne passe plus en notation scientifique
+    assert.equal(fmtN(2e40), "20.00Dd");
+    assert.equal(fmtN(1.97e39), "1.97Dd");
+    assert.equal(fmtN(4.5e36), "4.50Ud");
+    assert.equal(fmtS(3.07e41), "307Dd");
+    assert.equal(fmtN(5e63), "5.00Vg");
+    assert.equal(fmtN(2e70), "2.00e70");
     assert.equal(fmtS(1.113e22), "11.1Sx");
     assert.equal(fmtN(Infinity), "∞");
   } finally { setLang(before); }
@@ -5115,7 +5121,8 @@ test("nombres : un arrondi qui atteint 1000 passe au palier supérieur (it. 872 
     setLang("en");
     assert.equal(fmtN(999999), "1.00M");
     assert.equal(fmtS(123456), "123k");
-    assert.equal(fmtN(1e36 - 1e30).slice(-3), "e36");
+    assert.equal(fmtN(1e36 - 1e30), "1.00Ud");
+    assert.equal(fmtN(1e66 - 1e60).slice(-3), "e66");
   } finally { setLang(before); }
 });
 
