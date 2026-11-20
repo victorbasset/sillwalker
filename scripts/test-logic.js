@@ -282,6 +282,15 @@ test("menu de l'icône (it. 2829) : chaque texte de src/main/i18n.js existe dans
   assert.equal(miss.length, 0, miss.slice(0, 6).join(", "));
 });
 
+test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
+  // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
+  for (const l of ["es", "pt", "de", "pl", "ru"]) {
+    const src = fs.readFileSync(new URL(`../src/renderer/i18n/lang/${l}.js`, import.meta.url), "utf8");
+    const bad = src.match(/[0-9}]%/g) || [];
+    assert.equal(bad.length, 0, `${l} : ${bad.length} « % » collés`);
+  }
+});
+
 test("traductions (it. 2562-2563) : en japonais, pas de compteur « つ » après un nombre variable ou à deux chiffres", () => {
   // « つ » ne compte que les petits nombres (jusqu'à 9) : « マスタリーの段階 18 つ » se lisait mal ; 件 ou 個 au-delà
   const src = fs.readFileSync(new URL("../src/renderer/i18n/lang/ja.js", import.meta.url), "utf8");
