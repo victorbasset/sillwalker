@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2809) Bulle du héros près du boss : 1366 px → cachée aussi (barres jusqu'à 819, nom du boss à 961 : 142 px pour une bulle
+  de 246) ; 1600 px → affichée (942-1188, boss à 1192). POUR-VICTOR précisé (1280 et 1366 px). Piste si Victor le regrette : bulle sur
+  deux lignes, plus étroite, quand la place manque.
 - 2026-11-20 (it. 2808) Contrôle : trois bannières (deux grandes, une normale) : 527-551, 557-581, 590-609 dans une bande 500-620 ; le
   décalage cumulé (+16 px) reste dans la bande, sans chevauchement. Rien à corriger.
 - 2026-11-20 (it. 2807) Autotest : durées (SELFTEST_TIMES) ; « une bannière passe à côté de la bulle » 3,7 s. Essai à 300 ms : passait aussi

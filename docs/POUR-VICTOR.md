@@ -72,7 +72,7 @@ d'un clic, à la même place (it. 2764).
 Et une ligne devenue sans objet (« Sac plein » après avoir équipé le meilleur) passe à « ✓ » sur place (it. 2766).
 Bande : les annonces (« Nouveau record », butin légendaire) ne se chevauchent plus entre elles ni sur la bulle de parole du héros
 (it. 2775-2777). Mode mini : deux moments simultanés (« ★ Légendaire ! » puis « Nouveau record ») s'affichent l'un après l'autre (it. 2782). Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. » au lieu de « 7 Std. 59 », it. 2786-2787).
-Bande : avec un nom de zone long, l'événement en cours s'abrège en « ⏳ 27 s » au lieu d'être rogné (it. 2788). Sur un écran de 1280 px, la bulle de parole du héros
+Bande : avec un nom de zone long, l'événement en cours s'abrège en « ⏳ 27 s » au lieu d'être rogné (it. 2788). Sur un écran de 1280 ou 1366 px (mesuré : à 1600 px la place suffit), la bulle de parole du héros
 se tait quand elle n'a pas de place entre les barres de vie et le nom du boss (avant : elle passait sur la barre du héros, it. 2797) ;
 le héros parle donc un peu moins souvent en fin de zone sur ces écrans. Carte du héros > « À faire » : acheter un déblocage ne ferme plus la fenêtre (it. 2769). Éditions « Quoi de neuf » 161 et 162
 publiées pour tout cela (it. 2749, 2772).
