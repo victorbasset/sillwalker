@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2774) Contrôle : partie neuve en coréen à 1366 px (7 min 30 de jeu à ×10) : panneau propre ; sur la bande, deux annonces
+  flottantes se chevauchent (noté en idée P3, à revoir à vitesse normale).
 - 2026-11-20 (it. 2773) docs/POUR-VICTOR.md : « À faire » qui reste ouvert (it. 2769), éditions 161-162, question des suffixes russes (it. 2771).
 - 2026-11-20 (it. 2772) « Quoi de neuf » : édition 162 (« À faire maintenant » : déblocage acheté → actions d'un clic, lignes ✓, fenêtre
   ouverte ; résumé gardé pendant un plein écran), clés 3434-3435, 10 langues (libellé cité tel que traduit). npm test 378, autotest
@@ -8907,6 +8909,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2774) Bande, partie neuve à vitesse ×10 : deux annonces flottantes (butin légendaire « 영웅: … 반지 » et « 신기록: 지역 7! »)
+  se chevauchent en partie près du boss. Vérifier à vitesse normale (les événements y sont plus espacés) avant de toucher à l'empilement.
 - P3 (revue it. 2771) Russe : le milliard s'abrège « млрд » mais « k », « M », « T », « Qa », « Qi » restent latins (format.js HUGE, choix
   commun à toutes les langues depuis l'it. 872) : mélange visible en fin de partie (294 « Qa » dans le texte de l'interface). Piste :
   « тыс. », « млн », « трлн »… mesurés avec lang-overflow (plus longs) ; à juger avec Victor.
