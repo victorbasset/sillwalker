@@ -49,7 +49,9 @@ function exercise(g) {
 // automatismes, compagnon) au lieu de dev-data ; des champs absents de dev-data y sont abîmés à leur tour
 // (it. 1149) FUZZ_BASE=0.1.2 : une partie de la version 0.1.2 (scripts/fixtures/save-0.1.2.json), qui passe aussi par
 // migrate() avec des données d'une version plus ancienne
-const BASES = { fin: "scripts/fixtures/endgame-save.json", "0.1.2": "scripts/fixtures/save-0.1.2.json" };
+// (it. 2978) FUZZ_BASE=semaine : la partie d'une semaine (scripts/fixtures/week-save.json, it. 2976 : record 353, constellations
+// au maximum, or vers 1e39)
+const BASES = { fin: "scripts/fixtures/endgame-save.json", "0.1.2": "scripts/fixtures/save-0.1.2.json", semaine: "scripts/fixtures/week-save.json" };
 const base = JSON.parse(fs.readFileSync(ROOT + (BASES[process.env.FUZZ_BASE] || "dev-data/save.json"), "utf8"));
 const cases = {
   questsNull: (o) => { o.quests.slots = [null, { kind: "kill" }]; },

@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2978) PLANTAGE corrigé (introduit à l'it. 2944, jamais publié : 0.1.7 date du 18/11) : le résumé d'absence d'un héros
+  avancé (bonus de coffres, plafond de coffres atteint) plantait sur « Invalid array length » : plafond = 3 × bonus de coffres, un
+  nombre décimal (6,6 ; 4,998), et Array(6.6) refuse ; les anciennes boucles « for (i < 6,6) » ouvraient 7 coffres. Plafond arrondi à
+  l'entier supérieur (même compte qu'avant). Trouvé par save-fuzz sur la partie d'une semaine (nouveau FUZZ_BASE=semaine) ; reproduit
+  sans corruption : la même partie ramenée en zone 300, 200, 100 ou 30 plantait à chaque absence de 16 h. Test (zone 200, 16 h :
+  échoue sur l'ancien code, passe sur le nouveau ; d'abord écrit APRÈS le bilan de test-logic, il ne comptait pas : déplacé).
+  Aussi : --crawl sur la partie d'une semaine en de et ja (921-922 clics, 0 erreur) ; save-fuzz semaine 1274 et dev 1267 : ok ;
+  autotest 339/339. Poupouce, champions et butin ordinaire sont des entiers (Math.floor + 0 ou 1) : pas concernés.
 - 2026-11-20 (it. 2977) Contrôle : partie d'une semaine (week-save.json) à 1366, 1600 et 1920 px dans les 10 langues (30 mesures, 3 à la fois) : aucun.
 - 2026-11-20 (it. 2976) lang-overflow mesure une partie d'une SEMAINE (scripts/fixtures/week-save.json, 34 Ko : simulate.js 168 warrior,
   record 353, journal vidé ; « xx semaine 1280 », NO_WEEK=1 pour sauter). Elle a trouvé aussitôt un défaut : Ascension en espagnol à

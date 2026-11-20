@@ -5324,4 +5324,14 @@ test("couleurs du panneau (it. 2483-2484) : texte et raretés à 3:1 au moins su
     }
   }
 });
+test("absence d'un héros à bonus de coffres : plafond entier, pas de plantage (it. 2978)", () => {
+  // Partie d'une semaine ramenée en zone 200 (≈ 58 000 victoires en 16 h : le plafond de coffres est atteint). Ce plafond vaut
+  // 3 × le bonus de coffres, un nombre décimal (≈ 4,998 ici) : Array(4.998) plantait applyOffline (it. 2944 ; vérifié sur l'ancien code)
+  const o = JSON.parse(fs.readFileSync(new URL("./fixtures/week-save.json", import.meta.url), "utf8"));
+  o.zone = 200;
+  const g = new Game(migrate(o));
+  const r = g.applyOffline(3600 * 16);
+  assert(r.kills > 10000, "assez de victoires pour atteindre le plafond : " + r.kills);
+  assert(Number.isInteger(r.chests) && r.chests >= 3, "coffres : nombre entier, au plafond : " + r.chests);
+});
 console.log(`\n${pass} tests réussis`);

@@ -1540,7 +1540,9 @@ export class Game {
     let ppLeg = 0; let chEpic = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
     // (it. 2905) chaque champion vaincu pendant l'absence laisse aussi son objet épique garanti, comme en jeu et comme Poupouce
     // Trouvailles rares, à moitié moins fréquentes qu'en jeu : plumes du vent (vitesse permanente) et coffres.
-    const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(cap, Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
+    // (it. 2978) plafond arrondi à l'entier supérieur : celui des coffres (3 × bonus de coffres, ex. 6,6) donnait un compte décimal ;
+    // Array(6.6) plantait le résumé d'absence (it. 2944) ; les anciennes boucles « for (i < 6,6) » en ouvraient 7 : même compte qu'avant
+    const roll = (p, cap) => { const x = kills * p * 0.5; return Math.min(Math.ceil(cap), Math.floor(x) + (rand() < x % 1 ? 1 : 0)); };
     const dmc = (activeDayMod(S)?.chest || 1) * (1 + (hs.chests || 0) / 100), feathers = roll(FEATHER.normal, 5), chests = roll(CHEST.normal * dmc, 3 * dmc);
     if (feathers) { S.stats.feathers = (S.stats.feathers || 0) + feathers; this.gainSpeed(feathers * FEATHER.gain, tx("Plumes du vent trouvées en ton absence")); }
     // (it. 2943) les objets garantis d'abord (légendaires de Poupouce, épiques des champions) : rangés après le butin ordinaire, ils restaient
