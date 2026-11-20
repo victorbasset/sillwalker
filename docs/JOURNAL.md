@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2810) Contrôle : tab-pace (talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire
+  13-18, ascension 20-41 min). Rien à corriger.
 - 2026-11-20 (it. 2809) Bulle du héros près du boss : 1366 px → cachée aussi (barres jusqu'à 819, nom du boss à 961 : 142 px pour une bulle
   de 246) ; 1600 px → affichée (942-1188, boss à 1192). POUR-VICTOR précisé (1280 et 1366 px). Piste si Victor le regrette : bulle sur
   deux lignes, plus étroite, quand la place manque.
