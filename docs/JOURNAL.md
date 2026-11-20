@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2832) Perf : la bande à 20,5 % deux fois (revues 2781, 2831) ; comparaison alternée avec 0425c9a8 (début de la nuit,
+  git worktree) : ancien 19,88 / 19,41 %, actuel 19,82 / 20,08 % (charge ≈ 1,2) : +0,3 point, dans le bruit. Les 20,5 % venaient de la
+  charge du serveur (≈ 2). Rien à corriger.
 - 2026-11-20 (it. 2831, REVUE GÉNÉRALE) : 12 h : chaman 69, arbalétrier 66, gardien des étoiles 69 ; --perf (charge 2,2) : bande 20,5 %,
   panneau 19,3 %, mini 5,6 %, icône 0,5 % ; autotest 337/337 ; texte japonais : noms propres seulement. Rien à corriger.
 - 2026-11-20 (it. 2830) docs/POUR-VICTOR.md : note de plafond du débutant (it. 2826), test du menu de l'icône (it. 2829).
