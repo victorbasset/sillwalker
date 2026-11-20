@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2896) Mesure de l'or accumulé en fin de course (dev-data, simulation 12 h) : noté P3 dans « Idées ». Pas de changement.
 - 2026-11-20 (it. 2895) Contrôle : carte d'une chasse d'un monstre absent (mise en scène : sanglier en zone 57, Carte du voyageur) en russe à
   1280 px : bouton « здесь нет · зона 34 » à côté de la progression, sans débordement.
 - 2026-11-20 (it. 2894) first-minutes après les it. 2868-2874 : première quête accomplie à 170 / 159 / 154 s (avant : 170 / 638 / 221) : dans les
@@ -9178,6 +9179,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2896) Or en fin de course : dev-data 447 Md d'or en zone 57 pour des achats à 13-90 M (élixir ≈ 40 victoires) ; simulation barde
+  12 h : 38 Md en zone 64 (le joueur simulé n'achète qu'à moins de 10 % de son or : il entasse, chiffre à prendre avec prudence). Une
+  dépense qui garde du sens en fin de course ? À proposer à Victor (choix de conception).
 - CLOS (it. 2884 : bruit probable, ≈ 1 zone au plus due aux champions) P2 (it. 2883) Assassin après les champions battables (it. 2874) : 12 h, 7 graines (7,3,11,21,31,41,51) : 66,0 avant → 63,0 après ; le commit
   des chasses seules (3735030c) : 65,5 sur 4 graines. Cause non trouvée (rien de propre aux champions chez l'assassin, même nombre
   d'ascensions) ; ses parties nouvelles butent toutes sur le mur 62 (paliers). Pistes : fight-odds assassin avant / après, journal des
