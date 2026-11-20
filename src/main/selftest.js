@@ -717,6 +717,8 @@ async function runSelfTest(strip) {
   }
   {
     // (it. 2777) bannière lancée en même temps qu'une réplique du héros : elle passe à côté de la bulle (avant : 3 à 9 px dessus)
+    // (it. 2807) les 3 s d'attente laissent partir les bannières du contrôle précédent : sinon la nouvelle prend une ligne plus basse et
+    // ne croise jamais la bulle (le contrôle passait alors aussi sans le correctif)
     const r = await js(`new Promise((ok) => { const st = window.__strip, j = st.juice; if (!j || !j.active || !st.active) { ok('sans objet'); return; }
       setTimeout(() => { st.saidAt = -1e9; st.say(['Rendez-moi cet or !'], true); j.banner('Nouveau record : zone 57 !', '#9fe0a8', st.heroX + 120);
         setTimeout(() => { const b = st.bubble.getBoundingClientRect(), n = [...document.querySelectorAll('.banner')].pop().getBoundingClientRect(); st.bubbleT = 0;

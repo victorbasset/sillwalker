@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2807) Autotest : durées (SELFTEST_TIMES) ; « une bannière passe à côté de la bulle » 3,7 s. Essai à 300 ms : passait aussi
+  sans le correctif (bannières du contrôle précédent encore là, la nouvelle prenait une ligne plus basse) ; attente de 3 s gardée et
+  expliquée en commentaire. Les plus lents restent les trois attentes de la libération (5,6-5,8 s, minimum de la cinématique).
 - 2026-11-20 (it. 2806) Choix du texte de l'événement de la pastille de gauche (it. 2788) isolé dans une fonction pure (format.js
   eventHudText) et testé dans test-logic (complet, abrégé, juste à la limite) ; strip.js l'utilise, rendu inchangé (« ⏳ 27 s » en fr).
   Ferme l'idée P3 de l'it. 2789. npm test 380, autotest 337/337.
