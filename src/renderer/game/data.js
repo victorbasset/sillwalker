@@ -202,8 +202,11 @@ export const POUPOUCE = { chance: 0.001, minZone: 2, gold: 100, name: "Poupouce"
 // Monstres d'élite : rares, plus coriaces, bien plus rentables.
 export const ELITE = { chance: 0.06, hp: 3, atk: 1.5, gold: 4, xp: 3, minRarity: 1, minZone: 3 }; // minZone : première course
 // Champions : très rares, encore plus coriaces (en plus des bonus d'élite), butin épique garanti.
+// (it. 2874) PV ×2,5 et attaque ×1,3 en plus de l'élite (×7,5 et ×1,95 en tout) : plus fort que le boss de sa zone (×6, ×1,5) ; le héros
+// perdait 94-96 % de ces combats (2 h et 12 h), la quête « Vaincre un champion » n'avançait presque qu'hors ligne (où chaque champion compte
+// vaincu). ×1,3 en PV seulement : défaite 23 % (2 h) et 46 % (12 h), contre 25-31 % pour une élite
 export const CHAMPION = { minZone: 5, chance: 0.005, // pas de champion en tout début de partie (zone < 5)
-  hp: 2.5, atk: 1.3, gold: 5, xp: 4, minRarity: 3 };
+  hp: 1.3, atk: 1, gold: 5, xp: 4, minRarity: 3 };
 /** Affixes des élites : chaque élite en reçoit un (nom affiché au-dessus de lui). */
 /** (it. 956) Victoires sur une sorte d'élite (stats.affixesSeen) : un nombre ; « true » des versions précédentes = 1. */
 /** (it. 983) Collection des élites : chaque sorte vaincue donne un bonus permanent (comme les événements, it. 932). */

@@ -310,6 +310,12 @@ test("quêtes (it. 2873) : pas de chasse avant la Carte du voyageur", () => {
   assert.ok(hunts > 0, "chasses tirées avec la Carte");
 });
 
+test("champions (it. 2874) : plus coriaces qu'une élite, moins qu'un boss de leur zone", () => {
+  const z = 20, el = M_rules_js.monsterBase(z, false, null, true, false), ch = M_rules_js.monsterBase(z, false, null, true, true), boss = M_rules_js.monsterBase(z, true);
+  assert.ok(ch.hp > el.hp, "plus de PV qu'une élite");
+  assert.ok(ch.hp < boss.hp && ch.atk <= boss.atk * 1.01, "pas plus fort que le boss de la zone");
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {
@@ -2116,7 +2122,7 @@ test("boss : miroir et vampirisme", () => {
 test("champions : plus coriaces, butin épique garanti", () => {
   const { monsterBase } = M_rules_js;
   const e = monsterBase(10, false, "slime", true), c = monsterBase(10, false, "slime", true, true);
-  assert.ok(c.hp > e.hp * 2 && c.gold > e.gold * 4);
+  assert.ok(c.hp > e.hp * 1.2 && c.gold > e.gold * 4); // (it. 2874) PV ×1,3 (×2,5 avant)
   const g = new Game(freshState());
   g.S.zone = g.S.best = 5; g.S.lvl = 40; g.invalidateStats();
   g.R.lineup = Array.from({ length: 10 }, () => ({ type: "slime", elite: true, champion: true, affix: "fast" }));
