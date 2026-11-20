@@ -2312,4 +2312,5 @@ export default {
   3437: "Mini mode: two moments arriving together (“Legendary!” then “New record”) now show one after the other.",
   3438: "Pets and Shop: the time left shows the unit of each number in every language.",
   3439: "Strip: with a long zone name, the current event is shortened (⏳ and the seconds) instead of being cut off.",
+  3440: "{0} h cap reached: beyond that, your hero stops progressing.",
 };

@@ -2312,4 +2312,5 @@ export default {
   3437: "Modo mini: dois momentos que chegam juntos (“Lendário!” e depois “Novo recorde”) aparecem um depois do outro.",
   3438: "Mascotes e Loja: o tempo restante mostra a unidade de cada número em todos os idiomas.",
   3439: "Faixa: com um nome de zona longo, o evento em andamento é abreviado (⏳ e os segundos) em vez de ser cortado.",
+  3440: "Limite de {0} h atingido: além disso, seu herói para de progredir.",
 };

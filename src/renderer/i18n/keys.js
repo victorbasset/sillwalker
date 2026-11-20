@@ -3441,5 +3441,6 @@ export const KEYS = [
   "Bande : les annonces (butin légendaire, nouveau record, événement) ne se chevauchent plus entre elles ni sur la bulle de parole du héros.",
   "Mode mini : deux moments qui arrivent ensemble (« Légendaire ! » puis « Nouveau record ») s’affichent l’un après l’autre.",
   "Familiers et Boutique : le temps restant indique l’unité de chaque nombre dans toutes les langues.",
-  "Bande : avec un nom de zone long, l’événement en cours s’abrège (⏳ et les secondes) au lieu d’être coupé."
+  "Bande : avec un nom de zone long, l’événement en cours s’abrège (⏳ et les secondes) au lieu d’être coupé.",
+  "Plafond de {0} h atteint : au-delà, ton héros ne progresse plus."
 ];

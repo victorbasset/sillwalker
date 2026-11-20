@@ -571,7 +571,8 @@ export class Panel {
       </ul></div><div>
       ${this.todoHtml()}
       <p class="note">${sum.capped
-        ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH })
+        // (it. 2826) la constellation de la Lune n'est citée qu'une fois l'Ascension ouverte (un débutant ne la connaît pas encore)
+        ? (tabOpen(this.game.S, "ascension") ? tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus. La constellation de la Lune l’allonge.", { 0: sum.capH }) : tx("Plafond de {0} h atteint : au-delà, ton héros ne progresse plus.", { 0: sum.capH }))
         : tx("La progression hors ligne est plafonnée à {0} h et rapporte un peu moins que de laisser le jeu ouvert.", { 0: sum.capH || 8 })}</p></div></div>`;
     // (it. 2143) bilan long (plus de 11 lignes : absence riche, tous les automatismes) : sur deux colonnes, les deux tiers de la
     // largeur (pire cas mesuré : 21 lignes, 193 px de défilement en russe à 1280 px)

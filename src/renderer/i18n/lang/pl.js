@@ -2312,4 +2312,5 @@ export default {
   3437: "Tryb mini: dwa momenty naraz („Legendarny!”, potem „Nowy rekord”) wyświetlają się jeden po drugim.",
   3438: "Pupile i Sklep: pozostały czas podaje jednostkę każdej liczby we wszystkich językach.",
   3439: "Pasek: przy długiej nazwie strefy trwające wydarzenie jest skracane (⏳ i sekundy) zamiast obcinane.",
+  3440: "Osiągnięto limit {0} godz.: dalej bohater nie robi postępów.",
 };
