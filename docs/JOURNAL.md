@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3036) Autotest : contrôle de l'it. 3035 (icône sous une pastille : départ 46 px, rangée 26 px ; ailleurs inchangé) ; 343/343. Bannières vérifiées : première ligne à 22 px, sous la rangée.
 - 2026-11-21 (it. 3035) Bande à 1280 px : les icônes de sorts lancés (héros, compagnon) et de sort appris montaient sur la pastille de
   gauche de la rangée d'informations (le héros y combat dessous ; à 1920 px, il est plus à droite). strip.js iconTop : sous une pastille,
   départ assez bas pour finir la montée sous la rangée, comme les nombres (it. 1571). Mesuré (partie d'une semaine, 1280 px, 15 s) :
