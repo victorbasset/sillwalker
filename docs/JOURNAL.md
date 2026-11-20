@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2903) docs/POUR-VICTOR.md : récapitulatif de la journée (changements du jeu, questions, outils) en tête.
 - 2026-11-20 (it. 2902) Mesure : partie de fin de partie (fixture, record 150 = mur), 30 min simulées : 77 victoires, 6 défaites (toutes contre
   le boss de la zone 150), combat 94 % du temps, ≈ 20 s par monstre ; zones 149-150. C'est le mur du record (l'ascension le franchit),
   pas un défaut ; explique les 91 victoires en 28 min de l'it. 2900.

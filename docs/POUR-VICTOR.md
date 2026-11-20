@@ -4,6 +4,16 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Journée du 20/11 en bref (it. 2857-2903)
+
+- **Changé dans le jeu** (« Quoi de neuf » édition 166) : champions battables (95 % → 23-46 % de défaites, it. 2874) ; plus de quête de
+  chasse avant la Carte du voyageur (+25 % de quêtes accomplies en 2 h, it. 2873) ; quêtes renouvelées à l'ouverture de l'onglet Quêtes
+  (it. 2868) ; élites et champions de l'absence payés comme en jeu (it. 2886) ; « 15 % » espacé en pt, pl, ru (it. 2858-2860).
+- **À toi de dire** (détails plus bas) : chasses lentes après la Carte (it. 2869) ; combien doit rapporter une absence (it. 2886-2888) ;
+  pourcentages collés en pt et pl (it. 2859) ; écart entre sortes d'élites et or en fin de course (Idées du journal, it. 2877, 2896).
+- **Nouveaux outils** : scripts/quest-pace.mjs (rythme des quêtes), scripts/fight-odds.mjs (défaites par adversaire).
+
+
 ## Version 0.1.7 (envoyée sur itch.io le 18/11, it. 2346) : reste à publier le devlog
 
 - En ligne (butler) : windows #2430814, linux #2430816, mac #2430820 ; fichiers et SHA256-0.1.7.txt dans Médias/dist-itch.
