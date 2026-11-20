@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2942) Contrôle périodique : fuzz 1200 parties, 0 bloquées ; stall-check 60 parties, 0 figées.
 - 2026-11-20 (it. 2941, REVUE GÉNÉRALE) : 12 h : guerrier 64, paladin 65, artificier 59 ; --perf (charge 2,4) : 19,8 / 19,4 %, mini 5,6 %,
   icône 0,43 % ; texte espagnol sans français (« le » = pronom espagnol : « la manada le responde ») ; résumé d'absence allemand à 1280 :
   propre, le déblocage (« Kaufen: Karte des Reisenden ») 4e, après le sac et les quêtes (it. 2936). Rien à corriger.
