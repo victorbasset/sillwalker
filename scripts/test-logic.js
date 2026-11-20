@@ -69,7 +69,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, tale
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T, CHAMPION as CHAMPION_T } from "../src/renderer/game/data.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { POUPOUCE as POUPOUCE_1730, MONSTERS as MONSTERS_1730 } from "../src/renderer/game/data.js";
 import { NPCS as NPCS_1739, npcLine as npcLine1739 } from "../src/renderer/game/npcs.js";
@@ -327,6 +327,18 @@ test("absence (it. 2886) : les élites vaincues hors ligne rapportent leur or et
   };
   const without = run(0), withE = run(200);
   assert.ok(withE.gold > without.gold * 1.2, `or avec élites ${withE.gold} contre ${without.gold}`);
+});
+
+test("absence (it. 2905) : chaque champion vaincu hors ligne laisse son objet épique", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 20; g.S.lvl = 60; g.invalidateStats();
+  g.S.bag = []; g.S.bagSize = 400; g.S.autoSell = {};
+  const old = CHAMPION_T.chance;
+  CHAMPION_T.chance = 1; // un champion par victoire, le temps de l'absence
+  try { g.applyOffline(600); } finally { CHAMPION_T.chance = old; }
+  const champs = g.S.stats.champions || 0, epics = g.S.bag.filter((it) => it.r >= CHAMPION_T.minRarity).length;
+  assert.ok(champs > 5, `champions ${champs}`);
+  assert.ok(epics >= champs, `objets épiques ${epics} pour ${champs} champions`);
 });
 
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {

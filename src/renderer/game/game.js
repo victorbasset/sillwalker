@@ -1538,15 +1538,16 @@ export class Game {
     let best = -1, bestItem = null, onGround = 0, bestLost = null; // (it. 2523) bestLost : le plus rare ni gardé (sol, vente auto)
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
     let ppLeg = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
-    for (let i = 0; i < drops + poupouce; i++) {
-      const it = this.newItem(i < drops ? 0 : LEGENDARY);
+    // (it. 2905) chaque champion vaincu pendant l'absence laisse aussi son objet épique garanti, comme en jeu et comme Poupouce
+    for (let i = 0; i < drops + poupouce + champs; i++) {
+      const it = this.newItem(i < drops ? 0 : i < drops + poupouce ? LEGENDARY : CHAMPION.minRarity);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
       if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)
       const autoSold = !!(S.autoSell[RARITIES[it.r].id] && hasUnlock(S, "autoSell"));
       const kept = this.addToBag(it, true);
       if (!kept && !autoSold) onGround++; // (it. 1219) sac plein : resté au sol, signalé dans le résumé d'absence
-      if (kept && i >= drops) ppLeg++;
+      if (kept && i >= drops && i < drops + poupouce) ppLeg++;
       if (!kept && (!bestLost || it.r > bestLost.r)) bestLost = it;
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
