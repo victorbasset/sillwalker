@@ -4,7 +4,7 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Soirée du 20/11 (it. 2961-3013) : une partie d'une semaine passée au crible
+## Soirée du 20/11 (it. 2961-3015) : une partie d'une semaine passée au crible
 
 - **Plantage corrigé** (it. 2978, introduit le matin même à l'it. 2944, jamais publié) : le retour d'absence d'un héros avancé (bonus de
   coffres) plantait. Et désormais, une erreur dans ce calcul ne peut plus bloquer le démarrage du jeu (it. 2979).
@@ -17,6 +17,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   Aussi : un onglet ou le dessin de la bande en erreur n'arrête plus le reste ni ne se répète 30 fois par seconde (it. 3002, 3010) ;
   le journal errors.log n'écrit plus 30 fois par seconde la même erreur (it. 3003) ; une page qui plante en boucle n'est plus rechargée
   sans fin (3 fois par minute au plus, it. 3012). Rien de visible en jeu normal ; l'autotest dure 157 s au lieu de 166 (it. 3007).
+- **À vérifier chez toi (Windows), seulement si l'occasion se présente** : si le jeu cesse de se recharger après des plantages en série,
+  l'infobulle de l'icône de notification dit « Sillwalker s'est arrêté : quitte-le puis relance-le » (it. 3014 ; impossible à voir
+  sur le serveur, les essais tournent sans icône).
 - Édition 171 de « Quoi de neuf » (grands nombres lisibles). Mesures automatiques étendues à la partie d'une semaine : débordements,
   parties figées, sauvegardes abîmées, performance (PERF_SAVE) ; mémoire stable.
 

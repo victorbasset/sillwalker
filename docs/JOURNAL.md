@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3015) POUR-VICTOR : l'infobulle « Sillwalker s'est arrêté » (it. 3014) ajoutée aux vérifications à faire sous Windows.
 - 2026-11-20 (it. 3014) Suite de l'it. 3012 : quand le rechargement automatique s'arrête (page tombée trop souvent), l'infobulle de l'icône de
   notification dit « Sillwalker s'est arrêté : quitte-le puis relance-le » (main/i18n.js, 10 langues ; aucune fenêtre, pas de vol de
   focus). Essai TEMP (5 plantages, --ghost donc sans icône) : aucune erreur, une ligne au journal. Infobulle non vérifiable sous --ghost.
