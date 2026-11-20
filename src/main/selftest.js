@@ -662,6 +662,17 @@ async function runSelfTest(strip) {
   check("retour d'absence : meilleur butin déjà équipé, nommé", await js("(() => { const w = Object.values(window.__game.S.equip).find(Boolean); const t = document.querySelector('#modal:not([hidden]) .lines')?.textContent || ''; return t.includes('(') && !document.querySelector('#modal [data-action=reveal-equip]'); })()"));
   await js("document.querySelector('#modal [data-action=closemodal]')?.click()");
   await sleep(150);
+  // (it. 2764) déblocage acheté depuis « À faire maintenant » : la ligne qu'il rend faisable d'un clic devient « ✦ » sur place
+  {
+    const r = await js(`(() => { const g = window.__game, S = g.S, had = S.unlocks.bulkEquip, keepUp = g.hasUpgradeCached; delete S.unlocks.bulkEquip; g.hasUpgradeCached = () => true;
+      try { window.__showOffline({ duration: '1 h', zone: 'Zone', kills: 10, gold: 10, xp: 10, newLevel: 0, kept: 0, best: -1, feathers: 0, chests: 0, capped: false, capH: 10 });
+        const m = document.querySelector('#modal'), all = () => [...m.querySelectorAll('.linkbtn')], link = m.querySelector('button[data-todo="upgrade"]');
+        if (!link) return 'pas de lien « upgrade »'; const i = all().indexOf(link);
+        S.unlocks.bulkEquip = true; window.__panel.refreshTodoLinks(link.parentElement);
+        const now = all()[i]; return now && now.dataset.action === 'todo-do' && now.dataset.what === 'upgrade' && now.textContent.startsWith('✦') ? 'ok' : 'ligne ' + i + ' : ' + (now && now.outerHTML.slice(0, 80));
+      } finally { g.hasUpgradeCached = keepUp; if (had) S.unlocks.bulkEquip = had; else delete S.unlocks.bulkEquip; document.querySelector('#modal [data-action=closemodal]')?.click(); } })()`);
+    check("retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, sur place", r === "ok", r);
+  }
   // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
   await click('[data-tab="adventure"]');
   await js("(() => { const S = window.__game.S; window.__panel.sinceVisit = window.__game.visitSummary({ t: Date.now() - 42 * 60000, gold: 0, kills: 0, lvl: Math.max(1, S.lvl - 2), asc: S.prestige.count, leg: 0, best: 0 }); window.__panel.renderAll(); })()");

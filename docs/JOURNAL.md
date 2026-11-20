@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2765) Autotest : « retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, sur place » (Œil du
+  connaisseur retiré, amélioration simulée, résumé factice, refreshTodoLinks : la même ligne devient « ✦ » todo-do). OK ; avant l'it. 2764,
+  aucun bouton data-todo. npm test 378, autotest 332/332.
 - 2026-11-20 (it. 2764) Résumé d'absence : acheter un déblocage depuis « À faire maintenant » (« ✦ Acheter : Œil du connaisseur », dernière
   ligne du débutant au sac plein) ne changeait rien aux autres lignes : « Un objet plus puissant t'attend dans le sac → » restait un lien
   vers le sac. Les lignes rendues faisables d'un clic deviennent « ✦ … » SUR PLACE (panel.js refreshTodoLinks, data-todo ; aucune ligne
