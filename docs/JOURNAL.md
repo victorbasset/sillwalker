@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2760) Espagnol : tutoiement cohérent (aucun « usted », « vosotros »), « Haz clic » partout ; le seul mot propre à
+  l'Espagne, « ordenador » (clé 523, bande jour/nuit), devient « PC », compris de part et d'autre de l'Atlantique. npm test 378.
 - 2026-11-20 (it. 2759) Contrôle des variantes d'écriture : zh.js sans caractère traditionnel (這 個 們 會 說 開 點 戰 級 裝 備 寵…) ; ja.js
   sans caractère simplifié chinois (这 说 们 对 开 战 级…, seuls 装 点 与, japonais corrects) ; ko.js sans hanja. Rien à corriger.
 - 2026-11-20 (it. 2758) npm test : « le portugais reste brésilien » (test-logic : guillemets « », tua/teu, clica, ecrã, por vezes, -te…

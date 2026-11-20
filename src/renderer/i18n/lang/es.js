@@ -73,7 +73,7 @@ export default {
   492: "¡Iai! ", 493: "Iaido", 494: "Iaijutsu: cada 4.º golpe de un combate es un crítico garantizado que inflige +50 % de daño.", 495: "Ignívora, madre de los guivernos", 496: "¡Huye!", 497: "Inmortal", 498: "Imposición de manos",
   499: "Escurridizo, y cada golpe crítico duele.", 500: "Instinto", 501: "Invocador, a distancia", 502: "Invocación", 503: "Inquebrantable", 504: "Perneras", 505: "Día de fortuna", 506: "Día de furia", 507: "Día de la muralla",
   508: "Día del saber", 509: "Día del viento", 510: "Diario", 511: "Juicio", 512: "Jungla Asfixiante", 513: "Kenjutsu", 514: "La Lechuza", 515: "El Cometa", 516: "La Corona", 517: "El Frasco", 518: "La Luna", 519: "La Moneda",
-  520: "El Camino", 521: "La Torre", 522: "La Viuda de las Cloacas", 523: "La franja sigue la hora de tu ordenador.", 524: "La primera flecha decide el combate.",
+  520: "El Camino", 521: "La Torre", 522: "La Viuda de las Cloacas", 523: "La franja sigue la hora de tu PC.", 524: "La primera flecha decide el combate.",
   525: "El progreso sin conexión está limitado a 8 h y rinde algo menos que dejar el juego abierto.", 526: "La velocidad es la bonificación más valiosa: ¡busca las plumas del viento y haz clic en las estrellas fugaces!", 527: "Deja rastros ardientes.",
   528: "Hoja", 529: "Hoja celestial", 530: "Hoja del instante", 531: "Hoja del crepúsculo", 532: "Hojas", 533: "Hojas envenenadas: cada golpe añade una carga de veneno (15 % del ataque por segundo, 5 cargas máx., 4 s). +10 % de esquiva.",
   534: "Lanza", 535: "Iniciar con Windows", 536: "Conejo", 537: "El Escudo", 538: "El Cáliz", 539: "El Caballero Negro", 540: "El Herrero de Hueso", 541: "El Guerrero", 542: "La Serpiente",
