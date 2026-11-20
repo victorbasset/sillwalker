@@ -2330,4 +2330,6 @@ export default {
   3455: "Pełna torba: skrzynia ze skarbem znaleziona po drodze robi miejsce, sprzedając najtańszy zbędny przedmiot, jak ta ze sklepu.",
   3456: "Podsumowanie nieobecności mówi, ile epickich przedmiotów zostawili pokonani czempioni.",
   3457: "Poprawka: przy pełnej torbie skrzynia ze skarbem znaleziona po drodze nie sprzedaje już przedmiotu, by zrobić miejsce; jej łup zostaje na ziemi, jak każdy łup.",
+  3458: "Bardzo długie gry: bardzo duże liczby zapisywane są literami (Ud, Dd… aż do Vg) zamiast notacji naukowej; po najechaniu kafelki bohatera nie pokazują już długich rzędów cyfr.",
+  3459: "Kafelki bohatera i zakładka Wniebowstąpienie pozostają czytelne przy bardzo dużych liczbach, nawet na ekranie laptopa.",
 };

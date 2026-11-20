@@ -2330,4 +2330,6 @@ export default {
   3455: "Full bag: a treasure chest found on the way makes room by selling the cheapest useless item, like the shop's.",
   3456: "The away summary tells how many epic items the defeated champions left.",
   3457: "Correction: with a full bag, a treasure chest found on the way no longer sells an item to make room; its loot stays on the ground, like any loot.",
+  3458: "Very long games: very large numbers are written with letters (Ud, Dd… up to Vg) instead of scientific notation; on hover, the hero's tiles no longer show long rows of digits.",
+  3459: "The hero's tiles and the Ascension tab stay readable with very large numbers, even on a laptop screen.",
 };

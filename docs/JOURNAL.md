@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2988) « Quoi de neuf » édition 171 (2 nouveautés, clés 3458-3459 traduites dans les 9 langues, i18n-check 0) : grands
+  nombres en lettres jusqu'à Vg et bulles des cases du héros (it. 2972, 2974) ; cases et Ascension lisibles avec de très grands nombres
+  (it. 2975-2976). Le plantage de l'it. 2978 n'est pas annoncé (jamais publié). Autotest 340/340.
 - 2026-11-20 (it. 2987) Contrôle : texte russe de la partie d'une semaine : mots latins = noms propres, touches, langues et suffixes des grands nombres (Ud, Dc, Sp, Dd : décision 5 de Victor). Rien à corriger.
 - 2026-11-20 (it. 2986) POUR-VICTOR : décision 9 ajoutée (coût d'une partie avancée, mesures des it. 2984-2985, recommandation).
 - 2026-11-20 (it. 2985) Contrôle : parts du surcoût d'une partie d'une semaine (nombres flottants 1-2,4 points, effets de combat ≈ 3, le reste les personnages) ; noté dans l'idée P3 de l'it. 2984, rien de changé.

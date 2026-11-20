@@ -2330,4 +2330,6 @@ export default {
   3455: "Bolsa llena: un cofre del tesoro encontrado en el camino hace sitio vendiendo el objeto inútil más barato, como el de la tienda.",
   3456: "El resumen de ausencia dice cuántos objetos épicos dejaron los campeones vencidos.",
   3457: "Corrección: con la bolsa llena, un cofre del tesoro encontrado en el camino ya no vende un objeto para hacer sitio; su botín queda en el suelo, como todo botín.",
+  3458: "Partidas muy largas: los números muy grandes se escriben con letras (Ud, Dd… hasta Vg) en lugar de notación científica; al pasar el cursor, las casillas del héroe ya no muestran largas filas de cifras.",
+  3459: "Las casillas del héroe y la pestaña Ascensión siguen legibles con números muy grandes, incluso en la pantalla de un portátil.",
 };

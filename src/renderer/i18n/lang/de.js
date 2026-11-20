@@ -2330,4 +2330,6 @@ export default {
   3455: "Tasche voll: Eine unterwegs gefundene Schatztruhe macht Platz, indem sie den billigsten nutzlosen Gegenstand verkauft, wie die aus dem Laden.",
   3456: "Die Abwesenheitsübersicht nennt, wie viele epische Gegenstände die besiegten Champions hinterlassen haben.",
   3457: "Korrektur: Bei voller Tasche verkauft eine unterwegs gefundene Schatztruhe keinen Gegenstand mehr, um Platz zu machen; ihre Beute bleibt liegen, wie jede Beute.",
+  3458: "Sehr lange Partien: Sehr große Zahlen werden mit Buchstaben geschrieben (Ud, Dd… bis Vg) statt in wissenschaftlicher Schreibweise; beim Überfahren zeigen die Heldenfelder keine langen Ziffernreihen mehr.",
+  3459: "Die Heldenfelder und der Reiter Aufstieg bleiben bei sehr großen Zahlen lesbar, auch auf einem Laptop-Bildschirm.",
 };
