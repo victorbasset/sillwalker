@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2845) Contrôle : lang-overflow complet après les éditions 163-165 et les textes ajoutés depuis l'it. 2779 : « aucun
+  défilement ni mot coupé ». Rien à corriger.
 - 2026-11-20 (it. 2844) mem-watch 10 min en mode mini (file des moments, voyant du résumé : it. 2746, 2782) : 500-515 Mo de 360 à 570 s,
   plat (repère 505-518). Pas de fuite.
 - 2026-11-20 (it. 2843) Chinois : en-tête du résumé d'absence « 你的英雄刷了 闷热丛林，… » : espace en trop avant le nom de la zone (clé 914),
