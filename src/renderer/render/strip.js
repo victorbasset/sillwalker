@@ -363,7 +363,7 @@ export class StripRenderer {
       if (rank > 1 && rank % 10 === 0) { this.juice.banner(tx("{0} : recharge −10 % !", { 0: tr(sp.name) }), sp.color, this.heroX + 80, false); return; }
       if (rank !== 1) return;
       this.juice.banner(tx("Nouveau sort : {0} !", { 0: tr(sp.name) }), sp.color, this.heroX + 80, true);
-      const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(sp.tpl, sp.color, 3, sp.fx?.[0]); this.addFx(ic, this.heroX + 2, 4, 1.4, 26);
+      const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(sp.tpl, sp.color, 3, sp.fx?.[0]); this.addFx(ic, this.heroX + 2, this.iconTop(this.heroX + 2, 4, 26), 1.4, 26);
       if (this.juice.full) this.juice.sparkles(this.heroX + 16, this.ground - 30, sp.color, 10);
     });
     // Sort perçant (demande H) : le monstre suivant arrive déjà blessé.
@@ -647,7 +647,7 @@ export class StripRenderer {
     this.float(hx, 2, tr(sp.name), c, true); // le nom du sort, en grand
     // Sort maîtrisé (rang maximal, it. 544) : un éclat d'étoiles dorées autour du lanceur.
     if (full && spellRank(this.game.S, sp.id) >= SPELL_MAX) this.juice.sparkles(hx, this.ground - 34, "#ffd34d", 8);
-    { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3, sp.fx?.[0]); this.addFx(ic, hx - 14, 6, 0.9, 18); } // son icône, qui monte
+    { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3, sp.fx?.[0]); this.addFx(ic, hx - 14, this.iconTop(hx - 14, 6, 18), 0.9, 18); } // son icône, qui monte
     if (tpl === "bolt") {
       fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22);
       later(60, () => fx("bolt", mx + 6, 0, 0.35)); ring(mx + 6, G - 20);
@@ -685,6 +685,14 @@ export class StripRenderer {
     const f = el("div", "proj " + kind + " t" + tier, this.fxLayer);
     f.style.setProperty("--c", color);
     this.addFx(f, x0, y, 0.16, 0, x1 - x0, true);
+  }
+
+  /** (it. 3035) Départ d'une icône qui monte (sort lancé, sort appris) : sous une pastille de la rangée du haut, elle part assez bas pour
+   *  finir sa montée sous la rangée, comme les nombres (it. 1571). À 1280 px, le héros combat sous la pastille de gauche et les icônes
+   *  de sorts (partie avancée : héros et compagnon) passaient sur ses points de progression. */
+  iconTop(x, y, rise, w = 24) {
+    const hb = this.hudBands();
+    return hb.bands.some(([a, b]) => x + w > a && x < b) ? Math.max(y, hb.h + rise + 2) : y;
   }
 
   addFx(node, x, y, life, rise, dx = 0, keep = false) {

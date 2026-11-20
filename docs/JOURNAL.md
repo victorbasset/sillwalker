@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3035) Bande à 1280 px : les icônes de sorts lancés (héros, compagnon) et de sort appris montaient sur la pastille de
+  gauche de la rangée d'informations (le héros y combat dessous ; à 1920 px, il est plus à droite). strip.js iconTop : sous une pastille,
+  départ assez bas pour finir la montée sous la rangée, comme les nombres (it. 1571). Mesuré (partie d'une semaine, 1280 px, 15 s) :
+  330 apparitions d'icônes sur la rangée avec l'ancien code, 0 avec le nouveau ; capture vérifiée. Autotest 342/342.
 - 2026-11-21 (it. 3034) Vérifié le constat de l'it. 3033 : sellValue (rules.js) = 5 × niveau × rareté² × (1 + 0,3 × améliorations), linéaire face à un or exponentiel ; cause ajoutée à la décision 8 de POUR-VICTOR.
 - 2026-11-21 (it. 3033) Capture de la partie d'une semaine (animations réduites) : vendre 48 objets inutiles de niveau 345-353 rapporte 123 k d'or pour 2,26 Dd en poche ; ajouté comme cas concret à la décision 8 de POUR-VICTOR (règle inchangée).
 - 2026-11-21 (it. 3032) Contrôle : partie d'une semaine avec --reduced-motion, panneau ouvert, 25 s : aucune erreur, pas d'errors.log.
