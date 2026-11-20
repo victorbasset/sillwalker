@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2938) Autotest « proie en meute » stabilisé : un essai de 2 s variait de +17 à -14 px (8 essais d'affilée ; vie propre, jour et
+  nuit à l'heure réelle) ; médiane de 3 essais d'abord (encore un échec à -3 sur 3 autotests), puis seuil -4 → -2,5 (l'ancien ordre des règles
+  donnait ≈ -2 : marge mince). 3 autotests de suite : 339/339, -6 à chaque fois ; ≈ 164 s (+7 s).
 - 2026-11-20 (it. 2937) « Quoi de neuf », édition 168 : « À faire maintenant » sans défilement et lien vers la liste complète (it. 2919-2934),
   déblocage après les quêtes (it. 2936), deux colonnes dans la carte du héros (it. 2920) ; clés 3450-3452, 9 langues (libellés cités tels
   que traduits). npm test 388 ; autotest 338/339 puis 339/339 deux fois (« proie en meute » instable, noté P2) ; lang-overflow : aucun.
@@ -9280,7 +9283,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
+- FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
   longues phrases de l'édition 167 (aucun), résumé polonais après 8 h d'absence à 1280 (dépassement 0), nouvelle passe « all » (aucun).
