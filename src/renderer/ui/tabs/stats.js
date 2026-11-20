@@ -25,8 +25,9 @@ const dur = (s) => {
   s = Math.floor(s || 0);
   const d = Math.floor(s / 86400), h = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60);
   // (it. 925) avec des jours, sans les minutes : la valeur reste courte (en russe à 1280 px, le libellé passait dessous)
-  if (d) return tx("{0} j", { 0: d }) + " " + uH(h);
-  return (h ? uH(h) + " " : "") + uMin(m);
+  // (it. 2818) sans partie nulle : « 3 j » et non « 3 j 0 h », « 2 h » et non « 2 h 0 min » (comme durText)
+  if (d) return tx("{0} j", { 0: d }) + (h ? " " + uH(h) : "");
+  return h ? uH(h) + (m ? " " + uMin(m) : "") : uMin(m);
 };
 
 // Carnet de route : grandes étapes datées de la partie (game.milestone), les plus récentes d'abord.
