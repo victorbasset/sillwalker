@@ -36,6 +36,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 6. Creuset et vente automatique consomment les objets FORGÉS devenus inutiles (it. 19/11) [garder : sinon le sac se bouche]
 7. Points du grand graphe en surplus : où les placer (it. 2352) ; boutons des cartes de héros à 1280 px (it. 2236) [à voir en jouant]
 8. Écart entre sortes d'élites (18 à 50 % de défaites) et or inutile en fin de course (Idées, it. 2877, 2896) [pas urgent]
+   Cas concret (it. 3033, partie d'une semaine) : vendre les 48 objets inutiles du sac (niveau 345-353) rapporte 123 k d'or en tout, pour
+   2,26 Dd (≈ 2e39) d'or en poche : en fin de partie la vente ne compte plus. Piste : prix de vente qui suit l'or de la zone.
 9. Partie avancée plus gourmande : après une semaine, la bande prend ≈ 26 % d'un cœur (contre ≈ 20 % en début de partie ; chez toi, le
    Gestionnaire des tâches donnait 19,8 % à l'it. 763). Aucune source dominante (it. 2984-2985) : nombres flottants 1-2 points, effets
    de combat ≈ 3, compagnon/serviteur/drone ≈ 3. Alléger (moins de nombres quand plusieurs sources frappent, effets du compagnon plus
