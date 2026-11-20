@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2867) Rectificatif de l'it. 2866 : agrandie, la capture montre « Crit 258 k » (coup critique), pas une bulle « Oui »
+  recouverte. Aucun chevauchement ; d'ailleurs la bulle (z-index 6) passe au-dessus des nombres (4). Rien à corriger.
 - 2026-11-20 (it. 2866) Recherche d'amélioration : retour après 3 h (fr, 1366 px) et partie neuve à 75 s : propres. Un nombre de dégâts
   recouvrait la bulle « Oui » du héros sur une capture : les nombres évitent déjà la bulle (strip.js speechObstacle, it. 1653) ; le nombre
   était sans doute né avant la bulle. Pas de changement.
