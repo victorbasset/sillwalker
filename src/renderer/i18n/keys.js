@@ -3434,5 +3434,6 @@ export const KEYS = [
   "Ton résumé d’absence t’attend : clique pour agrandir.",
   "Retour d’absence : le résumé passe avant les autres bulles, et ne se perd plus quand le jeu démarre en mode mini ou réduit en icône (lancement avec Windows) : il attend que tu ouvres la bande.",
   "Retour d’absence : même après une courte absence, un débutant rapporte parfois un objet.",
-  "Bande : la bulle de parole du héros ne passe plus sur les barres de vie ni sur le nom du boss."
+  "Bande : la bulle de parole du héros ne passe plus sur les barres de vie ni sur le nom du boss.",
+  "Déjà fait"
 ];

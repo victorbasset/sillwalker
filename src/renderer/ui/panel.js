@@ -607,6 +607,8 @@ export class Panel {
     for (const el of box.querySelectorAll("button[data-todo]")) {
       const t = now.find((x) => x.id === el.dataset.todo);
       if (t && this.todoDirect(t)) el.outerHTML = this.todoDoBtn(t);
+      // (it. 2766) plus rien à faire (le sac n'est plus plein après « Équiper le meilleur »…) : « ✓ », grisée, à sa place
+      else if (!t && !el.disabled) { el.disabled = true; el.textContent = "✓ " + el.textContent.replace(/ →$/, ""); el.title = tx("Déjà fait"); }
     }
   }
 
@@ -1198,7 +1200,7 @@ export class Panel {
     }
     if (a === "chron-play") { this.game.emit("chronicleReplay", { id: b.dataset.id }); return; }
     if (a === "relic-play") { this.game.emit("relicReplay", { id: b.dataset.id }); return; } // (it. 631) revoir la scène d'une relique
-    if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); return; }
+    if (a === "todo-do") { this.todoDo(b.dataset.what); b.disabled = true; b.textContent = "✓ " + b.textContent.replace(/^✦ /, ""); this.renderAll(); this.refreshTodoLinks(b.parentElement); return; }
     if (a === "release-nav") { const r = NEWS_RELEASES.find((x) => x.version === b.dataset.v); if (r) this.showRelease(r); return; } // (it. 2614)
     if (a === "news-older") { this.showNews(+b.dataset.seen || 0, +b.dataset.skip || 0); return; } // (it. 2594)
     if (a === "goal-buy") { g.buyUnlock(b.dataset.id); b.disabled = true; b.textContent = "✓ " + b.textContent; this.renderAll(); this.refreshTodoLinks(b.parentElement); return; } // le résumé d'absence reste ouvert

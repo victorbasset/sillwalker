@@ -2305,4 +2305,5 @@ export default {
   3430: "Returning: the absence summary now comes before other bubbles, and is no longer lost when the game starts in mini mode or minimized to its icon (launched with Windows): it waits until you open the strip.",
   3431: "Returning: even after a short absence, a beginner sometimes brings back an item.",
   3432: "Strip: the hero’s speech bubble no longer covers the health bars or the boss name.",
+  3433: "Already done",
 };

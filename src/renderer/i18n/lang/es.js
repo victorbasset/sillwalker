@@ -2305,4 +2305,5 @@ export default {
   3430: "Regreso: el resumen de ausencia pasa antes que las demás burbujas y ya no se pierde cuando el juego arranca en modo mini o minimizado en su icono (al iniciar Windows): espera a que abras la banda.",
   3431: "Regreso: incluso tras una ausencia corta, un principiante a veces trae un objeto.",
   3432: "Banda: la burbuja de diálogo del héroe ya no tapa las barras de vida ni el nombre del jefe.",
+  3433: "Ya hecho",
 };

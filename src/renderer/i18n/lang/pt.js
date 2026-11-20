@@ -2305,4 +2305,5 @@ export default {
   3430: "Volta da ausência: o resumo passa à frente dos outros balões e não se perde mais quando o jogo inicia no modo mini ou minimizado no ícone (iniciado com o Windows): ele espera você abrir a faixa.",
   3431: "Volta da ausência: mesmo após uma ausência curta, um novato às vezes traz um item.",
   3432: "Faixa: o balão de fala do herói não cobre mais as barras de vida nem o nome do chefe.",
+  3433: "Já feito",
 };

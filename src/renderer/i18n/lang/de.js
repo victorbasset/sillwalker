@@ -2305,4 +2305,5 @@ export default {
   3430: "Rückkehr: Die Abwesenheitsübersicht kommt vor anderen Blasen und geht nicht mehr verloren, wenn das Spiel im Mini-Modus oder als Symbol startet (Start mit Windows): Sie wartet, bis du die Leiste öffnest.",
   3431: "Rückkehr: Auch nach kurzer Abwesenheit bringt ein Anfänger manchmal einen Gegenstand mit.",
   3432: "Leiste: Die Sprechblase des Helden verdeckt keine Lebensbalken und keinen Bossnamen mehr.",
+  3433: "Bereits erledigt",
 };

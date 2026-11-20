@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2766) Résumé d'absence, suite de l'it. 2764 : après une action « ✦ » ou un achat, une ligne qui n'a plus lieu d'être
+  passe à « ✓ », grisée, à sa place, bulle « Déjà fait » (clé 3433, 10 langues). Mesuré (débutant, 8 h) : Œil acheté puis « ✦ Un objet
+  plus puissant… » : sac 24 → 18, « Sac plein : le butin suivant restera au sol » devient « ✓ » (avant : restait un lien périmé).
+  npm test 378, autotest 332/332.
 - 2026-11-20 (it. 2765) Autotest : « retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, sur place » (Œil du
   connaisseur retiré, amélioration simulée, résumé factice, refreshTodoLinks : la même ligne devient « ✦ » todo-do). OK ; avant l'it. 2764,
   aucun bouton data-todo. npm test 378, autotest 332/332.

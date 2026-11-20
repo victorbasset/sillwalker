@@ -2305,4 +2305,5 @@ export default {
   3430: "Powrót: podsumowanie nieobecności wyświetla się przed innymi dymkami i nie ginie, gdy gra startuje w trybie mini lub zminimalizowana do ikony (start z Windows): czeka, aż otworzysz pasek.",
   3431: "Powrót: nawet po krótkiej nieobecności początkujący czasem przynosi przedmiot.",
   3432: "Pasek: dymek bohatera nie zasłania już pasków zdrowia ani imienia bossa.",
+  3433: "Już zrobione",
 };
