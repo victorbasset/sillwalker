@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2882) Contrôle : bande à 21,4 % à la revue 2881 (charge 4,2) ; comparée aussitôt, en alternance, au commit d'avant les
+  changements du jour (2080b62c) : ancien 19,85 / 19,82 %, actuel 19,65 / 19,75 % (charge 0,9). La charge seule. Rien à corriger.
 - 2026-11-20 (it. 2881, REVUE GÉNÉRALE) : 12 h : paladin 65, gladiateur 69, cryomancien 62 ; --perf (charge 4,2, élevée) : 21,4 / 21,1 %,
   mini 5,4 %, icône 0,53 % ; fight-odds arbalétrier 12 h : élites 37 %, champions 50 %, boss 56 % ; Quêtes en coréen 1920 : propre (un
   « point » entre deux mots était une étoile du fond du panneau). Rien à corriger.
