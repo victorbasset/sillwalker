@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2817) Carte du héros, « Depuis ta dernière visite (2 Std. 0 Min.) » : « 0 min » affiché (formateur maison) alors que le
+  résumé d'absence écrit « 2 h » (durText, it. 844). visitHTML passe par durText : « (2 Std.) », « (2 Std. 5 Min.) ». npm test 380,
+  autotest 337/337.
 - 2026-11-20 (it. 2816) Contrôle : temps restant d'un effet actif en Boutique (it. 2787), effet posé par une mise en scène : « 7 時間 59 分 »,
   « 7 Std. 59 Min. », « 7 h 59 ». Rien à corriger.
 - 2026-11-20 (it. 2815) Contrôle : le mot « déblocage » de l'édition 162 suit le vocabulaire du jeu dans les 9 langues (ru « улучшение »

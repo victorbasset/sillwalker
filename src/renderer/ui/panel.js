@@ -391,7 +391,7 @@ export class Panel {
   visitHTML() {
     const v = this.sinceVisit;
     if (!v) return "";
-    const dur = v.min >= 60 ? `${uH(Math.floor(v.min / 60))} ${uMin(v.min % 60)}` : uMin(v.min);
+    const dur = durText(v.min * 60); // (it. 2817) « 2 h » et non « 2 h 0 min » (même écriture que le résumé d'absence)
     const parts = [tx("{0} or", { 0: `<b>+${fmt(v.gold)}</b>` }), txn(v.kills, "{n} monstre|{n} monstres", { n: fmt(v.kills) })];
     if (v.lvl0) parts.push(tx("niveau {0} → {1}", { 0: v.lvl0, 1: v.lvl1 }));
     if (v.asc) parts.push(`<b>${txn(v.asc, "{n} ascension|{n} ascensions")}</b>`);
