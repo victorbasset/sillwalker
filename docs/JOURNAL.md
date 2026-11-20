@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2824) Contrôle : bulle d'absence de la bande (débutant, 8 h) en allemand à 1280 px : tient sur une ligne au-dessus de la
+  bande, chiffres en couleur. Rien à corriger.
 - 2026-11-20 (it. 2823) Contrôle : marques d'aide « .help » (⚠, ⓘ) atteignables au clavier : panel.js leur donne tabindex 0 et role note
   à chaque rendu (9 sans tabindex écrit, tous rattrapés). Rien à corriger.
 - 2026-11-20 (it. 2822) Contrôle : « ⚠ » de la ligne « Gobelin doré » (Statistiques > Probabilités) : bulle « ils s'enfuient : héros trop lent
