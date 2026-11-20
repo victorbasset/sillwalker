@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3029) Contrôle : partie de DEUX semaines (simulate.js 336 warrior : zone 401, niveau 460, or 1,54e44) : --overflow-report
+  ru, de, pl, es à 1280 px : aucun ; texte russe : aucune rangée de chiffres ni notation scientifique (l'expérience du niveau 460 a ses
+  suffixes : l'écriture « e » de l'it. 2762 vers le niveau 400 a disparu avec l'it. 2972). Rien à corriger.
 - 2026-11-21 (it. 3028) CLAUDE.md : une entrée rassemble les usages de la partie d'une semaine (outils, options, régénération).
 - 2026-11-21 (it. 3027) Contrôle : partie d'une semaine en mode « icône seule » 40 s : aucune erreur, pas d'errors.log, 1 victoire (rythme de sa zone record, 5 en 120 s à l'it. 2984).
 - 2026-11-21 (it. 3026) Contrôle « nouveau joueur » : partie neuve en anglais, 90 s de jeu (--speed=3), panneau : deux bottes marquées amélioration et « double-click: equip », prochaine découverte zone 3 et son bonus, annonces « New record » et « Achievement: First boss » empilées sans se gêner. Rien à corriger.
