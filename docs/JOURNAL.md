@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2846) Contrôle : Carte en allemand à 1366 px : propre. Rien à corriger.
 - 2026-11-20 (it. 2845) Contrôle : lang-overflow complet après les éditions 163-165 et les textes ajoutés depuis l'it. 2779 : « aucun
   défilement ni mot coupé ». Rien à corriger.
 - 2026-11-20 (it. 2844) mem-watch 10 min en mode mini (file des moments, voyant du résumé : it. 2746, 2782) : 500-515 Mo de 360 à 570 s,
