@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2889) Contrôle : ouverture des onglets (tab-pace) avant / après les changements du jour (quêtes, champions, absence) : graine 1
+  identique, graines 2 et 3 à ±1 min (Ascension 19 → 22 min sur la graine 2 : trajectoire). Rien à corriger.
 - 2026-11-20 (it. 2888) Mesure absence / jeu (une heure, 3 parties, après l'it. 2886) : expérience 0,51-0,68 (boss exclus hors ligne) ; objets
   tirés à 30 % du taux de jeu, au plus 30 (voulu). Ajouté à la question de POUR-VICTOR. Pas de changement.
 - 2026-11-20 (it. 2887) Après l'it. 2886 : save-fuzz dev 1267 et fin 1225 corruptions, ok. docs/POUR-VICTOR.md : question « combien rapporte
