@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2987) Contrôle : texte russe de la partie d'une semaine : mots latins = noms propres, touches, langues et suffixes des grands nombres (Ud, Dc, Sp, Dd : décision 5 de Victor). Rien à corriger.
 - 2026-11-20 (it. 2986) POUR-VICTOR : décision 9 ajoutée (coût d'une partie avancée, mesures des it. 2984-2985, recommandation).
 - 2026-11-20 (it. 2985) Contrôle : parts du surcoût d'une partie d'une semaine (nombres flottants 1-2,4 points, effets de combat ≈ 3, le reste les personnages) ; noté dans l'idée P3 de l'it. 2984, rien de changé.
 - 2026-11-20 (it. 2984) perf.mjs : option PERF_SAVE=<fichier.json> (mesurer une autre partie). Partie d'une semaine contre dev-data, deux
