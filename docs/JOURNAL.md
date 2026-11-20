@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2914) Images de 525 et 270 ms signalées par l'autotest vers 58 s : pendant « taille de l'interface 130 % » (style et mise
+  en page du panneau entier recalculés, rendu logiciel sous xvfb) ; geste de réglage rare et voulu, pas un à-coup du jeu. Pas de changement.
 - 2026-11-20 (it. 2913) Outil : le bilan de l'autotest affiche sa durée totale (« 337/337 vérifications réussies en 157 s ») ; repère dans
   CLAUDE.md. scripts/selftest.mjs lit toujours le bilan. npm test 387, autotest 337/337.
 - 2026-11-20 (it. 2912) Contrôle : SELFTEST_TIMES=1, 337/337 ; vérifications les plus lentes inchangées (libération 5,6-5,8 s ×3, bannière
