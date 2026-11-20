@@ -2313,4 +2313,7 @@ export default {
   3438: "Pupile i Sklep: pozostały czas podaje jednostkę każdej liczby we wszystkich językach.",
   3439: "Pasek: przy długiej nazwie strefy trwające wydarzenie jest skracane (⏳ i sekundy) zamiast obcinane.",
   3440: "Osiągnięto limit {0} godz.: dalej bohater nie robi postępów.",
+  3441: "Czytelniejsze czasy: „2 godz.” zamiast „2 godz. 0 min”, „3 d” zamiast „3 d 0 godz.” (karta bohatera, Statystyki).",
+  3442: "Powrót początkującego: notka o limicie nie wspomina już konstelacji, której jeszcze nie zna.",
+  3443: "Pasek na ekranie laptopa: dymek bohatera milknie, gdy brakuje miejsca, zamiast zasłaniać pasek zdrowia.",
 };

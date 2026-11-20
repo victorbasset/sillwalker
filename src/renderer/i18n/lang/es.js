@@ -2313,4 +2313,7 @@ export default {
   3438: "Mascotas y Tienda: el tiempo restante indica la unidad de cada número en todos los idiomas.",
   3439: "Banda: con un nombre de zona largo, el evento en curso se abrevia (⏳ y los segundos) en vez de cortarse.",
   3440: "Límite de {0} h alcanzado: más allá, tu héroe deja de progresar.",
+  3441: "Duraciones más limpias: «2 h» en vez de «2 h 0 min», «3 d» en vez de «3 d 0 h» (tarjeta del héroe, Estadísticas).",
+  3442: "Regreso de un principiante: la nota del límite ya no menciona una constelación que aún no conoce.",
+  3443: "Banda en una pantalla de portátil: la burbuja del héroe se calla cuando no hay sitio, en vez de tapar su barra de vida.",
 };

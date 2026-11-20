@@ -2313,4 +2313,7 @@ export default {
   3438: "Pets and Shop: the time left shows the unit of each number in every language.",
   3439: "Strip: with a long zone name, the current event is shortened (⏳ and the seconds) instead of being cut off.",
   3440: "{0} h cap reached: beyond that, your hero stops progressing.",
+  3441: "Cleaner durations: “2 h” instead of “2 h 0 min”, “3 d” instead of “3 d 0 h” (hero card, Statistics).",
+  3442: "A beginner’s return: the cap note no longer mentions a constellation they don’t know yet.",
+  3443: "Strip on a laptop screen: the hero’s speech bubble stays quiet when there’s no room, instead of hiding their health bar.",
 };

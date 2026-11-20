@@ -3442,5 +3442,8 @@ export const KEYS = [
   "Mode mini : deux moments qui arrivent ensemble (« Légendaire ! » puis « Nouveau record ») s’affichent l’un après l’autre.",
   "Familiers et Boutique : le temps restant indique l’unité de chaque nombre dans toutes les langues.",
   "Bande : avec un nom de zone long, l’événement en cours s’abrège (⏳ et les secondes) au lieu d’être coupé.",
-  "Plafond de {0} h atteint : au-delà, ton héros ne progresse plus."
+  "Plafond de {0} h atteint : au-delà, ton héros ne progresse plus.",
+  "Durées plus nettes : « 2 h » au lieu de « 2 h 0 min », « 3 j » au lieu de « 3 j 0 h » (carte du héros, Statistiques).",
+  "Retour d’absence d’un débutant : la note du plafond ne parle plus d’une constellation qu’il ne connaît pas encore.",
+  "Bande sur un écran de portable : la bulle de parole du héros se tait quand elle n’a pas la place, au lieu de cacher sa barre de vie."
 ];

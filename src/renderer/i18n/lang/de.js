@@ -2313,4 +2313,7 @@ export default {
   3438: "Begleiter und Laden: Die Restzeit zeigt in allen Sprachen die Einheit jeder Zahl.",
   3439: "Leiste: Bei langem Zonennamen wird das laufende Ereignis abgekürzt (⏳ und die Sekunden), statt abgeschnitten zu werden.",
   3440: "Grenze von {0} Std. erreicht: Darüber hinaus macht dein Held keine Fortschritte mehr.",
+  3441: "Klarere Dauern: „2 Std.“ statt „2 Std. 0 Min.“, „3 T“ statt „3 T 0 Std.“ (Heldenkarte, Statistik).",
+  3442: "Rückkehr eines Anfängers: Der Hinweis zur Obergrenze erwähnt kein Sternbild mehr, das er noch nicht kennt.",
+  3443: "Leiste auf einem Laptop-Bildschirm: Die Sprechblase des Helden schweigt, wenn kein Platz ist, statt seinen Lebensbalken zu verdecken.",
 };
