@@ -4,7 +4,7 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Soirée du 20/11 (it. 2961-2981) : une partie d'une semaine passée au crible
+## Soirée du 20/11 (it. 2961-3000) : une partie d'une semaine passée au crible
 
 - **Plantage corrigé** (it. 2978, introduit le matin même à l'it. 2944, jamais publié) : le retour d'absence d'un héros avancé (bonus de
   coffres) plantait. Et désormais, une erreur dans ce calcul ne peut plus bloquer le démarrage du jeu (it. 2979).
@@ -12,6 +12,10 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   les bulles « valeur exacte » des tuiles du héros ne montrent plus 20 à 40 chiffres faux (it. 2974).
 - Débordements d'une partie avancée : PV et attaque en milliards coupés en russe, allemand, polonais (it. 2975) ; Ascension en espagnol
   quand toutes les constellations sont au maximum (it. 2976). Une partie d'une semaine fait maintenant partie des mesures automatiques.
+- Filets de sécurité : une erreur au démarrage (absence, succès, bénédiction du jour) n'empêche plus le jeu de s'ouvrir (it. 2979, 2997) ;
+  à la fermeture, une erreur des succès n'empêche plus l'enregistrement final (it. 2998 : sinon jusqu'à 15 s de partie perdues).
+- Édition 171 de « Quoi de neuf » (grands nombres lisibles). Mesures automatiques étendues à la partie d'une semaine : débordements,
+  parties figées, sauvegardes abîmées, performance (PERF_SAVE) ; mémoire stable.
 
 ## Tes décisions en attente, en une ligne chacune (it. 2962) — ma recommandation entre crochets
 

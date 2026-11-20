@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3000) POUR-VICTOR : résumé de la soirée complété (filets de sécurité des it. 2979, 2997, 2998 ; édition 171 ; mesures sur la partie d'une semaine).
 - 2026-11-20 (it. 2999) Contrôle : écriture de la sauvegarde (main/json-file.js, save-store.js) : fichier temporaire, fsync, renommage ;
   secours périodique ; au chargement, récupération du .tmp valide après une fermeture brutale, puis du secours. Rien à corriger.
 - 2026-11-20 (it. 2998) Enregistrement protégé : à la fermeture, une erreur dans la vérification des succès empêchait l'enregistrement
