@@ -2326,4 +2326,7 @@ export default {
   3451: "“O que fazer agora”: o desbloqueio a comprar vem logo depois das missões a receber.",
   3452: "Cartão do herói: uma lista longa de tarefas fica em duas colunas.",
   3453: "(+{n} item épico)|(+{n} itens épicos)",
+  3454: "Enquanto você está fora, os itens mais valiosos são guardados primeiro: lendários de Poupouce, épicos dos campeões, baús e depois o saque do mais raro ao menos raro.",
+  3455: "Bolsa cheia: um baú do tesouro encontrado no caminho abre espaço vendendo o item inútil mais barato, como o da loja.",
+  3456: "O resumo de ausência diz quantos itens épicos os campeões derrotados deixaram.",
 };

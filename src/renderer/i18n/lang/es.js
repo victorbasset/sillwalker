@@ -2326,4 +2326,7 @@ export default {
   3451: "«Qué hacer ahora»: el desbloqueo por comprar va justo después de las misiones por cobrar.",
   3452: "Tarjeta del héroe: una lista larga de tareas se ordena en dos columnas.",
   3453: "(+{n} objeto épico)|(+{n} objetos épicos)",
+  3454: "Mientras no estás, los objetos más valiosos se guardan primero: legendarios de Poupouce, épicos de los campeones, cofres y luego el botín del más raro al menos raro.",
+  3455: "Bolsa llena: un cofre del tesoro encontrado en el camino hace sitio vendiendo el objeto inútil más barato, como el de la tienda.",
+  3456: "El resumen de ausencia dice cuántos objetos épicos dejaron los campeones vencidos.",
 };

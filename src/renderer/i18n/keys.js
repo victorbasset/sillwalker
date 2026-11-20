@@ -3455,5 +3455,8 @@ export const KEYS = [
   "Retour d’absence : « À faire maintenant » ne fait plus défiler la fenêtre ; s’il y a trop de lignes, un lien ouvre la liste complète.",
   "« À faire maintenant » : le déblocage à acheter vient juste après les quêtes à réclamer.",
   "Carte du héros : une longue liste de choses à faire se range sur deux colonnes.",
-  "(+{n} objet épique)|(+{n} objets épiques)"
+  "(+{n} objet épique)|(+{n} objets épiques)",
+  "Pendant ton absence, les objets les plus précieux se rangent en premier : légendaires de Poupouce, épiques des champions, coffres, puis le butin du plus rare au moins rare.",
+  "Sac plein : un coffre au trésor trouvé en chemin fait place en vendant l’objet inutile le moins cher, comme celui de la boutique.",
+  "Le résumé d’absence dit combien d’objets épiques les champions vaincus ont laissés."
 ];

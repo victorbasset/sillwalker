@@ -2326,4 +2326,7 @@ export default {
   3451: "“Things to do now”: the unlock to buy now comes right after the quests to claim.",
   3452: "Hero card: a long to-do list is laid out in two columns.",
   3453: "(+{n} epic item)|(+{n} epic items)",
+  3454: "While you're away, the most precious items are stored first: Poupouce's legendaries, champions' epics, chests, then loot from rarest to least rare.",
+  3455: "Full bag: a treasure chest found on the way makes room by selling the cheapest useless item, like the shop's.",
+  3456: "The away summary tells how many epic items the defeated champions left.",
 };

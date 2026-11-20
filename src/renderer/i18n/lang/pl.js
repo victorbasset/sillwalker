@@ -2326,4 +2326,7 @@ export default {
   3451: "„Do zrobienia teraz”: odblokowanie do kupienia jest zaraz po zadaniach do odebrania.",
   3452: "Karta bohatera: długa lista zadań układa się w dwie kolumny.",
   3453: "(+{n} przedmiot epicki)|(+{n} przedmioty epickie)|(+{n} przedmiotów epickich)",
+  3454: "Podczas nieobecności najcenniejsze przedmioty trafiają do torby pierwsze: legendarne od Poupouce, epickie od czempionów, skrzynie, a potem łup od najrzadszego.",
+  3455: "Pełna torba: skrzynia ze skarbem znaleziona po drodze robi miejsce, sprzedając najtańszy zbędny przedmiot, jak ta ze sklepu.",
+  3456: "Podsumowanie nieobecności mówi, ile epickich przedmiotów zostawili pokonani czempioni.",
 };

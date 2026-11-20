@@ -2326,4 +2326,7 @@ export default {
   3451: "„Jetzt zu tun“: Die zu kaufende Freischaltung steht direkt nach den abholbaren Quests.",
   3452: "Heldenkarte: Eine lange Aufgabenliste wird in zwei Spalten angeordnet.",
   3453: "(+{n} epischer Gegenstand)|(+{n} epische Gegenstände)",
+  3454: "Während deiner Abwesenheit werden die wertvollsten Gegenstände zuerst verstaut: Legendäre von Poupouce, Epische der Champions, Truhen, dann die Beute von der seltensten zur gewöhnlichsten.",
+  3455: "Tasche voll: Eine unterwegs gefundene Schatztruhe macht Platz, indem sie den billigsten nutzlosen Gegenstand verkauft, wie die aus dem Laden.",
+  3456: "Die Abwesenheitsübersicht nennt, wie viele epische Gegenstände die besiegten Champions hinterlassen haben.",
 };
