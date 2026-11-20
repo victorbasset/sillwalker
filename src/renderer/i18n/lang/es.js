@@ -2319,4 +2319,6 @@ export default {
   3444: "Campeones: más duros que una élite, pero menos que el jefe de su zona. Antes, tu héroe perdía casi todos estos combates.",
   3445: "Misiones de caza: solo llegan con el «Mapa del viajero», que te lleva en un clic hasta el monstruo buscado.",
   3446: "Porcentajes escritos igual en todas partes en español, portugués, alemán, polaco y ruso.",
+  3447: "Mientras no estás, las élites y los campeones derrotados dan su oro y su experiencia, como en el juego.",
+  3448: "Mientras no estás, cada campeón derrotado deja su objeto épico, como Poupouce deja su legendario.",
 };

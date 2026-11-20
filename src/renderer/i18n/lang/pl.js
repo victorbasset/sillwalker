@@ -2319,4 +2319,6 @@ export default {
   3444: "Czempioni: twardsi niż elita, ale słabsi od bossa swojej strefy. Wcześniej twój bohater przegrywał prawie każdą z tych walk.",
   3445: "Zadania łowieckie: pojawiają się dopiero z „Mapa podróżnika”, która jednym kliknięciem prowadzi do szukanego potwora.",
   3446: "Procenty zapisywane wszędzie tak samo po hiszpańsku, portugalsku, niemiecku, polsku i rosyjsku.",
+  3447: "Nieobecność: pokonane elity i czempioni dają złoto i doświadczenie jak w grze.",
+  3448: "Nieobecność: każdy pokonany czempion zostawia epicki przedmiot, jak Poupouce legendarny.",
 };

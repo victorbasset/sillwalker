@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2916) « Quoi de neuf », édition 167 : élites et champions de l'absence payés comme en jeu (it. 2886), objet épique des
+  champions hors ligne (it. 2905) ; clés 3447-3448, 9 langues. lang-overflow complet : « pl absence-pire=23 » à toutes les largeurs (la
+  mesure lit la même fenêtre modale, où « Quoi de neuf » au pire cas dépassait) ; phrases polonaises raccourcies, pl remesuré : aucun.
+  npm test 387, autotest 337/337.
 - 2026-11-20 (it. 2915) Revu : l'estimation « ≈ » des quêtes de champions (et d'élites) suppose chaque rencontre vaincue : optimiste de ×1,3
   à ×1,9 depuis l'it. 2874 (champions 23-46 % de défaites, élites ≈ 30 %) ; même parti pris documenté que les sorts et critiques. Pas de changement.
 - 2026-11-20 (it. 2914) Images de 525 et 270 ms signalées par l'autotest vers 58 s : pendant « taille de l'interface 130 % » (style et mise

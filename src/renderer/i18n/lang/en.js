@@ -2319,4 +2319,6 @@ export default {
   3444: "Champions: tougher than an elite, but weaker than their zone’s boss. Before, your hero lost almost every one of these fights.",
   3445: "Hunt quests: they only appear once you own the “Traveler's Map”, which takes you to the wanted monster in one click.",
   3446: "Percentages are now written the same way everywhere in Spanish, Portuguese, German, Polish and Russian.",
+  3447: "While you're away, defeated elites and champions now pay their gold and experience, just like in play.",
+  3448: "While you're away, each defeated champion leaves its epic item, just as Poupouce leaves its legendary.",
 };

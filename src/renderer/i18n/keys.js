@@ -3448,5 +3448,7 @@ export const KEYS = [
   "Bande sur un écran de portable : la bulle de parole du héros se tait quand elle n’a pas la place, au lieu de cacher sa barre de vie.",
   "Champions : plus coriaces qu’une élite, mais moins que le boss de leur zone. Avant, ton héros perdait presque tous ces combats.",
   "Quêtes de chasse : elles n’arrivent qu’avec la « Carte du voyageur », qui mène en un clic jusqu’au monstre recherché.",
-  "Pourcentages écrits partout de la même façon en espagnol, portugais, allemand, polonais et russe."
+  "Pourcentages écrits partout de la même façon en espagnol, portugais, allemand, polonais et russe.",
+  "Pendant ton absence, les élites et les champions vaincus rapportent leur or et leur expérience, comme en jeu.",
+  "Pendant ton absence, chaque champion vaincu laisse son objet épique, comme Poupouce laisse son légendaire."
 ];

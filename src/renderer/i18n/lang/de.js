@@ -2319,4 +2319,6 @@ export default {
   3444: "Champions: zäher als eine Elite, aber schwächer als der Boss ihrer Zone. Vorher verlor dein Held fast jeden dieser Kämpfe.",
   3445: "Jagdquests: Sie kommen erst mit der „Karte des Reisenden“, die dich mit einem Klick zum gesuchten Monster bringt.",
   3446: "Prozentangaben überall einheitlich geschrieben: auf Spanisch, Portugiesisch, Deutsch, Polnisch und Russisch.",
+  3447: "Während deiner Abwesenheit bringen besiegte Eliten und Champions ihr Gold und ihre Erfahrung, wie im Spiel.",
+  3448: "Während deiner Abwesenheit hinterlässt jeder besiegte Champion seinen epischen Gegenstand, so wie Poupouce seinen legendären.",
 };
