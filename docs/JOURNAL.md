@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2834) Contrôle : bulles et noms accessibles de la bande et du mini (title, data-title, aria-label) en russe : tout traduit,
+  y compris la liste « À faire » du bouton du panneau. Rien à corriger.
 - 2026-11-20 (it. 2833) « Quoi de neuf » : édition 165 (durées sans partie nulle, note de plafond du débutant, bulle du héros qui se tait
   faute de place), clés 3441-3443, 10 langues ; exemples de durées alignés sur les unités du jeu (zh « 分钟 »). npm test 381, autotest
   337/337, lang-overflow all 1280 : aucun.
