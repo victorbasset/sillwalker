@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2991, REVUE GÉNÉRALE) : 12 h : mage 62, guerrier 64 (« archer » : clé inconnue, aucune simulation) ; --perf (charge 1,4) :
+  19,6 / 19,7 %, mini 5,6 %, icône 0,47 % ; Boutique en coréen propre ; texte polonais sans français. Rien à corriger.
 - 2026-11-20 (it. 2990) Contrôle après la correction de l'it. 2978 : save-fuzz fin 1225 et 0.1.2 1169 corruptions : ok.
 - 2026-11-20 (it. 2989) Contrôle : lang-overflow « all » à 1280 et 1920 px après l'édition 171 (fenêtre « Quoi de neuf » au pire cas comprise) : aucun.
 - 2026-11-20 (it. 2988) « Quoi de neuf » édition 171 (2 nouveautés, clés 3458-3459 traduites dans les 9 langues, i18n-check 0) : grands
