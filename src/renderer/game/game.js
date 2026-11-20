@@ -1537,17 +1537,21 @@ export class Game {
     const grounded0 = +S.stats.grounded || 0; // (it. 2567) tout ce qui reste au sol pendant l'absence (coffres compris), pas seulement le butin des combats
     let best = -1, bestItem = null, onGround = 0, bestLost = null; // (it. 2523) bestLost : le plus rare ni gardé (sol, vente auto)
     // (it. 1730) chaque Poupouce vaincu pendant l'absence laisse aussi son objet légendaire
-    let ppLeg = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
+    let ppLeg = 0; let chEpic = 0; // (it. 1780) légendaires de Poupouce vraiment rangés (sac plein : restés au sol)
     // (it. 2905) chaque champion vaincu pendant l'absence laisse aussi son objet épique garanti, comme en jeu et comme Poupouce
-    for (let i = 0; i < drops + poupouce + champs; i++) {
-      const it = this.newItem(i < drops ? 0 : i < drops + poupouce ? LEGENDARY : CHAMPION.minRarity);
+    // (it. 2943) les objets garantis d'abord (légendaires de Poupouce, épiques des champions) : rangés après le butin ordinaire, ils restaient
+    // au sol dès que le sac se remplissait (fin de partie, sac de 24 : 1 épique rangé sur 7 champions)
+    const kinds = [...Array(poupouce).fill("pp"), ...Array(champs).fill("ch"), ...Array(drops).fill("drop")];
+    for (const kind of kinds) {
+      const it = this.newItem(kind === "pp" ? LEGENDARY : kind === "ch" ? CHAMPION.minRarity : 0);
       best = Math.max(best, it.r);
       // Objet à montrer au retour : de préférence une amélioration, sinon le plus rare gardé.
       if (it.r >= 2) this.questProgress("loot", 1); // (it. 883) butin rare ou mieux, gardé ou non (comme en jeu)
       const autoSold = !!(S.autoSell[RARITIES[it.r].id] && hasUnlock(S, "autoSell"));
       const kept = this.addToBag(it, true);
       if (!kept && !autoSold) onGround++; // (it. 1219) sac plein : resté au sol, signalé dans le résumé d'absence
-      if (kept && i >= drops && i < drops + poupouce) ppLeg++;
+      if (kept && kind === "pp") ppLeg++;
+      if (kept && kind === "ch") chEpic++; // (it. 2943) épiques des champions vraiment rangés (sac plein : au sol)
       if (!kept && (!bestLost || it.r > bestLost.r)) bestLost = it;
       if (kept && (!bestItem || (this.isUpgrade(it) && !this.isUpgrade(bestItem)) || (it.r > bestItem.r && this.isUpgrade(it) === this.isUpgrade(bestItem)))) bestItem = it;
     }
@@ -1592,7 +1596,7 @@ export class Game {
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, bestLostName: bestLost ? itemName(bestLost) : null, bestLostR: bestLost ? bestLost.r : -1, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,
-      goblins, poupouce, poupouceLeg: ppLeg, // (it. 1780) ; (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
+      goblins, poupouce, poupouceLeg: ppLeg, champEpics: chEpic, // (it. 1780) ; (it. 1643) les gobelins n'arrivaient jamais jusqu'à la fenêtre (ligne prévue depuis l'it. 1452)
     };
     // (it. 1353) victoires accordées (« 1 monstres vaincus ») et virgule de la langue (« 、 » en japonais)
     this.log(tx("Pendant ") + summary.duration + colon() + txn(kills, "{n} monstre vaincu|{n} monstres vaincus") + csep() + "+" + tx("{0} or", { 0: fmt(gold) }) +

@@ -2325,4 +2325,5 @@ export default {
   3450: "Al volver: «Qué hacer ahora» ya no hace desplazar la ventana; si hay demasiadas líneas, un enlace abre la lista completa.",
   3451: "«Qué hacer ahora»: el desbloqueo por comprar va justo después de las misiones por cobrar.",
   3452: "Tarjeta del héroe: una lista larga de tareas se ordena en dos columnas.",
+  3453: "(+{n} objeto épico)|(+{n} objetos épicos)",
 };

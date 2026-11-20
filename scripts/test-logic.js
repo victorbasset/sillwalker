@@ -335,8 +335,10 @@ test("absence (it. 2905) : chaque champion vaincu hors ligne laisse son objet é
   g.S.bag = []; g.S.bagSize = 400; g.S.autoSell = {};
   const old = CHAMPION_T.chance;
   CHAMPION_T.chance = 1; // un champion par victoire, le temps de l'absence
-  try { g.applyOffline(600); } finally { CHAMPION_T.chance = old; }
+  let sum;
+  try { sum = g.applyOffline(600); } finally { CHAMPION_T.chance = old; }
   const champs = g.S.stats.champions || 0, epics = g.S.bag.filter((it) => it.r >= CHAMPION_T.minRarity).length;
+  assert.equal(sum.champEpics, champs, "(it. 2943) le résumé compte un épique rangé par champion");
   assert.ok(champs > 5, `champions ${champs}`);
   assert.ok(epics >= champs, `objets épiques ${epics} pour ${champs} champions`);
 });
@@ -353,6 +355,19 @@ test("à faire (it. 2936) : le déblocage à acheter suit les quêtes, avant les
   assert.ok(ids.includes("unlock") && ids.includes("quests"), ids.join(" "));
   assert.equal(ids.indexOf("unlock"), ids.indexOf("quests") + 1, ids.join(" "));
   for (const k of ["talents", "skills", "masteryPick"]) if (ids.includes(k)) assert.ok(ids.indexOf(k) > ids.indexOf("unlock"), k + " avant le déblocage : " + ids.join(" "));
+});
+
+test("absence (it. 2943) : sac presque plein, les épiques des champions passent avant le butin ordinaire", () => {
+  const g = new Game(freshState());
+  g.S.zone = g.S.best = 20; g.S.lvl = 60; g.invalidateStats();
+  g.S.bag = []; g.S.bagSize = 3; g.S.autoSell = {};
+  const old = CHAMPION_T.chance;
+  CHAMPION_T.chance = 0.02; // quelques champions en 2 h
+  let sum;
+  try { sum = g.applyOffline(7200); } finally { CHAMPION_T.chance = old; }
+  const champs = sum.champions || 0;
+  assert.ok(champs >= 1, "au moins un champion");
+  assert.equal(sum.champEpics, Math.min(champs, 3), `épiques rangés ${sum.champEpics} pour ${champs} champions, sac de 3`);
 });
 
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {

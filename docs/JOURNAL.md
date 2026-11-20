@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2943) Absence : 1) le résumé dit ce que les champions ont laissé (« 7 (+7 objets épiques) », comme Poupouce ; clé 3453,
+  pluriels 10 langues) ; 2) en le faisant, vu que les objets GARANTIS étaient rangés après le butin ordinaire : fin de partie, sac de 24 :
+  1 épique rangé sur 7, les 6 autres au sol. Légendaires de Poupouce et épiques des champions passent maintenant d'abord (7 sur 7 ; le sol
+  ne garde que de l'ordinaire). Tests (2905 étendu, 2943 : sac de 3 ; échouent avant) ; npm test 389, autotest 339/339, save-fuzz 1267 ok,
+  lang-overflow complet : aucun.
 - 2026-11-20 (it. 2942) Contrôle périodique : fuzz 1200 parties, 0 bloquées ; stall-check 60 parties, 0 figées.
 - 2026-11-20 (it. 2941, REVUE GÉNÉRALE) : 12 h : guerrier 64, paladin 65, artificier 59 ; --perf (charge 2,4) : 19,8 / 19,4 %, mini 5,6 %,
   icône 0,43 % ; texte espagnol sans français (« le » = pronom espagnol : « la manada le responde ») ; résumé d'absence allemand à 1280 :

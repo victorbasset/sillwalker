@@ -2325,4 +2325,5 @@ export default {
   3450: "Coming back: “Things to do now” no longer makes the window scroll; if there are too many lines, a link opens the full list.",
   3451: "“Things to do now”: the unlock to buy now comes right after the quests to claim.",
   3452: "Hero card: a long to-do list is laid out in two columns.",
+  3453: "(+{n} epic item)|(+{n} epic items)",
 };

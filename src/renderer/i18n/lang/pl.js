@@ -2325,4 +2325,5 @@ export default {
   3450: "Powrót: „Do zrobienia teraz” nie przewija już okna; gdy linii jest za dużo, link otwiera pełną listę.",
   3451: "„Do zrobienia teraz”: odblokowanie do kupienia jest zaraz po zadaniach do odebrania.",
   3452: "Karta bohatera: długa lista zadań układa się w dwie kolumny.",
+  3453: "(+{n} przedmiot epicki)|(+{n} przedmioty epickie)|(+{n} przedmiotów epickich)",
 };

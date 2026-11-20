@@ -3454,5 +3454,6 @@ export const KEYS = [
   "{n} autre chose à faire dans la carte du héros|{n} autres choses à faire dans la carte du héros",
   "Retour d’absence : « À faire maintenant » ne fait plus défiler la fenêtre ; s’il y a trop de lignes, un lien ouvre la liste complète.",
   "« À faire maintenant » : le déblocage à acheter vient juste après les quêtes à réclamer.",
-  "Carte du héros : une longue liste de choses à faire se range sur deux colonnes."
+  "Carte du héros : une longue liste de choses à faire se range sur deux colonnes.",
+  "(+{n} objet épique)|(+{n} objets épiques)"
 ];

@@ -2325,4 +2325,5 @@ export default {
   3450: "Ao voltar: “O que fazer agora” não faz mais a janela rolar; se houver linhas demais, um link abre a lista completa.",
   3451: "“O que fazer agora”: o desbloqueio a comprar vem logo depois das missões a receber.",
   3452: "Cartão do herói: uma lista longa de tarefas fica em duas colunas.",
+  3453: "(+{n} item épico)|(+{n} itens épicos)",
 };

@@ -2325,4 +2325,5 @@ export default {
   3450: "Rückkehr: „Jetzt zu tun“ lässt das Fenster nicht mehr scrollen; bei zu vielen Zeilen öffnet ein Link die ganze Liste.",
   3451: "„Jetzt zu tun“: Die zu kaufende Freischaltung steht direkt nach den abholbaren Quests.",
   3452: "Heldenkarte: Eine lange Aufgabenliste wird in zwei Spalten angeordnet.",
+  3453: "(+{n} epischer Gegenstand)|(+{n} epische Gegenstände)",
 };
