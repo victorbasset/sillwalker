@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2806) Choix du texte de l'événement de la pastille de gauche (it. 2788) isolé dans une fonction pure (format.js
+  eventHudText) et testé dans test-logic (complet, abrégé, juste à la limite) ; strip.js l'utilise, rendu inchangé (« ⏳ 27 s » en fr).
+  Ferme l'idée P3 de l'it. 2789. npm test 380, autotest 337/337.
 - 2026-11-20 (it. 2805) Contrôle : bénédictions cachées (« ??? ») du Bestiaire : bulle « Bénédiction encore jamais vécue : chaque jour en
   apporte une, reviens jouer d'autres jours. » Rien à corriger.
 - 2026-11-20 (it. 2804) Contrôle : Bestiaire > Bénédictions en coréen à 1280 px (6/17, « 오늘 » et « 내일 » marqués) : propre. Rien à corriger.
@@ -8985,7 +8988,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 2789) Autotest pour l'it. 2788 (événement abrégé dans la pastille de gauche) : trois essais non probants (passent aussi
+- FAIT (it. 2806) P3 (it. 2789) Autotest pour l'it. 2788 (événement abrégé dans la pastille de gauche) : trois essais non probants (passent aussi
   sur l'ancien code : en anglais « Goblin Rush » tient ; nom de zone allongé, la recherche du cas limite ne le trouvait pas). Piste :
   isoler le choix du texte dans une fonction pure de strip.js (largeurs en paramètres) et la tester dans test-logic.
 - FAIT (it. 2775) P3 (it. 2774) Bande, partie neuve à vitesse ×10 : deux annonces flottantes (butin légendaire « 영웅: … 반지 » et « 신기록: 지역 7! »)

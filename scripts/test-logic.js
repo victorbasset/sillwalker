@@ -48,7 +48,7 @@ import * as M_quests_js from "../src/renderer/game/quests.js";
 import { makeQuest } from "../src/renderer/game/quests.js";
 import * as M_skilltree_js from "../src/renderer/game/skilltree.js";
 import { nextHint, markHint } from "../src/renderer/ui/hints.js";
-import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF, countdown } from "../src/renderer/game/format.js";
+import { fmt as fmtN, fmtShort as fmtS, fmtFull as fmtFullF, durText, unit as unitF, countdown, eventHudText } from "../src/renderer/game/format.js";
 import { Game, journeyZoneStep } from "../src/renderer/game/game.js";
 import { PACK_ARTS as PACK_ARTS1904 } from "../src/renderer/game/game.js";
 import { bossHpFactor as bossHpFactor2058 } from "../src/renderer/game/story.js";
@@ -1698,6 +1698,13 @@ test("compte à rebours (it. 2786-2787) : « 7 h 59 » en français, chaque nomb
     setLang("de"); assert.equal(countdown(7 * 3600 + 59 * 60), "7 Std. 59 Min."); assert.ok(/\ss$/.test(countdown(12 * 60 + 5)), countdown(725));
     setLang("ja"); assert.ok(/時間\s\d+\s分$/.test(countdown(7 * 3600 + 59 * 60)), countdown(28740));
   } finally { setLang(before); }
+});
+
+test("bande (it. 2788, 2806) : l'événement s'abrège en « ⏳ 30 s » quand la place manque dans la pastille de gauche", () => {
+  const m = (t) => t.length * 8; // 8 px par lettre
+  assert.equal(eventHudText("Ruée des gobelins", "30 s", m, 400), "Ruée des gobelins 30 s");
+  assert.equal(eventHudText("Ruée des gobelins", "30 s", m, 120), "⏳ 30 s"); // « Ruée des gobelins 30 s » : 176 px
+  assert.equal(eventHudText("Ruée", "30 s", m, 72), "Ruée 30 s"); // juste à la limite : complet
 });
 
 test("effets au-delà de 1000 : séparateur des milliers (it. 1002 : « +26571 % attaque » de la Lueur stellaire)", () => {

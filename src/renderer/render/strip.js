@@ -22,7 +22,7 @@ import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/s
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice, WEATHER } from "./juice.js";
-import { fmt, fmtShort, uS } from "../game/format.js";
+import { fmt, fmtShort, uS, eventHudText } from "../game/format.js";
 import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
@@ -1679,7 +1679,7 @@ export class StripRenderer {
     const lw0 = ctx.measureText(label).width;
     // (it. 2788) nom de zone long + événement : « Ruée des gobelins 30 s » dépassait la pastille (520 px) et le « s » était rogné ;
     // trop long, l'événement s'abrège en « ⏳ 30 s » à sa couleur (son nom reste dans l'annonce et dans le panneau)
-    if (ev && ctx.measureText(recTxt).width > Math.min(HUD_L_W, this.W) - 8 - (40 + lw0 + this.game.lineup().length * 9)) recTxt = "⏳ " + uS(Math.ceil(ev[1]));
+    if (ev) recTxt = eventHudText(EVENTS[ev[0]].name, uS(Math.ceil(ev[1])), (t) => ctx.measureText(t).width, Math.min(HUD_L_W, this.W) - 8 - (40 + lw0 + this.game.lineup().length * 9));
     const rw = recTxt ? ctx.measureText(recTxt).width + 10 : 0;
     this.hudLRight = Math.min(HUD_L_W - 2, 14 + lw0 + 6 + this.game.lineup().length * 9 + 18 + rw); // bord droit de la pastille (bulle du héros)
     drawPill(ctx, 3, this.hudLRight, HUD_H);

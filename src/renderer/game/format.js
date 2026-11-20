@@ -91,3 +91,10 @@ export function fmtStat(k, v) {
 export function esc(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
+
+/** (it. 2788, 2806) Événement en cours dans la pastille de gauche de la bande : « Nom 30 s », ou « ⏳ 30 s » si la place manque
+    (measure : largeur d'un texte en px ; avail : place restante). Pure, testée dans test-logic. */
+export const eventHudText = (name, secsText, measure, avail) => {
+  const full = `${name} ${secsText}`;
+  return measure(full) <= avail ? full : `⏳ ${secsText}`;
+};
