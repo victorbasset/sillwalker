@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2935) Contrôle après les it. 2919-2934 : --crawl en espagnol à 1280, 8 h d'absence au lancement : 517 clics en 18 s, aucune erreur.
 - 2026-11-20 (it. 2934) Retour d'absence : la note « N autres choses à faire dans la carte du héros » est un lien (→) : un clic ouvre la
   liste « À faire » complète dans la fenêtre large (avant : fermer, trouver la carte, ouvrir « À faire »). Vérifié : « À faire (16) », 16
   boutons ; contrôle d'autotest étendu au clic. npm test 387, autotest 339/339, lang-overflow complet : aucun.
