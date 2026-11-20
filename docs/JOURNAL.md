@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2951, REVUE GÉNÉRALE) : 12 h : assassin 62, druide 64, arbalétrier 61 ; --perf (charge 2,2) : 19,7 / 19,4 %, mini 5,6 %,
+  icône 0,47 % ; texte polonais sans français ; résumé d'absence coréen à 1366 : propre (sac plein dès le départ : l'épique du champion
+  n'est pas gardé, le cas de la question it. 2744 / 2950). Rien à corriger.
 - 2026-11-20 (it. 2950) docs/POUR-VICTOR.md : la question des légendaires perdus (it. 2744) étendue à l'épique garanti des champions en jeu (sac plein : au sol). Pas changé sans accord.
 - 2026-11-20 (it. 2949) docs/POUR-VICTOR.md : récapitulatif étendu aux it. 2931-2948 (sac plein, objets précieux, « À faire »).
 - 2026-11-20 (it. 2948) « Quoi de neuf », édition 169 : rangement par valeur pendant l'absence (it. 2943-2945), coffre au trésor qui fait place
