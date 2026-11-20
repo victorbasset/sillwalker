@@ -28,6 +28,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   l'annonce (« Ton résumé d'absence t'attend ») (it. 2746-2753).
 - « À faire maintenant » : acheter l'Œil du connaisseur rend aussitôt « ✦ Un objet plus puissant… » faisable d'un clic, à la même place ;
   une ligne devenue sans objet passe à « ✓ » ; la fenêtre « À faire » de la carte du héros reste ouverte après un achat (it. 2764-2769).
+- Note de plafond : un débutant ne lit plus « La constellation de la Lune l'allonge » avant d'avoir ouvert l'Ascension (it. 2826).
 
 **Bande et mode mini** :
 - Les annonces (« Nouveau record », butin légendaire, événement) ne se chevauchent plus entre elles ni sur la bulle de parole du héros
@@ -37,7 +38,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Mode mini : deux moments simultanés (« ★ Légendaire ! » puis « Nouveau record ») s'affichent l'un après l'autre (it. 2782).
 
 **Langues** : portugais harmonisé en brésilien (guillemets “ ”, « você », « clique »), npm test le garde (it. 2756-2758) ; espagnol
-« ordenador » → « PC » (it. 2760) ; Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. »,
+« ordenador » → « PC » (it. 2760) ; npm test vérifie aussi les 10 langues du menu de l'icône (it. 2829) ; Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. »,
 it. 2786-2787). Durées sans partie nulle : « Depuis ta dernière visite (2 h) » et Statistiques « 3 j » au lieu de
 « 2 h 0 min » / « 3 j 0 h » (it. 2817-2818).
 

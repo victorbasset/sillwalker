@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2830) docs/POUR-VICTOR.md : note de plafond du débutant (it. 2826), test du menu de l'icône (it. 2829).
 - 2026-11-20 (it. 2829) npm test : « menu de l'icône : chaque texte de src/main/i18n.js existe dans les 10 langues » (un texte sans une
   langue retombait en silence sur l'anglais). OK ; polonais de « music » retiré pour l'essai : échec « pl:music ». 381 tests.
 - 2026-11-20 (it. 2828) Contrôle : textes du processus principal (src/main/i18n.js, menu de l'icône, hors npm test) : 21 clés × 10 langues,
