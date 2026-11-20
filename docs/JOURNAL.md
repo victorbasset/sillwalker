@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2758) npm test : « le portugais reste brésilien » (test-logic : guillemets « », tua/teu, clica, ecrã, por vezes, -te…
+  interdits dans pt.js). OK ; sur pt.js d'avant l'it. 2756 : échec (« ; » ; …). 378 tests.
 - 2026-11-20 (it. 2757) Portugais, suite de l'it. 2756 : guillemets européens « » (73 lignes) remplacés par “ ” (usage brésilien, déjà
   42 lignes) ; « são precisas … para os vencer » → « são necessárias … para vencê-los » (clé 3250). Conjugaison en « tu » et vocabulaire
   européen (utilizador, ficheiro, rato, registo, ecrã…) cherchés : aucun. i18n-quotes ignore le style des guillemets. npm test 377,

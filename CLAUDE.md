@@ -206,6 +206,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   qui ne marchait qu'en français et en anglais, est retirée depuis l'it. 685.)
   Nombres : `fmt`, `fmtShort`, `unit("%")`, `dec()` de `game/format.js` (format de la langue).
   Dans une traduction : « 10 % » espacé en fr, es, pt, de, pl, ru seulement ; « 10% » en en, zh, ja, ko (npm test le vérifie, it. 2067).
+  Portugais : variante BRÉSILIENNE (« você », “ ”, « clique », « às vezes ») ; npm test refuse « » et les marques européennes (it. 2758).
   Noms communs en minuscules : `lc()` (garde la majuscule allemande). Espace avant « : » : `fsp()`.
   Espaces insécables (it. 949-950) : `NB` (format.js) et `fsp()` sont de vraies U+00A0 (U+202F manque aux polices pixel ;
   le séparateur français des milliers de toLocaleString est U+202F : passer par `locInt`/`fmtFull` de format.js, it. 1002) ;

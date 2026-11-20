@@ -259,6 +259,13 @@ test("traductions (it. 2067) : en anglais, chinois, japonais et coréen, le pour
   }
 });
 
+test("traductions (it. 2758) : le portugais reste brésilien (variante choisie à l'it. 1533)", () => {
+  // it. 2756-2757 : « espera-te », « clica », « por vezes », « o teu herói » et 73 guillemets « » s'étaient glissés dans pt.js
+  const src = fs.readFileSync(new URL("../src/renderer/i18n/lang/pt.js", import.meta.url), "utf8");
+  const bad = src.match(/[«»]|\b(tua|teu|tuas|teus|clica|ecrã|utilizador|ficheiro|telemóvel|contigo)\b|por vezes|\w-te\b/g) || [];
+  assert.equal(bad.length, 0, bad.slice(0, 5).join(" ; "));
+});
+
 test("traductions (it. 2562-2563) : en japonais, pas de compteur « つ » après un nombre variable ou à deux chiffres", () => {
   // « つ » ne compte que les petits nombres (jusqu'à 9) : « マスタリーの段階 18 つ » se lisait mal ; 件 ou 個 au-delà
   const src = fs.readFileSync(new URL("../src/renderer/i18n/lang/ja.js", import.meta.url), "utf8");
