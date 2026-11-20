@@ -730,10 +730,13 @@ async function boot() {
   // (it. 2138, plaisir de revenir) photo des compteurs AVANT la progression hors ligne, datée de la dernière sauvegarde : le bloc
   // « Depuis ta dernière visite » du panneau couvre aussi l'absence (avant : rien après un redémarrage, la photo ne se prenait qu'à la
   // fermeture du panneau ; la bulle d'absence, elle, ne dure que 15 s)
-  if (game.S.stats.kills > 0 && !panel.visitSnap) panel.visitSnap = game.visitSnapshot(game.S.last || Date.now());
-  if (game.S.stats.kills > 0) { const sum = offlineSafe(away); if (sum) showOffline(sum); }
-  checkAchievements(true);
-  checkDaily();
+  // (it. 2997) étapes secondaires du démarrage protégées (comme la progression hors ligne, it. 2979) : une erreur dans l'une d'elles
+  // arrêtait le démarrage avant l'affichage de la fenêtre et api.ready(), à chaque lancement ; signalée, elle n'empêche plus de jouer
+  const soft = (what, fn) => { try { fn(); } catch (e) { console.error("démarrage, " + what + " :", e); } };
+  soft("photo de la visite", () => { if (game.S.stats.kills > 0 && !panel.visitSnap) panel.visitSnap = game.visitSnapshot(game.S.last || Date.now()); });
+  if (game.S.stats.kills > 0) { const sum = offlineSafe(away); if (sum) soft("résumé d'absence", () => showOffline(sum)); }
+  soft("succès", () => checkAchievements(true));
+  soft("bénédiction du jour", () => checkDaily());
   await Promise.all([document.fonts.load("13px 'Geist Pixel'"), document.fonts.load("600 13px 'Pixelify Sans'")]).catch(() => {});
   await document.fonts.ready;
   applyLayout(init.layout);

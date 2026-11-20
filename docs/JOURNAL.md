@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2997) Démarrage : étapes secondaires protégées (app.js soft) : photo de la visite, résumé d'absence, succès, bénédiction du
+  jour. Une erreur dans l'une d'elles arrêtait le démarrage avant l'affichage de la fenêtre et api.ready(), à chaque lancement. Vérifié
+  (échecs forcés TEMP sur succès et bénédiction) : erreurs signalées, bande affichée, or 421,8 → 447,2 Md en 4 s. Autotest 340/340.
 - 2026-11-20 (it. 2996) Contrôle : mode mini de la partie d'une semaine en ja et de (compagnon, familier, « 2.26Dd » / « 2,26 Dd ») : tout tient ; barres de vie du héros et du monstre côte à côte sans se chevaucher.
 - 2026-11-20 (it. 2995) Contrôle : info-probe (ⓘ cachés) sur la partie d'une semaine à 1280 et 1920 px : IPROBE 0.
 - 2026-11-20 (it. 2994) Contrôle : fuzz.mjs 60 graines, sans et avec bénédictions du jour (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquées, deux fois.
