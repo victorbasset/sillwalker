@@ -473,13 +473,22 @@ async function boot() {
     sendStatus(false);
     if (perf.sims % 60 === 0) checkHints(); // toutes les 2 s environ
   }
+  // (it. 3010) chaque étape de l'image protégée : une erreur répétée du dessin de la bande empêchait la mise à jour du panneau (et
+  // l'inverse) ; signalée une fois par minute et par étape au plus (sinon 30 messages par seconde)
+  const frameErrT = {};
+  const guard = (what, fn) => {
+    try { fn(); } catch (e) {
+      const t = Date.now();
+      if (!(t - (frameErrT[what] || 0) < 60000)) { frameErrT[what] = t; (e.simulated ? console.warn : console.error)("image, " + what + " :", e); }
+    }
+  };
   function frame() {
-    simulate();
+    guard("simulation", simulate);
     const before = changes.n, now = performance.now();
-    if (mode === "strip") strip.draw(now); else mini.draw(now);
+    guard("dessin", () => { if (mode === "strip") strip.draw(now); else mini.draw(now); });
     if (changes.n !== before) perf.paints++;
     perf.why = changes.why;
-    panel.update(frameMs() / 1000);
+    guard("panneau", () => panel.update(frameMs() / 1000));
     perf.frames++;
     if (perf.frames % 15 === 0 || (strip.juice.star && perf.frames % 3 === 0)) clickThrough.refresh(); // 2 fois/s (10 fois/s si une étoile passe)
   }

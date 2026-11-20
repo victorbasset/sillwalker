@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3010) Boucle d'image protégée (app.js guard) : simulation, dessin de la bande ou du mini, mise à jour du panneau, chacun à
+  part ; une erreur répétée du dessin empêchait la mise à jour du panneau, et se signalait 30 fois par seconde (désormais une fois par
+  minute et par étape). Vérifié (mise en scène, dessin en échec 3 s) : panneau rafraîchi 11 fois, une seule erreur ; autotest : nouveau
+  contrôle (3 rafraîchissements en 1,5 s ; 0 avec l'ancien code), 342/342.
 - 2026-11-20 (it. 3009) Contrôle : extrêmes de l'it. 3008 sur 4 graines de plus (21/31/41/51) : gardien des étoiles 65 69 69 65 (7 graines : 67,7), assassin 62 66 65 62 (63,0) ; écart 4,7, niveaux habituels, pas de régression.
 - 2026-11-20 (it. 3008) Contrôle : hero-table 12 h × 3 graines (20 héros) : moyenne 64,8, écart 6,7 (gardien des étoiles 68,7 → assassin 62,0) ; noté en Idées (P3).
 - 2026-11-20 (it. 3007) Autotest plus court (suite de l'it. 3006) : la vraie cause était le plancher de 3 s de la durée dans
