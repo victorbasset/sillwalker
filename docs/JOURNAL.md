@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2762) Contrôles : 1) l'expérience en notation scientifique (« 1,54e105 », revue it. 2761) ne touche pas un vrai joueur
+  (fin de partie d'une semaine : niveau 183, xpNeed ≈ 5e15, affiché avec suffixe ; l'écriture « e » commence vers le niveau 400) ;
+  2) résumé d'absence du débutant (sac plein, 8 h) en anglais à 1280 px : propre, rien de coupé. Rien à corriger.
 - 2026-11-20 (it. 2761, REVUE GÉNÉRALE) : 12 h : moine 65, druide 65, assassin 65 ; --perf : 19,8 / 19,7 %, mini 5,4 %, icône 0,6 %
   (charge 3, ckpool) ; Aventure en portugais à 1366 px propre (« Vender o que não me melhora », guillemets brésiliens) ; texte chinois :
   noms propres seulement. Rien à corriger (l'expérience « 1,54e105 » vient du niveau 1313 de dev-data, réglé à la main).
