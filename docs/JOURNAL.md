@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2891, REVUE GÉNÉRALE) : 12 h : druide 64, lancier 62, barde 65 ; --perf (charge 2,9) : 20,3 / 19,9 %, mini 5,6 %, icône
+  0,5 % ; texte japonais : aucun mot non traduit ; Aventure en allemand à 1280 : propre. Rien à corriger.
 - 2026-11-20 (it. 2890) Contrôle : --crawl sur la partie de fin de partie, en coréen, avec 5 h d'absence au lancement (nouveau calcul hors
   ligne de l'it. 2886) : 697 clics en 24 s, aucune erreur.
 - 2026-11-20 (it. 2889) Contrôle : ouverture des onglets (tab-pace) avant / après les changements du jour (quêtes, champions, absence) : graine 1
