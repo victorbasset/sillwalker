@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2779) Contrôle : lang-overflow complet (10 langues, 1920/1600/1366/1280 px, fin de partie, 130 %, pire cas) après les
+  retouches du jour : « aucun défilement ni mot coupé ». Rien à corriger.
 - 2026-11-20 (it. 2778) --perf après les retouches des bannières (it. 2775-2777) : bande 19,9 %, panneau 19,4 %, mini 5,5 %, icône 0,5 %
   (dans le bruit des mesures du jour, 19,5-19,8 %). docs/POUR-VICTOR.md : bannières.
 - 2026-11-20 (it. 2777) Bande : une bannière (« Nouveau record : zone 57 ! », placée à 120 px du héros) débordait de 3 à 9 px sur la bulle
