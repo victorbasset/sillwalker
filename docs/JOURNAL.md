@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2872) Contrôle : étal du Marchand plus faible que l'équipement (dev-data, zone 57 : −14 à −33 % de puissance) : voulu
+  (peu commun / rare, déjà forgé au niveau moyen porté depuis l'it. 988 ; recours, amélioré par le Marchand attitré). Pas de changement.
 - 2026-11-20 (it. 2871, REVUE GÉNÉRALE) : 12 h : moine 65, chaman 69, artificier 64 ; --perf (charge 2,0) : 19,8 / 19,9 %, mini 5,5 %,
   icône 0,47 % ; texte russe : aucun mot non traduit (noms propres, touches, langues) ; captures Boutique en anglais 1920 et mini en
   chinois : propres. Rien à corriger.
