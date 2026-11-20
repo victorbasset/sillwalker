@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2979) Progression hors ligne protégée (app.js offlineSafe) : une erreur dans applyOffline (comme celle de l'it. 2978)
+  arrêtait le démarrage, et la même absence recalculée à chaque lancement aurait figé la partie pour toujours. Erreur signalée dans la
+  console, pas de résumé, le jeu continue (aussi au retour de veille). Vérifié au démarrage (échec forcé TEMP, dev-data, 5 h d'absence) :
+  le héros repart (marche puis combat, or 421,8 → 447,2 Md en 4 s) ; sans échec forcé : +152 victoires d'absence. Autotest : nouveau
+  contrôle (échec simulé par window.__offlineFail, signalé en avertissement pour ne pas fausser « aucune erreur de l'interface ») ; 340/340.
 - 2026-11-20 (it. 2978) PLANTAGE corrigé (introduit à l'it. 2944, jamais publié : 0.1.7 date du 18/11) : le résumé d'absence d'un héros
   avancé (bonus de coffres, plafond de coffres atteint) plantait sur « Invalid array length » : plafond = 3 × bonus de coffres, un
   nombre décimal (6,6 ; 4,998), et Array(6.6) refuse ; les anciennes boucles « for (i < 6,6) » ouvraient 7 coffres. Plafond arrondi à

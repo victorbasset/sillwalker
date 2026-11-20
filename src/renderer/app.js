@@ -432,6 +432,16 @@ async function boot() {
   setInterval(saveNow, AUTOSAVE_MS);
   api.onFlushRequest(async () => { checkAchievements(false); await saveNow(); });
 
+  /* (it. 2979) Progression hors ligne protégée : une erreur dans son calcul (it. 2978 : nombre de coffres décimal) arrêtait le
+     démarrage, et le jeu restait figé à CHAQUE lancement (même sauvegarde, même absence recalculée). Désormais : erreur signalée, pas de
+     résumé, le jeu continue (au pire l'absence ne rapporte rien, la partie n'est jamais bloquée). window.__offlineFail : contrôle (dev). */
+  function offlineSafe(sec) {
+    try {
+      if (window.__offlineFail) throw Object.assign(new Error("échec simulé (contrôle)"), { simulated: true });
+      return game.applyOffline(sec);
+    } catch (e) { (e.simulated ? console.warn : console.error)("progression hors ligne :", e); return null; }
+  }
+
   /* ---------- Boucles ---------- */
   let lastSim = Date.now(), frameTimer = 0, onBattery = !!init.onBattery, idle = !!init.idle; // sur batterie : moins d’images par seconde
   function simulate() {
@@ -441,7 +451,7 @@ async function boot() {
     if (dt < 0) dt = 0;
     if (dt > 5) {
       // Mise en veille du PC, etc. : on traite l'écart comme du hors ligne.
-      const sum = game.applyOffline(dt);
+      const sum = offlineSafe(dt);
       if (sum) showOffline(sum);
       dt = 0;
     }
@@ -542,6 +552,7 @@ async function boot() {
   if (init.isDev) window.__checkHints = () => checkHints(); // auto-test (dev)
   if (init.isDev) window.__stepLine = stepLine; // auto-test (dev) : ligne d'étape de la bulle de retour
   if (init.isDev) window.__showOffline = (sum) => { openPanel(); panel.showOfflineSummary(sum); }; // auto-test (dev)
+  if (init.isDev) window.__offlineSafe = offlineSafe; // (it. 2979) auto-test (dev)
   if (init.isDev) { window.__offlineToast = (sum) => showOffline(sum); window.__tx = tx; } // (it. 2748, 2750) auto-test : bulle d'absence selon le mode
   if (init.isDev) window.__demo = () => {
     game.startEvent("wind");
@@ -720,7 +731,7 @@ async function boot() {
   // « Depuis ta dernière visite » du panneau couvre aussi l'absence (avant : rien après un redémarrage, la photo ne se prenait qu'à la
   // fermeture du panneau ; la bulle d'absence, elle, ne dure que 15 s)
   if (game.S.stats.kills > 0 && !panel.visitSnap) panel.visitSnap = game.visitSnapshot(game.S.last || Date.now());
-  if (game.S.stats.kills > 0) { const sum = game.applyOffline(away); if (sum) showOffline(sum); }
+  if (game.S.stats.kills > 0) { const sum = offlineSafe(away); if (sum) showOffline(sum); }
   checkAchievements(true);
   checkDaily();
   await Promise.all([document.fonts.load("13px 'Geist Pixel'"), document.fonts.load("600 13px 'Pixelify Sans'")]).catch(() => {});
