@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2900) Contrôle refait avec --speed=10 (vérifié : 300 s de jeu pour 30 s réelles) : fin de partie en anglais, panneau ouvert,
+  170 s réelles ≈ 28 min de jeu (91 victoires, héros au mur) : aucune erreur ni avertissement de l'interface. Pour accélérer une mise en
+  scène : --speed=N (dev), pas R.speed.
 - 2026-11-20 (it. 2899) Contrôle : partie de fin de partie en anglais, panneau ouvert, 3 min : aucune erreur ni avertissement de l'interface.
   (Rectifié : la mise en scène posait R.speed = 10, que le jeu ne lit pas ; la vitesse est une variable d'app.js, devSpeed : vitesse normale.)
 - 2026-11-20 (it. 2898) Revu : les bénédictions du jour sont toutes des bonus (PV, or, dégâts, ou plus d'élites, gobelins, champions) ;
