@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2802) Contrôle : save-fuzz (dev : « ok balayage (1267 corruptions) » ; fin de partie : 1225). Rien à corriger.
 - 2026-11-20 (it. 2801, REVUE GÉNÉRALE) : 12 h : guerrier 65, ranger 62, mage 65 (identiques aux revues 2741/2751) ; --perf : 20,0 / 19,7 %,
   mini 5,2 %, icône 0,7 % ; mode mini en japonais propre ; texte allemand : « Ton » (= son) et « des » sont allemands. Rien à corriger.
 - 2026-11-20 (it. 2800) Contrôle : --crawl à 1280 px (dev-data, anglais) après les retouches de la bande : 524 clics en 17 s, aucune
