@@ -334,7 +334,16 @@ export class Juice {
     node.style.color = color;
     // Centrée sur x, mais jamais coupée par les bords de l'écran (largeur mesurée une fois).
     const half = Math.ceil((node.offsetWidth || 300) * 1.1 / 2) + 8;
-    const life = big ? 3.2 : 2.4, cx = Math.max(half, Math.min(this.s.W - (this.s.rightReserve || 0) - 160 - half, x));
+    const life = big ? 3.2 : 2.4, xMax = this.s.W - (this.s.rightReserve || 0) - 160 - half;
+    let cx = Math.max(half, Math.min(xMax, x));
+    // (it. 2777) bulle de parole du héros affichée : la bannière passe à côté (elle débordait de 3 à 9 px sur la bulle). Vérifié
+    // pendant l'apparition (0,25 s, masquée par le zoom) : la bulle lancée au même moment n'a sa place qu'à l'image suivante.
+    const sp = this.s, dodge = () => {
+      if (!sp.bubble || sp.bubble.hidden || !sp.bubbleW || sp.bubbleX == null) return;
+      const l = sp.bubbleX - sp.bubbleW / 2 - 8, r = sp.bubbleX + sp.bubbleW / 2 + 8;
+      if (cx - half >= r || cx + half <= l) return;
+      cx = r + half <= xMax ? r + half : l - half >= half ? l - half : cx; // à droite, sinon à gauche (bord droit réservé aux boutons)
+    };
     // Une ligne par bannière simultanée (3 lignes max) pour qu'elles ne se chevauchent pas.
     const used = new Set(this.parts.filter((p) => p.slot != null).map((p) => p.slot));
     let slot = [0, 1, 2].find((i) => !used.has(i));
@@ -349,6 +358,7 @@ export class Juice {
     const dy = this.parts.filter((p) => p.slot != null && p.slot < slot && p.big).length * 8;
     this.add(node, (p) => {
       p.slot = slot; p.big = !!big;
+      if (p.t < 0.25) dodge();
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
       this.place(node, cx, 28 + slot * 24 + dy - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;

@@ -708,6 +708,14 @@ async function runSelfTest(strip) {
         ok(bs[1].top >= bs[0].bottom - 1 ? 'ok' : 'chevauchement ' + Math.round(bs[0].bottom - bs[1].top) + ' px'); }, 600); })`);
     check("bande : une bannière ne passe pas sous la grande bannière du dessus", r === "ok" || r === "sans objet", r);
   }
+  {
+    // (it. 2777) bannière lancée en même temps qu'une réplique du héros : elle passe à côté de la bulle (avant : 3 à 9 px dessus)
+    const r = await js(`new Promise((ok) => { const st = window.__strip, j = st.juice; if (!j || !j.active || !st.active) { ok('sans objet'); return; }
+      setTimeout(() => { st.saidAt = -1e9; st.say(['Rendez-moi cet or !'], true); j.banner('Nouveau record : zone 57 !', '#9fe0a8', st.heroX + 120);
+        setTimeout(() => { const b = st.bubble.getBoundingClientRect(), n = [...document.querySelectorAll('.banner')].pop().getBoundingClientRect(); st.bubbleT = 0;
+          ok(!b.width ? 'bulle absente' : (b.right > n.left && b.left < n.right && b.bottom > n.top && b.top < n.bottom) ? 'chevauche ' + Math.round(b.left) + '-' + Math.round(b.right) + ' / ' + Math.round(n.left) + '-' + Math.round(n.right) : 'ok'); }, 700); }, 3000); })`);
+    check("bande : une bannière passe à côté de la bulle de parole du héros", r === "ok" || r === "sans objet", r);
+  }
   // (it. 2738) repoussée par la pastille de l'or, la bulle de parole du héros couvrait le nom du boss ; elle passe à sa gauche
   {
     const r = await js(`new Promise((ok) => { const st = window.__strip; if (!st.bossTag || !st.bossTag.isConnected || st.centerHud) { ok('sans objet'); return; } if (!st.active) { ok('bande inactive'); return; } st.saidAt = -1e9; st.bossLT = 0; st.updateHudBars(); st.say(["Rendez-moi cet or !"], true);

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2777) Bande : une bannière (« Nouveau record : zone 57 ! », placée à 120 px du héros) débordait de 3 à 9 px sur la bulle
+  de parole du héros lancée au même moment. Elle passe maintenant à côté (à droite, sinon à gauche : le bord droit est réservé aux boutons),
+  vérifié pendant son apparition (0,25 s) car la bulle n'a sa place qu'à l'image suivante. Mesuré : 1920 px, bannière 1428-1632 sur bulle
+  1378-1508 → 1146-1350 ; 1280 px, 786-990 → 507-711. Autotest « bande : une bannière passe à côté de la bulle de parole du héros » : OK ;
+  sans le correctif, ÉCHEC. npm test 378, autotest 335/335.
 - 2026-11-20 (it. 2776) Autotest : « bande : une bannière ne passe pas sous la grande bannière du dessus ». OK ; avec juice.js d'avant
   l'it. 2775 : ÉCHEC « chevauchement 3 px » (police latine ; 8 px en coréen). npm test 378, autotest 334/334.
 - 2026-11-20 (it. 2775) Bande : une grande bannière (butin légendaire, 20 px, 29 px de haut) débordait de 8 px sur la ligne suivante
