@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2773) docs/POUR-VICTOR.md : « À faire » qui reste ouvert (it. 2769), éditions 161-162, question des suffixes russes (it. 2771).
 - 2026-11-20 (it. 2772) « Quoi de neuf » : édition 162 (« À faire maintenant » : déblocage acheté → actions d'un clic, lignes ✓, fenêtre
   ouverte ; résumé gardé pendant un plein écran), clés 3434-3435, 10 langues (libellé cité tel que traduit). npm test 378, autotest
   333/333, lang-overflow all 1280 : aucun.
