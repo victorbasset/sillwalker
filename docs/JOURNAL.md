@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2939) Rectificatif de l'it. 2938 : la nuit n'explique pas la variation de « proie en meute » (8 essais en plein jour et en
+  pleine nuit forcés : même suite, +17 puis -4 à -20) ; c'est la vie propre en vagues, selon l'instant du départ. Commentaire corrigé ; le
+  correctif (médiane de 3, seuil -2,5) reste. Pour mieux faire : moyenner sur une période plus longue.
 - 2026-11-20 (it. 2938) Autotest « proie en meute » stabilisé : un essai de 2 s variait de +17 à -14 px (8 essais d'affilée ; vie propre, jour et
   nuit à l'heure réelle) ; médiane de 3 essais d'abord (encore un échec à -3 sur 3 autotests), puis seuil -4 → -2,5 (l'ancien ordre des règles
   donnait ≈ -2 : marge mince). 3 autotests de suite : 339/339, -6 à chaque fois ; ≈ 164 s (+7 s).
