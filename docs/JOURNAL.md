@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2996) Contrôle : mode mini de la partie d'une semaine en ja et de (compagnon, familier, « 2.26Dd » / « 2,26 Dd ») : tout tient ; barres de vie du héros et du monstre côte à côte sans se chevaucher.
 - 2026-11-20 (it. 2995) Contrôle : info-probe (ⓘ cachés) sur la partie d'une semaine à 1280 et 1920 px : IPROBE 0.
 - 2026-11-20 (it. 2994) Contrôle : fuzz.mjs 60 graines, sans et avec bénédictions du jour (FUZZ_DAYMOD=all) : 1200 parties, 0 bloquées, deux fois.
 - 2026-11-20 (it. 2993) Contrôle : mem-watch 10 min sur la partie d'une semaine (MEM_SAVE=scripts/fixtures/week-save.json) : 608-622 Mo, plat ; même niveau que dev-data (607-617, it. 2966).
