@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2984) perf.mjs : option PERF_SAVE=<fichier.json> (mesurer une autre partie). Partie d'une semaine contre dev-data, deux
+  passages alternés : bande 26,2-27,0 % contre 20,3-20,6 % ; panneau 27,4-28,5 contre 19,2-19,3 ; mini 6,9 contre 5,4-5,6. Cause cherchée
+  (simulation seule, redessins du panneau, compagnon, familier, perçages, anneaux) : diffuse, notée en Idées (P3). Rien de changé dans le jeu.
 - 2026-11-20 (it. 2983) Contrôle : résumé d'absence (8 h) de la partie d'une semaine, russe, 1280 px : tient, aucune erreur ; montants en
   suffixes longs (« +122,23 Dd » d'or). Sac plein 48/48 : 36 objets au sol, dont le légendaire de Poupouce et 4 épiques de champions ; ajouté
   comme cas concret à la question 1 de POUR-VICTOR (règle inchangée, demande n° 14).
@@ -9398,6 +9401,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 2984) Performance d'une partie d'une semaine : bande ≈ 26 % (dev-data ≈ 20,5), panneau ≈ 28 % (19,3), mini 6,9 % (5,5), icône 0,9 %
+  (0,5). Ni la simulation (58 ms pour 120 s de jeu), ni le panneau (aucun redessin complet en 20 s) : la bande a plus d'effets (en 20 s :
+  120 attaques contre 72, 78 perçages, 22 sorts, 20 coups du compagnon, 20 du serviteur, 13 tirs du drone). Compagnon ≈ 2,5 points ; masquer
+  les traînées de perçage ou les anneaux : dans le bruit (deux passages). Piste : regrouper les nombres flottants d'une même seconde, ou
+  alléger les effets quand plusieurs sources frappent à la fois ; mesurer avec PERF_SAVE=scripts/fixtures/week-save.json.
 - FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
