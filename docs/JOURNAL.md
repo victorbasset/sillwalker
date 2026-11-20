@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2838) Contrôle : Bestiaire en polonais à 1280 px : propre (noms longs sur deux lignes, bulle du PNJ abrégée, voulu).
+  Rien à corriger.
 - 2026-11-20 (it. 2837) Contrôle : semaine (168 h, guerrier) : dernier record 350, 6 158 éclats, comme la référence (it. 1708, 2332).
   Rien à corriger.
 - 2026-11-20 (it. 2836) Contrôle : bannières avec --reduced-motion : à côté de la bulle (1146-1350 / bulle 1378-1508) et empilées sans
