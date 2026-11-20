@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2790) docs/POUR-VICTOR.md : temps restant avec unités (it. 2786-2787), événement abrégé sur la bande (it. 2788).
 - 2026-11-20 (it. 2789) Essai d'autotest pour l'it. 2788 abandonné : non probant (voir Idées, P3). Le correctif reste vérifié par
   captures en fr et ru (it. 2788). Rien de changé dans le jeu.
 - 2026-11-20 (it. 2788) Bande : nom de zone long + événement (« Zone 57 Champignonnière géante + … Ruée des gobelins 30 s ») dépassait la
