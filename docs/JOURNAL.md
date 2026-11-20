@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2888) Mesure absence / jeu (une heure, 3 parties, après l'it. 2886) : expérience 0,51-0,68 (boss exclus hors ligne) ; objets
+  tirés à 30 % du taux de jeu, au plus 30 (voulu). Ajouté à la question de POUR-VICTOR. Pas de changement.
 - 2026-11-20 (it. 2887) Après l'it. 2886 : save-fuzz dev 1267 et fin 1225 corruptions, ok. docs/POUR-VICTOR.md : question « combien rapporte
   une absence » (27-53 % de l'or d'une heure de jeu, la note dit « un peu moins »).
 - 2026-11-20 (it. 2886) Absence : les élites et champions vaincus hors ligne (comptés pour les quêtes et les statistiques depuis les it. 882 et
