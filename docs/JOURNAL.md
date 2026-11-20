@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2917) Rectificatif de l'it. 2916 : la mesure « absence-pire » lit bien le résumé d'absence (vérifié), et les longues phrases
+  polonaises de l'édition 167 ne le font pas défiler (pl seul : aucun) ; le dépassement de 23 px n'est pas reproduit (nouvelle passe « all » :
+  aucun). Raccourcir les phrases n'a donc rien corrigé (gardé, sans risque). Noté P2 dans « Idées ».
 - 2026-11-20 (it. 2916) « Quoi de neuf », édition 167 : élites et champions de l'absence payés comme en jeu (it. 2886), objet épique des
   champions hors ligne (it. 2905) ; clés 3447-3448, 9 langues. lang-overflow complet : « pl absence-pire=23 » à toutes les largeurs (la
   mesure lit la même fenêtre modale, où « Quoi de neuf » au pire cas dépassait) ; phrases polonaises raccourcies, pl remesuré : aucun.
@@ -9222,6 +9225,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
+  longues phrases de l'édition 167 (aucun), résumé polonais après 8 h d'absence à 1280 (dépassement 0), nouvelle passe « all » (aucun).
+  Mesuré EN DERNIER sur une copie qui continue de jouer : sans doute une liste « À faire » plus longue selon l'état. À surveiller ; si ça
+  revient, relever le contenu de la fenêtre (titre et lignes) au moment de la mesure.
 - P3 (it. 2896) Or en fin de course : dev-data 447 Md d'or en zone 57 pour des achats à 13-90 M (élixir ≈ 40 victoires) ; simulation barde
   12 h : 38 Md en zone 64 (le joueur simulé n'achète qu'à moins de 10 % de son or : il entasse, chiffre à prendre avec prudence). Une
   dépense qui garde du sens en fin de course ? À proposer à Victor (choix de conception).
