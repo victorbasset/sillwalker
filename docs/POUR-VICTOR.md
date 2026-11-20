@@ -4,6 +4,19 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Tes décisions en attente, en une ligne chacune (it. 2962) — ma recommandation entre crochets
+
+1. Sac plein : un légendaire (et l'épique d'un champion) prend-il la place de l'objet inutile le moins cher ? (it. 2744, 2950) [oui, sans
+   toucher aux objets précieux ; sinon garder « tant pis », ta demande n° 14]
+2. Absence : 27-53 % de l'or d'une heure de jeu, la note dit « un peu moins » (it. 2886-2888) [garder l'écart, écrire « moins »]
+3. Chasses lentes après la Carte du voyageur (69 min contre 11 pour « vaincre N monstres », it. 2869) [cible qui suit la zone, avancée gardée]
+4. « 15 % » espacé en portugais et polonais, alors que l'usage local colle « 15% » (it. 2859) [usage local : coller en pt et pl]
+5. Suffixes russes « k, M, T » latins, sauf « млрд » (revue it. 2771) [garder : plus court]
+6. Creuset et vente automatique consomment les objets FORGÉS devenus inutiles (it. 19/11) [garder : sinon le sac se bouche]
+7. Points du grand graphe en surplus : où les placer (it. 2352) ; boutons des cartes de héros à 1280 px (it. 2236) [à voir en jouant]
+8. Écart entre sortes d'élites (18 à 50 % de défaites) et or inutile en fin de course (Idées, it. 2877, 2896) [pas urgent]
+
+
 ## Journée du 20/11 en bref (it. 2857-2948)
 
 - **Changé dans le jeu** (l'édition 166 de « Quoi de neuf » annonce les champions, les chasses et les pourcentages) : champions battables (95 % → 23-46 % de défaites, it. 2874) ; plus de quête de

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2962) docs/POUR-VICTOR.md : liste en tête des décisions en attente, une ligne chacune avec une recommandation.
 - 2026-11-20 (it. 2961, REVUE GÉNÉRALE) : 12 h : prêtresse 64, gladiateur 69, cryomancien 62 ; --perf (charge 1,5) : 20,1 / 19,4 %, mini 5,6 %,
   icône 0,43 % ; texte allemand sans français ; résumé d'absence russe en fin de partie : « 7 (+7 эпических предметов) », Poupouce
   « 2 (+2 легендарных предмета) » (pluriels justes, objets garantis tous rangés). Rien à corriger.
