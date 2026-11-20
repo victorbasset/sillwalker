@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2781, REVUE GÉNÉRALE) : 12 h : gladiateur 65, barde 65, cryomancien 62 ; --perf : bande 20,5 % (charge 2) puis 19,95 %
+  remesurée, panneau 19,9 %, mini 5,8 %, icône 0,4 % ; bande en allemand à 1366 px propre ; texte espagnol : rien de français.
+  Rien à corriger.
 - 2026-11-20 (it. 2780) mem-watch 10 min (bande) après les retouches des bannières et bulles : 612-626 Mo de 420 à 570 s, plat (mode haut
   de la mesure bimodale ≈ 570 / 625 Mo). Pas de fuite.
 - 2026-11-20 (it. 2779) Contrôle : lang-overflow complet (10 langues, 1920/1600/1366/1280 px, fin de partie, 130 %, pire cas) après les
