@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2970) Contrôle : --crawl en ja, zh, pt, ru (515-534 clics, 0 erreur) ; first-minutes (3 graines) : objet et boss 42-86 s,
+  quête 154-170 s, 300 or (1er déblocage) 351-408 s, zone 9-10 à 15 min. Rien à corriger.
 - 2026-11-20 (it. 2969) Autotest « proie en meute » : une seule moyenne sur 8 s au lieu de la médiane de 3 essais de 2 s. Mesuré sur 60 s
   (mouvement déterministe, deux exécutions identiques) : fenêtres de 2 s entre -2 et -15 px, dont deux de suite à -2 (la médiane pouvait
   encore échouer) ; fenêtres de 8 s entre -4,5 et -13,2. Deux autotests 339/339, -6 et -6 ; 9,5 s au lieu de 10,5.
