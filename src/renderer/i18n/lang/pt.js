@@ -2329,4 +2329,5 @@ export default {
   3454: "Enquanto você está fora, os itens mais valiosos são guardados primeiro: lendários de Poupouce, épicos dos campeões, baús e depois o saque do mais raro ao menos raro.",
   3455: "Bolsa cheia: um baú do tesouro encontrado no caminho abre espaço vendendo o item inútil mais barato, como o da loja.",
   3456: "O resumo de ausência diz quantos itens épicos os campeões derrotados deixaram.",
+  3457: "Correção: com a bolsa cheia, um baú do tesouro encontrado no caminho não vende mais um item para abrir espaço; o saque fica no chão, como qualquer saque.",
 };

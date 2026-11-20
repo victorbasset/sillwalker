@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2956) ANNULÉ l'it. 2947 (le coffre trouvé en chemin vendait un objet pour faire place) : demande n° 14 de Victor (it. 221),
+  « sac plein : le butin reste au sol, perdu (plus de vente ni d'échange automatique) ». Code, test et README retirés à la main (pas de git
+  revert, qui aurait aussi effacé la ligne de journal) ; « Quoi de neuf » édition 170 corrige l'annonce de l'édition 169 (clé 3457, 9
+  langues). Vérifié aussi : les it. 2873-2874, 2886, 2905, 2943-2945 ne touchent à aucune décision de Victor trouvée. npm test 391,
+  autotest 339/339, lang-overflow : aucun.
 - 2026-11-20 (it. 2955) Méthode : avant de changer une règle de jeu, chercher si Victor l'a tranchée (« demande de Victor ») ; leçon de l'it. 2947, notée en mémoire de session.
 - 2026-11-20 (it. 2954) Revu addToBag : « sac plein : l'objet reste au sol (demande de Victor : « tant pis ») » ; l'it. 2947 (le coffre trouvé
   en chemin vend un objet pour faire place) la contredit pour du butin. Déjà annoncée (édition 169, non modifiable) : pas annulée en

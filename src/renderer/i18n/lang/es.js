@@ -2329,4 +2329,5 @@ export default {
   3454: "Mientras no estás, los objetos más valiosos se guardan primero: legendarios de Poupouce, épicos de los campeones, cofres y luego el botín del más raro al menos raro.",
   3455: "Bolsa llena: un cofre del tesoro encontrado en el camino hace sitio vendiendo el objeto inútil más barato, como el de la tienda.",
   3456: "El resumen de ausencia dice cuántos objetos épicos dejaron los campeones vencidos.",
+  3457: "Corrección: con la bolsa llena, un cofre del tesoro encontrado en el camino ya no vende un objeto para hacer sitio; su botín queda en el suelo, como todo botín.",
 };

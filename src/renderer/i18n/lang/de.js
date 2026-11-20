@@ -2329,4 +2329,5 @@ export default {
   3454: "Während deiner Abwesenheit werden die wertvollsten Gegenstände zuerst verstaut: Legendäre von Poupouce, Epische der Champions, Truhen, dann die Beute von der seltensten zur gewöhnlichsten.",
   3455: "Tasche voll: Eine unterwegs gefundene Schatztruhe macht Platz, indem sie den billigsten nutzlosen Gegenstand verkauft, wie die aus dem Laden.",
   3456: "Die Abwesenheitsübersicht nennt, wie viele epische Gegenstände die besiegten Champions hinterlassen haben.",
+  3457: "Korrektur: Bei voller Tasche verkauft eine unterwegs gefundene Schatztruhe keinen Gegenstand mehr, um Platz zu machen; ihre Beute bleibt liegen, wie jede Beute.",
 };

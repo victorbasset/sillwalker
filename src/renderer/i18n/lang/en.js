@@ -2329,4 +2329,5 @@ export default {
   3454: "While you're away, the most precious items are stored first: Poupouce's legendaries, champions' epics, chests, then loot from rarest to least rare.",
   3455: "Full bag: a treasure chest found on the way makes room by selling the cheapest useless item, like the shop's.",
   3456: "The away summary tells how many epic items the defeated champions left.",
+  3457: "Correction: with a full bag, a treasure chest found on the way no longer sells an item to make room; its loot stays on the ground, like any loot.",
 };

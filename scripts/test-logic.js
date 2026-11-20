@@ -401,21 +401,6 @@ test("absence (it. 2945) : sac presque plein, le butin ordinaire le plus rare es
   }
 });
 
-test("coffre au trésor (it. 2947) : sac plein d'objets ordinaires inutiles, son objet prend la place du moins cher", () => {
-  const g = new Game(freshState());
-  g.S.zone = g.S.best = 20; g.S.lvl = 60; g.invalidateStats();
-  g.S.bagSize = 4; g.S.autoSell = {};
-  // équipement porté solide : les objets ordinaires du sac sont alors inutiles (sinon, emplacements vides, tout est une amélioration)
-  for (const k of Object.keys(g.S.equip)) { const it = g.newItem(4, 60); it.slot = k; g.S.equip[k] = it; }
-  g.invalidateStats();
-  g.S.bag = Array.from({ length: 4 }, () => { const it = g.newItem(0, 1); it.r = 0; it.set = null; it.plus = 0; return it; });
-  const before = g.S.bag.map((it) => it.id);
-  const { item } = g.openChest();
-  assert.ok(g.S.bag.some((it) => it.id === item.id), "l'objet du coffre est rangé");
-  assert.equal(g.S.bag.length, 4, "un ordinaire vendu pour faire place");
-  assert.equal(g.S.bag.filter((it) => before.includes(it.id)).length, 3);
-});
-
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

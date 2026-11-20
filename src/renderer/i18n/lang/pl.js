@@ -2329,4 +2329,5 @@ export default {
   3454: "Podczas nieobecności najcenniejsze przedmioty trafiają do torby pierwsze: legendarne od Poupouce, epickie od czempionów, skrzynie, a potem łup od najrzadszego.",
   3455: "Pełna torba: skrzynia ze skarbem znaleziona po drodze robi miejsce, sprzedając najtańszy zbędny przedmiot, jak ta ze sklepu.",
   3456: "Podsumowanie nieobecności mówi, ile epickich przedmiotów zostawili pokonani czempioni.",
+  3457: "Poprawka: przy pełnej torbie skrzynia ze skarbem znaleziona po drodze nie sprzedaje już przedmiotu, by zrobić miejsce; jej łup zostaje na ziemi, jak każdy łup.",
 };

@@ -3458,5 +3458,6 @@ export const KEYS = [
   "(+{n} objet épique)|(+{n} objets épiques)",
   "Pendant ton absence, les objets les plus précieux se rangent en premier : légendaires de Poupouce, épiques des champions, coffres, puis le butin du plus rare au moins rare.",
   "Sac plein : un coffre au trésor trouvé en chemin fait place en vendant l’objet inutile le moins cher, comme celui de la boutique.",
-  "Le résumé d’absence dit combien d’objets épiques les champions vaincus ont laissés."
+  "Le résumé d’absence dit combien d’objets épiques les champions vaincus ont laissés.",
+  "Correction : sac plein, un coffre au trésor trouvé en chemin ne vend plus d’objet pour faire place ; son butin reste au sol, comme tout butin."
 ];
