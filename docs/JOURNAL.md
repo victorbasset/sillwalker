@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2797) Bande à 1280 px : la bulle de parole du héros (« Plus ils sont gros, plus ils tombent fort. ») passait sur la barre de
+  vie du héros : entre les barres (379-603) et le nom du boss (846), pas de place pour ses 240 px, et la règle du nom du boss (it. 2738),
+  appliquée en dernier, la renvoyait sur la barre. Après toutes les règles, une bulle qui chevauche encore une barre ou la pastille se tait
+  (strip.js updateSpeech). Mesuré : 1280 px → bulle cachée ; 1920 px → bulle 1236-1482, barres jusqu'à 835, boss à 1485. npm test 379,
+  autotest 336/336.
 - 2026-11-20 (it. 2796) Contrôle : --crawl en chinois sur la partie de fin de partie : 739 clics en 26 s, aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2795) Contrôle clavier du résumé d'absence (débutant, 8 h) : focus sur « Continuer » à l'ouverture ; 7 éléments
   atteignables (meilleur butin, 5 actions, Continuer ; les lignes « ✓ » grisées sont sautées) ; Échap ferme. Rien à corriger.
