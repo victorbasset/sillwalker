@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2930) docs/POUR-VICTOR.md : récapitulatif de la journée étendu aux it. 2904-2929 (butin des champions hors ligne, « À faire »).
 - 2026-11-20 (it. 2929) Contrôle (suite de l'it. 2928) : 16 lignes « Acheter et équiper : <nom d'objet long> » (marchand, mise en scène),
   1280 px, es, pl, de, ru, fr : résumé d'absence réduit à 5 lignes et carte du héros en deux colonnes, 0 px partout.
 - 2026-11-20 (it. 2928) Contrôle : carte du héros, « À faire » de 16 fois la ligne la plus longue (étoiles en es/pl, paliers en de/ru), 1280 px :
