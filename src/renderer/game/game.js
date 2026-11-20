@@ -2890,7 +2890,10 @@ export class Game {
     if (offer) out.push({ id: "merchant", n: 1, tab: "shop", name: itemName(offer), price: offer.price });
     // (it. 2514) sac plein : chaque butin suivant reste au sol (légendaires compris, résumé d'absence « Meilleur butin : Légendaire ·
     // pas gardé ») ; seule action qui coûte à chaque minute : en tête, le remède (agrandir) avant le tri
-    if (this.bagFull()) { const rank = (t) => (t.id === "bagUp" ? 0 : t.id === "bagFull" ? 1 : 2); out.sort((a, b) => rank(a) - rank(b)); }
+    // (it. 2936) le résumé d'absence ne montre que ce qui tient (5 à 8 lignes, it. 2927) : le déblocage à acheter (la progression) passait
+    // 6e, après paliers et points, et disparaissait derrière la note ; il suit maintenant les quêtes (tri stable : le reste ne bouge pas)
+    const full = this.bagFull(), rank = (t) => (full && t.id === "bagUp" ? 0 : full && t.id === "bagFull" ? 1 : t.id === "quests" ? 2 : t.id === "unlock" ? 3 : 4);
+    out.sort((a, b) => rank(a) - rank(b));
     return out.filter((t) => !t.tab || tabReady(S, t.tab)); // pas de lien vers un onglet encore fermé
   }
 

@@ -341,6 +341,20 @@ test("absence (it. 2905) : chaque champion vaincu hors ligne laisse son objet é
   assert.ok(epics >= champs, `objets épiques ${epics} pour ${champs} champions`);
 });
 
+test("à faire (it. 2936) : le déblocage à acheter suit les quêtes, avant les points à dépenser", () => {
+  const g = new Game(freshState());
+  const S = g.S;
+  S.zone = S.best = 60; S.lvl = 120; S.gold = 1e15;
+  delete S.unlocks.travelMap; // un déblocage à acheter
+  g.ensureQuests();
+  const q = S.quests.slots[0]; q.progress = q.goal; // une quête à réclamer
+  S.skills.points = 50; S.talentPoints = 30; g.invalidateStats();
+  const ids = g.todoNow().map((t) => t.id);
+  assert.ok(ids.includes("unlock") && ids.includes("quests"), ids.join(" "));
+  assert.equal(ids.indexOf("unlock"), ids.indexOf("quests") + 1, ids.join(" "));
+  for (const k of ["talents", "skills", "masteryPick"]) if (ids.includes(k)) assert.ok(ids.indexOf(k) > ids.indexOf("unlock"), k + " avant le déblocage : " + ids.join(" "));
+});
+
 test("traductions (it. 2858) : en espagnol, portugais, allemand, polonais et russe, le pourcentage est espacé (« 10 % »)", () => {
   // convention du projet (format.js SPACED) ; pt, pl et ru collaient « 15% » dans 659 textes, à côté de « +30 % » du formateur
   for (const l of ["es", "pt", "de", "pl", "ru"]) {

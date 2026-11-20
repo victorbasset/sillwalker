@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2936) « À faire » : le déblocage à acheter suit maintenant les quêtes à réclamer (avant : 6e, après paliers et points ;
+  le résumé d'absence peut n'en montrer que 5, it. 2927, et l'achat qui fait progresser disparaissait derrière la note). Sac plein : ses
+  deux lignes restent en tête ; tri stable pour le reste. Test (échoue avant : « quests talents skills unlock ») ; npm test 388, autotest 339/339.
 - 2026-11-20 (it. 2935) Contrôle après les it. 2919-2934 : --crawl en espagnol à 1280, 8 h d'absence au lancement : 517 clics en 18 s, aucune erreur.
 - 2026-11-20 (it. 2934) Retour d'absence : la note « N autres choses à faire dans la carte du héros » est un lien (→) : un clic ouvre la
   liste « À faire » complète dans la fenêtre large (avant : fermer, trouver la carte, ouvrir « À faire »). Vérifié : « À faire (16) », 16
