@@ -669,9 +669,14 @@ async function runSelfTest(strip) {
         const m = document.querySelector('#modal'), all = () => [...m.querySelectorAll('.linkbtn')], link = m.querySelector('button[data-todo="upgrade"]');
         if (!link) return 'pas de lien « upgrade »'; const i = all().indexOf(link);
         S.unlocks.bulkEquip = true; window.__panel.refreshTodoLinks(link.parentElement);
-        const now = all()[i]; return now && now.dataset.action === 'todo-do' && now.dataset.what === 'upgrade' && now.textContent.startsWith('✦') ? 'ok' : 'ligne ' + i + ' : ' + (now && now.outerHTML.slice(0, 80));
+        const now = all()[i]; if (!(now && now.dataset.action === 'todo-do' && now.dataset.what === 'upgrade' && now.textContent.startsWith('✦'))) return 'ligne ' + i + ' : ' + (now && now.outerHTML.slice(0, 80));
+        // (it. 2766) plus d'amélioration : une ligne-lien encore active devenue sans objet passe à « ✓ », grisée, bulle, même place
+        const tl = all().find((x) => x.dataset.todo && !x.disabled); if (!tl) return 'ok';
+        const j = all().indexOf(tl), id = tl.dataset.todo, keepNow = g.todoNow; g.todoNow = () => keepNow.call(g).filter((x) => x.id !== id);
+        try { window.__panel.refreshTodoLinks(tl.parentElement); } finally { g.todoNow = keepNow; }
+        const d = all()[j]; return d && d.disabled && d.textContent.startsWith('✓') && !/→$/.test(d.textContent) && (d.title || d.dataset.title) ? 'ok' : 'sans objet ' + j + ' : ' + (d && d.outerHTML.slice(0, 80));
       } finally { g.hasUpgradeCached = keepUp; if (had) S.unlocks.bulkEquip = had; else delete S.unlocks.bulkEquip; document.querySelector('#modal [data-action=closemodal]')?.click(); } })()`);
-    check("retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, sur place", r === "ok", r);
+    check("retour d'absence : un déblocage acheté rend ses lignes faisables d'un clic, une ligne sans objet passe à ✓, sur place", r === "ok", r);
   }
   // « Depuis ta dernière visite » : ligne en haut de la carte du héros, un clic la masque.
   await click('[data-tab="adventure"]');

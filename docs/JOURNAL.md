@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2767) Autotest : le contrôle de l'it. 2765 vérifie aussi qu'une ligne-lien devenue sans objet passe à « ✓ », grisée,
+  avec bulle, à sa place (it. 2766). OK ; sans le correctif : ÉCHEC « sans objet 1 : … masteryPick ». npm test 378, autotest 332/332.
 - 2026-11-20 (it. 2766) Résumé d'absence, suite de l'it. 2764 : après une action « ✦ » ou un achat, une ligne qui n'a plus lieu d'être
   passe à « ✓ », grisée, à sa place, bulle « Déjà fait » (clé 3433, 10 langues). Mesuré (débutant, 8 h) : Œil acheté puis « ✦ Un objet
   plus puissant… » : sac 24 → 18, « Sac plein : le butin suivant restera au sol » devient « ✓ » (avant : restait un lien périmé).
