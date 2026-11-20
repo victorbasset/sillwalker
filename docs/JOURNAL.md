@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2884) Enquête assassin (it. 2883) : fight-odds 12 h avant / après : seuls les champions changent (95 → 47 % de défaites ;
+  élites 31 → 30 %, boss 55 → 58 %). Code actuel avec les ANCIENNES valeurs des champions, 7 graines : 64,3 (ancien code 66,0, actuel 63,0) :
+  les champions comptent pour ≈ 1 zone, le reste est la trajectoire (une graine de 60 à 67 selon le réglage). Bruit probable ; gardé.
 - 2026-11-20 (it. 2883) hero-table 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (65,1 à l'it. 2609), écart 6,7 (assassin 62,0 → gardien
   des étoiles 68,7). Assassin comparé à l'ancien code sur 7 graines : −3 zones après l'it. 2874, cause non trouvée : noté P2 dans « Idées ».
 - 2026-11-20 (it. 2882) Contrôle : bande à 21,4 % à la revue 2881 (charge 4,2) ; comparée aussitôt, en alternance, au commit d'avant les
@@ -9153,7 +9156,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 2883) Assassin après les champions battables (it. 2874) : 12 h, 7 graines (7,3,11,21,31,41,51) : 66,0 avant → 63,0 après ; le commit
+- CLOS (it. 2884 : bruit probable, ≈ 1 zone au plus due aux champions) P2 (it. 2883) Assassin après les champions battables (it. 2874) : 12 h, 7 graines (7,3,11,21,31,41,51) : 66,0 avant → 63,0 après ; le commit
   des chasses seules (3735030c) : 65,5 sur 4 graines. Cause non trouvée (rien de propre aux champions chez l'assassin, même nombre
   d'ascensions) ; ses parties nouvelles butent toutes sur le mur 62 (paliers). Pistes : fight-odds assassin avant / après, journal des
   courses ; les autres héros ne bougent pas (balance.mjs −0,4, gardien des étoiles 68,0 → 68,7).
