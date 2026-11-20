@@ -19,6 +19,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 - **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
   passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
+- **(it. 2858)** : pourcentages harmonisés sur la règle du projet (« 15 % » espacé en fr, es, pt, de, pl, ru) : 667 textes traduits
+  collaient « 15% » (surtout pt, pl, ru) à côté de « +30 % » du formateur. En portugais du Brésil et en polonais, l'usage courant est
+  plutôt « 15% » collé : si tu préfères l'usage local, il suffit de retirer pt et pl de la liste SPACED (format.js) et d'inverser le test.
 
 **Retour d'absence** (le résumé se perdait dans plusieurs cas) :
 - Sac plein : la bulle « Sac plein : une amélioration est restée au sol » passait devant la bulle d'absence pendant 12 s ; ouvrir le

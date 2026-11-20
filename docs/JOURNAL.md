@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2859) docs/POUR-VICTOR.md : pourcentages harmonisés (it. 2858) et question de l'usage local en pt et pl.
 - 2026-11-20 (it. 2858) Pourcentages : pt (216), pl (277) et ru (166) collaient « 15% » dans les textes traduits, alors que le formateur
   (format.js SPACED) écrit « +30 % » : les deux sur la même carte (Héros en russe). Espace ajoutée (rendue insécable par t()) dans es, pt,
   de, pl, ru ; steam/achievements.md régénéré ; test « pourcentage espacé » (sens inverse du test de l'it. 2067). npm test 382, autotest
