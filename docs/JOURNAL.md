@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2989) Contrôle : lang-overflow « all » à 1280 et 1920 px après l'édition 171 (fenêtre « Quoi de neuf » au pire cas comprise) : aucun.
 - 2026-11-20 (it. 2988) « Quoi de neuf » édition 171 (2 nouveautés, clés 3458-3459 traduites dans les 9 langues, i18n-check 0) : grands
   nombres en lettres jusqu'à Vg et bulles des cases du héros (it. 2972, 2974) ; cases et Ascension lisibles avec de très grands nombres
   (it. 2975-2976). Le plantage de l'it. 2978 n'est pas annoncé (jamais publié). Autotest 340/340.
