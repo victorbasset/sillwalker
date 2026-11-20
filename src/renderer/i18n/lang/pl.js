@@ -2306,4 +2306,6 @@ export default {
   3431: "Powrót: nawet po krótkiej nieobecności początkujący czasem przynosi przedmiot.",
   3432: "Pasek: dymek bohatera nie zasłania już pasków zdrowia ani imienia bossa.",
   3433: "Już zrobione",
+  3434: "Powrót: odblokowanie kupione w „Do zrobienia teraz” od razu udostępnia akcje jednym kliknięciem, nieaktualny wiersz zmienia się w ✓, a okno pozostaje otwarte; nic nie przesuwa się pod kursorem.",
+  3435: "Powrót: podsumowanie czeka też, aż pasek wróci po grze lub filmie na pełnym ekranie.",
 };

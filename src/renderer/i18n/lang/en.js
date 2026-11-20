@@ -2306,4 +2306,6 @@ export default {
   3431: "Returning: even after a short absence, a beginner sometimes brings back an item.",
   3432: "Strip: the hero’s speech bubble no longer covers the health bars or the boss name.",
   3433: "Already done",
+  3434: "Returning: an unlock bought in “Things to do now” instantly makes its actions one-click, a line that no longer applies turns into ✓, and the window stays open; nothing moves under the cursor.",
+  3435: "Returning: the summary also waits for the strip to come back after a fullscreen game or video.",
 };

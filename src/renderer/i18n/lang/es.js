@@ -2306,4 +2306,6 @@ export default {
   3431: "Regreso: incluso tras una ausencia corta, un principiante a veces trae un objeto.",
   3432: "Banda: la burbuja de diálogo del héroe ya no tapa las barras de vida ni el nombre del jefe.",
   3433: "Ya hecho",
+  3434: "Regreso: un desbloqueo comprado en «Qué hacer ahora» vuelve sus acciones de un clic al instante, una línea que ya no sirve pasa a ✓ y la ventana sigue abierta; nada se mueve bajo el cursor.",
+  3435: "Regreso: el resumen también espera a que vuelva la banda tras un juego o un vídeo a pantalla completa.",
 };

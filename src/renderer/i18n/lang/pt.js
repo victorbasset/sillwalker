@@ -2306,4 +2306,6 @@ export default {
   3431: "Volta da ausência: mesmo após uma ausência curta, um novato às vezes traz um item.",
   3432: "Faixa: o balão de fala do herói não cobre mais as barras de vida nem o nome do chefe.",
   3433: "Já feito",
+  3434: "Volta da ausência: um desbloqueio comprado em “O que fazer agora” torna suas ações de um clique na hora, uma linha que não serve mais vira ✓ e a janela continua aberta; nada se move sob o cursor.",
+  3435: "Volta da ausência: o resumo também espera a faixa voltar depois de um jogo ou vídeo em tela cheia.",
 };

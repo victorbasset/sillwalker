@@ -2306,4 +2306,6 @@ export default {
   3431: "Rückkehr: Auch nach kurzer Abwesenheit bringt ein Anfänger manchmal einen Gegenstand mit.",
   3432: "Leiste: Die Sprechblase des Helden verdeckt keine Lebensbalken und keinen Bossnamen mehr.",
   3433: "Bereits erledigt",
+  3434: "Rückkehr: Eine in „Jetzt zu tun“ gekaufte Freischaltung macht ihre Aktionen sofort mit einem Klick möglich, eine erledigte Zeile wird zu ✓ und das Fenster bleibt offen; nichts verrutscht unter dem Mauszeiger.",
+  3435: "Rückkehr: Die Übersicht wartet auch, bis die Leiste nach einem Spiel oder Video im Vollbild zurückkommt.",
 };

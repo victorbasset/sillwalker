@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2772) « Quoi de neuf » : édition 162 (« À faire maintenant » : déblocage acheté → actions d'un clic, lignes ✓, fenêtre
+  ouverte ; résumé gardé pendant un plein écran), clés 3434-3435, 10 langues (libellé cité tel que traduit). npm test 378, autotest
+  333/333, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2771, REVUE GÉNÉRALE) : 12 h : samouraï 69, lancier 65, prêtresse 64 ; --perf : 19,7 / 20,1 %, mini 5,6 %, icône 0,5 % ;
   résumé d'absence du débutant en japonais à 1280 px propre ; texte russe de la fin de partie : suffixes latins « Qa », « Qi » à côté de
   « млрд » (noté en idée P3). Rien d'autre.
