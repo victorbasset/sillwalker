@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2799) docs/POUR-VICTOR.md : bulle du héros qui se tait faute de place à 1280 px (it. 2797-2798).
 - 2026-11-20 (it. 2798) Autotest : « bande : sans place entre les barres de vie et le nom du boss, la bulle du héros se tait » (barres et
   nom figés autour du héros). OK ; avec strip.js d'avant l'it. 2797 : ÉCHEC « bulle affichée 1413-1659 sur la barre ». npm test 379,
   autotest 337/337.
