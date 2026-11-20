@@ -449,10 +449,18 @@ function start() {
       const level = e.level ?? e.params?.level;
       if (level === "warning" || level === "error" || level === 2 || level === 3) console.log(`[renderer ${level}] ${e.message ?? e.params?.message} (${e.sourceId ?? ""}:${e.lineNumber ?? ""})`);
     });
+    let crashTimes = [];
     strip.win.webContents.on("render-process-gone", (_e, d) => {
       console.error("[main] renderer arrêté :", d.reason);
       if (d.reason !== "clean-exit") logError("[page arrêtée] " + d.reason + (d.exitCode != null ? " (code " + d.exitCode + ")" : ""));
-      if (!quitting && d.reason !== "clean-exit") strip.win.reload();
+      // (it. 3012) au plus 3 rechargements par minute : une page qui retombe dès son chargement était rechargée sans fin, processeur à
+      // plein (bon voisin) ; au-delà, on s'arrête (journal), le joueur relance le jeu lui-même
+      const now = Date.now();
+      crashTimes = crashTimes.filter((t) => now - t < 60000); crashTimes.push(now);
+      if (!quitting && d.reason !== "clean-exit") {
+        if (crashTimes.length <= 3) strip.win.reload();
+        else logError("[page arrêtée] trop d'arrêts en une minute : plus de rechargement automatique");
+      }
     });
     // Arrêt / déconnexion de Windows : dernière sauvegarde.
     strip.win.on("query-session-end", () => { flushRenderer(); });

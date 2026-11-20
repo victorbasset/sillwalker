@@ -385,7 +385,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
 - Filets contre les erreurs (it. 2979-3003) : une erreur ne doit jamais bloquer la partie. Démarrage : progression hors ligne
   (app.js offlineSafe), photo de la visite, résumé d'absence, succès, bénédiction du jour (soft) ; fermeture : succès puis enregistrement
   final quoi qu'il arrive, mise en texte de saveNow protégée ; panneau : chaque partie du dessin (panel.js renderAll, safe ; avant, un
-  onglet en erreur était redessiné à chaque image) ; boucle d'image : simulation, dessin et panneau protégés chacun (app.js guard, une erreur par minute et par étape, it. 3010) ; journal errors.log : un même message une fois par minute (main.js logError). Une
+  onglet en erreur était redessiné à chaque image) ; boucle d'image : simulation, dessin et panneau protégés chacun (app.js guard, une erreur par minute et par étape, it. 3010) ; journal errors.log : un même message une fois par minute (main.js logError) ; page arrêtée : 3 rechargements par minute au plus (it. 3012). Une
   erreur SIMULÉE pour un contrôle porte `simulated: true` et part en console.warn (sinon « aucune erreur de l'interface » échoue) ;
   window.__offlineFail (dev) force l'échec de la progression hors ligne. Nouvelle étape du démarrage : la mettre dans soft().
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).

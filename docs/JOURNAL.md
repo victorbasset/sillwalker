@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3012) Page arrêtée (main.js render-process-gone) : rechargement automatique limité à 3 par minute ; une page qui
+  retombait dès son chargement était rechargée sans fin, processeur à plein. Vérifié (TEMP : forcefullyCrashRenderer toutes les 2 s,
+  5 fois) : 3 rechargements, puis plus rien, une ligne au journal. Autotest 342/342.
 - 2026-11-20 (it. 3011, REVUE GÉNÉRALE) : 12 h : lancier 62, danseur de lames 62, artificier 59 (graine 7, comme à l'it. 3008) ; --perf
   (charge 2,6) : 20,0 / 19,7 %, mini 5,6 %, icône 0,6 % (inchangé après les protections de la boucle d'image) ; Talents en russe propres ;
   texte allemand : « des » = article allemand, pas de français. Rien à corriger.
