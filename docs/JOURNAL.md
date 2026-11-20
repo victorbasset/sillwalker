@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3020) Contrôle : tab-pace : talents 1 min, stats 2-3, quêtes 4-6, boutique 7-9, héros 9-10, carte 11-12, bestiaire 13-15, ascension 20-28 ; dans les fourchettes des it. 2810 et 2889.
 - 2026-11-20 (it. 3019) Contrôle : early-pace (3 graines) : à 60 min niveau 41, zone 23-26, 6,3 déblocages ; 10 min : zone 9, 1,7 déblocage. Comme aux it. 2670 et 2878 (niveau 39-41, zone 23-25).
 - 2026-11-20 (it. 3018) Contrôle : IDLE=1 (joueur absent) guerrier 12 h : record 16 à 11-12 h, zone 15, niveau 47 ; même repère qu'à l'it. 698 (16 à 12 h). Le jeu avance seul comme avant.
 - 2026-11-20 (it. 3017) Contrôle : lang-overflow « all » complet (4 largeurs, fin de partie, 130 %, état max, semaine) après les changements de la soirée : aucun.
