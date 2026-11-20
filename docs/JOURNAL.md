@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2928) Contrôle : carte du héros, « À faire » de 16 fois la ligne la plus longue (étoiles en es/pl, paliers en de/ru), 1280 px :
+  0 px dans les quatre langues (deux colonnes resserrées, it. 2924). La ligne du marchand (« Comprar y equipar… », la plus longue vue à
+  l'it. 2927) n'était pas dans dev-data ce jour-là : non essayée.
 - 2026-11-20 (it. 2927) Retour d'absence : le relevé de l'it. 2926 a montré « es 1280 : à-faire16-absence=14 (8 boutons, plus long « Comprar
   y equipar: Túnica de cuero celes… ») » : 8 lignes ne tiennent pas quand l'une passe sur deux lignes. Après l'affichage, tant que la fenêtre
   défile, la dernière ligne s'efface (4 au moins) et la note compte les autres (posée à chaque retrait, sa hauteur comptée). Pire cas forcé
