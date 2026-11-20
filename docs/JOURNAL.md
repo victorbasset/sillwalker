@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2892) quest-pace 12 h après les it. 2873-2874 : 226 quêtes accomplies (150 à l'it. 2869), champions 59 min (159) ; le joueur
+  de l'outil n'achète aucun déblocage, donc plus aucune chasse : gain surestimé pour un vrai joueur. Repère et réserve dans CLAUDE.md.
 - 2026-11-20 (it. 2891, REVUE GÉNÉRALE) : 12 h : druide 64, lancier 62, barde 65 ; --perf (charge 2,9) : 20,3 / 19,9 %, mini 5,6 %, icône
   0,5 % ; texte japonais : aucun mot non traduit ; Aventure en allemand à 1280 : propre. Rien à corriger.
 - 2026-11-20 (it. 2890) Contrôle : --crawl sur la partie de fin de partie, en coréen, avec 5 h d'absence au lancement (nouveau calcul hors

@@ -76,7 +76,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   zone, déblocages à 2, 5, 10, 15, 30, 60 min ; 3 graines, `SEEDS=10` pour moins de bruit : sur 3 graines, ±3 niveaux et
   ±3 zones à 60 min, it. 1444-1445 ; `CLS=<classe>` : un héros précis, it. 1830). Le début est volontairement calme (`earlyPace`, rules.js).
 - Rythme des quêtes : `node --experimental-default-type=module scripts/quest-pace.mjs [heures=12] [graines=1,2,3]` (par sorte :
-  tirées, accomplies, durée moyenne ; ≈ 3 min pour 12 h × 3 graines ; repère it. 2869 : tuer 11 min, chasses 69 min, champions 159 min).
+  tirées, accomplies, durée moyenne ; ≈ 3 min pour 12 h × 3 graines ; repère it. 2869 : tuer 11 min, chasses 69 min, champions 159 min,
+  150 accomplies ; it. 2892, après les it. 2873-2874 : champions 59 min, 226 accomplies ; son joueur n'achète AUCUN déblocage : jamais la
+  Carte du voyageur, donc plus aucune chasse depuis l'it. 2873).
 - Combats : `node --experimental-default-type=module scripts/fight-odds.mjs [heures=12] [graines=1,2,3] [classe]` (taux de défaite contre
   normaux, élites par sorte, champions, boss ; repère it. 2874 : 0 / 31 / 46 / 57 % ; les champions perdaient 94 % avant, plus forts
   que le boss de leur zone, ce qu'aucune simulation de record ne montrait). À relancer après un changement des monstres ou des élites.

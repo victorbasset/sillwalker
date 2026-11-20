@@ -1,6 +1,7 @@
 // (it. 2870) Rythme des quêtes : pour chaque sorte, nombre tirées, accomplies et durée moyenne entre le tirage et l'accomplissement,
 // sur des parties neuves (joueur simulé minimal : équipe le meilleur objet, réclame les quêtes accomplies).
 // Usage : node --experimental-default-type=module scripts/quest-pace.mjs [heures=12] [graines=1,2,3]
+// Le joueur simulé n'achète aucun déblocage : pas de Carte du voyageur, donc pas de chasse depuis l'it. 2873.
 // Repère it. 2869 (12 h, graines 1-3) : « Vaincre N monstres » 11 min, chasses 69 min (monstre d'une seule zone), champions 159 min.
 import { useVirtualClock } from "./virtual-clock.mjs"; // (it. 1009) en premier : Date.now() virtuel
 const root = new URL("../src/renderer/game/", import.meta.url).href;
