@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2880) Outil : scripts/fight-odds.mjs (taux de défaite par adversaire et par sorte d'élite, une classe au choix), cité
+  dans CLAUDE.md : la mesure qui a trouvé les champions imbattables (it. 2874).
 - 2026-11-20 (it. 2879) Contrôles après les champions (it. 2874) : semaine guerrier (simulate 168) record 361 (repère 350) ; fuzz avec le
   Jour des champions 1200/0 ; stall-check sous toutes les bénédictions 60/0. Rien à corriger.
 - 2026-11-20 (it. 2878) Contrôle : rythme de la première heure (early-pace, 10 graines) avant / après les it. 2873-2874 : à 60 min niveau 40
