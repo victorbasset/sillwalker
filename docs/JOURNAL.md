@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2999) Contrôle : écriture de la sauvegarde (main/json-file.js, save-store.js) : fichier temporaire, fsync, renommage ;
+  secours périodique ; au chargement, récupération du .tmp valide après une fermeture brutale, puis du secours. Rien à corriger.
 - 2026-11-20 (it. 2998) Enregistrement protégé : à la fermeture, une erreur dans la vérification des succès empêchait l'enregistrement
   final (perte de tout depuis le dernier enregistrement automatique, 15 s au plus) ; la mise en texte de saveNow est aussi protégée (le
   .catch ne voyait que l'écriture). Démontré (échec forcé TEMP, repère posé 2 s avant la fermeture, autosave à 15 s) : ancien code,
