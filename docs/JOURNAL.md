@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2913) Outil : le bilan de l'autotest affiche sa durée totale (« 337/337 vérifications réussies en 157 s ») ; repère dans
+  CLAUDE.md. scripts/selftest.mjs lit toujours le bilan. npm test 387, autotest 337/337.
 - 2026-11-20 (it. 2912) Contrôle : SELFTEST_TIMES=1, 337/337 ; vérifications les plus lentes inchangées (libération 5,6-5,8 s ×3, bannière
   et bulle 3,7 s, meute 3,5 s, musique 3,4 s) : aucune nouvelle lenteur.
 - 2026-11-20 (it. 2911, REVUE GÉNÉRALE) : 12 h : ranger 65, samouraï 69, danseuse de lames 62 ; --perf (charge 2,6) : 20,4 / 18,9 %, mini

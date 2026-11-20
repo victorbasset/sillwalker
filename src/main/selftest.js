@@ -46,6 +46,7 @@ async function runSelfTest(strip) {
   watchdog.unref?.();
   // (it. 2198) durée de chaque vérification (temps écoulé depuis la précédente) : SELFTEST_TIMES=1 affiche les plus lentes à la fin
   const times = []; let lastT = Date.now();
+  const startT = lastT; // (it. 2913) durée totale affichée à la fin (CLAUDE.md suit son évolution, plafond SELFTEST_MAX_MIN)
   const check = (name, ok, extra = "") => { results.push(ok); lastCheck = name; const now = Date.now(); times.push([now - lastT, name]); lastT = now; console.log(`[selftest] ${ok ? "OK  " : "ÉCHEC"} ${name}${extra ? " — " + extra : ""}`); };
   const bounds = () => strip.win.getBounds();
 
@@ -1969,7 +1970,7 @@ async function runSelfTest(strip) {
   check("aucune erreur de l'interface pendant le parcours", rendErr.length === 0, rendErr.length ? `${rendErr.length} : ${rendErr[0]}` : "");
   const failed = results.filter((r) => !r).length;
   if (process.env.SELFTEST_TIMES) for (const [ms, n] of times.slice().sort((x, y) => y[0] - x[0]).slice(0, 12)) console.log(`[selftest] lent : ${(ms / 1000).toFixed(1)} s ${n}`);
-  console.log(`[selftest] ${results.length - failed}/${results.length} vérifications réussies — clic sur « Quitter »`);
+  console.log(`[selftest] ${results.length - failed}/${results.length} vérifications réussies en ${Math.round((Date.now() - startT) / 1000)} s — clic sur « Quitter »`);
   await click(".ptop .quit");
   await sleep(150);
   if (!(await js("!document.getElementById('confirm').hidden"))) console.log("[selftest] ÉCHEC la confirmation de sortie n'apparaît pas");
