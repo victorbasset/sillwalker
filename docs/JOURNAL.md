@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2814) Contrôle : fenêtre « Quoi de neuf » des éditions 161-164 en russe et japonais (panel.showNews(160)) : 9 nouveautés
+  sur deux colonnes, rien de coupé, sablier ⏳ rendu. Rien à corriger.
 - 2026-11-20 (it. 2813) Contrôle : hero-table (20 héros, 12 h, graines 7/3/11) : moyenne 65,1, écart 5,0 (ranger 62,7 → samouraï, gladiateur,
   gardien des étoiles 67,7), identique à la référence de l'it. 2609. Rien à corriger.
 - 2026-11-20 (it. 2812) docs/POUR-VICTOR.md : section « Nuit du 19 au 20/11 (it. 2737-2811) » en tête (questions à trancher, retour
