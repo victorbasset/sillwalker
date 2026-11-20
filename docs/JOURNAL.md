@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3005) Contrôle après les filets des it. 2997-3003 : --perf (charge 1,0) bande 20,1 %, panneau 19,5 %, mini 5,4 %, icône 0,53 % (inchangé) ; --crawl fr 509 clics, 0 erreur.
 - 2026-11-20 (it. 3004) CLAUDE.md, pièges connus : les filets contre les erreurs (it. 2979-3003), comment les tester (simulated, __offlineFail).
 - 2026-11-20 (it. 3003) Journal des erreurs (main.js logError, userData/errors.log) : un même message écrit une fois par minute au plus,
   avec le nombre de répétitions tues ; une erreur répétée à chaque image faisait 30 écritures disque synchrones par seconde. Vérifié
