@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2890) Contrôle : --crawl sur la partie de fin de partie, en coréen, avec 5 h d'absence au lancement (nouveau calcul hors
+  ligne de l'it. 2886) : 697 clics en 24 s, aucune erreur.
 - 2026-11-20 (it. 2889) Contrôle : ouverture des onglets (tab-pace) avant / après les changements du jour (quêtes, champions, absence) : graine 1
   identique, graines 2 et 3 à ±1 min (Ascension 19 → 22 min sur la graine 2 : trajectoire). Rien à corriger.
 - 2026-11-20 (it. 2888) Mesure absence / jeu (une heure, 3 parties, après l'it. 2886) : expérience 0,51-0,68 (boss exclus hors ligne) ; objets
