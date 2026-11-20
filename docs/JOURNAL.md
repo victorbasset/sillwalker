@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2871, REVUE GÉNÉRALE) : 12 h : moine 65, chaman 69, artificier 64 ; --perf (charge 2,0) : 19,8 / 19,9 %, mini 5,5 %,
+  icône 0,47 % ; texte russe : aucun mot non traduit (noms propres, touches, langues) ; captures Boutique en anglais 1920 et mini en
+  chinois : propres. Rien à corriger.
 - 2026-11-20 (it. 2870) Outil : scripts/quest-pace.mjs (durée moyenne de chaque sorte de quête sur des parties neuves), cité dans CLAUDE.md.
   Champions à 159 min : voulu (1 monstre sur 200, jusqu'à 3 pour une quête 3 étoiles ; « objectif de patience »).
 - 2026-11-20 (it. 2869) Mesure des quêtes sur 3 parties de 12 h (durée moyenne par sorte) : chasses 69 min, contre 10-16 min pour les autres
