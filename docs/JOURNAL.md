@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3009) Contrôle : extrêmes de l'it. 3008 sur 4 graines de plus (21/31/41/51) : gardien des étoiles 65 69 69 65 (7 graines : 67,7), assassin 62 66 65 62 (63,0) ; écart 4,7, niveaux habituels, pas de régression.
 - 2026-11-20 (it. 3008) Contrôle : hero-table 12 h × 3 graines (20 héros) : moyenne 64,8, écart 6,7 (gardien des étoiles 68,7 → assassin 62,0) ; noté en Idées (P3).
 - 2026-11-20 (it. 3007) Autotest plus court (suite de l'it. 3006) : la vraie cause était le plancher de 3 s de la durée dans
   finale-window.js (Math.max(3000, …)), qui relevait les 1,5 s demandées. Plancher à 1 s (en jeu : toujours 26 s), __finaleMs 1500 dans
@@ -9445,7 +9446,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 3008) Écart entre héros revenu à 6,7 zones (hero-table 12 h, graines 7/3/11 ; it. 2609 : 5,0 ; it. 2452 : 4,0) : gardien des
+- CLOS (it. 3009 : 7 graines, gardien des étoiles 67,7, assassin 63,0 : leurs niveaux habituels, it. 1584 et 2609) P3 (it. 3008) Écart entre héros revenu à 6,7 zones (hero-table 12 h, graines 7/3/11 ; it. 2609 : 5,0 ; it. 2452 : 4,0) : gardien des
   étoiles 68,7, samouraï et gladiateur 67,7 ; assassin 62,0, mage 62,3. Moyenne 64,8 (65,1). Avant de régler un héros : 7 graines
   (CLAUDE.md, paliers des murs 62/65/69), comparer à l'ancien réglage en worktree.
 - P3 (it. 2984) Performance d'une partie d'une semaine : bande ≈ 26 % (dev-data ≈ 20,5), panneau ≈ 28 % (19,3), mini 6,9 % (5,5), icône 0,9 %
