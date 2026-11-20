@@ -2308,4 +2308,6 @@ export default {
   3433: "Ya hecho",
   3434: "Regreso: un desbloqueo comprado en «Qué hacer ahora» vuelve sus acciones de un clic al instante, una línea que ya no sirve pasa a ✓ y la ventana sigue abierta; nada se mueve bajo el cursor.",
   3435: "Regreso: el resumen también espera a que vuelva la banda tras un juego o un vídeo a pantalla completa.",
+  3436: "Banda: los anuncios (botín legendario, nuevo récord, evento) ya no se superponen entre sí ni sobre la burbuja de diálogo del héroe.",
+  3437: "Modo mini: dos momentos que llegan juntos («¡Legendario!» y luego «Nuevo récord») se muestran uno tras otro.",
 };

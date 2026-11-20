@@ -2308,4 +2308,6 @@ export default {
   3433: "Already done",
   3434: "Returning: an unlock bought in “Things to do now” instantly makes its actions one-click, a line that no longer applies turns into ✓, and the window stays open; nothing moves under the cursor.",
   3435: "Returning: the summary also waits for the strip to come back after a fullscreen game or video.",
+  3436: "Strip: announcements (legendary loot, new record, events) no longer overlap each other or the hero’s speech bubble.",
+  3437: "Mini mode: two moments arriving together (“Legendary!” then “New record”) now show one after the other.",
 };

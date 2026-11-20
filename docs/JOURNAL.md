@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2785) « Quoi de neuf » : édition 163 (annonces de la bande sans chevauchement ; moments du mode mini l'un après l'autre),
+  clés 3436-3437, 10 langues. npm test 378, autotest 336/336, lang-overflow all 1280 : aucun.
 - 2026-11-20 (it. 2784) Contrôle : annonce d'un événement (« Ruée des gobelins ! … », grande bannière, 524-548) et « Nouveau record »
   lancés ensemble : la seconde se place dessous (557-576), sans chevauchement (it. 2775) ; le nom du boss (503-519) reste dégagé.
   Rien à corriger.

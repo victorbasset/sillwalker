@@ -2308,4 +2308,6 @@ export default {
   3433: "Bereits erledigt",
   3434: "Rückkehr: Eine in „Jetzt zu tun“ gekaufte Freischaltung macht ihre Aktionen sofort mit einem Klick möglich, eine erledigte Zeile wird zu ✓ und das Fenster bleibt offen; nichts verrutscht unter dem Mauszeiger.",
   3435: "Rückkehr: Die Übersicht wartet auch, bis die Leiste nach einem Spiel oder Video im Vollbild zurückkommt.",
+  3436: "Leiste: Ankündigungen (legendäre Beute, neuer Rekord, Ereignis) überlappen sich nicht mehr gegenseitig oder mit der Sprechblase des Helden.",
+  3437: "Mini-Modus: Zwei gleichzeitige Momente („Legendär!“, dann „Neuer Rekord“) erscheinen nacheinander.",
 };

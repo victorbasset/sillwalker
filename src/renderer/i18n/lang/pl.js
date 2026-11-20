@@ -2308,4 +2308,6 @@ export default {
   3433: "Już zrobione",
   3434: "Powrót: odblokowanie kupione w „Do zrobienia teraz” od razu udostępnia akcje jednym kliknięciem, nieaktualny wiersz zmienia się w ✓, a okno pozostaje otwarte; nic nie przesuwa się pod kursorem.",
   3435: "Powrót: podsumowanie czeka też, aż pasek wróci po grze lub filmie na pełnym ekranie.",
+  3436: "Pasek: ogłoszenia (legendarny łup, nowy rekord, wydarzenie) nie nachodzą już na siebie ani na dymek bohatera.",
+  3437: "Tryb mini: dwa momenty naraz („Legendarny!”, potem „Nowy rekord”) wyświetlają się jeden po drugim.",
 };
