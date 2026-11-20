@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2795) Contrôle clavier du résumé d'absence (débutant, 8 h) : focus sur « Continuer » à l'ouverture ; 7 éléments
+  atteignables (meilleur butin, 5 actions, Continuer ; les lignes « ✓ » grisées sont sautées) ; Échap ferme. Rien à corriger.
 - 2026-11-20 (it. 2794) Contrôle du début de partie : first-minutes (premier objet 42-82 s, premier boss 70-82 s, 1er déblocage
   345-408 s) ; early-pace (60 min : niveau 39-41, zone 23-25, 6,3 déblocages). Rien à corriger.
 - 2026-11-20 (it. 2793) Contrôle : mode mini en russe et en allemand (dev-data) : « Ур. 1313 », « 447 млрд », « Stf. 1313 », « 447 Mrd »
