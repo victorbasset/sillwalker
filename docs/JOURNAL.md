@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2960) Vérifié (l'it. 2956 l'affirmait sur une recherche rapide) : aucune demande de Victor dans le journal sur les chasses, les
+  quêtes, l'or ou le butin de l'absence ; les it. 2868, 2873, 2886, 2905 ne contredisent aucune décision.
 - 2026-11-20 (it. 2959) Vérifié (méthode de l'it. 2955) : la force des champions (×2,5 PV, ×1,3 attaque) vient d'une itération automatique
   (c804d9ab, 8/11), sans demande de Victor dans le commit ni le journal : le rééquilibrage de l'it. 2874 ne contredit aucune décision.
 - 2026-11-20 (it. 2958) Contrôle après les it. 2943-2956 : fuzz 1200 parties, 0 bloquées ; stall-check 60 parties, 0 figées.
