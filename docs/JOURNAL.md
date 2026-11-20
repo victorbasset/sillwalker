@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2912) Contrôle : SELFTEST_TIMES=1, 337/337 ; vérifications les plus lentes inchangées (libération 5,6-5,8 s ×3, bannière
+  et bulle 3,7 s, meute 3,5 s, musique 3,4 s) : aucune nouvelle lenteur.
 - 2026-11-20 (it. 2911, REVUE GÉNÉRALE) : 12 h : ranger 65, samouraï 69, danseuse de lames 62 ; --perf (charge 2,6) : 20,4 / 18,9 %, mini
   5,4 %, icône 0,57 % ; texte chinois : aucun mot non traduit ; Statistiques en polonais à 1366 : propres (pourcentages espacés). Rien à corriger.
 - 2026-11-20 (it. 2910) Le code de sortie 1 de l'it. 2909 venait de « git checkout perf-report.json » (fichier non suivi par git), pas de
