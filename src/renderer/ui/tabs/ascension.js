@@ -68,7 +68,9 @@ export class AscensionTab {
         <div class="sub">${maxed ? tx("maximum atteint") : tx("Rang suivant : ") + esc(effText(c.eff, c.eff.startZone ? rank + 1 : 1))}</div></div>
         ${maxed ? `<button disabled>${tx("Maximum")}</button>` : `<button data-action="a-buy" data-id="${c.id}"${P.shards < cost ? " disabled" : ""}>✦ ${fmtFull(cost)}</button>`}</li>`;
     }).join("");
-    el.innerHTML = `<div class="ascgrid">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2>${maxedList.length ? `<p class="note tight">${tx("Au maximum ({0}) :", { 0: maxedList.length })}</p><div class="uowned">${maxedChips}</div>` : ""}<ul class="shoplist two-cols">${stars}</ul></article></div>`;
+    // (it. 2976) toutes les constellations au maximum : la carte de droite n'a plus que leurs étiquettes, la place va à l'Ascension
+    // (partie d'une semaine en espagnol à 1280 px : la carte de gauche, aux grands nombres sur deux lignes, défilait de 12 px)
+    el.innerHTML = `<div class="ascgrid${stars ? "" : " allmax"}">${intro}<article class="panel"><h2>${tx("Constellations")} <small>${tx("effets permanents")}</small></h2>${maxedList.length ? `<p class="note tight">${tx("Au maximum ({0}) :", { 0: maxedList.length })}</p><div class="uowned">${maxedChips}</div>` : ""}<ul class="shoplist two-cols">${stars}</ul></article></div>`;
   }
 
   onAction(a, b) {

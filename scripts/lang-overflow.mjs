@@ -81,6 +81,24 @@ for (const lang of langs) {
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} fin ${fw} : ${res}`);
     }
+    // (it. 2976) partie d'une SEMAINE (simulate.js 168 warrior, record 353, scripts/fixtures/week-save.json) à 1280 px : PV et attaque
+    // en milliards (« 2,58 млрд » coupé, it. 2975), or en suffixes longs ; la fin de partie (48 h) n'y arrive pas. NO_WEEK=1 pour sauter.
+    // Régénérer : DUMP=scripts/fixtures/week-save.json node … scripts/simulate.js 168 warrior (puis vider son journal, « log »)
+    const weekFile = path.join(root, "scripts", "fixtures", "week-save.json");
+    if (fs.existsSync(weekFile) && !process.env.NO_WEEK) {
+      const wk = JSON.parse(fs.readFileSync(weekFile, "utf8"));
+      fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...wk, last: Date.now(), settings: { ...(wk.settings || {}), lang } }));
+      let out = "";
+      try {
+        out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1280", "--overflow-report", "--exit-after=25"],
+          { encoding: "utf8", timeout: 70000, stdio: ["ignore", "pipe", "pipe"] });
+      } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+      const m = out.match(/\[overflow\] (\d+) (.*)/);
+      const res = m ? m[2].trim() : "pas de mesure";
+      if (res !== "aucun") bad++;
+      console.log(`${lang.padEnd(3)} semaine 1280 : ${res}`);
+    }
     // (it. 1048) fin de partie, 1920 px, « Taille de l'interface » à 130 % (zoom du panneau seul : les @media voyaient la
     // fenêtre ; Boutique, Bestiaire, Statistiques défilaient, it. 1046). NO_ZOOM=1 pour sauter cette mesure.
     if (fs.existsSync(endFile) && !process.env.NO_ZOOM) {

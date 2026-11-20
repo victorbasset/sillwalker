@@ -1193,6 +1193,7 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 .keeplose > div > b { flex: none; min-width: 52px; }
 .keeplose > div > ul { flex: 1; }
 .ascgrid { grid-template-columns: minmax(300px, 1.25fr) minmax(400px, 1.75fr); }
+.ascgrid.allmax { grid-template-columns: minmax(300px, 1.75fr) minmax(300px, 1.25fr); } /* (it. 2976) constellations toutes au maximum */
 /* Chroniques (demande 31) : une ambiance de couleur par chronique. */
 .cine.chronicle.chr-captive { background: linear-gradient(#040c0a 0%, #0e2a22 65%, rgba(14, 42, 34, 0.75) 100%); }
 .cine.chronicle.chr-shards { background: linear-gradient(#07031a 0%, #24104a 65%, rgba(36, 16, 74, 0.75) 100%); }
