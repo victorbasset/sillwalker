@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2941, REVUE GÉNÉRALE) : 12 h : guerrier 64, paladin 65, artificier 59 ; --perf (charge 2,4) : 19,8 / 19,4 %, mini 5,6 %,
+  icône 0,43 % ; texte espagnol sans français (« le » = pronom espagnol : « la manada le responde ») ; résumé d'absence allemand à 1280 :
+  propre, le déblocage (« Kaufen: Karte des Reisenden ») 4e, après le sac et les quêtes (it. 2936). Rien à corriger.
 - 2026-11-20 (it. 2940) README : « À faire » du retour d'absence (place, lien vers la liste entière, ordre ; it. 2919-2936).
 - 2026-11-20 (it. 2939) Rectificatif de l'it. 2938 : la nuit n'explique pas la variation de « proie en meute » (8 essais en plein jour et en
   pleine nuit forcés : même suite, +17 puis -4 à -20) ; c'est la vie propre en vagues, selon l'instant du départ. Commentaire corrigé ; le
