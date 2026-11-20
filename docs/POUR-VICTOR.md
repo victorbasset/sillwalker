@@ -16,7 +16,11 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - **Puis** (éditions 168-169) : la note « N autres choses à faire → » ouvre la liste entière (it. 2934) ; le déblocage à acheter suit les
   quêtes (it. 2936). Sac plein : pendant l'absence, rangement par valeur (Poupouce, épiques des champions, coffres, puis butin du plus rare
   au moins rare, it. 2943-2945) ; en jeu comme hors ligne, le coffre au trésor trouvé en chemin fait place comme celui de la boutique
-  (it. 2947, à relire : la règle ne visait que boutique et quêtes). Un sac déjà plein au départ : toujours ta question (it. 2744).
+  (it. 2947, à relire : la règle ne visait que boutique et quêtes). **Attention (vu à l'it. 2954)** : le code porte ta consigne « sac
+  plein : l'objet reste au sol, tant pis » ; un coffre trouvé en chemin est du butin, l'it. 2947 la contredit. Elle est annoncée dans
+  l'édition 169 de « Quoi de neuf » (publiée, non modifiable). Si tu préfères « tant pis » : `git revert 10382a35` et une ligne dans
+  la prochaine édition (« le coffre trouvé en chemin ne fait plus place »). L'ordre de rangement de l'absence (it. 2943-2945) ne vend
+  rien : il range seulement les objets précieux d'abord dans les places libres, compatible avec « tant pis ». Un sac déjà plein au départ : toujours ta question (it. 2744).
 - **À toi de dire** (détails plus bas) : chasses lentes après la Carte (it. 2869) ; combien doit rapporter une absence (it. 2886-2888) ;
   pourcentages collés en pt et pl (it. 2859) ; écart entre sortes d'élites et or en fin de course (Idées du journal, it. 2877, 2896).
 - **Nouveaux outils** : scripts/quest-pace.mjs (rythme des quêtes), scripts/fight-odds.mjs (défaites par adversaire).

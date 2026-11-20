@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2954) Revu addToBag : « sac plein : l'objet reste au sol (demande de Victor : « tant pis ») » ; l'it. 2947 (le coffre trouvé
+  en chemin vend un objet pour faire place) la contredit pour du butin. Déjà annoncée (édition 169, non modifiable) : pas annulée en
+  silence ; POUR-VICTOR dit le conflit et la marche à suivre (git revert 10382a35 + une ligne d'édition).
 - 2026-11-20 (it. 2953) Contrôle après les it. 2943-2947 : save-fuzz fin de partie 1225 et version 0.1.2 1169 corruptions, ok.
 - 2026-11-20 (it. 2952) Contrôle après les it. 2943-2947 : --crawl en allemand, 8 h d'absence au lancement : 531 clics en 18 s, aucune erreur.
 - 2026-11-20 (it. 2951, REVUE GÉNÉRALE) : 12 h : assassin 62, druide 64, arbalétrier 61 ; --perf (charge 2,2) : 19,7 / 19,4 %, mini 5,6 %,
