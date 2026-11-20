@@ -38,7 +38,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 **Langues** : portugais harmonisé en brésilien (guillemets “ ”, « você », « clique »), npm test le garde (it. 2756-2758) ; espagnol
 « ordenador » → « PC » (it. 2760) ; Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. »,
-it. 2786-2787).
+it. 2786-2787). Durées sans partie nulle : « Depuis ta dernière visite (2 h) » et Statistiques « 3 j » au lieu de
+« 2 h 0 min » / « 3 j 0 h » (it. 2817-2818).
 
 Éditions « Quoi de neuf » 161 à 164 publiées pour tout cela. Contrôles de la nuit : autotest 337 vérifications, npm test 380, aucune
 partie bloquée, sauvegardes abîmées tenues, mémoire et performance stables.
