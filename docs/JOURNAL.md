@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2843) Chinois : en-tête du résumé d'absence « 你的英雄刷了 闷热丛林，… » : espace en trop avant le nom de la zone (clé 914),
+  retirée. D'autres traductions zh gardent une espace avant une variable (souvent un nombre, usage de ces traductions) : non touchées.
 - 2026-11-20 (it. 2842) Contrôle : résumé d'absence du débutant (8 h) en chinois à 1280 px : propre, note de plafond courte (it. 2826).
   Rien à corriger.
 - 2026-11-20 (it. 2841, REVUE GÉNÉRALE) : 12 h : samouraï 69, gladiateur 65, cryomancien 62 ; --perf : 20,1 / 19,3 %, mini 5,7 %, icône 0,5 % ;
