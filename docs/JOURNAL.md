@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2963) Contrôle : performance de la journée, code du matin (bee379f7) contre l'actuel, en alternance (charge 0,9-1,3) :
+  bande 19,59 / 19,31 % contre 19,72 / 19,55 % ; mini 5,53 / 6,06 % contre 5,43 / 5,40 %. Même niveau (bruit). (Une copie de dev-data
+  est nécessaire dans le worktree : sans elle, perf ne mesure rien.)
 - 2026-11-20 (it. 2962) docs/POUR-VICTOR.md : liste en tête des décisions en attente, une ligne chacune avec une recommandation.
 - 2026-11-20 (it. 2961, REVUE GÉNÉRALE) : 12 h : prêtresse 64, gladiateur 69, cryomancien 62 ; --perf (charge 1,5) : 20,1 / 19,4 %, mini 5,6 %,
   icône 0,43 % ; texte allemand sans français ; résumé d'absence russe en fin de partie : « 7 (+7 эпических предметов) », Poupouce
