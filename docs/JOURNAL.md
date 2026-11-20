@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2910) Le code de sortie 1 de l'it. 2909 venait de « git checkout perf-report.json » (fichier non suivi par git), pas de
+  scripts/perf.mjs : mesures valides, rien à corriger dans le dépôt.
 - 2026-11-20 (it. 2909) Contrôle : --perf --battery 14,95 % (repère du matin 15,1) et --idle 9,99 % (9,8), charge 1,7. Idées relues :
   aucune piste P1-P2 ouverte qui ne dépende pas de Victor ou d'une mesure sous Windows.
 - 2026-11-20 (it. 2908) Contrôle : mem-watch panneau ouvert, 10 min : 587-607 Mo, fin à 598 (repère it. 2258 : 580-610, plat).
