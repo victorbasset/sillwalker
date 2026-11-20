@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2769) Carte du héros > « À faire (N) » (grande fenêtre, MODAL_DETAILS) : « ✦ Acheter : <déblocage> » FERMAIT la fenêtre
+  (pas de data-keepopen, contrairement aux autres actions « ✦ ») ; pour l'action suivante, il fallait la rouvrir. Elle reste ouverte
+  maintenant, comme le résumé d'absence : la ligne passe à « ✓ », les lignes rendues faisables deviennent « ✦ » (it. 2764), rien ne bouge
+  (mesuré : « Acheter et équiper » du marchand reste à 330 px). npm test 378, autotest 332/332.
+  Note : ouverte sur place (open = true, ce que le joueur ne fait pas), la boîte se redessinait et le bouton du marchand remontait sous le
+  curseur (536 px) ; la grande fenêtre évite ce cas.
 - 2026-11-20 (it. 2768) Contrôle après les retouches du résumé d'absence (it. 2764-2767) : --crawl en russe sur dev-data (509 clics,
   17 s) et sur le débutant au sac plein de retour après 8 h (227 clics, 9 s) : aucune erreur. Rien à corriger.
 - 2026-11-20 (it. 2767) Autotest : le contrôle de l'it. 2765 vérifie aussi qu'une ligne-lien devenue sans objet passe à « ✓ », grisée,
