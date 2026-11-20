@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3034) Vérifié le constat de l'it. 3033 : sellValue (rules.js) = 5 × niveau × rareté² × (1 + 0,3 × améliorations), linéaire face à un or exponentiel ; cause ajoutée à la décision 8 de POUR-VICTOR.
 - 2026-11-21 (it. 3033) Capture de la partie d'une semaine (animations réduites) : vendre 48 objets inutiles de niveau 345-353 rapporte 123 k d'or pour 2,26 Dd en poche ; ajouté comme cas concret à la décision 8 de POUR-VICTOR (règle inchangée).
 - 2026-11-21 (it. 3032) Contrôle : partie d'une semaine avec --reduced-motion, panneau ouvert, 25 s : aucune erreur, pas d'errors.log.
 - 2026-11-21 (it. 3031, REVUE GÉNÉRALE) : 12 h : nécromancien 62, moine 64, gardien des étoiles 67 ; --perf (charge 2,2) : 19,7 / 19,5 %,
