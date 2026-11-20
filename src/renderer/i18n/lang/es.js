@@ -2316,4 +2316,7 @@ export default {
   3441: "Duraciones más limpias: «2 h» en vez de «2 h 0 min», «3 d» en vez de «3 d 0 h» (tarjeta del héroe, Estadísticas).",
   3442: "Regreso de un principiante: la nota del límite ya no menciona una constelación que aún no conoce.",
   3443: "Banda en una pantalla de portátil: la burbuja del héroe se calla cuando no hay sitio, en vez de tapar su barra de vida.",
+  3444: "Campeones: más duros que una élite, pero menos que el jefe de su zona. Antes, tu héroe perdía casi todos estos combates.",
+  3445: "Misiones de caza: solo llegan con el «Mapa del viajero», que te lleva en un clic hasta el monstruo buscado.",
+  3446: "Porcentajes escritos igual en todas partes en español, portugués, alemán, polaco y ruso.",
 };

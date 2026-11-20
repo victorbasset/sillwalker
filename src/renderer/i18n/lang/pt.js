@@ -2316,4 +2316,7 @@ export default {
   3441: "Durações mais limpas: “2 h” em vez de “2 h 0 min”, “3 d” em vez de “3 d 0 h” (cartão do herói, Estatísticas).",
   3442: "Volta da ausência de um novato: a nota do limite não fala mais de uma constelação que ele ainda não conhece.",
   3443: "Faixa numa tela de notebook: o balão do herói fica em silêncio quando não há espaço, em vez de cobrir a barra de vida.",
+  3444: "Campeões: mais duros que uma elite, mas menos que o chefe da zona deles. Antes, seu herói perdia quase todos esses combates.",
+  3445: "Missões de caça: só aparecem com o “Mapa do viajante”, que leva você em um clique até o monstro procurado.",
+  3446: "Porcentagens escritas do mesmo jeito em todo lugar em espanhol, português, alemão, polonês e russo.",
 };

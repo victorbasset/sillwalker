@@ -2316,4 +2316,7 @@ export default {
   3441: "Klarere Dauern: „2 Std.“ statt „2 Std. 0 Min.“, „3 T“ statt „3 T 0 Std.“ (Heldenkarte, Statistik).",
   3442: "Rückkehr eines Anfängers: Der Hinweis zur Obergrenze erwähnt kein Sternbild mehr, das er noch nicht kennt.",
   3443: "Leiste auf einem Laptop-Bildschirm: Die Sprechblase des Helden schweigt, wenn kein Platz ist, statt seinen Lebensbalken zu verdecken.",
+  3444: "Champions: zäher als eine Elite, aber schwächer als der Boss ihrer Zone. Vorher verlor dein Held fast jeden dieser Kämpfe.",
+  3445: "Jagdquests: Sie kommen erst mit der „Karte des Reisenden“, die dich mit einem Klick zum gesuchten Monster bringt.",
+  3446: "Prozentangaben überall einheitlich geschrieben: auf Spanisch, Portugiesisch, Deutsch, Polnisch und Russisch.",
 };

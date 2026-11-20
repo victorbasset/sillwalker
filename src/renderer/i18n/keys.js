@@ -3445,5 +3445,8 @@ export const KEYS = [
   "Plafond de {0} h atteint : au-delà, ton héros ne progresse plus.",
   "Durées plus nettes : « 2 h » au lieu de « 2 h 0 min », « 3 j » au lieu de « 3 j 0 h » (carte du héros, Statistiques).",
   "Retour d’absence d’un débutant : la note du plafond ne parle plus d’une constellation qu’il ne connaît pas encore.",
-  "Bande sur un écran de portable : la bulle de parole du héros se tait quand elle n’a pas la place, au lieu de cacher sa barre de vie."
+  "Bande sur un écran de portable : la bulle de parole du héros se tait quand elle n’a pas la place, au lieu de cacher sa barre de vie.",
+  "Champions : plus coriaces qu’une élite, mais moins que le boss de leur zone. Avant, ton héros perdait presque tous ces combats.",
+  "Quêtes de chasse : elles n’arrivent qu’avec la « Carte du voyageur », qui mène en un clic jusqu’au monstre recherché.",
+  "Pourcentages écrits partout de la même façon en espagnol, portugais, allemand, polonais et russe."
 ];

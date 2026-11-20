@@ -2316,4 +2316,7 @@ export default {
   3441: "Cleaner durations: “2 h” instead of “2 h 0 min”, “3 d” instead of “3 d 0 h” (hero card, Statistics).",
   3442: "A beginner’s return: the cap note no longer mentions a constellation they don’t know yet.",
   3443: "Strip on a laptop screen: the hero’s speech bubble stays quiet when there’s no room, instead of hiding their health bar.",
+  3444: "Champions: tougher than an elite, but weaker than their zone’s boss. Before, your hero lost almost every one of these fights.",
+  3445: "Hunt quests: they only appear once you own the “Traveler's Map”, which takes you to the wanted monster in one click.",
+  3446: "Percentages are now written the same way everywhere in Spanish, Portuguese, German, Polish and Russian.",
 };

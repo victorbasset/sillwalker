@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2876) « Quoi de neuf », édition 166 : champions battables (it. 2874), chasses dès la Carte du voyageur (it. 2873),
+  pourcentages harmonisés (it. 2858-2860) ; clés 3444-3446 traduites dans les 9 langues. npm test 385, autotest 337/337, lang-overflow
+  complet (10 langues) : aucun.
 - 2026-11-20 (it. 2875) README à jour des it. 2873-2874 (champions plus coriaces qu'une élite, moins qu'un boss ; chasses dès la Carte du
   voyageur). Aucun texte du jeu ne citait la force des champions (« Champions ×4 » = fréquence du Jour des champions).
 - 2026-11-20 (it. 2874) Champions battables : PV ×2,5 et attaque ×1,3 en plus de l'élite les rendaient plus forts que le boss de leur zone ; le

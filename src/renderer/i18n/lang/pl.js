@@ -2316,4 +2316,7 @@ export default {
   3441: "Czytelniejsze czasy: „2 godz.” zamiast „2 godz. 0 min”, „3 d” zamiast „3 d 0 godz.” (karta bohatera, Statystyki).",
   3442: "Powrót początkującego: notka o limicie nie wspomina już konstelacji, której jeszcze nie zna.",
   3443: "Pasek na ekranie laptopa: dymek bohatera milknie, gdy brakuje miejsca, zamiast zasłaniać pasek zdrowia.",
+  3444: "Czempioni: twardsi niż elita, ale słabsi od bossa swojej strefy. Wcześniej twój bohater przegrywał prawie każdą z tych walk.",
+  3445: "Zadania łowieckie: pojawiają się dopiero z „Mapa podróżnika”, która jednym kliknięciem prowadzi do szukanego potwora.",
+  3446: "Procenty zapisywane wszędzie tak samo po hiszpańsku, portugalsku, niemiecku, polsku i rosyjsku.",
 };
