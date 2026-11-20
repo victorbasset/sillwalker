@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2918) Outil : quand « absence-pire » dépasse, lang-overflow dit aussi le nombre de lignes « À faire » et la plus longue
+  (« absence-pire=23(à-faire:8, plus-longue:«…») ») ; vérifié en forçant le relevé (ru 1280 : 8 puis 3 lignes), seuil remis : aucun.
 - 2026-11-20 (it. 2917) Rectificatif de l'it. 2916 : la mesure « absence-pire » lit bien le résumé d'absence (vérifié), et les longues phrases
   polonaises de l'édition 167 ne le font pas défiler (pl seul : aucun) ; le dépassement de 23 px n'est pas reproduit (nouvelle passe « all » :
   aucun). Raccourcir les phrases n'a donc rien corrigé (gardé, sans risque). Noté P2 dans « Idées ».
@@ -9228,7 +9230,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 - P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
   longues phrases de l'édition 167 (aucun), résumé polonais après 8 h d'absence à 1280 (dépassement 0), nouvelle passe « all » (aucun).
   Mesuré EN DERNIER sur une copie qui continue de jouer : sans doute une liste « À faire » plus longue selon l'état. À surveiller ; si ça
-  revient, relever le contenu de la fenêtre (titre et lignes) au moment de la mesure.
+  revient, relever le contenu de la fenêtre (titre et lignes) au moment de la mesure. It. 2918 : la mesure le relève d'elle-même.
 - P3 (it. 2896) Or en fin de course : dev-data 447 Md d'or en zone 57 pour des achats à 13-90 M (élixir ≈ 40 victoires) ; simulation barde
   12 h : 38 Md en zone 64 (le joueur simulé n'achète qu'à moins de 10 % de son or : il entasse, chiffre à prendre avec prudence). Une
   dépense qui garde du sens en fin de course ? À proposer à Victor (choix de conception).
