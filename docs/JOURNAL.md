@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3001, REVUE GÉNÉRALE) : 12 h : assassin 62, druide 64, berserker 62 ; --perf (charge 2,1) : 19,2 / 18,3 %, mini 5,9 %,
+  icône 0,47 % ; Statistiques en espagnol propres (nom du boss au ras de la pastille d'or, sans chevauchement) ; texte japonais : mots
+  latins attendus. Rien à corriger.
 - 2026-11-20 (it. 3000) POUR-VICTOR : résumé de la soirée complété (filets de sécurité des it. 2979, 2997, 2998 ; édition 171 ; mesures sur la partie d'une semaine).
 - 2026-11-20 (it. 2999) Contrôle : écriture de la sauvegarde (main/json-file.js, save-store.js) : fichier temporaire, fsync, renommage ;
   secours périodique ; au chargement, récupération du .tmp valide après une fermeture brutale, puis du secours. Rien à corriger.
