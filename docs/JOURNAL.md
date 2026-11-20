@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2909) Contrôle : --perf --battery 14,95 % (repère du matin 15,1) et --idle 9,99 % (9,8), charge 1,7. Idées relues :
+  aucune piste P1-P2 ouverte qui ne dépende pas de Victor ou d'une mesure sous Windows.
 - 2026-11-20 (it. 2908) Contrôle : mem-watch panneau ouvert, 10 min : 587-607 Mo, fin à 598 (repère it. 2258 : 580-610, plat).
 - 2026-11-20 (it. 2907) Contrôle visuel : résumé d'absence de 5 h sur la fin de partie (anglais, sac vidé) après les it. 2886 et 2905 :
   130 élites, 7 champions, 24 objets gardés, 14 au sol, Poupouce 2 (+1 légendaire, l'autre au sol) ; mise en page propre.
