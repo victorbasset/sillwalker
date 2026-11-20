@@ -710,8 +710,17 @@ export class Panel {
   renderAll() {
     if (this.tip) this.tip.hidden = true;
     saveHScroll(this.root, this.hs);
-    if (this.tab === "adventure") { this.renderHero(); this.renderBag(); this.renderDetail(); this.renderZone(); }
-    else this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`));
+    // (it. 3002) chaque partie protégée : une erreur de dessin laissait dirty à vrai, et le panneau retentait le rendu à CHAQUE image
+    // (30 erreurs par seconde, processeur occupé pour rien, pastilles figées) ; dans l'Aventure, les cartes suivantes ne s'affichaient
+    // plus. Désormais : erreur signalée une fois par partie, le reste s'affiche, pas de nouvel essai avant le prochain changement.
+    const safe = (what, fn) => {
+      try { fn(); } catch (e) {
+        this.renderErrs ||= new Set();
+        if (!this.renderErrs.has(what)) { this.renderErrs.add(what); (e.simulated ? console.warn : console.error)("panneau, " + what + " :", e); }
+      }
+    };
+    if (this.tab === "adventure") { safe("héros", () => this.renderHero()); safe("sac", () => this.renderBag()); safe("détail", () => this.renderDetail()); safe("zone", () => this.renderZone()); }
+    else safe(this.tab, () => this.tabs[this.tab].render($(this.root, `[data-pane="${this.tab}"]`)));
     // Blocs repliables des onglets (data-keep) : rouverts s'ils l'étaient avant le nouveau rendu.
     for (const d of this.root.querySelectorAll("details[data-keep]")) if (this.kept.has(d.dataset.keep)) d.open = true;
     restoreHScroll(this.root, this.hs);

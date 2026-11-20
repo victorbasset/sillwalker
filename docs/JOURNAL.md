@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3002) Panneau : dessin protégé partie par partie (panel.js renderAll, safe) : un onglet qui plantait laissait dirty à
+  vrai et le rendu était retenté à chaque image (30 erreurs/s, processeur occupé, pastilles figées) ; dans l'Aventure, une carte en erreur
+  empêchait les suivantes. Erreur signalée une fois par partie, le reste s'affiche. Autotest : nouveau contrôle (Statistiques en échec
+  simulé : 1 essai en 1,5 s, dirty faux, Aventure affichée) ; 341/341.
 - 2026-11-20 (it. 3001, REVUE GÉNÉRALE) : 12 h : assassin 62, druide 64, berserker 62 ; --perf (charge 2,1) : 19,2 / 18,3 %, mini 5,9 %,
   icône 0,47 % ; Statistiques en espagnol propres (nom du boss au ras de la pastille d'or, sans chevauchement) ; texte japonais : mots
   latins attendus. Rien à corriger.
