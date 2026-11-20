@@ -1972,6 +1972,9 @@ async function runSelfTest(strip) {
     check("rangées centrées : boutons voisins alignés (tous les onglets)", r === "ok", r);
   }
   check("aucune erreur de l'interface pendant le parcours", rendErr.length === 0, rendErr.length ? `${rendErr.length} : ${rendErr[0]}` : "");
+  // (it. 2920, placé à la fin : il change d'onglet et redessine, ce qui faisait échouer « proie en meute ») la même liste, entière, dans la carte du héros (fenêtre large) : deux colonnes au-delà de 8 lignes (16 lignes défilaient de 263 px)
+  const heroTodo = await js("(async () => { const g = window.__game, P = window.__panel, orig = g.todoNow, base = orig.call(g); if (!base.length) return 'aucune ligne'; g.todoNow = () => Array.from({ length: 16 }, (_, i) => base[i % base.length]); try { P.kept.clear(); P.setTab('adventure'); P.renderAll(); await new Promise((r) => setTimeout(r, 200)); const d = document.querySelector('[data-pane=adventure]:not([hidden]) [data-keep=hero-todo]'); if (!d) return 'pas de boîte'; d.querySelector('summary').click(); await new Promise((r) => setTimeout(r, 200)); const m = document.querySelector('#modal'), b = m.querySelector('.panel'), o = b.scrollHeight - b.clientHeight, two = !!m.querySelector('.todocols.two'); m.hidden = true; return o <= 1 && two ? 'ok' : 'défile ' + o + ' px, deux colonnes ' + two; } finally { g.todoNow = orig; P.renderAll(); } })()");
+  check("carte du héros, « À faire » de 16 lignes : deux colonnes, rien ne défile", heroTodo === "ok", heroTodo);
   const failed = results.filter((r) => !r).length;
   if (process.env.SELFTEST_TIMES) for (const [ms, n] of times.slice().sort((x, y) => y[0] - x[0]).slice(0, 12)) console.log(`[selftest] lent : ${(ms / 1000).toFixed(1)} s ${n}`);
   console.log(`[selftest] ${results.length - failed}/${results.length} vérifications réussies en ${Math.round((Date.now() - startT) / 1000)} s — clic sur « Quitter »`);

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2920) Carte du héros : « À faire », ouverte dans la fenêtre large, défilait dès 12 lignes (105 px, 263 à 16, pl comme fr) ;
+  au-delà de 8 lignes, deux colonnes (.todocols.two) : 0 px à 12 et 16. Contrôle d'autotest placé à la fin (plus tôt, il décalait la
+  vérification « proie en meute », qui échouait 3 fois sur 3). npm test 387, autotest 339/339 deux fois, lang-overflow complet : aucun.
 - 2026-11-20 (it. 2919) Retour d'absence : la liste « À faire » n'a pas de plafond (16 sortes de lignes) ; mesuré en dupliquant les lignes, la
   fenêtre défilait dès 10 lignes (21 px en polonais, 4 en français, jusqu'à 218 px à 16) : la cause du dépassement polonais intermittent
   (it. 2916-2918). Le résumé n'en montre que 8 ; une note compte les autres (« 4 autres choses à faire dans la carte du héros », clé 3449,

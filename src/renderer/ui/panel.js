@@ -643,7 +643,8 @@ export class Panel {
     const list = this.game.todoNow();
     if (!list.length) return "";
     const body = this.todoHtml().replace(/^\s*<h3 class="todo-h">.*?<\/h3>/s, "");
-    return `<details class="more todobox" data-keep="hero-todo"${this.kept.has("hero-todo") ? " open" : ""}><summary>${tx("À faire ({0})", { 0: list.length })}</summary>${body}</details>`;
+    // (it. 2920) ouverte dans la fenêtre large : dès 12 lignes elle défilait (105 px, 263 à 16) ; au-delà de 8, deux colonnes
+    return `<details class="more todobox" data-keep="hero-todo"${this.kept.has("hero-todo") ? " open" : ""}><summary>${tx("À faire ({0})", { 0: list.length })}</summary><div class="todocols${list.length > 8 ? " two" : ""}">${body}</div></details>`;
   }
 
   /** Les actions de « À faire maintenant » que le joueur pourrait déjà faire d'un clic dans leur onglet. */
