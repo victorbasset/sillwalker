@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2923) Revu après l'it. 2919 : les autres sections ouvertes dans la fenêtre large (ms-picks : paliers d'UNE maîtrise jusqu'au
+  rang 400 ; automatismes, ascension, chances, statistiques, chroniques) sont bornées ou couvertes par max-save (lang-overflow « max ») ;
+  « À faire » était la seule liste dont la longueur dépend de l'état du moment. Pas de changement.
 - 2026-11-20 (it. 2922) Contrôle (suite de la revue 2921) : texte allemand (25 085 lignes) sans français : accents é è ê à ç seulement dans les
   noms de langues ; « des » relevés = génitif allemand. Rien à corriger.
 - 2026-11-20 (it. 2921, REVUE GÉNÉRALE) : 12 h : nécromancien 62, gardien des étoiles 67, chaman 62 ; --perf (charge 2,6) : 20,1 / 19,7 %,
