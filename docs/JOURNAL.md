@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2851, REVUE GÉNÉRALE) : 12 h : lancier 65, prêtresse 64, artificier 64 ; --perf : 19,6 / 19,1 %, mini 5,4 %, icône 0,7 % ;
+  lang-overflow complet après les it. 2847-2849 : aucun ; texte espagnol : rien de français ni « ordenador ». Rien à corriger.
 - 2026-11-20 (it. 2850) Mémoire « commit après vérification » étendue à toute mesure (lang-overflow, perf, fuzz) après l'it. 2848.
 - 2026-11-20 (it. 2849) ANNULE l'it. 2848 : avec le ✦, « Kaufen und ausrüsten : … » passait sur deux lignes et le résumé d'absence au pire
   cas défilait de 7 px en allemand à 1280 px (lang-overflow « de 1280 : absence-pire=7 »). L'it. 2848 avait été committée avant de lire la
