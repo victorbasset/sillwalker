@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2812) docs/POUR-VICTOR.md : section « Nuit du 19 au 20/11 (it. 2737-2811) » en tête (questions à trancher, retour
+  d'absence, bande et mini, langues), au lieu d'un long paragraphe ajouté au fil de l'eau dans la section du 19/11.
 - 2026-11-20 (it. 2811, REVUE GÉNÉRALE) : 12 h : paladin 65, moine 65, barde 65 ; --perf : 19,9 / 19,5 %, mini 5,5 %, icône 0,5 % ; bande en
   coréen à 1600 px propre ; texte portugais : aucune marque européenne ni français. Rien à corriger.
 - 2026-11-20 (it. 2810) Contrôle : tab-pace (talents 1 min, stats 2-3, quêtes 4-5, boutique 7-11, héros 9-12, carte 11-14, bestiaire

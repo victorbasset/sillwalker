@@ -11,6 +11,38 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   10 langues (steam/itch/devlog-0.1.7.html) : tout est en tête de docs/devlog-0.1.7.md.
 - Corrigé après l'envoi (pour la 0.1.8) : « La Dernière Étoile » épinglée (📌, Réglages > Son) était oubliée au redémarrage (it. 2361).
 
+## Nuit du 19 au 20/11 (it. 2737-2811) : le retour d'absence ne se perd plus, bande plus lisible
+
+**À toi de dire** :
+- **(it. 2744)** : un débutant (10 min de jeu, sac plein) absent 8 h a vaincu 40 fois Poupouce : ses 40 légendaires sont
+  TOUS restés au sol (« Légendaire · pas gardé »). Proposition : un légendaire prend la place de l'objet inutile ordinaire le moins cher
+  (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
+- **(revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M », « T », « Qa ») ;
+  passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
+
+**Retour d'absence** (le résumé se perdait dans plusieurs cas) :
+- Sac plein : la bulle « Sac plein : une amélioration est restée au sol » passait devant la bulle d'absence pendant 12 s ; ouvrir le
+  panneau à ce moment ne montrait pas le résumé. La bulle d'absence passe en premier (it. 2742).
+- Jeu lancé en MODE MINI, lancé AVEC WINDOWS (réduit en icône), ou bande cachée par un jeu en plein écran (au réveil du PC ou au
+  lancement) : le résumé partait sur la bande cachée et expirait. Il attend maintenant que la bande revienne ; en mini, le voyant
+  l'annonce (« Ton résumé d'absence t'attend ») (it. 2746-2753).
+- « À faire maintenant » : acheter l'Œil du connaisseur rend aussitôt « ✦ Un objet plus puissant… » faisable d'un clic, à la même place ;
+  une ligne devenue sans objet passe à « ✓ » ; la fenêtre « À faire » de la carte du héros reste ouverte après un achat (it. 2764-2769).
+
+**Bande et mode mini** :
+- Les annonces (« Nouveau record », butin légendaire, événement) ne se chevauchent plus entre elles ni sur la bulle de parole du héros
+  (it. 2775-2777) ; avec un nom de zone long, l'événement en cours s'abrège en « ⏳ 27 s » au lieu d'être rogné (it. 2788).
+- Sur un écran de 1280 ou 1366 px (à 1600 px la place suffit), la bulle de parole du héros se tait quand elle n'a pas de place entre les
+  barres de vie et le nom du boss (avant : elle passait sur la barre du héros, it. 2797) : le héros parle un peu moins en fin de zone.
+- Mode mini : deux moments simultanés (« ★ Légendaire ! » puis « Nouveau record ») s'affichent l'un après l'autre (it. 2782).
+
+**Langues** : portugais harmonisé en brésilien (guillemets “ ”, « você », « clique »), npm test le garde (it. 2756-2758) ; espagnol
+« ordenador » → « PC » (it. 2760) ; Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. »,
+it. 2786-2787).
+
+Éditions « Quoi de neuf » 161 à 164 publiées pour tout cela. Contrôles de la nuit : autotest 337 vérifications, npm test 380, aucune
+partie bloquée, sauvegardes abîmées tenues, mémoire et performance stables.
+
 ## Journée du 19/11 (it. 2514-2613) : sac plein à juger, moins de clics, lisibilité
 
 **Sac plein** : ta règle « l'objet reste au sol, tant pis » est gardée pour le butin. Ce qui change autour :
@@ -25,9 +57,6 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   total dans Statistiques > Chiffres (« Laissés au sol (sac plein) »).
 - **À toi de dire** : le Creuset et la vente automatique des inutiles consomment les objets FORGÉS devenus inutiles (le Marchand vend
   des objets déjà forgés : les garder boucherait le sac). Pas changé.
-- **À toi de dire (it. 2744)** : un débutant (10 min de jeu, sac plein) absent 8 h a vaincu 40 fois Poupouce : ses 40 légendaires sont
-  TOUS restés au sol (« Légendaire · pas gardé »). Proposition : un légendaire prend la place de l'objet inutile ordinaire le moins cher
-  (vendu), comme un coffre de la boutique. Pas changé sans ton accord.
 
 **Moins de clics, lisibilité** :
 - Liens « 🔒 déblocage · prix » (Carte, Familiers, Compétences, forge) : quand tu as l'or, « Acheter : X (N or) » l'achète sur place.
@@ -60,24 +89,6 @@ bloquées, mémoire, performance), rien de cassé. Six retouches visibles :
 comptent comme lues.
 Dans la même veine : au retour d'une courte absence, un débutant ne rapportait JAMAIS d'objet (54 monstres en 10 min, « Objets gardés :
 0 », arrondi par défaut). Arrondi au hasard, même moyenne : environ un retour sur deux rapporte maintenant un objet (it. 2731).
-Et au retour d'une longue absence avec le sac plein, la bulle « Sac plein : une amélioration est restée au sol » passait devant la
-bulle d'absence pendant 12 s : ouvrir le panneau à ce moment ne montrait pas le résumé. La bulle d'absence passe maintenant en premier (it. 2742).
-Joueur en MODE MINI : au lancement après une absence, le résumé se perdait (envoyé sur la bande cachée). Le voyant du mini l'annonce
-maintenant (« Ton résumé d'absence t'attend ») ; un clic agrandit et l'affiche (it. 2746).
-Même chose pour le jeu lancé avec Windows (il démarre réduit en icône) : le résumé de la nuit expirait sans être vu ; il attend
-maintenant l'ouverture de la bande (it. 2747).
-Et au réveil du PC pendant un jeu en plein écran : le résumé attend que la bande revienne (it. 2752).
-Résumé d'absence : acheter l'Œil du connaisseur depuis « À faire maintenant » rend aussitôt « ✦ Un objet plus puissant… » faisable
-d'un clic, à la même place (it. 2764).
-Et une ligne devenue sans objet (« Sac plein » après avoir équipé le meilleur) passe à « ✓ » sur place (it. 2766).
-Bande : les annonces (« Nouveau record », butin légendaire) ne se chevauchent plus entre elles ni sur la bulle de parole du héros
-(it. 2775-2777). Mode mini : deux moments simultanés (« ★ Légendaire ! » puis « Nouveau record ») s'affichent l'un après l'autre (it. 2782). Familiers et Boutique : hors français, le temps restant garde ses unités (« 7 Std. 59 Min. » au lieu de « 7 Std. 59 », it. 2786-2787).
-Bande : avec un nom de zone long, l'événement en cours s'abrège en « ⏳ 27 s » au lieu d'être rogné (it. 2788). Sur un écran de 1280 ou 1366 px (mesuré : à 1600 px la place suffit), la bulle de parole du héros
-se tait quand elle n'a pas de place entre les barres de vie et le nom du boss (avant : elle passait sur la barre du héros, it. 2797) ;
-le héros parle donc un peu moins souvent en fin de zone sur ces écrans. Carte du héros > « À faire » : acheter un déblocage ne ferme plus la fenêtre (it. 2769). Éditions « Quoi de neuf » 161 et 162
-publiées pour tout cela (it. 2749, 2772).
-- **À toi de dire (revue it. 2771)** : en russe, le milliard s'écrit « млрд » mais les autres suffixes restent latins (« k », « M »,
-  « T », « Qa ») ; passer à « тыс. », « млн », « трлн »… est plus long. Pas changé.
 
 **Soirée (it. 2684-2689)** : l'outil qui vérifie les 10 langues (lang-overflow) mesurait certains onglets avant le chargement de
 leur police, avec une police de secours plus étroite : un texte trop long pouvait sembler tenir. Corrigé (l'outil et l'autotest
