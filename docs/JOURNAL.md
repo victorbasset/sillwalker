@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2977) Contrôle : partie d'une semaine (week-save.json) à 1366, 1600 et 1920 px dans les 10 langues (30 mesures, 3 à la fois) : aucun.
 - 2026-11-20 (it. 2976) lang-overflow mesure une partie d'une SEMAINE (scripts/fixtures/week-save.json, 34 Ko : simulate.js 168 warrior,
   record 353, journal vidé ; « xx semaine 1280 », NO_WEEK=1 pour sauter). Elle a trouvé aussitôt un défaut : Ascension en espagnol à
   1280 px défilait de 12 px (constellations toutes au maximum : la carte de droite, presque vide, gardait 1,75 part de la largeur ; la
