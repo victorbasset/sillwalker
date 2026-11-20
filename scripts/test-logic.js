@@ -266,6 +266,22 @@ test("traductions (it. 2758) : le portugais reste brésilien (variante choisie �
   assert.equal(bad.length, 0, bad.slice(0, 5).join(" ; "));
 });
 
+test("menu de l'icône (it. 2829) : chaque texte de src/main/i18n.js existe dans les 10 langues", () => {
+  // hors des contrôles i18n du panneau : un texte ajouté sans une langue retombait en silence sur l'anglais
+  const m = createRequire(import.meta.url)("../src/main/i18n.js"), keep = m.getLang();
+  const src = fs.readFileSync(new URL("../src/main/i18n.js", import.meta.url), "utf8");
+  const keys = [...src.matchAll(/^\s+(\w+):\s*\{\s*fr:/gm)].map((x) => x[1]);
+  assert.ok(keys.length >= 20, "clés lues : " + keys.length);
+  const miss = [];
+  try {
+    for (const l of ["fr", "en", "zh", "ru", "es", "pt", "de", "ja", "pl", "ko"]) {
+      m.setLang(l); if (m.getLang() !== l) { miss.push("langue " + l); continue; }
+      for (const k of keys) { m.setLang(l); const v = m.L(k); m.setLang("en"); if (l !== "en" && v === m.L(k) && !/^(Position|principal|Mini|Zone|Lv\.)/.test(v)) miss.push(l + ":" + k); }
+    }
+  } finally { m.setLang(keep); }
+  assert.equal(miss.length, 0, miss.slice(0, 6).join(", "));
+});
+
 test("traductions (it. 2562-2563) : en japonais, pas de compteur « つ » après un nombre variable ou à deux chiffres", () => {
   // « つ » ne compte que les petits nombres (jusqu'à 9) : « マスタリーの段階 18 つ » se lisait mal ; 件 ou 個 au-delà
   const src = fs.readFileSync(new URL("../src/renderer/i18n/lang/ja.js", import.meta.url), "utf8");
