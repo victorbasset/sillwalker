@@ -382,6 +382,12 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   moins si un libellé passe sur deux lignes ; panel.js, après l'affichage) et une note-lien ouvre la liste entière ; la carte du héros
   passe sur deux colonnes au-delà de 8. Pire cas mesuré par l'autotest et lang-overflow (« à-faire16-… », 16 lignes dupliquées) ; une
   nouvelle sorte de ligne s'ajoute sans risque, mais un libellé très long se vérifie avec ces mesures.
+- Filets contre les erreurs (it. 2979-3003) : une erreur ne doit jamais bloquer la partie. Démarrage : progression hors ligne
+  (app.js offlineSafe), photo de la visite, résumé d'absence, succès, bénédiction du jour (soft) ; fermeture : succès puis enregistrement
+  final quoi qu'il arrive, mise en texte de saveNow protégée ; panneau : chaque partie du dessin (panel.js renderAll, safe ; avant, un
+  onglet en erreur était redessiné à chaque image) ; journal errors.log : un même message une fois par minute (main.js logError). Une
+  erreur SIMULÉE pour un contrôle porte `simulated: true` et part en console.warn (sinon « aucune erreur de l'interface » échoue) ;
+  window.__offlineFail (dev) force l'échec de la progression hors ligne. Nouvelle étape du démarrage : la mettre dans soft().
 - Panneau, clics (it. 1082) : `panel.onClick` traite d'abord tout élément `[data-tab]` comme un lien vers un onglet ; ne jamais mettre `data-tab` sur un bouton d'action (le PNJ ne parlait plus : `data-npc`).
 - Accessibilité (it. 2422-2499) : l'autotest vérifie dans tous les onglets que chaque bouton grisé a une bulle (« Maximum » excepté),
   que tout texte coupé (…) garde une bulle, que tout élément cliquable hors bouton a un tabindex (SVG exclus), que chaque bouton

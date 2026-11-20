@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3004) CLAUDE.md, pièges connus : les filets contre les erreurs (it. 2979-3003), comment les tester (simulated, __offlineFail).
 - 2026-11-20 (it. 3003) Journal des erreurs (main.js logError, userData/errors.log) : un même message écrit une fois par minute au plus,
   avec le nombre de répétitions tues ; une erreur répétée à chaque image faisait 30 écritures disque synchrones par seconde. Vérifié
   (mise en scène : ≈ 90 erreurs identiques en 3 s) : 1 ligne. Autotest 341/341.
