@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2783) Autotest : « mode mini : deux moments simultanés s'affichent l'un après l'autre ». OK ; avec mini.js d'avant
+  l'it. 2782 : ÉCHEC « BBB puis BBB ». npm test 378, autotest 336/336.
 - 2026-11-20 (it. 2782) Mode mini : un « moment » (texte sur la scène) remplaçait aussitôt le précédent ; boss vaincu → « ★ Légendaire ! »
   effacé par « Nouveau record » dans la même seconde. File de 3 au plus, chacun visible au moins 2 s, sans doublon (mini.js showMoment,
   nextMoment). Mesuré (loot légendaire puis record, émis ensemble) : avant, le record seul ; après, Légendaire 0-2 s puis record.

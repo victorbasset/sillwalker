@@ -218,6 +218,13 @@ async function runSelfTest(strip) {
     window.__pause = true; G.S.zone = keep.z; R.lineup = keep.line; R.lineupZone = keep.lz; G.S.kills = keep.k; R.mon = keep.mon; R.mode = keep.mode;
     return corpse + ' ' + gap + ' ' + firstX; })()`);
   check("mode mini : le monstre suivant s'avance depuis sa place d'attente, sans disparaître", /^true 0 (1(4[5-9]|[5-9]\d)|2\d\d)$/.test(miniHand), miniHand);
+  // (it. 2782) deux moments simultanés du mode mini s'affichent l'un après l'autre (avant : le second effaçait le premier aussitôt)
+  {
+    const r = await js(`new Promise((ok) => { const M = window.__mini; if (!M) { ok('sans objet'); return; } M.momentAt = 0; M.momentQ = []; clearTimeout(M.momentNext);
+      M.showMoment('AAA'); M.showMoment('BBB'); const a = M.moment.textContent;
+      setTimeout(() => { const b = M.moment.textContent; clearTimeout(M.momentTimer); M.moment.hidden = true; ok(a === 'AAA' && b === 'BBB' ? 'ok' : a + ' puis ' + b); }, 2300); })`);
+    check("mode mini : deux moments simultanés s'affichent l'un après l'autre", r === "ok" || r === "sans objet", r);
+  }
   // (it. 919) Ciel des événements en mode mini (it. 918) : Lune de sang puis Nuée d'étoiles, puis retour au ciel normal.
   const mSky = [];
   // (it. 1244) et Lune pâle
