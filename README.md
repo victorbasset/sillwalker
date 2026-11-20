@@ -196,7 +196,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **Retour** : après une absence, résumé des gains (et des objets restés au sol si le sac était plein), meilleur objet (équipable d'un clic) et « À faire maintenant »
   (quêtes, points, déblocage abordable, œufs, expéditions, sac plein, pièce qui complète une panoplie, éclats d'étoile à placer) : avec les déblocages « tout d'un coup », ces lignes
   s'exécutent d'un clic (✦) et le déblocage payable s'achète directement ; la même liste est dans la carte
-  du héros (« À faire (N) », repliable). Pendant l'absence, les automatismes achetés
+  du héros (« À faire (N) », repliable ; deux colonnes au-delà de 8 lignes). Le résumé n'en montre que ce qui tient (8 au plus) ; un lien
+  « N autres choses à faire dans la carte du héros → » ouvre la liste entière ; le déblocage à acheter suit les quêtes (it. 2919-2936). Pendant l'absence, les automatismes achetés
   (Maître de forge, Creuset, Grand intendant, Grimoire de l'éveil, Valet d'armes) travaillent aussi, et le résumé le
   dit. Le héros accueille le joueur (« Te revoilà ! »). En rouvrant le panneau, « Depuis ta dernière visite ».
   La bande rappelle le record à battre (ou l'événement en cours et ses secondes restantes) ; une fois tout débloqué,

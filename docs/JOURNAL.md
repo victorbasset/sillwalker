@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2940) README : « À faire » du retour d'absence (place, lien vers la liste entière, ordre ; it. 2919-2936).
 - 2026-11-20 (it. 2939) Rectificatif de l'it. 2938 : la nuit n'explique pas la variation de « proie en meute » (8 essais en plein jour et en
   pleine nuit forcés : même suite, +17 puis -4 à -20) ; c'est la vie propre en vagues, selon l'instant du départ. Commentaire corrigé ; le
   correctif (médiane de 3, seuil -2,5) reste. Pour mieux faire : moyenner sur une période plus longue.
