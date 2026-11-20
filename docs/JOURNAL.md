@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 3013) POUR-VICTOR : résumé de la soirée complété (filets des it. 3002-3012, autotest plus court).
 - 2026-11-20 (it. 3012) Page arrêtée (main.js render-process-gone) : rechargement automatique limité à 3 par minute ; une page qui
   retombait dès son chargement était rechargée sans fin, processeur à plein. Vérifié (TEMP : forcefullyCrashRenderer toutes les 2 s,
   5 fois) : 3 rechargements, puis plus rien, une ligne au journal. Autotest 342/342.

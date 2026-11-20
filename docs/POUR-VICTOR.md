@@ -4,7 +4,7 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Soirée du 20/11 (it. 2961-3000) : une partie d'une semaine passée au crible
+## Soirée du 20/11 (it. 2961-3013) : une partie d'une semaine passée au crible
 
 - **Plantage corrigé** (it. 2978, introduit le matin même à l'it. 2944, jamais publié) : le retour d'absence d'un héros avancé (bonus de
   coffres) plantait. Et désormais, une erreur dans ce calcul ne peut plus bloquer le démarrage du jeu (it. 2979).
@@ -14,6 +14,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   quand toutes les constellations sont au maximum (it. 2976). Une partie d'une semaine fait maintenant partie des mesures automatiques.
 - Filets de sécurité : une erreur au démarrage (absence, succès, bénédiction du jour) n'empêche plus le jeu de s'ouvrir (it. 2979, 2997) ;
   à la fermeture, une erreur des succès n'empêche plus l'enregistrement final (it. 2998 : sinon jusqu'à 15 s de partie perdues).
+  Aussi : un onglet ou le dessin de la bande en erreur n'arrête plus le reste ni ne se répète 30 fois par seconde (it. 3002, 3010) ;
+  le journal errors.log n'écrit plus 30 fois par seconde la même erreur (it. 3003) ; une page qui plante en boucle n'est plus rechargée
+  sans fin (3 fois par minute au plus, it. 3012). Rien de visible en jeu normal ; l'autotest dure 157 s au lieu de 166 (it. 3007).
 - Édition 171 de « Quoi de neuf » (grands nombres lisibles). Mesures automatiques étendues à la partie d'une semaine : débordements,
   parties figées, sauvegardes abîmées, performance (PERF_SAVE) ; mémoire stable.
 
