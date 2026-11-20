@@ -74,7 +74,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
   chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
-- **Quêtes** : 3 contrats à la fois (chasse, élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux, gobelins dorés), récompenses variées ;
+- **Quêtes** : 3 contrats à la fois (chasse (dès la Carte du voyageur, it. 2873), élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux, gobelins dorés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
   Une quête à coffre réclamée (clic, « Tout réclamer », touche R) ouvre son coffre sous les yeux.
@@ -143,7 +143,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   (30 % au plus, même d'une course à l'autre) jusqu'à ce qu'il soit vaincu. Parade : le Talisman de pureté (pouvoir légendaire) repousse
   la malédiction et le venin.
 - **Élites à affixes** : rapide, blindé, vampirique, furieux, givré (ses coups peuvent geler le héros), épineux (renvoie 15 % des dégâts reçus, sans achever le héros), fuyant (esquive 20 % des coups), venimeux (ses coups peuvent empoisonner le héros), régénérant (regagne 3 % de sa vie chaque seconde, sauf s’il brûle ou est empoisonné) ou explosif (inflige au héros 6 % de ses PV max en mourant, sans l’achever), colossal (120 % de PV en plus, coups 40 % plus lents).
-- **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, bien plus coriaces, butin épique ou légendaire garanti.
+- **Champions** : très rares (0,5 %, à partir de la zone 5), aura violette, plus coriaces qu'une élite mais moins que le boss de leur zone (it. 2874), butin épique ou légendaire garanti.
 - **Poupouce** (demande d'un joueur ; chat depuis l'it. 1730, demande de Victor) : un chat blanc tacheté de noir, monstre à
   part (Bestiaire), extrêmement rare (un monstre sur 1 000, dès la zone 2) : 100 fois l'or d'un monstre et un objet légendaire
   garanti, aussi pendant l'absence ; il miaule en arrivant, le héros s'en étonne, un succès et une bénédiction du jour (×10)

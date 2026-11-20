@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2875) README à jour des it. 2873-2874 (champions plus coriaces qu'une élite, moins qu'un boss ; chasses dès la Carte du
+  voyageur). Aucun texte du jeu ne citait la force des champions (« Champions ×4 » = fréquence du Jour des champions).
 - 2026-11-20 (it. 2874) Champions battables : PV ×2,5 et attaque ×1,3 en plus de l'élite les rendaient plus forts que le boss de leur zone ; le
   héros perdait 94-96 % de ces combats (6 graines × 2 h, 3 × 12 h) : un champion était une défaite (zone remise à zéro) et la quête
   « Vaincre un champion » n'avançait presque qu'hors ligne, où chaque champion compte vaincu. Maintenant PV ×1,3, attaque ×1 en plus de
