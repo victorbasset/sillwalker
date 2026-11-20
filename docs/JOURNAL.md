@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2754) Contrôle en polonais (trois pluriels) : --crawl sur dev-data, 527 clics en 19 s, aucune erreur ; texte de
+  l'interface (--dump-text) : aucun mot français hors noms des langues du sélecteur. Rien à corriger.
 - 2026-11-20 (it. 2753) Retour d'absence, jeu lancé pendant une application en plein écran : au lancement, `visible` n'est pas encore
   réglé (faux par défaut, et le test de l'it. 2752 ne s'appliquait qu'après) ; showOffline lit maintenant init.visible. Trace (retouche TEMP,
   retirée) : init.visible faux → résumé mis en attente, montré dès que la bande devient visible. npm test 377, autotest 331/331.
