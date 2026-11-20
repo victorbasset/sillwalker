@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2901, REVUE GÉNÉRALE) : 12 h : guerrier 64, mage 62, prêtresse 64 ; --perf (charge 2,3) : 19,7 / 19,4 %, mini 5,4 %, icône
+  0,73 % ; texte coréen : aucun mot non traduit ; mode mini en espagnol (« 447 mil M ») : propre. Rien à corriger.
 - 2026-11-20 (it. 2900) Contrôle refait avec --speed=10 (vérifié : 300 s de jeu pour 30 s réelles) : fin de partie en anglais, panneau ouvert,
   170 s réelles ≈ 28 min de jeu (91 victoires, héros au mur) : aucune erreur ni avertissement de l'interface. Pour accélérer une mise en
   scène : --speed=N (dev), pas R.speed.
