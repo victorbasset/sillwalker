@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2804) Contrôle : Bestiaire > Bénédictions en coréen à 1280 px (6/17, « 오늘 » et « 내일 » marqués) : propre. Rien à corriger.
 - 2026-11-20 (it. 2803) Contrôle : résumé d'absence de la fin de partie (8 h, fr, 1366 px) : propre ; cinq actions « ✦ » d'un clic
   (agrandir le sac, vendre, quête, talents, expéditions), plafond de 16 h expliqué. Rien à corriger.
 - 2026-11-20 (it. 2802) Contrôle : save-fuzz (dev : « ok balayage (1267 corruptions) » ; fin de partie : 1225). Rien à corriger.
