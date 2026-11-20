@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2881, REVUE GÉNÉRALE) : 12 h : paladin 65, gladiateur 69, cryomancien 62 ; --perf (charge 4,2, élevée) : 21,4 / 21,1 %,
+  mini 5,4 %, icône 0,53 % ; fight-odds arbalétrier 12 h : élites 37 %, champions 50 %, boss 56 % ; Quêtes en coréen 1920 : propre (un
+  « point » entre deux mots était une étoile du fond du panneau). Rien à corriger.
 - 2026-11-20 (it. 2880) Outil : scripts/fight-odds.mjs (taux de défaite par adversaire et par sorte d'élite, une classe au choix), cité
   dans CLAUDE.md : la mesure qui a trouvé les champions imbattables (it. 2874).
 - 2026-11-20 (it. 2879) Contrôles après les champions (it. 2874) : semaine guerrier (simulate 168) record 361 (repère 350) ; fuzz avec le
