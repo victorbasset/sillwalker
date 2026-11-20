@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-20 (it. 2955) Méthode : avant de changer une règle de jeu, chercher si Victor l'a tranchée (« demande de Victor ») ; leçon de l'it. 2947, notée en mémoire de session.
 - 2026-11-20 (it. 2954) Revu addToBag : « sac plein : l'objet reste au sol (demande de Victor : « tant pis ») » ; l'it. 2947 (le coffre trouvé
   en chemin vend un objet pour faire place) la contredit pour du butin. Déjà annoncée (édition 169, non modifiable) : pas annulée en
   silence ; POUR-VICTOR dit le conflit et la marche à suivre (git revert 10382a35 + une ligne d'édition).
