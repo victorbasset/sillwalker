@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3170) Bande : geste au repos d'une élite qui monte (araignée le long de son fil : 24 px) borné pour que son étiquette
+  reste sous la rangée du haut (« 가시 돋친 » à 21 px, it. 3169). hud-probe gardien des étoiles ko et pl, 3 passages chacun : 0 ;
+  npm test, autotest 348/348. Cause non prouvée : le monstre fautif n'a pas été identifié, le geste « spider » est le seul assez haut.
 - 2026-11-21 (it. 3169) Bande, hud-probe sur les parties de 12 h des 20 héros en ko et zh à 1280 px : 37 sur 40 à 0 (après les
   it. 3164-3168). Deux bulles de parole sur la barre de vie du monstre (zh) : largeur de la bulle remesurée si elle valait 0 ou si la
   police n'était pas encore chargée (cause probable, non prouvée : les deux parties étaient déjà à 0 une fois sur deux). Restent rares :

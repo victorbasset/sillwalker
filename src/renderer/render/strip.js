@@ -1246,7 +1246,7 @@ export class StripRenderer {
       // passait sur la rangée (« Колоссальный » à 20 px, parties de 6 h, 1280 px)
       // (it. 3167) volant : son altitude de croisière (monlife.js, « fly ») le monte jusqu'à ≈ 16 px de plus que monY(a, 4) :
       // 12 px de marge en plus (« Mroźny », « Wampiryczny » à 21-22 px, parties de 12 h, 1280 px)
-      if (!boss) { const y0 = this.monY(a, 4), m = a.fly ? 48 : 36; if (y0 - 24 < m) a.el.style.setProperty("--tagtop", (m - y0) + "px"); }
+      if (!boss) { const y0 = this.monY(a, 4), m = a.fly ? 48 : 36; if (y0 - 24 < m) a.el.style.setProperty("--tagtop", (m - y0) + "px"); if (a.el.querySelector(".affix")) a.tagTopAbs = Math.max(y0 - 24, m); }
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
       a.flame.hidden = true;
@@ -1529,6 +1529,9 @@ export class StripRenderer {
             // (it. 1933-2022, extrait à l'it. 2025) mouvement du geste : monlife.js gestureMotion ; ici, le fil de l'araignée
             const gm = gestureMotion(r.nat, p);
             rdx = gm.dx; rdy = gm.dy; if (gm.flip !== undefined) a.lookFlip = gm.flip;
+            // (it. 3170) élite qui monte le long de son fil (araignée : 24 px) : son étiquette s'arrête sous la rangée du haut
+            // (« 가시 돋친 » à 21 px sous la pastille de zone, gardien des étoiles, 12 h, 1280 px)
+            if (a.tagTopAbs != null) rdy = Math.max(rdy, Math.min(0, HUD_H + 6 - a.tagTopAbs));
             if (r.nat === "spider") {
               const sn = Math.sin(p * Math.PI);
               if (!a.silk) { a.silk = document.createElement("div"); a.silk.className = "silk"; a.silk.style.left = Math.round(a.w / 2 - 1) + "px"; a.el.appendChild(a.silk); }
