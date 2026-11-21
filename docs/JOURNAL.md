@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3134) Contrôle : parties d'une heure des 20 héros en allemand et polonais à 1280 px dans --overflow-report : 40 mesures,
+  aucun défaut.
 - 2026-11-21 (it. 3133) Parties d'une heure des 20 héros en russe à 1280 px dans --overflow-report : un seul défaut, Héros > Sorts de la
   danseuse de lames (8 px) : avant le Grimoire des sorts, l'encadré « 🔒 Гримуар заклинаний · Достигни зоны 45 » faisait passer le titre
   sur deux lignes. Titre sur une ligne (« … », titre entier en bulle), encadré calé à droite : 0 px. npm test, autotest 348/348,
