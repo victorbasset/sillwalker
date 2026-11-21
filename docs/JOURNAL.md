@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3082) Contrôle du début de partie : first-minutes (objet et boss 42-86 s, quête 154-170 s, 1er déblocage 351-408 s)
+  et early-pace (60 min : niveau 41, zone 23-26, 6,3 déblocages) identiques à l'it. 3019. Idées ouvertes relues : toutes P3 à juger
+  avec Victor (familiers, Héros à 1280 px, or en fin de course, chasses, suffixes russes).
 - 2026-11-21 (it. 3081) REVUE GÉNÉRALE : simulations 12 h (graine 7) paladin 65, nécromancien 62, moine 64 (repères habituels) ; perf
   bande 19,4 %, panneau 19,6 %, mini 5,5 %, icône 0,5 % ; captures Quêtes et Statistiques en fr, en, zh : propres, 0 erreur ; texte
   polonais (25 078 lignes) : aucun mot français oublié. Rien de nouveau pour « Idées ».
