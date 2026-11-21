@@ -19,7 +19,7 @@
       if (el.closest(".hscroll")) continue;
       const r = el.getBoundingClientRect(); if (!r.width || !r.height) continue;
       // l'élément coupe lui-même son texte (overflow caché, sans « … » réellement dessiné : bouton flex de l'it. 3083)
-      if (!(el instanceof SVGElement) && /hidden|clip/.test(cs.overflowX) && el.scrollWidth > el.clientWidth + 2) {
+      if (!(el instanceof SVGElement) && /hidden|clip/.test(cs.overflowX) && !(cs.webkitLineClamp && cs.webkitLineClamp !== "none") && el.scrollWidth > el.clientWidth + 2) { // (it. 3105) line-clamp : « … » dessiné
         out.push(tab + " « " + el.textContent.trim().slice(0, 30) + " » " + (el.scrollWidth - el.clientWidth) + " px (lui-même)"); continue;
       }
       // cadre qui coupe, axe par axe (une liste qui défile verticalement, overflow-y: auto, n'est pas un défaut)

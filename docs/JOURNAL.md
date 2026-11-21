@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3105) Outil : les contrôles « -rogné » et « -a11y » d'--overflow-report passent aussi sur chaque sous-section (Bestiaire,
+  Boutique, Statistiques, Familiers, Héros ; fonction chk). Fausse alerte écartée en route : « ru semaine shop-rogné=1 » (nom d'objet
+  du Marchand sur 3 lignes : -webkit-line-clamp dessine « … » lui-même, vu agrandi « металла Стража… ») ; clip-probe de même. Toujours
+  validé sur l'ancien code (3 défauts signalés) ; code actuel, 10 langues à 1280 : aucun.
 - 2026-11-21 (it. 3104) Outil : --overflow-report (lang-overflow) rejoue les règles de l'autotest « bouton grisé avec bulle » et « cliquable
   hors bouton au clavier » dans tous ses états et langues : « onglet-a11y=N(…) ». Validé sur l'ancien code (adventure-a11y=1 « Zone
   suivante », défaut de l'it. 3102) ; code actuel, all 1280 : 60 mesures, aucun.

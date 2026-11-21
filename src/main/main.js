@@ -248,6 +248,30 @@ function start() {
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) { try { P.setTab(id); P.renderAll(); } catch (e) {} }
           await document.fonts.ready; await new Promise((f) => setTimeout(f, 300)); await document.fonts.ready; })()`).catch(() => {});
         const r = await strip.win.webContents.executeJavaScript(`(() => { const p = document.getElementById("panel"), P = window.__panel, out = []; P.kept.clear();
+          // (it. 3093-3105) textes rognés et accessibilité : pour chaque onglet et chaque sous-section
+          const chk = (pane, id) => {
+            // (it. 3093) texte coupé net par un cadre (overflow caché), même sans défilement : ce que voit scripts/stage/clip-probe.js
+            // (« Au-delà du Rebord » coupé, it. 3069 ; « Compag », it. 3083). « … » demandé sur un conteneur flex ou grid ne compte pas :
+            // le navigateur ne le dessine pas. Exclus : rangées défilantes, listes qui défilent, dessins déplaçables (grand graphe).
+            const rog = []; if (pane) { const fx = (st) => /flex|grid/.test(st.display) && !(st.webkitLineClamp && st.webkitLineClamp !== "none"); // (it. 3105) -webkit-line-clamp dessine « … » lui-même (noms d’objets sur 3 lignes)
+              for (const el of pane.querySelectorAll("*")) { if (![...el.childNodes].some((n) => n.nodeType === 3 && n.data.trim())) continue;
+                const cs = getComputedStyle(el); if (el.closest(".hscroll") || !el.getClientRects().length) continue; // (panneau fermé pendant la mesure : visibility ignorée)
+                const r = el.getBoundingClientRect(); if (!r.width || !r.height) continue; let d = 0;
+                if (el instanceof SVGElement) { if (!el.closest("svg.rebord")) continue; const c = el.ownerSVGElement.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); }
+                else if (/hidden|clip/.test(cs.overflowX) && !(cs.textOverflow === "ellipsis" && !fx(cs)) && !(cs.webkitLineClamp && cs.webkitLineClamp !== "none")) d = el.scrollWidth - el.clientWidth;
+                else if (!(cs.textOverflow === "ellipsis" && !fx(cs))) for (let a = el.parentElement; a && a !== pane.parentElement; a = a.parentElement) { const s = getComputedStyle(a);
+                  if ((s.textOverflow === "ellipsis" && !fx(s)) || /auto|scroll/.test(s.overflowX + s.overflowY)) break;
+                  if (/hidden|clip/.test(s.overflowX)) { const c = a.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); break; } }
+                if (d > 2) rog.push(el.textContent.trim().slice(0, 20)); } }
+            if (rog.length) out.push(id + "-rogné=" + rog.length + "(" + rog.slice(0, 3).join("/") + ")");
+            // (it. 3104) règles d'accessibilité de l'autotest, ici dans tous les états mesurés (l'autotest ne voit que dev-data : « Zone
+            // suivante » grisée sans bulle et paliers de maîtrise hors clavier, vus sur la partie d'une semaine, it. 3102) : bouton grisé
+            // sans bulle (lui ou un parent ; « Maximum » excepté) ; élément cliquable hors bouton sans tabindex (dans un bouton ou un SVG : exclu)
+            const ax = []; if (pane) { const maxTxt = window.__tx ? window.__tx("Maximum") : "Maximum";
+              for (const b of pane.querySelectorAll("button[disabled]")) if (b.getClientRects().length && !b.closest("[title],[data-title]") && b.textContent.trim() !== maxTxt) ax.push("grisé:" + b.textContent.trim().slice(0, 18));
+              for (const e of pane.querySelectorAll("[data-action], [data-tab]")) if (e.getClientRects().length && !/^(BUTTON|INPUT|A|SELECT|SUMMARY)$/.test(e.tagName) && !e.hasAttribute("tabindex") && !e.closest("button") && !e.closest("svg")) ax.push("clavier:" + e.tagName + "." + String(e.className).split(" ")[0]); }
+            if (ax.length) out.push(id + "-a11y=" + ax.length + "(" + [...new Set(ax)].slice(0, 3).join("/") + ")");
+          };
           for (const id of ["adventure","talents","skills","quests","shop","pets","class","ascension","bestiary","stats","map","settings"]) {
             const b = document.querySelector("[data-tab=" + id + "]"); if (!b || !b.getClientRects().length) continue;
             P.setTab(id); P.renderAll(); const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(id + "=" + o);
@@ -290,27 +314,7 @@ function start() {
               const rg = document.createRange(); rg.selectNodeContents(n); const rs = [...rg.getClientRects()].filter((x) => x.width > 0);
               if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) th.push(n.data.trim()); }
             if (th.length) out.push(id + "-titre=" + th.slice(0, 4).join("/"));
-            // (it. 3093) texte coupé net par un cadre (overflow caché), même sans défilement : ce que voit scripts/stage/clip-probe.js
-            // (« Au-delà du Rebord » coupé, it. 3069 ; « Compag », it. 3083). « … » demandé sur un conteneur flex ou grid ne compte pas :
-            // le navigateur ne le dessine pas. Exclus : rangées défilantes, listes qui défilent, dessins déplaçables (grand graphe).
-            const rog = []; if (pane) { const fx = (st) => /flex|grid/.test(st.display);
-              for (const el of pane.querySelectorAll("*")) { if (![...el.childNodes].some((n) => n.nodeType === 3 && n.data.trim())) continue;
-                const cs = getComputedStyle(el); if (el.closest(".hscroll") || !el.getClientRects().length) continue; // (panneau fermé pendant la mesure : visibility ignorée)
-                const r = el.getBoundingClientRect(); if (!r.width || !r.height) continue; let d = 0;
-                if (el instanceof SVGElement) { if (!el.closest("svg.rebord")) continue; const c = el.ownerSVGElement.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); }
-                else if (/hidden|clip/.test(cs.overflowX) && !(cs.textOverflow === "ellipsis" && !fx(cs))) d = el.scrollWidth - el.clientWidth;
-                else if (!(cs.textOverflow === "ellipsis" && !fx(cs))) for (let a = el.parentElement; a && a !== pane.parentElement; a = a.parentElement) { const s = getComputedStyle(a);
-                  if ((s.textOverflow === "ellipsis" && !fx(s)) || /auto|scroll/.test(s.overflowX + s.overflowY)) break;
-                  if (/hidden|clip/.test(s.overflowX)) { const c = a.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); break; } }
-                if (d > 2) rog.push(el.textContent.trim().slice(0, 20)); } }
-            if (rog.length) out.push(id + "-rogné=" + rog.length + "(" + rog.slice(0, 3).join("/") + ")");
-            // (it. 3104) règles d'accessibilité de l'autotest, ici dans tous les états mesurés (l'autotest ne voit que dev-data : « Zone
-            // suivante » grisée sans bulle et paliers de maîtrise hors clavier, vus sur la partie d'une semaine, it. 3102) : bouton grisé
-            // sans bulle (lui ou un parent ; « Maximum » excepté) ; élément cliquable hors bouton sans tabindex (dans un bouton ou un SVG : exclu)
-            const ax = []; if (pane) { const maxTxt = window.__tx ? window.__tx("Maximum") : "Maximum";
-              for (const b of pane.querySelectorAll("button[disabled]")) if (b.getClientRects().length && !b.closest("[title],[data-title]") && b.textContent.trim() !== maxTxt) ax.push("grisé:" + b.textContent.trim().slice(0, 18));
-              for (const e of pane.querySelectorAll("[data-action], [data-tab]")) if (e.getClientRects().length && !/^(BUTTON|INPUT|A|SELECT|SUMMARY)$/.test(e.tagName) && !e.hasAttribute("tabindex") && !e.closest("button") && !e.closest("svg")) ax.push("clavier:" + e.tagName + "." + String(e.className).split(" ")[0]); }
-            if (ax.length) out.push(id + "-a11y=" + ax.length + "(" + [...new Set(ax)].slice(0, 3).join("/") + ")"); }
+            chk(pane, id); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
@@ -334,7 +338,8 @@ function start() {
             const bt = document.querySelector("[data-tab=" + tab + "]"); if (!bt || !bt.getClientRects().length) continue;
             P.setTab(tab); const keepSec = P.tabs[tab].sec;
             for (const sec of secs) { P.tabs[tab].sec = sec; P.renderAll(); if (P.tabs[tab].sec !== sec) continue;
-              const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(tab + "-" + sec + "=" + o); }
+              const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(tab + "-" + sec + "=" + o);
+              chk(document.querySelector("[data-pane=" + tab + "]:not([hidden])"), tab + "-" + sec); }
             P.tabs[tab].sec = keepSec; P.renderAll(); }
           // (it. 929) tous les déblocages SAUF le dernier : la carte « Prochain déblocage » réapparaît (avec tous, elle
           // disparaît : l'it. 928 a trouvé 11 px de défilement en russe à 1280 sans qu'aucune mesure le voie) ; prêt et pas prêt
