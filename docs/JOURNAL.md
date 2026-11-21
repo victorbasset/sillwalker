@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3118) Parties de 2-3 h (rôdeur, nécromancien, barde, artificier) en russe à 1280 px dans --overflow-report : nom de
+  l'héroïne coupé net dans la carte du héros (« Артефактни » : « … » demandé sur un conteneur flex, jamais dessiné ; le nom a sa propre
+  boîte, nom entier en bulle) ; pastille des totaux de talents plus large que sa colonne, coupée net à droite (« … », texte entier dans
+  la bulle de la liste). Vu aussi, INTERMITTENT et antérieur (ancien code, 2 fois sur 3) : « adventure-boss100/200-bloqué=11 » pour
+  l'artificière en russe (pistes du héros bloqué tirées au hasard) : à traiter à l'it. 3119. Autotest 348/348.
 - 2026-11-21 (it. 3117) Contrôle : partie de 4 h (simulate.js 4 mage : zone 46, 2 ascensions, 11 déblocages, compagnon guerrier) dans
   --overflow-report (débordements, rognés, a11y) en fr, ru, de, ja, pl à 1280 px : aucun.
 - 2026-11-21 (it. 3116) Outil : partie d'une heure en sauvegarde de référence (scripts/fixtures/hour-save.json, 13 ko : zone 39, record

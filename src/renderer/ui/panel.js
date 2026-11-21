@@ -912,7 +912,7 @@ export class Panel {
     const learnedP = S.partner && CLASSES[S.partner] ? classSpells(S.partner).filter((x) => spellRank(S, x.id) > 0) : [];
     const ico = (x) => `<img src="${spellIconURL(x.tpl, x.color, 2, x.fx?.[0])}" alt="" title="${esc([tx("Rang {0} : {1}", { 0: spellRank(S, x.id), 1: tr(x.name) }), ...spellFxText(x, spellRank(S, x.id))].join(" · "))}">`;
     const spl = learned.length || learnedP.length ? `<button class="linkbtn spellmini" data-tab="class" data-sec="style">${learned.map(ico).join("")}${learnedP.length ? `<span class="pmini">·</span>${learnedP.map(ico).join("")}` : ""}</button>` : "";
-    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname"><img src="${classPortraitURL(S.cls)}" alt="">${esc(cls.name)}</span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo || spl ? `<div class="duoline">${duo}${spl}</div>` : ""}
+    $(this.root, "#p-hero").innerHTML = `<h2><span class="hname" title="${esc(cls.name)}"><img src="${classPortraitURL(S.cls)}" alt=""><span class="hn">${esc(cls.name)}</span></span> <small>${tx("niveau {0}", { 0: S.lvl })}</small></h2>${duo || spl ? `<div class="duoline">${duo}${spl}</div>` : ""}
       <div class="kv"><span>${tx("Expérience")}</span><span id="xptxt"></span></div><div class="bar"><i id="xpbar"></i></div>
       <div class="tiles">
         <div class="tile"><img src="${shopIconURL("heart", 3)}" alt="">${tileStat(tx("Points de vie"), "hp", hs.hp)}</div>
