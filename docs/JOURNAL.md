@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3160) POUR-VICTOR : bilan complété (it. 3138-3159).
 - 2026-11-21 (it. 3159) Contrôle : parties d'une heure des 20 héros à 1920 px avec l'interface à 130 % en pl, ru, de : 60 mesures, aucun
   défaut (après le correctif de l'it. 3156).
 - 2026-11-21 (it. 3158) Contrôle : parties de 6 h des 20 héros à 1920 px avec l'interface à 130 % en pl, ru, de : 60 mesures, aucun défaut.

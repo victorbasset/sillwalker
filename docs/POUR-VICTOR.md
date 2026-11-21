@@ -20,6 +20,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Ensuite (it. 3122-3136) : Statistiques > Succès défilait de 18 px en polonais à 1600 px (liste resserrée) ; Héros > Sorts de la
   danseuse de lames défilait de 8 px en russe avant le Grimoire des sorts (titre sur une ligne). Balayage des parties d'une heure des
   20 héros dans les 10 langues : plus rien. Partie d'une heure ajoutée aux autres outils (sauvegardes abîmées, parties figées).
+- Puis (it. 3138-3159) : balayage des parties de 1 h, 6 h, 12 h et 24 h des 20 héros dans les 10 langues (et 1366, 1600, 1920 × 130 %) :
+  quatre défilements trouvés et corrigés (Aventure en russe quand le héros est bloqué devant un boss majeur, Sorts et Quêtes en espagnol,
+  Sorts en russe, Succès en polonais à 130 %). Annoncés dans l'édition 175. Parties de 1 h et 6 h ajoutées aux mesures automatiques.
 - Nouvel outil scripts/stage/clip-probe.js : textes coupés par leur cadre dans tous les onglets (it. 3070, 3084) ; 0 partout.
 - Contrôles sans défaut : tous les onglets de la partie d'une semaine relus dans 9 langues ; aucune partie bloquée ni figée ; sauvegardes
   abîmées tolérées ; 926 clics sans erreur ; aucun débordement dans les 10 langues ; rythme du début de partie inchangé.
