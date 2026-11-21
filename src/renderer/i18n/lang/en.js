@@ -2338,4 +2338,5 @@ export default {
   3463: "On the Map, beyond zone 200, the names below the Starbreaker are no longer cut off by the edge.",
   3464: "Hero card: the companion's name is no longer cut off by the spell icons.",
   3465: "A greyed-out “Next zone” now says why, and a mastery tier's bonus can also be chosen with the keyboard.",
+  3466: "Your hero is already in the first zone.",
 };

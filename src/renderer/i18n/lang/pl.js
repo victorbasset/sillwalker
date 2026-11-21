@@ -2338,4 +2338,5 @@ export default {
   3463: "Na Mapie, za strefą 200, nazwy pod Łamacz Gwiazd nie są już ucinane przez krawędź.",
   3464: "Karta bohatera: imię towarzysza nie jest już ucinane przez ikony zaklęć.",
   3465: "Wyszarzona „Następna strefa” mówi teraz dlaczego, a premię progu mistrzostwa można też wybrać klawiaturą.",
+  3466: "Twój bohater jest już w pierwszej strefie.",
 };

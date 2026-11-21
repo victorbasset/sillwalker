@@ -2338,4 +2338,5 @@ export default {
   3463: "En el Mapa, más allá de la zona 200, los nombres bajo El Rompeestrellas ya no quedan cortados por el borde.",
   3464: "Ficha del héroe: el nombre del compañero ya no queda cortado por los iconos de hechizos.",
   3465: "«Zona siguiente» en gris ahora dice por qué, y el bono de un nivel de maestría también se elige con el teclado.",
+  3466: "Tu héroe ya está en la primera zona.",
 };

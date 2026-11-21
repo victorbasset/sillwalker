@@ -99,6 +99,22 @@ for (const lang of langs) {
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} semaine 1280 : ${res}`);
     }
+    // (it. 3113) partie NEUVE (premier lancement, aucune sauvegarde) à 1280 px : « Zone précédente » grisée sans bulle en zone 1,
+    // qu'aucune sauvegarde de test ne montrait (toutes sont avancées). NO_NEW=1 pour sauter.
+    if (!process.env.NO_NEW) {
+      const nd = fs.mkdtempSync(path.join(os.tmpdir(), "sw-ovf-neuve-"));
+      let out = "";
+      try {
+        out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${nd}`, `--lang=${lang}`, "--width=1280", "--overflow-report", "--exit-after=20"],
+          { encoding: "utf8", timeout: 60000, stdio: ["ignore", "pipe", "pipe"] });
+      } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+      fs.rmSync(nd, { recursive: true, force: true });
+      const m = out.match(/\[overflow\] (\d+) (.*)/);
+      const res = m ? m[2].trim() : "pas de mesure";
+      if (res !== "aucun") bad++;
+      console.log(`${lang.padEnd(3)} neuve 1280 : ${res}`);
+    }
     // (it. 1048) fin de partie, 1920 px, « Taille de l'interface » à 130 % (zoom du panneau seul : les @media voyaient la
     // fenêtre ; Boutique, Bestiaire, Statistiques défilaient, it. 1046). NO_ZOOM=1 pour sauter cette mesure.
     if (fs.existsSync(endFile) && !process.env.NO_ZOOM) {

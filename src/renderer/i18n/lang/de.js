@@ -2338,4 +2338,5 @@ export default {
   3463: "Auf der Karte werden jenseits von Zone 200 die Namen unter Der Sternenbrecher nicht mehr vom Rand abgeschnitten.",
   3464: "Heldenkarte: Der Name des Begleiters wird nicht mehr von den Zaubersymbolen abgeschnitten.",
   3465: "Ein ausgegrautes „Nächste Zone“ sagt jetzt, warum, und der Bonus einer Meisterschaftsstufe lässt sich auch per Tastatur wählen.",
+  3466: "Dein Held ist bereits in der ersten Zone.",
 };

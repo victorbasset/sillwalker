@@ -151,6 +151,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Depuis l'it. 3093, le même contrôle fait partie de --overflow-report (donc de lang-overflow, tous ses états) : « onglet-rogné=N(textes) ».
   Depuis l'it. 3104, --overflow-report rejoue aussi deux règles d'accessibilité de l'autotest dans tous ses états : « onglet-a11y=N(…) »
   (bouton grisé sans bulle, élément cliquable hors bouton sans tabindex ; l'autotest ne les vérifie que sur dev-data).
+  lang-overflow mesure aussi une partie NEUVE à 1280 px dans chaque langue (« xx neuve 1280 », it. 3113 ; NO_NEW=1 pour sauter).
   Nombres flottants (it. 3057) : `--stage=scripts/stage/float-probe.js`, « FPROBE … sur bulle/boss B · paires P » (repères dans le script ;
   freeSpot, sans place libre, prend la place sans obstacle qui recouvre le moins de nombres : it. 3052, 3056).
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.

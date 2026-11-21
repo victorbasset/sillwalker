@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3113) Partie neuve (premier lancement) : « Zone précédente » grisée en zone 1 sans bulle (vu par le contrôle a11y
+  d'--overflow-report, aucune sauvegarde de test n'est neuve) : « Ton héros est déjà dans la première zone. » (clé 3466, 9 langues).
+  lang-overflow mesure maintenant une partie neuve à 1280 px dans chaque langue (« xx neuve 1280 », NO_NEW) ; validé sur l'ancien code
+  (adventure-a11y=1) ; all 1280 : 70 mesures, aucun. Autotest 348/348.
 - 2026-11-21 (it. 3112) Outil : Héros > Sorts ajouté aux sous-sections d'--overflow-report (contrôles « rogné » et « a11y ») ; all 1280 :
   60 mesures, aucun défaut.
 - 2026-11-21 (it. 3111) REVUE GÉNÉRALE : simulations 12 h (graine 7) gladiateur 69, chaman 62, artificier 59 (comme hero-table it. 3099) ;

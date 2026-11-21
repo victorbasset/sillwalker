@@ -3467,5 +3467,6 @@ export const KEYS = [
   "Bats le boss de cette zone pour ouvrir la suivante.",
   "Sur la Carte, au-delà de la zone 200, les noms sous le Briseur d’Étoiles ne sont plus coupés par le bord.",
   "Carte du héros : le nom du compagnon n’est plus coupé net par les icônes des sorts.",
-  "« Zone suivante » grisée dit pourquoi, et le choix du bonus d’un palier de maîtrise se fait aussi au clavier."
+  "« Zone suivante » grisée dit pourquoi, et le choix du bonus d’un palier de maîtrise se fait aussi au clavier.",
+  "Ton héros est déjà dans la première zone."
 ];
