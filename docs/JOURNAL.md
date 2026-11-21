@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3163) Contrôle : float-probe sur la partie de 6 h à 1280 px : de 100 nombres, 0 sur bulle/boss, 4 paires ; ru 96, 0, 2
+  (repère semaine it. 3056 : B 0-1, P 5-18).
 - 2026-11-21 (it. 3162) Contrôle : lang-overflow all complet avec les nouveaux états (6 h, heure 1280 et 1600, heure × 130 %, neuve) :
   150 mesures, aucun défaut.
 - 2026-11-21 (it. 3161) REVUE GÉNÉRALE : simulations 12 h (graine 7) mage 62, lancier 62, gladiateur 69 ; perf bande 19,6 %, panneau 18,8 %,
