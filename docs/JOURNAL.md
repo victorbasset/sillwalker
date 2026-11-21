@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3071) REVUE GÉNÉRALE : simulations 12 h (graine 7) guerrier 64, mage 62, rôdeur 65 (repères habituels) ; perf (copie
+  neuve de dev-data, charge ≈ 2) bande 19,6 %, panneau 19,7 %, mini 5,6 %, icône 0,5 % ; captures fr, en, ja (Aventure, Boutique, mode
+  mini) propres, 0 erreur d'interface ; texte russe : mots latins = noms propres (Sillwalker, Poupouce), touches, noms des langues,
+  repère « attributs » du fichier : rien à traduire. Aucun problème nouveau à noter dans « Idées ».
 - 2026-11-21 (it. 3070) Outil : scripts/stage/clip-probe.js, textes rognés par un cadre dans tous les onglets (famille du défaut de l'it.
   3069, invisible à lang-overflow). Faux positifs écartés : listes qui défilent (overflow auto), grand graphe des Compétences (dessin
   déplaçable). Validé sur l'ancienne Carte (1 cas : « Au-delà du Rebord » 13 px) ; partie d'une semaine en fr, de, ru, pl, ja et
