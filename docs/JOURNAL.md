@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3089) Contrôle : résumé d'absence (8 h) de la partie d'une semaine en de, ru, ja à 1280 px : 0 texte coupé (méthode de
+  clip-probe appliquée à la fenêtre) ; capture allemande lisible. Bande : nombres flottants encore serrés autour du héros (décision 9).
 - 2026-11-21 (it. 3088) POUR-VICTOR : bilan du matin (it. 3060-3088) et décision 10 (ligne du compagnon à 1280 px, it. 3087).
 - 2026-11-21 (it. 3087) Contrôle : les 19 compagnons possibles (partie d'une semaine, tous sorts appris) en de et ru à 1280 px : jamais
   coupé net ni chevauché (correctif de l'it. 3083) ; mais le nom seul finit souvent par « … » (manque jusqu'à 53 px) : noté P3 dans
