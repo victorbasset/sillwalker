@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3086) Contrôle après les it. 3069 et 3083 : lang-overflow all 1280 (10 langues × 1280, fin, semaine, fin 1920 × 130 %,
+  max 1920 et 1280) : aucun défilement ni mot coupé.
 - 2026-11-21 (it. 3085) Contrôle : clip-probe (version de l'it. 3084) sur l'état « tout au maximum » en fr, ru, ja à 1280 px : 0.
 - 2026-11-21 (it. 3084) Outil : clip-probe voit aussi le texte qu'un élément coupe lui-même (overflow caché) et ne fait plus confiance
   à « text-overflow: ellipsis » sur un conteneur flex ou grid (le navigateur ne dessine pas « … » : défaut de l'it. 3083, qu'elle
