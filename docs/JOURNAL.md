@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3100) Confirmation de l'it. 3099 sur 4 graines de plus (21, 31, 41, 51) : gardien des étoiles 65/69/69/65, assassin
+  62/66/65/62, mage 62/62/62/66 ; sur 7 graines : 67,7 / 63,0 / 62,7, écart ≈ 5,0 zones comme à l'it. 2609 (gardien des étoiles
+  67,7 alors aussi) : le 6,7 de l'it. 3099 était du bruit de paliers. Rien à régler ; mage bas déjà « À VOIR AVEC VICTOR » (it. 2178).
 - 2026-11-21 (it. 3099) Contrôle : hero-table HEROES=all, 12 h, graines 7,3,11 : moyenne 64,8 (65,1 à l'it. 2609), écart 6,7 zones
   (5,0) : assassin 62,0, mage 62,3 → gladiateur et samouraï 67,7, gardien des étoiles 68,7. À confirmer sur 4 graines de plus (21, 31,
   41, 51) avant tout réglage (règle de CLAUDE.md : paliers des zones).
