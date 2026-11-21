@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3173) Contrôle en langues à trois pluriels sur la partie d'une semaine : --crawl pl et ru, 918 clics chacun, aucune
+  erreur ; texte (--dump-text, ≈ 27 100 lignes) sans NaN, undefined, null, Infinity ni {0}/{n} restés. En russe, seuls les paliers
+  au-delà du milliard (Dc, Ud, Dd… : abréviations latines des jeux idle, it. 2972) restent en lettres latines : voulu.
 - 2026-11-21 (it. 3172) Contrôle de robustesse : fuzz.mjs 1200 parties, 0 bloquées (aussi FUZZ_DAYMOD=all) ; stall-check 100 parties,
   0 figées (aussi STALL_DAYMOD=all) ; save-fuzz sur la partie d'une semaine : ok balayage (1274 corruptions).
 - 2026-11-21 (it. 3171) REVUE GÉNÉRALE. Simulations 12 h (graine 7, record = dernière course) : samouraï 69, barde 65, artificier 59
