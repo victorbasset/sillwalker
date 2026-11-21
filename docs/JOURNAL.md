@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3106) « Quoi de neuf » : édition 173 (noms sous le Briseur sur la Carte, it. 3069 ; nom du compagnon, it. 3083 ; « Zone
+  suivante » grisée et paliers de maîtrise au clavier, it. 3102) ; clés 3463-3465, 9 langues (i18n-quotes : « Zone suivante » cité tel
+  que traduit). npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
 - 2026-11-21 (it. 3105) Outil : les contrôles « -rogné » et « -a11y » d'--overflow-report passent aussi sur chaque sous-section (Bestiaire,
   Boutique, Statistiques, Familiers, Héros ; fonction chk). Fausse alerte écartée en route : « ru semaine shop-rogné=1 » (nom d'objet
   du Marchand sur 3 lignes : -webkit-line-clamp dessine « … » lui-même, vu agrandi « металла Стража… ») ; clip-probe de même. Toujours

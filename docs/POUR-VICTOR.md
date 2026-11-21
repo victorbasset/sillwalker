@@ -10,6 +10,8 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   les langues (it. 3069). Corrigé.
 - Carte du héros (Aventure) : avec six sorts appris (héros et compagnon), « Compagnon : Rôdeur » était coupé net en « Compag » (it. 3083).
   Maintenant le nom seul si la phrase ne tient pas, avec « … » au besoin ; phrase entière dans l'infobulle. Voir la décision 10.
+- « Zone suivante » grisée dit maintenant pourquoi ; le choix du bonus d'un palier de maîtrise se fait aussi au clavier (it. 3102).
+  Annoncé avec les deux corrections ci-dessus dans l'édition 173 de « Quoi de neuf ».
 - Nouvel outil scripts/stage/clip-probe.js : textes coupés par leur cadre dans tous les onglets (it. 3070, 3084) ; 0 partout.
 - Contrôles sans défaut : tous les onglets de la partie d'une semaine relus dans 9 langues ; aucune partie bloquée ni figée ; sauvegardes
   abîmées tolérées ; 926 clics sans erreur ; aucun débordement dans les 10 langues ; rythme du début de partie inchangé.

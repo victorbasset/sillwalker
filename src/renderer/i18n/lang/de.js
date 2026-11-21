@@ -2335,4 +2335,7 @@ export default {
   3460: "Auf einem Laptop-Bildschirm verdecken Zaubersymbole, Zahlen und Meldungen nicht mehr die Angaben oben in der Leiste.",
   3461: "Die Sprechblase des Helden blinkt nicht mehr oben links auf und wird oben nicht mehr abgeschnitten; Zahlen verdecken weder sie noch den Namen des Bosses.",
   3462: "Besiege den Boss dieser Zone, um die nächste zu öffnen.",
+  3463: "Auf der Karte werden jenseits von Zone 200 die Namen unter Der Sternenbrecher nicht mehr vom Rand abgeschnitten.",
+  3464: "Heldenkarte: Der Name des Begleiters wird nicht mehr von den Zaubersymbolen abgeschnitten.",
+  3465: "Ein ausgegrautes „Nächste Zone“ sagt jetzt, warum, und der Bonus einer Meisterschaftsstufe lässt sich auch per Tastatur wählen.",
 };

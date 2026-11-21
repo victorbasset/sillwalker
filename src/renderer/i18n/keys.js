@@ -3464,5 +3464,8 @@ export const KEYS = [
   "Les cases du héros et l’onglet Ascension restent lisibles avec de très grands nombres, même sur un écran de portable.",
   "Sur un écran de portable, les icônes de sorts, les nombres et les annonces ne passent plus sur les informations du haut de la bande.",
   "La bulle de parole du héros ne clignote plus en haut à gauche ni n’est coupée par le haut, et les nombres ne la recouvrent plus, pas plus que le nom du boss.",
-  "Bats le boss de cette zone pour ouvrir la suivante."
+  "Bats le boss de cette zone pour ouvrir la suivante.",
+  "Sur la Carte, au-delà de la zone 200, les noms sous le Briseur d’Étoiles ne sont plus coupés par le bord.",
+  "Carte du héros : le nom du compagnon n’est plus coupé net par les icônes des sorts.",
+  "« Zone suivante » grisée dit pourquoi, et le choix du bonus d’un palier de maîtrise se fait aussi au clavier."
 ];

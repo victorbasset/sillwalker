@@ -2335,4 +2335,7 @@ export default {
   3460: "Na ekranie laptopa ikony zaklęć, liczby i komunikaty nie zasłaniają już informacji u góry paska.",
   3461: "Dymek bohatera nie miga już w lewym górnym rogu ani nie jest ucinany u góry, a liczby nie zasłaniają już ani jego, ani imienia bossa.",
   3462: "Pokonaj bossa tej strefy, aby otworzyć następną.",
+  3463: "Na Mapie, za strefą 200, nazwy pod Łamacz Gwiazd nie są już ucinane przez krawędź.",
+  3464: "Karta bohatera: imię towarzysza nie jest już ucinane przez ikony zaklęć.",
+  3465: "Wyszarzona „Następna strefa” mówi teraz dlaczego, a premię progu mistrzostwa można też wybrać klawiaturą.",
 };

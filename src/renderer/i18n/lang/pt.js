@@ -2335,4 +2335,7 @@ export default {
   3460: "Na tela de um notebook, os ícones de feitiços, os números e os anúncios não cobrem mais as informações do topo da faixa.",
   3461: "O balão de fala do herói não pisca mais no canto superior esquerdo nem fica cortado no topo, e os números não o cobrem mais, nem o nome do chefe.",
   3462: "Derrote o chefe desta zona para abrir a próxima.",
+  3463: "No Mapa, além da zona 200, os nomes sob O Quebra-Estrelas não são mais cortados pela borda.",
+  3464: "Ficha do herói: o nome do companheiro não é mais cortado pelos ícones de feitiços.",
+  3465: "“Próxima zona” desativada agora diz por quê, e o bônus de um patamar de maestria também pode ser escolhido pelo teclado.",
 };

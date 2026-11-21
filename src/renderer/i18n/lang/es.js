@@ -2335,4 +2335,7 @@ export default {
   3460: "En la pantalla de un portátil, los iconos de hechizos, los números y los anuncios ya no tapan la información de arriba de la franja.",
   3461: "El bocadillo del héroe ya no parpadea arriba a la izquierda ni se corta por arriba, y los números ya no lo tapan, como tampoco el nombre del jefe.",
   3462: "Derrota al jefe de esta zona para abrir la siguiente.",
+  3463: "En el Mapa, más allá de la zona 200, los nombres bajo El Rompeestrellas ya no quedan cortados por el borde.",
+  3464: "Ficha del héroe: el nombre del compañero ya no queda cortado por los iconos de hechizos.",
+  3465: "«Zona siguiente» en gris ahora dice por qué, y el bono de un nivel de maestría también se elige con el teclado.",
 };

@@ -2335,4 +2335,7 @@ export default {
   3460: "On a laptop screen, spell icons, numbers and announcements no longer cover the information at the top of the strip.",
   3461: "The hero's speech bubble no longer flickers in the top-left corner or gets cut off at the top, and numbers no longer cover it or the boss's name.",
   3462: "Defeat this zone's boss to open the next one.",
+  3463: "On the Map, beyond zone 200, the names below the Starbreaker are no longer cut off by the edge.",
+  3464: "Hero card: the companion's name is no longer cut off by the spell icons.",
+  3465: "A greyed-out “Next zone” now says why, and a mastery tier's bonus can also be chosen with the keyboard.",
 };
