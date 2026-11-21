@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3116) Outil : partie d'une heure en sauvegarde de référence (scripts/fixtures/hour-save.json, 13 ko : zone 39, record
+  40, 8 déblocages, aucune ascension) ; lang-overflow la mesure à 1280 px dans chaque langue (« xx heure 1280 », NO_HOUR). Elle a
+  révélé les défauts des it. 3114-3115. all 1280 : aucun ; info-probe ru, de : 0.
 - 2026-11-21 (it. 3115) Talents, vus sur la partie simulée d'une heure : en russe à 1280 px, l'ultime verrouillé « ★ Королевская добыча
   🔒 20 » passait sur deux lignes, la branche grandissait de 21 px et l'onglet défilait de 6 px : nom des talents sur une ligne (« … »,
   nom entier en bulle et dans la fiche). Et « Réinitialiser » grisé sans bulle (aucun talent pris, ou pas assez d'or : deux bulles,
