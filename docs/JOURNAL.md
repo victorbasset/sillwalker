@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3042) Bulle de parole du héros (strip.js say / updateSpeech) : 1) elle s'affichait une image en (0, 0), sur la pastille
+  de zone, avant sa première place : invisible (visibility) jusqu'à ce qu'elle soit placée ; 2) au-dessus d'un héros grand (partie
+  d'une semaine), elle montait à 2 px et sortait à −3 px pendant les secousses : jamais au-dessus de 2 px, et sous la rangée quand elle
+  passe sous une pastille. hud-probe : bulle de parole et drone ajoutés, mesure par rapport à la scène (les secousses la déplacent, pas
+  la rangée), éléments invisibles ignorés ; 3 passages sur la partie d'une semaine : HPROBE 0. Autotest 345/345.
 - 2026-11-21 (it. 3041, REVUE GÉNÉRALE) : 12 h : gladiateur 69, paladin 65, arbalétrier 61 ; --perf (charge 2,0) : 19,9 / 18,9 %, mini 5,6 %,
   icône 0,5 % ; hud-probe dev-data 1280 px : 0 / 77 ; bande en coréen à 1280 px propre. Rien à corriger.
 - 2026-11-21 (it. 3040) Outil : scripts/stage/hud-probe.js (sonde des it. 3035-3039 rendue permanente, documentée dans CLAUDE.md) : HPROBE 0 / 230 (semaine) et 0 / 57 (partie neuve) à 1280 px.

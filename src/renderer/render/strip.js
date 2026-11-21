@@ -504,6 +504,8 @@ export class StripRenderer {
     this.bubbleX = null;
     this.bubbleW = this.bubble.offsetWidth || 0; // mesurée une fois par réplique
     this.bubbleH = this.bubble.offsetHeight || 20;
+    // (it. 3042) invisible jusqu'à sa première place (updateSpeech) : elle s'affichait une image en (0, 0), sur la pastille de zone
+    this.bubble.style.visibility = "hidden";
     mark("speech");
   }
   updateSpeech(dt, x) {
@@ -536,7 +538,15 @@ export class StripRenderer {
           this.bubbleT = 0; this.bubble.hidden = true; mark("speech"); return;
         }
       }
-      if (bx !== this.bubbleX) { this.bubbleX = bx; this.bubble.style.transform = `translate3d(${bx}px,${GROUND - this.hero.h - 30}px,0) translateX(-50%)`; mark("speech"); }
+      // (it. 3042) au-dessus d'un héros grand (partie avancée), la bulle montait à −3 px et sortait coupée par le haut de la fenêtre
+      if (bx !== this.bubbleX) {
+        this.bubbleX = bx;
+        // sous une pastille ou une barre de vie de la rangée : la bulle reste sous la rangée (au-dessus d'un héros grand, elle y montait)
+        const hb = this.hudBands(), hw = (this.bubbleW || 0) / 2;
+        let by = Math.max(2, GROUND - this.hero.h - 30);
+        if (hb.bands.some(([a, b]) => bx + hw > a && bx - hw < b)) by = Math.max(by, hb.h + 2);
+        this.bubble.style.transform = `translate3d(${bx}px,${by}px,0) translateX(-50%)`; this.bubble.style.visibility = ""; mark("speech");
+      }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
       const night = this.nightLevel().night >= 0.8;
       this.say(night && Math.random() < 0.4 ? SPEECH.night : SPEECH.idle);
