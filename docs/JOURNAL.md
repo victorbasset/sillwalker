@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3150) Contrôle : parties de 12 h des 20 héros à 1600 px en ru, pl, de, es : 80 mesures, aucun défaut.
 - 2026-11-21 (it. 3149) Outil : partie de 6 h (druide) en sauvegarde de référence (scripts/fixtures/sixh-save.json, 17 ko) ; lang-overflow
   la mesure à 1280 px (« xx 6h 1280 », NO_SIXH). Validée sur l'ancien style (ru : adventure-boss100…300-bloqué=11) ; all 1280 : aucun.
 - 2026-11-21 (it. 3148) Contrôle : parties de 6 h des 20 héros à 1600 px en ru, pl, de, es : 80 mesures, aucun défaut.
