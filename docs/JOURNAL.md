@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3085) Contrôle : clip-probe (version de l'it. 3084) sur l'état « tout au maximum » en fr, ru, ja à 1280 px : 0.
 - 2026-11-21 (it. 3084) Outil : clip-probe voit aussi le texte qu'un élément coupe lui-même (overflow caché) et ne fait plus confiance
   à « text-overflow: ellipsis » sur un conteneur flex ou grid (le navigateur ne dessine pas « … » : défaut de l'it. 3083, qu'elle
   manquait). Validée sur l'ancien code (1 cas : « Compagnon : Rôdeur ✦ Frères d’ » 89 px) ; code actuel, 9 essais (semaine fr, de, ja,
