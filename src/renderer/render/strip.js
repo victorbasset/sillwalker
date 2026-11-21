@@ -1236,7 +1236,9 @@ export class StripRenderer {
       // (variable CSS : clearQueueTags remet style.top à zéro)
       // (it. 3164) marge portée à 10 px sous la rangée (26 px) : un monstre qui sautille ou sursaute remonte de 6 à 8 px, son étiquette
       // passait sur la rangée (« Колоссальный » à 20 px, parties de 6 h, 1280 px)
-      if (!boss) { const y0 = this.monY(a, 4); if (y0 - 24 < 36) a.el.style.setProperty("--tagtop", (36 - y0) + "px"); }
+      // (it. 3167) volant : son altitude de croisière (monlife.js, « fly ») le monte jusqu'à ≈ 16 px de plus que monY(a, 4) :
+      // 12 px de marge en plus (« Mroźny », « Wampiryczny » à 21-22 px, parties de 12 h, 1280 px)
+      if (!boss) { const y0 = this.monY(a, 4), m = a.fly ? 48 : 36; if (y0 - 24 < m) a.el.style.setProperty("--tagtop", (m - y0) + "px"); }
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
       a.flame.hidden = true;

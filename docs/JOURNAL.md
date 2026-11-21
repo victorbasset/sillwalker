@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3167) Bande : étiquette d'élite d'un monstre volant, marge sous la rangée du haut 10 → 22 px (son altitude de
+  croisière, monlife.js, le monte jusqu'à ≈ 16 px). hud-probe des 3 parties concernées, deux passages : 0 ; npm test, autotest 348/348.
 - 2026-11-21 (it. 3166) Contrôle : hud-probe sur les parties de 12 h des 20 héros en pl et ja à 1280 px : 35 sur 40 à 0 ; 5 cas passagers
   (bulle, étiquettes d'élite, nom de sort) notés P3 dans « Idées ».
 - 2026-11-21 (it. 3165) Bande, hud-probe sur les parties de 6 h (allemand) et d'une heure (russe) des 20 héros à 1280 px : 7 cas sur 40.
@@ -9796,7 +9798,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 - P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
   du haut (un par passage de 15 s au plus) : bulle de parole posée à 2 px au milieu (là où les barres de vie apparaissent en cours de
-  combat), étiquettes d'élite à 21-22 px (monstres volants qui montent au-delà des 10 px de marge), nom de sort en grand à 8 px. Pistes :
+  combat), étiquettes d'élite à 21-22 px (monstres volants qui montent au-delà des 10 px de marge ; corrigé it. 3167), nom de sort en grand à 8 px. Pistes :
   bulle et nom de sort qui tiennent compte des barres de vie même cachées ; marge de l'étiquette selon l'amplitude du vol.
 - P3 (it. 3087) Ligne du duo (carte du héros, Aventure) à 1280 px, six sorts appris : la ligne fait 237 px dont 141 pour les icônes ;
   le nom seul du compagnon a 47-63 px et finit par « … » pour 12 héros sur 19 en allemand (« Armbrustschütze » : 116 px), 10 en russe
