@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3162) Contrôle : lang-overflow all complet avec les nouveaux états (6 h, heure 1280 et 1600, heure × 130 %, neuve) :
+  150 mesures, aucun défaut.
 - 2026-11-21 (it. 3161) REVUE GÉNÉRALE : simulations 12 h (graine 7) mage 62, lancier 62, gladiateur 69 ; perf bande 19,6 %, panneau 18,8 %,
   mini 5,6 %, icône 0,5 % ; captures Carte et Familiers de la partie de 6 h en fr, en, zh à 1280 px : propres, 0 erreur ; texte polonais de
   la partie de 6 h : aucun mot français. Rien pour « Idées ».
