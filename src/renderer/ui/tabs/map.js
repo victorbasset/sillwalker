@@ -133,6 +133,16 @@ export class MapTab {
         ? `<p class="note tight">${tx("En vente : la {0} permet d’aller d’un clic dans une zone déjà atteinte.", { 0: tx(UNLOCK_INDEX.travelMap.name) })} ${lockLink(S, "travelMap")}</p>`
         : `<p class="note tight">${tx("Bientôt : la {0} permet d’aller d’un clic dans une zone déjà atteinte (boutique, zone {1}).", { 0: tx(UNLOCK_INDEX.travelMap.name), 1: UNLOCK_INDEX.travelMap.zone })}</p>`}
       <div class="mapwrap"><svg class="rebord" viewBox="0 0 ${W} ${H}" role="group" aria-label="${esc(tx("Carte du Rebord"))}" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid meet">${parts.join("")}</svg></div></article>`;
+    // (it. 3069) noms sous le Briseur (« Le ciel rallumé », « Au-delà du Rebord : zone N ») : centrés sur lui, près du bord gauche de la
+    // carte, ils sortaient en partie du cadre et étaient coupés (« …delà du Rebord », toutes langues, 1280 px) ; ramenés dedans, mesurés
+    // une fois dessinés (largeur nulle si l'onglet est préparé caché : rien à faire, il sera redessiné à l'affichage)
+    for (const t of el.querySelectorAll("svg.rebord .mfinal .mfname, svg.rebord .mbeyond")) {
+      try {
+        const b = t.getBBox(); if (!b.width) continue;
+        const dx = b.x < 2 ? 2 - b.x : b.x + b.width > W - 2 ? W - 2 - (b.x + b.width) : 0;
+        if (dx) t.setAttribute("x", +t.getAttribute("x") + dx);
+      } catch { /* pas de mise en page (onglet caché) */ }
+    }
     if (act) el.querySelector(`[data-mz="${cursor}"]`)?.focus({ preventScroll: true });
     if (!this.keysBound) { this.keysBound = true; el.addEventListener("keydown", (e) => this.onKey(e, el)); el.addEventListener("focusin", (e) => { const z = +e.target.dataset?.mz; if (z) this.cursor = z; }); }
   }

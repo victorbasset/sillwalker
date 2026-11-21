@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3069) Carte (map.js) : au-delà de la zone 200, les noms centrés sous le Briseur (« ★ Le ciel rallumé », « Au-delà du
+  Rebord : zone N → ») sortaient du cadre à gauche et étaient coupés (« …delà du Rebord », toutes langues ; vu en relisant la Carte de la
+  partie d'une semaine en portugais à 1280 px ; invisible à lang-overflow : rogné, pas de défilement). Mesurés après le rendu (getBBox) et
+  ramenés dans le cadre. Captures fr, de, pt : entiers. Autotest : nouveau contrôle (zone 250 : 1 nom hors cadre avec l'ancien code, 0
+  maintenant) ; 346/346.
 - 2026-11-21 (it. 3068) Contrôle : Familiers de la partie d'une semaine en japonais à 1280 px : propre (rangée défilante placée sur le familier actif).
 - 2026-11-21 (it. 3067) Contrôle : Quêtes de la partie d'une semaine en chinois à 1280 px : propre. Une chasse « ours polaire ×60, absent d'ici, zone 343 » illustre la décision 3 de Victor ; 22 quêtes en une semaine : artefact du joueur simulé (ne forge ni ne transmute).
 - 2026-11-21 (it. 3066) Contrôle : Compétences de la partie d'une semaine en coréen à 1280 px : propre (colonne de gauche à défilement propre, voulu ; 2 801 points en surplus du grand graphe : décision 7 de Victor).
