@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3088) POUR-VICTOR : bilan du matin (it. 3060-3088) et décision 10 (ligne du compagnon à 1280 px, it. 3087).
 - 2026-11-21 (it. 3087) Contrôle : les 19 compagnons possibles (partie d'une semaine, tous sorts appris) en de et ru à 1280 px : jamais
   coupé net ni chevauché (correctif de l'it. 3083) ; mais le nom seul finit souvent par « … » (manque jusqu'à 53 px) : noté P3 dans
   « Idées », à juger avec Victor (sa demande F fixe cette ligne).

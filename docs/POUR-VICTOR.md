@@ -4,6 +4,16 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Matin du 21/11 (it. 3060-3088) : textes coupés, relecture d'une partie avancée
+
+- Carte, au-delà de la zone 200 : « Le ciel rallumé » et « Au-delà du Rebord : zone N » sortaient du cadre à gauche, coupés dans toutes
+  les langues (it. 3069). Corrigé.
+- Carte du héros (Aventure) : avec six sorts appris (héros et compagnon), « Compagnon : Rôdeur » était coupé net en « Compag » (it. 3083).
+  Maintenant le nom seul si la phrase ne tient pas, avec « … » au besoin ; phrase entière dans l'infobulle. Voir la décision 10.
+- Nouvel outil scripts/stage/clip-probe.js : textes coupés par leur cadre dans tous les onglets (it. 3070, 3084) ; 0 partout.
+- Contrôles sans défaut : tous les onglets de la partie d'une semaine relus dans 9 langues ; aucune partie bloquée ni figée ; sauvegardes
+  abîmées tolérées ; 926 clics sans erreur ; aucun débordement dans les 10 langues ; rythme du début de partie inchangé.
+
 ## Nuit du 21/11 (it. 3016-3059) : la bande sur un écran de portable
 
 - À 1280 px, le héros combat sous la pastille de gauche (zone, record) : les icônes de sorts, des nombres décalés de côté, les bannières
@@ -57,6 +67,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
    Gestionnaire des tâches donnait 19,8 % à l'it. 763). Aucune source dominante (it. 2984-2985) : nombres flottants 1-2 points, effets
    de combat ≈ 3, compagnon/serviteur/drone ≈ 3. Alléger (moins de nombres quand plusieurs sources frappent, effets du compagnon plus
    sobres) ? [oui pour regrouper les nombres flottants ; le reste fait le spectacle de la fin de partie. « Économie d'énergie » existe déjà]
+10. Ligne du compagnon (carte du héros, ta demande F) à 1280 px avec six sorts appris : 141 px d'icônes sur 237, le nom du compagnon finit
+   par « … » pour 12 héros sur 19 en allemand (« Armbrus… »), 10 en russe (it. 3087). [sorts du compagnon seulement au survol ; ou garder :
+   le portrait suffit à le reconnaître]
 
 
 ## Journée du 20/11 en bref (it. 2857-2948)
