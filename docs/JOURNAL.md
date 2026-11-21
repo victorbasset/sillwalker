@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3094) Contrôle avec le nouveau « -rogné » (it. 3093) : lang-overflow all 1366,1600 (30 mesures) et all 1920 avec la fin à
+  130 % (20 mesures) : aucun défilement, mot coupé ni texte rogné.
 - 2026-11-21 (it. 3093) Outil : --overflow-report (donc lang-overflow, dans toutes ses langues et tous ses états : fin, semaine, max,
   130 %…) signale aussi « onglet-rogné=N(textes) », le contrôle de clip-probe (texte coupé net par un cadre, « … » jamais dessiné sur un
   conteneur flex). Piège : pendant la mesure le panneau reste fermé (visibility: hidden) : ce critère est ignoré. Validé sur l'ancien
