@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3155) Contrôle : parties d'une heure des 20 héros à 1366 px en ru, pl, de, es : 80 mesures, aucun défaut.
 - 2026-11-21 (it. 3154) « Quoi de neuf » : édition 175 (défilements de milieu de partie corrigés aux it. 3122, 3133, 3139, 3143, 3145) ;
   clés 3472-3473, 9 langues. npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
 - 2026-11-21 (it. 3153) Contrôle : parties de 24 h des 20 héros dans les 9 autres langues à 1280 px : 180 mesures, aucun défaut. Avec
