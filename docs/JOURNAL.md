@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3121) REVUE GÉNÉRALE : simulations 12 h (graine 7) assassin 62, danseuse de lames 62, arbalétrier 61 (comme hero-table
+  it. 3099) ; perf bande 19,6 %, panneau 19,4 %, mini 5,4 %, icône 0,6 % ; captures Boutique > Déblocages de la partie d'une heure en
+  fr, en, ko : propres, 0 erreur ; texte coréen : mots latins = HP, Lv (usage coréen), noms propres, touches. Rien pour « Idées ».
 - 2026-11-21 (it. 3120) « Quoi de neuf » : édition 174 (Ascension avant la première ascension, it. 3114 ; boutons grisés qui disent
   pourquoi, it. 3113, 3115 ; noms longs avec points de suspension, it. 3115, 3118) ; clés 3469-3471, 9 langues. POUR-VICTOR : bilan
   complété. npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
