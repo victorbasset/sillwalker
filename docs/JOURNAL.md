@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3123) Contrôle : parties de 2-4 h (mage, barde, artificière, nécromancien, rôdeur) à 1366 et 1600 px en pl, ru, de dans
+  --overflow-report : aucun défaut (7 mesures).
 - 2026-11-21 (it. 3122) Statistiques > Succès, partie d'une heure en polonais à 1600 px : succès en cours « (1 / 20) » sur deux lignes, la
   page défilait de 18 px : liste resserrée sous 1920 px (interligne 1,2, 1 px entre rangées) : 397 px au lieu de 422 ; pl, ru, de, es,
   pt de 1280 à 1600 : 0. lang-overflow mesure aussi la partie d'une heure à 1600 px ; all 1280,1366,1600 : 70 mesures, aucun.
