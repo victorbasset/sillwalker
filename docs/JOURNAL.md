@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3175) Contrôle du début de partie après les it. 3164-3170 : first-minutes (objet et boss 42-86 s, quête 154-159 s)
+  et early-pace (60 min : niveau 41, zone 23-26, 6,3 déblocages) identiques à l'it. 3082. Idées ouvertes relues : celles qui restent
+  (or en fin de course, chasses, familiers, boutons du Héros) attendent l'avis de Victor.
 - 2026-11-21 (it. 3174) Contrôle : mode mini de la partie d'une semaine en ru, de, ja (captures) : niveau 408, or « 2,26 Dd », zone 353
   et barres de vie lisibles, rien de coupé.
 - 2026-11-21 (it. 3173) Contrôle en langues à trois pluriels sur la partie d'une semaine : --crawl pl et ru, 918 clics chacun, aucune
