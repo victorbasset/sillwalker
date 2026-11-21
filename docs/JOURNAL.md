@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3128) Outil : stall-check part aussi de la partie d'une heure (« heure ») : 100 parties, 0 figée.
 - 2026-11-21 (it. 3127) Contrôle : résumé d'absence (8 h) de la partie d'une heure en ru et pl à 1280 px : 0 texte coupé.
 - 2026-11-21 (it. 3126) Contrôle : hud-probe sur la partie d'une heure à 1280 px : ru 0 / 69, de 0 / 78.
 - 2026-11-21 (it. 3125) Outil : save-fuzz FUZZ_BASE=heure (partie d'une heure) : 27 corruptions à la main ok, balayage de 1 141 ok.
