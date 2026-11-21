@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3157) Contrôle : partie d'une heure à 1366 px avec l'interface à 130 % en ru, pl, fr : aucun défaut (le zoom est limité
+  par la largeur de l'écran, effectiveUiScale, et les Réglages le disent).
 - 2026-11-21 (it. 3156) Interface à 130 % à 1920 px, parties d'une heure et de 6 h en ru, de, pl, es, fr, ja : Succès en polonais défilait de
   53 px (partie d'une heure). Sous 1467 px de panneau, liste des succès en 12 px (progression 11 px) : aucun. lang-overflow mesure aussi
   la partie d'une heure à 130 % (« xx heure 1920 × 130 % ») ; all (130 %) : 20 mesures, aucun. npm test, autotest 348/348.
