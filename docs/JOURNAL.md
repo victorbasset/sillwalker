@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3049) Bulle de parole : la zone que les nombres flottants évitent (speechObstacle) suivait l'ancienne hauteur de la
+  bulle ; elle lit maintenant la vraie (bubbleY, it. 3042). Mesure avant / après les it. 3042-3049 (6 exécutions chacune, fr, partie
+  d'une semaine, 1280 px) : 11 et 9 recouvrements nombre / bulle, en rafales : défaut ancien, noté en Idées (P3). Autotest 345/345.
 - 2026-11-21 (it. 3048) Contrôle : mode mini (mini.js) : scène et informations dans deux conteneurs séparés, ni nombres flottants ni bannières : rien ne peut recouvrir ses informations (pas de sonde nécessaire).
 - 2026-11-21 (it. 3047) Contrôle : hud-probe 1280 px, partie d'une semaine en de (0 / 236) et ru (0 / 244), noms de boss longs compris.
 - 2026-11-21 (it. 3046) hud-probe : étiquettes d'élite et nom du boss (.affix) ajoutés ; 1280 px : semaine 0 / 249, dev-data 0 / 86, partie neuve 0 / 62.
@@ -9516,6 +9519,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 3049) Bande : en fin de partie, une bulle de parole qui apparaît pendant une rafale de coups se pose sur des nombres déjà
+  montants (sonde, partie d'une semaine, 1280 px, 15 s : 0 à 9 recouvrements selon l'exécution, avant comme après les it. 3042-3049).
+  Étendre la zone que les nombres évitent n'aide pas (essai annulé : la bulle vient sur eux, pas l'inverse). Piste : ne pas lancer une
+  réplique d'ambiance pendant une rafale (ex. plus de 3 nombres en vie), ou la placer à côté d'eux.
 - CLOS (it. 3009 : 7 graines, gardien des étoiles 67,7, assassin 63,0 : leurs niveaux habituels, it. 1584 et 2609) P3 (it. 3008) Écart entre héros revenu à 6,7 zones (hero-table 12 h, graines 7/3/11 ; it. 2609 : 5,0 ; it. 2452 : 4,0) : gardien des
   étoiles 68,7, samouraï et gladiateur 67,7 ; assassin 62,0, mage 62,3. Moyenne 64,8 (65,1). Avant de régler un héros : 7 graines
   (CLAUDE.md, paliers des murs 62/65/69), comparer à l'ancien réglage en worktree.

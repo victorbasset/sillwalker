@@ -545,6 +545,7 @@ export class StripRenderer {
         const hb = this.hudBands(), hw = (this.bubbleW || 0) / 2;
         let by = Math.max(2, GROUND - this.hero.h - 30);
         if (hb.bands.some(([a, b]) => bx + hw > a && bx - hw < b)) by = Math.max(by, hb.h + 2);
+        this.bubbleY = by; // (it. 3049) hauteur réelle, lue par speechObstacle
         this.bubble.style.transform = `translate3d(${bx}px,${by}px,0) translateX(-50%)`; this.bubble.style.visibility = ""; mark("speech");
       }
     } else if (this.game.R.mode === "walk" && Math.random() < dt / 240) {
@@ -630,7 +631,8 @@ export class StripRenderer {
   /** (it. 1653) Rectangle de la bulle de parole affichée (vide sinon), dans les coordonnées des effets. */
   speechObstacle() {
     if (this.bubble.hidden || this.bubbleX == null || !this.bubbleW) return [];
-    const t = GROUND - this.hero.h - 30;
+    // (it. 3049) hauteur réelle de la bulle (sous la rangée d'informations depuis l'it. 3042) : l'ancienne formule laissait les nombres la couvrir
+    const t = this.bubbleY ?? Math.max(2, GROUND - this.hero.h - 30);
     return [{ l: this.bubbleX - this.bubbleW / 2 - 2, r: this.bubbleX + this.bubbleW / 2 + 2, t: t - 2, b: t + (this.bubbleH || 20) + 2 }];
   }
 
