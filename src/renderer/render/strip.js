@@ -626,9 +626,21 @@ export class StripRenderer {
     }
     // (it. 3052) aucune place libre : avant, retour sur place, souvent DANS la bulle de parole ou le nom du boss (fin de partie : 8 à 11
     // nombres sur la bulle en 15 s). Seconde passe : une place qui évite au moins les obstacles, quitte à chevaucher un autre nombre.
-    if (obs?.length) for (const dx of [0, -side, side, -2 * side, 2 * side, -3 * side, 3 * side]) for (const dy of rows) {
-      const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
-      if (!hitsObs(cx, cy)) return { x: cx, y: cy };
+    // (it. 3056) parmi ces places, celle qui recouvre le moins de nombres (la première venue en empilait davantage : 26 → 45 paires
+    // de nombres très chevauchés en 15 s, partie d'une semaine à 1280 px)
+    if (obs?.length) {
+      const overlaps = (cx, cy) => live.reduce((n, f) => {
+        const b = f.box, bx = b.x + (f.x || 0), by = b.y + (f.y || 0);
+        return n + (Math.abs(cx - bx) * 2 < w + b.w && cy < by + b.h && by < cy + h ? 1 : 0);
+      }, 0);
+      let best = null, bestN = Infinity;
+      for (const dx of [0, -side, side, -2 * side, 2 * side, -3 * side, 3 * side]) for (const dy of rows) {
+        const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
+        if (hitsObs(cx, cy)) continue;
+        const n = overlaps(cx, cy);
+        if (n < bestN) { bestN = n; best = { x: cx, y: cy }; if (!n) break; }
+      }
+      if (best) return best;
     }
     return { x, y };
   }

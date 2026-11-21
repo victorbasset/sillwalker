@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3056) Nombres flottants : la seconde passe de freeSpot (it. 3052) prenait la première place sans obstacle et empilait
+  davantage les nombres (paires très chevauchées en 15 s, partie d'une semaine à 1280 px : 33 / 20 avant l'it. 3052, 53 / 37 après) ;
+  elle choisit maintenant la place qui recouvre le moins de nombres : 7 / 18 / 5, et 0 nombre sur la bulle (deux exécutions).
+  Autotest 345/345.
 - 2026-11-21 (it. 3055) Contrôle : hud-probe sur la partie d'une semaine à 1600 (0 / 249) et 1920 px (0 / 241).
 - 2026-11-21 (it. 3054) Contrôle : performance de la partie d'une semaine après la seconde passe de freeSpot (it. 3052) : bande 26,1 / 26,6 %, panneau 26,2 / 27,3 % (it. 2984 : 26,2-27,0 / 27,4-28,5) : inchangé.
 - 2026-11-21 (it. 3053) « Quoi de neuf » édition 172 (clés 3460-3461, 9 langues, i18n-check 0) : la bande sur un écran de portable
