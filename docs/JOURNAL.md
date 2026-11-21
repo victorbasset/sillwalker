@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3148) Contrôle : parties de 6 h des 20 héros à 1600 px en ru, pl, de, es : 80 mesures, aucun défaut.
 - 2026-11-21 (it. 3147) Contrôle : parties de 12 h des 20 héros en pt, ja, fr, en, ko, zh à 1280 px : 120 mesures, aucun défaut. Balayage
   12 h complet (20 héros × 10 langues, it. 3145-3147) : un défaut trouvé et corrigé (it. 3145).
 - 2026-11-21 (it. 3146) Contrôle : parties de 12 h des 20 héros en de, pl, es à 1280 px : 60 mesures, aucun défaut.
