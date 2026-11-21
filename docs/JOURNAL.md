@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3066) Contrôle : Compétences de la partie d'une semaine en coréen à 1280 px : propre (colonne de gauche à défilement propre, voulu ; 2 801 points en surplus du grand graphe : décision 7 de Victor).
 - 2026-11-21 (it. 3065) Contrôle : Talents de la partie d'une semaine en polonais à 1280 px : propre (maîtrises « choisir un bonus » en attente : la partie simulée n'en choisit pas).
 - 2026-11-21 (it. 3064) Contrôle : Boutique de la partie d'une semaine en allemand à 1280 px : propre ; élixirs à ≈ 1,9 Ud pour 2,26 Dd en poche (≈ 0,1 % de l'or : cohérent avec la décision 8 de Victor).
 - 2026-11-21 (it. 3063) Contrôle : Bestiaire de la partie d'une semaine en espagnol à 1280 px : propre (noms longs en police réduite, comme prévu).
