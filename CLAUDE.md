@@ -156,6 +156,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Et les Talents vierges (ultimes verrouillés : « talents-vierges=N », it. 3115).
   Et une partie d'une HEURE (scripts/fixtures/hour-save.json : zone 39, aucune ascension ; « xx heure 1280 », NO_HOUR, it. 3116 ;
   régénérer : DUMP=scripts/fixtures/hour-save.json node … scripts/simulate.js 1 warrior, puis vider « log »).
+  Et une partie de 6 HEURES (scripts/fixtures/sixh-save.json, druide : « xx 6h 1280 », NO_SIXH, it. 3149 ; régénérer : simulate.js 6 druid).
   Nombres flottants (it. 3057) : `--stage=scripts/stage/float-probe.js`, « FPROBE … sur bulle/boss B · paires P » (repères dans le script ;
   freeSpot, sans place libre, prend la place sans obstacle qui recouvre le moins de nombres : it. 3052, 3056).
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.

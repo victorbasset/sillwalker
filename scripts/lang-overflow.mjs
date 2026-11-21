@@ -119,6 +119,23 @@ for (const lang of langs) {
       if (res !== "aucun") bad++;
       console.log(`${lang.padEnd(3)} heure ${hw} : ${res}`);
     }
+    // (it. 3149) partie de 6 HEURES (simulate.js 6 druid, scripts/fixtures/sixh-save.json) à 1280 px : héros bloqué devant un boss majeur,
+    // l'Aventure défilait de 11 px en russe (carte de la zone pleine, it. 3139). NO_SIXH=1 pour sauter.
+    const sixhFile = path.join(root, "scripts", "fixtures", "sixh-save.json");
+    if (fs.existsSync(sixhFile) && !process.env.NO_SIXH) {
+      const sx = JSON.parse(fs.readFileSync(sixhFile, "utf8"));
+      fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...sx, last: Date.now(), settings: { ...(sx.settings || {}), lang } }));
+      let out = "";
+      try {
+        out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1280", "--overflow-report", "--exit-after=25"],
+          { encoding: "utf8", timeout: 70000, stdio: ["ignore", "pipe", "pipe"] });
+      } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
+      const m = out.match(/\[overflow\] (\d+) (.*)/);
+      const res = m ? m[2].trim() : "pas de mesure";
+      if (res !== "aucun") bad++;
+      console.log(`${lang.padEnd(3)} 6h 1280 : ${res}`);
+    }
     // (it. 3113) partie NEUVE (premier lancement, aucune sauvegarde) à 1280 px : « Zone précédente » grisée sans bulle en zone 1,
     // qu'aucune sauvegarde de test ne montrait (toutes sont avancées). NO_NEW=1 pour sauter.
     if (!process.env.NO_NEW) {
