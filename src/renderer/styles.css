@@ -1147,6 +1147,9 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 #p-bag > .row button { font-size: 13px; padding: 4px 8px; }
 /* Talents (demande 18) : lignes plus basses, notes des cadres en ⓘ. */
 .tbranch .talent { padding-top: 5px; padding-bottom: 5px; }
+/* (it. 3115) nom d'un talent sur une seule ligne (russe à 1280 px : « ★ Королевская добыча 🔒 20 » sur deux lignes allongeait la branche
+   de 21 px et l'onglet défilait de 6 px) ; « … » et nom entier dans la bulle (et dans la fiche au survol) */
+.tbranch .talent .tn { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* (it. 1522) maîtrises un peu plus serrées (russe à 1280 px : 4 px de défilement avec le bouton « Choisir un bonus ») */
 .tmastery .talent { padding-top: 4px; padding-bottom: 4px; }
 .tbranch h2 .help { cursor: help; margin-left: 4px; }

@@ -2339,4 +2339,6 @@ export default {
   3464: "Karta bohatera: imię towarzysza nie jest już ucinane przez ikony zaklęć.",
   3465: "Wyszarzona „Następna strefa” mówi teraz dlaczego, a premię progu mistrzostwa można też wybrać klawiaturą.",
   3466: "Twój bohater jest już w pierwszej strefie.",
+  3467: "Brak wybranych talentów: nie ma czego resetować.",
+  3468: "Za mało złota, by zresetować.",
 };

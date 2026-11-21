@@ -38,7 +38,7 @@ export class TalentsTab {
         // (it. 1080, demande C de Victor : trop de clics) un clic monte le talent au maximum possible ; la petite
         // pastille « +1 » (ou Maj + clic) n'ajoute qu'un rang
         return `<button class="${cls}" data-action="t-learn" data-n="99" data-id="${t.id}" data-tid="${t.id}">
-          <span class="tn"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
+          <span class="tn" title="${esc(t.name)}"><img class="eicon" src="${effectIconURL(t.eff)}" alt="">${t.tier === 3 ? "★ " : ""}${esc(t.name)}</span>
           ${/* (it. 2100) verrouillé : « 🔒 20 » (l'unité au survol ; la jauge de la branche montre les paliers) : en allemand à 1280 px,
             « 🔒 20 Pkt. » faisait passer le nom des ultimes sur deux lignes */ ""}
           <span class="tr"${locked ? ` title="${esc(tx("Prochain palier : {0} points dans la branche (encore {1}).", { 0: TIER_REQ[t.tier], 1: TIER_REQ[t.tier] - spent }))}"` : ""}>${locked ? "🔒 " + TIER_REQ[t.tier] : r >= t.max ? (t.max === 1 ? "✓" : "✓ " + r + "/" + t.max) : r + " / " + t.max}</span>${/* (it. 2105, design) barre de progression du rang au pied de la ligne, tant qu'il n'est pas au maximum */ ""}${!locked && r > 0 && r < t.max ? `<i class="tbar" style="width:${(r / t.max * 100).toFixed(1)}%"></i>` : ""}
@@ -107,7 +107,7 @@ export class TalentsTab {
       ${((tot) => tot.length ? `<div class="ttotal" title="${esc(tx("Bonus de tous tes talents (passif du héros compris).") + "\n" + tot.map((h) => h.replace(/<[^>]*>/g, "")).join("\n"))}"><div class="tth">${tx("Total des talents")}</div><div class="ttchips">${tot.join("")}</div></div>` : "")(
         ((o) => { const order = Object.keys(EFFECTS); return Object.entries(o).filter(([, v]) => v).sort((x, y) => order.indexOf(x[0]) - order.indexOf(y[0])); })(talentEffects(S)).map(([k, v]) => { const d = describeEffects({ [k]: v }); return d ? `<span class="chip"><img class="eicon" src="${effectIconURL({ [k]: v })}" alt="">${esc(d)}</span>` : ""; }).filter(Boolean))}
       <div class="row tfoot">
-        <button data-action="t-reset" class="quiet"${S.gold < cost || free === total ? " disabled" : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
+        <button data-action="t-reset" class="quiet"${free === total ? ` disabled title="${esc(tx("Aucun talent pris : rien à réinitialiser."))}"` : S.gold < cost ? ` disabled title="${esc(tx("Pas assez d’or pour réinitialiser."))}"` : ""}>${tx("Réinitialiser{0}", { 0: cost ? ` ${tx("({0} or)", { 0: fmt(cost) })}` : ` ${tx("(gratuit)")}` })}</button>
         ${/* (it. 2115, ergonomie) annuler le dernier clic (gratuit) ; libellé fixe, après « Réinitialiser » : rien ne bouge */ ""}
         ${((L, ok) => `<button data-action="t-undo" class="quiet"${ok ? "" : " disabled"} title="${esc((ok ? tx("Rendre les points du dernier clic : {0} ({1}).", { 0: TALENT_INDEX[L.id].talent.name, 1: txn(L.n, "{n} rang|{n} rangs") }) : tx("Rien à annuler : seul le dernier clic sur un talent peut être rendu.")) + " (Z)")}" aria-label="${esc(tx("Annuler le dernier"))}">↶ <span class="ulbl">${/* (it. 2121) « Annuler le dernier » (défaire), comme dans les Compétences : « Annuler » seul se traduit « Cancel »,
           « キャンセル » (fermer une fenêtre) ; (it. 2135) libellé masqué dans un panneau étroit (la fiche d'une maîtrise défilait) */ tx("Annuler le dernier")}</span></button>`)(g.lastLearn, g.canUndoTalent())}

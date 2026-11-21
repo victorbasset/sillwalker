@@ -2339,4 +2339,6 @@ export default {
   3464: "Ficha del héroe: el nombre del compañero ya no queda cortado por los iconos de hechizos.",
   3465: "«Zona siguiente» en gris ahora dice por qué, y el bono de un nivel de maestría también se elige con el teclado.",
   3466: "Tu héroe ya está en la primera zona.",
+  3467: "Ningún talento elegido: nada que reiniciar.",
+  3468: "No tienes suficiente oro para reiniciar.",
 };

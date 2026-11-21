@@ -2339,4 +2339,6 @@ export default {
   3464: "Ficha do herói: o nome do companheiro não é mais cortado pelos ícones de feitiços.",
   3465: "“Próxima zona” desativada agora diz por quê, e o bônus de um patamar de maestria também pode ser escolhido pelo teclado.",
   3466: "Seu herói já está na primeira zona.",
+  3467: "Nenhum talento escolhido: nada para redefinir.",
+  3468: "Ouro insuficiente para redefinir.",
 };

@@ -348,6 +348,12 @@ function start() {
             const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("ascension-première=" + o);
             chk(document.querySelector("[data-pane=ascension]:not([hidden])"), "ascension-première");
             S.prestige.ranks = keepR; S.partner = keepP; P.renderAll(); }
+          // (it. 3115) talents vierges (ultimes verrouillés « ★ nom 🔒 20 ») : en russe, un nom sur deux lignes allongeait une branche
+          // et l'onglet défilait de 6 px ; dev-data, ultimes ouverts, ne le montrait pas
+          { const G = window.__game, S = G.S, keepT = S.talents[S.cls]; S.talents[S.cls] = {}; P.setTab("talents"); P.renderAll();
+            const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("talents-vierges=" + o);
+            chk(document.querySelector("[data-pane=talents]:not([hidden])"), "talents-vierges");
+            S.talents[S.cls] = keepT; P.renderAll(); }
           // (it. 929) tous les déblocages SAUF le dernier : la carte « Prochain déblocage » réapparaît (avec tous, elle
           // disparaît : l'it. 928 a trouvé 11 px de défilement en russe à 1280 sans qu'aucune mesure le voie) ; prêt et pas prêt
           { const G = window.__game, S = G.S, ks = Object.keys(S.unlocks || {}), last = ks[ks.length - 1], keepG = S.gold;

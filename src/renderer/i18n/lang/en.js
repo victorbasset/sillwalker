@@ -2339,4 +2339,6 @@ export default {
   3464: "Hero card: the companion's name is no longer cut off by the spell icons.",
   3465: "A greyed-out “Next zone” now says why, and a mastery tier's bonus can also be chosen with the keyboard.",
   3466: "Your hero is already in the first zone.",
+  3467: "No talent taken: nothing to reset.",
+  3468: "Not enough gold to reset.",
 };

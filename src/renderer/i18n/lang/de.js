@@ -2339,4 +2339,6 @@ export default {
   3464: "Heldenkarte: Der Name des Begleiters wird nicht mehr von den Zaubersymbolen abgeschnitten.",
   3465: "Ein ausgegrautes „Nächste Zone“ sagt jetzt, warum, und der Bonus einer Meisterschaftsstufe lässt sich auch per Tastatur wählen.",
   3466: "Dein Held ist bereits in der ersten Zone.",
+  3467: "Kein Talent gewählt: nichts zurückzusetzen.",
+  3468: "Nicht genug Gold zum Zurücksetzen.",
 };

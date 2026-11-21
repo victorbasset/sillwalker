@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3115) Talents, vus sur la partie simulée d'une heure : en russe à 1280 px, l'ultime verrouillé « ★ Королевская добыча
+  🔒 20 » passait sur deux lignes, la branche grandissait de 21 px et l'onglet défilait de 6 px : nom des talents sur une ligne (« … »,
+  nom entier en bulle et dans la fiche). Et « Réinitialiser » grisé sans bulle (aucun talent pris, ou pas assez d'or : deux bulles,
+  clés 3467-3468, 9 langues), vu par le nouvel état « talents-vierges » d'--overflow-report. npm test, autotest 348/348, all 1280 : aucun.
 - 2026-11-21 (it. 3114) Ascension, première ascension (aucune constellation achetée : les 19 en liste, 10 rangées) : l'onglet défilait de
   34-36 px à 1280, 1366 et 1600 px dans toutes les langues (trouvé sur une partie simulée d'une heure, zone 39 ; dev-data a 11
   constellations au maximum et ne le montrait pas ; russe : la carte de gauche dépassait aussi, compagnon et gain sur deux lignes).
