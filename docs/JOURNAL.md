@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3046) hud-probe : étiquettes d'élite et nom du boss (.affix) ajoutés ; 1280 px : semaine 0 / 249, dev-data 0 / 86, partie neuve 0 / 62.
 - 2026-11-21 (it. 3045) Contrôle : bande en haut de l'écran (settings.json edge: top), partie d'une semaine, 1280 px : même disposition, hud-probe 0 / 231 ; bulle de parole à droite de la pastille.
 - 2026-11-21 (it. 3044) POUR-VICTOR : résumé de la nuit (bande à 1280 px, partie de deux semaines, décision 8).
 - 2026-11-21 (it. 3043) Contrôle : hud-probe à 1280 px sur la partie d'une semaine avec un arbalétrier (0 / 113) et un nécromancien (0 / 98) ; aucune erreur.
