@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3140) Contrôle : parties de 6 h des 15 autres héros en russe à 1280 px (après le correctif de l'it. 3139) : 15 mesures,
+  aucun défaut.
 - 2026-11-21 (it. 3139) Parties de 6 h (paladin, druide, cryomancien, lancier, prêtresse) en ru et de à 1280 px : le défilement intermittent
   de l'it. 3119, reproduit (« adventure-boss100…300-bloqué=11 », paladin et druide en russe). Carte de la zone à 446 px pour 444 : titre
   et « забег · рекорд » sur deux lignes, case et boutons sur deux, et « Перед боссом / Босс приближается » sur deux lignes chacun. Cette
