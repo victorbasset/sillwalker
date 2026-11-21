@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3119) Enquête sur « adventure-boss100/200-bloqué=11 » (artificière, russe, 1280 px, it. 3118) : non reproduit en 8 passages
+  (5 copies neuves de la partie de 3 h, 3 de la copie qui avait joué ; carte du héros à 421-427 px, rien ne dépasse avec le panneau
+  ouvert). Il tenait à un état passager de la copie qui avait continué à jouer (sans doute une rangée de pastilles d'effets actifs dans
+  la carte du héros). Rien changé à l'aveugle ; lang-overflow le signalera s'il revient de façon stable.
 - 2026-11-21 (it. 3118) Parties de 2-3 h (rôdeur, nécromancien, barde, artificier) en russe à 1280 px dans --overflow-report : nom de
   l'héroïne coupé net dans la carte du héros (« Артефактни » : « … » demandé sur un conteneur flex, jamais dessiné ; le nom a sa propre
   boîte, nom entier en bulle) ; pastille des totaux de talents plus large que sa colonne, coupée net à droite (« … », texte entier dans
