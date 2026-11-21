@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3072) Contrôle : sonde des textes rognés (clip-probe) sur la partie de fin de partie en ko et zh à 1920 px, en à 1366,
+  es à 1280 : 0 partout. Onglet Héros (id « class », oublié par la revue 3071) en japonais à 1920 px : propre, 0 erreur.
 - 2026-11-21 (it. 3071) REVUE GÉNÉRALE : simulations 12 h (graine 7) guerrier 64, mage 62, rôdeur 65 (repères habituels) ; perf (copie
   neuve de dev-data, charge ≈ 2) bande 19,6 %, panneau 19,7 %, mini 5,6 %, icône 0,5 % ; captures fr, en, ja (Aventure, Boutique, mode
   mini) propres, 0 erreur d'interface ; texte russe : mots latins = noms propres (Sillwalker, Poupouce), touches, noms des langues,
