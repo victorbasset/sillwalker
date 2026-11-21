@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3146) Contrôle : parties de 12 h des 20 héros en de, pl, es à 1280 px : 60 mesures, aucun défaut.
 - 2026-11-21 (it. 3145) Parties de 12 h des 20 héros en russe à 1280 px : Héros > Sorts, guerrier + gardien des étoiles (partie du gardien),
   8 px (boutons « Улучшить (… млрд золота) » du compagnon sur deux lignes). La description du style d'attaque passe sur une ligne (« … »,
   texte entier en bulle) SEULEMENT si la page défilerait (classes.js mesure après le rendu ; en français sur dev-data elle reste entière,
