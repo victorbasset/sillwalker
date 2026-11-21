@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3039) Bannières (juice.js banner) à 1280 px : une grande bannière de succès, centrée sur le héros sous la pastille de
+  gauche et les barres de vie, mordait de 5 px sur la rangée d'informations (haut à 21 px pour 26). Sous une pastille, la première ligne
+  descend (hb.h + 10) : haut à 30-33 px. Trouvé avec la sonde des it. 3035-3037 sur une partie neuve (dev-data : 0). Autotest : nouveau
+  contrôle (33 / 26 ; 21 avec l'ancien code) ; 345/345.
 - 2026-11-21 (it. 3038) Contrôle : sonde des it. 3035-3037 (partie d'une semaine, 15 s) à 1366 et 1600 px : nombres flottants (≈ 150) et icônes de sorts (20) : 0 sur la rangée d'informations.
 - 2026-11-21 (it. 3037) Nombres flottants à 1280 px : la place libre (freeSpot) pouvait décaler un nombre de côté jusque sous une pastille,
   en haut de la bande (« −15,90 Md · transpercé » sur la pastille de gauche, partie d'une semaine) : revérifié après le décalage, nouvelle

@@ -360,7 +360,11 @@ export class Juice {
       p.slot = slot; p.big = !!big;
       if (p.t < 0.25) dodge();
       const k = p.t / life, pop = p.t < 0.18 ? 0.6 + (p.t / 0.18) * 0.5 : p.t < 0.3 ? 1.1 - (p.t - 0.18) : 1;
-      this.place(node, cx, 28 + slot * 24 + dy - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
+      // (it. 3039) sous une pastille de la rangée du haut (à 1280 px, la pastille de gauche et les barres de vie couvrent la moitié gauche ;
+      // la bannière d'un succès, centrée sur le héros, y mordait de 5 px pendant 3 s) : la première ligne descend pour rester dessous
+      const hb = this.s.hudBands ? this.s.hudBands() : null;
+      const base = hb && hb.bands.some(([a, b]) => cx + half > a && cx - half < b) ? Math.max(28, hb.h + 10) : 28;
+      this.place(node, cx, base + slot * 24 + dy - easeOut(Math.min(1, k)) * 6, ` translate(-50%,0) scale(${pop.toFixed(2)})`);
       const o = k > 0.8 ? Math.round((1 - (k - 0.8) / 0.2) * 8) / 8 : 1;
       if (node._o !== o) { node._o = o; node.style.opacity = o; }
       return k < 1;
