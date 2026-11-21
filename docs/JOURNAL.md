@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3124) Contrôle : --crawl sur la partie d'une heure en russe (355 clics en 13 s) et sur une partie neuve en japonais (73 clics en 4 s),
+  1280 px : 0 erreur.
 - 2026-11-21 (it. 3123) Contrôle : parties de 2-4 h (mage, barde, artificière, nécromancien, rôdeur) à 1366 et 1600 px en pl, ru, de dans
   --overflow-report : aucun défaut (7 mesures).
 - 2026-11-21 (it. 3122) Statistiques > Succès, partie d'une heure en polonais à 1600 px : succès en cours « (1 / 20) » sur deux lignes, la
