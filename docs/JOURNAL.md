@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3101) REVUE GÉNÉRALE : simulations 12 h (graine 7) lancier 62, prêtresse 64, cryomancien 62 ; perf bande 19,2 %,
+  panneau 19,8 %, mini 5,5 %, icône 0,6 % ; captures Familiers et Carte en fr, en, ja : propres, 0 erreur ; texte espagnol (25 104
+  lignes) : aucun mot français (« le » = pronom espagnol). Rien de nouveau pour « Idées ».
 - 2026-11-21 (it. 3100) Confirmation de l'it. 3099 sur 4 graines de plus (21, 31, 41, 51) : gardien des étoiles 65/69/69/65, assassin
   62/66/65/62, mage 62/62/62/66 ; sur 7 graines : 67,7 / 63,0 / 62,7, écart ≈ 5,0 zones comme à l'it. 2609 (gardien des étoiles
   67,7 alors aussi) : le 6,7 de l'it. 3099 était du bruit de paliers. Rien à régler ; mage bas déjà « À VOIR AVEC VICTOR » (it. 2178).
