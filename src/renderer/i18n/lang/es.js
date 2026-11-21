@@ -2334,4 +2334,5 @@ export default {
   3459: "Las casillas del héroe y la pestaña Ascensión siguen legibles con números muy grandes, incluso en la pantalla de un portátil.",
   3460: "En la pantalla de un portátil, los iconos de hechizos, los números y los anuncios ya no tapan la información de arriba de la franja.",
   3461: "El bocadillo del héroe ya no parpadea arriba a la izquierda ni se corta por arriba, y los números ya no lo tapan, como tampoco el nombre del jefe.",
+  3462: "Derrota al jefe de esta zona para abrir la siguiente.",
 };

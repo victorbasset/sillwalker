@@ -2334,4 +2334,5 @@ export default {
   3459: "Die Heldenfelder und der Reiter Aufstieg bleiben bei sehr großen Zahlen lesbar, auch auf einem Laptop-Bildschirm.",
   3460: "Auf einem Laptop-Bildschirm verdecken Zaubersymbole, Zahlen und Meldungen nicht mehr die Angaben oben in der Leiste.",
   3461: "Die Sprechblase des Helden blinkt nicht mehr oben links auf und wird oben nicht mehr abgeschnitten; Zahlen verdecken weder sie noch den Namen des Bosses.",
+  3462: "Besiege den Boss dieser Zone, um die nächste zu öffnen.",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3102) Accessibilité, vue en rejouant les règles de l'autotest sur la partie d'une semaine (fr, de, ru, 1280 px) :
+  « Zone suivante » grisée (héros à son record) n'avait pas de bulle : « Bats le boss de cette zone pour ouvrir la suivante. » (clé 3462,
+  9 langues) ; la pastille des paliers de maîtrise (Talents, span.mpend, cliquable) n'était pas atteignable au clavier : tabindex et
+  role=button (Entrée et Espace l'activent déjà). La règle de l'autotest ne voyait le premier cas que selon l'état du moment : nouveau
+  contrôle (héros mis à son record) ; 348/348. Sonde refaite : 0 en fr et ru.
 - 2026-11-21 (it. 3101) REVUE GÉNÉRALE : simulations 12 h (graine 7) lancier 62, prêtresse 64, cryomancien 62 ; perf bande 19,2 %,
   panneau 19,8 %, mini 5,5 %, icône 0,6 % ; captures Familiers et Carte en fr, en, ja : propres, 0 erreur ; texte espagnol (25 104
   lignes) : aucun mot français (« le » = pronom espagnol). Rien de nouveau pour « Idées ».

@@ -1193,7 +1193,7 @@ export class Panel {
       <div class="kv"><span>${tx("Avant le boss")}</span><span id="killtxt"></span></div><div class="bar"><i id="killbar"></i></div>
       <label class="toggle"><input type="checkbox" data-action="adv"${S.autoAdvance ? " checked" : ""}> ${tx("Passer à la zone suivante après le boss")}</label>
       <div class="row"><button data-action="zprev"${S.zone > 1 ? "" : " disabled"}>${tx("Zone précédente")}</button>
-      <button data-action="znext"${S.zone < S.best ? "" : " disabled"}>${tx("Zone suivante")}</button></div>
+      <button data-action="znext"${S.zone < S.best ? "" : ` disabled title="${esc(tx("Bats le boss de cette zone pour ouvrir la suivante."))}"`}>${tx("Zone suivante")}</button></div>
       <details class="rates-box" data-keep="rates"${this.kept.has("rates") ? " open" : ""}><summary>${tx("Chances de butin")}</summary>
       <p class="note tight">${dec(String(Math.round(DROP_CHANCE * earlyPace(S) * 1000) / 10))}${NB}${tx("% par monstre, 100{0}% sur le boss (rare minimum) et sur les élites dorés ({1}{2}% des monstres, or ×{3}). Si un objet tombe, sa rareté suit ce tableau :", { 0: NB, 1: Math.round(ELITE.chance * 100), 2: NB, 3: ELITE.gold })}</p>
       <table class="rates">${rows}</table><p class="note">${tx("Ces taux sont fixes et identiques pour tout le monde. Élites vaincus : {0}.", { 0: S.stats.elites || 0 })}</p></details>`;

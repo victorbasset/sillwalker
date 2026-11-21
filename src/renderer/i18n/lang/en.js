@@ -2334,4 +2334,5 @@ export default {
   3459: "The hero's tiles and the Ascension tab stay readable with very large numbers, even on a laptop screen.",
   3460: "On a laptop screen, spell icons, numbers and announcements no longer cover the information at the top of the strip.",
   3461: "The hero's speech bubble no longer flickers in the top-left corner or gets cut off at the top, and numbers no longer cover it or the boss's name.",
+  3462: "Defeat this zone's boss to open the next one.",
 };
