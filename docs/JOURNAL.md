@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3109) Contrôle : info-probe (ⓘ cachés) sur la fin de partie en japonais et l'état « tout au maximum » en allemand,
+  1280 px : IPROBE 0 et 0.
 - 2026-11-21 (it. 3108) Contrôle : mem-watch mode mini sur la partie d'une semaine (MEM_SAVE, MEM_ARGS=--mode=mini, 8 min, vitesse 10) :
   réel 522-532 Mo, plat (repère mini dev-data 505-518 Mo, it. 2293).
 - 2026-11-21 (it. 3107) Contrôle : fenêtre « Quoi de neuf » au lancement (newsSeen 172) en fr et ja à 1280 px : l'édition 173 en tête,
