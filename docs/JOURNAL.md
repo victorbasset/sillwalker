@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3096) Contrôle : quest-pace 12 h (graines 1-3) : 226 quêtes accomplies, comme à l'it. 2892 ; tuer 11 min, champions
+  59 min, chasses (prey) 50 min, zone 119 min : stable.
 - 2026-11-21 (it. 3095) Contrôle : textes coupés nets sur la bande et en mode mini (méthode de clip-probe, 30 relevés en 15 s, cadres
   #strip et #stage exclus : la bande coupe exprès ce qui sort de l'écran), partie d'une semaine, de et ru (bande), de et ja (mini),
   1280 px : 0.
