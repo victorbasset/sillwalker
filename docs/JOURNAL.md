@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3077) Contrôle : --crawl sur la partie d'une semaine en allemand à 1920 px : 926 clics en 31 s, 0 erreur.
 - 2026-11-21 (it. 3076) Contrôle : save-fuzz sur la partie d'une semaine (FUZZ_BASE=semaine) : 27 corruptions écrites à la main ok,
   balayage de 1 274 corruptions ok.
 - 2026-11-21 (it. 3075) Contrôle : stall-check (dev-data, fin de partie, 0.1.2, semaine × 20 héros, 2 h) : 80 parties, 0 figée.
