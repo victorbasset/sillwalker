@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3051, REVUE GÉNÉRALE) : 12 h : lancier 62, samouraï 69, druide 64 ; --perf (charge 2,3) : 19,8 / 19,7 %, mini 5,7 %, icône
+  0,4 % ; hud-probe partie neuve en espagnol à 1280 px : 0 / 60 ; texte espagnol : « le » = pronom espagnol (« le responde », « le
+  infligen »), pas de français. Rien à corriger.
 - 2026-11-21 (it. 3050) Essai annulé : réplique d'ambiance retenue pendant une rafale de nombres (piste de l'it. 3049) : pas de gain mesuré (10, 0, 0, 0, 2, 0) ; retiré, noté en Idées.
 - 2026-11-21 (it. 3049) Bulle de parole : la zone que les nombres flottants évitent (speechObstacle) suivait l'ancienne hauteur de la
   bulle ; elle lit maintenant la vraie (bubbleY, it. 3042). Mesure avant / après les it. 3042-3049 (6 exécutions chacune, fr, partie
