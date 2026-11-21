@@ -2344,4 +2344,6 @@ export default {
   3469: "Vor dem ersten Aufstieg scrollt der Reiter Aufstieg auf einem Laptop-Bildschirm nicht mehr: Die Wirkung des nächsten Rangs eines Sternbilds steht im Tooltip.",
   3470: "Die Zonen-Schaltflächen und das Zurücksetzen der Talente sagen, warum sie ausgegraut sind.",
   3471: "Zu lange Namen (Talente, Helden, Talentsummen) enden mit Auslassungspunkten, statt abgeschnitten zu werden.",
+  3472: "Auf einem Laptop-Bildschirm scrollen mehrere Seiten mitten im Spiel je nach Sprache nicht mehr: Erfolge, Zauber, Quests und das Abenteuer, wenn der Held vor einem großen Boss feststeckt.",
+  3473: "Wenn der Platz knapp ist, passen die Beschreibung des Angriffsstils und der Hinweis zu den Quests in eine Zeile; der ganze Text erscheint beim Darüberfahren.",
 };

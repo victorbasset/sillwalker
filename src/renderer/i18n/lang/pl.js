@@ -2344,4 +2344,6 @@ export default {
   3469: "Przed pierwszym wniebowstąpieniem karta Wniebowstąpienie nie przewija się już na ekranie laptopa: efekt następnej rangi gwiazdozbioru jest w podpowiedzi.",
   3470: "Przyciski stref i resetu talentów mówią, dlaczego są wyszarzone.",
   3471: "Zbyt długie nazwy (talenty, bohaterowie, sumy talentów) kończą się wielokropkiem zamiast być ucięte.",
+  3472: "Na ekranie laptopa kilka stron w środku gry, zależnie od języka, nie przewija się już: osiągnięcia, zaklęcia, zadania i przygoda, gdy bohater utknął przed wielkim bossem.",
+  3473: "Gdy brakuje miejsca, opis stylu ataku i notka zadań mieszczą się w jednej linii; pełny tekst widać po najechaniu.",
 };

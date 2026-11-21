@@ -2344,4 +2344,6 @@ export default {
   3469: "Antes da primeira ascensão, a aba Ascensão não rola mais em uma tela de notebook: o efeito da próxima classificação de uma constelação vai para a dica.",
   3470: "Os botões de zona e o de redefinir talentos dizem por que estão desativados.",
   3471: "Nomes longos demais (talentos, heróis, totais de talentos) terminam com reticências em vez de serem cortados.",
+  3472: "Em uma tela de notebook, várias páginas não rolam mais no meio da partida, conforme o idioma: conquistas, feitiços, missões e a aventura quando o herói está travado diante de um grande chefe.",
+  3473: "Quando falta espaço, a descrição do estilo de ataque e a nota das missões cabem em uma linha; o texto completo aparece ao passar o mouse.",
 };

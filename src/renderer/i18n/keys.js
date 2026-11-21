@@ -3473,5 +3473,7 @@ export const KEYS = [
   "Pas assez d’or pour réinitialiser.",
   "Avant la première ascension, l’onglet Ascension ne défile plus sur un écran de portable : l’effet du rang suivant d’une constellation passe dans sa bulle.",
   "Les boutons de zone et de réinitialisation des talents disent pourquoi ils sont grisés.",
-  "Les noms trop longs (talents, héros, totaux des talents) finissent par des points de suspension au lieu d’être coupés net."
+  "Les noms trop longs (talents, héros, totaux des talents) finissent par des points de suspension au lieu d’être coupés net.",
+  "Sur un écran de portable, plusieurs pages ne défilent plus en milieu de partie selon la langue : succès, sorts, quêtes, et l’aventure quand le héros est bloqué devant un grand boss.",
+  "Quand la place manque, la description du style d’attaque et la note des quêtes tiennent sur une ligne ; le texte entier s’affiche au survol."
 ];
