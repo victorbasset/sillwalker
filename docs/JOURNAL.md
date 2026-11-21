@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3078) Contrôle : info-probe (ⓘ cachés) sur la partie d'une semaine en polonais à 1280 px : IPROBE 0.
 - 2026-11-21 (it. 3077) Contrôle : --crawl sur la partie d'une semaine en allemand à 1920 px : 926 clics en 31 s, 0 erreur.
 - 2026-11-21 (it. 3076) Contrôle : save-fuzz sur la partie d'une semaine (FUZZ_BASE=semaine) : 27 corruptions écrites à la main ok,
   balayage de 1 274 corruptions ok.
