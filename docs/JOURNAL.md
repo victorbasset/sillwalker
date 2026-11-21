@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3126) Contrôle : hud-probe sur la partie d'une heure à 1280 px : ru 0 / 69, de 0 / 78.
 - 2026-11-21 (it. 3125) Outil : save-fuzz FUZZ_BASE=heure (partie d'une heure) : 27 corruptions à la main ok, balayage de 1 141 ok.
 - 2026-11-21 (it. 3124) Contrôle : --crawl sur la partie d'une heure en russe (355 clics en 13 s) et sur une partie neuve en japonais (73 clics en 4 s),
   1280 px : 0 erreur.
