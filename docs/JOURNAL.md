@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3040) Outil : scripts/stage/hud-probe.js (sonde des it. 3035-3039 rendue permanente, documentée dans CLAUDE.md) : HPROBE 0 / 230 (semaine) et 0 / 57 (partie neuve) à 1280 px.
 - 2026-11-21 (it. 3039) Bannières (juice.js banner) à 1280 px : une grande bannière de succès, centrée sur le héros sous la pastille de
   gauche et les barres de vie, mordait de 5 px sur la rangée d'informations (haut à 21 px pour 26). Sous une pastille, la première ligne
   descend (hb.h + 10) : haut à 30-33 px. Trouvé avec la sonde des it. 3035-3037 sur une partie neuve (dev-data : 0). Autotest : nouveau

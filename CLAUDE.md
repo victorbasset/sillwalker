@@ -141,6 +141,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   ⓘ cachés (it. 2204-2205, après le ⓘ des Familiers sous l'ombre d'une rangée qui défile) : `--open-panel --width=1280
   --stage=scripts/stage/info-probe.js --exit-after=25` sur une copie, « IPROBE 0 » attendu (ⓘ recouvert, hors de son conteneur ou dans
   l'ombre d'une rangée .hscroll). Préparer la copie JUSTE avant (s.last) : sinon le résumé d'absence s'ouvre et « recouvre » tout.
+  Rangée d'informations de la bande (it. 3040) : `--width=1280 --stage=scripts/stage/hud-probe.js --exit-after=22` sur une copie,
+  « HPROBE 0 / N » attendu (nombres, icônes de sorts, bannières passés sur la rangée en 15 s ; à 1280 px le héros combat sous la pastille
+  de gauche) ; partie neuve, dev-data et partie d'une semaine. Trois défauts trouvés ainsi (it. 3035, 3037, 3039).
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
