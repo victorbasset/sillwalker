@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3084) Outil : clip-probe voit aussi le texte qu'un élément coupe lui-même (overflow caché) et ne fait plus confiance
+  à « text-overflow: ellipsis » sur un conteneur flex ou grid (le navigateur ne dessine pas « … » : défaut de l'it. 3083, qu'elle
+  manquait). Validée sur l'ancien code (1 cas : « Compagnon : Rôdeur ✦ Frères d’ » 89 px) ; code actuel, 9 essais (semaine fr, de, ja,
+  ko ; fin de partie ru, pl, pt ; dev-data fr, en ; 1280-1920 px) : 0.
 - 2026-11-21 (it. 3083) Héros (carte de l'Aventure) : avec six sorts appris (héros et compagnon), le libellé « Compagnon : Rôdeur » était
   coupé net (« Compag », sans « … » : texte nu d'un bouton flex) par les icônes des sorts, à 1280 px comme à 1920 px (partie d'une
   semaine, vu en thème clair). Mesuré au dessin (et une fois les polices prêtes) : s'il ne tient pas, le nom seul (portrait à côté,
