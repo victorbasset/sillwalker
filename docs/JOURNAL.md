@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3141) REVUE GÉNÉRALE : simulations 12 h (graine 7) rôdeur 65, berserker 62, chaman 62 ; perf bande 20,3 %, panneau
+  20,0 %, mini 5,5 %, icône 0,8 % (charge 3-4,8) ; captures Talents et Quêtes de la partie d'une heure en fr, en, ja à 1280 px : propres,
+  0 erreur ; texte japonais : mots latins = HP, pt, Lv, BGM (usage japonais), noms propres, touches. Rien pour « Idées ».
 - 2026-11-21 (it. 3140) Contrôle : parties de 6 h des 15 autres héros en russe à 1280 px (après le correctif de l'it. 3139) : 15 mesures,
   aucun défaut.
 - 2026-11-21 (it. 3139) Parties de 6 h (paladin, druide, cryomancien, lancier, prêtresse) en ru et de à 1280 px : le défilement intermittent
