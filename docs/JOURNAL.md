@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3139) Parties de 6 h (paladin, druide, cryomancien, lancier, prêtresse) en ru et de à 1280 px : le défilement intermittent
+  de l'it. 3119, reproduit (« adventure-boss100…300-bloqué=11 », paladin et druide en russe). Carte de la zone à 446 px pour 444 : titre
+  et « забег · рекорд » sur deux lignes, case et boutons sur deux, et « Перед боссом / Босс приближается » sur deux lignes chacun. Cette
+  dernière rangée tient maintenant sur une ligne (valeur entière, libellé « … » s'il le faut) : 0. npm test, autotest 348/348, all 1280 :
+  aucun.
 - 2026-11-21 (it. 3138) Contrôle : parties d'une heure des 20 héros en russe et polonais à 1600 px : 40 mesures, aucun défaut.
 - 2026-11-21 (it. 3137) POUR-VICTOR : bilan complété (it. 3122-3136).
 - 2026-11-21 (it. 3136) Contrôle : parties d'une heure des 20 héros en français, anglais, coréen et chinois à 1280 px : 80 mesures, aucun

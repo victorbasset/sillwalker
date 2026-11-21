@@ -1213,6 +1213,11 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Constellations (demande 29) : lignes d'une hauteur, plus de colonnes si la place le permet. */
 .ascgrid .shoplist.two-cols { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); column-gap: 12px; }
 .ascgrid .shopline { padding: 3px 0; gap: 6px; }
+/* (it. 3139) carte de la zone, héros bloqué devant un boss majeur, russe à 1280 px : « Перед боссом / Босс приближается » sur deux lignes
+   chacun, l'Aventure défilait de 11 px : une seule ligne, la valeur entière, le libellé coupé (« … ») s'il le faut */
+#p-zone .kv { flex-wrap: nowrap; gap: 8px; }
+#p-zone .kv > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#p-zone .kv > span:last-child { flex: none; white-space: nowrap; }
 /* (it. 3114) première ascension : aucune constellation au maximum, les 19 en liste (10 rangées sur deux colonnes) : l'onglet défilait de
    34-36 px de 1280 à 1600 px (aucune sauvegarde de test n'était dans cet état) ; sous 1920 px, la ligne « Rang suivant » se replie dans la
    bulle de la constellation (trois colonnes, essayées : noms sur deux lignes, plus haut encore) */
