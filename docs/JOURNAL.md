@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3061, REVUE GÉNÉRALE) : 12 h : assassin 62, chaman 62, artificier 59 (graine 7) ; --perf (charge 2,1) : 19,8 / 19,5 %,
+  mini 5,4 %, icône 0,7 % ; dev-data 1280 px : hud-probe 0 / 80, float-probe bulle/boss 0, paires 0 ; mode mini en russe propre.
 - 2026-11-21 (it. 3060) Contrôle : recouvrements entre bulle de parole, étiquettes d'élite, nom du boss et bannières (partie d'une semaine, 1280 px, 15 s, fr et de) : aucun.
 - 2026-11-21 (it. 3059) POUR-VICTOR : résumé de la nuit complété (nombres flottants, it. 3052-3058).
 - 2026-11-21 (it. 3058) Contrôle : float-probe à 1280 px : dev-data (79 nombres, bulle/boss 0, paires 0), partie neuve (56, 0, 0), partie d'une semaine en japonais (143, 0, 12).
