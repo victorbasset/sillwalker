@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3111) REVUE GÉNÉRALE : simulations 12 h (graine 7) gladiateur 69, chaman 62, artificier 59 (comme hero-table it. 3099) ;
+  perf bande 20,5 %, panneau 21,5 %, mini 5,9 %, icône 0,6 % (charge ≈ 2,3, dans le bruit) ; captures Réglages en fr, en, pl, zh :
+  propres, 0 erreur ; texte portugais (25 105 lignes) : aucun mot français, aucun « » (variante brésilienne). Rien pour « Idées ».
 - 2026-11-21 (it. 3110) Contrôle : --crawl sur la fin de partie en japonais à 1280 px : 705 clics en 24 s, 0 erreur.
 - 2026-11-21 (it. 3109) Contrôle : info-probe (ⓘ cachés) sur la fin de partie en japonais et l'état « tout au maximum » en allemand,
   1280 px : IPROBE 0 et 0.
