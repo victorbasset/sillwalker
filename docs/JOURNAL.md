@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3050) Essai annulé : réplique d'ambiance retenue pendant une rafale de nombres (piste de l'it. 3049) : pas de gain mesuré (10, 0, 0, 0, 2, 0) ; retiré, noté en Idées.
 - 2026-11-21 (it. 3049) Bulle de parole : la zone que les nombres flottants évitent (speechObstacle) suivait l'ancienne hauteur de la
   bulle ; elle lit maintenant la vraie (bubbleY, it. 3042). Mesure avant / après les it. 3042-3049 (6 exécutions chacune, fr, partie
   d'une semaine, 1280 px) : 11 et 9 recouvrements nombre / bulle, en rafales : défaut ancien, noté en Idées (P3). Autotest 345/345.
@@ -9523,6 +9524,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   montants (sonde, partie d'une semaine, 1280 px, 15 s : 0 à 9 recouvrements selon l'exécution, avant comme après les it. 3042-3049).
   Étendre la zone que les nombres évitent n'aide pas (essai annulé : la bulle vient sur eux, pas l'inverse). Piste : ne pas lancer une
   réplique d'ambiance pendant une rafale (ex. plus de 3 nombres en vie), ou la placer à côté d'eux.
+  (it. 3050, essai annulé) pas de réplique d'ambiance s'il y a 3 nombres récents ou plus : 10, 0, 0, 0, 2, 0 sur six exécutions (même
+  forme qu'avant) : les rafales arrivent pendant que la bulle est affichée. Prochaine piste : relever chaque cas (y du nombre, rectangle
+  de la bulle, place libre trouvée ou non par freeSpot) avant de changer quoi que ce soit.
 - CLOS (it. 3009 : 7 graines, gardien des étoiles 67,7, assassin 63,0 : leurs niveaux habituels, it. 1584 et 2609) P3 (it. 3008) Écart entre héros revenu à 6,7 zones (hero-table 12 h, graines 7/3/11 ; it. 2609 : 5,0 ; it. 2452 : 4,0) : gardien des
   étoiles 68,7, samouraï et gladiateur 67,7 ; assassin 62,0, mage 62,3. Moyenne 64,8 (65,1). Avant de régler un héros : 7 graines
   (CLAUDE.md, paliers des murs 62/65/69), comparer à l'ancien réglage en worktree.
