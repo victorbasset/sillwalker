@@ -5,6 +5,13 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3114) Ascension, première ascension (aucune constellation achetée : les 19 en liste, 10 rangées) : l'onglet défilait de
+  34-36 px à 1280, 1366 et 1600 px dans toutes les langues (trouvé sur une partie simulée d'une heure, zone 39 ; dev-data a 11
+  constellations au maximum et ne le montrait pas ; russe : la carte de gauche dépassait aussi, compagnon et gain sur deux lignes).
+  Sous 1920 px, quand la liste est longue : la ligne « Rang suivant » se replie dans la bulle, deux colonnes imposées, et la carte de
+  gauche reçoit plus de largeur (1,6fr / 1,4fr). Essai écarté : trois colonnes (noms sur deux lignes, plus haut). Mesure ajoutée à
+  --overflow-report (« ascension-première », validée : 39 px en russe avec l'ancien style) ; all 1280 (70) et all 1366,1600,1920 (40) :
+  aucun. Autotest 348/348.
 - 2026-11-21 (it. 3113) Partie neuve (premier lancement) : « Zone précédente » grisée en zone 1 sans bulle (vu par le contrôle a11y
   d'--overflow-report, aucune sauvegarde de test n'est neuve) : « Ton héros est déjà dans la première zone. » (clé 3466, 9 langues).
   lang-overflow mesure maintenant une partie neuve à 1280 px dans chaque langue (« xx neuve 1280 », NO_NEW) ; validé sur l'ancien code

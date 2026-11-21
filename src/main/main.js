@@ -341,6 +341,13 @@ function start() {
               const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push(tab + "-" + sec + "=" + o);
               chk(document.querySelector("[data-pane=" + tab + "]:not([hidden])"), tab + "-" + sec); }
             P.tabs[tab].sec = keepSec; P.renderAll(); }
+          // (it. 3114) première ascension : aucune constellation achetée (les 19 en liste) et un compagnon (ligne et synergie) : l'onglet
+          // défilait de 34-36 px de 1280 à 1600 px ; dev-data, déjà riche en constellations, ne le montrait pas
+          { const G = window.__game, S = G.S, keepR = S.prestige.ranks, keepP = S.partner;
+            S.prestige.ranks = {}; S.partner = S.partner || (S.cls === "ranger" ? "warrior" : "ranger"); P.setTab("ascension"); P.renderAll();
+            const o = p.scrollHeight - p.clientHeight; if (o > 2) out.push("ascension-première=" + o);
+            chk(document.querySelector("[data-pane=ascension]:not([hidden])"), "ascension-première");
+            S.prestige.ranks = keepR; S.partner = keepP; P.renderAll(); }
           // (it. 929) tous les déblocages SAUF le dernier : la carte « Prochain déblocage » réapparaît (avec tous, elle
           // disparaît : l'it. 928 a trouvé 11 px de défilement en russe à 1280 sans qu'aucune mesure le voie) ; prêt et pas prêt
           { const G = window.__game, S = G.S, ks = Object.keys(S.unlocks || {}), last = ks[ks.length - 1], keepG = S.gold;

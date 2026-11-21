@@ -1207,6 +1207,15 @@ body.hud-center #toast { right: auto; left: 50%; translate: -50% 0; max-width: 1
 /* Constellations (demande 29) : lignes d'une hauteur, plus de colonnes si la place le permet. */
 .ascgrid .shoplist.two-cols { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); column-gap: 12px; }
 .ascgrid .shopline { padding: 3px 0; gap: 6px; }
+/* (it. 3114) première ascension : aucune constellation au maximum, les 19 en liste (10 rangées sur deux colonnes) : l'onglet défilait de
+   34-36 px de 1280 à 1600 px (aucune sauvegarde de test n'était dans cet état) ; sous 1920 px, la ligne « Rang suivant » se replie dans la
+   bulle de la constellation (trois colonnes, essayées : noms sur deux lignes, plus haut encore) */
+@container panel (max-width: 1855px) {
+  .ascgrid .shoplist.two-cols:has(> li:nth-child(15)) .shopline .sub { display: none; }
+  .ascgrid .shoplist.two-cols:has(> li:nth-child(15)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* la liste, sans sa ligne « Rang suivant », cède de la largeur à la carte de gauche (russe : compagnon et gain sur deux lignes, 30 px) */
+  .ascgrid:has(.shoplist.two-cols > li:nth-child(15)) { grid-template-columns: minmax(300px, 1.6fr) minmax(400px, 1.4fr); }
+}
 .ascgrid .shopline .si { min-width: 0; flex: 1; }
 .ascgrid .shopline .sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ascgrid .shopline button { min-width: 64px; padding: 3px 8px; }
