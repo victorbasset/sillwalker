@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3081) REVUE GÉNÉRALE : simulations 12 h (graine 7) paladin 65, nécromancien 62, moine 64 (repères habituels) ; perf
+  bande 19,4 %, panneau 19,6 %, mini 5,5 %, icône 0,5 % ; captures Quêtes et Statistiques en fr, en, zh : propres, 0 erreur ; texte
+  polonais (25 078 lignes) : aucun mot français oublié. Rien de nouveau pour « Idées ».
 - 2026-11-21 (it. 3080) Contrôle : clip-probe sur l'état « tout au maximum » (max-save.mjs) en fr et ru à 1280 px : 0 texte rogné.
 - 2026-11-21 (it. 3079) Contrôle : mode mini de la partie d'une semaine en russe et en allemand (« 2,26 Dd », « Зона 353 · 3/9 ») : propre.
 - 2026-11-21 (it. 3078) Contrôle : info-probe (ⓘ cachés) sur la partie d'une semaine en polonais à 1280 px : IPROBE 0.
