@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3091) REVUE GÉNÉRALE : simulations 12 h (graine 7) samouraï 69, druide 64, barde 65 ; perf bande 19,6 %, panneau
+  20,3 %, mini 5,4 %, icône 0,7 % (charge ≈ 2) ; captures Bestiaire et Talents en fr, en, ko, Ascension en ko : propres, 0 erreur ;
+  texte allemand (25 082 lignes) : aucun mot français (« des », « du » sont allemands). Rien de nouveau pour « Idées ».
 - 2026-11-21 (it. 3090) Contrôle : hud-probe sur la partie d'une semaine en allemand à 1280 px : 0 / 244 (rien sur la rangée
   d'informations) ; le « lai! » vu sur la capture de l'it. 3089 n'est aucun texte du jeu : deux nombres superposés à cet instant.
 - 2026-11-21 (it. 3089) Contrôle : résumé d'absence (8 h) de la partie d'une semaine en de, ru, ja à 1280 px : 0 texte coupé (méthode de
