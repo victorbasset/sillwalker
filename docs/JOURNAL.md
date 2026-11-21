@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3171) REVUE GÉNÉRALE. Simulations 12 h (graine 7, record = dernière course) : samouraï 69, barde 65, artificier 59
+  (bruit d'une graine ±4). Perf : bande 20,1 %, panneau 20,0 %, mini 5,5 %, icône 0,8 % (stables). Captures fr, en, ja (bande, panneau
+  Héros, mini) : propres. Texte coréen (--dump-text, 25 546 lignes) : aucun mot non traduit (HP, Lv, Esc, Shift, noms de langues et
+  Poupouce voulus). Rien de nouveau à noter dans « Idées ».
 - 2026-11-21 (it. 3170) Bande : geste au repos d'une élite qui monte (araignée le long de son fil : 24 px) borné pour que son étiquette
   reste sous la rangée du haut (« 가시 돋친 » à 21 px, it. 3169). hud-probe gardien des étoiles ko et pl, 3 passages chacun : 0 ;
   npm test, autotest 348/348. Cause non prouvée : le monstre fautif n'a pas été identifié, le geste « spider » est le seul assez haut.
