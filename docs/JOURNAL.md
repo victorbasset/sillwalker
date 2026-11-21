@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3041, REVUE GÉNÉRALE) : 12 h : gladiateur 69, paladin 65, arbalétrier 61 ; --perf (charge 2,0) : 19,9 / 18,9 %, mini 5,6 %,
+  icône 0,5 % ; hud-probe dev-data 1280 px : 0 / 77 ; bande en coréen à 1280 px propre. Rien à corriger.
 - 2026-11-21 (it. 3040) Outil : scripts/stage/hud-probe.js (sonde des it. 3035-3039 rendue permanente, documentée dans CLAUDE.md) : HPROBE 0 / 230 (semaine) et 0 / 57 (partie neuve) à 1280 px.
 - 2026-11-21 (it. 3039) Bannières (juice.js banner) à 1280 px : une grande bannière de succès, centrée sur le héros sous la pastille de
   gauche et les barres de vie, mordait de 5 px sur la rangée d'informations (haut à 21 px pour 26). Sous une pastille, la première ligne
