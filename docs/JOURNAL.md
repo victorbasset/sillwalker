@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3131) REVUE GÉNÉRALE : simulations 12 h (graine 7) guerrier 64, gardien des étoiles 67, moine 64 ; perf bande 19,3 %,
+  panneau 19,4 %, mini 5,6 %, icône 0,5 % ; captures d'une partie neuve (Aventure) en fr, en, ja : propres, 0 erreur ; texte chinois :
+  mots latins = noms propres, touches, langues. Rien pour « Idées ».
 - 2026-11-21 (it. 3130) Contrôle : partie de la version 0.1.2 (migrée) dans --overflow-report en ru, de, ja à 1280 px : aucun défaut.
 - 2026-11-21 (it. 3129) Perf de la partie d'une heure (PERF_SAVE, 3 mesures) : bande ≈ 20 %, panneau ouvert ≈ 21,2 % (+1,2 à 1,5 point ;
   dev-data : bande 20,1, panneau 20,0). Enquête : pas de redessin en boucle (1 renderAll en 5 s, déclenché par une victoire) ; les
