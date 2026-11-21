@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3152) Contrôle : parties de 24 h des 20 héros (simulate.js 24) en russe à 1280 px : 20 mesures, aucun défaut.
 - 2026-11-21 (it. 3151) REVUE GÉNÉRALE : simulations 12 h (graine 7) nécromancien 62, cryomancien 62, artificier 59 ; perf bande 19,9 %,
   panneau 19,1 %, mini 5,6 %, icône 0,6 % (charge 4-6) ; captures Ascension et Bestiaire de la partie de 6 h en fr, en, ko à 1280 px :
   propres, 0 erreur ; texte russe de la partie de 6 h : rien à traduire. Rien pour « Idées ».
