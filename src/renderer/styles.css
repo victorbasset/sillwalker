@@ -1567,6 +1567,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .spellbox > h2 > .spellbook { flex: none; margin-left: auto; }
 /* (it. 1507, demande de Victor) même écart sous les sorts qu'entre les deux cadres (12 px) */
 .spellduo { margin-bottom: 12px; }
+/* (it. 3143) Quêtes en espagnol à 1280 px (partie de 6 h, chaman) : la note du bas sur deux lignes faisait défiler l'onglet de 12 px :
+   une ligne, texte entier en bulle */
+.qnote { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* (it. 3143) duo guerrier + rôdeur en espagnol à 1280 px (partie de 6 h) : cartes de sorts hautes, la page défilait de 5 px */
+@container panel (max-width: 1467px) { .spellduo { margin-bottom: 6px; } }
 .spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */
 @container panel (max-width: 1568px) {
   .spellduo.two .spellbox > p.note { display: none; }
