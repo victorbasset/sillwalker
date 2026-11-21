@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3055) Contrôle : hud-probe sur la partie d'une semaine à 1600 (0 / 249) et 1920 px (0 / 241).
 - 2026-11-21 (it. 3054) Contrôle : performance de la partie d'une semaine après la seconde passe de freeSpot (it. 3052) : bande 26,1 / 26,6 %, panneau 26,2 / 27,3 % (it. 2984 : 26,2-27,0 / 27,4-28,5) : inchangé.
 - 2026-11-21 (it. 3053) « Quoi de neuf » édition 172 (clés 3460-3461, 9 langues, i18n-check 0) : la bande sur un écran de portable
   (it. 3035-3039) ; bulle de parole et nombres (it. 3042, 3052). Autotest 345/345 ; lang-overflow « all » 1280 : aucun.
