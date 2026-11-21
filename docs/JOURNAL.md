@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3132) Contrôle : lang-overflow all complet (10 langues × 1920, 1600, 1366, 1280, fin 1280, fin 1920 × 130 %, semaine,
+  heure 1280 et 1600, neuve, max 1920 et 1280 ; avec rognés, a11y, première ascension, talents vierges) : 130 mesures, aucun défaut.
+  « Avant le boss 1 / 9 » contre « 1 / 11 » sur deux captures : série de 7 à 13 monstres tirée au hasard (it. 1852), voulu.
 - 2026-11-21 (it. 3131) REVUE GÉNÉRALE : simulations 12 h (graine 7) guerrier 64, gardien des étoiles 67, moine 64 ; perf bande 19,3 %,
   panneau 19,4 %, mini 5,6 %, icône 0,5 % ; captures d'une partie neuve (Aventure) en fr, en, ja : propres, 0 erreur ; texte chinois :
   mots latins = noms propres, touches, langues. Rien pour « Idées ».
