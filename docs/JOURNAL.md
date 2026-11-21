@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3137) POUR-VICTOR : bilan complété (it. 3122-3136).
 - 2026-11-21 (it. 3136) Contrôle : parties d'une heure des 20 héros en français, anglais, coréen et chinois à 1280 px : 80 mesures, aucun
   défaut. Balayage complet (20 héros × 10 langues, it. 3133-3136) : un seul défaut trouvé et corrigé (it. 3133).
 - 2026-11-21 (it. 3135) Contrôle : parties d'une heure des 20 héros en espagnol, portugais et japonais à 1280 px : 60 mesures, aucun défaut.

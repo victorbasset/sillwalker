@@ -17,6 +17,9 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   lignes, it. 3115), nom de l'héroïne et pastilles des totaux coupés net (it. 3118), « Zone précédente » et « Réinitialiser » grisés
   sans explication (it. 3113, 3115) : corrigés. Annoncé dans l'édition 174. Ces cas venaient de parties NEUVES ou d'une heure, qu'aucune
   sauvegarde de test ne couvrait : les mesures automatiques les couvrent maintenant (partie neuve, partie d'une heure, première ascension).
+- Ensuite (it. 3122-3136) : Statistiques > Succès défilait de 18 px en polonais à 1600 px (liste resserrée) ; Héros > Sorts de la
+  danseuse de lames défilait de 8 px en russe avant le Grimoire des sorts (titre sur une ligne). Balayage des parties d'une heure des
+  20 héros dans les 10 langues : plus rien. Partie d'une heure ajoutée aux autres outils (sauvegardes abîmées, parties figées).
 - Nouvel outil scripts/stage/clip-probe.js : textes coupés par leur cadre dans tous les onglets (it. 3070, 3084) ; 0 partout.
 - Contrôles sans défaut : tous les onglets de la partie d'une semaine relus dans 9 langues ; aucune partie bloquée ni figée ; sauvegardes
   abîmées tolérées ; 926 clics sans erreur ; aucun débordement dans les 10 langues ; rythme du début de partie inchangé.
