@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3164) Bande, hud-probe sur les parties de 6 h des 20 héros en russe à 1280 px : 6 parties sur 20 avec des éléments sur la
+  rangée du haut. Étiquette d'élite (« Колоссальный », « Ледяной ») : marge sous la rangée portée de 2 à 10 px (un monstre qui sautille
+  remontait de 6-8 px). Éclair des sorts « bolt » (nécromancien, chaman, cryomancien) : sous une pastille, il part juste dessous au lieu de
+  la traverser 0,45 s. Les 6 parties : 0 ; npm test, autotest 348/348.
 - 2026-11-21 (it. 3163) Contrôle : float-probe sur la partie de 6 h à 1280 px : de 100 nombres, 0 sur bulle/boss, 4 paires ; ru 96, 0, 2
   (repère semaine it. 3056 : B 0-1, P 5-18).
 - 2026-11-21 (it. 3162) Contrôle : lang-overflow all complet avec les nouveaux états (6 h, heure 1280 et 1600, heure × 130 %, neuve) :

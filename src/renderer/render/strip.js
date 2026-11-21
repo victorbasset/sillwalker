@@ -685,8 +685,11 @@ export class StripRenderer {
     if (full && spellRank(this.game.S, sp.id) >= SPELL_MAX) this.juice.sparkles(hx, this.ground - 34, "#ffd34d", 8);
     { const ic = el("div", "spellfx icon", this.fxLayer); const im = el("img", "", ic); im.src = spellIconURL(tpl, c, 3, sp.fx?.[0]); this.addFx(ic, hx - 14, this.iconTop(hx - 14, 6, 18), 0.9, 18); } // son icône, qui monte
     if (tpl === "bolt") {
-      fx("bolt", mx - 4, 0, 0.45); this.flash = Math.max(this.flash, 0.22);
-      later(60, () => fx("bolt", mx + 6, 0, 0.35)); ring(mx + 6, G - 20);
+      // (it. 3164) éclair sous une pastille de la rangée du haut (zone, or, barres de vie) : il part juste dessous, sans la traverser
+      // (nécromancien, chaman, cryomancien à 1280 px : 0,45 s devant le nom de la zone)
+      const hb = this.hudBands(), by = (x) => (hb.bands.some(([a0, a1]) => x + 18 > a0 && x < a1) ? hb.h : 0);
+      fx("bolt", mx - 4, by(mx - 4), 0.45); this.flash = Math.max(this.flash, 0.22);
+      later(60, () => fx("bolt", mx + 6, by(mx + 6), 0.35)); ring(mx + 6, G - 20);
       if (full) this.juice.sparkles(mx + 6, G - 22, c, 8);
     } else if (tpl === "gust") {
       for (let k = 0; k < 3; k++) later(k * 70, () => fx("slash", hx + 10, 44 + k * 10, 0.3, 0, mx - hx - 6));
@@ -1228,7 +1231,9 @@ export class StripRenderer {
       if (!boss && !line[k].elite && ((line[k].goblin && wantGoblin) || (!line[k].goblin && huntTypes.has(line[k].type)))) el("div", "affix qmark", a.el).textContent = "◆";
       // (it. 1618) monstre haut (élite Colossale, à la taille d'un boss) : son étiquette reste sous la rangée du haut
       // (variable CSS : clearQueueTags remet style.top à zéro)
-      if (!boss) { const y0 = this.monY(a, 4); if (y0 - 24 < 28) a.el.style.setProperty("--tagtop", (28 - y0) + "px"); }
+      // (it. 3164) marge portée à 10 px sous la rangée (26 px) : un monstre qui sautille ou sursaute remonte de 6 à 8 px, son étiquette
+      // passait sur la rangée (« Колоссальный » à 20 px, parties de 6 h, 1280 px)
+      if (!boss) { const y0 = this.monY(a, 4); if (y0 - 24 < 36) a.el.style.setProperty("--tagtop", (36 - y0) + "px"); }
       a.flame = el("div", "flame", a.el);
       a.flame.style.left = Math.round(a.w / 2 - 6) + "px";
       a.flame.hidden = true;
