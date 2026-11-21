@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3064) Contrôle : Boutique de la partie d'une semaine en allemand à 1280 px : propre ; élixirs à ≈ 1,9 Ud pour 2,26 Dd en poche (≈ 0,1 % de l'or : cohérent avec la décision 8 de Victor).
 - 2026-11-21 (it. 3063) Contrôle : Bestiaire de la partie d'une semaine en espagnol à 1280 px : propre (noms longs en police réduite, comme prévu).
 - 2026-11-21 (it. 3062) Contrôle : onglet Héros de la partie d'une semaine en russe à 1280 px : propre ; boutons sur deux lignes = décision 7 de Victor (inchangé).
 - 2026-11-21 (it. 3061, REVUE GÉNÉRALE) : 12 h : assassin 62, chaman 62, artificier 59 (graine 7) ; --perf (charge 2,1) : 19,8 / 19,5 %,
