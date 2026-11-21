@@ -51,7 +51,8 @@ function exercise(g) {
 // migrate() avec des données d'une version plus ancienne
 // (it. 2978) FUZZ_BASE=semaine : la partie d'une semaine (scripts/fixtures/week-save.json, it. 2976 : record 353, constellations
 // au maximum, or vers 1e39)
-const BASES = { fin: "scripts/fixtures/endgame-save.json", "0.1.2": "scripts/fixtures/save-0.1.2.json", semaine: "scripts/fixtures/week-save.json" };
+const BASES = { fin: "scripts/fixtures/endgame-save.json", "0.1.2": "scripts/fixtures/save-0.1.2.json", semaine: "scripts/fixtures/week-save.json", heure: "scripts/fixtures/hour-save.json" };
+// (it. 3125) FUZZ_BASE=heure : la partie d'une heure (scripts/fixtures/hour-save.json, it. 3116 : zone 39, aucune ascension)
 const base = JSON.parse(fs.readFileSync(ROOT + (BASES[process.env.FUZZ_BASE] || "dev-data/save.json"), "utf8"));
 const cases = {
   questsNull: (o) => { o.quests.slots = [null, { kind: "kill" }]; },
