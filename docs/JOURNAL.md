@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3095) Contrôle : textes coupés nets sur la bande et en mode mini (méthode de clip-probe, 30 relevés en 15 s, cadres
+  #strip et #stage exclus : la bande coupe exprès ce qui sort de l'écran), partie d'une semaine, de et ru (bande), de et ja (mini),
+  1280 px : 0.
 - 2026-11-21 (it. 3094) Contrôle avec le nouveau « -rogné » (it. 3093) : lang-overflow all 1366,1600 (30 mesures) et all 1920 avec la fin à
   130 % (20 mesures) : aucun défilement, mot coupé ni texte rogné.
 - 2026-11-21 (it. 3093) Outil : --overflow-report (donc lang-overflow, dans toutes ses langues et tous ses états : fin, semaine, max,
