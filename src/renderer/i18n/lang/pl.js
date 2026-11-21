@@ -2341,4 +2341,7 @@ export default {
   3466: "Twój bohater jest już w pierwszej strefie.",
   3467: "Brak wybranych talentów: nie ma czego resetować.",
   3468: "Za mało złota, by zresetować.",
+  3469: "Przed pierwszym wniebowstąpieniem karta Wniebowstąpienie nie przewija się już na ekranie laptopa: efekt następnej rangi gwiazdozbioru jest w podpowiedzi.",
+  3470: "Przyciski stref i resetu talentów mówią, dlaczego są wyszarzone.",
+  3471: "Zbyt długie nazwy (talenty, bohaterowie, sumy talentów) kończą się wielokropkiem zamiast być ucięte.",
 };

@@ -12,6 +12,11 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
   Maintenant le nom seul si la phrase ne tient pas, avec « … » au besoin ; phrase entière dans l'infobulle. Voir la décision 10.
 - « Zone suivante » grisée dit maintenant pourquoi ; le choix du bonus d'un palier de maîtrise se fait aussi au clavier (it. 3102).
   Annoncé avec les deux corrections ci-dessus dans l'édition 173 de « Quoi de neuf ».
+- Avant la première ascension (19 constellations au rang 0), l'onglet Ascension défilait sur un écran de portable, dans toutes les langues
+  (it. 3114) : sous 1920 px, l'effet du rang suivant passe dans la bulle de chaque constellation. Talents en russe (nom d'ultime sur deux
+  lignes, it. 3115), nom de l'héroïne et pastilles des totaux coupés net (it. 3118), « Zone précédente » et « Réinitialiser » grisés
+  sans explication (it. 3113, 3115) : corrigés. Annoncé dans l'édition 174. Ces cas venaient de parties NEUVES ou d'une heure, qu'aucune
+  sauvegarde de test ne couvrait : les mesures automatiques les couvrent maintenant (partie neuve, partie d'une heure, première ascension).
 - Nouvel outil scripts/stage/clip-probe.js : textes coupés par leur cadre dans tous les onglets (it. 3070, 3084) ; 0 partout.
 - Contrôles sans défaut : tous les onglets de la partie d'une semaine relus dans 9 langues ; aucune partie bloquée ni figée ; sauvegardes
   abîmées tolérées ; 926 clics sans erreur ; aucun débordement dans les 10 langues ; rythme du début de partie inchangé.

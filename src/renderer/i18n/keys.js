@@ -3470,5 +3470,8 @@ export const KEYS = [
   "« Zone suivante » grisée dit pourquoi, et le choix du bonus d’un palier de maîtrise se fait aussi au clavier.",
   "Ton héros est déjà dans la première zone.",
   "Aucun talent pris : rien à réinitialiser.",
-  "Pas assez d’or pour réinitialiser."
+  "Pas assez d’or pour réinitialiser.",
+  "Avant la première ascension, l’onglet Ascension ne défile plus sur un écran de portable : l’effet du rang suivant d’une constellation passe dans sa bulle.",
+  "Les boutons de zone et de réinitialisation des talents disent pourquoi ils sont grisés.",
+  "Les noms trop longs (talents, héros, totaux des talents) finissent par des points de suspension au lieu d’être coupés net."
 ];

@@ -2341,4 +2341,7 @@ export default {
   3466: "Tu héroe ya está en la primera zona.",
   3467: "Ningún talento elegido: nada que reiniciar.",
   3468: "No tienes suficiente oro para reiniciar.",
+  3469: "Antes de la primera ascensión, la pestaña Ascensión ya no se desplaza en una pantalla de portátil: el efecto del siguiente rango de una constelación pasa a su descripción emergente.",
+  3470: "Los botones de zona y el de reiniciar talentos dicen por qué están en gris.",
+  3471: "Los nombres demasiado largos (talentos, héroes, totales de talentos) terminan en puntos suspensivos en lugar de cortarse.",
 };

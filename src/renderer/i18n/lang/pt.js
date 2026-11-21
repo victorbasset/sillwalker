@@ -2341,4 +2341,7 @@ export default {
   3466: "Seu herói já está na primeira zona.",
   3467: "Nenhum talento escolhido: nada para redefinir.",
   3468: "Ouro insuficiente para redefinir.",
+  3469: "Antes da primeira ascensão, a aba Ascensão não rola mais em uma tela de notebook: o efeito da próxima classificação de uma constelação vai para a dica.",
+  3470: "Os botões de zona e o de redefinir talentos dizem por que estão desativados.",
+  3471: "Nomes longos demais (talentos, heróis, totais de talentos) terminam com reticências em vez de serem cortados.",
 };

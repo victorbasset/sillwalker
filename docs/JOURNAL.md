@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3120) « Quoi de neuf » : édition 174 (Ascension avant la première ascension, it. 3114 ; boutons grisés qui disent
+  pourquoi, it. 3113, 3115 ; noms longs avec points de suspension, it. 3115, 3118) ; clés 3469-3471, 9 langues. POUR-VICTOR : bilan
+  complété. npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
 - 2026-11-21 (it. 3119) Enquête sur « adventure-boss100/200-bloqué=11 » (artificière, russe, 1280 px, it. 3118) : non reproduit en 8 passages
   (5 copies neuves de la partie de 3 h, 3 de la copie qui avait joué ; carte du héros à 421-427 px, rien ne dépasse avec le panneau
   ouvert). Il tenait à un état passager de la copie qui avait continué à jouer (sans doute une rangée de pastilles d'effets actifs dans

@@ -2341,4 +2341,7 @@ export default {
   3466: "Dein Held ist bereits in der ersten Zone.",
   3467: "Kein Talent gewählt: nichts zurückzusetzen.",
   3468: "Nicht genug Gold zum Zurücksetzen.",
+  3469: "Vor dem ersten Aufstieg scrollt der Reiter Aufstieg auf einem Laptop-Bildschirm nicht mehr: Die Wirkung des nächsten Rangs eines Sternbilds steht im Tooltip.",
+  3470: "Die Zonen-Schaltflächen und das Zurücksetzen der Talente sagen, warum sie ausgegraut sind.",
+  3471: "Zu lange Namen (Talente, Helden, Talentsummen) enden mit Auslassungspunkten, statt abgeschnitten zu werden.",
 };

@@ -2341,4 +2341,7 @@ export default {
   3466: "Your hero is already in the first zone.",
   3467: "No talent taken: nothing to reset.",
   3468: "Not enough gold to reset.",
+  3469: "Before your first ascension, the Ascension tab no longer scrolls on a laptop screen: a constellation's next-rank effect moves into its tooltip.",
+  3470: "The zone buttons and the talent reset button now say why they are greyed out.",
+  3471: "Names that are too long (talents, heroes, talent totals) now end with an ellipsis instead of being cut off.",
 };
