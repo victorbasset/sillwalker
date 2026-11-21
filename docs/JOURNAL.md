@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3174) Contrôle : mode mini de la partie d'une semaine en ru, de, ja (captures) : niveau 408, or « 2,26 Dd », zone 353
+  et barres de vie lisibles, rien de coupé.
 - 2026-11-21 (it. 3173) Contrôle en langues à trois pluriels sur la partie d'une semaine : --crawl pl et ru, 918 clics chacun, aucune
   erreur ; texte (--dump-text, ≈ 27 100 lignes) sans NaN, undefined, null, Infinity ni {0}/{n} restés. En russe, seuls les paliers
   au-delà du milliard (Dc, Ud, Dd… : abréviations latines des jeux idle, it. 2972) restent en lettres latines : voulu.
