@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3112) Outil : Héros > Sorts ajouté aux sous-sections d'--overflow-report (contrôles « rogné » et « a11y ») ; all 1280 :
+  60 mesures, aucun défaut.
 - 2026-11-21 (it. 3111) REVUE GÉNÉRALE : simulations 12 h (graine 7) gladiateur 69, chaman 62, artificier 59 (comme hero-table it. 3099) ;
   perf bande 20,5 %, panneau 21,5 %, mini 5,9 %, icône 0,6 % (charge ≈ 2,3, dans le bruit) ; captures Réglages en fr, en, pl, zh :
   propres, 0 erreur ; texte portugais (25 105 lignes) : aucun mot français, aucun « » (variante brésilienne). Rien pour « Idées ».
