@@ -98,7 +98,7 @@ export class ClassesTab {
     const tier = attackTier(S), nextT = ATTACK_TIERS[tier + 1];
     const style = `<article class="panel tierbox"><h2>${tx("Style de l’attaque de base")} <small>${tx("palier {0} / {1} · {2}", { 0: tier + 1, 1: ATTACK_TIERS.length, 2: esc(ATTACK_TIERS[tier].name) })}</small></h2>
       <div class="tiers">${ATTACK_TIERS.map((t, i) => `<span class="tierpip${i <= tier ? " on" : ""}" title="${esc(tx("{0} : niveau {1}{2}", { 0: esc(t.name), 1: t.lvl, 2: t.asc ? ` ${txn(t.asc, "et {n} ascension|et {n} ascensions")}` : "" }))}">${i + 1}</span>`).join("")}</div>
-      <p class="note tight">${tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${txn(nextT.asc, "et {n} ascension|et {n} ascensions")}` : "" })}` : tx("Palier maximal atteint !") })}</p></article>`;
+      ${((h) => `<p class="note tight snote" title="${esc(h.replace(/<[^>]*>/g, ""))}">${h}</p>`)(tx("Les attaques de ton héros deviennent plus grandes et plus spectaculaires à chaque palier (lame croisée, lueur, étincelles, triples projectiles, onde de choc).\n      {0}", { 0: nextT ? `${tx("Prochain palier :")} <b>${esc(nextT.name)}</b>${tx(", niveau {0}{1}.", { 0: nextT.lvl, 1: nextT.asc ? ` ${txn(nextT.asc, "et {n} ascension|et {n} ascensions")}` : "" })}` : tx("Palier maximal atteint !") }))}</article>`;
     const P = S.partner && CLASSES[S.partner];
     // (it. 1515, demandes de Victor) compagnon au corps à corps : il encaisse ; à distance : il couvre de ses tirs
     const duoPerk = P ? (duoGuard(S) ? wsp() + tx("Devant toi, il encaisse une part des coups : dégâts subis −{0} %.", { 0: Math.round(duoGuard(S) * 100) })
@@ -117,6 +117,10 @@ export class ClassesTab {
     el.innerHTML = `${intro}
       <div class="subrow">${subtabsHTML([["freed", tx("Libérés"), freed], ["locked", tx("Prisonniers"), CLASS_KEYS.length - freed], ["style", tx("Sorts et attaque"), `${spellPool.filter((x) => spellRank(S, x.id) > 0).length} / ${spellPool.length}`]], this.sec, "c-sec")}${this.sec === "style" ? "" : `<span class="help" title="${esc(freedHelp.replace(/<[^>]*>/g, "").replace(/\s+/g, " "))}">ⓘ</span>`}${npcHTML("class", true)}</div>
       ${this.sec === "style" ? this.spellsHTML(S) + style : `<div class="classgrid hscroll sec-${this.sec}" data-hs="heroes-${this.sec}">${cards}</div>`}`;
+    // (it. 3145) la description du style d'attaque ne passe sur une ligne (« … », texte entier en bulle) que si la page défilerait
+    // (russe, guerrier + gardien des étoiles, partie de 12 h : boutons de prix sur deux lignes, 8 px) ; sinon elle reste entière
+    const sn = this.sec === "style" && el.querySelector(".snote"), pn = sn && el.closest("#panel");
+    if (pn && pn.scrollHeight > pn.clientHeight + 2) sn.classList.add("cut");
   }
 
   /** Sorts (demande D) : appris pour tous les héros, ils s'ajoutent à l'attaque de base en combat. */

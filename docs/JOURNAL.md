@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3145) Parties de 12 h des 20 héros en russe à 1280 px : Héros > Sorts, guerrier + gardien des étoiles (partie du gardien),
+  8 px (boutons « Улучшить (… млрд золота) » du compagnon sur deux lignes). La description du style d'attaque passe sur une ligne (« … »,
+  texte entier en bulle) SEULEMENT si la page défilerait (classes.js mesure après le rendu ; en français sur dev-data elle reste entière,
+  deux lignes). 0 ; npm test, autotest 348/348, all 1280 : aucun. Les 19 autres parties : aucun défaut.
 - 2026-11-21 (it. 3144) Contrôle : parties de 6 h des 20 héros en fr, en, ko, zh à 1280 px : 80 mesures, aucun défaut. Balayage 6 h complet
   (20 héros × 10 langues, it. 3139-3144) : trois défauts trouvés et corrigés (it. 3139, 3143).
 - 2026-11-21 (it. 3143) Parties de 6 h des 20 héros en es, pt, ja à 1280 px : deux défauts en espagnol. Héros > Sorts, duo guerrier +

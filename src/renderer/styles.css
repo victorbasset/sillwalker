@@ -1570,6 +1570,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 3143) Quêtes en espagnol à 1280 px (partie de 6 h, chaman) : la note du bas sur deux lignes faisait défiler l'onglet de 12 px :
    une ligne, texte entier en bulle */
 .qnote { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* (it. 3145) Héros > Sorts, guerrier + gardien des étoiles en russe (partie de 12 h) : boutons « Улучшить (… млрд золота) » sur deux
+   lignes, la page défilait de 8 px : description du style d'attaque sur une ligne (classe posée par classes.js si la page défilerait) */
+.snote.cut { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* (it. 3143) duo guerrier + rôdeur en espagnol à 1280 px (partie de 6 h) : cartes de sorts hautes, la page défilait de 5 px */
 @container panel (max-width: 1467px) { .spellduo { margin-bottom: 6px; } }
 .spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */
