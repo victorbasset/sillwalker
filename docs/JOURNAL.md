@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3052) Nombres flottants sur la bulle de parole (et le nom du boss) : relevé cas par cas (sonde, partie d'une semaine,
+  1280 px) : la plupart naissaient APRÈS la bulle, directement dedans (départ 12-14 px, bulle 3-27) ; freeSpot, sans place libre de
+  tout (autres nombres + obstacles), revenait sur place. Seconde passe : une place qui évite au moins les obstacles (quitte à chevaucher
+  un nombre). Six exécutions : 0, 1, 0, 0, 0, 1 (les deux nés avant la bulle), contre des rafales de 8 à 11. Deux autotests 345/345.
 - 2026-11-21 (it. 3051, REVUE GÉNÉRALE) : 12 h : lancier 62, samouraï 69, druide 64 ; --perf (charge 2,3) : 19,8 / 19,7 %, mini 5,7 %, icône
   0,4 % ; hud-probe partie neuve en espagnol à 1280 px : 0 / 60 ; texte espagnol : « le » = pronom espagnol (« le responde », « le
   infligen »), pas de français. Rien à corriger.
@@ -9523,7 +9527,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 3049) Bande : en fin de partie, une bulle de parole qui apparaît pendant une rafale de coups se pose sur des nombres déjà
+- FAIT (it. 3052 : cause trouvée, seconde passe de freeSpot) P3 (it. 3049) Bande : en fin de partie, une bulle de parole qui apparaît pendant une rafale de coups se pose sur des nombres déjà
   montants (sonde, partie d'une semaine, 1280 px, 15 s : 0 à 9 recouvrements selon l'exécution, avant comme après les it. 3042-3049).
   Étendre la zone que les nombres évitent n'aide pas (essai annulé : la bulle vient sur eux, pas l'inverse). Piste : ne pas lancer une
   réplique d'ambiance pendant une rafale (ex. plus de 3 nombres en vie), ou la placer à côté d'eux.

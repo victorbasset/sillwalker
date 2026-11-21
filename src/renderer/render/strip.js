@@ -607,10 +607,11 @@ export class StripRenderer {
     // Obstacles fixes (nom du boss, relique) : le texte ne doit pas les toucher tant qu'il est bien visible, c'est-à-dire
     // jusqu'aux deux tiers de sa montée (22 px ; ensuite il est presque effacé).
     const lift = 15;
+    const hitsObs = (cx, cy) => !!obs && obs.some((o) => cx - w / 2 < o.r && o.l < cx + w / 2 && cy - lift < o.b && o.t < cy + h);
     const hits = (cx, cy) => live.some((f) => {
       const b = f.box, bx = b.x + (f.x || 0), by = b.y + (f.y || 0);
       return Math.abs(cx - bx) * 2 < w + b.w && cy < by + b.h && by < cy + h;
-    }) || (obs && obs.some((o) => cx - w / 2 < o.r && o.l < cx + w / 2 && cy - lift < o.b && o.t < cy + h));
+    }) || hitsObs(cx, cy);
     // D'abord empilés (au-dessus, au-dessous), puis de côté (face à un boss, il n'y a de place que pour 2 ou 3 rangées).
     // (it. 1070, demande de Victor) les nombres partaient trop loin à droite du monstre : en fin de partie, un sur trois
     // était décalé d'un à trois pas de côté (≈ 60 à 180 px), toujours à droite d'abord. Maintenant : toutes les rangées
@@ -622,6 +623,12 @@ export class StripRenderer {
     for (const dx of boss ? [0, side, -side, 2 * side, -2 * side, 3 * side] : [0, -side, side, -2 * side, 2 * side]) for (const dy of rows) {
       const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
       if (!hits(cx, cy)) return { x: cx, y: cy };
+    }
+    // (it. 3052) aucune place libre : avant, retour sur place, souvent DANS la bulle de parole ou le nom du boss (fin de partie : 8 à 11
+    // nombres sur la bulle en 15 s). Seconde passe : une place qui évite au moins les obstacles, quitte à chevaucher un autre nombre.
+    if (obs?.length) for (const dx of [0, -side, side, -2 * side, 2 * side, -3 * side, 3 * side]) for (const dy of rows) {
+      const cx = x + dx, cy = Math.max(minY, Math.min(GROUND - h - 4, y + dy));
+      if (!hitsObs(cx, cy)) return { x: cx, y: cy };
     }
     return { x, y };
   }
