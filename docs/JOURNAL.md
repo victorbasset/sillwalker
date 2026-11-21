@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3070) Outil : scripts/stage/clip-probe.js, textes rognés par un cadre dans tous les onglets (famille du défaut de l'it.
+  3069, invisible à lang-overflow). Faux positifs écartés : listes qui défilent (overflow auto), grand graphe des Compétences (dessin
+  déplaçable). Validé sur l'ancienne Carte (1 cas : « Au-delà du Rebord » 13 px) ; partie d'une semaine en fr, de, ru, pl, ja et
+  dev-data en ru, 1280 px : 0.
 - 2026-11-21 (it. 3069) Carte (map.js) : au-delà de la zone 200, les noms centrés sous le Briseur (« ★ Le ciel rallumé », « Au-delà du
   Rebord : zone N → ») sortaient du cadre à gauche et étaient coupés (« …delà du Rebord », toutes langues ; vu en relisant la Carte de la
   partie d'une semaine en portugais à 1280 px ; invisible à lang-overflow : rogné, pas de défilement). Mesurés après le rendu (getBBox) et
