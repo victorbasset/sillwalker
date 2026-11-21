@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3110) Contrôle : --crawl sur la fin de partie en japonais à 1280 px : 705 clics en 24 s, 0 erreur.
 - 2026-11-21 (it. 3109) Contrôle : info-probe (ⓘ cachés) sur la fin de partie en japonais et l'état « tout au maximum » en allemand,
   1280 px : IPROBE 0 et 0.
 - 2026-11-21 (it. 3108) Contrôle : mem-watch mode mini sur la partie d'une semaine (MEM_SAVE, MEM_ARGS=--mode=mini, 8 min, vitesse 10) :
