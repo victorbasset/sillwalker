@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3059) POUR-VICTOR : résumé de la nuit complété (nombres flottants, it. 3052-3058).
 - 2026-11-21 (it. 3058) Contrôle : float-probe à 1280 px : dev-data (79 nombres, bulle/boss 0, paires 0), partie neuve (56, 0, 0), partie d'une semaine en japonais (143, 0, 12).
 - 2026-11-21 (it. 3057) Outil : scripts/stage/float-probe.js (mesures des it. 3052 et 3056 rendues permanentes, documentées dans CLAUDE.md).
 - 2026-11-21 (it. 3056) Nombres flottants : la seconde passe de freeSpot (it. 3052) prenait la première place sans obstacle et empilait

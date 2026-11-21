@@ -4,12 +4,15 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Nuit du 21/11 (it. 3016-3044) : la bande sur un écran de portable
+## Nuit du 21/11 (it. 3016-3059) : la bande sur un écran de portable
 
 - À 1280 px, le héros combat sous la pastille de gauche (zone, record) : les icônes de sorts, des nombres décalés de côté, les bannières
   de succès et la bulle de parole passaient dessus. Corrigé (it. 3035, 3037, 3039, 3042) ; la bulle ne s'affiche plus une image en haut à
   gauche avant sa place, ni coupée par le haut au-dessus d'un héros grand. Outil de contrôle : scripts/stage/hud-probe.js (0 élément
   fautif sur partie neuve, dev-data et partie d'une semaine, avec guerrier, arbalétrier, nécromancien).
+- Nombres flottants en fin de partie (it. 3052, 3056) : sans place libre, ils retombaient sur la bulle de parole ou le nom du boss
+  (rafales de 8 à 11 en 15 s) et s'empilaient ; maintenant ils évitent bulle et nom, et se chevauchent moins qu'avant (5-18 paires très
+  chevauchées en 15 s contre 20-53). Outil : scripts/stage/float-probe.js. Annoncé dans l'édition 172 de « Quoi de neuf ».
 - Partie de DEUX semaines simulée (zone 401) : rien de cassé (débordements, texte, absence, parcours).
 - Décision 8 : cas concret ajouté (vendre 48 objets de niveau 350 rapporte 123 k d'or pour 2e39 en poche ; le prix suit le niveau en ligne
   droite, l'or des zones est exponentiel).
