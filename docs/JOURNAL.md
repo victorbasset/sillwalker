@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3038) Contrôle : sonde des it. 3035-3037 (partie d'une semaine, 15 s) à 1366 et 1600 px : nombres flottants (≈ 150) et icônes de sorts (20) : 0 sur la rangée d'informations.
 - 2026-11-21 (it. 3037) Nombres flottants à 1280 px : la place libre (freeSpot) pouvait décaler un nombre de côté jusque sous une pastille,
   en haut de la bande (« −15,90 Md · transpercé » sur la pastille de gauche, partie d'une semaine) : revérifié après le décalage, nouvelle
   place cherchée sous la rangée. Sonde (12 grands nombres empilés à droite de la pastille) : 11 sous la rangée avant, 0 après. Première
