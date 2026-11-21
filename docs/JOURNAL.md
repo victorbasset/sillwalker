@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3117) Contrôle : partie de 4 h (simulate.js 4 mage : zone 46, 2 ascensions, 11 déblocages, compagnon guerrier) dans
+  --overflow-report (débordements, rognés, a11y) en fr, ru, de, ja, pl à 1280 px : aucun.
 - 2026-11-21 (it. 3116) Outil : partie d'une heure en sauvegarde de référence (scripts/fixtures/hour-save.json, 13 ko : zone 39, record
   40, 8 déblocages, aucune ascension) ; lang-overflow la mesure à 1280 px dans chaque langue (« xx heure 1280 », NO_HOUR). Elle a
   révélé les défauts des it. 3114-3115. all 1280 : aucun ; info-probe ru, de : 0.
