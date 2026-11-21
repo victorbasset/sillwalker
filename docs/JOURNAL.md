@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3057) Outil : scripts/stage/float-probe.js (mesures des it. 3052 et 3056 rendues permanentes, documentées dans CLAUDE.md).
 - 2026-11-21 (it. 3056) Nombres flottants : la seconde passe de freeSpot (it. 3052) prenait la première place sans obstacle et empilait
   davantage les nombres (paires très chevauchées en 15 s, partie d'une semaine à 1280 px : 33 / 20 avant l'it. 3052, 53 / 37 après) ;
   elle choisit maintenant la place qui recouvre le moins de nombres : 7 / 18 / 5, et 0 nombre sur la bulle (deux exécutions).

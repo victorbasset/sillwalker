@@ -144,6 +144,8 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   Rangée d'informations de la bande (it. 3040) : `--width=1280 --stage=scripts/stage/hud-probe.js --exit-after=22` sur une copie,
   « HPROBE 0 / N » attendu (nombres, icônes de sorts, bannières passés sur la rangée en 15 s ; à 1280 px le héros combat sous la pastille
   de gauche) ; partie neuve, dev-data et partie d'une semaine. Trois défauts trouvés ainsi (it. 3035, 3037, 3039).
+  Nombres flottants (it. 3057) : `--stage=scripts/stage/float-probe.js`, « FPROBE … sur bulle/boss B · paires P » (repères dans le script ;
+  freeSpot, sans place libre, prend la place sans obstacle qui recouvre le moins de nombres : it. 3052, 3056).
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.
   Sous Linux, préfixer par `xvfb-run -a -s "-screen 0 1920x1080x24"` et ajouter `--no-sandbox`.
 - Captures dans une autre langue : la langue vient de la **sauvegarde** (`settings.lang` dans `save.json`
