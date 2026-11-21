@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3165) Bande, hud-probe sur les parties de 6 h (allemand) et d'une heure (russe) des 20 héros à 1280 px : 7 cas sur 40.
+  Nombres flottants placés près du boss (départ à 46 px, montée de 22) qui finissaient sur une barre de vie : montée bornée sous la
+  rangée dès qu'ils chevauchent une pastille. Nom du boss qui touchait la pastille de droite de 2 à 6 px (le boss bouge après le
+  placement) : marge 8 → 14 px. Et, par cohérence, les barres s'effacent si un nom de boss long atteint la barre du héros. Les 7 : 0 ;
+  npm test, autotest 348/348, perf bande 19,8 % (inchangée).
 - 2026-11-21 (it. 3164) Bande, hud-probe sur les parties de 6 h des 20 héros en russe à 1280 px : 6 parties sur 20 avec des éléments sur la
   rangée du haut. Étiquette d'élite (« Колоссальный », « Ледяной ») : marge sous la rangée portée de 2 à 10 px (un monstre qui sautille
   remontait de 6-8 px). Éclair des sorts « bolt » (nécromancien, chaman, cryomancien) : sous une pastille, il part juste dessous au lieu de

@@ -595,7 +595,10 @@ export class StripRenderer {
     // (it. 1591) sous une pastille du haut (près du boss aussi) : la montée s'arrête sous la rangée
     // (it. 1641, 1651) ailleurs, un nombre empilé tout en haut montait encore de 22 px et sortait de la fenêtre, coupé à
     // moitié (revues en coréen et en anglais) : il naît à y ≥ 0 et sa montée s'arrête 2 px au-dessus du bord au plus
-    this.addFx(f, at.x, at.y, 1, underHud ? Math.max(4, Math.min(22, at.y - hb.h - 2)) : Math.max(4, Math.min(22, at.y + 2)));
+    // (it. 3165) montée bornée aussi pour un nombre qui chevauche une pastille sans être marqué « sous la rangée » (près du boss : départ à
+    // 46 px, 22 px de montée, « Krit. 183 k » finissait sur la barre de vie du milieu, 1280 px)
+    const inBand = underHud || hb.bands.some(([a, b]) => at.x + w / 2 > a && at.x - w / 2 < b);
+    this.addFx(f, at.x, at.y, 1, inBand ? Math.max(0, Math.min(22, at.y - hb.h - 2)) : Math.max(4, Math.min(22, at.y + 2)));
     const e = this.fx[this.fx.length - 1];
     e.box = { x: at.x, y: at.y, w, h };
   }
@@ -1761,6 +1764,9 @@ export class StripRenderer {
         const now = performance.now();
         if (now - (this.bossLT || 0) > 500) { this.bossLT = now; const t = this.bossTag, r = t && t.isConnected ? t.getBoundingClientRect() : null; this.bossL = r && r.width > 0 ? r.left : null; }
         monFits = fits && mx + BW + 24 <= (this.bossL == null ? lim : Math.min(rl, this.bossL));
+        // (it. 3165) nom de boss long qui s'étend jusqu'à la barre du héros (« Der mechanische Kerkermeister », 1280 px) : les barres s'effacent
+        // comme celle du monstre, le nom reste lisible
+        if (fits && this.bossL != null && hx + BW + 8 > this.bossL) { fits = false; monFits = false; }
       }
     }
     // (it. 2635) au milieu aussi : pas de barre du monstre par-dessus le nom du boss
@@ -1830,7 +1836,8 @@ export class StripRenderer {
     const t = this.bossTag;
     if (!t || !t.isConnected) return;
     let off = 40;
-    if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(this.fights()) + this.bossW / 2 + off - (this.hudRLeft - 8));
+    // (it. 3165) marge 8 → 14 px avant la pastille de droite : le boss bouge un peu après le placement, le nom la touchait de 2 à 6 px
+    if (!this.centerHud && this.hudRLeft) off -= Math.max(0, this.fightX(this.fights()) + this.bossW / 2 + off - (this.hudRLeft - 14));
     // (it. 2635) informations au milieu sur un écran étroit (réglage) : le nom passait sous les boutons ; décalé vers la
     // droite pour commencer après eux, sans sortir de la bande (largeur mesurée une fois par nom)
     else if (this.centerHud && this.hudSpan) {
