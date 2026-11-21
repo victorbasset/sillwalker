@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3090) Contrôle : hud-probe sur la partie d'une semaine en allemand à 1280 px : 0 / 244 (rien sur la rangée
+  d'informations) ; le « lai! » vu sur la capture de l'it. 3089 n'est aucun texte du jeu : deux nombres superposés à cet instant.
 - 2026-11-21 (it. 3089) Contrôle : résumé d'absence (8 h) de la partie d'une semaine en de, ru, ja à 1280 px : 0 texte coupé (méthode de
   clip-probe appliquée à la fenêtre) ; capture allemande lisible. Bande : nombres flottants encore serrés autour du héros (décision 9).
 - 2026-11-21 (it. 3088) POUR-VICTOR : bilan du matin (it. 3060-3088) et décision 10 (ligne du compagnon à 1280 px, it. 3087).
