@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3087) Contrôle : les 19 compagnons possibles (partie d'une semaine, tous sorts appris) en de et ru à 1280 px : jamais
+  coupé net ni chevauché (correctif de l'it. 3083) ; mais le nom seul finit souvent par « … » (manque jusqu'à 53 px) : noté P3 dans
+  « Idées », à juger avec Victor (sa demande F fixe cette ligne).
 - 2026-11-21 (it. 3086) Contrôle après les it. 3069 et 3083 : lang-overflow all 1280 (10 langues × 1280, fin, semaine, fin 1920 × 130 %,
   max 1920 et 1280) : aucun défilement ni mot coupé.
 - 2026-11-21 (it. 3085) Contrôle : clip-probe (version de l'it. 3084) sur l'état « tout au maximum » en fr, ru, ja à 1280 px : 0.
@@ -9593,6 +9596,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 3087) Ligne du duo (carte du héros, Aventure) à 1280 px, six sorts appris : la ligne fait 237 px dont 141 pour les icônes ;
+  le nom seul du compagnon a 47-63 px et finit par « … » pour 12 héros sur 19 en allemand (« Armbrustschütze » : 116 px), 10 en russe
+  (portrait à côté, nom entier dans l'infobulle ; jamais coupé net depuis l'it. 3083). Pistes à juger avec Victor (demande F : ligne
+  du compagnon, portrait de la même taille) : sorts du compagnon seulement au survol, ou icônes sur une seconde ligne.
 - FAIT (it. 3052 : cause trouvée, seconde passe de freeSpot) P3 (it. 3049) Bande : en fin de partie, une bulle de parole qui apparaît pendant une rafale de coups se pose sur des nombres déjà
   montants (sonde, partie d'une semaine, 1280 px, 15 s : 0 à 9 recouvrements selon l'exécution, avant comme après les it. 3042-3049).
   Étendre la zone que les nombres évitent n'aide pas (essai annulé : la bulle vient sur eux, pas l'inverse). Piste : ne pas lancer une
