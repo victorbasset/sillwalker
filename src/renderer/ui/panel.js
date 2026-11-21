@@ -905,7 +905,7 @@ export class Panel {
     const pd = S.partner && CLASSES[S.partner];
     const syn = pd && duoSynergy(S.cls, S.partner);
     // Demande F de Victor (on le voyait mal) : le compagnon a sa propre ligne sous le titre, portrait de la même taille.
-    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + colon() + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt="">${esc(tx("Compagnon : {0}", { 0: pd.name }))}${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
+    const duo = pd ? `<button class="linkbtn duotag" data-tab="class" title="${esc(tx("Duo : {0} combat aux côtés de ton héros (35 % de son attaque par seconde et la moitié de son passif).", { 0: pd.name }) + (syn ? "\n✦ " + tx(syn.name) + colon() + describeEffects(syn.eff) : ""))}"><img src="${classPortraitURL(S.partner)}" alt=""><span class="dfull">${esc(tx("Compagnon : {0}", { 0: pd.name }))}</span><span class="dshort nm">${esc(pd.name)}</span>${syn ? ` <span class="syn">✦ <span class="synname">${esc(tx(syn.name))}</span></span>` : ""}</button>` : "";
     // Sorts appris du héros : icônes à droite de la ligne du compagnon (rang en infobulle) ; un clic mène aux sorts.
     const learned = classSpells(S.cls).filter((x) => spellRank(S, x.id) > 0);
     // (it. 1495) puis ceux du compagnon, après un « · » (rang et nom au survol, comme pour le héros)
@@ -921,7 +921,7 @@ export class Panel {
         <div class="tile power" title="${esc(tx("Score global de ton héros (attaque, survie, vitesse) : sert à comparer les objets."))}"><img src="${shopIconURL("star", 3)}" alt=""><span>${tx("Puissance")}</span>${tilePower(heroPower(hs))}</div>
       </div>
       ${this.visitHTML()}${this.goalHTML(S)}
-      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${(events + buffs + relics + day + sets).replace(/<span class="chip/g, '<span tabindex="0" class="chip')}</div>` : ""}
+      ${day || buffs || events || sets || relics ? `<div class="chips hscroll" data-hs="hero-chips">${(events + buffs + relics + day + sets).replace(/<span class=\x22chip/g, '<span tabindex="0" class="chip')}</div>` : ""}
       <div class="morerow">${this.todoBox()}${this.chronicleBox()}
       <details class="more" data-keep="hero-stats"${this.kept.has("hero-stats") ? " open" : ""}><summary>${tx("Toutes les statistiques")}</summary>
       <dl class="stats">${Object.keys(STAT_NAMES).filter((k) => !["hp", "atk", "def"].includes(k)).map((k) => `<dt>${STAT_NAMES[k]}</dt><dd>${fmtStat(k, hs[k])}</dd>`).join("")}${extra}
@@ -929,6 +929,17 @@ export class Panel {
       ${this.game.droneDps(hs) > 0 ? `<dt>${tx("Dégâts du drone par seconde")}</dt><dd title="${esc(tx(RELICS.drone.effect))}">${fmt(Math.round(this.game.droneDps(hs)))}</dd>` : ""}
       <dt>${tx("Potions de soin")}</dt><dd>${S.potions}</dd><dt>${tx("Or")}</dt><dd id="goldtxt"></dd>
       ${S.prestige.count ? `<dt>${tx("Ascensions")}</dt><dd>${S.prestige.count} · ✦ ${S.prestige.shards}</dd>` : ""}</dl>${this.powerSourcesHTML()}</details></div>`;
+    // (it. 3083) « Compagnon : X » coupé net par les icônes des sorts (six à 1280 px, partie avancée : « Compag ») : s’il ne tient pas,
+    // le nom seul (portrait à côté, phrase entière dans l'infobulle), avec « … » au besoin
+    // (mesuré une seconde fois quand les polices sont prêtes : la police de secours n’a pas la même largeur)
+    const fitDuo = () => {
+      const dt = $(this.root, "#p-hero .duotag"), full = dt && dt.querySelector(".dfull");
+      if (!full) return;
+      dt.classList.remove("short");
+      if (full.offsetParent) dt.classList.toggle("short", full.scrollWidth > full.clientWidth + 1);
+    };
+    fitDuo();
+    if (!this.duoFontsOk) { this.duoFontsOk = true; document.fonts?.ready.then(fitDuo); }
     this.tick();
   }
 

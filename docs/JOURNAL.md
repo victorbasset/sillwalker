@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3083) Héros (carte de l'Aventure) : avec six sorts appris (héros et compagnon), le libellé « Compagnon : Rôdeur » était
+  coupé net (« Compag », sans « … » : texte nu d'un bouton flex) par les icônes des sorts, à 1280 px comme à 1920 px (partie d'une
+  semaine, vu en thème clair). Mesuré au dessin (et une fois les polices prêtes) : s'il ne tient pas, le nom seul (portrait à côté,
+  phrase entière dans l'infobulle), coupé par « … » au besoin. Captures fr, de, ja, ru : « Rôdeur », « Waldläufer », « レンジャー »,
+  « Следопыт » entiers. Au passage : check-imports prenait le « " » de l'expression /<span class="chip/ pour une chaîne (déclaration
+  de NAMES avalée selon la parité des guillemets) : écrit \x22. Autotest : nouveau contrôle ; 347/347.
 - 2026-11-21 (it. 3082) Contrôle du début de partie : first-minutes (objet et boss 42-86 s, quête 154-170 s, 1er déblocage 351-408 s)
   et early-pace (60 min : niveau 41, zone 23-26, 6,3 déblocages) identiques à l'it. 3019. Idées ouvertes relues : toutes P3 à juger
   avec Victor (familiers, Héros à 1280 px, or en fin de course, chasses, suffixes russes).
