@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3074) Contrôle : fuzz.mjs 60 graines, 1 200 parties neuves, 0 bloquée ; avec une bénédiction du jour (FUZZ_DAYMOD=all,
+  30 graines), 600 parties, 0 bloquée.
 - 2026-11-21 (it. 3073) Contrôle : bande de dev-data en japonais, hud-probe 0 / 83 à 1920 px et 0 / 77 à 1280 px ; nom du boss
   (« 覚醒したムラサキボウシ ») vu agrandi : il finit avant la pastille de l'or, le héros reste dessous : fausse alerte de la revue 3071.
 - 2026-11-21 (it. 3072) Contrôle : sonde des textes rognés (clip-probe) sur la partie de fin de partie en ko et zh à 1920 px, en à 1366,
