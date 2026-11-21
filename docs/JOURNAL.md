@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3068) Contrôle : Familiers de la partie d'une semaine en japonais à 1280 px : propre (rangée défilante placée sur le familier actif).
 - 2026-11-21 (it. 3067) Contrôle : Quêtes de la partie d'une semaine en chinois à 1280 px : propre. Une chasse « ours polaire ×60, absent d'ici, zone 343 » illustre la décision 3 de Victor ; 22 quêtes en une semaine : artefact du joueur simulé (ne forge ni ne transmute).
 - 2026-11-21 (it. 3066) Contrôle : Compétences de la partie d'une semaine en coréen à 1280 px : propre (colonne de gauche à défilement propre, voulu ; 2 801 points en surplus du grand graphe : décision 7 de Victor).
 - 2026-11-21 (it. 3065) Contrôle : Talents de la partie d'une semaine en polonais à 1280 px : propre (maîtrises « choisir un bonus » en attente : la partie simulée n'en choisit pas).
