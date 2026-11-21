@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3159) Contrôle : parties d'une heure des 20 héros à 1920 px avec l'interface à 130 % en pl, ru, de : 60 mesures, aucun
+  défaut (après le correctif de l'it. 3156).
 - 2026-11-21 (it. 3158) Contrôle : parties de 6 h des 20 héros à 1920 px avec l'interface à 130 % en pl, ru, de : 60 mesures, aucun défaut.
 - 2026-11-21 (it. 3157) Contrôle : partie d'une heure à 1366 px avec l'interface à 130 % en ru, pl, fr : aucun défaut (le zoom est limité
   par la largeur de l'écran, effectiveUiScale, et les Réglages le disent).
