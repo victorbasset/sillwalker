@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3133) Parties d'une heure des 20 héros en russe à 1280 px dans --overflow-report : un seul défaut, Héros > Sorts de la
+  danseuse de lames (8 px) : avant le Grimoire des sorts, l'encadré « 🔒 Гримуар заклинаний · Достигни зоны 45 » faisait passer le titre
+  sur deux lignes. Titre sur une ligne (« … », titre entier en bulle), encadré calé à droite : 0 px. npm test, autotest 348/348,
+  all 1280 : aucun.
 - 2026-11-21 (it. 3132) Contrôle : lang-overflow all complet (10 langues × 1920, 1600, 1366, 1280, fin 1280, fin 1920 × 130 %, semaine,
   heure 1280 et 1600, neuve, max 1920 et 1280 ; avec rognés, a11y, première ascension, talents vierges) : 130 mesures, aucun défaut.
   « Avant le boss 1 / 9 » contre « 1 / 11 » sur deux captures : série de 7 à 13 monstres tirée au hasard (it. 1852), voulu.

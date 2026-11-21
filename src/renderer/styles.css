@@ -1555,6 +1555,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 .partnerbox h2 small.half { display: none; }
 /* même hauteur de titre que celui du héros (qui porte le bouton du Grimoire) : les cartes partent à la même ligne */
 .spellduo.two .spellbox > h2 { min-height: 28px; }
+/* (it. 3133) avant le Grimoire des sorts, l'encadré « 🔒 Grimoire… · zone 45 » faisait passer le titre sur deux lignes (russe, danseuse
+   de lames, 1280 px : la page défilait de 8 px) : titre sur une ligne (« … », titre entier en bulle), encadré calé à droite */
+.spellbox > h2:has(> .sbt) { display: flex; align-items: center; gap: 8px; }
+.spellbox > h2 > .sbt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spellbox > h2 > .spellbook { flex: none; margin-left: auto; }
 /* (it. 1507, demande de Victor) même écart sous les sorts qu'entre les deux cadres (12 px) */
 .spellduo { margin-bottom: 12px; }
 .spellmini .pmini { color: var(--muted); margin: 0 3px; } /* (it. 1495) séparateur héros · compagnon */
