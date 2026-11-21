@@ -1623,6 +1623,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 3122) partie d'une heure en polonais à 1600 px : succès en cours « (1 / 20) » sur deux lignes, la page défilait de 18 px ; liste
    resserrée aussi sous 1920 px */
 @container panel (max-width: 1855px) { .achlist { line-height: 1.2; row-gap: 1px; } }
+/* (it. 3156) partie d'une heure en polonais, 1920 px avec l'interface à 130 % : Succès défilait encore ; liste un peu plus petite sous
+   1467 px de panneau (12 px, progression 11 px) */
+@container panel (max-width: 1467px) { .achlist { font-size: 12px; line-height: 1.15; } .achlist .achp { font-size: 11px; } }
 @container panel (max-width: 1334px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); font-size: 12px; gap: 1px 8px; } }
 /* Mode mini : icône du sort lancé, au-dessus du héros. */
 #mini .minispell { position: absolute; left: 0; top: 0; width: 18px; height: 18px; image-rendering: pixelated; pointer-events: none; }

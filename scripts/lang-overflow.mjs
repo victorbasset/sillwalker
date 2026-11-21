@@ -154,8 +154,10 @@ for (const lang of langs) {
     }
     // (it. 1048) fin de partie, 1920 px, « Taille de l'interface » à 130 % (zoom du panneau seul : les @media voyaient la
     // fenêtre ; Boutique, Bestiaire, Statistiques défilaient, it. 1046). NO_ZOOM=1 pour sauter cette mesure.
-    if (fs.existsSync(endFile) && !process.env.NO_ZOOM) {
-      const end = JSON.parse(fs.readFileSync(endFile, "utf8"));
+    // (it. 3156) aussi la partie d'une HEURE : Succès en polonais défilait de 53 px à 130 % (succès en cours sur deux lignes)
+    if (!process.env.NO_ZOOM) for (const [zf, ztag] of [[endFile, "fin"], [path.join(root, "scripts", "fixtures", "hour-save.json"), "heure"]]) {
+      if (!fs.existsSync(zf)) continue;
+      const end = JSON.parse(fs.readFileSync(zf, "utf8"));
       fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...end, last: Date.now(), settings: { ...(end.settings || {}), lang, uiScale: 1.3 } }));
       fs.writeFileSync(path.join(dir, "settings.json"), JSON.stringify({ panelZoom: 1.3 }));
       let out = "";
@@ -168,7 +170,7 @@ for (const lang of langs) {
       const m = out.match(/\[overflow\] (\d+) (.*)/);
       const res = m ? m[2].trim() : "pas de mesure";
       if (res !== "aucun") bad++;
-      console.log(`${lang.padEnd(3)} fin 1920 × 130 % : ${res}`);
+      console.log(`${lang.padEnd(3)} ${ztag} 1920 × 130 % : ${res}`);
     }
     // (it. 1286) état « tout au maximum » (scripts/max-save.mjs : toutes les collections, compteurs géants) à 1920 et
     // 1280 px : en russe, les Statistiques y défilaient de 4 px (it. 1285) sans qu'aucune autre mesure le voie.

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3156) Interface à 130 % à 1920 px, parties d'une heure et de 6 h en ru, de, pl, es, fr, ja : Succès en polonais défilait de
+  53 px (partie d'une heure). Sous 1467 px de panneau, liste des succès en 12 px (progression 11 px) : aucun. lang-overflow mesure aussi
+  la partie d'une heure à 130 % (« xx heure 1920 × 130 % ») ; all (130 %) : 20 mesures, aucun. npm test, autotest 348/348.
 - 2026-11-21 (it. 3155) Contrôle : parties d'une heure des 20 héros à 1366 px en ru, pl, de, es : 80 mesures, aucun défaut.
 - 2026-11-21 (it. 3154) « Quoi de neuf » : édition 175 (défilements de milieu de partie corrigés aux it. 3122, 3133, 3139, 3143, 3145) ;
   clés 3472-3473, 9 langues. npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
