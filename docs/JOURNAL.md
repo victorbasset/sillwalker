@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3144) Contrôle : parties de 6 h des 20 héros en fr, en, ko, zh à 1280 px : 80 mesures, aucun défaut. Balayage 6 h complet
+  (20 héros × 10 langues, it. 3139-3144) : trois défauts trouvés et corrigés (it. 3139, 3143).
 - 2026-11-21 (it. 3143) Parties de 6 h des 20 héros en es, pt, ja à 1280 px : deux défauts en espagnol. Héros > Sorts, duo guerrier +
   rôdeur (5 parties) : 5 px (cartes de sorts hautes) : sous 1467 px, 6 px au lieu de 12 sous les cartes. Quêtes (chaman) : 12 px (note du
   bas sur deux lignes, quatre récompenses sur trois rangées) : note sur une ligne, texte entier en bulle. Les 6 parties : aucun ; npm test,
