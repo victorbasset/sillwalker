@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3092) Contrôle : fight-odds (guerrier, 12 h, graines 1-3) : normaux 0 %, élites 31 %, champions 46 %, boss 59 % (repère
+  it. 2874 : 0 / 31 / 46 / 57) ; élites par sorte de 18 % (venimeux) à 50 % (vampirique), comme à l'it. 2877 (décision 8) : stable.
 - 2026-11-21 (it. 3091) REVUE GÉNÉRALE : simulations 12 h (graine 7) samouraï 69, druide 64, barde 65 ; perf bande 19,6 %, panneau
   20,3 %, mini 5,4 %, icône 0,7 % (charge ≈ 2) ; captures Bestiaire et Talents en fr, en, ko, Ascension en ko : propres, 0 erreur ;
   texte allemand (25 082 lignes) : aucun mot français (« des », « du » sont allemands). Rien de nouveau pour « Idées ».
