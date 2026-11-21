@@ -504,6 +504,9 @@ export class StripRenderer {
     this.bubbleX = null;
     this.bubbleW = this.bubble.offsetWidth || 0; // mesurée une fois par réplique
     this.bubbleH = this.bubble.offsetHeight || 20;
+    // (it. 3169) police pas encore chargée (première réplique en chinois) : largeur remesurée une fois la police prête, sinon la bulle
+    // trop étroite pour les règles ci-dessous passait sur la barre de vie du monstre (« 下金子雨啦！ », 1280 px)
+    if (document.fonts && document.fonts.status !== "loaded") { const t = this.bubble.textContent; document.fonts.ready.then(() => { if (this.bubble.textContent === t) { this.bubbleW = this.bubble.offsetWidth || this.bubbleW; this.bubbleX = null; } }); }
     // (it. 3042) invisible jusqu'à sa première place (updateSpeech) : elle s'affichait une image en (0, 0), sur la pastille de zone
     this.bubble.style.visibility = "hidden";
     mark("speech");
@@ -516,6 +519,8 @@ export class StripRenderer {
       const bm = this.game.R.mon;
       if (!this.bubbleUrgent && bm && bm.boss) this.bubbleT = 0;
       if (this.bubbleT <= 0) { this.bubble.hidden = true; mark("speech"); return; }
+      // (it. 3169) mesurée à 0 (bande pas encore mise en page au moment de la réplique) : remesurée ici, une fois
+      if (!this.bubbleW && this.bubble.offsetWidth) { this.bubbleW = this.bubble.offsetWidth; this.bubbleH = this.bubble.offsetHeight || 20; this.bubbleX = null; }
       let bx = q(x + this.hero.w / 2);
       if (this.centerHud && this.hudSpan && this.bubbleW) { // informations au milieu : la bulle passe à côté du bloc
         const [a, b] = this.hudSpan, half = this.bubbleW / 2;

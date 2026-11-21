@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3169) Bande, hud-probe sur les parties de 12 h des 20 héros en ko et zh à 1280 px : 37 sur 40 à 0 (après les
+  it. 3164-3168). Deux bulles de parole sur la barre de vie du monstre (zh) : largeur de la bulle remesurée si elle valait 0 ou si la
+  police n'était pas encore chargée (cause probable, non prouvée : les deux parties étaient déjà à 0 une fois sur deux). Restent rares :
+  le nom de sort en grand (pl, it. 3166, non reproduit en 3 passages) et une étiquette d'élite à 21 px sous la pastille de zone
+  (gardien des étoiles, ko : non volant). npm test, autotest 348/348.
 - 2026-11-21 (it. 3168) Bande : la bulle de parole se replace aussi quand la rangée du haut change (barres de vie qui apparaissent en
   début de combat : elle restait dessous). hud-probe mage pl, chaman ja (12 h), danseur de lames de (6 h), deux passages : 0 ;
   npm test, autotest 348/348, perf bande 19,8 % (inchangée).
