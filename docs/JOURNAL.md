@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3103) Contrôle d'accessibilité (règles de l'autotest) sur la fin de partie et l'état « tout au maximum » (fr, 1280 px) :
+  0, hors « +1 » des talents (span.tmax DANS un bouton : exclu exprès par la règle de l'autotest, le bouton porte le clavier). Vérifié
+  que la pastille des paliers (it. 3102, elle aussi dans le bouton de la maîtrise) reçoit bien le focus et qu'Entrée ouvre la fenêtre
+  de choix (partie d'une semaine) : sans elle, ce choix n'était pas faisable au clavier.
 - 2026-11-21 (it. 3102) Accessibilité, vue en rejouant les règles de l'autotest sur la partie d'une semaine (fr, de, ru, 1280 px) :
   « Zone suivante » grisée (héros à son record) n'avait pas de bulle : « Bats le boss de cette zone pour ouvrir la suivante. » (clé 3462,
   9 langues) ; la pastille des paliers de maîtrise (Talents, span.mpend, cliquable) n'était pas atteignable au clavier : tabindex et
