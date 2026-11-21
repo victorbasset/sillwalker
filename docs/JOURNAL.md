@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3107) Contrôle : fenêtre « Quoi de neuf » au lancement (newsSeen 172) en fr et ja à 1280 px : l'édition 173 en tête,
+  propre. (Les deux lignes « Sac plein : un coffre… fait place » puis « Correction : … ne vend plus » se suivent : éditions publiées,
+  correction voulue, it. 2954.)
 - 2026-11-21 (it. 3106) « Quoi de neuf » : édition 173 (noms sous le Briseur sur la Carte, it. 3069 ; nom du compagnon, it. 3083 ; « Zone
   suivante » grisée et paliers de maîtrise au clavier, it. 3102) ; clés 3463-3465, 9 langues (i18n-quotes : « Zone suivante » cité tel
   que traduit). npm test, autotest 348/348, lang-overflow de, ru, pl 1280 : propres.
