@@ -539,10 +539,13 @@ export class StripRenderer {
         }
       }
       // (it. 3042) au-dessus d'un héros grand (partie avancée), la bulle montait à −3 px et sortait coupée par le haut de la fenêtre
-      if (bx !== this.bubbleX) {
-        this.bubbleX = bx;
+      // (it. 3168) replacée aussi quand la rangée change (barres de vie qui apparaissent en début de combat : la bulle restait dessous,
+      // « Dziś nic nie przejdzie. » à 2 px au milieu, 1280 px)
+      const hb = this.hudBands(), hk = hb.bands.map((b) => b[0] + ":" + b[1]).join(",");
+      if (bx !== this.bubbleX || hk !== this.bubbleHK) {
+        this.bubbleX = bx; this.bubbleHK = hk;
         // sous une pastille ou une barre de vie de la rangée : la bulle reste sous la rangée (au-dessus d'un héros grand, elle y montait)
-        const hb = this.hudBands(), hw = (this.bubbleW || 0) / 2;
+        const hw = (this.bubbleW || 0) / 2;
         let by = Math.max(2, GROUND - this.hero.h - 30);
         if (hb.bands.some(([a, b]) => bx + hw > a && bx - hw < b)) by = Math.max(by, hb.h + 2);
         this.bubbleY = by; // (it. 3049) hauteur réelle, lue par speechObstacle
