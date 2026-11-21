@@ -104,19 +104,20 @@ for (const lang of langs) {
     // aucune autre sauvegarde de test n'est à ce stade. NO_HOUR=1 pour sauter. Régénérer : DUMP=scripts/fixtures/hour-save.json node …
     // scripts/simulate.js 1 warrior (puis vider son journal, « log »)
     const hourFile = path.join(root, "scripts", "fixtures", "hour-save.json");
-    if (fs.existsSync(hourFile) && !process.env.NO_HOUR) {
+    // (it. 3122) aussi à 1600 px : Succès en polonais (succès en cours sur deux lignes) défilait de 18 px à cette largeur seulement
+    if (fs.existsSync(hourFile) && !process.env.NO_HOUR) for (const hw of [1280, 1600]) {
       const hr = JSON.parse(fs.readFileSync(hourFile, "utf8"));
       fs.writeFileSync(path.join(dir, "save.json"), JSON.stringify({ ...hr, last: Date.now(), settings: { ...(hr.settings || {}), lang } }));
       let out = "";
       try {
         out = execFileSync("xvfb-run", ["-a", "-s", "-screen 0 1920x1080x24", path.join(root, "node_modules/.bin/electron"), root,
-          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, "--width=1280", "--overflow-report", "--exit-after=25"],
+          "--ghost", "--no-sandbox", "--release-ui", `--user-data=${dir}`, `--width=${hw}`, "--overflow-report", "--exit-after=25"],
           { encoding: "utf8", timeout: 70000, stdio: ["ignore", "pipe", "pipe"] });
       } catch (e) { out = String(e.stdout || "") + String(e.message || ""); }
       const m = out.match(/\[overflow\] (\d+) (.*)/);
       const res = m ? m[2].trim() : "pas de mesure";
       if (res !== "aucun") bad++;
-      console.log(`${lang.padEnd(3)} heure 1280 : ${res}`);
+      console.log(`${lang.padEnd(3)} heure ${hw} : ${res}`);
     }
     // (it. 3113) partie NEUVE (premier lancement, aucune sauvegarde) à 1280 px : « Zone précédente » grisée sans bulle en zone 1,
     // qu'aucune sauvegarde de test ne montrait (toutes sont avancées). NO_NEW=1 pour sauter.
