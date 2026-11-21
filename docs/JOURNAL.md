@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3093) Outil : --overflow-report (donc lang-overflow, dans toutes ses langues et tous ses états : fin, semaine, max,
+  130 %…) signale aussi « onglet-rogné=N(textes) », le contrôle de clip-probe (texte coupé net par un cadre, « … » jamais dessiné sur un
+  conteneur flex). Piège : pendant la mesure le panneau reste fermé (visibility: hidden) : ce critère est ignoré. Validé sur l'ancien
+  code (adventure-rogné=1 « Compagnon : Rôdeur », map-rogné=1 « Au-delà du Rebord ») ; code actuel, all 1280 : 60 mesures, aucun.
 - 2026-11-21 (it. 3092) Contrôle : fight-odds (guerrier, 12 h, graines 1-3) : normaux 0 %, élites 31 %, champions 46 %, boss 59 % (repère
   it. 2874 : 0 / 31 / 46 / 57) ; élites par sorte de 18 % (venimeux) à 50 % (vampirique), comme à l'it. 2877 (décision 8) : stable.
 - 2026-11-21 (it. 3091) REVUE GÉNÉRALE : simulations 12 h (graine 7) samouraï 69, druide 64, barde 65 ; perf bande 19,6 %, panneau

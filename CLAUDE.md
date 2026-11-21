@@ -148,6 +148,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   attendu (tous les onglets ; lang-overflow ne voit que ce qui fait défiler, pas un texte coupé par son cadre : it. 3069, Carte). Validée
   sur l'ancien défaut (1 cas) ; partie d'une semaine en fr, de, ru, pl, ja et dev-data en ru : 0. Depuis l'it. 3084, aussi le texte qu'un
   élément coupe lui-même, et « … » demandé sur un conteneur flex ou grid (jamais dessiné : « Compag », it. 3083).
+  Depuis l'it. 3093, le même contrôle fait partie de --overflow-report (donc de lang-overflow, tous ses états) : « onglet-rogné=N(textes) ».
   Nombres flottants (it. 3057) : `--stage=scripts/stage/float-probe.js`, « FPROBE … sur bulle/boss B · paires P » (repères dans le script ;
   freeSpot, sans place libre, prend la place sans obstacle qui recouvre le moins de nombres : it. 3052, 3056).
   De temps en temps, le lancer dans une langue à trois pluriels (`settings.lang = "ru"` ou `"pl"` dans la copie) : une forme mal écrite ne casse qu'à l'affichage.

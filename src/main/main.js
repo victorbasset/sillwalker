@@ -289,7 +289,21 @@ function start() {
               if (!n || !h.getClientRects().length || !/[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}]/u.test(n.data)) continue;
               const rg = document.createRange(); rg.selectNodeContents(n); const rs = [...rg.getClientRects()].filter((x) => x.width > 0);
               if (rs.length > 1 && Math.abs(rs[rs.length - 1].top - rs[0].top) > 2) th.push(n.data.trim()); }
-            if (th.length) out.push(id + "-titre=" + th.slice(0, 4).join("/")); }
+            if (th.length) out.push(id + "-titre=" + th.slice(0, 4).join("/"));
+            // (it. 3093) texte coupé net par un cadre (overflow caché), même sans défilement : ce que voit scripts/stage/clip-probe.js
+            // (« Au-delà du Rebord » coupé, it. 3069 ; « Compag », it. 3083). « … » demandé sur un conteneur flex ou grid ne compte pas :
+            // le navigateur ne le dessine pas. Exclus : rangées défilantes, listes qui défilent, dessins déplaçables (grand graphe).
+            const rog = []; if (pane) { const fx = (st) => /flex|grid/.test(st.display);
+              for (const el of pane.querySelectorAll("*")) { if (![...el.childNodes].some((n) => n.nodeType === 3 && n.data.trim())) continue;
+                const cs = getComputedStyle(el); if (el.closest(".hscroll") || !el.getClientRects().length) continue; // (panneau fermé pendant la mesure : visibility ignorée)
+                const r = el.getBoundingClientRect(); if (!r.width || !r.height) continue; let d = 0;
+                if (el instanceof SVGElement) { if (!el.closest("svg.rebord")) continue; const c = el.ownerSVGElement.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); }
+                else if (/hidden|clip/.test(cs.overflowX) && !(cs.textOverflow === "ellipsis" && !fx(cs))) d = el.scrollWidth - el.clientWidth;
+                else if (!(cs.textOverflow === "ellipsis" && !fx(cs))) for (let a = el.parentElement; a && a !== pane.parentElement; a = a.parentElement) { const s = getComputedStyle(a);
+                  if ((s.textOverflow === "ellipsis" && !fx(s)) || /auto|scroll/.test(s.overflowX + s.overflowY)) break;
+                  if (/hidden|clip/.test(s.overflowX)) { const c = a.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); break; } }
+                if (d > 2) rog.push(el.textContent.trim().slice(0, 20)); } }
+            if (rog.length) out.push(id + "-rogné=" + rog.length + "(" + rog.slice(0, 3).join("/") + ")"); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)
