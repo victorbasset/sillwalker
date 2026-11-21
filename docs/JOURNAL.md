@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3099) Contrôle : hero-table HEROES=all, 12 h, graines 7,3,11 : moyenne 64,8 (65,1 à l'it. 2609), écart 6,7 zones
+  (5,0) : assassin 62,0, mage 62,3 → gladiateur et samouraï 67,7, gardien des étoiles 68,7. À confirmer sur 4 graines de plus (21, 31,
+  41, 51) avant tout réglage (règle de CLAUDE.md : paliers des zones).
 - 2026-11-21 (it. 3098) Contrôle : simulate.js 168 warrior (graine 7) : record de la semaine 361 (42e course), comme la partie d'une
   semaine de référence (it. 2976) ; repère it. 2332 : 350.
 - 2026-11-21 (it. 3097) Contrôle : tab-pace identique à l'it. 3020 (talents 1 min … ascension 20-28 min).
