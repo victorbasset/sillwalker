@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3044) POUR-VICTOR : résumé de la nuit (bande à 1280 px, partie de deux semaines, décision 8).
 - 2026-11-21 (it. 3043) Contrôle : hud-probe à 1280 px sur la partie d'une semaine avec un arbalétrier (0 / 113) et un nécromancien (0 / 98) ; aucune erreur.
 - 2026-11-21 (it. 3042) Bulle de parole du héros (strip.js say / updateSpeech) : 1) elle s'affichait une image en (0, 0), sur la pastille
   de zone, avant sa première place : invisible (visibility) jusqu'à ce qu'elle soit placée ; 2) au-dessus d'un héros grand (partie

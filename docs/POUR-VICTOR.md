@@ -4,6 +4,16 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Nuit du 21/11 (it. 3016-3044) : la bande sur un écran de portable
+
+- À 1280 px, le héros combat sous la pastille de gauche (zone, record) : les icônes de sorts, des nombres décalés de côté, les bannières
+  de succès et la bulle de parole passaient dessus. Corrigé (it. 3035, 3037, 3039, 3042) ; la bulle ne s'affiche plus une image en haut à
+  gauche avant sa place, ni coupée par le haut au-dessus d'un héros grand. Outil de contrôle : scripts/stage/hud-probe.js (0 élément
+  fautif sur partie neuve, dev-data et partie d'une semaine, avec guerrier, arbalétrier, nécromancien).
+- Partie de DEUX semaines simulée (zone 401) : rien de cassé (débordements, texte, absence, parcours).
+- Décision 8 : cas concret ajouté (vendre 48 objets de niveau 350 rapporte 123 k d'or pour 2e39 en poche ; le prix suit le niveau en ligne
+  droite, l'or des zones est exponentiel).
+
 ## Soirée du 20/11 (it. 2961-3015) : une partie d'une semaine passée au crible
 
 - **Plantage corrigé** (it. 2978, introduit le matin même à l'it. 2944, jamais publié) : le retour d'absence d'un héros avancé (bonus de
