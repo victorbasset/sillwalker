@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3129) Perf de la partie d'une heure (PERF_SAVE, 3 mesures) : bande ≈ 20 %, panneau ouvert ≈ 21,2 % (+1,2 à 1,5 point ;
+  dev-data : bande 20,1, panneau 20,0). Enquête : pas de redessin en boucle (1 renderAll en 5 s, déclenché par une victoire) ; les
+  mutations « role/tabindex » des ⓘ venaient de la préparation des onglets cachés (une fois, 4 s après le lancement). Écart faible,
+  cause non trouvée : laissé.
 - 2026-11-21 (it. 3128) Outil : stall-check part aussi de la partie d'une heure (« heure ») : 100 parties, 0 figée.
 - 2026-11-21 (it. 3127) Contrôle : résumé d'absence (8 h) de la partie d'une heure en ru et pl à 1280 px : 0 texte coupé.
 - 2026-11-21 (it. 3126) Contrôle : hud-probe sur la partie d'une heure à 1280 px : ru 0 / 69, de 0 / 78.
