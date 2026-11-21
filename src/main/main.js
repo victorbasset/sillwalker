@@ -303,7 +303,14 @@ function start() {
                   if ((s.textOverflow === "ellipsis" && !fx(s)) || /auto|scroll/.test(s.overflowX + s.overflowY)) break;
                   if (/hidden|clip/.test(s.overflowX)) { const c = a.getBoundingClientRect(); d = Math.max(c.left - r.left, r.right - c.right); break; } }
                 if (d > 2) rog.push(el.textContent.trim().slice(0, 20)); } }
-            if (rog.length) out.push(id + "-rogné=" + rog.length + "(" + rog.slice(0, 3).join("/") + ")"); }
+            if (rog.length) out.push(id + "-rogné=" + rog.length + "(" + rog.slice(0, 3).join("/") + ")");
+            // (it. 3104) règles d'accessibilité de l'autotest, ici dans tous les états mesurés (l'autotest ne voit que dev-data : « Zone
+            // suivante » grisée sans bulle et paliers de maîtrise hors clavier, vus sur la partie d'une semaine, it. 3102) : bouton grisé
+            // sans bulle (lui ou un parent ; « Maximum » excepté) ; élément cliquable hors bouton sans tabindex (dans un bouton ou un SVG : exclu)
+            const ax = []; if (pane) { const maxTxt = window.__tx ? window.__tx("Maximum") : "Maximum";
+              for (const b of pane.querySelectorAll("button[disabled]")) if (b.getClientRects().length && !b.closest("[title],[data-title]") && b.textContent.trim() !== maxTxt) ax.push("grisé:" + b.textContent.trim().slice(0, 18));
+              for (const e of pane.querySelectorAll("[data-action], [data-tab]")) if (e.getClientRects().length && !/^(BUTTON|INPUT|A|SELECT|SUMMARY)$/.test(e.tagName) && !e.hasAttribute("tabindex") && !e.closest("button") && !e.closest("svg")) ax.push("clavier:" + e.tagName + "." + String(e.className).split(" ")[0]); }
+            if (ax.length) out.push(id + "-a11y=" + ax.length + "(" + [...new Set(ax)].slice(0, 3).join("/") + ")"); }
           P.showNews(); const nb = document.querySelector("#modal .panel"), no = nb ? nb.scrollHeight - nb.clientHeight : 0;
           if (no > 2) out.push("news=" + no); document.querySelector("#modal [data-action=closemodal]")?.click();
           // Héros > Sorts et attaque (sorts du héros + style de l'attaque de base)

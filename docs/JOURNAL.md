@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3104) Outil : --overflow-report (lang-overflow) rejoue les règles de l'autotest « bouton grisé avec bulle » et « cliquable
+  hors bouton au clavier » dans tous ses états et langues : « onglet-a11y=N(…) ». Validé sur l'ancien code (adventure-a11y=1 « Zone
+  suivante », défaut de l'it. 3102) ; code actuel, all 1280 : 60 mesures, aucun.
 - 2026-11-21 (it. 3103) Contrôle d'accessibilité (règles de l'autotest) sur la fin de partie et l'état « tout au maximum » (fr, 1280 px) :
   0, hors « +1 » des talents (span.tmax DANS un bouton : exclu exprès par la règle de l'autotest, le bouton porte le clavier). Vérifié
   que la pastille des paliers (it. 3102, elle aussi dans le bouton de la maîtrise) reçoit bien le focus et qu'Entrée ouvre la fenêtre
