@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3037) Nombres flottants à 1280 px : la place libre (freeSpot) pouvait décaler un nombre de côté jusque sous une pastille,
+  en haut de la bande (« −15,90 Md · transpercé » sur la pastille de gauche, partie d'une semaine) : revérifié après le décalage, nouvelle
+  place cherchée sous la rangée. Sonde (12 grands nombres empilés à droite de la pastille) : 11 sous la rangée avant, 0 après. Première
+  version (descendu sans recherche) : un chevauchement relevé par le contrôle japonais / coréen, corrigé. Autotest : nouveau contrôle ;
+  deux passages 344/344. Notés sans correction : colonnes et météores tombent du ciel à travers la rangée (voulu), traînée de perçage
+  2 px dessus (négligeable).
 - 2026-11-21 (it. 3036) Autotest : contrôle de l'it. 3035 (icône sous une pastille : départ 46 px, rangée 26 px ; ailleurs inchangé) ; 343/343. Bannières vérifiées : première ligne à 22 px, sous la rangée.
 - 2026-11-21 (it. 3035) Bande à 1280 px : les icônes de sorts lancés (héros, compagnon) et de sort appris montaient sur la pastille de
   gauche de la rangée d'informations (le héros y combat dessous ; à 1920 px, il est plus à droite). strip.js iconTop : sous une pastille,

@@ -557,7 +557,8 @@ export class StripRenderer {
     if (nearBoss) y = Math.max(y, 46);
     // (it. 1571) sous une pastille de la rangée du haut (zone, barres de vie, or) : même départ bas, pour finir sa montée
     // (22 px) sous la rangée plutôt que sur la pastille
-    const hb = this.hudBands(), underHud = hb.bands.some(([a, b]) => x > a - 20 && x < b + 20);
+    const hb = this.hudBands();
+    let underHud = hb.bands.some(([a, b]) => x > a - 20 && x < b + 20);
     if (!nearBoss && underHud) y = Math.max(y, hb.h + 20);
     // Nombres qui tombent au même endroit au même instant (fin de partie : coup, critique et dégâts reçus) : chacun
     // cherche une place libre parmi les nombres encore jeunes, au-dessus puis au-dessous, sinon de côté (it. 846).
@@ -572,7 +573,11 @@ export class StripRenderer {
     // bout de la file)
     // (it. 1653) la bulle de parole du héros aussi : en fin de partie, le nom d'un sort (« Volley of Arr… ») passait dessous
     const obs = [...(this.bossTag && this.bossTag.isConnected ? this.bossObstacles() : []), ...this.speechObstacle()];
-    const at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : 0, obs.length ? obs : null);
+    let at = this.freeSpot(x, y - (big ? 14 : 12), w, h, nearBoss || underHud ? y - (big ? 14 : 12) : 0, obs.length ? obs : null);
+    // (it. 3037) la place libre peut décaler le nombre de côté, jusque sous une pastille (à 1280 px, « −15,90 Md · transpercé » naissait
+    // en haut de la bande sous la pastille de gauche) : revérifié après le décalage, sur toute sa largeur (il est centré sur at.x)
+    // nouvelle place cherchée sous la rangée (minY) : descendu sans recherche, il pouvait recouvrir un autre nombre (autotest japonais / coréen)
+    if (!underHud && hb.bands.some(([a, b]) => at.x + w / 2 > a && at.x - w / 2 < b) && at.y < hb.h + 20) { underHud = true; at = this.freeSpot(at.x, hb.h + 20, w, h, hb.h + 20, obs.length ? obs : null); }
     const f = el("div", "float" + (big ? " big" : ""), this.fxLayer);
     f.textContent = txt;
     f.style.color = col;
