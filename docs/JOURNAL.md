@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3172) Contrôle de robustesse : fuzz.mjs 1200 parties, 0 bloquées (aussi FUZZ_DAYMOD=all) ; stall-check 100 parties,
+  0 figées (aussi STALL_DAYMOD=all) ; save-fuzz sur la partie d'une semaine : ok balayage (1274 corruptions).
 - 2026-11-21 (it. 3171) REVUE GÉNÉRALE. Simulations 12 h (graine 7, record = dernière course) : samouraï 69, barde 65, artificier 59
   (bruit d'une graine ±4). Perf : bande 20,1 %, panneau 20,0 %, mini 5,5 %, icône 0,8 % (stables). Captures fr, en, ja (bande, panneau
   Héros, mini) : propres. Texte coréen (--dump-text, 25 546 lignes) : aucun mot non traduit (HP, Lv, Esc, Shift, noms de langues et
