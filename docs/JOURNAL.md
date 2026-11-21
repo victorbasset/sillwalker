@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3073) Contrôle : bande de dev-data en japonais, hud-probe 0 / 83 à 1920 px et 0 / 77 à 1280 px ; nom du boss
+  (« 覚醒したムラサキボウシ ») vu agrandi : il finit avant la pastille de l'or, le héros reste dessous : fausse alerte de la revue 3071.
 - 2026-11-21 (it. 3072) Contrôle : sonde des textes rognés (clip-probe) sur la partie de fin de partie en ko et zh à 1920 px, en à 1366,
   es à 1280 : 0 partout. Onglet Héros (id « class », oublié par la revue 3071) en japonais à 1920 px : propre, 0 erreur.
 - 2026-11-21 (it. 3071) REVUE GÉNÉRALE : simulations 12 h (graine 7) guerrier 64, mage 62, rôdeur 65 (repères habituels) ; perf (copie
