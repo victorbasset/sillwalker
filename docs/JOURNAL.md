@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3142) Contrôle : parties de 6 h des 20 héros en allemand et polonais à 1280 px : 40 mesures, aucun défaut.
 - 2026-11-21 (it. 3141) REVUE GÉNÉRALE : simulations 12 h (graine 7) rôdeur 65, berserker 62, chaman 62 ; perf bande 20,3 %, panneau
   20,0 %, mini 5,5 %, icône 0,8 % (charge 3-4,8) ; captures Talents et Quêtes de la partie d'une heure en fr, en, ja à 1280 px : propres,
   0 erreur ; texte japonais : mots latins = HP, pt, Lv, BGM (usage japonais), noms propres, touches. Rien pour « Idées ».
