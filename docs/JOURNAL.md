@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3098) Contrôle : simulate.js 168 warrior (graine 7) : record de la semaine 361 (42e course), comme la partie d'une
+  semaine de référence (it. 2976) ; repère it. 2332 : 350.
 - 2026-11-21 (it. 3097) Contrôle : tab-pace identique à l'it. 3020 (talents 1 min … ascension 20-28 min).
 - 2026-11-21 (it. 3096) Contrôle : quest-pace 12 h (graines 1-3) : 226 quêtes accomplies, comme à l'it. 2892 ; tuer 11 min, champions
   59 min, chasses (prey) 50 min, zone 119 min : stable.
