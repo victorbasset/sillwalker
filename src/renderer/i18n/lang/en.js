@@ -2332,4 +2332,6 @@ export default {
   3457: "Correction: with a full bag, a treasure chest found on the way no longer sells an item to make room; its loot stays on the ground, like any loot.",
   3458: "Very long games: very large numbers are written with letters (Ud, Dd… up to Vg) instead of scientific notation; on hover, the hero's tiles no longer show long rows of digits.",
   3459: "The hero's tiles and the Ascension tab stay readable with very large numbers, even on a laptop screen.",
+  3460: "On a laptop screen, spell icons, numbers and announcements no longer cover the information at the top of the strip.",
+  3461: "The hero's speech bubble no longer flickers in the top-left corner or gets cut off at the top, and numbers no longer cover it or the boss's name.",
 };

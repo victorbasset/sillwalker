@@ -3461,5 +3461,7 @@ export const KEYS = [
   "Le résumé d’absence dit combien d’objets épiques les champions vaincus ont laissés.",
   "Correction : sac plein, un coffre au trésor trouvé en chemin ne vend plus d’objet pour faire place ; son butin reste au sol, comme tout butin.",
   "Très longues parties : les très grands nombres s’écrivent avec des lettres (Ud, Dd… jusqu’à Vg) plutôt qu’en notation scientifique ; au survol, les cases du héros ne montrent plus de longues rangées de chiffres.",
-  "Les cases du héros et l’onglet Ascension restent lisibles avec de très grands nombres, même sur un écran de portable."
+  "Les cases du héros et l’onglet Ascension restent lisibles avec de très grands nombres, même sur un écran de portable.",
+  "Sur un écran de portable, les icônes de sorts, les nombres et les annonces ne passent plus sur les informations du haut de la bande.",
+  "La bulle de parole du héros ne clignote plus en haut à gauche ni n’est coupée par le haut, et les nombres ne la recouvrent plus, pas plus que le nom du boss."
 ];

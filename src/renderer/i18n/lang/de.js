@@ -2332,4 +2332,6 @@ export default {
   3457: "Korrektur: Bei voller Tasche verkauft eine unterwegs gefundene Schatztruhe keinen Gegenstand mehr, um Platz zu machen; ihre Beute bleibt liegen, wie jede Beute.",
   3458: "Sehr lange Partien: Sehr große Zahlen werden mit Buchstaben geschrieben (Ud, Dd… bis Vg) statt in wissenschaftlicher Schreibweise; beim Überfahren zeigen die Heldenfelder keine langen Ziffernreihen mehr.",
   3459: "Die Heldenfelder und der Reiter Aufstieg bleiben bei sehr großen Zahlen lesbar, auch auf einem Laptop-Bildschirm.",
+  3460: "Auf einem Laptop-Bildschirm verdecken Zaubersymbole, Zahlen und Meldungen nicht mehr die Angaben oben in der Leiste.",
+  3461: "Die Sprechblase des Helden blinkt nicht mehr oben links auf und wird oben nicht mehr abgeschnitten; Zahlen verdecken weder sie noch den Namen des Bosses.",
 };

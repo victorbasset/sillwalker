@@ -2332,4 +2332,6 @@ export default {
   3457: "Poprawka: przy pełnej torbie skrzynia ze skarbem znaleziona po drodze nie sprzedaje już przedmiotu, by zrobić miejsce; jej łup zostaje na ziemi, jak każdy łup.",
   3458: "Bardzo długie gry: bardzo duże liczby zapisywane są literami (Ud, Dd… aż do Vg) zamiast notacji naukowej; po najechaniu kafelki bohatera nie pokazują już długich rzędów cyfr.",
   3459: "Kafelki bohatera i zakładka Wniebowstąpienie pozostają czytelne przy bardzo dużych liczbach, nawet na ekranie laptopa.",
+  3460: "Na ekranie laptopa ikony zaklęć, liczby i komunikaty nie zasłaniają już informacji u góry paska.",
+  3461: "Dymek bohatera nie miga już w lewym górnym rogu ani nie jest ucinany u góry, a liczby nie zasłaniają już ani jego, ani imienia bossa.",
 };

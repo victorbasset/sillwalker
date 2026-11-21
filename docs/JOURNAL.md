@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-21 (it. 3053) « Quoi de neuf » édition 172 (clés 3460-3461, 9 langues, i18n-check 0) : la bande sur un écran de portable
+  (it. 3035-3039) ; bulle de parole et nombres (it. 3042, 3052). Autotest 345/345 ; lang-overflow « all » 1280 : aucun.
 - 2026-11-21 (it. 3052) Nombres flottants sur la bulle de parole (et le nom du boss) : relevé cas par cas (sonde, partie d'une semaine,
   1280 px) : la plupart naissaient APRÈS la bulle, directement dedans (départ 12-14 px, bulle 3-27) ; freeSpot, sans place libre de
   tout (autres nombres + obstacles), revenait sur place. Seconde passe : une place qui évite au moins les obstacles (quitte à chevaucher

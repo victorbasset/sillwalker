@@ -2332,4 +2332,6 @@ export default {
   3457: "Correção: com a bolsa cheia, um baú do tesouro encontrado no caminho não vende mais um item para abrir espaço; o saque fica no chão, como qualquer saque.",
   3458: "Partidas muito longas: os números muito grandes são escritos com letras (Ud, Dd… até Vg) em vez de notação científica; ao passar o mouse, os quadros do herói não mostram mais longas fileiras de dígitos.",
   3459: "Os quadros do herói e a aba Ascensão continuam legíveis com números muito grandes, mesmo na tela de um notebook.",
+  3460: "Na tela de um notebook, os ícones de feitiços, os números e os anúncios não cobrem mais as informações do topo da faixa.",
+  3461: "O balão de fala do herói não pisca mais no canto superior esquerdo nem fica cortado no topo, e os números não o cobrem mais, nem o nome do chefe.",
 };
