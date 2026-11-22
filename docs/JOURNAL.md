@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-22 (it. 3177) Outil : la partie de 6 heures (druide) rejoint save-fuzz (FUZZ_BASE=6h) et stall-check. Premier passage :
+  1 211 corruptions sans plantage ni NaN, 120 parties sans aucune figée.
 - 2026-11-22 (it. 3176) Mesure : profil du JavaScript de la bande sur la partie d'une semaine (20 s) : ≈ 1,3 % d'un cœur seulement ;
   les ≈ 6 points de plus que dev-data viennent du rendu des effets, pas du code (détail sous l'idée P3 de l'it. 2984).
 - 2026-11-21 (it. 3175) Contrôle du début de partie après les it. 3164-3170 : first-minutes (objet et boss 42-86 s, quête 154-159 s)

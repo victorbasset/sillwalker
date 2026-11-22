@@ -16,7 +16,8 @@ const DM = process.env.STALL_DAYMOD || "";
 const H = +process.argv[2] || 2;
 const here = new URL("./", import.meta.url).pathname;
 // (it. 2982) « semaine » : la partie d'une semaine (record 353, constellations au maximum ; it. 2976, y a trouvé deux défauts et un plantage)
-const SAVES = { "dev-data": here + "../dev-data/save.json", fin: here + "fixtures/endgame-save.json", "0.1.2": here + "fixtures/save-0.1.2.json", semaine: here + "fixtures/week-save.json", heure: here + "fixtures/hour-save.json" };
+const SAVES = { "dev-data": here + "../dev-data/save.json", fin: here + "fixtures/endgame-save.json", "0.1.2": here + "fixtures/save-0.1.2.json", semaine: here + "fixtures/week-save.json", heure: here + "fixtures/hour-save.json", "6h": here + "fixtures/sixh-save.json" };
+// (it. 3177) « 6h » : la partie de 6 heures (druide, it. 3149), entre l'heure et la fin de partie
 // (it. 3128) « heure » : la partie d'une heure (zone 39, aucune ascension ; it. 3116)
 let bad = 0, n = 0;
 for (const [label, path] of Object.entries(SAVES)) {
