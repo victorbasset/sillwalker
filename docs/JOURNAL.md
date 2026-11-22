@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-22 (it. 3179) Contrôle en capture de la partie de 6 heures à 1280 px en français : Aventure, Quêtes et résumé d'une
+  absence de 8 h (11 lignes, « À faire » à 4 lignes) : aucun débordement ni texte coupé hors noms d'objets.
 - 2026-11-22 (it. 3178) Contrôle de la partie de 6 heures : --crawl en allemand (489 clics en 16 s, aucune erreur) ; texte de
   l'interface en russe (25 069 lignes) : aucun mot latin hors noms propres, touches et repères du relevé.
 - 2026-11-22 (it. 3177) Outil : la partie de 6 heures (druide) rejoint save-fuzz (FUZZ_BASE=6h) et stall-check. Premier passage :
