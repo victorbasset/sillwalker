@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-22 (it. 3176) Mesure : profil du JavaScript de la bande sur la partie d'une semaine (20 s) : ≈ 1,3 % d'un cœur seulement ;
+  les ≈ 6 points de plus que dev-data viennent du rendu des effets, pas du code (détail sous l'idée P3 de l'it. 2984).
 - 2026-11-21 (it. 3175) Contrôle du début de partie après les it. 3164-3170 : first-minutes (objet et boss 42-86 s, quête 154-159 s)
   et early-pace (60 min : niveau 41, zone 23-26, 6,3 déblocages) identiques à l'it. 3082. Idées ouvertes relues : celles qui restent
   (or en fin de course, chasses, familiers, boutons du Héros) attendent l'avis de Victor.
@@ -9847,6 +9849,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
   (it. 2985) Parts mesurées (bande, deux passages) : rien masqué 26,4 / 26,6 ; nombres flottants masqués 24,1 / 25,7 ; effets de combat
   masqués (.spellfx, .spark, .proj, .projglow) 23,8 / 23,3. Le reste (≈ 3 points au-dessus de dev-data) : personnages en plus (compagnon,
   serviteur, drone). Aucune source dominante : un gain net demanderait de retirer des effets visibles, choix de rendu à soumettre à Victor.
+  (it. 3176) Profil du JavaScript de la bande (méthodes de strip.js et juice.js chronométrées, 20 s) : 261 ms en tout, soit ≈ 1,3 % d'un
+  cœur ; draw 79 ms propres, updateHudBars 32, updateFx 31, météo 17 ; juice.place appelé 630 fois/s pour 16 ms. Le surcoût est dans le
+  rendu (styles, peinture, composition des nœuds animés), pas dans le code : rien à gagner en optimisant le JavaScript.
 - FAIT (it. 2938 : médiane de 3 essais, seuil -2,5) P2 (it. 2937) Autotest « bande : une proie en meute s'écarte du prédateur voisin » instable : échec « true false -3 » 1 fois sur 3
   (it. 2937, édition de textes seulement) et 3 sur 3 à l'it. 2920 quand un contrôle le précédait. À stabiliser (zone et file figées ?).
 - RÉSOLU (it. 2919 : « À faire » sans plafond, 10 lignes ou plus font défiler) P2 (it. 2917) lang-overflow « pl absence-pire=23 » aux 4 largeurs, vu UNE fois (it. 2916, passe « all ») ; non reproduit : pl seul avec les
