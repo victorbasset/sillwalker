@@ -78,6 +78,7 @@ const SPEECH = {
   ev_palemoon: [tx("Ils tiennent à peine debout !")], // (it. 1242)
   ev_spring: [tx("Je me sens revivre !")], // (it. 1375)
   ev_hoard: [tx("Ça brille sous chaque pas !")], // (it. 1439)
+  ev_regal: [tx("Rien que des belles pièces !")], // (it. 3180)
   ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
   poupouce: [tx("Poupouce ?! Pas possible…"), tx("C’est… Poupouce ?!")], // (it. 1558) monstre rare (data.js, POUPOUCE)
   poupouceBagFull: [tx("Le sac est plein : vite, une place pour le légendaire de Poupouce !")], // (it. 1767)

@@ -2346,4 +2346,8 @@ export default {
   3471: "Los nombres demasiado largos (talentos, héroes, totales de talentos) terminan en puntos suspensivos en lugar de cortarse.",
   3472: "En una pantalla de portátil, varias páginas ya no se desplazan a mitad de partida según el idioma: logros, hechizos, misiones y la aventura cuando el héroe está atascado ante un gran jefe.",
   3473: "Cuando falta espacio, la descripción del estilo de ataque y la nota de las misiones caben en una línea; el texto completo aparece al pasar el ratón.",
+  3474: "¡Cada objeto encontrado es al menos raro!",
+  3475: "{n} objeto raro o mejor|{n} objetos raros o mejores",
+  3476: "¡Solo piezas finas!",
+  3477: "Favor real",
 };

@@ -2346,4 +2346,8 @@ export default {
   3471: "Zbyt długie nazwy (talenty, bohaterowie, sumy talentów) kończą się wielokropkiem zamiast być ucięte.",
   3472: "Na ekranie laptopa kilka stron w środku gry, zależnie od języka, nie przewija się już: osiągnięcia, zaklęcia, zadania i przygoda, gdy bohater utknął przed wielkim bossem.",
   3473: "Gdy brakuje miejsca, opis stylu ataku i notka zadań mieszczą się w jednej linii; pełny tekst widać po najechaniu.",
+  3474: "Każdy znaleziony przedmiot jest co najmniej rzadki!",
+  3475: "{n} przedmiot rzadki lub lepszy|{n} przedmioty rzadkie lub lepsze|{n} przedmiotów rzadkich lub lepszych",
+  3476: "Same piękne łupy!",
+  3477: "Królewska łaska",
 };

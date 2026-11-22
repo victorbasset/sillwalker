@@ -2346,4 +2346,8 @@ export default {
   3471: "Names that are too long (talents, heroes, talent totals) now end with an ellipsis instead of being cut off.",
   3472: "On a laptop screen, several pages no longer scroll mid-game depending on the language: achievements, spells, quests, and the adventure when the hero is stuck at a great boss.",
   3473: "When space runs short, the attack style description and the quests note fit on one line; the full text shows on hover.",
+  3474: "Every item found is at least rare!",
+  3475: "{n} rare or better item|{n} rare or better items",
+  3476: "Nothing but fine pieces!",
+  3477: "Royal Favor",
 };

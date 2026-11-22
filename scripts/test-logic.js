@@ -874,6 +874,18 @@ test("Trésor enfoui : des coffres pendant l'événement, comptés au bilan (it.
   const ln = g.eventReport("hoard"); assert.ok(/treasure chests?/.test(ln), "bilan : " + ln);
 });
 
+test("Faveur royale : chaque objet trouvé au combat est au moins rare, compté au bilan (it. 3180)", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = {}; g.S.bag = [];
+  g.startEvent("regal"); g.R.events.bounty = 30; // butin à chaque victoire, pour avoir des objets à juger
+  const rs = [];
+  for (let i = 0; i < 30; i++) { g.R.mon = g.makeMonster(false); g.R.events.regal = 30; g.R.events.bounty = 30; g.killMonster(); }
+  for (const it of g.S.bag) rs.push(it.r);
+  assert.ok(rs.length >= 10, "objets gardés : " + rs.length);
+  assert.ok(rs.every((r) => r >= 2), "raretés : " + rs.join(","));
+  const ln = g.eventReport("regal"); assert.ok(/rare\s+or\s+better\s+items?/.test(ln), "bilan : " + ln);
+});
+
 test("bilans du Souffle de sagesse (expérience) et de la Nichée (œufs) (it. 1399)", () => {
   const g = new Game(freshState());
   g.startEvent("wisdom"); g.S.stats.kills += 2; g.gainXp(50); assert.ok(/experience point/.test(g.eventReport("wisdom")));

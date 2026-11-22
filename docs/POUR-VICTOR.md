@@ -404,7 +404,7 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
   fais le reste (notes de version, constructions, butler).
 - **Bande-annonce et nouvelle musique** : FAIT (it. 1684, à ta demande) : 30 vidéos (10 langues × complète 70 s, 30 s,
   verticale) refilmées et montées sur « Le Rebord », son discret (≈ −46 LUFS) ; dans steam/promo/videos et sur le partage.
-- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 18 événements rares,
+- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 19 événements rares (Faveur royale, it. 3180),
   11 sortes d'élites (le Colossal, it. 1617) et 19 sortes de quêtes (it. 1375, 1382, 1406, 1452 et 1617).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
   (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), `POUPOUCE` « Poupouce ?! » (it. 1576), `COLOSSAL_25` « Tombeur de colosses (25 colossaux) » (it. 1622), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).

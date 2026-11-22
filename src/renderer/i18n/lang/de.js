@@ -2346,4 +2346,8 @@ export default {
   3471: "Zu lange Namen (Talente, Helden, Talentsummen) enden mit Auslassungspunkten, statt abgeschnitten zu werden.",
   3472: "Auf einem Laptop-Bildschirm scrollen mehrere Seiten mitten im Spiel je nach Sprache nicht mehr: Erfolge, Zauber, Quests und das Abenteuer, wenn der Held vor einem großen Boss feststeckt.",
   3473: "Wenn der Platz knapp ist, passen die Beschreibung des Angriffsstils und der Hinweis zu den Quests in eine Zeile; der ganze Text erscheint beim Darüberfahren.",
+  3474: "Jeder gefundene Gegenstand ist mindestens selten!",
+  3475: "{n} seltener oder besserer Gegenstand|{n} seltene oder bessere Gegenstände",
+  3476: "Nur feine Stücke!",
+  3477: "Königliche Gunst",
 };

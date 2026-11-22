@@ -2346,4 +2346,8 @@ export default {
   3471: "Nomes longos demais (talentos, heróis, totais de talentos) terminam com reticências em vez de serem cortados.",
   3472: "Em uma tela de notebook, várias páginas não rolam mais no meio da partida, conforme o idioma: conquistas, feitiços, missões e a aventura quando o herói está travado diante de um grande chefe.",
   3473: "Quando falta espaço, a descrição do estilo de ataque e a nota das missões cabem em uma linha; o texto completo aparece ao passar o mouse.",
+  3474: "Cada item encontrado é pelo menos raro!",
+  3475: "{n} item raro ou melhor|{n} itens raros ou melhores",
+  3476: "Só peças finas!",
+  3477: "Favor real",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-22 (it. 3180) Contenu : 19e événement rare, « Faveur royale » (30 s) : chaque objet trouvé au combat est au moins rare
+  (la qualité du butin, là où la Corne d'abondance en donne la quantité). Réplique, sonnerie, bilan (« N objets rares ou mieux »),
+  10 langues ; page Steam et dossier de presse : 19 événements (le dossier citait encore 15 capacités de boss : 19). Test, npm test,
+  autotest 348/348, simulate 8 h (zone 58), captures en et de à 1280 px.
 - 2026-11-22 (it. 3179) Contrôle en capture de la partie de 6 heures à 1280 px en français : Aventure, Quêtes et résumé d'une
   absence de 8 h (11 lignes, « À faire » à 4 lignes) : aucun débordement ni texte coupé hors noms d'objets.
 - 2026-11-22 (it. 3178) Contrôle de la partie de 6 heures : --crawl en allemand (489 clics en 16 s, aucune erreur) ; texte de
