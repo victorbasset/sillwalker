@@ -163,6 +163,9 @@ body.panel-open #toast { display: none; }
 /* (it. 1550) violette comme la jauge de la bande et la barre du bas : en or, elle se lisait comme de l'or */
 #mini .mini-xp i { display: block; height: 100%; width: 0; background: #b48cff; }
 #mini .mini-zone { color: #a29ec2; font-size: 12px; white-space: nowrap; }
+#mini .mini-zone.ev { display: flex; gap: 4px; }
+#mini .mini-zone .mz-n { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+#mini .mini-zone .mz-t { flex: none; }
 #mini .minihint { position: absolute; right: 52px; top: 5px; font-size: 13px; line-height: 1; filter: drop-shadow(0 0 3px #ffd34d); }
 #mini .mini-btns { position: absolute; right: 3px; top: 3px; display: flex; flex-direction: row; gap: 3px; z-index: 5; }
 #mini .mini-btns .sbtn { width: 22px; height: 18px; }

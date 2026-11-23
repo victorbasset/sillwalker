@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3190) Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles ; seul le nom se
+  coupe (« Королевская мил… 27 с » ; avant « Королевская милость… », sans le temps). Nom entier dans la bulle, comme avant. Captures ru,
+  zh, de ; npm test, autotest 348/348.
 - 2026-11-23 (it. 3189) Contrôle : lang-overflow complet dans les 10 langues (150 mesures : 4 largeurs, fin de partie, semaine, heure,
   6 h, partie neuve, × 130 %, état maximal ; avec l'édition 176 et les annonces espacées de l'it. 3187) : aucun défilement ni mot coupé.
 - 2026-11-23 (it. 3188) Contrôle : --crawl sur dev-data en polonais (516 clics en 20 s) et en coréen (548 clics en 22 s), aucune erreur.

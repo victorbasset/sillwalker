@@ -376,7 +376,10 @@ export class MiniRenderer {
       this.infoKey = info; mark("hud");
       this.lvl.textContent = tx("Niv. ") + S.lvl;
       this.gold.textContent = fmtShort(S.gold);
-      this.zone.textContent = ev ? `${EVENTS[ev[0]].name} ${uS(Math.ceil(ev[1]))}` : tx("Zone ") + S.zone + " · " + Math.min(S.kills, this.game.lineup().length) + "/" + this.game.lineup().length;
+      // (it. 3190) événement : le nom seul se coupe (« … ») et les secondes restent visibles (« Королевская милость… » les cachait)
+      if (ev) { this.zone.textContent = ""; el("span", "mz-n", this.zone).textContent = EVENTS[ev[0]].name; el("span", "mz-t", this.zone).textContent = uS(Math.ceil(ev[1])); }
+      else this.zone.textContent = tx("Zone ") + S.zone + " · " + Math.min(S.kills, this.game.lineup().length) + "/" + this.game.lineup().length;
+      this.zone.classList.toggle("ev", !!ev);
       this.zone.style.color = ev ? EVENTS[ev[0]].color : "";
       const u = tabOpen(S, "shop") ? nextUnlock(S) : null, rec = recordZone(S), tip = []; // pas de déblocage avant la boutique
       // Bulle d'aide sur toute la zone d'infos (la barre d'objectif ne fait que 2 px) : record et prochain déblocage.
