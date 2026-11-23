@@ -393,6 +393,9 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .beast .nm { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.2; }
 .beast .nm.tight { font-size: 11px; line-height: 15.6px; } /* (it. 2145) même hauteur de ligne qu'en 13 px : la grille ne bouge pas */
 .beast .nm.two { white-space: normal; text-overflow: clip; line-height: 11px; overflow-wrap: normal; } /* (it. 2190) deux lignes au plus, entre les mots */
+/* (it. 3201) deux lignes de 11 px (22 px) agrandissaient la fiche de 6 px, et avec elle toute sa rangée de la grille : le Bestiaire
+   défilait de 15 px en français à 1280 px. Lignes de 10 px et 2 px pris sur les marges de la fiche : même hauteur qu'une ligne */
+.beast .nm.two { line-height: 9.8px; margin: -2px 0; } /* 2 × 9,8 − 4 = 15,6 px : exactement la ligne de .nm.tight */
 .beast .pips { font-size: 11px; line-height: 1.2; white-space: nowrap; }
 .beast.unknown .nm { color: var(--muted); }
 .pips { display: flex; gap: 3px; align-items: center; font-size: 12px; color: var(--muted); margin-top: 3px; }

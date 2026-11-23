@@ -5,6 +5,14 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3201) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : samouraï 69, nécromancien 65, mage 60. Perf : bande 19,5 %,
+  panneau 19,1 %, mini 5,4 %, icône 0,4 %. Texte russe (25 448 lignes) : aucun mot non traduit. Captures du Bestiaire à 1280 px en fr, en,
+  ja : le Bestiaire DÉFILAIT de 15 px en français (cadre du bas et barre de défilement cachés) et de 3 px en espagnol, portugais, polonais et
+  russe, dans toutes les parties. Cause : un nom trop long passe sur deux lignes de 11 px (it. 2190) ; la fiche gagnait 6 px, et toute sa
+  rangée de la grille avec elle. Lignes de 9,8 px prises en partie sur les marges de la fiche : exactement la hauteur d'une ligne. Aucune
+  mesure ne le voyait : l'ajustement des noms se faisait à l'image suivante, après la mesure de --overflow-report et de l'autotest ; il est
+  maintenant fait aussi tout de suite (comme dans les Talents), et lang-overflow trouvait bien « fr bestiary=15 » sur l'ancien style.
+  lang-overflow all : 27 cas, tous ce défaut ; après : es, fr, pl, pt, ru, de à 1280 et 1366 : aucun. npm test 396, autotest 348/348.
 - 2026-11-23 (it. 3200) Bande : le héros réagit au premier Acharné (« Plus je le frappe, plus il s'énerve… Finissons-en vite ! »,
   comme au premier Colossal). « Quoi de neuf » : édition 178 (Acharné, Belette). 10 langues ; npm test 396, autotest 348/348.
 - 2026-11-23 (it. 3199) Contenu : 12e sorte d'élite, « Acharné » : ses coups grandissent avec la vie qu'il a perdue (jusqu'à +60 %,

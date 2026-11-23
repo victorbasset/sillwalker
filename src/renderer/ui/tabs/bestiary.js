@@ -84,7 +84,9 @@ export class BestiaryTab {
       };
       // (it. 2190) mesuré de nouveau une fois les polices chargées : les lettres russes arrivent après coup, plus larges que la police
       // de secours (« Каменный голе… » restait coupé)
-      requestAnimationFrame(fit);
+      // (it. 3201) aussi tout de suite (comme les Talents) : une mesure faite juste après le dessin (--overflow-report, autotest)
+      // voyait les fiches avant l'ajustement et ne voyait pas le défilement de 15 px des noms sur deux lignes
+      fit(); requestAnimationFrame(fit);
       if (document.fonts && document.fonts.status !== "loaded") document.fonts.ready.then(() => requestAnimationFrame(fit));
     }
   }
