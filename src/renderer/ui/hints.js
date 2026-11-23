@@ -3,7 +3,7 @@ import { bossMechanics, PURE_PARRIES } from "../game/bosses.js";
 // devient utile, dans la bulle de la bande. Un clic ouvre l'onglet concerné.
 // Les conseils déjà vus sont retenus dans S.settings.hints.
 import { t as tx, tr } from "../i18n/index.js";
-import { ASCEND_MIN_ZONE, shardsFor } from "../game/prestige.js";
+import { ASCEND_MIN_ZONE } from "../game/prestige.js";
 import { skillPointsFree, skillSpendable } from "../game/skilltree.js";
 import { nextUnlock, hasUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { fmt } from "../game/format.js";
@@ -79,7 +79,7 @@ export const HINTS = [
       : tx("Le boss de cette zone empoisonne ton héros : le Talisman de pureté qui dort dans ton sac l’en protégerait. Clique ici."),
     when: (g) => bossMechanics(g.S.zone).some((id) => PURE_PARRIES.includes(id)) && !Object.values(g.S.equip).some((it) => it && it.power === "p_pure") && g.S.bag.some((it) => it && it.power === "p_pure") },
   { id: "stuck", tab: "ascension", text: null, perRun: true,
-    textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: shardsFor(g.S.best) }),
+    textFn: (g) => tx("Ton héros bloque près de son record. Une ascension rapporterait {0} éclats d’étoile et le rendrait bien plus fort. Clique ici.", { 0: g.ascendShards() }),
     when: (g) => g.canAscend() && g.S.prestige.count > 0 && (g.R.wallDeaths || []).filter((t) => g.R.time - t < 900).length >= 4 },
   { id: "unlock", tab: "shop", sec: "unlocks", text: null, perUnlock: true,
     textFn: (g) => { const u = nextUnlock(g.S); return tx("Nouveau déblocage à ta portée : {0} ({1} or). Clique ici pour la boutique.", { 0: u.name, 1: fmt(u.price) }); },

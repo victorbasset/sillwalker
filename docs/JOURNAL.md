@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3195) Contenu : 18e bénédiction du jour, « Jour des étoiles » (✨ : +50 % d'éclats d'étoile à l'ascension, arrondi ;
+  aucune bénédiction ne touchait l'ascension). Projection de l'onglet Ascension et astuce « bloqué près du record » comptent le bonus.
+  Réplique du héros, 10 langues. Ajoutée à la FIN, sel « #3 » pour le 18e rang : le sel par défaut aurait changé le 17/11 (déjà joué) ;
+  premier jour le 17/12/2026, aucun jour du 01/11 au 10/12 changé (test). npm test 394, autotest 348/348, lang-overflow de, ru, pl 1280.
 - 2026-11-23 (it. 3194) Sortie tout automatique (demande de Victor : « même le devlog ») : scripts/itch-devlog.cjs publie un devlog
   itch.io (pas d'API : page « New devlog » dans un Electron caché avec la session web de Victor, couverture envoyée par le site
   lui-même via l'interception de la fenêtre de fichier, formulaire soumis depuis la page ; jamais deux fois le même billet).

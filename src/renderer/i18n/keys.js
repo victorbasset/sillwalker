@@ -3481,5 +3481,8 @@ export const KEYS = [
   "Rien que des belles pièces !",
   "Faveur royale",
   "Nouvel événement rare, la « Faveur royale » : pendant 30 secondes, chaque objet trouvé au combat est au moins rare.",
-  "Sur un écran de portable, les noms des élites, les nombres près du boss, les éclairs des sorts et la bulle de parole du héros ne passent plus sur les informations du haut de la bande."
+  "Sur un écran de portable, les noms des élites, les nombres près du boss, les éclairs des sorts et la bulle de parole du héros ne passent plus sur les informations du haut de la bande.",
+  "Jour des étoiles",
+  "+50 % d’éclats d’étoile à l’ascension.",
+  "Les étoiles brillent fort : c’est le jour de monter vers elles !"
 ];

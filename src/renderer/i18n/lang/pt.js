@@ -2352,4 +2352,7 @@ export default {
   3477: "Favor real",
   3478: "Novo evento raro “Favor real”: durante 30 segundos, cada item encontrado em combate é pelo menos raro.",
   3479: "Na tela de um notebook, os nomes das elites, os números perto do chefe, os raios dos feitiços e o balão de fala do herói não cobrem mais as informações do topo da faixa.",
+  3480: "Dia das estrelas",
+  3481: "+50 % de fragmentos de estrela na ascensão.",
+  3482: "As estrelas estão brilhando forte: é o dia de subir até elas!",
 };

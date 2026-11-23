@@ -3096,7 +3096,10 @@ export class Game {
     return out;
   }
 
-  ascendShards() { return shardsFor(this.S.best); }
+  // (it. 3195) Jour des étoiles : +50 % d'éclats (arrondi à l'entier inférieur)
+  ascendShards() { return this.shardsAt(this.S.best); }
+  /** Éclats d'une ascension avec ce record (bénédiction du jour comprise). */
+  shardsAt(best) { return Math.floor(shardsFor(best) * (activeDayMod(this.S)?.shards || 1)); }
   canAscend() { return this.S.best >= ASCEND_MIN_ZONE; }
 
   /**

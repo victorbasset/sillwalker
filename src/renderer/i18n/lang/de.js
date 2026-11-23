@@ -2352,4 +2352,7 @@ export default {
   3477: "Königliche Gunst",
   3478: "Neues seltenes Ereignis „Königliche Gunst“: 30 Sekunden lang ist jeder im Kampf gefundene Gegenstand mindestens selten.",
   3479: "Auf einem Laptop-Bildschirm verdecken Elite-Namen, Zahlen beim Boss, Zauberblitze und die Sprechblase des Helden nicht mehr die Angaben oben in der Leiste.",
+  3480: "Tag der Sterne",
+  3481: "+50 % Sternensplitter beim Aufstieg.",
+  3482: "Die Sterne leuchten hell: der richtige Tag, zu ihnen aufzusteigen!",
 };

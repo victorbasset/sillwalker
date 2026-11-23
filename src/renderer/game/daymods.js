@@ -31,6 +31,8 @@ export const DAY_MODS = {
   poupouce: { icon: "🍄", name: "Jour de Poupouce", desc: "Poupouce ×10.", eff: {}, poupouce: 10 },
   // (it. 1700) 17e, ajouté à la FIN : les familiers (aucune bénédiction ne les touchait) ; premier jour : le 22/11/2026
   pets: { icon: "🐾", name: "Jour des familiers", desc: "Bonus du familier actif ×2.", eff: {}, pets: 2 },
+  // (it. 3195) 18e, ajouté à la FIN : l'ascension (aucune bénédiction ne la touchait) ; premier jour : le 17/12/2026 (sel « #3 »)
+  stars: { icon: "✨", name: "Jour des étoiles", desc: "+50 % d’éclats d’étoile à l’ascension.", eff: {}, shards: 1.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
@@ -50,7 +52,7 @@ const DAY_MODS_BASE = 9;
  *  ajout un jour sur n, mais CE jour-là peut tomber aujourd'hui ou demain (déjà annoncé) : la 13e aurait remplacé la
  *  bénédiction du 14/11/2026 en pleine journée. On choisit alors un autre sel pour CE rang, qui épargne aujourd'hui et
  *  les jours suivants ; ne jamais changer le sel d'un rang déjà publié (son calendrier bougerait). */
-export const DAY_MOD_SALT = { 12: "#2" };
+export const DAY_MOD_SALT = { 12: "#2", 17: "#3" }; // (it. 3195) 18e : « # » aurait changé le 17/11/2026, déjà joué
 export function dayModFor(day) {
   let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
   for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + (DAY_MOD_SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];

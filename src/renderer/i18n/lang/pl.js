@@ -2352,4 +2352,7 @@ export default {
   3477: "Królewska łaska",
   3478: "Nowe rzadkie wydarzenie „Królewska łaska”: przez 30 sekund każdy przedmiot znaleziony w walce jest co najmniej rzadki.",
   3479: "Na ekranie laptopa nazwy elit, liczby przy bossie, błyskawice zaklęć i dymek bohatera nie zasłaniają już informacji u góry paska.",
+  3480: "Dzień gwiazd",
+  3481: "+50 % odłamków gwiazd przy wniebowstąpieniu.",
+  3482: "Gwiazdy świecą jasno: to dzień, by się do nich wznieść!",
 };

@@ -752,7 +752,7 @@ test("sérialisation aller-retour", () => {
 /* ---------- Contenu v4 ---------- */
 import { POWERS } from "../src/renderer/game/powers.js";
 import { PETS } from "../src/renderer/game/pets.js";
-import { CONSTELLATIONS, ASCEND_MIN_ZONE, constellationCost } from "../src/renderer/game/prestige.js";
+import { CONSTELLATIONS, ASCEND_MIN_ZONE, constellationCost, shardsFor } from "../src/renderer/game/prestige.js";
 import { bestiaryEffects } from "../src/renderer/game/bestiary.js";
 
 test("migration v3 -> v4", () => {
@@ -3866,6 +3866,18 @@ test("Jour des familiers (it. 1700) : bonus du familier actif doublé, rien sans
   for (const k in base) assert.equal(day[k], base[k] * 2, k);
   assert.ok(Object.keys(base).length > 0);
   S.pets.active = null; assert.deepEqual(M_pets_js.petEffects(S), {});
+});
+
+test("Jour des étoiles (it. 3195) : +50 % d'éclats à l'ascension, arrondi ; premier jour le 17/12/2026, aucun jour déjà joué changé", () => {
+  const S = freshState(); S.best = 80;
+  const g = new Game(S), base = g.ascendShards();
+  assert.equal(base, shardsFor(80));
+  S.daily = { ...(S.daily || {}), mod: "stars" };
+  assert.equal(g.ascendShards(), Math.floor(base * 1.5));
+  assert.equal(g.shardsAt(100), Math.floor(shardsFor(100) * 1.5));
+  const { dayModFor } = M_daymods_js;
+  assert.equal(dayModFor("2026-12-17"), "stars");
+  for (let i = 0; i < 40; i++) { const t = new Date(2026, 10, 1 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "stars", d); }
 });
 
 test("Jour des familiers : une note sans familier actif, aucune avec (it. 1703)", () => {

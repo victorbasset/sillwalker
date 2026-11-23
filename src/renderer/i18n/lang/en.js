@@ -2352,4 +2352,7 @@ export default {
   3477: "Royal Favor",
   3478: "New rare event “Royal Favor”: for 30 seconds, every item found in combat is at least rare.",
   3479: "On a laptop screen, elite names, numbers near the boss, spell bolts and the hero's speech bubble no longer cover the information at the top of the strip.",
+  3480: "Star Day",
+  3481: "+50% star shards on ascension.",
+  3482: "The stars are shining bright: a perfect day to rise to them!",
 };
