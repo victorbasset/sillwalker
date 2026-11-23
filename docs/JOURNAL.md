@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3196) Ascension : un Jour des étoiles, un ✨ suit le gain annoncé (« +421 éclats ✨ », bulle : nom et effet de la
+  bénédiction) : le joueur voit pourquoi c'est le bon jour pour monter. Captures fr, ru à 1280 px ; npm test, autotest 348/348.
 - 2026-11-23 (it. 3195) Contenu : 18e bénédiction du jour, « Jour des étoiles » (✨ : +50 % d'éclats d'étoile à l'ascension, arrondi ;
   aucune bénédiction ne touchait l'ascension). Projection de l'onglet Ascension et astuce « bloqué près du record » comptent le bonus.
   Réplique du héros, 10 langues. Ajoutée à la FIN, sel « #3 » pour le 18e rang : le sel par défaut aurait changé le 17/11 (déjà joué) ;

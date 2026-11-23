@@ -1,11 +1,12 @@
 // Onglet Ascension : recommencer plus fort (éclats d'étoile -> constellations).
 import { npcHTML } from "../npc.js";
-import { t as tx, txn, fsp, csep } from "../../i18n/index.js";
+import { t as tx, txn, fsp, csep, colon } from "../../i18n/index.js";
 import { CLASSES, canPartner, duoSynergy } from "../../game/classes.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, SPECIAL_EFFECTS, constellationCost, shardsFor, glowEffects, GLOW_PER_SHARD } from "../../game/prestige.js";
 import { describeEffects } from "../../game/talents.js";
 import { esc, fmtFull } from "../../game/format.js";
 import { hasUnlock, recordZone } from "../../game/unlocks.js";
+import { activeDayMod } from "../../game/daymods.js";
 import { shopIconURL } from "../../render/shopart.js";
 
 // Demande 27 : des icônes dans l'onglet Ascension (gardé / perdu, constellations, éclats).
@@ -29,6 +30,8 @@ export class AscensionTab {
 
   render(el) {
     const g = this.game, S = g.S, P = S.prestige, can = g.canAscend(), gain = g.ascendShards();
+    // (it. 3196) Jour des étoiles : le bonus du jour se voit à côté du gain (détail au survol)
+    const dmNow = activeDayMod(S), starDay = dmNow && dmNow.shards ? dmNow : null;
     const nextZone = Math.max(ASCEND_MIN_ZONE, S.best + 1);
     // Cases des déblocages (Carte du ciel, Astrolabe) : à côté du bouton d'ascension (place comptée à 1280 px).
     const autos = `${hasUnlock(S, "skyChart") ? `<label class="toggle" title="${esc(tx("Carte du ciel : placer tout seul les éclats dans la constellation la moins chère"))}" aria-label="${esc(tx("Carte du ciel"))}"><input type="checkbox" data-action="a-stars"${S.settings.autoStars !== false ? " checked" : ""}> ${ico("c_north")}</label>` : ""}${hasUnlock(S, "astrolabe") ? `<label class="toggle" title="${esc(tx("Astrolabe : faire l’ascension tout seul quand le héros bloque près de son record"))}" aria-label="${esc(tx("Astrolabe"))}"><input type="checkbox" data-action="a-auto"${S.settings.autoAscend === true ? " checked" : ""}> ${ico("astro")}</label>` : ""}`;
@@ -52,7 +55,7 @@ export class AscensionTab {
           const syn = duoSynergy(next, pick);
           return `<br>${tx("Compagnon de la prochaine aventure :")} <b>${esc(CLASSES[pick].name)}</b>${syn ? ` <span class="synergy-on">✦ ${esc(tx(syn.name))}</span>` : ""}`; })()}</p>
       ${can
-        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${txn(gain, "+{n} éclat|+{n} éclats")}</b> ${tx(recordZone(S) > S.best ? "(zone {0} atteinte pendant cette course). En zone {1} : +{2}." : "(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(g.shardsAt(nextZone + 4)) })}</p>
+        ? `<p>${tx("Ascension maintenant :")} <b class="gold">${txn(gain, "+{n} éclat|+{n} éclats")}</b>${starDay ? ` <span class="starday" title="${esc(starDay.name + colon() + starDay.desc)}">${starDay.icon}</span>` : ""} ${tx(recordZone(S) > S.best ? "(zone {0} atteinte pendant cette course). En zone {1} : +{2}." : "(record zone {0}). En zone {1} : +{2}.", { 0: S.best, 1: nextZone + 4, 2: fmtFull(g.shardsAt(nextZone + 4)) })}</p>
            <div class="row"><button data-action="a-ascend" class="primary">${ico("star") + " " + tx("Monter vers les étoiles")}</button>${autos ? `<span class="autorow">${autos}</span>` : ""}</div>`
         : `<p class="note">${tx("Disponible à partir de la zone {0} (record actuel : {1}). Rapportera alors {2} éclats, et plus en allant plus loin.", { 0: ASCEND_MIN_ZONE, 1: S.best, 2: shardsFor(ASCEND_MIN_ZONE) })}</p>${autos ? `<div class="row autorow">${autos}</div>` : ""}`}
     </article>`;
