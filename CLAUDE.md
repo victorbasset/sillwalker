@@ -37,6 +37,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   interactive avec Remote Control (« Sillwalker relais », visible sur claude.ai/code et l'appli mobile) qui enchaîne
   les itérations par `/loop` (consignes dans `scripts/auto-iteration.md`). Regarder : `tmux attach -t sillwalker-relais` ;
   arrêter : `tmux kill-session -t sillwalker-relais`. Elle garde le verrou `logs/auto-iteration.lock`.
+- Gardien (2026-11-23, demande de Victor : la boucle ne doit jamais s'arrêter) : `scripts/veille-relais.sh`, en cron toutes les 10 min
+  et au démarrage du serveur, relance le relais si aucune boucle n'est vivante (pas de session tmux et `logs/loop-heartbeat`
+  plus vieux que 50 min). Toute boucle, relais ou session interactive, touche `logs/loop-heartbeat` à chaque passage ;
+  journal `logs/veille.log`.
 - L'ancien relais (cron toutes les 10 min, `scripts/auto-iteration.sh`, `claude -p`, journal `logs/auto-iteration.log`)
   est commenté dans `crontab -l` : à réactiver seulement si la session tmux est arrêtée.
 
