@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3205) Contrôle du début de partie après l'Acharné (les élites apparaissent dès la zone 3) : first-minutes inchangé
+  (objet et boss 68-86 s, quête 155-219 s) ; early-pace sur 10 graines, avant (5dd3efb1, git worktree) / après : à 60 min niveau 39 / 40,
+  zone 23 / 24, déblocages 6,1 / 6,2 : aucun ralentissement (3 graines seulement disaient zone 23 contre 23-26 : bruit).
 - 2026-11-23 (it. 3204) « Quoi de neuf » : édition 179 (étiquette de l'Acharné, Bestiaire sur portable, note du Jour des étoiles), 10 langues.
   Contrôle d'équilibre après l'Acharné et la Belette : hero-table des 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (repères 64,8-65,1),
   écart 7,0 (samouraï et gardien des étoiles 69,3, mage 62,3 : les places habituelles, bruit d'une graine ±4). npm test 397, autotest 348/348.
