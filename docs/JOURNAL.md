@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3191) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : rôdeur 64, assassin 62, barde 65. Perf : bande 19,7 %, panneau
+  19,3 %, mini 5,4 %, icône 0,5 % (stables). Captures de la Boutique à 1366 px en fr, en, ko : propres. Texte chinois (--dump-text,
+  25 549 lignes) : aucun mot non traduit (noms propres, touches, noms des langues). Rien pour « Idées ».
 - 2026-11-23 (it. 3190) Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles ; seul le nom se
   coupe (« Королевская мил… 27 с » ; avant « Королевская милость… », sans le temps). Nom entier dans la bulle, comme avant. Captures ru,
   zh, de ; npm test, autotest 348/348.
