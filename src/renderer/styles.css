@@ -475,7 +475,8 @@ button.primary { background: var(--accent); color: var(--panel); border-color: v
 .itemfx { width: 24px; height: 24px; image-rendering: pixelated; border: 2px solid; border-radius: 3px; background: rgba(14, 13, 24, .75); padding: 2px; }
 .beam { width: 14px; height: 120px; background: linear-gradient(to top, var(--c), transparent); opacity: .9; }
 .beam.legendary { width: 22px; box-shadow: 0 0 12px var(--c); }
-.banner { white-space: nowrap; font: 700 16px "Pixelify Sans", monospace; -webkit-text-stroke: 4px #14121f; paint-order: stroke fill; transform-origin: 0 50%; }
+/* (it. 3187) le contour de 4 px mange l'espace entre les mots (« Favor! Every », « милость! Каждый ») : mots un peu plus espacés */
+.banner { white-space: nowrap; font: 700 16px "Pixelify Sans", monospace; -webkit-text-stroke: 4px #14121f; paint-order: stroke fill; word-spacing: 4px; transform-origin: 0 50%; }
 .banner.big { font-size: 20px; }
 .flash { inset: 0; width: 100%; height: 100%; opacity: 0; }
 .spark { width: 4px; height: 4px; }
