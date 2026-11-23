@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3210) Contrôle des sauvegardes après les données du 23/11 (Belette, Acharné, Jour des étoiles) : save-fuzz sur la partie
+  d'une semaine (1274 corruptions) et sur une partie de la 0.1.2 (1169) : ok, aucun plantage ni NaN.
 - 2026-11-24 (it. 3209) Perf après l'it. 3208 (étiquettes recalculées à chaque image) : bande 19,5 %, panneau 19,2 %, mini 5,3 %,
   icône 0,7 % : inchangé. Idée P3 de l'it. 3166 mise à jour (étiquette d'élite : cause trouvée et corrigée).
 - 2026-11-23 (it. 3208) Bande à 1280 px : l'étiquette d'élite du monstre EN COMBAT pouvait mordre sur la rangée du haut (« Неистовый ✦ »
