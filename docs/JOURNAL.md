@@ -6,7 +6,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 ## Fait
 
 - 2026-11-23 (it. 3202) Jour des étoiles : avant la zone de la première ascension, la bulle de la bénédiction (panneau et mode mini)
-  précise « L'ascension devient possible à partir de la zone 15 » (comme les élites, champions, sorts et familiers). 10 langues, test.
+  précise « L'ascension devient possible à partir de la zone 20 » (comme les élites, champions, sorts et familiers). 10 langues, test.
   Vérifié aussi : plus aucun autre ajustement de mise en page différé à l'image suivante (cause du défaut du Bestiaire, it. 3201).
 - 2026-11-23 (it. 3201) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : samouraï 69, nécromancien 65, mage 60. Perf : bande 19,5 %,
   panneau 19,1 %, mini 5,4 %, icône 0,4 %. Texte russe (25 448 lignes) : aucun mot non traduit. Captures du Bestiaire à 1280 px en fr, en,
