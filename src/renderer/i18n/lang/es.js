@@ -2362,4 +2362,7 @@ export default {
   3487: "Rápida como el rayo, lo esquiva todo… y te enseña a hacerlo.",
   3488: "Golpea cada vez más fuerte a medida que pierde vida (hasta un 60 % más), pero tiene un 15 % menos de vida.",
   3489: "Implacable",
+  3490: "Cuanto más le pego, más se enfada… ¡Acabemos rápido!",
+  3491: "Nuevo tipo de élite, el «Implacable»: sus golpes crecen con la vida que ha perdido (hasta un 60 % más), pero tiene un 15 % menos de vida: ¡remátalo rápido!",
+  3492: "Nueva mascota, la «Comadreja»: aporta esquiva y contraataques, algo que ninguna otra mascota daba.",
 };

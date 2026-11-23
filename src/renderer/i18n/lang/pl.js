@@ -2362,4 +2362,7 @@ export default {
   3487: "Szybka jak błyskawica, unika wszystkiego… i uczy tego ciebie.",
   3488: "Uderza coraz mocniej, w miarę jak traci zdrowie (do 60 % więcej), ale ma o 15 % mniej zdrowia.",
   3489: "Zawzięty",
+  3490: "Im mocniej go biję, tym bardziej się wścieka… Skończmy to szybko!",
+  3491: "Nowy rodzaj elity, „Zawzięty”: jego ciosy rosną wraz z utraconym zdrowiem (do 60 % więcej), ale ma o 15 % mniej zdrowia: wykończ go szybko!",
+  3492: "Nowy pupil, „Łasica”: daje uniki i riposty, czego nie dawał żaden inny pupil.",
 };

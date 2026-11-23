@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3200) Bande : le héros réagit au premier Acharné (« Plus je le frappe, plus il s'énerve… Finissons-en vite ! »,
+  comme au premier Colossal). « Quoi de neuf » : édition 178 (Acharné, Belette). 10 langues ; npm test 396, autotest 348/348.
 - 2026-11-23 (it. 3199) Contenu : 12e sorte d'élite, « Acharné » : ses coups grandissent avec la vie qu'il a perdue (jusqu'à +60 %,
   data.js relentlessMul), 15 % de vie en moins pour compenser ; le danger monte au fil du combat (le contraire de l'Explosif). « Enragé »
   était déjà le nom d'une capacité de boss : Acharné. 10 langues, page Steam « 12 sortes d'élites » (10 langues), README, tests. fight-odds

@@ -2362,4 +2362,7 @@ export default {
   3487: "Quick as lightning, it dodges everything… and teaches you how.",
   3488: "Hits harder and harder as it loses health (up to 60% more), but has 15% less health.",
   3489: "Relentless",
+  3490: "The more I hit it, the angrier it gets… Let’s finish this fast!",
+  3491: "New kind of elite, the “Relentless”: its hits grow with the health it has lost (up to 60% more), but it has 15% less health: finish it off fast!",
+  3492: "New pet, the “Weasel”: it brings dodge and ripostes, which no other pet gave.",
 };

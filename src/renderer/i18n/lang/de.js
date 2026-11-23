@@ -2362,4 +2362,7 @@ export default {
   3487: "Blitzschnell weicht es allem aus … und bringt es dir bei.",
   3488: "Schlägt immer härter zu, je mehr Leben es verliert (bis zu 60 % mehr), hat aber 15 % weniger Leben.",
   3489: "Verbissen",
+  3490: "Je mehr ich zuschlage, desto wütender wird er … Machen wir es kurz!",
+  3491: "Neue Eliteart, der „Verbissen“: Seine Treffer wachsen mit dem verlorenen Leben (bis zu 60 % mehr), dafür hat er 15 % weniger Leben: Mach ihn schnell fertig!",
+  3492: "Neuer Begleiter, das „Wiesel“: Es bringt Ausweichen und Konter, was kein anderer Begleiter bot.",
 };

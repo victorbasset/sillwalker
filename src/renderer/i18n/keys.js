@@ -3491,5 +3491,8 @@ export const KEYS = [
   "Belette",
   "Vive comme l’éclair, elle esquive tout… et te l’apprend.",
   "Frappe de plus en plus fort à mesure qu’il perd de la vie (jusqu’à 60 % de plus), mais a 15 % de vie en moins.",
-  "Acharné"
+  "Acharné",
+  "Plus je le frappe, plus il s’énerve… Finissons-en vite !",
+  "Nouvelle sorte d’élite, l’« Acharné » : ses coups grandissent avec la vie qu’il a perdue (jusqu’à 60 % de plus), mais il a 15 % de vie en moins : achève-le vite !",
+  "Nouveau familier, la « Belette » : elle apporte de l’esquive et des ripostes, ce qu’aucun autre familier ne donnait."
 ];

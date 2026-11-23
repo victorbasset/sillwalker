@@ -2362,4 +2362,7 @@ export default {
   3487: "Rápida como um raio, ela desvia de tudo… e ensina você a fazer o mesmo.",
   3488: "Bate cada vez mais forte à medida que perde vida (até 60 % a mais), mas tem 15 % menos de vida.",
   3489: "Implacável",
+  3490: "Quanto mais eu bato, mais ele se irrita… Vamos acabar logo com isso!",
+  3491: "Novo tipo de elite, o “Implacável”: seus golpes crescem com a vida que ele perdeu (até 60 % a mais), mas ele tem 15 % menos de vida: acabe com ele rápido!",
+  3492: "Novo mascote, a “Doninha”: ela traz esquiva e contra-ataques, algo que nenhum outro mascote dava.",
 };
