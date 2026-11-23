@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3204) « Quoi de neuf » : édition 179 (étiquette de l'Acharné, Bestiaire sur portable, note du Jour des étoiles), 10 langues.
+  Contrôle d'équilibre après l'Acharné et la Belette : hero-table des 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (repères 64,8-65,1),
+  écart 7,0 (samouraï et gardien des étoiles 69,3, mage 62,3 : les places habituelles, bruit d'une graine ±4). npm test 397, autotest 348/348.
 - 2026-11-23 (it. 3203) Bande : pendant le combat, l'étiquette de l'Acharné dit le bonus de ses coups par paliers de 10 % (« Acharné
   +30 % » … « +60 % ») : le danger qui monte se lit, et pousse à l'achever vite. DOM touché seulement au changement de palier. Mise en scène
   (Acharné rendu invincible, vie forcée par paliers) : 0 → +50 % relevés ; npm test 397, autotest 348/348.

@@ -2366,4 +2366,7 @@ export default {
   3491: "Novo tipo de elite, o “Implacável”: seus golpes crescem com a vida que ele perdeu (até 60 % a mais), mas ele tem 15 % menos de vida: acabe com ele rápido!",
   3492: "Novo mascote, a “Doninha”: ela traz esquiva e contra-ataques, algo que nenhum outro mascote dava.",
   3493: "A ascensão fica possível a partir da zona {0}.",
+  3494: "Durante o combate, a etiqueta do Implacável mostra o bônus dos golpes dele (“+30 %”… até “+60 %”): dá para ver o perigo subir.",
+  3495: "Bestiário: na tela de um notebook, a página não rola mais quando nomes de monstros ocupam duas linhas (francês, espanhol, português, polonês, russo).",
+  3496: "Dia das estrelas: antes da primeira ascensão, o balão dele diz a partir de qual zona a ascensão fica possível.",
 };

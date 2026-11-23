@@ -2366,4 +2366,7 @@ export default {
   3491: "Nuevo tipo de élite, el «Implacable»: sus golpes crecen con la vida que ha perdido (hasta un 60 % más), pero tiene un 15 % menos de vida: ¡remátalo rápido!",
   3492: "Nueva mascota, la «Comadreja»: aporta esquiva y contraataques, algo que ninguna otra mascota daba.",
   3493: "La ascensión es posible a partir de la zona {0}.",
+  3494: "Durante el combate, la etiqueta del Implacable muestra el bonus de sus golpes («+30 %»… hasta «+60 %»): se ve subir el peligro.",
+  3495: "Bestiario: en la pantalla de un portátil, la página ya no se desplaza cuando los nombres de monstruos ocupan dos líneas (francés, español, portugués, polaco, ruso).",
+  3496: "Día de las estrellas: antes de la primera ascensión, su burbuja indica a partir de qué zona es posible ascender.",
 };

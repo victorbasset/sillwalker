@@ -3495,5 +3495,8 @@ export const KEYS = [
   "Plus je le frappe, plus il s’énerve… Finissons-en vite !",
   "Nouvelle sorte d’élite, l’« Acharné » : ses coups grandissent avec la vie qu’il a perdue (jusqu’à 60 % de plus), mais il a 15 % de vie en moins : achève-le vite !",
   "Nouveau familier, la « Belette » : elle apporte de l’esquive et des ripostes, ce qu’aucun autre familier ne donnait.",
-  "L’ascension devient possible à partir de la zone {0}."
+  "L’ascension devient possible à partir de la zone {0}.",
+  "Pendant le combat, l’étiquette de l’Acharné montre le bonus de ses coups (« +30 % »… jusqu’à « +60 % ») : on voit le danger monter.",
+  "Bestiaire : sur un écran de portable, la page ne défile plus quand des noms de monstres passent sur deux lignes (français, espagnol, portugais, polonais, russe).",
+  "Jour des étoiles : avant la première ascension, sa bulle précise à partir de quelle zone l’ascension devient possible."
 ];

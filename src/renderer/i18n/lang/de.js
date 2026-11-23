@@ -2366,4 +2366,7 @@ export default {
   3491: "Neue Eliteart, der „Verbissen“: Seine Treffer wachsen mit dem verlorenen Leben (bis zu 60 % mehr), dafür hat er 15 % weniger Leben: Mach ihn schnell fertig!",
   3492: "Neuer Begleiter, das „Wiesel“: Es bringt Ausweichen und Konter, was kein anderer Begleiter bot.",
   3493: "Der Aufstieg ist ab Zone {0} möglich.",
+  3494: "Im Kampf zeigt das Schild des Verbissen den Bonus seiner Treffer („+30 %“ … bis „+60 %“): Man sieht die Gefahr steigen.",
+  3495: "Bestiarium: Auf einem Laptop-Bildschirm scrollt die Seite nicht mehr, wenn Monsternamen zweizeilig werden (Französisch, Spanisch, Portugiesisch, Polnisch, Russisch).",
+  3496: "Tag der Sterne: Vor dem ersten Aufstieg sagt seine Blase, ab welcher Zone der Aufstieg möglich ist.",
 };
