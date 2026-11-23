@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3184) POUR-VICTOR : bilan des it. 3161-3183 et état de la prochaine version (24 éditions depuis la 0.1.7, ce que
+  je prépare quand Victor décide de la sortir).
 - 2026-11-23 (it. 3183) Contrôle de robustesse après la Faveur royale (it. 3180) : fuzz.mjs 1200 parties, 0 bloquées (aussi
   FUZZ_DAYMOD=all) ; save-fuzz sur dev-data : ok balayage (1267 corruptions). Sa chance (0,0015) est celle de la Lune de sang ou du
   Trésor enfoui : le succès « Chasseur d'événements » reste atteignable au même rythme ; max-save la couvre (liste EVENTS lue).

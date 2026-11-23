@@ -4,6 +4,19 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Du 21 au 23/11 (it. 3161-3183) : bande sur portable, 19e événement, et la prochaine version
+
+- Bande à 1280 px (it. 3164-3170) : étiquettes d'élite (surtout les monstres volants), nombres près du boss, éclairs des sorts
+  (nécromancien, chaman, cryomancien) et bulle de parole du héros ne passent plus sur la rangée du haut. Annoncé dans l'édition 176.
+- Nouveau : 19e événement rare, la « Faveur royale » (it. 3180) : 30 s pendant lesquelles chaque objet trouvé au combat est au moins
+  rare. Aussi fréquent que la Lune de sang ; page Steam et dossier de presse disent 19 événements. Annoncé dans l'édition 176.
+- Contrôles sans défaut : parties de 6 h passées par tous les outils (sauvegardes abîmées, parties figées, 489 clics en allemand,
+  texte russe), mémoire et JavaScript de la bande mesurés (≈ 1,3 % d'un cœur : le coût est dans le rendu), robustesse après la
+  Faveur royale (2 400 parties, 0 bloquée). Revues it. 3171 et 3181 : perf stable (bande ≈ 19,8 %), records 12 h dans la norme.
+- 0.1.8 : 24 éditions de « Quoi de neuf » depuis la 0.1.7 (153-176 : champions battables, absence plus riche, sac plein protégé,
+  achats d'un clic, grands nombres en lettres, écrans de portable, Faveur royale). Quand tu veux la sortir, dis-le : je prépare les
+  notes de version (news.js, after: 152), la version de package.json, les constructions et l'envoi par butler (`--dry-run` d'abord).
+
 ## Matin du 21/11 (it. 3060-3088) : textes coupés, relecture d'une partie avancée
 
 - Carte, au-delà de la zone 200 : « Le ciel rallumé » et « Au-delà du Rebord : zone N » sortaient du cadre à gauche, coupés dans toutes
