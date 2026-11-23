@@ -11,6 +11,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
 - Il laisse souvent Claude **en autonomie** : enchaîner de longues rondes d'améliorations
   (performance, fun, ergonomie, design, contenu, accessibilité, bugs) **sans demander** s'il faut
   continuer, en choisissant soi-même les priorités. Ne pas s'arrêter après 3-4 changements.
+- La boucle autonome (`/loop`) ne s'arrête JAMAIS d'elle-même (demande de Victor, 2026-11-23), même après plusieurs passages
+  sans trouvaille : toujours reprogrammer le passage suivant et choisir une vraie amélioration.
+- **Une version par jour, publiée vers 20 h** (demande de Victor, 2026-11-23 ; 0.1.9 le 24/11, puis 0.1.10, 0.1.11…) : dès 18 h 30,
+  si l'étiquette du jour manque, tout le reste s'arrête pour la sortie (procédure « Sortie d'une version » ci-dessous, devlog compris).
 - Sa vision du jeu : le joueur doit **ressentir une progression** au fil du temps. Toute nouvelle
   commodité ou automatisation passe par un **déblocage** acheté en boutique (`game/unlocks.js` :
   zone record + or, conservé à l'ascension) ; l'action manuelle reste possible avant l'achat.
