@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3183) Contrôle de robustesse après la Faveur royale (it. 3180) : fuzz.mjs 1200 parties, 0 bloquées (aussi
+  FUZZ_DAYMOD=all) ; save-fuzz sur dev-data : ok balayage (1267 corruptions). Sa chance (0,0015) est celle de la Lune de sang ou du
+  Trésor enfoui : le succès « Chasseur d'événements » reste atteignable au même rythme ; max-save la couvre (liste EVENTS lue).
 - 2026-11-23 (it. 3182) « Quoi de neuf » : édition 176 (Faveur royale, it. 3180 ; bande à 1280 px, it. 3164-3170 : étiquettes d'élite,
   nombres près du boss, éclairs des sorts et bulle de parole hors de la rangée du haut), 10 langues. npm test, autotest 348/348,
   lang-overflow de, ru, pl, fr à 1280 px (partie de dev et fin de partie) : aucun défaut.
