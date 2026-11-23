@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3192) Contrôle de la partie d'une semaine à 1280 px : clip-probe en zh, ko, es, pt (textes rognés par un cadre, tous
+  les onglets) : 0 ; info-probe en de, ru (ⓘ cachés) : 0.
 - 2026-11-23 (it. 3191) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : rôdeur 64, assassin 62, barde 65. Perf : bande 19,7 %, panneau
   19,3 %, mini 5,4 %, icône 0,5 % (stables). Captures de la Boutique à 1366 px en fr, en, ko : propres. Texte chinois (--dump-text,
   25 549 lignes) : aucun mot non traduit (noms propres, touches, noms des langues). Rien pour « Idées ».
