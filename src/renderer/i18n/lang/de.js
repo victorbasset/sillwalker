@@ -2355,4 +2355,7 @@ export default {
   3480: "Tag der Sterne",
   3481: "+50 % Sternensplitter beim Aufstieg.",
   3482: "Die Sterne leuchten hell: der richtige Tag, zu ihnen aufzusteigen!",
+  3483: "Neuer Segen des Tages, der „Tag der Sterne“: +50 % Sternensplitter beim Aufstieg; an diesem Tag steht ein ✨ hinter dem angezeigten Gewinn im Reiter Aufstieg.",
+  3484: "Mini-Modus: Während eines seltenen Ereignisses mit langem Namen bleiben die restlichen Sekunden sichtbar.",
+  3485: "Leiste: Große Meldungen (Ereignisse, Rekorde) haben mehr Abstand zwischen den Wörtern und sind leichter zu lesen.",
 };

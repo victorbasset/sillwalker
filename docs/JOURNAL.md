@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3197) « Quoi de neuf » : édition 177 (Jour des étoiles et son ✨, secondes de l'événement en mode mini, annonces mieux
+  espacées), 10 langues. Avant : lang-overflow des 10 langues à 1280 px (40 mesures, état maximal à 18 bénédictions compris) : aucun
+  défaut. npm test 394, autotest 348/348.
 - 2026-11-23 (it. 3196) Ascension : un Jour des étoiles, un ✨ suit le gain annoncé (« +421 éclats ✨ », bulle : nom et effet de la
   bénédiction) : le joueur voit pourquoi c'est le bon jour pour monter. Captures fr, ru à 1280 px ; npm test, autotest 348/348.
 - 2026-11-23 (it. 3195) Contenu : 18e bénédiction du jour, « Jour des étoiles » (✨ : +50 % d'éclats d'étoile à l'ascension, arrondi ;

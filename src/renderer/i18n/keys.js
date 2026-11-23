@@ -3484,5 +3484,8 @@ export const KEYS = [
   "Sur un écran de portable, les noms des élites, les nombres près du boss, les éclairs des sorts et la bulle de parole du héros ne passent plus sur les informations du haut de la bande.",
   "Jour des étoiles",
   "+50 % d’éclats d’étoile à l’ascension.",
-  "Les étoiles brillent fort : c’est le jour de monter vers elles !"
+  "Les étoiles brillent fort : c’est le jour de monter vers elles !",
+  "Nouvelle bénédiction du jour, le « Jour des étoiles » : +50 % d’éclats d’étoile à l’ascension ; ce jour-là, un ✨ suit le gain annoncé dans l’onglet Ascension.",
+  "Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles.",
+  "Bande : les grandes annonces (événements, records) espacent mieux leurs mots, plus faciles à lire."
 ];

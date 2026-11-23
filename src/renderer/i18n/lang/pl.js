@@ -2355,4 +2355,7 @@ export default {
   3480: "Dzień gwiazd",
   3481: "+50 % odłamków gwiazd przy wniebowstąpieniu.",
   3482: "Gwiazdy świecą jasno: to dzień, by się do nich wznieść!",
+  3483: "Nowe błogosławieństwo dnia, „Dzień gwiazd”: +50 % odłamków gwiazd przy wniebowstąpieniu; tego dnia przy zysku w zakładce Wniebowstąpienie pojawia się ✨.",
+  3484: "Tryb mini: podczas rzadkiego wydarzenia o długiej nazwie pozostałe sekundy są nadal widoczne.",
+  3485: "Pasek: duże komunikaty (wydarzenia, rekordy) mają większe odstępy między słowami i łatwiej je przeczytać.",
 };

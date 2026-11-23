@@ -2355,4 +2355,7 @@ export default {
   3480: "Dia das estrelas",
   3481: "+50 % de fragmentos de estrela na ascensão.",
   3482: "As estrelas estão brilhando forte: é o dia de subir até elas!",
+  3483: "Nova bênção do dia, o “Dia das estrelas”: +50 % de fragmentos de estrela na ascensão; nesse dia, um ✨ acompanha o ganho indicado na aba Ascensão.",
+  3484: "Modo mini: durante um evento raro de nome longo, os segundos restantes continuam visíveis.",
+  3485: "Faixa: os grandes anúncios (eventos, recordes) espaçam melhor as palavras e ficam mais fáceis de ler.",
 };
