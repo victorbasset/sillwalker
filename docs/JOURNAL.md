@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3208) Bande à 1280 px : l'étiquette d'élite du monstre EN COMBAT pouvait mordre sur la rangée du haut (« Неистовый ✦ »
+  à 21 px sur la pastille de gauche, partie d'une semaine, 2 passages sur 4). Sa place était calculée une fois, d'après la place
+  d'attente ; au combat (ou pendant un saut, un geste) le monstre se tient jusqu'à 20 px plus haut. Elle suit maintenant la hauteur réelle
+  (DOM touché seulement quand elle change). Après : 0 sur 4 ; hud-probe dev-data ko, de : 0. Sans doute la cause de l'étiquette « à
+  21 px » de l'idée P3 (it. 3166/3169), jamais retrouvée. Trouvé en vérifiant l'étiquette « Acharné +N % » (it. 3203). npm test, autotest 348/348.
 - 2026-11-23 (it. 3207) Contrôle après les ajouts du jour (Jour des étoiles, Belette, Acharné) : --crawl sur la partie d'une semaine en
   japonais (925 clics en 42 s) et en espagnol (929 clics en 44 s), aucune erreur ; max-save couvre d'office les nouveaux familiers, élites
   et bénédictions (listes lues dans les données).

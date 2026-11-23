@@ -1579,6 +1579,14 @@ export class StripRenderer {
       let chatDy = 0, chatFlip = null;
       if (!fighting && a.chat) { a.chat.t -= dt; if (a.chat.t <= 0) a.chat = null; else { chatFlip = a.chat.side < 0; chatDy = Math.floor(a.chat.t * 5 + (a.chat.side > 0 ? 1 : 0)) % 2 ? -2 : 0; } }
       if (chatDy && a.tx) { const [cx, cy] = a.tx.split(",").map(Number); a.move(cx, cy + chatDy); }
+      // (it. 3208) étiquette d'élite : placée à la création de la file d'après la place d'attente ; au combat (ou pendant un saut, un
+      // geste) le monstre se tient plus haut et l'étiquette mordait sur la rangée du haut (« Неистовый » à 21 px, partie d'une semaine,
+      // 1280 px). Recalculée d'après la hauteur réelle, seulement quand elle change (Actor.move arrondit déjà la position).
+      if (a.tagEl === undefined) a.tagEl = a.el.querySelector(".affix") || null;
+      if (a.tagEl && a.tx) {
+        const want = Math.max(-24, (a.fly ? 48 : 36) - +a.tx.split(",")[1]);
+        if (a.tagTopV !== want) { a.tagTopV = want; a.el.style.setProperty("--tagtop", want + "px"); mark("move"); }
+      }
       // (it. 1944) le bandit qui fait le guet se retourne un instant (geste « look »)
       const look = !fighting && a.react && a.react.nat === "look" ? a.lookFlip : null;
       const flip = chatFlip ?? look ?? !!(life && life.face < 0);
