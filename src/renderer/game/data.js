@@ -236,7 +236,13 @@ export const ELITE_AFFIXES = {
   explosive: { name: "Explosif",  color: "#ff6a3a", explode: 0.06, desc: "Explose en mourant : inflige au héros 6 % de ses PV max, sans jamais l’achever." },
   // (it. 1617) 11e sorte : un mur lent (le contraire du Rapide) : beaucoup de vie, des coups espacés
   colossal: { name: "Colossal",   color: "#d9b38c", hp: 2.2, interval: 1.4, desc: "120 % de points de vie en plus, mais frappe 40 % plus lentement." },
+  // (it. 3199) 12e sorte : le danger monte au fil du combat (le contraire de l'Explosif, dangereux seulement à la fin) ;
+  // 15 % de vie en moins pour compenser : il faut l'achever vite
+  relentless: { name: "Acharné",  color: "#ff5a3a", hp: 0.85, rage: 0.6, desc: "Frappe de plus en plus fort à mesure qu’il perd de la vie (jusqu’à 60 % de plus), mais a 15 % de vie en moins." },
 };
+
+/** (it. 3199) Élite acharnée : multiplicateur de ses coups selon la vie perdue (1 à pleine vie, 1 + rage à vie nulle). */
+export const relentlessMul = (m) => (m && m.affix === "relentless" && m.max > 0 ? 1 + ELITE_AFFIXES.relentless.rage * Math.max(0, Math.min(1, 1 - m.hp / m.max)) : 1);
 
 // Les zones bouclent : après la dernière, on repart de la première avec des
 // monstres plus forts (« Forêt des murmures + »).

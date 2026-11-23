@@ -2360,4 +2360,6 @@ export default {
   3485: "Banda: los grandes anuncios (eventos, récords) separan mejor sus palabras y se leen más fácilmente.",
   3486: "Comadreja",
   3487: "Rápida como el rayo, lo esquiva todo… y te enseña a hacerlo.",
+  3488: "Golpea cada vez más fuerte a medida que pierde vida (hasta un 60 % más), pero tiene un 15 % menos de vida.",
+  3489: "Implacable",
 };

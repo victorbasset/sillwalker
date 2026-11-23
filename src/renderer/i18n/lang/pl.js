@@ -2360,4 +2360,6 @@ export default {
   3485: "Pasek: duże komunikaty (wydarzenia, rekordy) mają większe odstępy między słowami i łatwiej je przeczytać.",
   3486: "Łasica",
   3487: "Szybka jak błyskawica, unika wszystkiego… i uczy tego ciebie.",
+  3488: "Uderza coraz mocniej, w miarę jak traci zdrowie (do 60 % więcej), ale ma o 15 % mniej zdrowia.",
+  3489: "Zawzięty",
 };

@@ -2360,4 +2360,6 @@ export default {
   3485: "Leiste: Große Meldungen (Ereignisse, Rekorde) haben mehr Abstand zwischen den Wörtern und sind leichter zu lesen.",
   3486: "Wiesel",
   3487: "Blitzschnell weicht es allem aus … und bringt es dir bei.",
+  3488: "Schlägt immer härter zu, je mehr Leben es verliert (bis zu 60 % mehr), hat aber 15 % weniger Leben.",
+  3489: "Verbissen",
 };

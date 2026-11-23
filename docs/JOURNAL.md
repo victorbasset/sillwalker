@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3199) Contenu : 12e sorte d'élite, « Acharné » : ses coups grandissent avec la vie qu'il a perdue (jusqu'à +60 %,
+  data.js relentlessMul), 15 % de vie en moins pour compenser ; le danger monte au fil du combat (le contraire de l'Explosif). « Enragé »
+  était déjà le nom d'une capacité de boss : Acharné. 10 langues, page Steam « 12 sortes d'élites » (10 langues), README, tests. fight-odds
+  guerrier 12 h × 3 graines : Acharné 26 % de défaites (élites 16-43 %) ; balance 12 h : +0,6 (bruit) ; fuzz 1200 parties et stall-check
+  120 parties : 0 ; lang-overflow de, ru, pl 1280 ; npm test 396, autotest 348/348. Aussi (it. 3198 bis) fuzz et stall-check après la Belette : 0.
 - 2026-11-23 (it. 3198) Contenu : 22e familier, la Belette (esquive +0,6 % et riposte +1 % par niveau : +6 % et +10 % au niveau 10 ;
   aucun familier ne les donnait), dessin pixel (deux images : course, bond queue relevée), 10 langues, test. Captures fr, de (carte et
   bande) ; npm test 395, autotest 348/348, lang-overflow de, ru, pl à 1280 px (état maximal compris) : aucun défaut.

@@ -69,7 +69,7 @@ import { TREES, cannotLearn, talentPointsFree, TIER_REQ, masteryMilestones, tale
 import { CLASS_KEYS, CLASS_KEYS_BY_UNLOCK, CLASS_UNLOCK_ZONE } from "../src/renderer/game/classes.js";
 import { TAB_GATES, tabOpen, openTabs } from "../src/renderer/game/tabs.js";
 import { lockLink, LOCK_LOOKAHEAD } from "../src/renderer/ui/locks.js";
-import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, MAX_PLUS as MAX_PLUS_T, CHAMPION as CHAMPION_T } from "../src/renderer/game/data.js";
+import { ZONES, MONSTERS, KILLS_PER_ZONE, LEGENDARY, ELITE_AFFIXES, relentlessMul, MAX_PLUS as MAX_PLUS_T, CHAMPION as CHAMPION_T } from "../src/renderer/game/data.js";
 import { CHEST as CHEST_T } from "../src/renderer/game/events.js";
 import { mapPos, MapTab } from "../src/renderer/ui/tabs/map.js";
 import { POUPOUCE as POUPOUCE_1730, MONSTERS as MONSTERS_1730 } from "../src/renderer/game/data.js";
@@ -820,6 +820,16 @@ test("Belette : +0,6 % d'esquive et +1 % de riposte par niveau (it. 3198)", () =
   g.S.pets.owned.weasel = { lvl: 10, xp: 0 }; g.S.pets.active = "weasel"; g.invalidateStats();
   assert.ok(Math.abs((g.stats().dodge || 0) - d0 - 6) < 1e-9, "esquive " + g.stats().dodge);
   assert.ok(Math.abs((g.stats().riposte || 0) - r0 - 10) < 1e-9, "riposte " + g.stats().riposte);
+});
+
+test("élite Acharnée : ses coups grandissent avec la vie qu'elle a perdue, jusqu'à +60 % (it. 3199)", () => {
+  const m = { affix: "relentless", max: 1000, hp: 1000 };
+  assert.equal(relentlessMul(m), 1);
+  m.hp = 500; assert.ok(Math.abs(relentlessMul(m) - 1.3) < 1e-9);
+  m.hp = 0; assert.ok(Math.abs(relentlessMul(m) - 1.6) < 1e-9);
+  m.hp = -50; assert.ok(Math.abs(relentlessMul(m) - 1.6) < 1e-9, "borné");
+  assert.equal(relentlessMul({ affix: "fast", max: 10, hp: 1 }), 1, "autres élites : rien");
+  assert.equal(relentlessMul(null), 1);
 });
 
 test("nearestZoneWith : zone atteinte la plus proche où vit un monstre (it. 1437)", () => {
@@ -1680,7 +1690,8 @@ test("familiers : chaque familier a un dessin, les rares sont plus rares", () =>
     const pct = (x) => String(Math.round(x * 100));
     for (const [k, a] of Object.entries(ELITE_AFFIXES)) {
       const want = [];
-      if (a.hp) want.push(pct(a.hp - 1));
+      if (a.hp) want.push(pct(Math.abs(a.hp - 1))); // (it. 3199) l’Acharné a moins de vie : « 15 % … en moins »
+      if (a.rage) want.push(pct(a.rage));
       if (a.atk) want.push(pct(a.atk - 1));
       for (const f of ["regen", "thorns", "dodge", "explode"]) if (a[f]) want.push(pct(a[f]));
       for (const n of want) assert.ok(a.desc.includes(n + " %"), k + " : « " + n + " % » absent de « " + a.desc + " »");

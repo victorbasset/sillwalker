@@ -3489,5 +3489,7 @@ export const KEYS = [
   "Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles.",
   "Bande : les grandes annonces (événements, records) espacent mieux leurs mots, plus faciles à lire.",
   "Belette",
-  "Vive comme l’éclair, elle esquive tout… et te l’apprend."
+  "Vive comme l’éclair, elle esquive tout… et te l’apprend.",
+  "Frappe de plus en plus fort à mesure qu’il perd de la vie (jusqu’à 60 % de plus), mais a 15 % de vie en moins.",
+  "Acharné"
 ];

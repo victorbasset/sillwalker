@@ -2360,4 +2360,6 @@ export default {
   3485: "Strip: big announcements (events, records) space their words better and are easier to read.",
   3486: "Weasel",
   3487: "Quick as lightning, it dodges everything… and teaches you how.",
+  3488: "Hits harder and harder as it loses health (up to 60% more), but has 15% less health.",
+  3489: "Relentless",
 };

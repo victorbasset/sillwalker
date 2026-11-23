@@ -22,7 +22,7 @@ import { t as tx, txn, tr, fsp, colon, lc, csep, cend, wsp } from "../i18n/index
 import { codexRecord, SET_CODEX_BONUS } from "./codex.js";
 import { activeDayMod, dayModFor, DAY_MODS, DAY_MOD_KEYS, BLESSING_SEEN_BONUS } from "./daymods.js";
 import {
-  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, ZONE_COUNT, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, affixWins, AFFIX_SEEN_BONUS, GOBLIN, POUPOUCE, MONSTERS,
+  RARITIES, LEGENDARY, DROP_CHANCE, KILLS_PER_ZONE, ZONE_COUNT, MAX_PLUS, OFFLINE_CAP_S, LOG_SIZE, LOG_MERGE, ELITE, ELITE_AFFIXES, relentlessMul, affixWins, AFFIX_SEEN_BONUS, GOBLIN, POUPOUCE, MONSTERS,
   SLOT_KEYS, WALK_SPEED, MONSTER_SPEED, SPAWN_DIST, SPAWN_DELAY, SIM_STEP, BAG_MAX,
   CHAMPION,
 } from "./data.js";
@@ -503,7 +503,8 @@ export class Game {
   monsterAttack(m, hs, mult) {
     const R = this.R;
     if (hs.dodge > 0 && rand() < hs.dodge / 100) { this.emit("dodge"); return false; }
-    let dmg = m.atk * (m.rageT > 0 ? m.rageK : 1) * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S) * (1 - duoGuard(this.S)); // (it. 1515 : compagnon qui encaisse) Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
+    // (it. 3199) élite acharnée : jusqu'à +60 % de dégâts quand sa vie baisse (proportionnel à la vie perdue)
+    let dmg = m.atk * relentlessMul(m) * (m.rageT > 0 ? m.rageK : 1) * mult * rnd(0.85, 1.15) * 40 / (40 + hs.def) * (R.cursed > 0 ? 1 + CURSE.hurt : 1) * ((R.events.ward || 0) > 0 ? 0.5 : 1) * (m.weakT > 0 ? 0.7 : 1) * heartGuard(this.S) * (1 - duoGuard(this.S)); // (it. 1515 : compagnon qui encaisse) Malédiction : plus de dégâts subis ; Voile protecteur : moitié moins
     if (hs.thorns > 0) {
       m.hp -= dmg * hs.thorns / 100;
       if (m.hp <= 0) { this.killMonster(); return true; }

@@ -2360,4 +2360,6 @@ export default {
   3485: "Faixa: os grandes anúncios (eventos, recordes) espaçam melhor as palavras e ficam mais fáceis de ler.",
   3486: "Doninha",
   3487: "Rápida como um raio, ela desvia de tudo… e ensina você a fazer o mesmo.",
+  3488: "Bate cada vez mais forte à medida que perde vida (até 60 % a mais), mas tem 15 % menos de vida.",
+  3489: "Implacável",
 };

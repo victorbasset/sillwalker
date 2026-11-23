@@ -72,13 +72,13 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   quête) fait place en vendant l'objet inutile ordinaire le moins cher ; une pièce légendaire, de panoplie ou forgée n'est jamais
   vendue ni perdue d'office (Valet d'armes compris) ; « Agrandir le sac » passe en tête de « À faire » (it. 2514-2567).
 - **33 zones** qui bouclent (forêt, grotte, crypte, marais, forge, désert, toundra, jungle, ruines célestes, abysses, champignonnière, ossuaire, steppe, lagon de corail, glacier, cité engloutie, mines naines, verger, désert de verre, trône des tempêtes…),
-  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course),
+  chacune avec sa météo (neige, braises, feuilles, spores, bulles…), **83 monstres** avec leurs propres caractéristiques, **élites dorés** (6 %, or ×4, butin garanti ; dès la zone 3 pendant la première course ; 12 sortes, de Rapide à Acharné),
   **gobelin doré** (rare : s'enfuit au bout de 4 s, or ×15 s'il est attrapé).
 - **Quêtes** : 3 contrats à la fois (chasse (dès la Carte du voyageur, it. 2873), élites, proie (une sorte d’élite précise), boss, or, forge, butin rare, événements rares, coffres au trésor, expéditions, transmutation, zone, coups au clic, critiques, sorts lancés, champions, niveaux, gobelins dorés), récompenses variées ;
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
   Une quête à coffre réclamée (clic, « Tout réclamer », touche R) ouvre son coffre sous les yeux.
-- **Familiers** : 21 compagnons (dont le lapin et le phénix, rares) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
+- **Familiers** : 22 compagnons (dont le lapin et le phénix, rares ; la Belette donne esquive et riposte) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 29 pouvoirs uniques (dont l'Appât des champions, qui attire les élites).
