@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3193) Version 0.1.8 (demande de Victor : « publie la 0.1.8 ») : package.json, notes de version (RELEASE_018, after: 152,
+  dix nouveautés reprises des éditions 153-176, déjà traduites), tests des notes mis à jour. npm test, autotest 348/348, fenêtre des notes
+  capturée dans les 10 langues à 1280 px : propre.
 - 2026-11-23 (it. 3192) Contrôle de la partie d'une semaine à 1280 px : clip-probe en zh, ko, es, pt (textes rognés par un cadre, tous
   les onglets) : 0 ; info-probe en de, ru (ⓘ cachés) : 0.
 - 2026-11-23 (it. 3191) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : rôdeur 64, assassin 62, barde 65. Perf : bande 19,7 %, panneau

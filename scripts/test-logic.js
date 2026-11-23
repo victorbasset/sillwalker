@@ -4999,12 +4999,13 @@ test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un l
   // (0.1.5) la plus récente est la 0.1.5 (distribuée avec l'édition 114) ; un joueur de la 0.1.4 (édition 101) la voit
   // (it. 2055) la plus récente est la 0.1.6 (distribuée avec l'édition 132) ; un joueur de la 0.1.5 (édition 114) la voit
   // (it. 2346) la plus récente est la 0.1.7 (distribuée avec l'édition 152) ; un joueur de la 0.1.6 (édition 132) la voit
-  assert.equal(releaseFor(132)?.version, "0.1.7", "dernière édition lue = 132 (0.1.6)");
-  assert.equal(releaseFor(114)?.version, "0.1.7", "0.1.5 : la version la plus récente");
-  assert.equal(releaseFor(32)?.version, "0.1.7", "plus ancien encore (0.1.2) : la version la plus récente");
-  assert.equal(releaseFor(133), null, "a déjà lu des éditions de la 0.1.7 : éditions normales");
+  // (it. 3193) la plus récente est la 0.1.8 (distribuée avec l'édition 176) ; un joueur de la 0.1.7 (édition 152) la voit
+  assert.equal(releaseFor(152)?.version, "0.1.8", "dernière édition lue = 152 (0.1.7)");
+  assert.equal(releaseFor(132)?.version, "0.1.8", "0.1.6 : la version la plus récente");
+  assert.equal(releaseFor(32)?.version, "0.1.8", "plus ancien encore (0.1.2) : la version la plus récente");
+  assert.equal(releaseFor(153), null, "a déjà lu des éditions de la 0.1.8 : éditions normales");
   assert.equal(releaseFor(NEWS_ID), null, "à jour");
-  for (const v of [32, 58, 101, 114, 132]) assert(releaseFor(v).items.length >= 6 && releaseFor(v).items.length <= 12, "une liste courte et choisie");
+  for (const v of [32, 58, 101, 114, 132, 152]) assert(releaseFor(v).items.length >= 6 && releaseFor(v).items.length <= 12, "une liste courte et choisie");
 });
 
 test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148)", () => {
@@ -5023,7 +5024,7 @@ test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148
   assert(g.stats().atk > 0 && isFinite(power(g.stats())), "statistiques calculables");
   const { newsDue, releaseFor } = M_news_js;
   assert(newsDue(S), "nouveautés à annoncer");
-  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.7", "fenêtre de la version la plus récente (0.1.7 depuis l'it. 2346)");
+  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.8", "fenêtre de la version la plus récente (0.1.8 depuis l'it. 3193)");
 });
 
 test("coréen : particule après un guillemet fermant (it. 1155)", () => {

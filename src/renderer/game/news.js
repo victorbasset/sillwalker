@@ -970,9 +970,22 @@ const RELEASE_017 = [
   "Succès expliqués au survol, les trois plus proches en or ; le Bestiaire dit où trouver ce qui manque ; le Carnet de route annonce sa prochaine étape.",
   "Le son des coups suit la vitesse de frappe ; volumes plus doux à la première installation ; sur Mac, le menu du Dock passe devant la bande.",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152
-// (NEWS_ID) : la suivante prendra after: 152.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }];
+// (it. 3193) notes de la 0.1.8 : textes repris des éditions 153 à 176, déjà traduits
+const RELEASE_018 = [
+  "Champions : plus coriaces qu’une élite, mais moins que le boss de leur zone. Avant, ton héros perdait presque tous ces combats.",
+  "Quêtes de chasse : elles n’arrivent qu’avec la « Carte du voyageur », qui mène en un clic jusqu’au monstre recherché.",
+  "Nouvel événement rare, la « Faveur royale » : pendant 30 secondes, chaque objet trouvé au combat est au moins rare.",
+  "Pendant ton absence, les élites et les champions vaincus rapportent leur or et leur expérience, comme en jeu.",
+  "Sac plein : une pièce légendaire, de panoplie ou forgée n’est plus jamais vendue ni perdue sans que tu le demandes (coffres, Valet d’armes).",
+  "Un déblocage annoncé ailleurs que dans la boutique (Carte, Familiers, Compétences…) s’achète d’un clic sur place quand tu as l’or.",
+  "Choses à faire : un sort abordable s’apprend d’un clic, sans passer par l’onglet des héros.",
+  "Très longues parties : les très grands nombres s’écrivent avec des lettres (Ud, Dd… jusqu’à Vg) plutôt qu’en notation scientifique ; au survol, les cases du héros ne montrent plus de longues rangées de chiffres.",
+  "Retour d’absence : le résumé passe avant les autres bulles, et ne se perd plus quand le jeu démarre en mode mini ou réduit en icône (lancement avec Windows) : il attend que tu ouvres la bande.",
+  "Sur un écran de portable, les icônes de sorts, les nombres et les annonces ne passent plus sur les informations du haut de la bande.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176
+// (NEWS_ID) : la suivante prendra after: 176.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
