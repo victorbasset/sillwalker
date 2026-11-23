@@ -3494,5 +3494,6 @@ export const KEYS = [
   "Acharné",
   "Plus je le frappe, plus il s’énerve… Finissons-en vite !",
   "Nouvelle sorte d’élite, l’« Acharné » : ses coups grandissent avec la vie qu’il a perdue (jusqu’à 60 % de plus), mais il a 15 % de vie en moins : achève-le vite !",
-  "Nouveau familier, la « Belette » : elle apporte de l’esquive et des ripostes, ce qu’aucun autre familier ne donnait."
+  "Nouveau familier, la « Belette » : elle apporte de l’esquive et des ripostes, ce qu’aucun autre familier ne donnait.",
+  "L’ascension devient possible à partir de la zone {0}."
 ];

@@ -4,6 +4,7 @@ import { t as tx } from "../i18n/index.js";
 import { ELITE, CHAMPION } from "../game/data.js";
 import { classSpells, spellRank, SPELL_ZONES } from "../game/spells.js";
 import { tabOpen } from "../game/tabs.js";
+import { ASCEND_MIN_ZONE } from "../game/prestige.js";
 
 export function dayModNotes(S, dm) {
   if (!dm) return [];
@@ -13,5 +14,7 @@ export function dayModNotes(S, dm) {
   if (dm.spellCdr && !classSpells(S.cls).some((x) => spellRank(S, x.id) > 0)) out.push(tx("Les sorts s’apprennent à partir de la zone {0}.", { 0: SPELL_ZONES[0] }));
   // (it. 1703) Jour des familiers sans familier actif
   if (dm.pets && !(S.pets && S.pets.active)) out.push(tabOpen(S, "pets") ? tx("Aucun familier actif : choisis-en un (Familiers).") : tx("Les familiers sortent des œufs des boss, des élites et des quêtes."));
+  // (it. 3202) Jour des étoiles avant la zone de la première ascension
+  if (dm.shards && (S.best || 0) < ASCEND_MIN_ZONE) out.push(tx("L’ascension devient possible à partir de la zone {0}.", { 0: ASCEND_MIN_ZONE }));
   return out;
 }

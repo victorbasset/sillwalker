@@ -2365,4 +2365,5 @@ export default {
   3490: "Quanto mais eu bato, mais ele se irrita… Vamos acabar logo com isso!",
   3491: "Novo tipo de elite, o “Implacável”: seus golpes crescem com a vida que ele perdeu (até 60 % a mais), mas ele tem 15 % menos de vida: acabe com ele rápido!",
   3492: "Novo mascote, a “Doninha”: ela traz esquiva e contra-ataques, algo que nenhum outro mascote dava.",
+  3493: "A ascensão fica possível a partir da zona {0}.",
 };

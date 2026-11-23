@@ -3907,6 +3907,12 @@ test("Jour des familiers : une note sans familier actif, aucune avec (it. 1703)"
   assert.equal(dayModNotes1703(S, dm).length, 0);
 });
 
+test("Jour des étoiles : une note avant la zone de la première ascension, aucune après (it. 3202)", () => {
+  const S = freshState(), dm = DAY_MODS_1703.stars;
+  S.best = 5; assert.equal(dayModNotes1703(S, dm).length, 1);
+  S.best = 200; assert.equal(dayModNotes1703(S, dm).length, 0);
+});
+
 test("journal : couleurs tirées des messages traduits, plus d'expressions en français codées en dur (it. 1715)", () => {
   const h = (l) => logHTML1715([l]);
   // lignes écrites comme le jeu les écrit, dans la langue courante des tests

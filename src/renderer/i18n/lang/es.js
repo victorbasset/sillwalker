@@ -2365,4 +2365,5 @@ export default {
   3490: "Cuanto más le pego, más se enfada… ¡Acabemos rápido!",
   3491: "Nuevo tipo de élite, el «Implacable»: sus golpes crecen con la vida que ha perdido (hasta un 60 % más), pero tiene un 15 % menos de vida: ¡remátalo rápido!",
   3492: "Nueva mascota, la «Comadreja»: aporta esquiva y contraataques, algo que ninguna otra mascota daba.",
+  3493: "La ascensión es posible a partir de la zona {0}.",
 };

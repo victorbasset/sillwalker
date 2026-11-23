@@ -2365,4 +2365,5 @@ export default {
   3490: "Im mocniej go biję, tym bardziej się wścieka… Skończmy to szybko!",
   3491: "Nowy rodzaj elity, „Zawzięty”: jego ciosy rosną wraz z utraconym zdrowiem (do 60 % więcej), ale ma o 15 % mniej zdrowia: wykończ go szybko!",
   3492: "Nowy pupil, „Łasica”: daje uniki i riposty, czego nie dawał żaden inny pupil.",
+  3493: "Wniebowstąpienie staje się możliwe od strefy {0}.",
 };

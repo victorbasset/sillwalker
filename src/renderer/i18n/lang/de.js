@@ -2365,4 +2365,5 @@ export default {
   3490: "Je mehr ich zuschlage, desto wütender wird er … Machen wir es kurz!",
   3491: "Neue Eliteart, der „Verbissen“: Seine Treffer wachsen mit dem verlorenen Leben (bis zu 60 % mehr), dafür hat er 15 % weniger Leben: Mach ihn schnell fertig!",
   3492: "Neuer Begleiter, das „Wiesel“: Es bringt Ausweichen und Konter, was kein anderer Begleiter bot.",
+  3493: "Der Aufstieg ist ab Zone {0} möglich.",
 };
