@@ -2350,4 +2350,6 @@ export default {
   3475: "{n} seltener oder besserer Gegenstand|{n} seltene oder bessere Gegenstände",
   3476: "Nur feine Stücke!",
   3477: "Königliche Gunst",
+  3478: "Neues seltenes Ereignis „Königliche Gunst“: 30 Sekunden lang ist jeder im Kampf gefundene Gegenstand mindestens selten.",
+  3479: "Auf einem Laptop-Bildschirm verdecken Elite-Namen, Zahlen beim Boss, Zauberblitze und die Sprechblase des Helden nicht mehr die Angaben oben in der Leiste.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3182) « Quoi de neuf » : édition 176 (Faveur royale, it. 3180 ; bande à 1280 px, it. 3164-3170 : étiquettes d'élite,
+  nombres près du boss, éclairs des sorts et bulle de parole hors de la rangée du haut), 10 langues. npm test, autotest 348/348,
+  lang-overflow de, ru, pl, fr à 1280 px (partie de dev et fin de partie) : aucun défaut.
 - 2026-11-23 (it. 3181) REVUE GÉNÉRALE. Simulations 12 h (graine 7, record = dernière course) : druide 64, moine 67, paladin 64. Perf :
   bande 19,8 %, panneau 19,2 %, mini 5,3 %, icône 0,7 % (stables). Captures à 1280 px en fr, en, zh (Quêtes, mini ; la fenêtre des notes
   de la 0.1.7 s'ouvre sur une copie de dev-data, propre dans les trois langues) : aucun débordement, 0 erreur. Texte japonais

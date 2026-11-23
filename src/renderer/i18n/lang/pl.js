@@ -2350,4 +2350,6 @@ export default {
   3475: "{n} przedmiot rzadki lub lepszy|{n} przedmioty rzadkie lub lepsze|{n} przedmiotów rzadkich lub lepszych",
   3476: "Same piękne łupy!",
   3477: "Królewska łaska",
+  3478: "Nowe rzadkie wydarzenie „Królewska łaska”: przez 30 sekund każdy przedmiot znaleziony w walce jest co najmniej rzadki.",
+  3479: "Na ekranie laptopa nazwy elit, liczby przy bossie, błyskawice zaklęć i dymek bohatera nie zasłaniają już informacji u góry paska.",
 };

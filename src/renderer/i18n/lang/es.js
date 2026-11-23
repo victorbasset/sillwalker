@@ -2350,4 +2350,6 @@ export default {
   3475: "{n} objeto raro o mejor|{n} objetos raros o mejores",
   3476: "¡Solo piezas finas!",
   3477: "Favor real",
+  3478: "Nuevo evento raro «Favor real»: durante 30 segundos, cada objeto encontrado en combate es al menos raro.",
+  3479: "En la pantalla de un portátil, los nombres de las élites, los números junto al jefe, los rayos de los hechizos y el bocadillo del héroe ya no tapan la información de arriba de la franja.",
 };
