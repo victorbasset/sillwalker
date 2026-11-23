@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3188) Contrôle : --crawl sur dev-data en polonais (516 clics en 20 s) et en coréen (548 clics en 22 s), aucune erreur.
 - 2026-11-23 (it. 3187) Bande : les annonces en grand (événements, records…) espacent un peu plus leurs mots (word-spacing 4 px) : le
   contour de 4 px mangeait l'espace, « Royal Favor!Every », « милость!Каждый » se lisaient d'un bloc dans toutes les langues (vu en
   capturant la Faveur royale en ru, zh, en, bande et mini). hud-probe ru semaine ×2 : 0 ; npm test, autotest 348/348.
