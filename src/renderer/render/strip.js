@@ -14,7 +14,7 @@ import { attackTier, ATTACK_TIERS, CLASS_FX } from "../game/classes.js";
 import { completedSectors, skillPointsTotal, SECTORS } from "../game/skilltree.js";
 import { PIXEL as P, OUTLINE } from "./art.js";
 import { buildSpriteSet, outlinedFrames, glowFrames, isDarkSprite } from "./sprites.js";
-import { ELITE_AFFIXES, POUPOUCE, MONSTERS } from "../game/data.js";
+import { ELITE_AFFIXES, POUPOUCE, MONSTERS, relentlessMul } from "../game/data.js";
 const POUPOUCE_PINK = "#ff9ad2"; // (it. 1605) contour et étiquette de Poupouce
 import { classDef } from "../game/classes.js";
 import { bossName, bossWear } from "../game/bosses.js";
@@ -22,7 +22,7 @@ import { isFinalZone, storyWon, chroniclesUnlocked, CHRONICLES } from "../game/s
 import { heroVisual, visualKey } from "./equipvis.js";
 import { buildHeroSprites } from "./sprites.js";
 import { Juice, WEATHER } from "./juice.js";
-import { fmt, fmtShort, uS, eventHudText } from "../game/format.js";
+import { fmt, fmtShort, uS, eventHudText, unit } from "../game/format.js";
 import { heroHeadURL } from "./trayicons.js";
 import { recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX, SPELL_MAX, spellRank } from "../game/spells.js";
@@ -1587,6 +1587,15 @@ export class StripRenderer {
       const pierced = !fighting && (k === line.length ? R.bossPierced > 0 : line[k]?.pierced > 0);
       a.bar.visible(!!fighting || pierced);
       if (fighting) a.bar.set(R.mon.hp / R.mon.max); else if (pierced) a.bar.set(game.slotHealth(k));
+      // (it. 3203) Acharné : son étiquette dit le bonus de ses coups, par paliers de 10 % (DOM touché seulement quand il change)
+      if (fighting && R.mon.affix === "relentless") {
+        const rp = Math.round((relentlessMul(R.mon) - 1) * 10) * 10;
+        if (a.rageShown !== rp) {
+          const tag = a.el.querySelector(".affix:not(.champ)");
+          if (tag) { if (a.rageBase == null) a.rageBase = tag.textContent; tag.textContent = a.rageBase + (rp > 0 ? " +" + rp + unit("%") : ""); }
+          a.rageShown = rp; mark("hud");
+        }
+      }
       const burning = !!(fighting && R.mon.burnT > 0);
       if (a.flame.hidden === burning) { a.flame.hidden = !burning; mark("flame"); }
       const enraged = !!(fighting && R.mon.enraged), shelled = !!(fighting && R.mon.shell > 0);

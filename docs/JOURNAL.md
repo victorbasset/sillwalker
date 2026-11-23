@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3203) Bande : pendant le combat, l'étiquette de l'Acharné dit le bonus de ses coups par paliers de 10 % (« Acharné
+  +30 % » … « +60 % ») : le danger qui monte se lit, et pousse à l'achever vite. DOM touché seulement au changement de palier. Mise en scène
+  (Acharné rendu invincible, vie forcée par paliers) : 0 → +50 % relevés ; npm test 397, autotest 348/348.
 - 2026-11-23 (it. 3202) Jour des étoiles : avant la zone de la première ascension, la bulle de la bénédiction (panneau et mode mini)
   précise « L'ascension devient possible à partir de la zone 20 » (comme les élites, champions, sorts et familiers). 10 langues, test.
   Vérifié aussi : plus aucun autre ajustement de mise en page différé à l'image suivante (cause du défaut du Bestiaire, it. 3201).
