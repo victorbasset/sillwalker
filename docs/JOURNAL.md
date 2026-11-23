@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3186) Contrôle en capture de l'édition 176 (fenêtre « Quoi de neuf » des éditions 174-176, 1280 px) en allemand et en
+  japonais : texte entier, rien de coupé ni de défilement. Rappel : une simple édition s'annonce par une bulle 6 s après le lancement
+  (pas de fenêtre) ; pour la capturer, mise en scène `window.__panel.showNews(<vu>)`.
 - 2026-11-23 (it. 3185) Contrôle de la bande à 1280 px sur la partie d'une semaine (la plus chargée en effets) : hud-probe, trois passages
   en polonais et un en japonais, coréen et allemand : 0 élément sur la rangée du haut (232 à 249 éléments suivis chacun). Le nom de
   sort en grand de l'idée P3 (it. 3166) ne s'est pas montré.
