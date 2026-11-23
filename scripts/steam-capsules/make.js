@@ -17,6 +17,7 @@ const SIZES = [
   ["update-0.1.5", 1920, 1080, "update", { ver: "0.1.5", tags: "Original soundtrack|Poupouce the cat|XP bar|Quest chests|The Colossal|Pet Day|10 languages" }], // (it. 1761)
   ["update-0.1.6", 1920, 1080, "update", { ver: "0.1.6", tags: "Living monsters|Monster skills|Packs & instincts|Zone climates|Tougher bosses|10 languages" }], // (it. 2055)
   ["update-0.1.7", 1920, 1080, "update", { ver: "0.1.7", tags: "Lighter skill graph|Shortest path|Talents redone|Final battle theme|An ending surprise|10 languages" }], // (it. 2346)
+  ["update-0.1.8", 1920, 1080, "update", { ver: "0.1.8", tags: "Fairer champions|Richer return|Safe full bag|One-click buys|Clear big numbers|Royal Favor event" }], // (it. 3193)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3193, suite) 0.1.8 envoyée sur itch.io par butler (windows #2478740, linux #2478741, mac #2478742) après un essai à
+  blanc ; version Linux construite lancée avec un HOME temporaire (partie neuve qui joue) ; fichiers et empreintes dans
+  Médias/dist-itch ; étiquette v0.1.8. Devlog : docs/devlog-0.1.8.md, steam/itch/devlog-0.1.8.html (10 langues), couverture
+  steam/itch/cover-0.1.8.png.
 - 2026-11-23 (it. 3193) Version 0.1.8 (demande de Victor : « publie la 0.1.8 ») : package.json, notes de version (RELEASE_018, after: 152,
   dix nouveautés reprises des éditions 153-176, déjà traduites), tests des notes mis à jour. npm test, autotest 348/348, fenêtre des notes
   capturée dans les 10 langues à 1280 px : propre.

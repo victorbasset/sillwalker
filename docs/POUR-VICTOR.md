@@ -4,6 +4,14 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Version 0.1.8 (envoyée sur itch.io le 23/11, it. 3193) : reste à publier le devlog
+
+- Envoyée par butler sur les trois canaux (windows #2478740, linux #2478741, mac #2478742, version 0.1.8) ; fichiers et empreintes
+  dans Médias/dist-itch (SHA256-0.1.8.txt) ; étiquette git v0.1.8. Essayée construite (Linux, dossier personnel temporaire).
+- Devlog prêt : `docs/devlog-0.1.8.md` (titre, tags, langues) ; texte en 10 langues `steam/itch/devlog-0.1.8.html` ; couverture
+  Médias/dist-itch/promo/cover-0.1.8.png.
+- Au premier lancement, un joueur de la 0.1.7 voit la fenêtre « Nouveautés de la version 0.1.8 » (dix nouveautés).
+
 ## Du 21 au 23/11 (it. 3161-3183) : bande sur portable, 19e événement, et la prochaine version
 
 - Bande à 1280 px (it. 3164-3170) : étiquettes d'élite (surtout les monstres volants), nombres près du boss, éclairs des sorts
@@ -13,7 +21,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Contrôles sans défaut : parties de 6 h passées par tous les outils (sauvegardes abîmées, parties figées, 489 clics en allemand,
   texte russe), mémoire et JavaScript de la bande mesurés (≈ 1,3 % d'un cœur : le coût est dans le rendu), robustesse après la
   Faveur royale (2 400 parties, 0 bloquée). Revues it. 3171 et 3181 : perf stable (bande ≈ 19,8 %), records 12 h dans la norme.
-- 0.1.8 : 24 éditions de « Quoi de neuf » depuis la 0.1.7 (153-176 : champions battables, absence plus riche, sac plein protégé,
+- 0.1.8 (envoyée, voir plus haut) : 24 éditions de « Quoi de neuf » depuis la 0.1.7 (153-176 : champions battables, absence plus riche, sac plein protégé,
   achats d'un clic, grands nombres en lettres, écrans de portable, Faveur royale). Quand tu veux la sortir, dis-le : je prépare les
   notes de version (news.js, after: 152), la version de package.json, les constructions et l'envoi par butler (`--dry-run` d'abord).
 
