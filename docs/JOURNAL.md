@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3207) Contrôle après les ajouts du jour (Jour des étoiles, Belette, Acharné) : --crawl sur la partie d'une semaine en
+  japonais (925 clics en 42 s) et en espagnol (929 clics en 44 s), aucune erreur ; max-save couvre d'office les nouveaux familiers, élites
+  et bénédictions (listes lues dans les données).
 - 2026-11-23 (it. 3206) Outil pour la sortie quotidienne : scripts/devlog-html.mjs écrit le texte du devlog itch.io en 10 langues à partir
   des notes de version (déjà traduites) et d'une phrase d'accroche par langue ; il refait le devlog publié de la 0.1.8 à l'identique.
 - 2026-11-23 (it. 3205) Contrôle du début de partie après l'Acharné (les élites apparaissent dès la zone 3) : first-minutes inchangé
