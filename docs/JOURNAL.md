@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3185) Contrôle de la bande à 1280 px sur la partie d'une semaine (la plus chargée en effets) : hud-probe, trois passages
+  en polonais et un en japonais, coréen et allemand : 0 élément sur la rangée du haut (232 à 249 éléments suivis chacun). Le nom de
+  sort en grand de l'idée P3 (it. 3166) ne s'est pas montré.
 - 2026-11-23 (it. 3184) POUR-VICTOR : bilan des it. 3161-3183 et état de la prochaine version (24 éditions depuis la 0.1.7, ce que
   je prépare quand Victor décide de la sortir).
 - 2026-11-23 (it. 3183) Contrôle de robustesse après la Faveur royale (it. 3180) : fuzz.mjs 1200 parties, 0 bloquées (aussi
