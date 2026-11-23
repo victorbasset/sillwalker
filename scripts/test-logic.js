@@ -814,6 +814,14 @@ test("Grillon : +5 % d'événements rares par niveau (temps estimé de la quête
   assert.ok(g.questEta(q) < e0 * 0.75, "plus rapide avec le Grillon");
 });
 
+test("Belette : +0,6 % d'esquive et +1 % de riposte par niveau (it. 3198)", () => {
+  const g = new Game(freshState()); g.invalidateStats();
+  const d0 = g.stats().dodge || 0, r0 = g.stats().riposte || 0;
+  g.S.pets.owned.weasel = { lvl: 10, xp: 0 }; g.S.pets.active = "weasel"; g.invalidateStats();
+  assert.ok(Math.abs((g.stats().dodge || 0) - d0 - 6) < 1e-9, "esquive " + g.stats().dodge);
+  assert.ok(Math.abs((g.stats().riposte || 0) - r0 - 10) < 1e-9, "riposte " + g.stats().riposte);
+});
+
 test("nearestZoneWith : zone atteinte la plus proche où vit un monstre (it. 1437)", () => {
   const S = { zone: 40, best: 60 }, type = zoneDef(12).monsters[0];
   const z = nearestZoneWith(S, type);

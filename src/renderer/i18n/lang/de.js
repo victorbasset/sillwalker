@@ -2358,4 +2358,6 @@ export default {
   3483: "Neuer Segen des Tages, der „Tag der Sterne“: +50 % Sternensplitter beim Aufstieg; an diesem Tag steht ein ✨ hinter dem angezeigten Gewinn im Reiter Aufstieg.",
   3484: "Mini-Modus: Während eines seltenen Ereignisses mit langem Namen bleiben die restlichen Sekunden sichtbar.",
   3485: "Leiste: Große Meldungen (Ereignisse, Rekorde) haben mehr Abstand zwischen den Wörtern und sind leichter zu lesen.",
+  3486: "Wiesel",
+  3487: "Blitzschnell weicht es allem aus … und bringt es dir bei.",
 };

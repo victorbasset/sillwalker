@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3198) Contenu : 22e familier, la Belette (esquive +0,6 % et riposte +1 % par niveau : +6 % et +10 % au niveau 10 ;
+  aucun familier ne les donnait), dessin pixel (deux images : course, bond queue relevée), 10 langues, test. Captures fr, de (carte et
+  bande) ; npm test 395, autotest 348/348, lang-overflow de, ru, pl à 1280 px (état maximal compris) : aucun défaut.
 - 2026-11-23 (it. 3197) « Quoi de neuf » : édition 177 (Jour des étoiles et son ✨, secondes de l'événement en mode mini, annonces mieux
   espacées), 10 langues. Avant : lang-overflow des 10 langues à 1280 px (40 mesures, état maximal à 18 bénédictions compris) : aucun
   défaut. npm test 394, autotest 348/348.

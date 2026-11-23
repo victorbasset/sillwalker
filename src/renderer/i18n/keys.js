@@ -3487,5 +3487,7 @@ export const KEYS = [
   "Les étoiles brillent fort : c’est le jour de monter vers elles !",
   "Nouvelle bénédiction du jour, le « Jour des étoiles » : +50 % d’éclats d’étoile à l’ascension ; ce jour-là, un ✨ suit le gain annoncé dans l’onglet Ascension.",
   "Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles.",
-  "Bande : les grandes annonces (événements, records) espacent mieux leurs mots, plus faciles à lire."
+  "Bande : les grandes annonces (événements, records) espacent mieux leurs mots, plus faciles à lire.",
+  "Belette",
+  "Vive comme l’éclair, elle esquive tout… et te l’apprend."
 ];

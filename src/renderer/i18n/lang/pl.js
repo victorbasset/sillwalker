@@ -2358,4 +2358,6 @@ export default {
   3483: "Nowe błogosławieństwo dnia, „Dzień gwiazd”: +50 % odłamków gwiazd przy wniebowstąpieniu; tego dnia przy zysku w zakładce Wniebowstąpienie pojawia się ✨.",
   3484: "Tryb mini: podczas rzadkiego wydarzenia o długiej nazwie pozostałe sekundy są nadal widoczne.",
   3485: "Pasek: duże komunikaty (wydarzenia, rekordy) mają większe odstępy między słowami i łatwiej je przeczytać.",
+  3486: "Łasica",
+  3487: "Szybka jak błyskawica, unika wszystkiego… i uczy tego ciebie.",
 };

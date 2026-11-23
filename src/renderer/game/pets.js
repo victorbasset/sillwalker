@@ -36,6 +36,8 @@ export const PETS = [
   { id: "magpie", name: "Pie", desc: "Repère tout ce qui brille, surtout les coffres au trésor.", eff: { chests: 6 } },
   // (it. 1485) Grillon : événements rares plus fréquents (+50 % au niveau 10)
   { id: "cricket", name: "Grillon", desc: "Son chant attire les prodiges : les événements rares viennent plus souvent.", eff: { events: 5 } },
+  // (it. 3198) Belette : esquive et riposte (aucun familier ne les donnait ; +6 % et +10 % au niveau 10)
+  { id: "weasel", name: "Belette", desc: "Vive comme l’éclair, elle esquive tout… et te l’apprend.", eff: { dodge: 0.6, riposte: 1 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

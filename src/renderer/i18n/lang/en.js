@@ -2358,4 +2358,6 @@ export default {
   3483: "New daily blessing, “Star Day”: +50% star shards on ascension; that day, a ✨ follows the gain shown in the Ascension tab.",
   3484: "Mini mode: during a rare event with a long name, the remaining seconds stay visible.",
   3485: "Strip: big announcements (events, records) space their words better and are easier to read.",
+  3486: "Weasel",
+  3487: "Quick as lightning, it dodges everything… and teaches you how.",
 };

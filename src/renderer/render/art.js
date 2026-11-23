@@ -333,6 +333,10 @@ export const PET_ART = {
   cricket: { pal: { G: "#3f7a2e", L: "#7fbf4a", D: "#1f3d16", E: "#e8e08a" }, frames: [
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", ".D..D.DD."],
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", "D..D...D."]] },
+  // (it. 3198) Belette : longue et basse, dos brun, ventre crème, queue à bout sombre (deuxième image : bond, queue relevée)
+  weasel: { pal: { B: "#9a6436", D: "#5a3418", W: "#f4e4c4", E: "#1a1a1a", N: "#2a1a10" }, frames: [
+    [".......BB", "......BEN", "D.BBBBBWW", "DBBBBBBW.", ".WWWWWW..", ".B..B.B.."],
+    ["D......BB", "DD....BEN", ".BBBBBBWW", "BBBBBBBW.", ".WWWWWW..", "B......B."]] },
   // (it. 1427) Pie : noire et blanche à longue queue, reflet bleu sur l'aile (deuxième image : ailes levées)
   magpie: { pal: { K: "#1a1a24", W: "#f4f4f8", U: "#3a5aa8", Y: "#ffd34d" }, fly: true, frames: [
     ["..KK.....", ".KKYK....", "KKKKKUUK.", ".WWKUUKKK", ".WWKK...K", "..K.K...."],

@@ -2358,4 +2358,6 @@ export default {
   3483: "Nueva bendición del día, el «Día de las estrellas»: +50 % de fragmentos de estrella en la ascensión; ese día, un ✨ acompaña la ganancia indicada en la pestaña Ascensión.",
   3484: "Modo mini: durante un evento raro de nombre largo, los segundos restantes siguen visibles.",
   3485: "Banda: los grandes anuncios (eventos, récords) separan mejor sus palabras y se leen más fácilmente.",
+  3486: "Comadreja",
+  3487: "Rápida como el rayo, lo esquiva todo… y te enseña a hacerlo.",
 };
