@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3181) REVUE GÉNÉRALE. Simulations 12 h (graine 7, record = dernière course) : druide 64, moine 67, paladin 64. Perf :
+  bande 19,8 %, panneau 19,2 %, mini 5,3 %, icône 0,7 % (stables). Captures à 1280 px en fr, en, zh (Quêtes, mini ; la fenêtre des notes
+  de la 0.1.7 s'ouvre sur une copie de dev-data, propre dans les trois langues) : aucun débordement, 0 erreur. Texte japonais
+  (--dump-text, 25 546 lignes) : aucun mot non traduit (HP, Lv, Esc, Shift, « pt » des points voulus, repères du relevé). Victor a
+  demandé la liste des nouveautés depuis la 0.1.7 : éditions 153-175 et la Faveur royale (it. 3180, dans aucune édition encore).
 - 2026-11-22 (it. 3180) Contenu : 19e événement rare, « Faveur royale » (30 s) : chaque objet trouvé au combat est au moins rare
   (la qualité du butin, là où la Corne d'abondance en donne la quantité). Réplique, sonnerie, bilan (« N objets rares ou mieux »),
   10 langues ; page Steam et dossier de presse : 19 événements (le dossier citait encore 15 capacités de boss : 19). Test, npm test,
