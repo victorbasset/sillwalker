@@ -4,7 +4,10 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Version 0.1.8 (envoyée sur itch.io le 23/11, it. 3193) : reste à publier le devlog
+## Version 0.1.8 (envoyée sur itch.io le 23/11, it. 3193) : devlog publié automatiquement (it. 3194)
+
+- Sorties désormais tout automatiques : butler, dépôt dans Médias et devlog (scripts/itch-devlog.cjs, avec ta session web itch.io
+  rangée dans ~/.config/itch/web_session). Si elle expire (déconnexion), je te redemanderai le cookie « itchio ».
 
 - Envoyée par butler sur les trois canaux (windows #2478740, linux #2478741, mac #2478742, version 0.1.8) ; fichiers et empreintes
   dans Médias/dist-itch (SHA256-0.1.8.txt) ; étiquette git v0.1.8. Essayée construite (Linux, dossier personnel temporaire).

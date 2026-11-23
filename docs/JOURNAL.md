@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-23 (it. 3194) Sortie tout automatique (demande de Victor : « même le devlog ») : scripts/itch-devlog.cjs publie un devlog
+  itch.io (pas d'API : page « New devlog » dans un Electron caché avec la session web de Victor, couverture envoyée par le site
+  lui-même via l'interception de la fenêtre de fichier, formulaire soumis depuis la page ; jamais deux fois le même billet).
+  itch-push.sh dépose aussi les fichiers et empreintes dans Médias puis publie le devlog. Devlog 0.1.8 publié ainsi (brouillon
+  relu : titre, tags, 10 langues, couverture, 9 blocs repliables ; puis public, billet 1801371).
 - 2026-11-23 (it. 3193, suite) 0.1.8 envoyée sur itch.io par butler (windows #2478740, linux #2478741, mac #2478742) après un essai à
   blanc ; version Linux construite lancée avec un HOME temporaire (partie neuve qui joue) ; fichiers et empreintes dans
   Médias/dist-itch ; étiquette v0.1.8. Devlog : docs/devlog-0.1.8.md, steam/itch/devlog-0.1.8.html (10 langues), couverture

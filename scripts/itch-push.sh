@@ -9,6 +9,8 @@
 # `butler login` (ou la clé d'API dans ~/.config/itch/butler_creds). Les envois apparaissent dans « Edit game » →
 # Uploads ; masquer les anciens fichiers envoyés à la main.
 # Avant : npm test, autotest, notes de version (NEWS_RELEASES) à jour (le test des notes de version le vérifie).
+# Après l'envoi (it. 3194) : dépôt dans Médias/dist-itch avec empreintes, puis publication du devlog (scripts/itch-devlog.cjs)
+# si docs/devlog-<version>.md, steam/itch/devlog-<version>.html et steam/itch/cover-<version>.png existent.
 set -euo pipefail
 TARGET="${1:?usage : scripts/itch-push.sh <compte/jeu> [--dry-run]}"; DRY="${2:-}"
 cd "$(dirname "$0")/.."
@@ -42,3 +44,16 @@ fi
 "$BUTLER" push "dist-itch/Sillwalker-$VER-mac-arm64.zip" "$TARGET:mac" --userversion "$VER"
 rm -rf "$LIN"
 "$BUTLER" status "$TARGET"
+# (it. 3194, demande de Victor : tout automatique) fichiers et empreintes pour Victor, puis le devlog s'il est prêt
+SRC="${ROOT:-$PWD}"
+MEDIA="${MEDIA:-/home/victor/Médias/dist-itch}"
+if [ -d "$MEDIA" ]; then
+  cp dist-itch/Sillwalker-$VER-win.zip "dist-itch/Sillwalker-$VER-linux.AppImage" "dist-itch/Sillwalker-$VER-mac-arm64.zip" "$MEDIA/" && chmod 666 "$MEDIA"/Sillwalker-$VER-*
+  (cd "$MEDIA" && sha256sum Sillwalker-$VER-* > "SHA256-$VER.txt" && chmod 666 "SHA256-$VER.txt")
+  echo "déposé dans $MEDIA (SHA256-$VER.txt)"
+fi
+if [ -s "$SRC/docs/devlog-$VER.md" ] && [ -s "$SRC/steam/itch/devlog-$VER.html" ] && [ -s "$SRC/steam/itch/cover-$VER.png" ]; then
+  xvfb-run -a "$SRC/node_modules/.bin/electron" --no-sandbox "$SRC/scripts/itch-devlog.cjs" "$VER" --publish 2>&1 | grep -E "^DEVLOG|couverture"
+else
+  echo "devlog non publié : docs/devlog-$VER.md, steam/itch/devlog-$VER.html ou steam/itch/cover-$VER.png manquant"
+fi

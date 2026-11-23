@@ -314,7 +314,13 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   trois versions (Mac signée) et les pousse sur les canaux windows, linux, mac (`--userversion` = package.json) ;
   cible : `victor-basset/sillwalker` (butler connecté au compte de Victor le 2026-11-13) ; `--dry-run` construit et vérifie sans rien envoyer ; `REF=v0.1.3` construit une version figée (étiquette git v<version> à poser sur le commit de chaque version). butler : `~/.local/bin/butler` (connexion une fois : `butler
   login`, identifiants dans ~/.config/itch/). Puis le devlog (docs/devlog-<version>.md) : préparer d'un bloc titre, couverture (scripts/steam-capsules/make.js,
-  entrée `update-<version>` avec ver et tags), tags et langues, en tête du devlog (Victor les demande à la publication, it. 1764).
+  entrée `update-<version>` avec ver et tags), tags et langues, en tête du devlog ; texte 10 langues steam/itch/devlog-<version>.html
+  (listes tirées des traductions de RELEASE_0xx), couverture copiée en steam/itch/cover-<version>.png.
+  TOUT AUTOMATIQUE depuis l'it. 3194 (demande de Victor : « même le devlog ») : itch-push.sh dépose aussi les fichiers dans Médias
+  et publie le devlog par scripts/itch-devlog.cjs (Electron caché, session web de Victor dans ~/.config/itch/web_session, cookie
+  « itchio » ; itch.io n'a pas d'API de devlog). Préparer donc devlog, texte et couverture AVANT itch-push.sh. Seul :
+  `xvfb-run -a node_modules/.bin/electron --no-sandbox scripts/itch-devlog.cjs <version>` = brouillon, `--publish`, `--edit=<id>` ;
+  un billet déjà public de la version n'est jamais refait (DEVLOG-DÉJÀ). « formulaire introuvable » = session expirée : la redemander.
 - « Quoi de neuf » (game/news.js) : après une série de nouveautés visibles, publier une édition (une liste ajoutée à la
   FIN de NEWS_EDITIONS, textes à traduire ; ne jamais modifier une édition publiée) : Victor et les joueurs la voient
   une fois au lancement suivant, avec les éditions sautées (les 3 dernières, puis d'autres tant que le total reste sous
