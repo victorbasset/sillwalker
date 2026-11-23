@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3209) Perf après l'it. 3208 (étiquettes recalculées à chaque image) : bande 19,5 %, panneau 19,2 %, mini 5,3 %,
+  icône 0,7 % : inchangé. Idée P3 de l'it. 3166 mise à jour (étiquette d'élite : cause trouvée et corrigée).
 - 2026-11-23 (it. 3208) Bande à 1280 px : l'étiquette d'élite du monstre EN COMBAT pouvait mordre sur la rangée du haut (« Неистовый ✦ »
   à 21 px sur la pastille de gauche, partie d'une semaine, 2 passages sur 4). Sa place était calculée une fois, d'après la place
   d'attente ; au combat (ou pendant un saut, un geste) le monstre se tient jusqu'à 20 px plus haut. Elle suit maintenant la hauteur réelle
@@ -9927,7 +9929,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
+- EN PARTIE FAIT (it. 3208 : étiquette d'élite du monstre en combat, cause trouvée ; reste le nom de sort en grand, jamais reproduit) P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
   du haut (un par passage de 15 s au plus) : bulle de parole posée à 2 px au milieu (là où les barres de vie apparaissent en cours de
   combat ; corrigé it. 3168), étiquettes d'élite à 21-22 px (monstres volants qui montent au-delà des 10 px de marge ; corrigé it. 3167), nom de sort en grand à 8 px. Pistes :
   bulle et nom de sort qui tiennent compte des barres de vie même cachées ; marge de l'étiquette selon l'amplitude du vol.
