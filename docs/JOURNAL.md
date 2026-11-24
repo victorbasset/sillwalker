@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3234) Suite de l'it. 3233 : l'icône Steam du succès « Poupouce ?! » montrait aussi l'ancien champignon ; elle reprend le
+  dessin du chat (achicons.html, m:poupouce). Seules ses deux images changent (72 régénérées, comparées) ; steam/checklist.md : à
+  téléverser de nouveau dans Steamworks. Les textes du jeu ne parlent plus du champignon.
 - 2026-11-24 (it. 3233, signalé par Victor) Jour de Poupouce : l'icône de la bénédiction était encore un champignon 🍄 (l'ancien dessin de
   Poupouce) ; c'est un chat 🐈 depuis la 0.1.5. Capture de la pastille ; npm test, autotest 349/349.
 - 2026-11-24 (it. 3232) Mode mini : la bulle d'un boss liste aussi ses capacités, nom et effet (« Разъярённый : ниже 30 % здоровья… »,
