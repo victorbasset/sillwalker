@@ -3508,5 +3508,6 @@ export const KEYS = [
   "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile.",
   "Mode mini : au survol du monstre, sa bulle dit sa sorte d’élite et son effet, ou les capacités du boss.",
   "Le Jour de Poupouce a maintenant l’icône d’un chat, comme Poupouce lui-même.",
-  "Plus acharné que lui (25 acharnés)"
+  "Plus acharné que lui (25 acharnés)",
+  "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus."
 ];

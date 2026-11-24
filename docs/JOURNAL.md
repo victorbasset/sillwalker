@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3243) « Quoi de neuf » : édition 183 (succès des 25 Acharnés), 10 langues (nom du succès cité tel que traduit) ; npm test,
+  autotest 349/349. Dernière édition avant la 0.1.9 (éditions 177-183).
 - 2026-11-24 (it. 3242) Fin de partie après les ajouts des 23-24/11 : simulate.js 168 h guerrier (116 s) : record de la semaine 350 (palier de
   l'écho de la zone 350, comme le repère des it. 1708 et 2332), 6 158 éclats : inchangé.
 - 2026-11-24 (it. 3241) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : chaman 64, moine 61 (67 à l'it. 3181 sur la même graine : graines

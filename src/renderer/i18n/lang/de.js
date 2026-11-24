@@ -2379,4 +2379,5 @@ export default {
   3504: "Mini-Modus: Beim Darüberfahren zeigt die Blase des Monsters seine Eliteart und ihre Wirkung oder die Fähigkeiten des Bosses.",
   3505: "Der Poupouce-Tag hat jetzt ein Katzensymbol, wie Poupouce selbst.",
   3506: "Verbissener als sie (25 Verbissene)",
+  3507: "Neuer Erfolg: „Verbissener als sie (25 Verbissene)“ für 25 besiegte Verbissene.",
 };

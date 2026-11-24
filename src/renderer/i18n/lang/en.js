@@ -2379,4 +2379,5 @@ export default {
   3504: "Mini mode: hovering the monster, its tooltip shows its kind of elite and its effect, or the boss’s abilities.",
   3505: "Poupouce Day now has a cat icon, like Poupouce himself.",
   3506: "More Relentless Than Them (25 relentless)",
+  3507: "New achievement: “More Relentless Than Them (25 relentless)”, for 25 Relentless defeated.",
 };

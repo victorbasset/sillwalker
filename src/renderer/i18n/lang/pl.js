@@ -2379,4 +2379,5 @@ export default {
   3504: "Tryb mini: po najechaniu na potwora jego dymek pokazuje rodzaj elity i jej efekt albo umiejętności bossa.",
   3505: "Dzień Poupouce ma teraz ikonę kota, jak sam Poupouce.",
   3506: "Bardziej zawzięty od nich (25 zawziętych)",
+  3507: "Nowe osiągnięcie: „Bardziej zawzięty od nich (25 zawziętych)” za pokonanie 25 Zawziętych.",
 };

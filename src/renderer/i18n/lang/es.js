@@ -2379,4 +2379,5 @@ export default {
   3504: "Modo mini: al pasar el ratón sobre el monstruo, su burbuja indica su tipo de élite y su efecto, o las habilidades del jefe.",
   3505: "El Día de Poupouce ahora tiene el icono de un gato, como el propio Poupouce.",
   3506: "Más implacable que ellos (25 implacables)",
+  3507: "Nuevo logro: «Más implacable que ellos (25 implacables)», por vencer a 25 Implacables.",
 };
