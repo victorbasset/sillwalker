@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3220) Perf de la partie d'une semaine après les retouches de la bande (it. 3203, 3208, 3212) : bande 25,9 %, panneau
+  27,0 %, mini 6,9 %, icône 0,9 % : comme le repère de l'it. 2984 (26 / 28 / 6,9 / 0,9).
 - 2026-11-24 (it. 3219) POUR-VICTOR : bilan des it. 3185-3218 (ce que contiendra la 0.1.9).
 - 2026-11-24 (it. 3218) steam/checklist.md : la page du magasin a changé à l'it. 3199 (12 sortes d'élites) ; noté « à recopier » pour
   Victor s'il l'a déjà saisie dans Steamworks. Dossier de presse : ne cite pas ces nombres (rien à changer).
