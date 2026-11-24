@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3229) Relecture du code ajouté depuis la 0.1.8 (25 fichiers, +361 lignes : bénédiction, élite, familiers, quête, bande) :
+  rien à corriger. À noter : pour un monstre volant près de la rangée du haut, l'étiquette (it. 3208) est réécrite à chaque pas de son
+  battement d'ailes (quelques px) ; la mesure de perf (it. 3209, 3220) ne voit aucun coût.
 - 2026-11-24 (it. 3228) Contrôles : partie neuve en français à 1280 px après 45 s (niveau 2, première bulle de l'histoire, pastille
   d'événement) : propre ; fuzz FUZZ_DAYMOD=all (18 bénédictions, Jour des étoiles compris) 1200 parties, 0 bloquées ; stall-check
   STALL_DAYMOD=all 120 parties, 0 figées.
