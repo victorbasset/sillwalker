@@ -3,7 +3,7 @@
 Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Reprend les éditions « Quoi de neuf » 177 à 182 parues
 depuis la 0.1.8, réduites aux nouveautés majeures (les mêmes que NEWS_RELEASES, news.js : RELEASE_019).
 
-## Publication sur itch.io
+## Publication sur itch.io (0.1.9 envoyée le 2026-11-24 vers 19 h par butler, it. 3245 : builds windows #2489294, linux #2489295, mac #2489296 ; devlog 1804086)
 
 - **Titre :** Sillwalker 0.1.9 – a Star Day, the Relentless elite and two new pets
 - **Image de couverture :** steam/itch/cover-0.1.9.png (1920 × 1080 ; `ONLY=update-0.1.9 electron scripts/steam-capsules/make.js <dossier>`)

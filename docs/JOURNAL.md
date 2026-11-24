@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3245, suite) 0.1.9 envoyée sur itch.io par scripts/itch-push.sh, entièrement automatique : essai de l'AppImage construite
+  (2 monstres vaincus en 30 s), butler (windows #2489294, linux #2489295, mac #2489296), dépôt et empreintes dans Médias, devlog publié
+  avec sa couverture (billet 1804086, visible dans la liste publique). Première sortie quotidienne.
 - 2026-11-24 (it. 3245) Version 0.1.9 (sortie quotidienne de 20 h) : notes de version (RELEASE_019, after: 176, onze nouveautés des
   éditions 177-183, déjà traduites), package.json, tests des notes ; npm test 399, autotest 349/349, fenêtre des notes capturée dans les
   10 langues à 1280 px (propre) ; texte du devlog par scripts/devlog-html.mjs (110 lignes, 10 langues).

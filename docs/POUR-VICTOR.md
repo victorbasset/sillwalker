@@ -4,7 +4,12 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
-## Depuis la 0.1.8 (23-24/11, it. 3185-3218) : ce qui partira dans la 0.1.9 (ce soir vers 20 h)
+## Version 0.1.9 (envoyée le 24/11 vers 19 h, it. 3245, devlog publié) : contenu ci-dessous
+
+- Fichiers dans Médias/dist-itch (SHA256-0.1.9.txt) ; étiquette v0.1.9 ; devlog : https://victor-basset.itch.io/sillwalker/devlog/1804086
+- Ajouts après ce bilan : bulles du mode mini (élite, boss), icône chat du Jour de Poupouce, 73e succès (25 Acharnés).
+
+### Contenu (it. 3185-3243)
 
 - Contenu : 18e bénédiction du jour, le Jour des étoiles (+50 % d'éclats à l'ascension, ✨ à côté du gain ; premier le 17/12) ;
   12e sorte d'élite, l'Acharné (ses coups montent avec la vie perdue, jusqu'à +60 %, affiché sur son étiquette ; 15 % de vie en moins) ;
