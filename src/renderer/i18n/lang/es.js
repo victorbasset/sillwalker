@@ -2389,4 +2389,5 @@ export default {
   3514: "Nueva bendición del día, el «Día del celo»: las misiones avanzan el doble de rápido, y sus tiempos estimados lo tienen en cuenta.",
   3515: "Poupouce: extremadamente raro, deja mucho oro y un objeto legendario.",
   3516: "Campeón: más duro que una élite, deja un objeto épico.",
+  3517: "Modo mini: las burbujas de Poupouce y de un campeón también dicen lo que dejan al caer.",
 };

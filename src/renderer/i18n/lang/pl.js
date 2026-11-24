@@ -2389,4 +2389,5 @@ export default {
   3514: "Nowe błogosławieństwo dnia, „Dzień gorliwości”: zadania postępują dwa razy szybciej, a ich szacowany czas to uwzględnia.",
   3515: "Poupouce: niezwykle rzadki, zostawia dużo złota i legendarny przedmiot.",
   3516: "Czempion: twardszy niż elita, zostawia epicki przedmiot.",
+  3517: "Tryb mini: dymki Poupouce i czempiona mówią też, co zostawiają po pokonaniu.",
 };

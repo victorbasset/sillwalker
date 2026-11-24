@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3253) « Quoi de neuf » : édition 185 (bulles du mode mini pour Poupouce et les champions), 10 langues ; npm test, autotest.
 - 2026-11-24 (it. 3252) Mode mini : la bulle d'un champion dit ce qui le distingue (« Champion : plus coriace qu'une élite, il laisse un objet
   épique. »), avant sa sorte et son effet ; 10 langues ; vérifié par mise en scène ; npm test, autotest 349/349.
 - 2026-11-24 (it. 3251) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : guerrier 64, druide 69, rôdeur 62. Perf : bande 19,5 % (une première

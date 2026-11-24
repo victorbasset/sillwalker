@@ -2389,4 +2389,5 @@ export default {
   3514: "Neuer Segen des Tages, der „Tag des Eifers“: Quests kommen doppelt so schnell voran, und ihre geschätzten Zeiten berücksichtigen das.",
   3515: "Poupouce: äußerst selten, er hinterlässt viel Gold und einen legendären Gegenstand.",
   3516: "Champion: zäher als eine Elite, hinterlässt einen epischen Gegenstand.",
+  3517: "Mini-Modus: Die Blasen von Poupouce und eines Champions sagen auch, was sie beim Fallen hinterlassen.",
 };
