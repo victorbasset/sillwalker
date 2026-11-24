@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3237) Préparation de la 0.1.9 (sortie vers 20 h) : session itch.io encore valide (formulaire de devlog atteint) ;
+  docs/devlog-0.1.9.md (titre, tags), phrases d'accroche en 10 langues (steam/itch/intros-0.1.9.json), couverture
+  (steam/itch/cover-0.1.9.png, entrée update-0.1.9 de make.js). Restera ce soir : notes de version, version, tests, texte du devlog, envoi.
 - 2026-11-24 (it. 3236) Essai à blanc complet de la sortie (itch-push.sh --dry-run) avant ce soir : l'essai de l'AppImage ajouté à l'it. 3222
   ARRÊTAIT le script (set -e : « timeout » rend 124 quand il coupe le jeu au bout de 30 s) ; la sortie de 20 h aurait échoué. « || true »
   ajouté ; nouvel essai à blanc : « essai de la version construite : ok (2 monstres vaincus en 30 s) », code 0. Leçon : un essai à part
