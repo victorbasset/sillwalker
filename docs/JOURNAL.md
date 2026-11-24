@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3236) Essai à blanc complet de la sortie (itch-push.sh --dry-run) avant ce soir : l'essai de l'AppImage ajouté à l'it. 3222
+  ARRÊTAIT le script (set -e : « timeout » rend 124 quand il coupe le jeu au bout de 30 s) ; la sortie de 20 h aurait échoué. « || true »
+  ajouté ; nouvel essai à blanc : « essai de la version construite : ok (2 monstres vaincus en 30 s) », code 0. Leçon : un essai à part
+  (it. 3222) ne remplace pas le script entier.
 - 2026-11-24 (it. 3235) « Quoi de neuf » : édition 182 (bulles du mode mini : élite et boss ; icône du Jour de Poupouce), 10 langues
   (Poupouce garde son nom dans toutes les langues, comme dans le jeu) ; npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3234) Suite de l'it. 3233 : l'icône Steam du succès « Poupouce ?! » montrait aussi l'ancien champignon ; elle reprend le
