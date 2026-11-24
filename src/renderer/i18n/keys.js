@@ -3516,5 +3516,6 @@ export const KEYS = [
   "Les quêtes avancent deux fois plus vite.",
   "Aujourd’hui, chaque contrat compte double !",
   "Nouveau familier, la « Pie-grièche » : tes coups contre les ennemis sous 30 % de vie font plus mal (jusqu’à 30 % de plus au niveau 10).",
-  "Nouvelle bénédiction du jour, le « Jour du zèle » : les quêtes avancent deux fois plus vite, et leurs temps estimés en tiennent compte."
+  "Nouvelle bénédiction du jour, le « Jour du zèle » : les quêtes avancent deux fois plus vite, et leurs temps estimés en tiennent compte.",
+  "Poupouce : extrêmement rare, il laisse beaucoup d’or et un objet légendaire."
 ];

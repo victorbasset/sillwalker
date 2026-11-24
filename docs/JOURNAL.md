@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3250) Mode mini : la bulle de Poupouce dit pourquoi le frapper (« Poupouce : extrêmement rare, il laisse beaucoup d'or et
+  un objet légendaire. »), 10 langues ; vérifié en japonais par mise en scène ; npm test, autotest 349/349.
 - 2026-11-24 (it. 3249) « Quoi de neuf » : édition 184 (Pie-grièche, Jour du zèle), 10 langues ; npm test 401, autotest 349/349.
 - 2026-11-24 (it. 3248) Jour du zèle : les temps estimés des quêtes en tiennent compte (il reste deux fois moins de progrès à faire ; quête
   des étoiles : une étoile au lieu de deux). Test ; npm test 401, autotest 349/349.

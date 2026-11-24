@@ -202,7 +202,9 @@ export class MiniRenderer {
       // (it. 3232) boss : ses capacités (nom et effet), qu'on ne voyait que sur la carte de la zone dans le panneau
       { const af = m && m.elite && ELITE_AFFIXES[m.affix], mech = m && m.boss && Array.isArray(m.mech) ? m.mech.map((k) => BOSS_MECHANICS[k]).filter(Boolean) : [];
         this.tap.removeAttribute("title");
-        this.tap.dataset.title = [tx("Clique pour frapper !"), ...(af ? [af.name + colon() + af.desc] : []), ...mech.map((b) => b.name + colon() + b.desc)].join("\n"); }
+        // (it. 3250) Poupouce : pourquoi il vaut la peine de cliquer
+        const pp = m && m.poupouce ? [tx("Poupouce : extrêmement rare, il laisse beaucoup d’or et un objet légendaire.")] : [];
+        this.tap.dataset.title = [tx("Clique pour frapper !"), ...pp, ...(af ? [af.name + colon() + af.desc] : []), ...mech.map((b) => b.name + colon() + b.desc)].join("\n"); }
       if (m) {
         // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
         const set = m.final ? this.sprites.starbreaker : (m.boss && m.art && this.sprites.major(m.art)) || this.sprites.monsters[m.type];

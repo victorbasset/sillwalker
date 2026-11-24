@@ -2387,4 +2387,5 @@ export default {
   3512: "¡Hoy cada contrato cuenta doble!",
   3513: "Nueva mascota, el «Alcaudón»: tus golpes contra enemigos por debajo del 30 % de vida hacen más daño (hasta un 30 % más en el nivel 10).",
   3514: "Nueva bendición del día, el «Día del celo»: las misiones avanzan el doble de rápido, y sus tiempos estimados lo tienen en cuenta.",
+  3515: "Poupouce: extremadamente raro, deja mucho oro y un objeto legendario.",
 };

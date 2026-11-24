@@ -2387,4 +2387,5 @@ export default {
   3512: "Hoje, cada contrato vale em dobro!",
   3513: "Novo mascote, o “Picanço”: seus golpes contra inimigos abaixo de 30 % de vida causam mais dano (até 30 % a mais no nível 10).",
   3514: "Nova bênção do dia, o “Dia do zelo”: as missões avançam duas vezes mais rápido, e os tempos estimados levam isso em conta.",
+  3515: "Poupouce: extremamente raro, ele deixa muito ouro e um item lendário.",
 };
