@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3246) Contenu : 24e familier, la Pie-grièche (dégâts contre les cibles sous 30 % de vie, +3 % par niveau, +30 % au niveau
+  10 ; aucun familier ne les donnait ; plus sûr pour l'équilibre que la vitesse d'attaque, aussi absente), dessin pixel volant (masque noir),
+  10 langues, test, README. Capture de sa carte et de la bande ; npm test 400, autotest 349/349, lang-overflow de, ru, pl 1280 (état maximal
+  à 24 familiers) : aucun défaut.
 - 2026-11-24 (it. 3245, suite) 0.1.9 envoyée sur itch.io par scripts/itch-push.sh, entièrement automatique : essai de l'AppImage construite
   (2 monstres vaincus en 30 s), butler (windows #2489294, linux #2489295, mac #2489296), dépôt et empreintes dans Médias, devlog publié
   avec sa couverture (billet 1804086, visible dans la liste publique). Première sortie quotidienne.

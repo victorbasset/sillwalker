@@ -833,6 +833,12 @@ test("quête « Attraper N étoiles filantes » : seulement après une première
   assert.equal(g.questEta(q2), 600 + 65 * 60, "temps estimé : prochaine étoile, puis 65 min en moyenne");
 });
 
+test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niveau (it. 3246)", () => {
+  const g = new Game(freshState()); g.invalidateStats(); const e0 = g.stats().execute || 0;
+  g.S.pets.owned.shrike = { lvl: 10, xp: 0 }; g.S.pets.active = "shrike"; g.invalidateStats();
+  assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
+});
+
 test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const t0 = g.stats().tapDmg || 0;
   g.S.pets.owned.hummingbird = { lvl: 10, xp: 0 }; g.S.pets.active = "hummingbird"; g.invalidateStats();

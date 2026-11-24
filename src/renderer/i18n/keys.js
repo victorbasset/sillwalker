@@ -3509,5 +3509,7 @@ export const KEYS = [
   "Mode mini : au survol du monstre, sa bulle dit sa sorte d’élite et son effet, ou les capacités du boss.",
   "Le Jour de Poupouce a maintenant l’icône d’un chat, comme Poupouce lui-même.",
   "Plus acharné que lui (25 acharnés)",
-  "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus."
+  "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus.",
+  "Pie-grièche",
+  "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés."
 ];

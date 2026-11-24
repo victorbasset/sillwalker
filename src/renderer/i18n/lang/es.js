@@ -2380,4 +2380,6 @@ export default {
   3505: "El Día de Poupouce ahora tiene el icono de un gato, como el propio Poupouce.",
   3506: "Más implacable que ellos (25 implacables)",
   3507: "Nuevo logro: «Más implacable que ellos (25 implacables)», por vencer a 25 Implacables.",
+  3508: "Alcaudón",
+  3509: "Pequeño pájaro cazador con antifaz negro: te enseña a rematar a los heridos.",
 };

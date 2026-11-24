@@ -2380,4 +2380,6 @@ export default {
   3505: "Dzień Poupouce ma teraz ikonę kota, jak sam Poupouce.",
   3506: "Bardziej zawzięty od nich (25 zawziętych)",
   3507: "Nowe osiągnięcie: „Bardziej zawzięty od nich (25 zawziętych)” za pokonanie 25 Zawziętych.",
+  3508: "Dzierzba",
+  3509: "Mały ptak łowca w czarnej masce: uczy cię dobijać rannych.",
 };

@@ -333,6 +333,10 @@ export const PET_ART = {
   cricket: { pal: { G: "#3f7a2e", L: "#7fbf4a", D: "#1f3d16", E: "#e8e08a" }, frames: [
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", ".D..D.DD."],
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", "D..D...D."]] },
+  // (it. 3246) Pie-grièche : dos gris, ventre blanc, masque noir et bec crochu, longue queue noire (deuxième image : ailes levées)
+  shrike: { pal: { G: "#9aa0a8", W: "#f2f2ee", K: "#1a1a1a", B: "#2a2a30" }, fly: true, frames: [
+    [".........", "....GGG..", "...GKKKK.", "K..GGGWK.", "KKGGGWW..", ".BBGWWW..", "....W.W.."],
+    ["....B....", "...BGGG..", "...GKKKK.", "K..GGGWK.", "KKGGGWW..", "..GGWWW..", "....W.W.."]] },
   // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
   hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
     [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],

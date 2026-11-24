@@ -40,6 +40,8 @@ export const PETS = [
   { id: "weasel", name: "Belette", desc: "Vive comme l’éclair, elle esquive tout… et te l’apprend.", eff: { dodge: 0.6, riposte: 1 } },
   // (it. 3214) Colibri : le familier du joueur présent (coups au clic +10 % par niveau, +100 % au niveau 10 ; aucun familier ne les touchait)
   { id: "hummingbird", name: "Colibri", desc: "Rapide comme un battement d’ailes : tes coups au clic frappent bien plus fort.", eff: { tapDmg: 10 } },
+  // (it. 3246) Pie-grièche : dégâts contre les cibles sous 30 % de vie (+3 % par niveau, +30 % au niveau 10 ; aucun familier ne les donnait)
+  { id: "shrike", name: "Pie-grièche", desc: "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés.", eff: { execute: 3 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

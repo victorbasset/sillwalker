@@ -2380,4 +2380,6 @@ export default {
   3505: "Poupouce Day now has a cat icon, like Poupouce himself.",
   3506: "More Relentless Than Them (25 relentless)",
   3507: "New achievement: “More Relentless Than Them (25 relentless)”, for 25 Relentless defeated.",
+  3508: "Shrike",
+  3509: "A little hunting bird with a black mask: it teaches you to finish off the wounded.",
 };

@@ -2380,4 +2380,6 @@ export default {
   3505: "O Dia do Poupouce agora tem o ícone de um gato, como o próprio Poupouce.",
   3506: "Mais implacável que eles (25 implacáveis)",
   3507: "Nova conquista: “Mais implacável que eles (25 implacáveis)”, por derrotar 25 Implacáveis.",
+  3508: "Picanço",
+  3509: "Passarinho caçador de máscara preta: ensina você a acabar com os feridos.",
 };

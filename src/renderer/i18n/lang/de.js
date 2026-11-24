@@ -2380,4 +2380,6 @@ export default {
   3505: "Der Poupouce-Tag hat jetzt ein Katzensymbol, wie Poupouce selbst.",
   3506: "Verbissener als sie (25 Verbissene)",
   3507: "Neuer Erfolg: „Verbissener als sie (25 Verbissene)“ für 25 besiegte Verbissene.",
+  3508: "Würger",
+  3509: "Kleiner Jagdvogel mit schwarzer Maske: Er bringt dir bei, Verwundete zu erledigen.",
 };
