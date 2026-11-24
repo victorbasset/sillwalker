@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3240) Contrôle avant la 0.1.9 : hud-probe sur la partie d'une semaine à 1280 px en fr, ru, de, ko : 0 élément sur la
+  rangée du haut (233-241 suivis chacun).
 - 2026-11-24 (it. 3239) 73e succès, « Plus acharné que lui (25 acharnés) » (comme ceux du Colossal et de l'Explosif ; progression, icône
   Steam RELENTLESS_25 au dessin du loup, seules ses deux images nouvelles), 10 langues ; steam/achievements.md régénéré, README, checklist
   et POUR-VICTOR à 73. La liste des Succès défilait alors de 10 px en polonais à 1600 px (partie d'une heure) : lignes un peu plus serrées
