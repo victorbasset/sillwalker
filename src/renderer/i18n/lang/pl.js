@@ -2371,4 +2371,6 @@ export default {
   3496: "Dzień gwiazd: przed pierwszym wniebowstąpieniem jego dymek mówi, od której strefy jest ono możliwe.",
   3497: "Koliber",
   3498: "Szybki jak uderzenie skrzydeł: twoje ciosy kliknięciem uderzają znacznie mocniej.",
+  3499: "Nowy pupil, „Koliber”: twoje ciosy kliknięciem uderzają mocniej (do 100 % więcej na poziomie 10).",
+  3500: "Pasek na ekranie laptopa: etykieta elity w walce i nazwa zaklęcia rzuconego na początku walki nie zasłaniają już informacji u góry.",
 };

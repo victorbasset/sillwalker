@@ -3500,5 +3500,7 @@ export const KEYS = [
   "Bestiaire : sur un écran de portable, la page ne défile plus quand des noms de monstres passent sur deux lignes (français, espagnol, portugais, polonais, russe).",
   "Jour des étoiles : avant la première ascension, sa bulle précise à partir de quelle zone l’ascension devient possible.",
   "Colibri",
-  "Rapide comme un battement d’ailes : tes coups au clic frappent bien plus fort."
+  "Rapide comme un battement d’ailes : tes coups au clic frappent bien plus fort.",
+  "Nouveau familier, le « Colibri » : tes coups au clic frappent plus fort (jusqu’à 100 % de plus au niveau 10).",
+  "Bande sur un écran de portable : l’étiquette d’une élite en combat et le nom d’un sort lancé à l’entrée en combat ne passent plus sur les informations du haut."
 ];

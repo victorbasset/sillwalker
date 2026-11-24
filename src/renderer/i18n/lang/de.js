@@ -2371,4 +2371,6 @@ export default {
   3496: "Tag der Sterne: Vor dem ersten Aufstieg sagt seine Blase, ab welcher Zone der Aufstieg möglich ist.",
   3497: "Kolibri",
   3498: "Schnell wie ein Flügelschlag: Deine Klick-Schläge treffen viel härter.",
+  3499: "Neuer Begleiter, der „Kolibri“: Deine Klick-Schläge treffen härter (bis zu 100 % mehr auf Stufe 10).",
+  3500: "Leiste auf einem Laptop-Bildschirm: Das Schild einer Elite im Kampf und der Name eines zu Kampfbeginn gewirkten Zaubers verdecken nicht mehr die Angaben oben.",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3216) « Quoi de neuf » : édition 180 (Colibri ; étiquette d'élite et nom de sort sous la rangée du haut, it. 3208 et
+  3212), 10 langues ; npm test 398, autotest 349/349.
 - 2026-11-24 (it. 3215) Contrôle du Colibri : capture de la bande (il vole derrière le héros, gorge rouge et bec lisibles) ; lang-overflow
   de, ru, pl, ja à 1280 et 1920 px, état maximal à 23 familiers compris : aucun défaut.
 - 2026-11-24 (it. 3214) Contenu : 23e familier, le Colibri (coups au clic +10 % par niveau, +100 % au niveau 10 : le familier du joueur

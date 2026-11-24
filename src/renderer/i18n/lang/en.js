@@ -2371,4 +2371,6 @@ export default {
   3496: "Star Day: before your first ascension, its tooltip tells from which zone ascension becomes possible.",
   3497: "Hummingbird",
   3498: "Quick as a wingbeat: your click strikes hit much harder.",
+  3499: "New pet, the “Hummingbird”: your click strikes hit harder (up to 100% more at level 10).",
+  3500: "Strip on a laptop screen: an elite’s label during combat and the name of a spell cast at the start of a fight no longer cover the information at the top.",
 };

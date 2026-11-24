@@ -2371,4 +2371,6 @@ export default {
   3496: "Día de las estrellas: antes de la primera ascensión, su burbuja indica a partir de qué zona es posible ascender.",
   3497: "Colibrí",
   3498: "Rápido como un aleteo: tus golpes con clic pegan mucho más fuerte.",
+  3499: "Nueva mascota, el «Colibrí»: tus golpes con clic pegan más fuerte (hasta un 100 % más en el nivel 10).",
+  3500: "Banda en la pantalla de un portátil: la etiqueta de una élite en combate y el nombre de un hechizo lanzado al empezar el combate ya no tapan la información de arriba.",
 };
