@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3211) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : barde 64, artificier 65, gardien des étoiles 67. Perf : bande 19,5 %,
+  panneau 19,1 %, mini 5,6 %, icône 0,5 %. Captures de l'onglet Héros à 1366 px en fr, en, ko : propres. Texte polonais (25 539 lignes) :
+  aucun mot français (« Du », « Le » relevés : morceaux de « Dużo », « Leśny »). Rien pour « Idées ».
 - 2026-11-24 (it. 3210) Contrôle des sauvegardes après les données du 23/11 (Belette, Acharné, Jour des étoiles) : save-fuzz sur la partie
   d'une semaine (1274 corruptions) et sur une partie de la 0.1.2 (1169) : ok, aucun plantage ni NaN.
 - 2026-11-24 (it. 3209) Perf après l'it. 3208 (étiquettes recalculées à chaque image) : bande 19,5 %, panneau 19,2 %, mini 5,3 %,
