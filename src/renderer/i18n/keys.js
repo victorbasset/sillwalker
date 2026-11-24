@@ -3511,5 +3511,8 @@ export const KEYS = [
   "Plus acharné que lui (25 acharnés)",
   "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus.",
   "Pie-grièche",
-  "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés."
+  "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés.",
+  "Jour du zèle",
+  "Les quêtes avancent deux fois plus vite.",
+  "Aujourd’hui, chaque contrat compte double !"
 ];

@@ -2382,4 +2382,7 @@ export default {
   3507: "Nova conquista: “Mais implacável que eles (25 implacáveis)”, por derrotar 25 Implacáveis.",
   3508: "Picanço",
   3509: "Passarinho caçador de máscara preta: ensina você a acabar com os feridos.",
+  3510: "Dia do zelo",
+  3511: "As missões avançam duas vezes mais rápido.",
+  3512: "Hoje, cada contrato vale em dobro!",
 };

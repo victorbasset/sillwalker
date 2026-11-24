@@ -2714,7 +2714,8 @@ export class Game {
       if (q.kind !== kind || questDone(q)) continue;
       if ((kind === "hunt" || kind === "prey") && q.type !== type) continue;
       // Zèle (événement) : les quêtes avancent deux fois plus vite
-      q.progress = kind === "zone" ? this.S.best : q.progress + n * ((this.R.events.zeal || 0) > 0 ? 2 : 1);
+      // (it. 3247) Jour du zèle (bénédiction) : aussi deux fois plus vite, cumulable avec l'événement
+      q.progress = kind === "zone" ? this.S.best : q.progress + n * ((this.R.events.zeal || 0) > 0 ? 2 : 1) * (activeDayMod(this.S)?.quests || 1);
       if (questDone(q)) {
         this.emit("questDone", { quest: q });
         if (this.S.quests.auto && !(q.reward.chest && this.bagFull())) this.R.autoClaim = true;

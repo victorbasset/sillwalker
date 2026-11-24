@@ -3922,6 +3922,17 @@ test("Jour des étoiles (it. 3195) : +50 % d'éclats à l'ascension, arrondi ; p
   for (let i = 0; i < 40; i++) { const t = new Date(2026, 10, 1 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "stars", d); }
 });
 
+test("Jour du zèle (it. 3247) : les quêtes avancent deux fois plus vite ; premier jour le 19/12/2026, aucun jour déjà joué changé", () => {
+  const g = new Game(freshState());
+  g.S.quests.slots[0] = { uid: 97, kind: "kill", goal: 100, progress: 0, reward: { gold: 1 }, stars: 1 };
+  g.questProgress("kill", 3); assert.equal(g.S.quests.slots[0].progress, 3);
+  g.S.daily = { ...(g.S.daily || {}), mod: "zeal" };
+  g.questProgress("kill", 3); assert.equal(g.S.quests.slots[0].progress, 9);
+  const { dayModFor } = M_daymods_js;
+  assert.equal(dayModFor("2026-12-19"), "zeal");
+  for (let i = 0; i < 41; i++) { const t = new Date(2026, 10, 8 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "zeal", d); }
+});
+
 test("Jour des familiers : une note sans familier actif, aucune avec (it. 1703)", () => {
   const S = freshState(), dm = DAY_MODS_1703.pets;
   S.pets.active = null;

@@ -2382,4 +2382,7 @@ export default {
   3507: "Nuevo logro: «Más implacable que ellos (25 implacables)», por vencer a 25 Implacables.",
   3508: "Alcaudón",
   3509: "Pequeño pájaro cazador con antifaz negro: te enseña a rematar a los heridos.",
+  3510: "Día del celo",
+  3511: "Las misiones avanzan el doble de rápido.",
+  3512: "¡Hoy cada contrato cuenta doble!",
 };

@@ -2382,4 +2382,7 @@ export default {
   3507: "New achievement: “More Relentless Than Them (25 relentless)”, for 25 Relentless defeated.",
   3508: "Shrike",
   3509: "A little hunting bird with a black mask: it teaches you to finish off the wounded.",
+  3510: "Zeal Day",
+  3511: "Quests progress twice as fast.",
+  3512: "Today, every contract counts double!",
 };

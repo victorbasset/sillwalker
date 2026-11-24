@@ -2382,4 +2382,7 @@ export default {
   3507: "Nowe osiągnięcie: „Bardziej zawzięty od nich (25 zawziętych)” za pokonanie 25 Zawziętych.",
   3508: "Dzierzba",
   3509: "Mały ptak łowca w czarnej masce: uczy cię dobijać rannych.",
+  3510: "Dzień gorliwości",
+  3511: "Zadania postępują dwa razy szybciej.",
+  3512: "Dziś każde zlecenie liczy się podwójnie!",
 };

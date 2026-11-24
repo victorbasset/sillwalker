@@ -117,6 +117,7 @@ const SPEECH = {
   dm_poupouce: [tx("Il paraît que Poupouce rôde partout aujourd’hui…")], // (it. 1586)
   dm_pets: [tx("Les familiers sont en pleine forme aujourd’hui !")], // (it. 1700)
   dm_stars: [tx("Les étoiles brillent fort : c’est le jour de monter vers elles !")], // (it. 3195)
+  dm_zeal: [tx("Aujourd’hui, chaque contrat compte double !")], // (it. 3247)
 };
 
 export const STRIP_H = 120;

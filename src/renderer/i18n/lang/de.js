@@ -2382,4 +2382,7 @@ export default {
   3507: "Neuer Erfolg: „Verbissener als sie (25 Verbissene)“ für 25 besiegte Verbissene.",
   3508: "Würger",
   3509: "Kleiner Jagdvogel mit schwarzer Maske: Er bringt dir bei, Verwundete zu erledigen.",
+  3510: "Tag des Eifers",
+  3511: "Quests kommen doppelt so schnell voran.",
+  3512: "Heute zählt jeder Auftrag doppelt!",
 };

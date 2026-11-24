@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3247) Contenu : 19e bénédiction du jour, « Jour du zèle » (🎯 : les quêtes avancent deux fois plus vite, cumulable avec
+  l'événement Zèle ; réplique du héros). Ajoutée à la FIN, sel « #2 » pour le 19e rang : aucun jour changé depuis le 08/11 (création du
+  jeu), premier le 19/12/2026 (test). 10 langues, README ; npm test 401, autotest 349/349, lang-overflow de, ru, pl 1280 : aucun défaut.
 - 2026-11-24 (it. 3246) Contenu : 24e familier, la Pie-grièche (dégâts contre les cibles sous 30 % de vie, +3 % par niveau, +30 % au niveau
   10 ; aucun familier ne les donnait ; plus sûr pour l'équilibre que la vitesse d'attaque, aussi absente), dessin pixel volant (masque noir),
   10 langues, test, README. Capture de sa carte et de la bande ; npm test 400, autotest 349/349, lang-overflow de, ru, pl 1280 (état maximal
