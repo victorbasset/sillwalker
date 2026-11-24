@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3245) Version 0.1.9 (sortie quotidienne de 20 h) : notes de version (RELEASE_019, after: 176, onze nouveautés des
+  éditions 177-183, déjà traduites), package.json, tests des notes ; npm test 399, autotest 349/349, fenêtre des notes capturée dans les
+  10 langues à 1280 px (propre) ; texte du devlog par scripts/devlog-html.mjs (110 lignes, 10 langues).
 - 2026-11-24 (it. 3243) « Quoi de neuf » : édition 183 (succès des 25 Acharnés), 10 langues (nom du succès cité tel que traduit) ; npm test,
   autotest 349/349. Dernière édition avant la 0.1.9 (éditions 177-183).
 - 2026-11-24 (it. 3242) Fin de partie après les ajouts des 23-24/11 : simulate.js 168 h guerrier (116 s) : record de la semaine 350 (palier de

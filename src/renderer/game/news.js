@@ -1011,9 +1011,23 @@ const RELEASE_018 = [
   "Retour d’absence : le résumé passe avant les autres bulles, et ne se perd plus quand le jeu démarre en mode mini ou réduit en icône (lancement avec Windows) : il attend que tu ouvres la bande.",
   "Sur un écran de portable, les icônes de sorts, les nombres et les annonces ne passent plus sur les informations du haut de la bande.",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176
-// (NEWS_ID) : la suivante prendra after: 176.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }];
+// (it. 3245) notes de la 0.1.9 : textes repris des éditions 177 à 183, déjà traduits
+const RELEASE_019 = [
+  "Nouvelle bénédiction du jour, le « Jour des étoiles » : +50 % d’éclats d’étoile à l’ascension ; ce jour-là, un ✨ suit le gain annoncé dans l’onglet Ascension.",
+  "Nouvelle sorte d’élite, l’« Acharné » : ses coups grandissent avec la vie qu’il a perdue (jusqu’à 60 % de plus), mais il a 15 % de vie en moins : achève-le vite !",
+  "Pendant le combat, l’étiquette de l’Acharné montre le bonus de ses coups (« +30 % »… jusqu’à « +60 % ») : on voit le danger monter.",
+  "Nouveau familier, la « Belette » : elle apporte de l’esquive et des ripostes, ce qu’aucun autre familier ne donnait.",
+  "Nouveau familier, le « Colibri » : tes coups au clic frappent plus fort (jusqu’à 100 % de plus au niveau 10).",
+  "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile.",
+  "Mode mini : au survol du monstre, sa bulle dit sa sorte d’élite et son effet, ou les capacités du boss.",
+  "Mode mini : pendant un événement rare au nom long, les secondes restantes restent visibles.",
+  "Bestiaire : sur un écran de portable, la page ne défile plus quand des noms de monstres passent sur deux lignes (français, espagnol, portugais, polonais, russe).",
+  "Bande sur un écran de portable : l’étiquette d’une élite en combat et le nom d’un sort lancé à l’entrée en combat ne passent plus sur les informations du haut.",
+  "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183
+// (NEWS_ID) : la suivante prendra after: 183.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
