@@ -829,6 +829,8 @@ test("quête « Attraper N étoiles filantes » : seulement après une première
   const g = new Game(S); g.S.quests.slots[0] = { uid: 99, kind: "star", goal: 1, progress: 0, reward: { gold: 1 }, stars: 1 };
   g.R.star = { t: 1, life: 4 }; g.catchStar();
   assert.equal(g.S.quests.slots[0].progress, 1);
+  const q2 = { uid: 98, kind: "star", goal: 2, progress: 0, reward: {}, stars: 2 }; g.R.starT = 600;
+  assert.equal(g.questEta(q2), 600 + 65 * 60, "temps estimé : prochaine étoile, puis 65 min en moyenne");
 });
 
 test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () => {

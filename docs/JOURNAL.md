@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3225) Quête des étoiles filantes : temps estimé affiché comme les autres (la prochaine étoile arrive dans R.starT, puis
+  une toutes les 65 min en moyenne ; optimiste sans le Filet à étoiles). Test ; npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3224) steam/checklist.md et POUR-VICTOR : page du magasin retouchée à l'it. 3223 (20 sortes de quêtes), à recopier dans
   Steamworks si déjà saisie ; bilan de la 0.1.9 complété (quête des étoiles filantes).
 - 2026-11-24 (it. 3223) Contenu : 20e sorte de quête, « Attraper N étoiles filantes » (objectif 1 avant les étoiles de difficulté,

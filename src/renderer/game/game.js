@@ -2645,6 +2645,9 @@ export class Game {
       const left = q.goal - q.progress, ends = Object.values(this.S.pets.exp || {}).map((e) => e && e.end).filter((t) => t > 0).sort((a, b) => a - b);
       return ends.length >= left ? Math.max(0, (ends[left - 1] - now) / 1000) : null;
     }
+    // (it. 3225) étoiles filantes : la prochaine arrive dans R.starT secondes, puis une toutes les 40 à 90 min (65 en moyenne) ;
+    // optimiste sans le Filet à étoiles (une étoile non attrapée ne compte pas)
+    if (q && q.kind === "star" && !questDone(q)) return Math.max(0, this.R.starT || 0) + (q.goal - q.progress - 1) * (STAR.minS + STAR.maxS) / 2;
     const P = this.R.pace || [];
     if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss", "goblin"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
