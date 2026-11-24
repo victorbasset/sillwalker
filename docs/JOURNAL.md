@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3218) steam/checklist.md : la page du magasin a changé à l'it. 3199 (12 sortes d'élites) ; noté « à recopier » pour
+  Victor s'il l'a déjà saisie dans Steamworks. Dossier de presse : ne cite pas ces nombres (rien à changer).
 - 2026-11-24 (it. 3217) Contrôle après les ajouts d'interface des 23-24/11 (✨ de l'Ascension, étiquette de l'Acharné) : clip-probe et
   info-probe sur dev-data en pt et ko à 1280 px : 0 texte rogné, 0 ⓘ caché.
 - 2026-11-24 (it. 3216) « Quoi de neuf » : édition 180 (Colibri ; étiquette d'élite et nom de sort sous la rangée du haut, it. 3208 et
