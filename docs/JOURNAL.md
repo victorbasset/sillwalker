@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3224) steam/checklist.md et POUR-VICTOR : page du magasin retouchée à l'it. 3223 (20 sortes de quêtes), à recopier dans
+  Steamworks si déjà saisie ; bilan de la 0.1.9 complété (quête des étoiles filantes).
 - 2026-11-24 (it. 3223) Contenu : 20e sorte de quête, « Attraper N étoiles filantes » (objectif 1 avant les étoiles de difficulté,
   or et 2 potions ; proposée seulement à qui a déjà attrapé une étoile, comme les coups au clic ; icône de l'étoile ; avance aussi avec le
   Filet à étoiles). 10 langues, page Steam « 20 sortes de quêtes » (10 langues), README, test. quest-pace 12 h × 3 graines : le joueur

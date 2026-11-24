@@ -8,13 +8,13 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 - Contenu : 18e bénédiction du jour, le Jour des étoiles (+50 % d'éclats à l'ascension, ✨ à côté du gain ; premier le 17/12) ;
   12e sorte d'élite, l'Acharné (ses coups montent avec la vie perdue, jusqu'à +60 %, affiché sur son étiquette ; 15 % de vie en moins) ;
-  familiers 22 et 23 : la Belette (esquive, riposte) et le Colibri (coups au clic).
+  familiers 22 et 23 : la Belette (esquive, riposte) et le Colibri (coups au clic) ; 20e sorte de quête, attraper des étoiles filantes.
 - Corrections : Bestiaire qui défilait sur portable en fr, es, pt, pl, ru (noms sur deux lignes ; aucune mesure ne le voyait, l'outil
   est corrigé) ; étiquette d'élite et nom de sort qui passaient sur la rangée du haut de la bande ; secondes d'un événement visibles en
   mode mini ; mots des grandes annonces mieux espacés.
 - Équilibre vérifié : 20 héros sur 12 h (moyenne 64,8, inchangée), première heure sur 10 graines (inchangée), élites 16-43 % de défaites.
 - Outils : sortie entièrement automatique (devlog compris), gardien qui relance la boucle (scripts/veille-relais.sh), texte du devlog
-  en 10 langues généré (scripts/devlog-html.mjs). Si tu as saisi la page Steam : 12 sortes d'élites (steam/checklist.md).
+  en 10 langues généré (scripts/devlog-html.mjs). Si tu as saisi la page Steam : 12 sortes d'élites et 20 sortes de quêtes (steam/checklist.md).
 
 ## Version 0.1.8 (envoyée sur itch.io le 23/11, it. 3193) : devlog publié automatiquement (it. 3194)
 
