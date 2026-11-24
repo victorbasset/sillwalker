@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3241) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : chaman 64, moine 61 (67 à l'it. 3181 sur la même graine : graines
+  3, 11, 21, 31 → 66, 62, 66, 65, moyenne ≈ 64 : trajectoire changée par les ajouts, pas un recul), paladin 64. Perf : bande 19,6 %, panneau
+  19,2 %, mini 5,6 %, icône 0,5 %. Captures des Familiers à 1366 px en fr, en, zh (« à découvrir 2 » : Belette, Colibri) : propres. Texte
+  coréen (25 552 lignes) : aucun mot non traduit. Rien pour « Idées ».
 - 2026-11-24 (it. 3240) Contrôle avant la 0.1.9 : hud-probe sur la partie d'une semaine à 1280 px en fr, ru, de, ko : 0 élément sur la
   rangée du haut (233-241 suivis chacun).
 - 2026-11-24 (it. 3239) 73e succès, « Plus acharné que lui (25 acharnés) » (comme ceux du Colossal et de l'Explosif ; progression, icône
