@@ -615,6 +615,18 @@ export class StripRenderer {
     e.box = { x: at.x, y: at.y, w, h };
   }
 
+  /** (it. 3212) Textes flottants encore en vie sous une pastille de la rangée du haut : départ sous la rangée, montée bornée. */
+  reclampFloats() {
+    const hb = this.hudBands();
+    for (const f of this.fx) {
+      const b = f.box; if (!b || f.t >= f.life) continue;
+      if (!hb.bands.some(([l, r]) => b.x + b.w / 2 > l && b.x - b.w / 2 < r)) continue;
+      if (b.y < hb.h + 2) { b.y = hb.h + 2; f.node.style.top = Math.round(b.y) + "px"; }
+      const maxRise = Math.max(0, b.y - hb.h - 2);
+      if (f.rise > maxRise) f.rise = maxRise;
+    }
+  }
+
   /** Place la plus proche de (x, y) où un texte w × h (centré sur x) ne recouvre aucun nombre flottant récent. */
   freeSpot(x, y, w, h, minY = 0, obs = null) { // (it. 1651) 0 et non −6 : le nombre le plus haut naissait déjà coupé
     const live = this.fx.filter((f) => f.box && f.t < 0.7);
@@ -1813,6 +1825,9 @@ export class StripRenderer {
     const fight = R.mode === "fight" && R.mon;
     this.hpHero.visible(fits); this.hpMon.visible(monFits);
     this.hpBars = fits ? [[hx, hx + BW]].concat(monFits ? [[mx, mx + BW]] : []) : null;
+    // (it. 3212) la rangée du haut change (barres de vie qui apparaissent au début d'un combat) : les textes flottants déjà lancés
+    // dessous (nom d'un sort lancé à l'entrée en combat, en grand) montaient sur les barres ; même parade que la bulle (it. 3168)
+    { const sig = this.hpBars ? this.hpBars.flat().join(",") : ""; if (sig !== this.hpSig) { this.hpSig = sig; this.reclampFloats(); } }
     if (!fits) return;
     const hs = g.stats(), hp = Math.max(0, R.hp), sh = R.mode === "fight" ? (R.shield || 0) : 0;
     this.hpHero.place(hx);

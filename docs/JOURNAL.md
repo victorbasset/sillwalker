@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3212) Bande : quand la rangée du haut change (barres de vie qui apparaissent au début d'un combat), les textes flottants
+  déjà lancés sous une pastille repartent sous la rangée et leur montée est bornée (strip.js reclampFloats, appelé seulement quand les
+  barres changent). Cause probable du « nom de sort en grand » sur la rangée (idée P3, it. 3166 : le nom d'un sort lancé à l'entrée en
+  combat, placé avant que les barres n'apparaissent ; même mécanisme que la bulle, it. 3168), jamais reproduit : non prouvée. hud-probe
+  partie d'une semaine et dev-data en pl, ja : 0 ; float-probe semaine : 148 nombres, 0 sur bulle/boss, 9 paires (repère 5-18) ;
+  npm test, autotest 348/348.
 - 2026-11-24 (it. 3211) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : barde 64, artificier 65, gardien des étoiles 67. Perf : bande 19,5 %,
   panneau 19,1 %, mini 5,6 %, icône 0,5 %. Captures de l'onglet Héros à 1366 px en fr, en, ko : propres. Texte polonais (25 539 lignes) :
   aucun mot français (« Du », « Le » relevés : morceaux de « Dużo », « Leśny »). Rien pour « Idées ».
@@ -9934,7 +9940,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- EN PARTIE FAIT (it. 3208 : étiquette d'élite du monstre en combat, cause trouvée ; reste le nom de sort en grand, jamais reproduit) P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
+- FAIT (it. 3208 : étiquette d'élite du monstre en combat, cause trouvée ; it. 3212 : nom de sort, parade sur la cause probable) P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
   du haut (un par passage de 15 s au plus) : bulle de parole posée à 2 px au milieu (là où les barres de vie apparaissent en cours de
   combat ; corrigé it. 3168), étiquettes d'élite à 21-22 px (monstres volants qui montent au-delà des 10 px de marge ; corrigé it. 3167), nom de sort en grand à 8 px. Pistes :
   bulle et nom de sort qui tiennent compte des barres de vie même cachées ; marge de l'étiquette selon l'amplitude du vol.
