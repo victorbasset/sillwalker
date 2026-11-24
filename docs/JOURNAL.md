@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3251) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : guerrier 64, druide 69, rôdeur 62. Perf : bande 19,5 % (une première
+  mesure à 20,9 % pendant que node /backend prenait 40 % d'un cœur : remesurée), panneau 19,3 %, mini 5,6 %, icône 0,5 %. Captures de la
+  Carte à 1280 px en fr, en, ja : propres. Texte portugais (25 588 lignes) : aucun mot français. Rien pour « Idées ».
 - 2026-11-24 (it. 3250) Mode mini : la bulle de Poupouce dit pourquoi le frapper (« Poupouce : extrêmement rare, il laisse beaucoup d'or et
   un objet légendaire. »), 10 langues ; vérifié en japonais par mise en scène ; npm test, autotest 349/349.
 - 2026-11-24 (it. 3249) « Quoi de neuf » : édition 184 (Pie-grièche, Jour du zèle), 10 langues ; npm test 401, autotest 349/349.
