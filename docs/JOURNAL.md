@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3230) Mode mini : une élite n'y était qu'un contour doré ; la bulle du monstre (survol) dit maintenant sa sorte et son effet
+  (« Clique pour frapper ! » puis « Blindé : 60 % de points de vie en plus. »), mise à jour à chaque nouveau monstre. Vérifié en mise en
+  scène ; npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3229) Relecture du code ajouté depuis la 0.1.8 (25 fichiers, +361 lignes : bénédiction, élite, familiers, quête, bande) :
   rien à corriger. À noter : pour un monstre volant près de la rangée du haut, l'étiquette (it. 3208) est réécrite à chaque pas de son
   battement d'ailes (quelques px) ; la mesure de perf (it. 3209, 3220) ne voit aucun coût.

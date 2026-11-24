@@ -18,7 +18,7 @@ import { nextUnlock, unlockAvailable, recordZone } from "../game/unlocks.js";
 import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
-import { SPAWN_DIST } from "../game/data.js"; // (it. 2071) combattant venu de la place d'attente
+import { SPAWN_DIST, ELITE_AFFIXES } from "../game/data.js"; // (it. 2071) combattant venu de la place d'attente
 import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 import { isRanged } from "../game/classes.js";
 import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
@@ -198,6 +198,8 @@ export class MiniRenderer {
       if (this.monActor && !m && (this.monActor.alphaV || 0) > 0) { this.monActor.bar.el.remove(); this.leaving = { a: this.monActor, t: 0.45, a0: this.monActor.alphaV }; }
       else if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
       this.monActor = null; this.monRef = m;
+      // (it. 3230) élite : sa sorte et son effet dans la bulle du monstre (le mode mini ne montre que son contour doré)
+      { const af = m && m.elite && ELITE_AFFIXES[m.affix]; this.tap.removeAttribute("title"); this.tap.dataset.title = tx("Clique pour frapper !") + (af ? "\n" + af.name + colon() + af.desc : ""); }
       if (m) {
         // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
         const set = m.final ? this.sprites.starbreaker : (m.boss && m.art && this.sprites.major(m.art)) || this.sprites.monsters[m.type];
