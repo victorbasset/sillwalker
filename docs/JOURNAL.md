@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3213) Autotest : contrôle de l'it. 3212 (barres de vie retirées, texte lancé tout en haut, barres remises : il redescend
+  sous la rangée, « né 0 → 28/26 »). 349 vérifications (CLAUDE.md à jour) ; npm test 397.
 - 2026-11-24 (it. 3212) Bande : quand la rangée du haut change (barres de vie qui apparaissent au début d'un combat), les textes flottants
   déjà lancés sous une pastille repartent sous la rangée et leur montée est bornée (strip.js reclampFloats, appelé seulement quand les
   barres changent). Cause probable du « nom de sort en grand » sur la rangée (idée P3, it. 3166 : le nom d'un sort lancé à l'entrée en
