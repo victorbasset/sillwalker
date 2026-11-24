@@ -3928,6 +3928,8 @@ test("Jour du zèle (it. 3247) : les quêtes avancent deux fois plus vite ; prem
   g.questProgress("kill", 3); assert.equal(g.S.quests.slots[0].progress, 3);
   g.S.daily = { ...(g.S.daily || {}), mod: "zeal" };
   g.questProgress("kill", 3); assert.equal(g.S.quests.slots[0].progress, 9);
+  const q2 = { uid: 96, kind: "star", goal: 2, progress: 0, reward: {}, stars: 2 }; g.R.starT = 600;
+  assert.equal(g.questEta(q2), 600, "temps estimé : une seule étoile à attraper, elle compte double");
   const { dayModFor } = M_daymods_js;
   assert.equal(dayModFor("2026-12-19"), "zeal");
   for (let i = 0; i < 41; i++) { const t = new Date(2026, 10, 8 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "zeal", d); }

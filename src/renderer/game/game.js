@@ -2647,12 +2647,13 @@ export class Game {
     }
     // (it. 3225) étoiles filantes : la prochaine arrive dans R.starT secondes, puis une toutes les 40 à 90 min (65 en moyenne) ;
     // optimiste sans le Filet à étoiles (une étoile non attrapée ne compte pas)
-    if (q && q.kind === "star" && !questDone(q)) return Math.max(0, this.R.starT || 0) + (q.goal - q.progress - 1) * (STAR.minS + STAR.maxS) / 2;
+    if (q && q.kind === "star" && !questDone(q)) return Math.max(0, this.R.starT || 0) + Math.max(0, Math.ceil((q.goal - q.progress) / (activeDayMod(this.S)?.quests || 1)) - 1) * (STAR.minS + STAR.maxS) / 2;
     const P = this.R.pace || [];
     if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss", "goblin"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
-    const left = q.goal - q.progress;
+    // (it. 3248) Jour du zèle : chaque progrès compte double, il en reste deux fois moins à faire
+    const left = (q.goal - q.progress) / (activeDayMod(this.S)?.quests || 1);
     if (q.kind === "gold") { const g = P.slice(1).reduce((a, x) => a + x[1], 0) / dt; return g > 0 ? left / g : null; }
     let rate = (P.length - 1) / dt; // victoires par seconde
     // (it. 1417) sorts : somme des 1 / recharge des sorts appris (héros et compagnon), Jour des arcanes compris ; les sorts

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3248) Jour du zèle : les temps estimés des quêtes en tiennent compte (il reste deux fois moins de progrès à faire ; quête
+  des étoiles : une étoile au lieu de deux). Test ; npm test 401, autotest 349/349.
 - 2026-11-24 (it. 3247) Contenu : 19e bénédiction du jour, « Jour du zèle » (🎯 : les quêtes avancent deux fois plus vite, cumulable avec
   l'événement Zèle ; réplique du héros). Ajoutée à la FIN, sel « #2 » pour le 19e rang : aucun jour changé depuis le 08/11 (création du
   jeu), premier le 19/12/2026 (test). 10 langues, README ; npm test 401, autotest 349/349, lang-overflow de, ru, pl 1280 : aucun défaut.
