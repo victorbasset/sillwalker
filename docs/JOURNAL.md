@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3223) Contenu : 20e sorte de quête, « Attraper N étoiles filantes » (objectif 1 avant les étoiles de difficulté,
+  or et 2 potions ; proposée seulement à qui a déjà attrapé une étoile, comme les coups au clic ; icône de l'étoile ; avance aussi avec le
+  Filet à étoiles). 10 langues, page Steam « 20 sortes de quêtes » (10 langues), README, test. quest-pace 12 h × 3 graines : le joueur
+  simulé n'attrape pas d'étoile, aucune quête de ce genre tirée, les autres inchangées. npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3222) Sortie automatique plus sûre : itch-push.sh essaie la version Linux construite avant tout envoi (30 s, dossier
   personnel temporaire ; une sauvegarde où au moins un monstre est vaincu est exigée, sinon rien n'est envoyé). Essayé sur l'AppImage
   0.1.8 : 2 monstres vaincus, aucun processus restant.

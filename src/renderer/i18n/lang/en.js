@@ -2373,4 +2373,5 @@ export default {
   3498: "Quick as a wingbeat: your click strikes hit much harder.",
   3499: "New pet, the “Hummingbird”: your click strikes hit harder (up to 100% more at level 10).",
   3500: "Strip on a laptop screen: an elite’s label during combat and the name of a spell cast at the start of a fight no longer cover the information at the top.",
+  3501: "Catch {n} shooting star|Catch {n} shooting stars",
 };

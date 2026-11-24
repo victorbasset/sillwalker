@@ -20,7 +20,7 @@ const KIND_ICON = {
   kill: () => itemIconURL({ icon: "sword", slot: "weapon", r: 1 }), hunt: () => itemIconURL({ icon: "bow", slot: "weapon", r: 1 }),
   elite: () => itemIconURL({ icon: "crown", slot: "helm", r: 3 }), boss: () => itemIconURL({ icon: "horned", slot: "helm", r: 4 }),
   gold: () => shopIconURL("ws_gold", 4), forge: () => itemIconURL({ icon: "hammer", slot: "weapon", r: 2 }),
-  zone: () => shopIconURL("ws_speed", 4), level: () => shopIconURL("ws_xp", 4), goblin: () => shopIconURL("ws_gold", 4), expedition: () => shopIconURL("egg", 4), transmute: () => shopIconURL("chest_iron", 4),
+  zone: () => shopIconURL("ws_speed", 4), level: () => shopIconURL("ws_xp", 4), goblin: () => shopIconURL("ws_gold", 4), star: () => shopIconURL("star", 4), expedition: () => shopIconURL("egg", 4), transmute: () => shopIconURL("chest_iron", 4),
   loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
   event: () => shopIconURL("star", 4), // événements rares
   chest: () => shopIconURL("chest_wood", 4), // coffres au trésor trouvés (it. 889)

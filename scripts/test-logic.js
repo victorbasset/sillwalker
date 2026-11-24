@@ -822,6 +822,15 @@ test("Belette : +0,6 % d'esquive et +1 % de riposte par niveau (it. 3198)", () =
   assert.ok(Math.abs((g.stats().riposte || 0) - r0 - 10) < 1e-9, "riposte " + g.stats().riposte);
 });
 
+test("quête « Attraper N étoiles filantes » : seulement après une première étoile, avance à chaque étoile attrapée (it. 3223)", () => {
+  const { QUEST_TEMPLATES } = M_quests_js, S = freshState();
+  S.stats.stars = 0; assert.equal(QUEST_TEMPLATES.star.ok(S), false);
+  S.stats.stars = 1; assert.equal(QUEST_TEMPLATES.star.ok(S), true);
+  const g = new Game(S); g.S.quests.slots[0] = { uid: 99, kind: "star", goal: 1, progress: 0, reward: { gold: 1 }, stars: 1 };
+  g.R.star = { t: 1, life: 4 }; g.catchStar();
+  assert.equal(g.S.quests.slots[0].progress, 1);
+});
+
 test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const t0 = g.stats().tapDmg || 0;
   g.S.pets.owned.hummingbird = { lvl: 10, xp: 0 }; g.S.pets.active = "hummingbird"; g.invalidateStats();

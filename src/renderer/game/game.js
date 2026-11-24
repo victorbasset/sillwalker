@@ -2557,6 +2557,7 @@ export class Game {
     const gold = Math.round(3 * Math.pow(1.25, this.S.best - 1) * 150);
     this.S.gold += gold;
     this.S.stats.stars = (this.S.stats.stars || 0) + 1;
+    this.questProgress("star", 1); // (it. 3223) quête « Attraper N étoiles filantes »
     this.emit("starCaught", { gold });
     this.gainSpeed(STAR.speedGain, tx("Étoile filante"));
     this.log(`${tx("Étoile filante attrapée : +{0} or !", { 0: fmt(gold) })}`);

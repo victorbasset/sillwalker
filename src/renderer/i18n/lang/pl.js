@@ -2373,4 +2373,5 @@ export default {
   3498: "Szybki jak uderzenie skrzydeł: twoje ciosy kliknięciem uderzają znacznie mocniej.",
   3499: "Nowy pupil, „Koliber”: twoje ciosy kliknięciem uderzają mocniej (do 100 % więcej na poziomie 10).",
   3500: "Pasek na ekranie laptopa: etykieta elity w walce i nazwa zaklęcia rzuconego na początku walki nie zasłaniają już informacji u góry.",
+  3501: "Złap {n} spadającą gwiazdę|Złap {n} spadające gwiazdy|Złap {n} spadających gwiazd",
 };

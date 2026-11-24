@@ -2373,4 +2373,5 @@ export default {
   3498: "Rápido como uma batida de asas: seus golpes com clique batem muito mais forte.",
   3499: "Novo mascote, o “Beija-flor”: seus golpes com clique batem mais forte (até 100 % a mais no nível 10).",
   3500: "Faixa na tela de um notebook: a etiqueta de uma elite em combate e o nome de um feitiço lançado no início do combate não cobrem mais as informações do topo.",
+  3501: "Pegar {n} estrela cadente|Pegar {n} estrelas cadentes",
 };
