@@ -2390,4 +2390,5 @@ export default {
   3515: "Poupouce: extremamente raro, ele deixa muito ouro e um item lendário.",
   3516: "Campeão: mais resistente que uma elite, deixa um item épico.",
   3517: "Modo mini: os balões do Poupouce e de um campeão também dizem o que eles deixam ao cair.",
+  3518: "As missões abrem depois dos primeiros minutos de jogo.",
 };

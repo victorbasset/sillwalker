@@ -16,5 +16,7 @@ export function dayModNotes(S, dm) {
   if (dm.pets && !(S.pets && S.pets.active)) out.push(tabOpen(S, "pets") ? tx("Aucun familier actif : choisis-en un (Familiers).") : tx("Les familiers sortent des œufs des boss, des élites et des quêtes."));
   // (it. 3202) Jour des étoiles avant la zone de la première ascension
   if (dm.shards && (S.best || 0) < ASCEND_MIN_ZONE) out.push(tx("L’ascension devient possible à partir de la zone {0}.", { 0: ASCEND_MIN_ZONE }));
+  // (it. 3256) Jour du zèle avant l'ouverture de l'onglet des quêtes (tout début de partie)
+  if (dm.quests && !tabOpen(S, "quests")) out.push(tx("Les quêtes s’ouvrent après les premières minutes de jeu."));
   return out;
 }

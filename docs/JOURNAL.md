@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3256) Jour du zèle : tant que l'onglet des quêtes n'est pas ouvert (tout début de partie), la bulle de la bénédiction le
+  précise (« Les quêtes s'ouvrent après les premières minutes de jeu. »), comme les autres bénédictions qui ne servent pas encore ; 10
+  langues, test ; npm test 402, autotest 349/349.
 - 2026-11-25 (it. 3255) Contrôle : --crawl sur la partie d'une semaine en russe (921 clics en 45 s) et en chinois (937 clics en 44 s),
   aucune erreur.
 - 2026-11-24 (it. 3254) Contrôle après la Pie-grièche et le Jour du zèle : fuzz FUZZ_DAYMOD=all (19 bénédictions) 1200 parties, 0 bloquées ;

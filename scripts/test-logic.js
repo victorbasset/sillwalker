@@ -3943,6 +3943,13 @@ test("Jour des familiers : une note sans familier actif, aucune avec (it. 1703)"
   assert.equal(dayModNotes1703(S, dm).length, 0);
 });
 
+test("Jour du zèle : une note tant que l'onglet des quêtes est fermé (it. 3256)", () => {
+  const S = freshState(), dm = DAY_MODS_1703.zeal;
+  S.tabsOpen = { ...(S.tabsOpen || {}) }; delete S.tabsOpen.quests; const before = dayModNotes1703(S, dm).length;
+  S.tabsOpen.quests = true; const after = dayModNotes1703(S, dm).length;
+  assert.ok(before === 1 && after === 0, before + " / " + after);
+});
+
 test("Jour des étoiles : une note avant la zone de la première ascension, aucune après (it. 3202)", () => {
   const S = freshState(), dm = DAY_MODS_1703.stars;
   S.best = 5; assert.equal(dayModNotes1703(S, dm).length, 1);

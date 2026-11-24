@@ -3519,5 +3519,6 @@ export const KEYS = [
   "Nouvelle bénédiction du jour, le « Jour du zèle » : les quêtes avancent deux fois plus vite, et leurs temps estimés en tiennent compte.",
   "Poupouce : extrêmement rare, il laisse beaucoup d’or et un objet légendaire.",
   "Champion : plus coriace qu’une élite, il laisse un objet épique.",
-  "Mode mini : la bulle de Poupouce et celle d’un champion disent aussi ce qu’ils laissent en tombant."
+  "Mode mini : la bulle de Poupouce et celle d’un champion disent aussi ce qu’ils laissent en tombant.",
+  "Les quêtes s’ouvrent après les premières minutes de jeu."
 ];

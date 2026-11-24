@@ -2390,4 +2390,5 @@ export default {
   3515: "Poupouce: extremely rare, he drops lots of gold and a legendary item.",
   3516: "Champion: tougher than an elite, it drops an epic item.",
   3517: "Mini mode: the tooltips of Poupouce and of a champion also tell what they drop when they fall.",
+  3518: "Quests open after the first few minutes of play.",
 };
