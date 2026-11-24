@@ -3505,5 +3505,7 @@ export const KEYS = [
   "Bande sur un écran de portable : l’étiquette d’une élite en combat et le nom d’un sort lancé à l’entrée en combat ne passent plus sur les informations du haut.",
   "Attraper {n} étoile filante|Attraper {n} étoiles filantes",
   "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
-  "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile."
+  "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile.",
+  "Mode mini : au survol du monstre, sa bulle dit sa sorte d’élite et son effet, ou les capacités du boss.",
+  "Le Jour de Poupouce a maintenant l’icône d’un chat, comme Poupouce lui-même."
 ];

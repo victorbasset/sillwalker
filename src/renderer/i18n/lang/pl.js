@@ -2376,4 +2376,6 @@ export default {
   3501: "Złap {n} spadającą gwiazdę|Złap {n} spadające gwiazdy|Złap {n} spadających gwiazd",
   3502: "Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
   3503: "Nowy rodzaj zadania: łapanie spadających gwiazd, dla tych, którzy już jakąś złapali; szacowany czas liczy do następnej gwiazdy.",
+  3504: "Tryb mini: po najechaniu na potwora jego dymek pokazuje rodzaj elity i jej efekt albo umiejętności bossa.",
+  3505: "Dzień Poupouce ma teraz ikonę kota, jak sam Poupouce.",
 };

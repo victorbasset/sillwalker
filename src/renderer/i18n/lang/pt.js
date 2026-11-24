@@ -2376,4 +2376,6 @@ export default {
   3501: "Pegar {n} estrela cadente|Pegar {n} estrelas cadentes",
   3502: "As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros, feitiços e estrelas cadentes). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros, feitiços e estrelas cadentes). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
   3503: "Novo tipo de missão: pegar estrelas cadentes, para quem já pegou uma; o tempo estimado conta até a próxima estrela.",
+  3504: "Modo mini: ao passar o mouse sobre o monstro, o balão dele mostra o tipo de elite e o efeito, ou as habilidades do chefe.",
+  3505: "O Dia do Poupouce agora tem o ícone de um gato, como o próprio Poupouce.",
 };

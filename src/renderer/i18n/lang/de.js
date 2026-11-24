@@ -2376,4 +2376,6 @@ export default {
   3501: "{n} Sternschnuppe fangen|{n} Sternschnuppen fangen",
   3502: "Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse, Zauber und Sternschnuppen). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse, Zauber und Sternschnuppen). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
   3503: "Neue Questart: Sternschnuppen fangen, für alle, die schon eine gefangen haben; die geschätzte Zeit zählt bis zur nächsten Sternschnuppe.",
+  3504: "Mini-Modus: Beim Darüberfahren zeigt die Blase des Monsters seine Eliteart und ihre Wirkung oder die Fähigkeiten des Bosses.",
+  3505: "Der Poupouce-Tag hat jetzt ein Katzensymbol, wie Poupouce selbst.",
 };

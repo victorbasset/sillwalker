@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3235) « Quoi de neuf » : édition 182 (bulles du mode mini : élite et boss ; icône du Jour de Poupouce), 10 langues
+  (Poupouce garde son nom dans toutes les langues, comme dans le jeu) ; npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3234) Suite de l'it. 3233 : l'icône Steam du succès « Poupouce ?! » montrait aussi l'ancien champignon ; elle reprend le
   dessin du chat (achicons.html, m:poupouce). Seules ses deux images changent (72 régénérées, comparées) ; steam/checklist.md : à
   téléverser de nouveau dans Steamworks. Les textes du jeu ne parlent plus du champignon.

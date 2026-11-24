@@ -2376,4 +2376,6 @@ export default {
   3501: "Atrapar {n} estrella fugaz|Atrapar {n} estrellas fugaces",
   3502: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros, hechizos y estrellas fugaces). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros, hechizos y estrellas fugaces). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
   3503: "Nuevo tipo de misión: atrapar estrellas fugaces, para quien ya haya atrapado una; el tiempo estimado cuenta hasta la próxima estrella.",
+  3504: "Modo mini: al pasar el ratón sobre el monstruo, su burbuja indica su tipo de élite y su efecto, o las habilidades del jefe.",
+  3505: "El Día de Poupouce ahora tiene el icono de un gato, como el propio Poupouce.",
 };

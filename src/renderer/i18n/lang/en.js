@@ -2376,4 +2376,6 @@ export default {
   3501: "Catch {n} shooting star|Catch {n} shooting stars",
   3502: "Quests progress on their own, even offline (except bosses, new zones, rare events, spells and shooting stars). {n} quest completed in total. {3}% of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, new zones, rare events, spells and shooting stars). {n} quests completed in total. {3}% of quests have 3 stars and a rare reward.",
   3503: "New kind of quest: catch shooting stars, for those who have already caught one; the estimated time counts down to the next star.",
+  3504: "Mini mode: hovering the monster, its tooltip shows its kind of elite and its effect, or the boss’s abilities.",
+  3505: "Poupouce Day now has a cat icon, like Poupouce himself.",
 };
