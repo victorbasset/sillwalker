@@ -2388,4 +2388,5 @@ export default {
   3513: "Neuer Begleiter, der „Würger“: Deine Treffer gegen Gegner unter 30 % Leben schmerzen mehr (bis zu 30 % mehr auf Stufe 10).",
   3514: "Neuer Segen des Tages, der „Tag des Eifers“: Quests kommen doppelt so schnell voran, und ihre geschätzten Zeiten berücksichtigen das.",
   3515: "Poupouce: äußerst selten, er hinterlässt viel Gold und einen legendären Gegenstand.",
+  3516: "Champion: zäher als eine Elite, hinterlässt einen epischen Gegenstand.",
 };

@@ -204,7 +204,9 @@ export class MiniRenderer {
         this.tap.removeAttribute("title");
         // (it. 3250) Poupouce : pourquoi il vaut la peine de cliquer
         const pp = m && m.poupouce ? [tx("Poupouce : extrêmement rare, il laisse beaucoup d’or et un objet légendaire.")] : [];
-        this.tap.dataset.title = [tx("Clique pour frapper !"), ...pp, ...(af ? [af.name + colon() + af.desc] : []), ...mech.map((b) => b.name + colon() + b.desc)].join("\n"); }
+        // (it. 3252) champion : ce qui le distingue d'une élite (le mode mini ne montre que son contour violet)
+        const ch = m && m.champion ? [tx("Champion : plus coriace qu’une élite, il laisse un objet épique.")] : [];
+        this.tap.dataset.title = [tx("Clique pour frapper !"), ...pp, ...ch, ...(af ? [af.name + colon() + af.desc] : []), ...mech.map((b) => b.name + colon() + b.desc)].join("\n"); }
       if (m) {
         // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
         const set = m.final ? this.sprites.starbreaker : (m.boss && m.art && this.sprites.major(m.art)) || this.sprites.monsters[m.type];

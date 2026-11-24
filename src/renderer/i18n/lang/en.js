@@ -2388,4 +2388,5 @@ export default {
   3513: "New pet, the “Shrike”: your hits against enemies under 30% health hurt more (up to 30% more at level 10).",
   3514: "New daily blessing, “Zeal Day”: quests progress twice as fast, and their estimated times take it into account.",
   3515: "Poupouce: extremely rare, he drops lots of gold and a legendary item.",
+  3516: "Champion: tougher than an elite, it drops an epic item.",
 };

@@ -2388,4 +2388,5 @@ export default {
   3513: "Nowy pupil, „Dzierzba”: twoje ciosy przeciw wrogom poniżej 30 % zdrowia bolą bardziej (do 30 % więcej na poziomie 10).",
   3514: "Nowe błogosławieństwo dnia, „Dzień gorliwości”: zadania postępują dwa razy szybciej, a ich szacowany czas to uwzględnia.",
   3515: "Poupouce: niezwykle rzadki, zostawia dużo złota i legendarny przedmiot.",
+  3516: "Czempion: twardszy niż elita, zostawia epicki przedmiot.",
 };
