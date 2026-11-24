@@ -2378,4 +2378,5 @@ export default {
   3503: "Nowy rodzaj zadania: łapanie spadających gwiazd, dla tych, którzy już jakąś złapali; szacowany czas liczy do następnej gwiazdy.",
   3504: "Tryb mini: po najechaniu na potwora jego dymek pokazuje rodzaj elity i jej efekt albo umiejętności bossa.",
   3505: "Dzień Poupouce ma teraz ikonę kota, jak sam Poupouce.",
+  3506: "Bardziej zawzięty od nich (25 zawziętych)",
 };

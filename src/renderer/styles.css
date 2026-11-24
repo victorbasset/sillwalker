@@ -1630,6 +1630,9 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 3122) partie d'une heure en polonais à 1600 px : succès en cours « (1 / 20) » sur deux lignes, la page défilait de 18 px ; liste
    resserrée aussi sous 1920 px */
 @container panel (max-width: 1855px) { .achlist { line-height: 1.2; row-gap: 1px; } }
+/* (it. 3239) 73e succès (Acharné) : en polonais à 1600 px, partie d'une heure, la page défilait de 10 px ; colonnes un peu plus étroites
+   entre 1468 et 1855 px de panneau, lignes un peu plus serrées (des colonnes plus étroites coupaient des noms russes en deux) */
+@container panel (min-width: 1468px) and (max-width: 1855px) { .achlist { line-height: 1.15; row-gap: 0; } }
 /* (it. 3156) partie d'une heure en polonais, 1920 px avec l'interface à 130 % : Succès défilait encore ; liste un peu plus petite sous
    1467 px de panneau (12 px, progression 11 px) */
 @container panel (max-width: 1467px) { .achlist { font-size: 12px; line-height: 1.15; } .achlist .achp { font-size: 11px; } }

@@ -3507,5 +3507,6 @@ export const KEYS = [
   "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
   "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile.",
   "Mode mini : au survol du monstre, sa bulle dit sa sorte d’élite et son effet, ou les capacités du boss.",
-  "Le Jour de Poupouce a maintenant l’icône d’un chat, comme Poupouce lui-même."
+  "Le Jour de Poupouce a maintenant l’icône d’un chat, comme Poupouce lui-même.",
+  "Plus acharné que lui (25 acharnés)"
 ];

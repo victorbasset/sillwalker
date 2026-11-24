@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (72 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (73 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -65,6 +65,7 @@ Généré par `scripts/steam-achievements.mjs` (72 succès). À recopier dans St
 | `CHAMPIONS_25` | Fléau des champions (25 champions) | Bane of Champions (25 champions) | Azote de campeones (25 campeones) | Flagelo dos campeões (25 campeões) | Geißel der Champions (25 Champions) | Zmora czempionów (25 czempionów) | Бич чемпионов (25 чемпионов) | 勇者克星（25 个勇者） | チャンピオンの災い（チャンピオン 25 体） | 챔피언의 재앙 (챔피언 25마리) |
 | `EXPLOSIVE_25` | Démineur (25 explosifs) | Bomb Disposal (25 explosives) | Artificiero (25 explosivos) | Desarmador (25 explosivos) | Kampfmittelräumer (25 Explosive) | Saper (25 wybuchowych) | Сапёр (25 взрывных) | 排爆专家（25 只爆裂精英） | 爆弾処理班（爆発するエリート 25 体） | 폭탄 해체반 (폭발하는 정예 25마리) |
 | `COLOSSAL_25` | Tombeur de colosses (25 colossaux) | Colossus Slayer (25 colossals) | Derribacolosos (25 colosales) | Derrubador de colossos (25 colossais) | Kolossbezwinger (25 Kolossale) | Pogromca kolosów (25 kolosalnych) | Победитель колоссов (25 колоссальных) | 巨像克星（25 只巨硕精英） | 巨人殺し（巨大なエリート 25 体） | 거인 사냥꾼 (거대한 정예 25마리) |
+| `RELENTLESS_25` | Plus acharné que lui (25 acharnés) | More Relentless Than Them (25 relentless) | Más implacable que ellos (25 implacables) | Mais implacável que eles (25 implacáveis) | Verbissener als sie (25 Verbissene) | Bardziej zawzięty od nich (25 zawziętych) | Неистовее неистовых (25 неистовых) | 比执拗更执拗（25 只执拗精英） | 執念には執念を（執念のエリート 25 体） | 더 집요하게 (집요한 정예 25마리) |
 | `POWERS_ALL` | Tous les pouvoirs légendaires | All legendary powers | Todos los poderes legendarios | Todos os poderes lendários | Alle legendären Kräfte | Wszystkie legendarne moce | Все легендарные силы | 所有传说之力 | すべてのレジェンドの力 | 모든 전설의 힘 |
 | `POTIONS_50` | Alchimiste (50 potions bues) | Alchemist (50 potions drunk) | Alquimista (50 pociones bebidas) | Alquimista (50 poções bebidas) | Alchemist (50 Tränke getrunken) | Alchemik (50 wypitych mikstur) | Алхимик (50 выпитых зелий) | 炼金术士（喝下 50 瓶药水） | 錬金術師（ポーション 50 個） | 연금술사 (물약 50개) |
 | `UNLOCK_FIRST` | Premier déblocage | First Unlock | Primer desbloqueo | Primeiro desbloqueio | Erste Freischaltung | Pierwsze odblokowanie | Первое улучшение | 首次解锁 | 初めての解放 | 첫 해금 |

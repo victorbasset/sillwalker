@@ -2378,4 +2378,5 @@ export default {
   3503: "Novo tipo de missão: pegar estrelas cadentes, para quem já pegou uma; o tempo estimado conta até a próxima estrela.",
   3504: "Modo mini: ao passar o mouse sobre o monstro, o balão dele mostra o tipo de elite e o efeito, ou as habilidades do chefe.",
   3505: "O Dia do Poupouce agora tem o ícone de um gato, como o próprio Poupouce.",
+  3506: "Mais implacável que eles (25 implacáveis)",
 };

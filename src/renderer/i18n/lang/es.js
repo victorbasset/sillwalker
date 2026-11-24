@@ -2378,4 +2378,5 @@ export default {
   3503: "Nuevo tipo de misión: atrapar estrellas fugaces, para quien ya haya atrapado una; el tiempo estimado cuenta hasta la próxima estrella.",
   3504: "Modo mini: al pasar el ratón sobre el monstruo, su burbuja indica su tipo de élite y su efecto, o las habilidades del jefe.",
   3505: "El Día de Poupouce ahora tiene el icono de un gato, como el propio Poupouce.",
+  3506: "Más implacable que ellos (25 implacables)",
 };

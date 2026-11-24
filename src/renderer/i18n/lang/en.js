@@ -2378,4 +2378,5 @@ export default {
   3503: "New kind of quest: catch shooting stars, for those who have already caught one; the estimated time counts down to the next star.",
   3504: "Mini mode: hovering the monster, its tooltip shows its kind of elite and its effect, or the boss’s abilities.",
   3505: "Poupouce Day now has a cat icon, like Poupouce himself.",
+  3506: "More Relentless Than Them (25 relentless)",
 };

@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3239) 73e succès, « Plus acharné que lui (25 acharnés) » (comme ceux du Colossal et de l'Explosif ; progression, icône
+  Steam RELENTLESS_25 au dessin du loup, seules ses deux images nouvelles), 10 langues ; steam/achievements.md régénéré, README, checklist
+  et POUR-VICTOR à 73. La liste des Succès défilait alors de 10 px en polonais à 1600 px (partie d'une heure) : lignes un peu plus serrées
+  entre 1468 et 1855 px de panneau (des colonnes plus étroites coupaient des noms russes). lang-overflow all : 150 mesures, aucun défaut ;
+  npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3237) Préparation de la 0.1.9 (sortie vers 20 h) : session itch.io encore valide (formulaire de devlog atteint) ;
   docs/devlog-0.1.9.md (titre, tags), phrases d'accroche en 10 langues (steam/itch/intros-0.1.9.json), couverture
   (steam/itch/cover-0.1.9.png, entrée update-0.1.9 de make.js). Restera ce soir : notes de version, version, tests, texte du devlog, envoi.
