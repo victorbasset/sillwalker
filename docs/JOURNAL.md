@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3226) Quêtes : la note « Les quêtes avancent toutes seules, même hors ligne (sauf …) » cite aussi les étoiles filantes
+  (la nouvelle quête n'avance pas pendant l'absence : aucune étoile hors ligne). Nouvelle clé, 10 langues (exceptions complétées dans chaque
+  traduction) ; lang-overflow ru, de, pl à 1280 : aucun défaut ; npm test, autotest 349/349. Les étoiles pendant l'absence avec le Filet à
+  étoiles (vitesse permanente gagnée hors ligne) : changement d'équilibre, pas fait sans Victor (noté dans « Idées »).
 - 2026-11-24 (it. 3225) Quête des étoiles filantes : temps estimé affiché comme les autres (la prochaine étoile arrive dans R.starT, puis
   une toutes les 65 min en moyenne ; optimiste sans le Filet à étoiles). Test ; npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3224) steam/checklist.md et POUR-VICTOR : page du magasin retouchée à l'it. 3223 (20 sortes de quêtes), à recopier dans
@@ -9970,6 +9974,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 3226) Étoiles filantes pendant l'absence avec le Filet à étoiles (zone 130) : aujourd'hui aucune étoile hors ligne. Les compter
+  donnerait or, quête et +2 % de vitesse permanente par étoile (≈ 11 en 12 h d'absence) : à proposer à Victor (équilibre des joueurs absents).
 - FAIT (it. 3208 : étiquette d'élite du monstre en combat, cause trouvée ; it. 3212 : nom de sort, parade sur la cause probable) P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
   du haut (un par passage de 15 s au plus) : bulle de parole posée à 2 px au milieu (là où les barres de vie apparaissent en cours de
   combat ; corrigé it. 3168), étiquettes d'élite à 21-22 px (monstres volants qui montent au-delà des 10 px de marge ; corrigé it. 3167), nom de sort en grand à 8 px. Pistes :

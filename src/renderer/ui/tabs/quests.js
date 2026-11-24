@@ -114,7 +114,7 @@ export class QuestsTab {
       </article>`;
     }).join("");
     el.innerHTML = `${guild}<div class="questgrid">${cards}</div>
-      ${((t) => `<p class="note qnote" title="${esc(t)}">${t}</p>`)(txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares et sorts). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w }))}`;
+      ${((t) => `<p class="note qnote" title="${esc(t)}">${t}</p>`)(txn(S.quests.completed, "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.", { 3: STARS[3].w }))}`;
   }
 
   /** (it. 1555, 1568) Réclame ces quêtes ; le plus bel objet de leurs coffres s'ouvre sous les yeux (clic, « Tout réclamer », touche R). */

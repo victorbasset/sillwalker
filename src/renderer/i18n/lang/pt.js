@@ -2374,4 +2374,5 @@ export default {
   3499: "Novo mascote, o “Beija-flor”: seus golpes com clique batem mais forte (até 100 % a mais no nível 10).",
   3500: "Faixa na tela de um notebook: a etiqueta de uma elite em combate e o nome de um feitiço lançado no início do combate não cobrem mais as informações do topo.",
   3501: "Pegar {n} estrela cadente|Pegar {n} estrelas cadentes",
+  3502: "As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros, feitiços e estrelas cadentes). {n} missão concluída no total. {3} % das missões têm 3 estrelas e uma recompensa rara.|As missões avançam sozinhas, mesmo offline (exceto chefes, novas zonas, eventos raros, feitiços e estrelas cadentes). {n} missões concluídas no total. {3} % das missões têm 3 estrelas e uma recompensa rara.",
 };

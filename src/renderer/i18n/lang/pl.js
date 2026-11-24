@@ -2374,4 +2374,5 @@ export default {
   3499: "Nowy pupil, „Koliber”: twoje ciosy kliknięciem uderzają mocniej (do 100 % więcej na poziomie 10).",
   3500: "Pasek na ekranie laptopa: etykieta elity w walce i nazwa zaklęcia rzuconego na początku walki nie zasłaniają już informacji u góry.",
   3501: "Złap {n} spadającą gwiazdę|Złap {n} spadające gwiazdy|Złap {n} spadających gwiazd",
+  3502: "Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadanie. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadania. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.|Zadania postępują same, nawet offline (poza bossami, nowymi strefami, rzadkimi zdarzeniami, zaklęciami i spadającymi gwiazdami). Łącznie ukończono {n} zadań. {3} % zadań ma 3 gwiazdki i rzadką nagrodę.",
 };

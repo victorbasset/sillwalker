@@ -2374,4 +2374,5 @@ export default {
   3499: "New pet, the “Hummingbird”: your click strikes hit harder (up to 100% more at level 10).",
   3500: "Strip on a laptop screen: an elite’s label during combat and the name of a spell cast at the start of a fight no longer cover the information at the top.",
   3501: "Catch {n} shooting star|Catch {n} shooting stars",
+  3502: "Quests progress on their own, even offline (except bosses, new zones, rare events, spells and shooting stars). {n} quest completed in total. {3}% of quests have 3 stars and a rare reward.|Quests progress on their own, even offline (except bosses, new zones, rare events, spells and shooting stars). {n} quests completed in total. {3}% of quests have 3 stars and a rare reward.",
 };

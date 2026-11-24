@@ -2374,4 +2374,5 @@ export default {
   3499: "Neuer Begleiter, der „Kolibri“: Deine Klick-Schläge treffen härter (bis zu 100 % mehr auf Stufe 10).",
   3500: "Leiste auf einem Laptop-Bildschirm: Das Schild einer Elite im Kampf und der Name eines zu Kampfbeginn gewirkten Zaubers verdecken nicht mehr die Angaben oben.",
   3501: "{n} Sternschnuppe fangen|{n} Sternschnuppen fangen",
+  3502: "Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse, Zauber und Sternschnuppen). Insgesamt {n} Quest abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.|Quests laufen von selbst weiter, sogar offline (außer Bosse, neue Zonen, seltene Ereignisse, Zauber und Sternschnuppen). Insgesamt {n} Quests abgeschlossen. {3} % der Quests haben 3 Sterne und eine seltene Belohnung.",
 };

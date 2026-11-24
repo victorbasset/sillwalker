@@ -2374,4 +2374,5 @@ export default {
   3499: "Nueva mascota, el «Colibrí»: tus golpes con clic pegan más fuerte (hasta un 100 % más en el nivel 10).",
   3500: "Banda en la pantalla de un portátil: la etiqueta de una élite en combate y el nombre de un hechizo lanzado al empezar el combate ya no tapan la información de arriba.",
   3501: "Atrapar {n} estrella fugaz|Atrapar {n} estrellas fugaces",
+  3502: "Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros, hechizos y estrellas fugaces). {n} misión completada en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.|Las misiones avanzan solas, incluso sin conexión (salvo jefes, zonas nuevas, eventos raros, hechizos y estrellas fugaces). {n} misiones completadas en total. El {3} % de las misiones tiene 3 estrellas y una recompensa rara.",
 };
