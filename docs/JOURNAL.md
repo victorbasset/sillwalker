@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3231) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : gladiateur 64, arbalétrier 65, danseuse de lames 62. Perf : bande 19,4 %,
+  panneau 18,9 %, mini 5,4 %, icône 0,6 %. Captures des Quêtes à 1600 px en fr, en, ja (note avec les étoiles filantes) : propres. Texte
+  espagnol (25 569 lignes) : aucun mot français. Rien pour « Idées ».
 - 2026-11-24 (it. 3230) Mode mini : une élite n'y était qu'un contour doré ; la bulle du monstre (survol) dit maintenant sa sorte et son effet
   (« Clique pour frapper ! » puis « Blindé : 60 % de points de vie en plus. »), mise à jour à chaque nouveau monstre. Vérifié en mise en
   scène ; npm test 399, autotest 349/349.
