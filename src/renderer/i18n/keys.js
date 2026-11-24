@@ -3504,5 +3504,6 @@ export const KEYS = [
   "Nouveau familier, le « Colibri » : tes coups au clic frappent plus fort (jusqu’à 100 % de plus au niveau 10).",
   "Bande sur un écran de portable : l’étiquette d’une élite en combat et le nom d’un sort lancé à l’entrée en combat ne passent plus sur les informations du haut.",
   "Attraper {n} étoile filante|Attraper {n} étoiles filantes",
-  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare."
+  "Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quête accomplie au total. {3} % des quêtes ont 3 étoiles et une récompense rare.|Les quêtes avancent toutes seules, même hors ligne (sauf boss, nouvelles zones, événements rares, sorts et étoiles filantes). {n} quêtes accomplies au total. {3} % des quêtes ont 3 étoiles et une récompense rare.",
+  "Nouvelle sorte de quête : attraper des étoiles filantes, pour qui en a déjà attrapé une ; le temps estimé compte jusqu’à la prochaine étoile."
 ];

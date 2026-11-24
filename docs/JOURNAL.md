@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3227) « Quoi de neuf » : édition 181 (quête des étoiles filantes et son temps estimé), 10 langues ; npm test, autotest.
 - 2026-11-24 (it. 3226) Quêtes : la note « Les quêtes avancent toutes seules, même hors ligne (sauf …) » cite aussi les étoiles filantes
   (la nouvelle quête n'avance pas pendant l'absence : aucune étoile hors ligne). Nouvelle clé, 10 langues (exceptions complétées dans chaque
   traduction) ; lang-overflow ru, de, pl à 1280 : aucun défaut ; npm test, autotest 349/349. Les étoiles pendant l'absence avec le Filet à
