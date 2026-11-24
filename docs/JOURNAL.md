@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3219) POUR-VICTOR : bilan des it. 3185-3218 (ce que contiendra la 0.1.9).
 - 2026-11-24 (it. 3218) steam/checklist.md : la page du magasin a changé à l'it. 3199 (12 sortes d'élites) ; noté « à recopier » pour
   Victor s'il l'a déjà saisie dans Steamworks. Dossier de presse : ne cite pas ces nombres (rien à changer).
 - 2026-11-24 (it. 3217) Contrôle après les ajouts d'interface des 23-24/11 (✨ de l'Ascension, étiquette de l'Acharné) : clip-probe et
