@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3242) Fin de partie après les ajouts des 23-24/11 : simulate.js 168 h guerrier (116 s) : record de la semaine 350 (palier de
+  l'écho de la zone 350, comme le repère des it. 1708 et 2332), 6 158 éclats : inchangé.
 - 2026-11-24 (it. 3241) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : chaman 64, moine 61 (67 à l'it. 3181 sur la même graine : graines
   3, 11, 21, 31 → 66, 62, 66, 65, moyenne ≈ 64 : trajectoire changée par les ajouts, pas un recul), paladin 64. Perf : bande 19,6 %, panneau
   19,2 %, mini 5,6 %, icône 0,5 %. Captures des Familiers à 1366 px en fr, en, zh (« à découvrir 2 » : Belette, Colibri) : propres. Texte
