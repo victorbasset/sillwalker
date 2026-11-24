@@ -21,4 +21,4 @@ depuis la 0.1.8, réduites aux nouveautés majeures (les mêmes que NEWS_RELEASE
 
 Nouveautés retenues pour RELEASE_019 (éditions, indice de la nouveauté) : 177·0 Jour des étoiles, 178·0 Acharné, 179·0 étiquette de
 l'Acharné, 178·1 Belette, 180·0 Colibri, 181·0 quête des étoiles filantes, 182·0 bulles du mode mini, 177·1 secondes de l'événement en
-mode mini, 179·1 Bestiaire sur portable, 180·1 bande sur portable (étiquettes et noms de sorts). Plus les éditions parues d'ici 18 h 30.
+mode mini, 179·1 Bestiaire sur portable, 180·1 bande sur portable (étiquettes et noms de sorts), 183·0 succès des 25 Acharnés (11 en tout).
