@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3255) Contrôle : --crawl sur la partie d'une semaine en russe (921 clics en 45 s) et en chinois (937 clics en 44 s),
+  aucune erreur.
 - 2026-11-24 (it. 3254) Contrôle après la Pie-grièche et le Jour du zèle : fuzz FUZZ_DAYMOD=all (19 bénédictions) 1200 parties, 0 bloquées ;
   save-fuzz dev-data : ok balayage (1267 corruptions).
 - 2026-11-24 (it. 3253) « Quoi de neuf » : édition 185 (bulles du mode mini pour Poupouce et les champions), 10 langues ; npm test, autotest.
