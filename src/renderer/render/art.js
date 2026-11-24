@@ -333,6 +333,10 @@ export const PET_ART = {
   cricket: { pal: { G: "#3f7a2e", L: "#7fbf4a", D: "#1f3d16", E: "#e8e08a" }, frames: [
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", ".D..D.DD."],
     ["D.......D", ".D.....D.", "..GGGGG..", ".GLGGGGEG", "GGGGGGGG.", "D..D...D."]] },
+  // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
+  hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
+    [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],
+    [".........", ".........", "...GGK...", "..GGRGKKK", "..TGGW...", "..TT.WW..", "..T......"]] },
   // (it. 3198) Belette : longue et basse, dos brun, ventre crème, queue à bout sombre (deuxième image : bond, queue relevée)
   weasel: { pal: { B: "#9a6436", D: "#5a3418", W: "#f4e4c4", E: "#1a1a1a", N: "#2a1a10" }, frames: [
     [".......BB", "......BEN", "D.BBBBBWW", "DBBBBBBW.", ".WWWWWW..", ".B..B.B.."],

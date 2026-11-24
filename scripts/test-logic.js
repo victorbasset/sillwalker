@@ -822,6 +822,12 @@ test("Belette : +0,6 % d'esquive et +1 % de riposte par niveau (it. 3198)", () =
   assert.ok(Math.abs((g.stats().riposte || 0) - r0 - 10) < 1e-9, "riposte " + g.stats().riposte);
 });
 
+test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () => {
+  const g = new Game(freshState()); g.invalidateStats(); const t0 = g.stats().tapDmg || 0;
+  g.S.pets.owned.hummingbird = { lvl: 10, xp: 0 }; g.S.pets.active = "hummingbird"; g.invalidateStats();
+  assert.ok(Math.abs((g.stats().tapDmg || 0) - t0 - 100) < 1e-9, "coups au clic " + g.stats().tapDmg);
+});
+
 test("élite Acharnée : ses coups grandissent avec la vie qu'elle a perdue, jusqu'à +60 % (it. 3199)", () => {
   const m = { affix: "relentless", max: 1000, hp: 1000 };
   assert.equal(relentlessMul(m), 1);

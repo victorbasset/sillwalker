@@ -3498,5 +3498,7 @@ export const KEYS = [
   "L’ascension devient possible à partir de la zone {0}.",
   "Pendant le combat, l’étiquette de l’Acharné montre le bonus de ses coups (« +30 % »… jusqu’à « +60 % ») : on voit le danger monter.",
   "Bestiaire : sur un écran de portable, la page ne défile plus quand des noms de monstres passent sur deux lignes (français, espagnol, portugais, polonais, russe).",
-  "Jour des étoiles : avant la première ascension, sa bulle précise à partir de quelle zone l’ascension devient possible."
+  "Jour des étoiles : avant la première ascension, sa bulle précise à partir de quelle zone l’ascension devient possible.",
+  "Colibri",
+  "Rapide comme un battement d’ailes : tes coups au clic frappent bien plus fort."
 ];

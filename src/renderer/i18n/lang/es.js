@@ -2369,4 +2369,6 @@ export default {
   3494: "Durante el combate, la etiqueta del Implacable muestra el bonus de sus golpes («+30 %»… hasta «+60 %»): se ve subir el peligro.",
   3495: "Bestiario: en la pantalla de un portátil, la página ya no se desplaza cuando los nombres de monstruos ocupan dos líneas (francés, español, portugués, polaco, ruso).",
   3496: "Día de las estrellas: antes de la primera ascensión, su burbuja indica a partir de qué zona es posible ascender.",
+  3497: "Colibrí",
+  3498: "Rápido como un aleteo: tus golpes con clic pegan mucho más fuerte.",
 };

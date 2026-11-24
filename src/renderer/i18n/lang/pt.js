@@ -2369,4 +2369,6 @@ export default {
   3494: "Durante o combate, a etiqueta do Implacável mostra o bônus dos golpes dele (“+30 %”… até “+60 %”): dá para ver o perigo subir.",
   3495: "Bestiário: na tela de um notebook, a página não rola mais quando nomes de monstros ocupam duas linhas (francês, espanhol, português, polonês, russo).",
   3496: "Dia das estrelas: antes da primeira ascensão, o balão dele diz a partir de qual zona a ascensão fica possível.",
+  3497: "Beija-flor",
+  3498: "Rápido como uma batida de asas: seus golpes com clique batem muito mais forte.",
 };

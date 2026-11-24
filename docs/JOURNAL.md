@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3214) Contenu : 23e familier, le Colibri (coups au clic +10 % par niveau, +100 % au niveau 10 : le familier du joueur
+  présent ; aucun familier ne les touchait), dessin pixel volant (deux images), 10 langues (vocabulaire des « coups au clic » repris),
+  test. Capture de sa carte ; npm test 398, autotest 349/349.
 - 2026-11-24 (it. 3213) Autotest : contrôle de l'it. 3212 (barres de vie retirées, texte lancé tout en haut, barres remises : il redescend
   sous la rangée, « né 0 → 28/26 »). 349 vérifications (CLAUDE.md à jour) ; npm test 397.
 - 2026-11-24 (it. 3212) Bande : quand la rangée du haut change (barres de vie qui apparaissent au début d'un combat), les textes flottants

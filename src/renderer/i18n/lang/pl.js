@@ -2369,4 +2369,6 @@ export default {
   3494: "W walce etykieta Zawziętego pokazuje premię jego ciosów („+30 %”… aż do „+60 %”): widać, jak rośnie zagrożenie.",
   3495: "Bestiariusz: na ekranie laptopa strona już się nie przewija, gdy nazwy potworów zajmują dwie linie (francuski, hiszpański, portugalski, polski, rosyjski).",
   3496: "Dzień gwiazd: przed pierwszym wniebowstąpieniem jego dymek mówi, od której strefy jest ono możliwe.",
+  3497: "Koliber",
+  3498: "Szybki jak uderzenie skrzydeł: twoje ciosy kliknięciem uderzają znacznie mocniej.",
 };

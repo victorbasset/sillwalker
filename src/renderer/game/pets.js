@@ -38,6 +38,8 @@ export const PETS = [
   { id: "cricket", name: "Grillon", desc: "Son chant attire les prodiges : les événements rares viennent plus souvent.", eff: { events: 5 } },
   // (it. 3198) Belette : esquive et riposte (aucun familier ne les donnait ; +6 % et +10 % au niveau 10)
   { id: "weasel", name: "Belette", desc: "Vive comme l’éclair, elle esquive tout… et te l’apprend.", eff: { dodge: 0.6, riposte: 1 } },
+  // (it. 3214) Colibri : le familier du joueur présent (coups au clic +10 % par niveau, +100 % au niveau 10 ; aucun familier ne les touchait)
+  { id: "hummingbird", name: "Colibri", desc: "Rapide comme un battement d’ailes : tes coups au clic frappent bien plus fort.", eff: { tapDmg: 10 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

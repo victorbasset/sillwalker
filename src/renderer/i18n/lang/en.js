@@ -2369,4 +2369,6 @@ export default {
   3494: "During combat, the Relentless’s label shows the bonus of its hits (“+30%”… up to “+60%”): you can see the danger rise.",
   3495: "Bestiary: on a laptop screen, the page no longer scrolls when monster names wrap onto two lines (French, Spanish, Portuguese, Polish, Russian).",
   3496: "Star Day: before your first ascension, its tooltip tells from which zone ascension becomes possible.",
+  3497: "Hummingbird",
+  3498: "Quick as a wingbeat: your click strikes hit much harder.",
 };
