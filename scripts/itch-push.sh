@@ -34,6 +34,14 @@ if [ -n "${REF:-}" ]; then rm -rf "$ROOT/dist-itch"; mkdir -p "$ROOT/dist-itch";
 for f in "dist-itch/win-unpacked/Sillwalker.exe" "dist-itch/Sillwalker-$VER-mac-arm64.zip" "$LIN/Sillwalker-$VER-linux.AppImage"; do
   [ -s "$f" ] || { echo "manque : $f"; exit 1; }
 done
+# (it. 3222) essai de la version construite avant tout envoi (sortie quotidienne sans personne pour regarder) : l'AppImage est lancée
+# 30 s avec un dossier personnel temporaire (jamais la vraie sauvegarde) ; elle doit écrire une sauvegarde où un monstre est vaincu
+TRY=$(mktemp -d)
+HOME="$TRY" APPIMAGE_EXTRACT_AND_RUN=1 timeout 30 xvfb-run -a -s "-screen 0 1920x1080x24" "$LIN/Sillwalker-$VER-linux.AppImage" --no-sandbox >/dev/null 2>&1
+KILLS=$(node -e "try { const s = JSON.parse(require('fs').readFileSync('$TRY/.config/Sillwalker/save.json', 'utf8')); console.log((s.stats && s.stats.kills) || 0); } catch (e) { console.log(-1); }")
+rm -rf "$TRY"
+if [ "${KILLS:--1}" -le 0 ]; then echo "essai de la version construite : ÉCHEC (sauvegarde absente ou aucun monstre vaincu : $KILLS) ; rien n'est envoyé"; exit 1; fi
+echo "essai de la version construite : ok ($KILLS monstres vaincus en 30 s)"
 if [ "$DRY" = "--dry-run" ]; then
   echo "(essai : rien n'est envoyé)"
   for d in dist-itch/win-unpacked "$LIN" "dist-itch/Sillwalker-$VER-mac-arm64.zip"; do du -sh "$d"; done

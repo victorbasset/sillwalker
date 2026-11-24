@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3222) Sortie automatique plus sûre : itch-push.sh essaie la version Linux construite avant tout envoi (30 s, dossier
+  personnel temporaire ; une sauvegarde où au moins un monstre est vaincu est exigée, sinon rien n'est envoyé). Essayé sur l'AppImage
+  0.1.8 : 2 monstres vaincus, aucun processus restant.
 - 2026-11-24 (it. 3221) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : lancier 72 (graines 3, 11, 21 : 65, 65, 61 : tirage chanceux, pas un
   effet des ajouts), cryomancien 66, prêtresse 64. Perf : bande 19,6 %, panneau 19,1 %, mini 5,2 %, icône 0,7 %. Captures des Statistiques
   à 1920 px en fr, en, zh (« bénédictions 6 / 18 » à jour) : propres. Texte allemand (25 550 lignes) : aucun mot français. Rien pour « Idées ».

@@ -325,6 +325,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   entrée `update-<version>` avec ver et tags), tags et langues, en tête du devlog ; texte 10 langues steam/itch/devlog-<version>.html
   (listes tirées des traductions de RELEASE_0xx : `scripts/devlog-html.mjs <version> <intros.json>`, une phrase d'accroche
   par langue ; refait le devlog 0.1.8 à l'identique, it. 3206), couverture copiée en steam/itch/cover-<version>.png.
+  Depuis l'it. 3222, itch-push.sh lance d'abord l'AppImage construite 30 s (HOME temporaire) et n'envoie rien si aucun monstre n'est vaincu.
   TOUT AUTOMATIQUE depuis l'it. 3194 (demande de Victor : « même le devlog ») : itch-push.sh dépose aussi les fichiers dans Médias
   et publie le devlog par scripts/itch-devlog.cjs (Electron caché, session web de Victor dans ~/.config/itch/web_session, cookie
   « itchio » ; itch.io n'a pas d'API de devlog). Préparer donc devlog, texte et couverture AVANT itch-push.sh. Seul :
