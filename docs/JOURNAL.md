@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3233, signalé par Victor) Jour de Poupouce : l'icône de la bénédiction était encore un champignon 🍄 (l'ancien dessin de
+  Poupouce) ; c'est un chat 🐈 depuis la 0.1.5. Capture de la pastille ; npm test, autotest 349/349.
 - 2026-11-24 (it. 3232) Mode mini : la bulle d'un boss liste aussi ses capacités, nom et effet (« Разъярённый : ниже 30 % здоровья… »,
   « Регенерация : … ») ; on ne les voyait que dans le panneau. npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3231) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : gladiateur 64, arbalétrier 65, danseuse de lames 62. Perf : bande 19,4 %,
