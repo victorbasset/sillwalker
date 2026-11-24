@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3221) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : lancier 72 (graines 3, 11, 21 : 65, 65, 61 : tirage chanceux, pas un
+  effet des ajouts), cryomancien 66, prêtresse 64. Perf : bande 19,6 %, panneau 19,1 %, mini 5,2 %, icône 0,7 %. Captures des Statistiques
+  à 1920 px en fr, en, zh (« bénédictions 6 / 18 » à jour) : propres. Texte allemand (25 550 lignes) : aucun mot français. Rien pour « Idées ».
 - 2026-11-24 (it. 3220) Perf de la partie d'une semaine après les retouches de la bande (it. 3203, 3208, 3212) : bande 25,9 %, panneau
   27,0 %, mini 6,9 %, icône 0,9 % : comme le repère de l'it. 2984 (26 / 28 / 6,9 / 0,9).
 - 2026-11-24 (it. 3219) POUR-VICTOR : bilan des it. 3185-3218 (ce que contiendra la 0.1.9).
