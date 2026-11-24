@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3215) Contrôle du Colibri : capture de la bande (il vole derrière le héros, gorge rouge et bec lisibles) ; lang-overflow
+  de, ru, pl, ja à 1280 et 1920 px, état maximal à 23 familiers compris : aucun défaut.
 - 2026-11-24 (it. 3214) Contenu : 23e familier, le Colibri (coups au clic +10 % par niveau, +100 % au niveau 10 : le familier du joueur
   présent ; aucun familier ne les touchait), dessin pixel volant (deux images), 10 langues (vocabulaire des « coups au clic » repris),
   test. Capture de sa carte ; npm test 398, autotest 349/349.
