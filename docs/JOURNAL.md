@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3217) Contrôle après les ajouts d'interface des 23-24/11 (✨ de l'Ascension, étiquette de l'Acharné) : clip-probe et
+  info-probe sur dev-data en pt et ko à 1280 px : 0 texte rogné, 0 ⓘ caché.
 - 2026-11-24 (it. 3216) « Quoi de neuf » : édition 180 (Colibri ; étiquette d'élite et nom de sort sous la rangée du haut, it. 3208 et
   3212), 10 langues ; npm test 398, autotest 349/349.
 - 2026-11-24 (it. 3215) Contrôle du Colibri : capture de la bande (il vole derrière le héros, gorge rouge et bec lisibles) ; lang-overflow
