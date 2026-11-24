@@ -19,7 +19,7 @@ import { SPELL_INDEX } from "../game/spells.js";
 import { spellIconURL, relicIconURL } from "./shopart.js";
 import { mark, el, makeCanvas, sizeCanvas, drawBackdrop, Actor, Bar } from "./dom.js";
 import { SPAWN_DIST, ELITE_AFFIXES } from "../game/data.js"; // (it. 2071) combattant venu de la place d'attente
-import { agreeDefeated } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
+import { agreeDefeated, BOSS_MECHANICS } from "../game/bosses.js"; // (it. 966) accord du « enfin vaincu »
 import { isRanged } from "../game/classes.js";
 import { activeDayMod, dayModFor, DAY_MODS } from "../game/daymods.js";
 import { dayModNotes } from "../ui/daymodnotes.js";
@@ -199,7 +199,10 @@ export class MiniRenderer {
       else if (this.monActor) { this.monActor.remove(); this.monActor.bar.el.remove(); }
       this.monActor = null; this.monRef = m;
       // (it. 3230) élite : sa sorte et son effet dans la bulle du monstre (le mode mini ne montre que son contour doré)
-      { const af = m && m.elite && ELITE_AFFIXES[m.affix]; this.tap.removeAttribute("title"); this.tap.dataset.title = tx("Clique pour frapper !") + (af ? "\n" + af.name + colon() + af.desc : ""); }
+      // (it. 3232) boss : ses capacités (nom et effet), qu'on ne voyait que sur la carte de la zone dans le panneau
+      { const af = m && m.elite && ELITE_AFFIXES[m.affix], mech = m && m.boss && Array.isArray(m.mech) ? m.mech.map((k) => BOSS_MECHANICS[k]).filter(Boolean) : [];
+        this.tap.removeAttribute("title");
+        this.tap.dataset.title = [tx("Clique pour frapper !"), ...(af ? [af.name + colon() + af.desc] : []), ...mech.map((b) => b.name + colon() + b.desc)].join("\n"); }
       if (m) {
         // final : le Briseur d'Étoiles ; (it. 1847) lieutenant (m.art) : son propre dessin
         const set = m.final ? this.sprites.starbreaker : (m.boss && m.art && this.sprites.major(m.art)) || this.sprites.monsters[m.type];

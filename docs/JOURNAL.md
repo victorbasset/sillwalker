@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3232) Mode mini : la bulle d'un boss liste aussi ses capacités, nom et effet (« Разъярённый : ниже 30 % здоровья… »,
+  « Регенерация : … ») ; on ne les voyait que dans le panneau. npm test 399, autotest 349/349.
 - 2026-11-24 (it. 3231) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : gladiateur 64, arbalétrier 65, danseuse de lames 62. Perf : bande 19,4 %,
   panneau 18,9 %, mini 5,4 %, icône 0,6 %. Captures des Quêtes à 1600 px en fr, en, ja (note avec les étoiles filantes) : propres. Texte
   espagnol (25 569 lignes) : aucun mot français. Rien pour « Idées ».
