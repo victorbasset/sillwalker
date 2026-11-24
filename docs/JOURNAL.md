@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-24 (it. 3228) Contrôles : partie neuve en français à 1280 px après 45 s (niveau 2, première bulle de l'histoire, pastille
+  d'événement) : propre ; fuzz FUZZ_DAYMOD=all (18 bénédictions, Jour des étoiles compris) 1200 parties, 0 bloquées ; stall-check
+  STALL_DAYMOD=all 120 parties, 0 figées.
 - 2026-11-24 (it. 3227) « Quoi de neuf » : édition 181 (quête des étoiles filantes et son temps estimé), 10 langues ; npm test, autotest.
 - 2026-11-24 (it. 3226) Quêtes : la note « Les quêtes avancent toutes seules, même hors ligne (sauf …) » cite aussi les étoiles filantes
   (la nouvelle quête n'avance pas pendant l'absence : aucune étoile hors ligne). Nouvelle clé, 10 langues (exceptions complétées dans chaque
