@@ -2385,4 +2385,6 @@ export default {
   3510: "Día del celo",
   3511: "Las misiones avanzan el doble de rápido.",
   3512: "¡Hoy cada contrato cuenta doble!",
+  3513: "Nueva mascota, el «Alcaudón»: tus golpes contra enemigos por debajo del 30 % de vida hacen más daño (hasta un 30 % más en el nivel 10).",
+  3514: "Nueva bendición del día, el «Día del celo»: las misiones avanzan el doble de rápido, y sus tiempos estimados lo tienen en cuenta.",
 };

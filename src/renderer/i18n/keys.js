@@ -3514,5 +3514,7 @@ export const KEYS = [
   "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés.",
   "Jour du zèle",
   "Les quêtes avancent deux fois plus vite.",
-  "Aujourd’hui, chaque contrat compte double !"
+  "Aujourd’hui, chaque contrat compte double !",
+  "Nouveau familier, la « Pie-grièche » : tes coups contre les ennemis sous 30 % de vie font plus mal (jusqu’à 30 % de plus au niveau 10).",
+  "Nouvelle bénédiction du jour, le « Jour du zèle » : les quêtes avancent deux fois plus vite, et leurs temps estimés en tiennent compte."
 ];

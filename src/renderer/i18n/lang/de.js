@@ -2385,4 +2385,6 @@ export default {
   3510: "Tag des Eifers",
   3511: "Quests kommen doppelt so schnell voran.",
   3512: "Heute zählt jeder Auftrag doppelt!",
+  3513: "Neuer Begleiter, der „Würger“: Deine Treffer gegen Gegner unter 30 % Leben schmerzen mehr (bis zu 30 % mehr auf Stufe 10).",
+  3514: "Neuer Segen des Tages, der „Tag des Eifers“: Quests kommen doppelt so schnell voran, und ihre geschätzten Zeiten berücksichtigen das.",
 };

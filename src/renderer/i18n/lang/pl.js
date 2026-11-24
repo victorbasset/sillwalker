@@ -2385,4 +2385,6 @@ export default {
   3510: "Dzień gorliwości",
   3511: "Zadania postępują dwa razy szybciej.",
   3512: "Dziś każde zlecenie liczy się podwójnie!",
+  3513: "Nowy pupil, „Dzierzba”: twoje ciosy przeciw wrogom poniżej 30 % zdrowia bolą bardziej (do 30 % więcej na poziomie 10).",
+  3514: "Nowe błogosławieństwo dnia, „Dzień gorliwości”: zadania postępują dwa razy szybciej, a ich szacowany czas to uwzględnia.",
 };

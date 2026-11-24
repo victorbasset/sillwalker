@@ -2385,4 +2385,6 @@ export default {
   3510: "Zeal Day",
   3511: "Quests progress twice as fast.",
   3512: "Today, every contract counts double!",
+  3513: "New pet, the “Shrike”: your hits against enemies under 30% health hurt more (up to 30% more at level 10).",
+  3514: "New daily blessing, “Zeal Day”: quests progress twice as fast, and their estimated times take it into account.",
 };
