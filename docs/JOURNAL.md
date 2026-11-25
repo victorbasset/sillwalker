@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3283) POUR-VICTOR : bilan des it. 3246-3282 (contenu de la 0.1.10).
 - 2026-11-25 (it. 3282) Avant la 0.1.10 : session itch.io valide ; essai à blanc complet de itch-push.sh (constructions, essai de l'AppImage :
   2 monstres vaincus en 30 s) : code 0.
 - 2026-11-25 (it. 3281) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : lancier 62, cryomancien 62, barde 62 (leurs niveaux habituels, ±4 sur une
