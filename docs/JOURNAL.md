@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3289) Version 0.1.10 (sortie quotidienne) : notes (RELEASE_0110, after: 183, huit nouveautés des éditions 184-189), package.json,
+  tests des notes ; npm test 403, autotest 349/349, fenêtre des notes capturée dans les 10 langues à 1280 px (propre) ; texte du devlog généré.
 - 2026-11-25 (it. 3284) Avant la 0.1.10 : lang-overflow complet dans les 10 langues (150 mesures, état maximal à 20 événements) : aucun défaut.
 - 2026-11-25 (it. 3283) POUR-VICTOR : bilan des it. 3246-3282 (contenu de la 0.1.10).
 - 2026-11-25 (it. 3282) Avant la 0.1.10 : session itch.io valide ; essai à blanc complet de itch-push.sh (constructions, essai de l'AppImage :

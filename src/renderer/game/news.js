@@ -1045,9 +1045,20 @@ const RELEASE_019 = [
   "Bande sur un écran de portable : l’étiquette d’une élite en combat et le nom d’un sort lancé à l’entrée en combat ne passent plus sur les informations du haut.",
   "Nouveau succès : « Plus acharné que lui (25 acharnés) », pour 25 Acharnés vaincus.",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183
-// (NEWS_ID) : la suivante prendra after: 183.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }];
+// (it. 3289) notes de la 0.1.10 : textes repris des éditions 184 à 189, déjà traduits
+const RELEASE_0110 = [
+  "Nouveau familier, la « Pie-grièche » : tes coups contre les ennemis sous 30 % de vie font plus mal (jusqu’à 30 % de plus au niveau 10).",
+  "Nouvelle bénédiction du jour, le « Jour du zèle » : les quêtes avancent deux fois plus vite, et leurs temps estimés en tiennent compte.",
+  "Nouvel événement rare, le « Défi des champions » : pendant 30 secondes, les élites à venir deviennent des champions, plus coriaces mais qui laissent un objet épique.",
+  "Équilibre : le Mage, le héros qui allait le moins loin, a un peu plus de vie (5 % de moins que la normale au lieu de 15 %).",
+  "Mode mini : la bulle de Poupouce et celle d’un champion disent aussi ce qu’ils laissent en tombant.",
+  "Retour d’absence : si ton absence a passé minuit, le résumé annonce la bénédiction du nouveau jour.",
+  "Jour du zèle : avant l’ouverture des quêtes, sa bulle précise qu’elles arrivent après les premières minutes de jeu.",
+  "Traductions : des noms qui se confondaient sont maintenant distincts (une capacité de boss et une sorte d’élite en allemand et en polonais, deux sorts, un pouvoir et une panoplie en chinois, coréen et polonais).",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183, 0.1.10 avec l'édition 189
+// (NEWS_ID) : la suivante prendra after: 189.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }, { version: "0.1.10", after: 183, items: RELEASE_0110 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
