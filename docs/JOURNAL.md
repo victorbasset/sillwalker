@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3295) Contrôle du début de partie après les ajouts du 24-25/11 : early-pace (3 graines) à 60 min niveau 40-43, zone 23-27,
+  6,3 déblocages ; first-minutes : objet et boss 23-86 s, quête 155-219 s. Comme avant.
 - 2026-11-25 (it. 3294) « Quoi de neuf » : édition 190 (Jour de la forge), 10 langues ; npm test, autotest.
 - 2026-11-25 (it. 3293) Jour de la forge : description raccourcie (« Forge à moitié prix. », de « Halber Schmiedepreis. ») : la pastille de la
   carte du héros la coupait (« Forger coûte deux fois m… », captures fr et de à 1280 px) ; ⚒ s'affiche bien.
