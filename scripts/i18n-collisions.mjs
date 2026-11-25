@@ -1,6 +1,6 @@
 // (it. 3263) Noms de données distincts en français mais traduits à l'identique dans une langue (« Furieux » et « Enragé » donnaient tous
 // deux « Wütend » en allemand, it. 3262). Familles comparées entre elles : élites, capacités de boss, événements, bénédictions, familiers,
-// monstres, déblocages, constellations, pouvoirs, panoplies, reliques, héros, sorts (it. 3264). Usage : node --experimental-default-type=module scripts/i18n-collisions.mjs  (0 attendu ; code 1 sinon)
+// monstres, déblocages, constellations, pouvoirs, panoplies, reliques, héros, sorts (it. 3264), zones, talents, compétences, consommables, grands boss (it. 3265). Usage : node --experimental-default-type=module scripts/i18n-collisions.mjs  (0 attendu ; code 1 sinon)
 import { KEYS } from "../src/renderer/i18n/keys.js";
 const R = "../src/renderer/game/";
 const { ELITE_AFFIXES, MONSTERS } = await import(R + "data.js");
@@ -15,6 +15,11 @@ const { SETS } = await import(R + "sets.js");
 const { RELICS } = await import(R + "relics.js");
 const { CLASSES } = await import(R + "classes.js");
 const { SPELLS } = await import(R + "spells.js");
+const { ZONES } = await import(R + "data.js");
+const { TREES } = await import(R + "talents.js");
+const { SKILL_TREE } = await import(R + "skilltree.js");
+const { CONSUMABLES } = await import(R + "shop.js");
+const { MAJOR_BOSSES } = await import(R + "relics.js");
 const names = new Map(); // nom français → familles
 const add = (fam, n) => { if (!n || typeof n !== "string") return; if (!names.has(n)) names.set(n, new Set()); names.get(n).add(fam); };
 for (const a of Object.values(ELITE_AFFIXES)) add("élite", a.name);
@@ -31,6 +36,14 @@ for (const x of Object.values(SETS)) add("panoplie", x && x.name);
 for (const x of Object.values(RELICS)) add("relique", x && x.name);
 for (const x of Object.values(CLASSES)) add("héros", x && x.name);
 for (const x of SPELLS) add("sort", x && x.name);
+// (it. 3265) zones, talents (branches comprises), compétences, consommables, grands boss
+for (const z of ZONES) add("zone", z.name);
+// talents et compétences : hors du contrôle (it. 3265 : 59 synonymes entre héros différents, « Peau épaisse » / « Cuir épais »,
+// jamais côte à côte) ; ALL_TALENTS=1 pour les afficher
+if (process.env.ALL_TALENTS) { for (const tree of Object.values(TREES)) for (const br of tree) { add("branche de talents", br.name); for (const t of br.talents || []) add("talent", t.name); }
+  for (const n of Object.values(SKILL_TREE.nodes || {})) add("compétence", n && n.name); }
+for (const c of CONSUMABLES) add("consommable", c.name);
+for (const b of MAJOR_BOSSES) add("grand boss", b.name);
 const fr = [...names.keys()].filter((n) => KEYS.includes(n));
 // Même effet pour une élite et pour un boss : un même nom est juste (esquive, vampirisme, régénération)
 const SAME = [["Fuyant", "Insaisissable"], ["Vampirique", "Vampirisme"], ["Régénérant", "Régénération"]];

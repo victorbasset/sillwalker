@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3265) i18n-collisions : aussi les zones, consommables et grands boss (364 noms, 0 collision). Talents et compétences
+  essayés : 59 « collisions », presque toutes des synonymes entre héros différents (jamais affichés ensemble) : hors du contrôle,
+  ALL_TALENTS=1 pour les voir. Un cas notable relevé : ko « 별의 날 » = Jour des étoiles et le talent « Fil d'étoile » (날 : jour / lame).
 - 2026-11-25 (it. 3264) i18n-collisions étendu aux pouvoirs, panoplies, reliques, héros et sorts (320 noms) : 4 vraies collisions corrigées —
   sorts « Étoile filante » / « Chute d'étoile » (pl → « Upadek gwiazdy », ko → « 별의 추락 »), pouvoir « Plume de phénix » / panoplie
   « Plumage du phénix » (zh → « 凤凰羽衣 », ko → « 불사조의 깃옷 »). 0 collision ; npm test 402.
