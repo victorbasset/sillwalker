@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3261) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : mage 59 (son niveau habituel sur cette graine, it. 3201 : 60), assassin
+  62, berserker 70. Perf : bande 19,5 %, panneau 18,9 %, mini 5,4 %, icône 0,5 %. Captures des Talents à 1366 px en fr, en, ko : propres. Texte
+  japonais (25 548 lignes) : aucun mot non traduit. Rien pour « Idées ».
 - 2026-11-25 (it. 3260) Préparation de la 0.1.10 (ce soir vers 20 h) : docs/devlog-0.1.10.md (titre, tags, nouveautés retenues), phrases
   d'accroche en 10 langues (steam/itch/intros-0.1.10.json), couverture (steam/itch/cover-0.1.10.png, entrée update-0.1.10 de make.js).
 - 2026-11-25 (it. 3259) Contrôle : lang-overflow complet dans les 10 langues (150 mesures, toutes les parties, × 130 %, état maximal à 24
