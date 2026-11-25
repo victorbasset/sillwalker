@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3300) 74e succès, « Témoin des prodiges (100 événements rares) » (après celui des 10 ; progression, icône Steam EVENTS_100 à
+  l'étoile, seules ses deux images nouvelles), 10 langues ; steam/achievements.md, README, checklist et POUR-VICTOR à 74. lang-overflow all
+  (150 mesures, liste des succès allongée) : aucun défaut ; npm test 406, autotest 349/349.
 - 2026-11-26 (it. 3299) Préparation de la 0.1.11 : docs/devlog-0.1.11.md, accroches en 10 langues, couverture (3 étiquettes, à compléter si
   d'autres nouveautés arrivent d'ici ce soir).
 - 2026-11-25 (it. 3298) « Quoi de neuf » : édition 191 (comptes des événements et des bénédictions dans le Bestiaire), 10 langues.

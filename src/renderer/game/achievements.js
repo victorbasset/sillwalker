@@ -89,6 +89,7 @@ export const ACHIEVEMENTS = [
   { id: "PLAY_10H",        name: "Compagnon de route (10 h de jeu)", test: (S) => (S.stats.playTime || 0) >= 36000 },
   { id: "REFORGE_10",      name: "Forgeron (10 reforges)", test: (S) => (S.stats.reforges || 0) >= 10 },
   { id: "EVENTS_10",       name: "Chanceux (10 événements rares)", test: (S) => (S.stats.events || 0) >= 10 },
+  { id: "EVENTS_100",      name: "Témoin des prodiges (100 événements rares)", test: (S) => (S.stats.events || 0) >= 100 }, // (it. 3300)
   { id: "CHEST",           name: "Chasseur de trésors (un coffre)", test: (S) => (S.stats.chests || 0) >= 1 },
   // (it. 1430) 50 coffres au trésor (la Pie et le Jour des trésors y aident)
   { id: "CHESTS_50",       name: "Pilleur de coffres (50 coffres)", test: (S) => (S.stats.chests || 0) >= 50 },
@@ -167,6 +168,7 @@ export const ACH_PROGRESS = {
   PLAY_10H: (S) => [Math.floor((S.stats.playTime || 0) / 3600), 10],
   REFORGE_10: (S) => [S.stats.reforges || 0, 10],
   EVENTS_10: (S) => [S.stats.events || 0, 10],
+  EVENTS_100: (S) => [Math.min(100, S.stats.events || 0), 100],
   CODEX_HALF: (S) => { const c = codexCounts(S); return [c.found, Math.ceil(c.total / 2)]; },
   CODEX_ALL: (S) => { const c = codexCounts(S); return [c.found, c.total]; },
   EXPEDITIONS_10: (S) => [S.stats.expeditions || 0, 10],

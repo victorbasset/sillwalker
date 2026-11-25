@@ -3538,5 +3538,6 @@ export const KEYS = [
   "Forge à moitié prix.",
   "Nouvelle bénédiction du jour, le « Jour de la forge » : forger coûte deux fois moins cher ce jour-là.",
   "{n} jour|{n} jours",
-  "Bestiaire : chaque événement rare vécu dit combien de fois, et chaque bénédiction du jour combien de jours tu l’as vécue."
+  "Bestiaire : chaque événement rare vécu dit combien de fois, et chaque bénédiction du jour combien de jours tu l’as vécue.",
+  "Témoin des prodiges (100 événements rares)"
 ];

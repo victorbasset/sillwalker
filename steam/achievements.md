@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (73 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (74 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -56,6 +56,7 @@ Généré par `scripts/steam-achievements.mjs` (73 succès). À recopier dans St
 | `PLAY_10H` | Compagnon de route (10 h de jeu) | Travel Companion (10 h of play) | Compañero de viaje (10 h de juego) | Companheiro de estrada (10 h de jogo) | Weggefährte (10 Std. Spielzeit) | Towarzysz drogi (10 godz. gry) | Спутник в пути (10 ч игры) | 旅途伙伴（游戏 10 小时） | 旅の相棒（プレイ 10 時間） | 길동무 (플레이 10시간) |
 | `REFORGE_10` | Forgeron (10 reforges) | Blacksmith (10 reforges) | Herrero (10 reforjas) | Ferreiro (10 reforjas) | Schmied (10 Umschmiedungen) | Kowal (10 przekuć) | Кузнец (10 перековок) | 铁匠（10 次重铸） | 鍛冶師（再鍛造 10 回） | 대장장이 (재단조 10회) |
 | `EVENTS_10` | Chanceux (10 événements rares) | Lucky (10 rare events) | Afortunado (10 eventos raros) | Sortudo (10 eventos raros) | Glückspilz (10 seltene Ereignisse) | Szczęściarz (10 rzadkich zdarzeń) | Везунчик (10 редких событий) | 幸运儿（10 次稀有事件） | 幸運児（レアイベント 10 回） | 행운아 (희귀 이벤트 10회) |
+| `EVENTS_100` | Témoin des prodiges (100 événements rares) | Witness of Wonders (100 rare events) | Testigo de prodigios (100 eventos raros) | Testemunha de prodígios (100 eventos raros) | Zeuge der Wunder (100 seltene Ereignisse) | Świadek cudów (100 rzadkich zdarzeń) | Свидетель чудес (100 редких событий) | 奇迹见证者（100 次稀有事件） | 奇跡の目撃者（レアイベント 100 回） | 기적의 목격자 (희귀 이벤트 100회) |
 | `CHEST` | Chasseur de trésors (un coffre) | Treasure Hunter (a chest) | Cazatesoros (un cofre) | Caçador de tesouros (um baú) | Schatzjäger (eine Truhe) | Łowca skarbów (skrzynia) | Охотник за сокровищами (сундук) | 寻宝者（宝箱） | トレジャーハンター（宝箱） | 보물 사냥꾼 (상자) |
 | `CHESTS_50` | Pilleur de coffres (50 coffres) | Chest Raider (50 chests) | Saqueador de cofres (50 cofres) | Saqueador de baús (50 baús) | Truhenplünderer (50 Truhen) | Łupieżca skrzyń (50 skrzyń) | Грабитель сундуков (50 сундуков) | 宝箱掠夺者（50 个宝箱） | 宝箱あらし（宝箱 50 個） | 상자 약탈자 (상자 50개) |
 | `CODEX_HALF` | Collectionneur (la moitié des objets) | Collector (half of the items) | Coleccionista (la mitad de los objetos) | Colecionador (metade dos itens) | Sammler (die Hälfte der Gegenstände) | Kolekcjoner (połowa przedmiotów) | Коллекционер (половина предметов) | 收藏家（一半物品） | コレクター（アイテムの半分） | 수집가 (아이템 절반) |
