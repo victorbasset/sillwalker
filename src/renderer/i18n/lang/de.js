@@ -2400,4 +2400,5 @@ export default {
   3525: "{n} Champion besiegt|{n} Champions besiegt",
   3526: "Die Champions sollen vortreten!",
   3527: "Neues seltenes Ereignis, die „Herausforderung der Champions“: 30 Sekunden lang werden kommende Eliten zu Champions – zäher, aber sie hinterlassen einen epischen Gegenstand.",
+  3528: "Balance: Der Magier, der Held, der am wenigsten weit kam, hat etwas mehr Leben (5 % unter normal statt 15 %).",
 };

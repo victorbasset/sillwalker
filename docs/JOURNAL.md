@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3280) « Quoi de neuf » : édition 189 (Mage un peu plus robuste), 10 langues ; nouveautés retenues de la 0.1.10 complétées.
 - 2026-11-25 (it. 3279) Artificier (61,7 sur 3 graines à l'it. 3275) : 7 graines, 12 h : 63,4 avec ses PV actuels (0,9) ; essai à 1,0 : 64,3
   (+0,9, bruit). Pas de changement : le 61,7 venait de trois graines défavorables.
 - 2026-11-25 (it. 3278) Équilibre : le mage, le plus faible des 20 héros depuis plusieurs revues (61,7 à l'it. 3275), passe de 0,85 à 0,95 de

@@ -20,4 +20,4 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 **Titre :** Sillwalker 0.1.10 : un Jour du zèle, la Pie-grièche et un mode mini plus bavard
 
 Nouveautés retenues pour RELEASE_0110 (éditions, indice) : 184·0 Pie-grièche, 184·1 Jour du zèle, 185·0 bulles du mode mini (Poupouce,
-champions), 186·0 bénédiction du nouveau jour dans le résumé d'absence, 186·1 note du Jour du zèle, 187·0 noms traduits distincts, 188·0 Défi des champions.
+champions), 186·0 bénédiction du nouveau jour dans le résumé d'absence, 186·1 note du Jour du zèle, 187·0 noms traduits distincts, 188·0 Défi des champions, 189·0 Mage plus robuste.

@@ -3529,5 +3529,6 @@ export const KEYS = [
   "Chaque élite devient un champion !",
   "{n} champion vaincu|{n} champions vaincus",
   "Que les champions se présentent !",
-  "Nouvel événement rare, le « Défi des champions » : pendant 30 secondes, les élites à venir deviennent des champions, plus coriaces mais qui laissent un objet épique."
+  "Nouvel événement rare, le « Défi des champions » : pendant 30 secondes, les élites à venir deviennent des champions, plus coriaces mais qui laissent un objet épique.",
+  "Équilibre : le Mage, le héros qui allait le moins loin, a un peu plus de vie (5 % de moins que la normale au lieu de 15 %)."
 ];

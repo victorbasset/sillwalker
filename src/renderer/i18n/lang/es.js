@@ -2400,4 +2400,5 @@ export default {
   3525: "{n} campeón vencido|{n} campeones vencidos",
   3526: "¡Que se presenten los campeones!",
   3527: "Nuevo evento raro, el «Desafío de campeones»: durante 30 segundos, las próximas élites se vuelven campeones, más duros pero que dejan un objeto épico.",
+  3528: "Equilibrio: el Mago, el héroe que menos avanzaba, tiene un poco más de vida (5 % menos de lo normal en lugar de 15 %).",
 };
