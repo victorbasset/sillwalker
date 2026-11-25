@@ -2392,4 +2392,6 @@ export default {
   3517: "Modo mini: las burbujas de Poupouce y de un campeón también dicen lo que dejan al caer.",
   3518: "Las misiones se abren tras los primeros minutos de juego.",
   3519: "Bendición del día",
+  3520: "Regreso: si tu ausencia pasó la medianoche, el resumen anuncia la bendición del nuevo día.",
+  3521: "Día del celo: antes de que se abran las misiones, su burbuja indica que llegan tras los primeros minutos de juego.",
 };

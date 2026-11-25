@@ -2392,4 +2392,6 @@ export default {
   3517: "Mini mode: the tooltips of Poupouce and of a champion also tell what they drop when they fall.",
   3518: "Quests open after the first few minutes of play.",
   3519: "Blessing of the day",
+  3520: "Returning: if your absence went past midnight, the summary announces the new day’s blessing.",
+  3521: "Zeal Day: before quests open, its tooltip says they arrive after the first few minutes of play.",
 };

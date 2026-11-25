@@ -2392,4 +2392,6 @@ export default {
   3517: "Mini-Modus: Die Blasen von Poupouce und eines Champions sagen auch, was sie beim Fallen hinterlassen.",
   3518: "Quests öffnen sich nach den ersten Spielminuten.",
   3519: "Segen des Tages",
+  3520: "Rückkehr: Wenn deine Abwesenheit über Mitternacht ging, nennt die Übersicht den Segen des neuen Tages.",
+  3521: "Tag des Eifers: Bevor Quests freigeschaltet sind, sagt seine Blase, dass sie nach den ersten Spielminuten kommen.",
 };

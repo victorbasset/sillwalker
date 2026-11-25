@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3258) « Quoi de neuf » : édition 186 (bénédiction du nouveau jour dans le résumé d'absence, note du Jour du zèle), 10 langues.
+  Push de l'it. 3257 refusé deux fois par GitHub (erreur 500), passé au passage suivant.
 - 2026-11-25 (it. 3257) Retour d'absence : si l'absence a traversé minuit, le résumé annonce la bénédiction du nouveau jour (« Bénédiction du
   jour · 💰 Jour de fortune », effet au survol, accessible au clavier). sum.newDay calculé par la progression hors ligne ; le pire cas mesuré
   par l'autotest et lang-overflow la contient. 10 langues ; npm test 402, autotest 349/349, lang-overflow all 1280 et 1920 : aucun défaut.

@@ -3521,5 +3521,7 @@ export const KEYS = [
   "Champion : plus coriace qu’une élite, il laisse un objet épique.",
   "Mode mini : la bulle de Poupouce et celle d’un champion disent aussi ce qu’ils laissent en tombant.",
   "Les quêtes s’ouvrent après les premières minutes de jeu.",
-  "Bénédiction du jour"
+  "Bénédiction du jour",
+  "Retour d’absence : si ton absence a passé minuit, le résumé annonce la bénédiction du nouveau jour.",
+  "Jour du zèle : avant l’ouverture des quêtes, sa bulle précise qu’elles arrivent après les premières minutes de jeu."
 ];

@@ -2392,4 +2392,6 @@ export default {
   3517: "Tryb mini: dymki Poupouce i czempiona mówią też, co zostawiają po pokonaniu.",
   3518: "Zadania otwierają się po pierwszych minutach gry.",
   3519: "Błogosławieństwo dnia",
+  3520: "Powrót: jeśli twoja nieobecność trwała po północy, podsumowanie ogłasza błogosławieństwo nowego dnia.",
+  3521: "Dzień gorliwości: zanim zadania się otworzą, jego dymek mówi, że pojawią się po pierwszych minutach gry.",
 };

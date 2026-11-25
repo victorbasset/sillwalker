@@ -2392,4 +2392,6 @@ export default {
   3517: "Modo mini: os balões do Poupouce e de um campeão também dizem o que eles deixam ao cair.",
   3518: "As missões abrem depois dos primeiros minutos de jogo.",
   3519: "Bênção do dia",
+  3520: "Volta: se sua ausência passou da meia-noite, o resumo anuncia a bênção do novo dia.",
+  3521: "Dia do zelo: antes de as missões abrirem, o balão dele diz que elas chegam depois dos primeiros minutos de jogo.",
 };
