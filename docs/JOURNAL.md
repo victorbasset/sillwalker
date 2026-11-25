@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3264) i18n-collisions étendu aux pouvoirs, panoplies, reliques, héros et sorts (320 noms) : 4 vraies collisions corrigées —
+  sorts « Étoile filante » / « Chute d'étoile » (pl → « Upadek gwiazdy », ko → « 별의 추락 »), pouvoir « Plume de phénix » / panoplie
+  « Plumage du phénix » (zh → « 凤凰羽衣 », ko → « 불사조의 깃옷 »). 0 collision ; npm test 402.
 - 2026-11-25 (it. 3263) Outil : scripts/i18n-collisions.mjs (dans npm test) repère deux noms de données distincts traduits à l'identique
   dans une langue (201 noms : élites, capacités de boss, événements, bénédictions, familiers, monstres, déblocages, constellations). Après
   l'it. 3262, il ne reste que 3 cas, tous le même effet pour une élite et pour un boss (pt « esquivo », zh « 吸血 », « 再生 ») : autorisés.

@@ -1028,7 +1028,7 @@ export default {
   2152: "Kojąca pieśń",
   2153: "Wielkie crescendo",
   2154: "Gwiezdna egida",
-  2155: "Spadająca gwiazda",
+  2155: "Upadek gwiazdy",
   2156: "Granat",
   2157: "Mechaniczna tarcza",
   2158: "Bomba odłamkowa",
