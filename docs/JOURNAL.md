@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3274) Défi des champions vérifié sur la bande (mise en scène, zone 20, 1920 px) : les élites de la file deviennent « Champion
+  rapide ✦ » (contour violet), bannière, réplique « Que les champions se présentent ! » et pastille « Défi des champions 29 s ».
 - 2026-11-25 (it. 3273) Préparation de la 0.1.10 : titre (« a Zeal Day, the Champions’ Challenge and the Shrike »), couverture (5 étiquettes) et
   phrases d'accroche des 10 langues mis à jour avec le Défi des champions.
 - 2026-11-25 (it. 3272) « Quoi de neuf » : édition 188 (Défi des champions), 10 langues ; nouveautés retenues de la 0.1.10 complétées.
