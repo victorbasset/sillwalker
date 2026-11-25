@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3290) Les trois canaux itch.io en 0.1.10 (Mac traité). Relecture en capture de la partie d'une semaine en polonais à 1366 px
+  (Quêtes, Familiers, Ascension) : propre (« À découvrir 3 » : les trois nouveaux familiers ; note des quêtes avec les étoiles filantes).
 - 2026-11-25 (it. 3289, suite) 0.1.10 envoyée sur itch.io par itch-push.sh, sans intervention : essai de l'AppImage (2 monstres en 30 s),
   butler (3 canaux), Médias et empreintes, devlog publié avec sa couverture (billet 1806596, visible dans la liste publique).
 - 2026-11-25 (it. 3289) Version 0.1.10 (sortie quotidienne) : notes (RELEASE_0110, after: 183, huit nouveautés des éditions 184-189), package.json,
