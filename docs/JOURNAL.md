@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3271) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : nécromancien 60, samouraï 65, prêtresse 64. Perf : bande 19,9 % (charge
+  2,5), panneau 19,3 %, mini 5,5 %, icône 0,5 %. Nécromancien suivi sur 7 graines avant / après le Défi des champions (ee4dc65f, git worktree) :
+  63,1 → 61,3 ; balance.mjs 10 héros : −0,9 (bruit ±1,5 ; mage −4, druide −5 et berserker −4 sur la graine 7, rôdeur +2, assassin +3).
+  L'événement, rare, change surtout les tirages : pas de réglage, à surveiller (noté dans « Idées »).
 - 2026-11-25 (it. 3270) Contenu : 20e événement rare, « Défi des champions » (30 s, dès la zone des champions) : les élites à venir de la file
   deviennent des champions (plus coriaces, objet épique) ; réplique, trompette d'arène, bilan « N champions vaincus ». 10 langues, page
   Steam « 20 événements » (10 langues), checklist, test. npm test 403, autotest 349/349 (son rendu), fuzz 1200 parties 0 bloquées,
@@ -10084,6 +10088,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P3 (it. 3271) Nécromancien après le Défi des champions (it. 3270) : 7 graines, 63,1 → 61,3 ; moyenne des 10 héros −0,9 (bruit). Revoir
+  avec hero-table 7 graines à la prochaine revue ; si le recul se confirme pour un seul héros, chercher pourquoi (champions et serviteur ?).
 - P3 (it. 3226) Étoiles filantes pendant l'absence avec le Filet à étoiles (zone 130) : aujourd'hui aucune étoile hors ligne. Les compter
   donnerait or, quête et +2 % de vitesse permanente par étoile (≈ 11 en 12 h d'absence) : à proposer à Victor (équilibre des joueurs absents).
 - FAIT (it. 3208 : étiquette d'élite du monstre en combat, cause trouvée ; it. 3212 : nom de sort, parade sur la cause probable) P3 (it. 3166) Bande à 1280 px, hud-probe sur 40 parties de 12 h (pl, ja) après les it. 3164-3165 : 5 éléments passagers sur la rangée
