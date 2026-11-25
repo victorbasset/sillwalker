@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3278) Équilibre : le mage, le plus faible des 20 héros depuis plusieurs revues (61,7 à l'it. 3275), passe de 0,85 à 0,95 de
+  PV (toujours « fragile »). 7 graines (7, 3, 11, 21, 31, 41, 51), 12 h, avant / après (git worktree) : 61 61 62 65 62 62 65 → 64 64 66 62 61
+  66 65, moyenne 62,6 → 64,0 (moyenne des héros 64,8). Semaine du mage : record 350, inchangé. npm test 403, autotest 349/349.
 - 2026-11-25 (it. 3277) Contrôle après le Défi des champions : stall-check STALL_DAYMOD=all 120 parties avancées, 0 figées ; save-fuzz sur la partie
   d'une semaine : ok (1274 corruptions).
 - 2026-11-25 (it. 3276) Berserker sur 7 graines (7, 3, 11, 21, 31, 41, 51) : avant les ajouts du 24-25/11 (42e1d013, git worktree) 65 62 70 65 66
