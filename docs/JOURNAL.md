@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3299) Préparation de la 0.1.11 : docs/devlog-0.1.11.md, accroches en 10 langues, couverture (3 étiquettes, à compléter si
+  d'autres nouveautés arrivent d'ici ce soir).
 - 2026-11-25 (it. 3298) « Quoi de neuf » : édition 191 (comptes des événements et des bénédictions dans le Bestiaire), 10 langues.
 - 2026-11-25 (it. 3297) Bestiaire > Bénédictions du jour : chaque bénédiction vécue dit combien de jours (« · 3 jours »). daily.seen garde un compte
   (premier jour 1, +1 à chaque nouveau jour sous elle ; « true » ancien = 1) ; max-save à 9 999. Test ; npm test 406, autotest 349/349,

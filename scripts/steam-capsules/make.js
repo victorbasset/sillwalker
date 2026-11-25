@@ -20,6 +20,7 @@ const SIZES = [
   ["update-0.1.8", 1920, 1080, "update", { ver: "0.1.8", tags: "Fairer champions|Richer return|Safe full bag|One-click buys|Clear big numbers|Royal Favor event" }], // (it. 3193)
   ["update-0.1.9", 1920, 1080, "update", { ver: "0.1.9", tags: "Star Day|Relentless elite|Weasel & Hummingbird|Shooting-star quests|Clearer mini mode" }], // (it. 3237)
   ["update-0.1.10", 1920, 1080, "update", { ver: "0.1.10", tags: "Zeal Day|Champions’ Challenge|The Shrike pet|Friendlier mini mode|Clearer translations" }], // (it. 3260, 3273)
+  ["update-0.1.11", 1920, 1080, "update", { ver: "0.1.11", tags: "Forge Day|Events counted|Blessings counted" }], // (it. 3299)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });
