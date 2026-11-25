@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3269) Combats du rôdeur (à distance) en 12 h × 3 graines : élites 25 % de défaites, champions 46 %, boss 61 % ; Acharné 16 %
+  (guerrier : 26 %), au milieu des sortes d'élite (10-47 %). Pas de réglage.
 - 2026-11-25 (it. 3268) Contrôle : mode mini de la partie d'une semaine en pl, ko, pt (captures) : niveau, or « 2,26 Dd », zone 353 et barres
   lisibles, rien de coupé.
 - 2026-11-25 (it. 3267) « Quoi de neuf » : édition 187 (noms traduits qui se confondaient, it. 3262-3266), 10 langues ; npm test, autotest.
