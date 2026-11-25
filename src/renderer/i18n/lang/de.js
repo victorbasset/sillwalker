@@ -2406,4 +2406,5 @@ export default {
   3531: "Der Amboss ist heiß: der richtige Tag zum Schmieden!",
   3532: "Die Schmiede kaufst du im Laden: den Amboss.",
   3533: "Halber Schmiedepreis.",
+  3534: "Neuer Segen des Tages, der „Tag der Schmiede“: An diesem Tag kostet Schmieden nur die Hälfte.",
 };

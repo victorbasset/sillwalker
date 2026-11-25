@@ -2406,4 +2406,5 @@ export default {
   3531: "El yunque está caliente: ¡es el día de forjar!",
   3532: "La forja se compra en la Tienda: el Yunque.",
   3533: "Forja a mitad de precio.",
+  3534: "Nueva bendición del día, el «Día de la forja»: ese día forjar cuesta la mitad.",
 };
