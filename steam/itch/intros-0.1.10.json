@@ -1,12 +1,12 @@
 {
-  "en": "<strong>Sillwalker 0.1.10 is out!</strong> A new daily blessing that speeds up quests, a 24th pet that finishes off the wounded, a friendlier mini mode and a warmer welcome back. Here is what's new since 0.1.9:",
-  "fr": "<strong>Sillwalker 0.1.10 est sortie !</strong> Une nouvelle bénédiction du jour qui accélère les quêtes, un 24e familier qui achève les blessés, un mode mini plus bavard et un retour d'absence plus accueillant. Les nouveautés depuis la 0.1.9 :",
-  "es": "<strong>¡Ya está aquí Sillwalker 0.1.10!</strong> Una nueva bendición del día que acelera las misiones, una 24.ª mascota que remata a los heridos, un modo mini más informativo y un regreso más acogedor. Novedades desde la 0.1.9:",
-  "pt": "<strong>Sillwalker 0.1.10 chegou!</strong> Uma nova bênção do dia que acelera as missões, um 24º mascote que acaba com os feridos, um modo mini mais informativo e uma volta mais acolhedora. Novidades desde a 0.1.9:",
-  "de": "<strong>Sillwalker 0.1.10 ist da!</strong> Ein neuer Segen des Tages, der Quests beschleunigt, ein 24. Begleiter, der Verwundete erledigt, ein gesprächigerer Mini-Modus und eine freundlichere Rückkehr. Neu seit 0.1.9:",
-  "pl": "<strong>Sillwalker 0.1.10 już jest!</strong> Nowe błogosławieństwo dnia przyspieszające zadania, 24. pupil dobijający rannych, bardziej rozmowny tryb mini i milsze powitanie po powrocie. Nowości od wersji 0.1.9:",
-  "ru": "<strong>Вышла Sillwalker 0.1.10!</strong> Новое благословение дня, ускоряющее задания, 24-й питомец, добивающий раненых, более разговорчивый мини-режим и тёплое возвращение. Что нового с версии 0.1.9:",
-  "zh": "<strong>Sillwalker 0.1.10 发布！</strong>加快任务进度的新每日祝福、专门收割残血敌人的第 24 只宠物、信息更丰富的迷你模式，以及更贴心的离线归来。自 0.1.9 以来的新内容：",
-  "ja": "<strong>Sillwalker 0.1.10 リリース！</strong>クエストを加速する新しい日替わりの祝福、弱った敵にとどめを刺す24匹目のペット、情報が増えたミニモード、そしてより温かい帰還画面。0.1.9 からの新要素：",
-  "ko": "<strong>Sillwalker 0.1.10 출시!</strong> 퀘스트를 빠르게 하는 새 오늘의 축복, 다친 적을 마무리하는 24번째 펫, 더 친절해진 미니 모드, 더 반가운 복귀 화면. 0.1.9 이후 새로운 점:"
+  "en": "<strong>Sillwalker 0.1.10 is out!</strong> A new daily blessing that speeds up quests, a new rare event where elites become champions, a 24th pet that finishes off the wounded, a friendlier mini mode and a warmer welcome back. Here is what's new since 0.1.9:",
+  "fr": "<strong>Sillwalker 0.1.10 est sortie !</strong> Une nouvelle bénédiction du jour qui accélère les quêtes, un nouvel événement rare où les élites deviennent des champions, un 24e familier qui achève les blessés, un mode mini plus bavard et un retour d'absence plus accueillant. Les nouveautés depuis la 0.1.9 :",
+  "es": "<strong>¡Ya está aquí Sillwalker 0.1.10!</strong> Una nueva bendición del día que acelera las misiones, un nuevo evento raro en el que las élites se vuelven campeones, una 24.ª mascota que remata a los heridos, un modo mini más informativo y un regreso más acogedor. Novedades desde la 0.1.9:",
+  "pt": "<strong>Sillwalker 0.1.10 chegou!</strong> Uma nova bênção do dia que acelera as missões, um novo evento raro em que as elites viram campeões, um 24º mascote que acaba com os feridos, um modo mini mais informativo e uma volta mais acolhedora. Novidades desde a 0.1.9:",
+  "de": "<strong>Sillwalker 0.1.10 ist da!</strong> Ein neuer Segen des Tages, der Quests beschleunigt, ein neues seltenes Ereignis, bei dem Eliten zu Champions werden, ein 24. Begleiter, der Verwundete erledigt, ein gesprächigerer Mini-Modus und eine freundlichere Rückkehr. Neu seit 0.1.9:",
+  "pl": "<strong>Sillwalker 0.1.10 już jest!</strong> Nowe błogosławieństwo dnia przyspieszające zadania, nowe rzadkie wydarzenie, w którym elity stają się czempionami, 24. pupil dobijający rannych, bardziej rozmowny tryb mini i milsze powitanie po powrocie. Nowości od wersji 0.1.9:",
+  "ru": "<strong>Вышла Sillwalker 0.1.10!</strong> Новое благословение дня, ускоряющее задания, новое редкое событие, в котором элиты становятся чемпионами, 24-й питомец, добивающий раненых, более разговорчивый мини-режим и тёплое возвращение. Что нового с версии 0.1.9:",
+  "zh": "<strong>Sillwalker 0.1.10 发布！</strong>加快任务进度的新每日祝福、让精英变成勇者的新稀有事件、专门收割残血敌人的第 24 只宠物、信息更丰富的迷你模式，以及更贴心的离线归来。自 0.1.9 以来的新内容：",
+  "ja": "<strong>Sillwalker 0.1.10 リリース！</strong>クエストを加速する新しい日替わりの祝福、エリートがチャンピオンになる新しいレアイベント、弱った敵にとどめを刺す24匹目のペット、情報が増えたミニモード、そしてより温かい帰還画面。0.1.9 からの新要素：",
+  "ko": "<strong>Sillwalker 0.1.10 출시!</strong> 퀘스트를 빠르게 하는 새 오늘의 축복, 정예가 챔피언이 되는 새 희귀 이벤트, 다친 적을 마무리하는 24번째 펫, 더 친절해진 미니 모드, 더 반가운 복귀 화면. 0.1.9 이후 새로운 점:"
 }

@@ -5,7 +5,7 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 ## Publication sur itch.io
 
-- **Titre :** Sillwalker 0.1.10 – a Zeal Day, the Shrike and a friendlier mini mode
+- **Titre :** Sillwalker 0.1.10 – a Zeal Day, the Champions’ Challenge and the Shrike
 - **Image de couverture :** steam/itch/cover-0.1.10.png (1920 × 1080 ; `ONLY=update-0.1.10 electron scripts/steam-capsules/make.js <dossier>`)
 - **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
   cozy game, gamedev

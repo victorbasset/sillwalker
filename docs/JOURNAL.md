@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3273) Préparation de la 0.1.10 : titre (« a Zeal Day, the Champions’ Challenge and the Shrike »), couverture (5 étiquettes) et
+  phrases d'accroche des 10 langues mis à jour avec le Défi des champions.
 - 2026-11-25 (it. 3272) « Quoi de neuf » : édition 188 (Défi des champions), 10 langues ; nouveautés retenues de la 0.1.10 complétées.
 - 2026-11-25 (it. 3271) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : nécromancien 60, samouraï 65, prêtresse 64. Perf : bande 19,9 % (charge
   2,5), panneau 19,3 %, mini 5,5 %, icône 0,5 %. Nécromancien suivi sur 7 graines avant / après le Défi des champions (ee4dc65f, git worktree) :
