@@ -3520,5 +3520,6 @@ export const KEYS = [
   "Poupouce : extrêmement rare, il laisse beaucoup d’or et un objet légendaire.",
   "Champion : plus coriace qu’une élite, il laisse un objet épique.",
   "Mode mini : la bulle de Poupouce et celle d’un champion disent aussi ce qu’ils laissent en tombant.",
-  "Les quêtes s’ouvrent après les premières minutes de jeu."
+  "Les quêtes s’ouvrent après les premières minutes de jeu.",
+  "Bénédiction du jour"
 ];

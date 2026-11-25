@@ -1605,6 +1605,8 @@ export class Game {
     onGround = Math.max(onGround, (+S.stats.grounded || 0) - grounded0);
     const summary = {
       seconds: sec, duration: durText(sec), zone: zoneName(S.zone),
+      // (it. 3257) l'absence a traversé minuit : le résumé annonce la bénédiction du nouveau jour
+      newDay: new Date(Date.now() - sec * 1000).toDateString() !== new Date().toDateString(),
       kills, gold, petGold, questsDone: Math.max(0, S.quests.slots.filter(questDone).length - qDone0), xp, newLevel: S.lvl > lvl0 ? S.lvl : 0, kept: S.bag.filter((i) => !bagBefore.has(i.id)).length, best, feathers, chests,
       steps: (S.journey || []).slice(journey0),
       capped, capH: Math.round(this.offlineCapS() / 3600), bestItemId: bestItem ? bestItem.id : null, bestLostName: bestLost ? itemName(bestLost) : null, bestLostR: bestLost ? bestLost.r : -1, onGround, forged, anviled, transmuted, petWork, herbs, traded, spells, elites, champions: champs,

@@ -2391,4 +2391,5 @@ export default {
   3516: "Czempion: twardszy niż elita, zostawia epicki przedmiot.",
   3517: "Tryb mini: dymki Poupouce i czempiona mówią też, co zostawiają po pokonaniu.",
   3518: "Zadania otwierają się po pierwszych minutach gry.",
+  3519: "Błogosławieństwo dnia",
 };

@@ -2391,4 +2391,5 @@ export default {
   3516: "Champion: tougher than an elite, it drops an epic item.",
   3517: "Mini mode: the tooltips of Poupouce and of a champion also tell what they drop when they fall.",
   3518: "Quests open after the first few minutes of play.",
+  3519: "Blessing of the day",
 };

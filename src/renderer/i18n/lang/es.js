@@ -2391,4 +2391,5 @@ export default {
   3516: "Campeón: más duro que una élite, deja un objeto épico.",
   3517: "Modo mini: las burbujas de Poupouce y de un campeón también dicen lo que dejan al caer.",
   3518: "Las misiones se abren tras los primeros minutos de juego.",
+  3519: "Bendición del día",
 };

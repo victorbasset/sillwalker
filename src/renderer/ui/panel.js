@@ -564,6 +564,7 @@ export class Panel {
         ${sum.champions ? `<li><span>${tx("Champions vaincus")}</span><b>${fmt(sum.champions)}${sum.champEpics > 0 ? ` <small>${txn(sum.champEpics, "(+{n} objet épique)|(+{n} objets épiques)")}</small>` : ""}</b></li>` : "" /* (it. 2943) chacun laisse son épique (it. 2905) : ceux vraiment rangés, comme Poupouce */}
         <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold + (sum.petGold || 0))}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
+        ${(() => { const dm = sum.newDay ? activeDayMod(this.game.S) : null; return dm ? `<li><span>${tx("Bénédiction du jour")}</span><b title="${esc(dm.desc)}" tabindex="0">${dm.icon} ${esc(dm.name)}</b></li>` : ""; })() /* (it. 3257) absence qui a traversé minuit */}
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
         ${(sum.steps || []).map((e) => journeyText(e)).filter(Boolean).map((t) => `<li class="step"><span>✦ ${esc(t)}</span></li>`).join("")}
         <li><span>${tx("Objets gardés")}</span><b>${sum.kept}</b></li>${best}

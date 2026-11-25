@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3257) Retour d'absence : si l'absence a traversé minuit, le résumé annonce la bénédiction du nouveau jour (« Bénédiction du
+  jour · 💰 Jour de fortune », effet au survol, accessible au clavier). sum.newDay calculé par la progression hors ligne ; le pire cas mesuré
+  par l'autotest et lang-overflow la contient. 10 langues ; npm test 402, autotest 349/349, lang-overflow all 1280 et 1920 : aucun défaut.
 - 2026-11-25 (it. 3256) Jour du zèle : tant que l'onglet des quêtes n'est pas ouvert (tout début de partie), la bulle de la bénédiction le
   précise (« Les quêtes s'ouvrent après les premières minutes de jeu. »), comme les autres bénédictions qui ne servent pas encore ; 10
   langues, test ; npm test 402, autotest 349/349.
