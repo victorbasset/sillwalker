@@ -2506,7 +2506,8 @@ export class Game {
     }
     this.S.stats.events = (this.S.stats.events || 0) + 1;
     const firstTime = !(this.S.stats.eventsSeen || {})[id];
-    (this.S.stats.eventsSeen ||= {})[id] = true; // succès « Chasseur d'événements »
+    // succès « Chasseur d'événements » ; (it. 3296) un compte plutôt que « true » (affiché dans le Bestiaire ; « true » ancien = 1)
+    { const E = (this.S.stats.eventsSeen ||= {}); E[id] = affixWins(E[id]) + 1; }
     if (firstTime) { // (it. 932) collection des événements : +1 % d'or par événement vécu ; (it. 933) on le dit
       this.invalidateStats();
       const seen = Object.keys(EVENTS).filter((k) => this.S.stats.eventsSeen[k]).length;

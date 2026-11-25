@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3296) Bestiaire > Événements rares : chaque événement vécu montre combien de fois (« ×N », comme les élites). stats.eventsSeen
+  garde un compte (« true » des anciennes versions = 1, affixWins) ; max-save à ×9 999. Test ; npm test 405, autotest 349/349, lang-overflow
+  de, ru, pl, fr à 1280 et 1920 (état maximal) : aucun défaut ; save-fuzz semaine : ok.
 - 2026-11-25 (it. 3295) Contrôle du début de partie après les ajouts du 24-25/11 : early-pace (3 graines) à 60 min niveau 40-43, zone 23-27,
   6,3 déblocages ; first-minutes : objet et boss 23-86 s, quête 155-219 s. Comme avant.
 - 2026-11-25 (it. 3294) « Quoi de neuf » : édition 190 (Jour de la forge), 10 langues ; npm test, autotest.

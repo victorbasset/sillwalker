@@ -839,6 +839,13 @@ test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niv
   assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
 });
 
+test("événements vécus : un compte par événement, « true » des anciennes versions compté pour 1 (it. 3296)", () => {
+  const g = new Game(freshState()); g.S.stats.eventsSeen = { goldrain: true };
+  g.startEvent("goldrain"); g.R.events.goldrain = 0; g.startEvent("goldrain");
+  assert.equal(g.S.stats.eventsSeen.goldrain, 3);
+  g.startEvent("wisdom"); assert.equal(g.S.stats.eventsSeen.wisdom, 1);
+});
+
 test("Défi des champions (it. 3270) : les élites à venir deviennent des champions, pas avant la zone des champions ; bilan", () => {
   const g = new Game(freshState());
   const line = [{ type: "slime", elite: true, champion: false }, { type: "slime", elite: false }, { type: "slime", elite: true, champion: false }];

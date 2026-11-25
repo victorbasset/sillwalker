@@ -166,7 +166,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
       <p class="note tabintro">${tx("Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(EVENT_SEEN_BONUS)), 1: esc(cur) })}</p>
       <div class="setgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
         return seen[id]
-        ? `<div class="setcard${t > 0 ? " here" : ""}" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${t > 0 ? esc(tx("en cours · {0}", { 0: uS(Math.ceil(t)) })) : pct(e.chance) + tx(" par victoire")}</small><div>${esc(e.text)}</div></div>`
+        ? `<div class="setcard${t > 0 ? " here" : ""}" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${t > 0 ? esc(tx("en cours · {0}", { 0: uS(Math.ceil(t)) })) : pct(e.chance) + tx(" par victoire")} · ×${fmt(affixWins(seen[id]))}</small><div>${esc(e.text)}</div></div>` /* (it. 3296) combien de fois vécu */
         : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`; }).join("")}</div>
 `;
   }
