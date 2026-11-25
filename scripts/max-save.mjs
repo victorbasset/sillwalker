@@ -39,7 +39,7 @@ const { DAY_MOD_KEYS } = await import(R + "daymods.js");
 s.pets.owned = Object.fromEntries(PETS.map((p) => [p.id, { lvl: 10, xp: 0 }]));
 s.stats.affixesSeen = Object.fromEntries(Object.keys(ELITE_AFFIXES).map((k) => [k, 9999]));
 s.stats.eventsSeen = Object.fromEntries(Object.keys(EVENTS).map((k) => [k, 9999])); // (it. 3296) comptes (×9 999 : le pire cas affiché)
-s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, true]));
+s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, 9999])); // (it. 3297) comptes de jours (pire cas)
 s.stats.champions = 12345; s.stats.elites = Math.max(s.stats.elites || 0, 987654);
 s.stats.poupouce = 4242; // (it. 1553) ligne « Poupouce vaincus » des Statistiques
 s.stats.grounded = 987654; // (it. 2567) ligne « Laissés au sol (sac plein) » des Statistiques

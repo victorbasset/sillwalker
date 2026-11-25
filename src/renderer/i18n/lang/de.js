@@ -2407,4 +2407,5 @@ export default {
   3532: "Die Schmiede kaufst du im Laden: den Amboss.",
   3533: "Halber Schmiedepreis.",
   3534: "Neuer Segen des Tages, der „Tag der Schmiede“: An diesem Tag kostet Schmieden nur die Hälfte.",
+  3535: "{n} Tag|{n} Tage",
 };

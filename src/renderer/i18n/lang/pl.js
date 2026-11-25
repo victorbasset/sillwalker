@@ -2407,4 +2407,5 @@ export default {
   3532: "Kuźnię kupisz w Sklepie: Kowadło.",
   3533: "Kucie za pół ceny.",
   3534: "Nowe błogosławieństwo dnia, „Dzień kuźni”: tego dnia kucie kosztuje o połowę mniej.",
+  3535: "{n} dzień|{n} dni|{n} dni",
 };

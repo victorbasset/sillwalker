@@ -839,6 +839,17 @@ test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niv
   assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
 });
 
+test("bénédictions : un compte de jours vécus, « true » ancien compté pour 1 (it. 3297)", () => {
+  const g = new Game(freshState()); const { dayModFor } = M_daymods_js;
+  g.S.daily = { last: null, streak: 0, seen: {} };
+  g.claimDaily("2026-03-01"); const m1 = dayModFor("2026-03-01");
+  assert.equal(g.S.daily.seen[m1], 1, "premier jour : 1");
+  g.claimDaily("2026-03-01"); assert.equal(g.S.daily.seen[m1], 1, "même jour : inchangé");
+  let d2 = null; for (let i = 2; i < 60 && !d2; i++) { const d = `2026-03-${String(i).padStart(2, "0")}`; if (i <= 31 && dayModFor(d) === m1) d2 = d; }
+  if (d2) { g.claimDaily(d2); assert.equal(g.S.daily.seen[m1], 2, "un autre jour sous la même : 2"); }
+  g.S.daily.seen[m1] = true; g.S.daily.last = null; g.claimDaily(d2 || "2026-03-01"); assert.equal(g.S.daily.seen[m1], 2, "« true » ancien = 1, + ce jour");
+});
+
 test("événements vécus : un compte par événement, « true » des anciennes versions compté pour 1 (it. 3296)", () => {
   const g = new Game(freshState()); g.S.stats.eventsSeen = { goldrain: true };
   g.startEvent("goldrain"); g.R.events.goldrain = 0; g.startEvent("goldrain");

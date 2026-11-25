@@ -1,6 +1,6 @@
 // Onglet Bestiaire : monstres rencontrés, victoires et paliers.
 import { npcHTML } from "../npc.js";
-import { t as tx, tr, csep, cend, colon, wsp } from "../../i18n/index.js";
+import { t as tx, txn, tr, csep, cend, colon, wsp } from "../../i18n/index.js";
 import { monSkillOf, ELEMENT_TEXT } from "../../game/monskills.js";
 import { MONSTERS, ZONES } from "../../game/data.js";
 import { BESTIARY_TIERS, BESTIARY_BONUS, bestiaryTier, bestiaryTiersTotal, bestiaryEffects } from "../../game/bestiary.js";
@@ -183,7 +183,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
         // la bulle de la pastille du jour la nommait déjà)
         const tag = k === today ? ` <span class="daytag">${tx("aujourd’hui")}</span>` : k === tomorrow ? ` <span class="daytag">${tx("demain")}</span>` : "";
         return seen[k] || k === tomorrow
-        ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b>${tag} <small>${esc(m.desc)}</small></div>`
+        ? `<div class="setcard${k === today ? " here" : ""}"><b>${m.icon} ${esc(m.name)}</b>${tag} <small>${esc(m.desc)}${seen[k] ? ` · ${esc(txn(affixWins(seen[k]), "{n} jour|{n} jours", { n: fmt(affixWins(seen[k])) }))}` : ""}</small></div>` /* (it. 3297) jours vécus */
         : `<div class="setcard unknown" title="${esc(tx("Bénédiction encore jamais vécue : chaque jour en apporte une, reviens jouer d’autres jours."))}"><b>???</b></div>`; }).join("")}</div>`;
   }
 

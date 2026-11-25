@@ -2407,4 +2407,5 @@ export default {
   3532: "The forge is bought in the Shop: the Anvil.",
   3533: "Half-price forging.",
   3534: "New daily blessing, “Forge Day”: forging costs half as much that day.",
+  3535: "{n} day|{n} days",
 };
