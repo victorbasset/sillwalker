@@ -2408,4 +2408,5 @@ export default {
   3533: "Forja pela metade do preço.",
   3534: "Nova bênção do dia, o “Dia da forja”: nesse dia, forjar custa metade do preço.",
   3535: "{n} dia|{n} dias",
+  3536: "Bestiário: cada evento raro vivido mostra quantas vezes, e cada bênção do dia quantos dias você a teve.",
 };

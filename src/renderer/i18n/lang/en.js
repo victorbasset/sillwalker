@@ -2408,4 +2408,5 @@ export default {
   3533: "Half-price forging.",
   3534: "New daily blessing, “Forge Day”: forging costs half as much that day.",
   3535: "{n} day|{n} days",
+  3536: "Bestiary: each rare event you’ve lived shows how many times, and each daily blessing how many days you’ve had it.",
 };

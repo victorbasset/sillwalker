@@ -2408,4 +2408,5 @@ export default {
   3533: "Kucie za pół ceny.",
   3534: "Nowe błogosławieństwo dnia, „Dzień kuźni”: tego dnia kucie kosztuje o połowę mniej.",
   3535: "{n} dzień|{n} dni|{n} dni",
+  3536: "Bestiariusz: każde przeżyte rzadkie wydarzenie pokazuje, ile razy, a każde błogosławieństwo dnia – przez ile dni je miałeś.",
 };

@@ -2408,4 +2408,5 @@ export default {
   3533: "Halber Schmiedepreis.",
   3534: "Neuer Segen des Tages, der „Tag der Schmiede“: An diesem Tag kostet Schmieden nur die Hälfte.",
   3535: "{n} Tag|{n} Tage",
+  3536: "Bestiarium: Jedes erlebte seltene Ereignis zeigt, wie oft, und jeder Segen des Tages, an wie vielen Tagen du ihn hattest.",
 };
