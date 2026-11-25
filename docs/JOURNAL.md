@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3259) Contrôle : lang-overflow complet dans les 10 langues (150 mesures, toutes les parties, × 130 %, état maximal à 24
+  familiers et 19 bénédictions) : aucun défilement ni mot coupé.
 - 2026-11-25 (it. 3258) « Quoi de neuf » : édition 186 (bénédiction du nouveau jour dans le résumé d'absence, note du Jour du zèle), 10 langues.
   Push de l'it. 3257 refusé deux fois par GitHub (erreur 500), passé au passage suivant.
 - 2026-11-25 (it. 3257) Retour d'absence : si l'absence a traversé minuit, le résumé annonce la bénédiction du nouveau jour (« Bénédiction du
