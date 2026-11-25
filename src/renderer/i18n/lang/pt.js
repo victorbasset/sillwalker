@@ -2394,4 +2394,5 @@ export default {
   3519: "Bênção do dia",
   3520: "Volta: se sua ausência passou da meia-noite, o resumo anuncia a bênção do novo dia.",
   3521: "Dia do zelo: antes de as missões abrirem, o balão dele diz que elas chegam depois dos primeiros minutos de jogo.",
+  3522: "Traduções: nomes que se confundiam agora são diferentes (uma habilidade de chefe e um tipo de elite em alemão e polonês, dois feitiços, um poder e um conjunto em chinês, coreano e polonês).",
 };

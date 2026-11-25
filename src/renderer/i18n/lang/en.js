@@ -2394,4 +2394,5 @@ export default {
   3519: "Blessing of the day",
   3520: "Returning: if your absence went past midnight, the summary announces the new day’s blessing.",
   3521: "Zeal Day: before quests open, its tooltip says they arrive after the first few minutes of play.",
+  3522: "Translations: names that were getting mixed up are now distinct (a boss ability and a kind of elite in German and Polish, two spells, a power and a gear set in Chinese, Korean and Polish).",
 };

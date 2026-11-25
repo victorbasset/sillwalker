@@ -2394,4 +2394,5 @@ export default {
   3519: "Bendición del día",
   3520: "Regreso: si tu ausencia pasó la medianoche, el resumen anuncia la bendición del nuevo día.",
   3521: "Día del celo: antes de que se abran las misiones, su burbuja indica que llegan tras los primeros minutos de juego.",
+  3522: "Traducciones: nombres que se confundían ahora son distintos (una habilidad de jefe y un tipo de élite en alemán y polaco, dos hechizos, un poder y un conjunto en chino, coreano y polaco).",
 };

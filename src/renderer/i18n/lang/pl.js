@@ -2394,4 +2394,5 @@ export default {
   3519: "Błogosławieństwo dnia",
   3520: "Powrót: jeśli twoja nieobecność trwała po północy, podsumowanie ogłasza błogosławieństwo nowego dnia.",
   3521: "Dzień gorliwości: zanim zadania się otworzą, jego dymek mówi, że pojawią się po pierwszych minutach gry.",
+  3522: "Tłumaczenia: nazwy, które się myliły, są teraz różne (umiejętność bossa i rodzaj elity po niemiecku i polsku, dwa zaklęcia, moc i zestaw po chińsku, koreańsku i polsku).",
 };

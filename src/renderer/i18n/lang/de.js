@@ -2394,4 +2394,5 @@ export default {
   3519: "Segen des Tages",
   3520: "Rückkehr: Wenn deine Abwesenheit über Mitternacht ging, nennt die Übersicht den Segen des neuen Tages.",
   3521: "Tag des Eifers: Bevor Quests freigeschaltet sind, sagt seine Blase, dass sie nach den ersten Spielminuten kommen.",
+  3522: "Übersetzungen: Namen, die sich verwechseln ließen, sind jetzt verschieden (eine Bossfähigkeit und eine Eliteart auf Deutsch und Polnisch, zwei Zauber, eine Kraft und ein Set auf Chinesisch, Koreanisch und Polnisch).",
 };

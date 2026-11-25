@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3267) « Quoi de neuf » : édition 187 (noms traduits qui se confondaient, it. 3262-3266), 10 langues ; npm test, autotest.
 - 2026-11-25 (it. 3266) Coréen : le Jour des étoiles devient « 별빛의 날 » (« 별의 날 » était aussi le talent « Fil d'étoile », 날 = jour /
   lame), dans son nom et les deux éditions qui le citent ; npm test 402. (Le devlog 0.1.9 déjà publié garde l'ancien nom.)
 - 2026-11-25 (it. 3265) i18n-collisions : aussi les zones, consommables et grands boss (364 noms, 0 collision). Talents et compétences
