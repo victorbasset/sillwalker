@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3260) Préparation de la 0.1.10 (ce soir vers 20 h) : docs/devlog-0.1.10.md (titre, tags, nouveautés retenues), phrases
+  d'accroche en 10 langues (steam/itch/intros-0.1.10.json), couverture (steam/itch/cover-0.1.10.png, entrée update-0.1.10 de make.js).
 - 2026-11-25 (it. 3259) Contrôle : lang-overflow complet dans les 10 langues (150 mesures, toutes les parties, × 130 %, état maximal à 24
   familiers et 19 bénédictions) : aucun défilement ni mot coupé.
 - 2026-11-25 (it. 3258) « Quoi de neuf » : édition 186 (bénédiction du nouveau jour dans le résumé d'absence, note du Jour du zèle), 10 langues.
