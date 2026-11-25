@@ -2401,4 +2401,8 @@ export default {
   3526: "Que os campeões se apresentem!",
   3527: "Novo evento raro, o “Desafio dos campeões”: durante 30 segundos, as próximas elites viram campeões, mais resistentes mas que deixam um item épico.",
   3528: "Equilíbrio: o Mago, o herói que menos avançava, tem um pouco mais de vida (5 % abaixo do normal em vez de 15 %).",
+  3529: "Dia da forja",
+  3530: "Forjar custa metade do preço.",
+  3531: "A bigorna está quente: é o dia de forjar!",
+  3532: "A forja é comprada na Loja: a Bigorna.",
 };

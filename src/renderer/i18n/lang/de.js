@@ -2401,4 +2401,8 @@ export default {
   3526: "Die Champions sollen vortreten!",
   3527: "Neues seltenes Ereignis, die „Herausforderung der Champions“: 30 Sekunden lang werden kommende Eliten zu Champions – zäher, aber sie hinterlassen einen epischen Gegenstand.",
   3528: "Balance: Der Magier, der Held, der am wenigsten weit kam, hat etwas mehr Leben (5 % unter normal statt 15 %).",
+  3529: "Tag der Schmiede",
+  3530: "Schmieden kostet nur die Hälfte.",
+  3531: "Der Amboss ist heiß: der richtige Tag zum Schmieden!",
+  3532: "Die Schmiede kaufst du im Laden: den Amboss.",
 };

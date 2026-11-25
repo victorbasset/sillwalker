@@ -2401,4 +2401,8 @@ export default {
   3526: "Niech czempioni wystąpią!",
   3527: "Nowe rzadkie wydarzenie, „Wyzwanie czempionów”: przez 30 sekund nadchodzące elity stają się czempionami, twardszymi, ale zostawiającymi epicki przedmiot.",
   3528: "Balans: Mag, bohater, który docierał najmniej daleko, ma nieco więcej zdrowia (5 % poniżej normy zamiast 15 %).",
+  3529: "Dzień kuźni",
+  3530: "Kucie kosztuje o połowę mniej.",
+  3531: "Kowadło jest gorące: to dzień na kucie!",
+  3532: "Kuźnię kupisz w Sklepie: Kowadło.",
 };

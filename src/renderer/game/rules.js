@@ -14,7 +14,7 @@ import { skillTreeEffects } from "./skilltree.js";
 import { skillGraphEffects, graphLayer, GRAPH_LAYER_KEYS } from "./skillgraph.js";
 import { setEffects, SETS, SET_KEYS, SET_CHANCE } from "./sets.js";
 import { BUFF_EFFECTS, workshopEffects } from "./shop.js";
-import { dayModEffects, blessingsSeenEffects } from "./daymods.js";
+import { dayModEffects, blessingsSeenEffects, activeDayMod } from "./daymods.js";
 import { eventsSeenEffects } from "./events.js";
 import { affixesSeenEffects } from "./data.js";
 import { codexEffects } from "./codex.js";
@@ -108,7 +108,8 @@ export const itemMult = (it) => 1 + 0.1 * it.plus;
 /** Valeur approximative d'un objet (niveau × rareté × forge) : sert à trouver l'emplacement le plus faible. */
 export const itemScore = (it) => (it ? it.il * RARITIES[it.r].mult * itemMult(it) : 0);
 export const sellValue = (it) => Math.round(5 * it.il * RARITIES[it.r].mult * RARITIES[it.r].mult * (1 + 0.3 * it.plus));
-export const forgeCost = (it) => Math.round(15 * it.il * Math.pow(1.55, it.plus) * RARITIES[it.r].mult);
+// (it. 3292) Jour de la forge : moitié prix (S facultatif : sans partie, le prix normal)
+export const forgeCost = (it, S) => Math.round(15 * it.il * Math.pow(1.55, it.plus) * RARITIES[it.r].mult * ((S && activeDayMod(S)?.forge) || 1));
 
 /**
  * Statistiques complètes du héros : niveau + objets, puis classe, talents et

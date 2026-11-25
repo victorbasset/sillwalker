@@ -1055,7 +1055,7 @@ export class Panel {
       const d = this.game.upgradeDelta(it);
       verdict = `<p class="verdict ${d > 0.005 ? "delta-p" : d < -0.005 ? "delta-n" : ""}">${cur ? tx("Puissance du héros : ") + (d >= 0 ? "+" : "−") + Math.abs(Math.round(d * 100)) + unit("%") : tx("Emplacement vide : à équiper !")}</p>`;
     }
-    const fc = forgeCost(it), canForge = it.plus < MAX_PLUS && S.gold >= fc;
+    const fc = forgeCost(it, S), canForge = it.plus < MAX_PLUS && S.gold >= fc;
     // Sans ligne de titre « Objet » (demande 18) : le retour au sac est dans l'en-tête de l'objet.
     return `<div class="bagdetail">
       <div class="detail-head"><img src="${itemIconURL(it)}" alt=""><div class="dh-main">

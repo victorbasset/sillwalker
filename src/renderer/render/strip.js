@@ -119,6 +119,7 @@ const SPEECH = {
   dm_pets: [tx("Les familiers sont en pleine forme aujourd’hui !")], // (it. 1700)
   dm_stars: [tx("Les étoiles brillent fort : c’est le jour de monter vers elles !")], // (it. 3195)
   dm_zeal: [tx("Aujourd’hui, chaque contrat compte double !")], // (it. 3247)
+  dm_forge: [tx("L’enclume est chaude : c’est le jour de forger !")], // (it. 3292)
 };
 
 export const STRIP_H = 120;

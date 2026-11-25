@@ -18,5 +18,7 @@ export function dayModNotes(S, dm) {
   if (dm.shards && (S.best || 0) < ASCEND_MIN_ZONE) out.push(tx("L’ascension devient possible à partir de la zone {0}.", { 0: ASCEND_MIN_ZONE }));
   // (it. 3256) Jour du zèle avant l'ouverture de l'onglet des quêtes (tout début de partie)
   if (dm.quests && !tabOpen(S, "quests")) out.push(tx("Les quêtes s’ouvrent après les premières minutes de jeu."));
+  // (it. 3292) Jour de la forge avant l'Enclume (déblocage de la boutique)
+  if (dm.forge && !(S.unlocks && S.unlocks.forge)) out.push(tx("La forge s’achète dans la boutique : l’Enclume."));
   return out;
 }

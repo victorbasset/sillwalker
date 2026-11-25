@@ -1700,7 +1700,7 @@ export class Game {
 
   forge(it) {
     if (!hasUnlock(this.S, "forge")) return false;
-    const c = forgeCost(it);
+    const c = forgeCost(it, this.S);
     if (this.S.gold < c || it.plus >= MAX_PLUS) return false;
     this.S.gold -= c;
     it.plus++;
@@ -2073,7 +2073,7 @@ export class Game {
     let best = null, cost = Infinity;
     for (const it of Object.values(S.equip)) {
       if (!it || it.plus >= MAX_PLUS) continue;
-      const c = forgeCost(it);
+      const c = forgeCost(it, this.S);
       if (c < cost) { best = it; cost = c; }
     }
     if (!best || S.gold < cost * 3) return null;
@@ -3106,7 +3106,7 @@ export class Game {
     if (this.talentPointsFree() > 0 && tabReady(S, "talents")) out.push("talents");
     // (it. 1463) Enclume achetée et assez d'or pour forger une pièce portée : l'or qui dort renforce le héros (le joueur
     // simulé de tab-pace butait une heure en zone 19-21 avec 400 k d'or, faute de forger)
-    if (hasUnlock(S, "forge") && Object.values(S.equip).some((it) => it && it.plus < MAX_PLUS && S.gold >= forgeCost(it))) out.push("forge");
+    if (hasUnlock(S, "forge") && Object.values(S.equip).some((it) => it && it.plus < MAX_PLUS && S.gold >= forgeCost(it, S))) out.push("forge");
     if (tabReady(S, "shop") && S.potions < 3) out.push("potions");
     if (this.canAscend()) out.push("ascend");
     out.push("farm");

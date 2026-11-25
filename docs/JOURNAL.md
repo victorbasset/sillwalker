@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3292) Contenu : 20e bénédiction du jour, « Jour de la forge » (⚒ : forger coûte deux fois moins cher ; réplique du héros ;
+  note avant l'Enclume). forgeCost reçoit la partie (4 appels). Sel « #5 » pour le 20e rang : aucun jour changé du 08/11 au 27/11, premier le
+  29/11/2026 (test). 10 langues, README ; npm test 404, autotest 349/349, lang-overflow de, ru, pl 1280 : aucun défaut.
 - 2026-11-25 (it. 3291) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : mage 64 (59-61 sur cette graine avant l'it. 3278), chaman 65, gladiateur 65.
   Perf (charge 4) : bande 19,8 %, panneau 19,9 %, mini 5,7 %, icône 0,4 %. Captures des Réglages à 1920 px en fr, en, ja (« バージョン 0.1.10 ») :
   propres. Texte chinois (25 679 lignes) : aucun mot non traduit. Rien pour « Idées ».

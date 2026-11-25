@@ -2401,4 +2401,8 @@ export default {
   3526: "¡Que se presenten los campeones!",
   3527: "Nuevo evento raro, el «Desafío de campeones»: durante 30 segundos, las próximas élites se vuelven campeones, más duros pero que dejan un objeto épico.",
   3528: "Equilibrio: el Mago, el héroe que menos avanzaba, tiene un poco más de vida (5 % menos de lo normal en lugar de 15 %).",
+  3529: "Día de la forja",
+  3530: "Forjar cuesta la mitad.",
+  3531: "El yunque está caliente: ¡es el día de forjar!",
+  3532: "La forja se compra en la Tienda: el Yunque.",
 };

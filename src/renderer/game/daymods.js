@@ -36,6 +36,8 @@ export const DAY_MODS = {
   stars: { icon: "✨", name: "Jour des étoiles", desc: "+50 % d’éclats d’étoile à l’ascension.", eff: {}, shards: 1.5 },
   // (it. 3247) 19e, ajouté à la FIN : les quêtes (l'événement Zèle sur toute une journée) ; premier jour : le 19/12/2026 (sel « #2 »)
   zeal: { icon: "🎯", name: "Jour du zèle", desc: "Les quêtes avancent deux fois plus vite.", eff: {}, quests: 2 },
+  // (it. 3292) 20e, ajouté à la FIN : la forge (le jour où l'on renforce son équipement) ; premier jour : le 29/11/2026 (sel « #5 »)
+  forge: { icon: "⚒", name: "Jour de la forge", desc: "Forger coûte deux fois moins cher.", eff: {}, forge: 0.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
@@ -55,7 +57,7 @@ const DAY_MODS_BASE = 9;
  *  ajout un jour sur n, mais CE jour-là peut tomber aujourd'hui ou demain (déjà annoncé) : la 13e aurait remplacé la
  *  bénédiction du 14/11/2026 en pleine journée. On choisit alors un autre sel pour CE rang, qui épargne aujourd'hui et
  *  les jours suivants ; ne jamais changer le sel d'un rang déjà publié (son calendrier bougerait). */
-export const DAY_MOD_SALT = { 12: "#2", 17: "#3", 18: "#2" }; // (it. 3195) 18e : « # » aurait changé le 17/11/2026, déjà joué
+export const DAY_MOD_SALT = { 12: "#2", 17: "#3", 18: "#2", 19: "#5" }; // (it. 3195) 18e : « # » aurait changé le 17/11/2026, déjà joué
 export function dayModFor(day) {
   let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
   for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + (DAY_MOD_SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];

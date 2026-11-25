@@ -3932,6 +3932,17 @@ test("Jour des étoiles (it. 3195) : +50 % d'éclats à l'ascension, arrondi ; p
   for (let i = 0; i < 40; i++) { const t = new Date(2026, 10, 1 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "stars", d); }
 });
 
+test("Jour de la forge (it. 3292) : forger coûte moitié prix ; premier jour le 29/11/2026, aucun jour déjà joué changé", () => {
+  const S = freshState(), it = { il: 50, plus: 3, r: 2 };
+  const base = M_rules_js.forgeCost(it, S);
+  assert.equal(M_rules_js.forgeCost(it), base, "sans partie : prix normal");
+  S.daily = { ...(S.daily || {}), mod: "forge" };
+  assert.ok(Math.abs(M_rules_js.forgeCost(it, S) - Math.round(base / 2)) <= 1, "moitié prix");
+  const { dayModFor } = M_daymods_js;
+  assert.equal(dayModFor("2026-11-29"), "forge");
+  for (let i = 0; i < 20; i++) { const t = new Date(2026, 10, 8 + i), d = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; assert.notEqual(dayModFor(d), "forge", d); }
+});
+
 test("Jour du zèle (it. 3247) : les quêtes avancent deux fois plus vite ; premier jour le 19/12/2026, aucun jour déjà joué changé", () => {
   const g = new Game(freshState());
   g.S.quests.slots[0] = { uid: 97, kind: "kill", goal: 100, progress: 0, reward: { gold: 1 }, stars: 1 };

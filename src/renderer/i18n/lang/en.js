@@ -2401,4 +2401,8 @@ export default {
   3526: "Let the champions step forward!",
   3527: "New rare event, the “Champions’ Challenge”: for 30 seconds, upcoming elites become champions, tougher but dropping an epic item.",
   3528: "Balance: the Mage, the hero who went the least far, has a bit more health (5% below normal instead of 15%).",
+  3529: "Forge Day",
+  3530: "Forging costs half as much.",
+  3531: "The anvil is hot: a perfect day to forge!",
+  3532: "The forge is bought in the Shop: the Anvil.",
 };
