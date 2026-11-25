@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3289, suite) 0.1.10 envoyée sur itch.io par itch-push.sh, sans intervention : essai de l'AppImage (2 monstres en 30 s),
+  butler (3 canaux), Médias et empreintes, devlog publié avec sa couverture (billet 1806596, visible dans la liste publique).
 - 2026-11-25 (it. 3289) Version 0.1.10 (sortie quotidienne) : notes (RELEASE_0110, after: 183, huit nouveautés des éditions 184-189), package.json,
   tests des notes ; npm test 403, autotest 349/349, fenêtre des notes capturée dans les 10 langues à 1280 px (propre) ; texte du devlog généré.
 - 2026-11-25 (it. 3284) Avant la 0.1.10 : lang-overflow complet dans les 10 langues (150 mesures, état maximal à 20 événements) : aucun défaut.

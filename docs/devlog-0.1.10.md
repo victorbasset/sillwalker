@@ -3,7 +3,7 @@
 Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Reprend les éditions « Quoi de neuf » parues depuis la
 0.1.9 (184 et suivantes), réduites aux nouveautés majeures (les mêmes que NEWS_RELEASES, news.js : RELEASE_0110).
 
-## Publication sur itch.io
+## Publication sur itch.io (0.1.10 envoyée le 2026-11-25 vers 19 h par butler, it. 3289 ; devlog 1806596)
 
 - **Titre :** Sillwalker 0.1.10 – a Zeal Day, the Champions’ Challenge and the Shrike
 - **Image de couverture :** steam/itch/cover-0.1.10.png (1920 × 1080 ; `ONLY=update-0.1.10 electron scripts/steam-capsules/make.js <dossier>`)
