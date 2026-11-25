@@ -2405,4 +2405,5 @@ export default {
   3530: "Forjar custa metade do preço.",
   3531: "A bigorna está quente: é o dia de forjar!",
   3532: "A forja é comprada na Loja: a Bigorna.",
+  3533: "Forja pela metade do preço.",
 };

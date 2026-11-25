@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3293) Jour de la forge : description raccourcie (« Forge à moitié prix. », de « Halber Schmiedepreis. ») : la pastille de la
+  carte du héros la coupait (« Forger coûte deux fois m… », captures fr et de à 1280 px) ; ⚒ s'affiche bien.
 - 2026-11-25 (it. 3292) Contenu : 20e bénédiction du jour, « Jour de la forge » (⚒ : forger coûte deux fois moins cher ; réplique du héros ;
   note avant l'Enclume). forgeCost reçoit la partie (4 appels). Sel « #5 » pour le 20e rang : aucun jour changé du 08/11 au 27/11, premier le
   29/11/2026 (test). 10 langues, README ; npm test 404, autotest 349/349, lang-overflow de, ru, pl 1280 : aucun défaut.

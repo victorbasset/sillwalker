@@ -37,7 +37,7 @@ export const DAY_MODS = {
   // (it. 3247) 19e, ajouté à la FIN : les quêtes (l'événement Zèle sur toute une journée) ; premier jour : le 19/12/2026 (sel « #2 »)
   zeal: { icon: "🎯", name: "Jour du zèle", desc: "Les quêtes avancent deux fois plus vite.", eff: {}, quests: 2 },
   // (it. 3292) 20e, ajouté à la FIN : la forge (le jour où l'on renforce son équipement) ; premier jour : le 29/11/2026 (sel « #5 »)
-  forge: { icon: "⚒", name: "Jour de la forge", desc: "Forger coûte deux fois moins cher.", eff: {}, forge: 0.5 },
+  forge: { icon: "⚒", name: "Jour de la forge", desc: "Forge à moitié prix.", eff: {}, forge: 0.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

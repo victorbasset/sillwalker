@@ -3534,5 +3534,6 @@ export const KEYS = [
   "Jour de la forge",
   "Forger coûte deux fois moins cher.",
   "L’enclume est chaude : c’est le jour de forger !",
-  "La forge s’achète dans la boutique : l’Enclume."
+  "La forge s’achète dans la boutique : l’Enclume.",
+  "Forge à moitié prix."
 ];

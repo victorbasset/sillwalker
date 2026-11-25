@@ -2405,4 +2405,5 @@ export default {
   3530: "Forging costs half as much.",
   3531: "The anvil is hot: a perfect day to forge!",
   3532: "The forge is bought in the Shop: the Anvil.",
+  3533: "Half-price forging.",
 };

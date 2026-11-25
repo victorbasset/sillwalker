@@ -2405,4 +2405,5 @@ export default {
   3530: "Forjar cuesta la mitad.",
   3531: "El yunque está caliente: ¡es el día de forjar!",
   3532: "La forja se compra en la Tienda: el Yunque.",
+  3533: "Forja a mitad de precio.",
 };

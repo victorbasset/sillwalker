@@ -2405,4 +2405,5 @@ export default {
   3530: "Kucie kosztuje o połowę mniej.",
   3531: "Kowadło jest gorące: to dzień na kucie!",
   3532: "Kuźnię kupisz w Sklepie: Kowadło.",
+  3533: "Kucie za pół ceny.",
 };

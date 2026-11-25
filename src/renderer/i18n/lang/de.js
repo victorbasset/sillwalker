@@ -2405,4 +2405,5 @@ export default {
   3530: "Schmieden kostet nur die Hälfte.",
   3531: "Der Amboss ist heiß: der richtige Tag zum Schmieden!",
   3532: "Die Schmiede kaufst du im Laden: den Amboss.",
+  3533: "Halber Schmiedepreis.",
 };
