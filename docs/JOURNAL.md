@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3276) Berserker sur 7 graines (7, 3, 11, 21, 31, 41, 51) : avant les ajouts du 24-25/11 (42e1d013, git worktree) 65 62 70 65 66
+  66 69, moyenne 66,1 ; maintenant 66 69 77 66 65 62 69, moyenne 67,7. +1,6 porté par une seule graine à 77 (palier franchi) : bruit, pas
+  de réglage ; idée close.
 - 2026-11-25 (it. 3275) hero-table des 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (inchangée), nécromancien 63,7 (comme à l'it. 3204 :
   l'idée de l'it. 3271 est close), écart 9,0 tiré par le berserker (77 sur la graine 7, 70,7 en moyenne) ; mage et artificier 61,7. À revoir
   sur 7 graines si le berserker reste au-dessus de 69 (noté dans « Idées »).
@@ -10096,7 +10099,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 3275) Berserker : 77 / 66 / 69 (graines 7/3/11), 70,7 de moyenne, +5,9 sur la moyenne des héros (it. 3204 : 66,7). Vérifier sur
+- CLOS (it. 3276 : 7 graines, 66,1 → 67,7, une graine à 77 : bruit) P3 (it. 3275) Berserker : 77 / 66 / 69 (graines 7/3/11), 70,7 de moyenne, +5,9 sur la moyenne des héros (it. 3204 : 66,7). Vérifier sur
   7 graines et contre un ancien commit (worktree) avant tout réglage (paliers des murs, CLAUDE.md).
 - CLOS (it. 3275 : hero-table, nécromancien 63,7, comme avant) P3 (it. 3271) Nécromancien après le Défi des champions (it. 3270) : 7 graines, 63,1 → 61,3 ; moyenne des 10 héros −0,9 (bruit). Revoir
   avec hero-table 7 graines à la prochaine revue ; si le recul se confirme pour un seul héros, chercher pourquoi (champions et serviteur ?).
