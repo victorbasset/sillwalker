@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3282) Avant la 0.1.10 : session itch.io valide ; essai à blanc complet de itch-push.sh (constructions, essai de l'AppImage :
+  2 monstres vaincus en 30 s) : code 0.
 - 2026-11-25 (it. 3281) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : lancier 62, cryomancien 62, barde 62 (leurs niveaux habituels, ±4 sur une
   graine). Perf : bande 19,3 %, panneau 18,9 %, mini 5,5 %, icône 0,4 %. Captures des Compétences à 1280 px en fr, en, zh : propres. Texte russe
   (25 621 lignes) : aucun mot non traduit. Rien pour « Idées ».
