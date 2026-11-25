@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3291) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : mage 64 (59-61 sur cette graine avant l'it. 3278), chaman 65, gladiateur 65.
+  Perf (charge 4) : bande 19,8 %, panneau 19,9 %, mini 5,7 %, icône 0,4 %. Captures des Réglages à 1920 px en fr, en, ja (« バージョン 0.1.10 ») :
+  propres. Texte chinois (25 679 lignes) : aucun mot non traduit. Rien pour « Idées ».
 - 2026-11-25 (it. 3290) Les trois canaux itch.io en 0.1.10 (Mac traité). Relecture en capture de la partie d'une semaine en polonais à 1366 px
   (Quêtes, Familiers, Ascension) : propre (« À découvrir 3 » : les trois nouveaux familiers ; note des quêtes avec les étoiles filantes).
 - 2026-11-25 (it. 3289, suite) 0.1.10 envoyée sur itch.io par itch-push.sh, sans intervention : essai de l'AppImage (2 monstres en 30 s),
