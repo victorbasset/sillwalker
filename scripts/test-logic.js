@@ -839,6 +839,16 @@ test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niv
   assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
 });
 
+test("Défi des champions (it. 3270) : les élites à venir deviennent des champions, pas avant la zone des champions ; bilan", () => {
+  const g = new Game(freshState());
+  const line = [{ type: "slime", elite: true, champion: false }, { type: "slime", elite: false }, { type: "slime", elite: true, champion: false }];
+  g.S.zone = 2; g.tourney(line, 0); assert.ok(!line[0].champion, "zone trop basse : rien");
+  g.S.zone = 30; g.tourney(line, 1); assert.ok(!line[0].champion && !line[1].champion && line[2].champion, "à partir de from, élites seulement");
+  g.S.stats.kills = 10; g.S.stats.champions = 3; g.startEvent("tourney");
+  g.S.stats.kills = 14; g.S.stats.champions = 5;
+  const ln = g.eventReport("tourney"); assert.ok(/2/.test(ln) && /champion/i.test(ln), "bilan : " + ln);
+});
+
 test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const t0 = g.stats().tapDmg || 0;
   g.S.pets.owned.hummingbird = { lvl: 10, xp: 0 }; g.S.pets.active = "hummingbird"; g.invalidateStats();

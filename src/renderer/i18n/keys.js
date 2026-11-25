@@ -3524,5 +3524,9 @@ export const KEYS = [
   "Bénédiction du jour",
   "Retour d’absence : si ton absence a passé minuit, le résumé annonce la bénédiction du nouveau jour.",
   "Jour du zèle : avant l’ouverture des quêtes, sa bulle précise qu’elles arrivent après les premières minutes de jeu.",
-  "Traductions : des noms qui se confondaient sont maintenant distincts (une capacité de boss et une sorte d’élite en allemand et en polonais, deux sorts, un pouvoir et une panoplie en chinois, coréen et polonais)."
+  "Traductions : des noms qui se confondaient sont maintenant distincts (une capacité de boss et une sorte d’élite en allemand et en polonais, deux sorts, un pouvoir et une panoplie en chinois, coréen et polonais).",
+  "Défi des champions",
+  "Chaque élite devient un champion !",
+  "{n} champion vaincu|{n} champions vaincus",
+  "Que les champions se présentent !"
 ];

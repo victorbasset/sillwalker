@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3270) Contenu : 20e événement rare, « Défi des champions » (30 s, dès la zone des champions) : les élites à venir de la file
+  deviennent des champions (plus coriaces, objet épique) ; réplique, trompette d'arène, bilan « N champions vaincus ». 10 langues, page
+  Steam « 20 événements » (10 langues), checklist, test. npm test 403, autotest 349/349 (son rendu), fuzz 1200 parties 0 bloquées,
+  lang-overflow de, ru, pl, ja 1280 (état maximal) : aucun défaut.
 - 2026-11-25 (it. 3269) Combats du rôdeur (à distance) en 12 h × 3 graines : élites 25 % de défaites, champions 46 %, boss 61 % ; Acharné 16 %
   (guerrier : 26 %), au milieu des sortes d'élite (10-47 %). Pas de réglage.
 - 2026-11-25 (it. 3268) Contrôle : mode mini de la partie d'une semaine en pl, ko, pt (captures) : niveau, or « 2,26 Dd », zone 353 et barres

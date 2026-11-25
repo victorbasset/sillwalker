@@ -2395,4 +2395,8 @@ export default {
   3520: "Regreso: si tu ausencia pasó la medianoche, el resumen anuncia la bendición del nuevo día.",
   3521: "Día del celo: antes de que se abran las misiones, su burbuja indica que llegan tras los primeros minutos de juego.",
   3522: "Traducciones: nombres que se confundían ahora son distintos (una habilidad de jefe y un tipo de élite en alemán y polaco, dos hechizos, un poder y un conjunto en chino, coreano y polaco).",
+  3523: "Desafío de campeones",
+  3524: "¡Cada élite se convierte en campeón!",
+  3525: "{n} campeón vencido|{n} campeones vencidos",
+  3526: "¡Que se presenten los campeones!",
 };

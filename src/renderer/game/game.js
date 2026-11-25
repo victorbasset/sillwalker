@@ -201,6 +201,7 @@ export class Game {
         })()));
       if ((R.events.bloodmoon || 0) > 0) this.bloodMoon(R.lineup, 0); // Lune de sang : la nouvelle série naît élite
       if ((R.events.goblinrush || 0) > 0) this.goblinRush(R.lineup, 0); // (it. 954) Ruée des gobelins
+      if ((R.events.tourney || 0) > 0) this.tourney(R.lineup, 0); // (it. 3270) Défi des champions
       R.lineupZone = this.S.zone;
       R.bossPierced = 0; // nouvelle série : le boss de la zone n'a encore rien reçu
     }
@@ -2443,12 +2444,18 @@ export class Game {
     }
   }
 
+  /** (it. 3270) Défi des champions : les élites à venir de la file deviennent des champions (zone des champions atteinte). */
+  tourney(line, from) {
+    if (this.S.zone < CHAMPION.minZone) return;
+    for (let k = from; k < line.length; k++) { const sl = line[k]; if (sl && sl.elite && !sl.champion) sl.champion = true; }
+  }
+
   /** Compteurs relevés au début d'un événement, pour son bilan (eventReport). */
   eventSnap() {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
       spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0,
-      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0, regal: this.R.regalGot || 0 };
+      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0, regal: this.R.regalGot || 0, champions: st.champions || 0 };
   }
 
   /**
@@ -2462,6 +2469,7 @@ export class Game {
     const s1 = this.eventSnap(), d = (k) => Math.max(0, s1[k] - s0[k]);
     if (!d("kills")) return null;
     const parts = [txn(d("kills"), "{n} monstre vaincu|{n} monstres vaincus", { n: fmt(d("kills")) })];
+    if (id === "tourney" && d("champions")) parts.push(txn(d("champions"), "{n} champion vaincu|{n} champions vaincus", { n: fmt(d("champions")) })); // (it. 3270)
     if (id === "bloodmoon" && d("elites")) parts.push(txn(d("elites"), "{n} élite vaincue|{n} élites vaincues", { n: fmt(d("elites")) }));
     if (id === "bounty" && d("items")) parts.push(txn(d("items"), "{n} objet trouvé|{n} objets trouvés", { n: fmt(d("items")) }));
     if (id === "hawkeye" && d("crits")) parts.push(txn(d("crits"), "{n} coup critique|{n} coups critiques", { n: fmt(d("crits")) }));
@@ -2490,11 +2498,11 @@ export class Game {
     this.R.events[id] = ev.duration;
     (this.R.evSnap ||= {})[id] = this.eventSnap(); // bilan à la fin (eventReport)
     if (id === "spring") this.R.springHeal = 0; // (it. 1398) vie rendue, pour son bilan
-    if ((id === "bloodmoon" || id === "goblinrush") && this.R.lineup && this.R.lineupZone === this.S.zone) {
+    if ((id === "bloodmoon" || id === "goblinrush" || id === "tourney") && this.R.lineup && this.R.lineupZone === this.S.zone) {
       // le monstre déjà en combat reste tel quel ; la suite de la file change, redessinée (nouvelle série)
       const R = this.R, from = this.S.kills + (R.mon && !R.mon.boss ? 1 : 0);
       R.lineup = R.lineup.map((sl) => ({ ...sl }));
-      if (id === "bloodmoon") this.bloodMoon(R.lineup, from); else this.goblinRush(R.lineup, from);
+      if (id === "bloodmoon") this.bloodMoon(R.lineup, from); else if (id === "tourney") this.tourney(R.lineup, from); else this.goblinRush(R.lineup, from);
     }
     this.S.stats.events = (this.S.stats.events || 0) + 1;
     const firstTime = !(this.S.stats.eventsSeen || {})[id];

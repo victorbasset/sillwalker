@@ -2395,4 +2395,8 @@ export default {
   3520: "Powrót: jeśli twoja nieobecność trwała po północy, podsumowanie ogłasza błogosławieństwo nowego dnia.",
   3521: "Dzień gorliwości: zanim zadania się otworzą, jego dymek mówi, że pojawią się po pierwszych minutach gry.",
   3522: "Tłumaczenia: nazwy, które się myliły, są teraz różne (umiejętność bossa i rodzaj elity po niemiecku i polsku, dwa zaklęcia, moc i zestaw po chińsku, koreańsku i polsku).",
+  3523: "Wyzwanie czempionów",
+  3524: "Każda elita staje się czempionem!",
+  3525: "{n} czempion pokonany|{n} czempioni pokonani|{n} czempionów pokonanych",
+  3526: "Niech czempioni wystąpią!",
 };

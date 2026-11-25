@@ -2395,4 +2395,8 @@ export default {
   3520: "Rückkehr: Wenn deine Abwesenheit über Mitternacht ging, nennt die Übersicht den Segen des neuen Tages.",
   3521: "Tag des Eifers: Bevor Quests freigeschaltet sind, sagt seine Blase, dass sie nach den ersten Spielminuten kommen.",
   3522: "Übersetzungen: Namen, die sich verwechseln ließen, sind jetzt verschieden (eine Bossfähigkeit und eine Eliteart auf Deutsch und Polnisch, zwei Zauber, eine Kraft und ein Set auf Chinesisch, Koreanisch und Polnisch).",
+  3523: "Herausforderung der Champions",
+  3524: "Jede Elite wird zum Champion!",
+  3525: "{n} Champion besiegt|{n} Champions besiegt",
+  3526: "Die Champions sollen vortreten!",
 };

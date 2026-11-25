@@ -1,6 +1,6 @@
 import { eggsAllowed, tabReady } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
-import { ELITE } from "./data.js";
+import { ELITE, CHAMPION } from "./data.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -63,6 +63,9 @@ export const EVENTS = {
   hoard: { name: "Trésor enfoui", chance: 0.0015, duration: 30, text: "Chaque victoire peut laisser un coffre au trésor !", color: "#e8b04a" },
   // (it. 3180) 19e, variété : la qualité du butin plutôt que sa quantité (Corne d'abondance) ; à la FIN (tirage dans l'ordre)
   regal: { name: "Faveur royale", chance: 0.0015, duration: 30, text: "Chaque objet trouvé est au moins rare !", color: "#6fb8ff" },
+  // (it. 3270) 20e : les élites de la file deviennent des champions (plus coriaces, objet épique) ; à partir de la zone des champions
+  tourney: { name: "Défi des champions", chance: 0.0015, duration: 30, text: "Chaque élite devient un champion !", color: "#c08cff",
+    req: (S) => S.zone >= CHAMPION.minZone },
 };
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
