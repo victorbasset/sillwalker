@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3281) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : lancier 62, cryomancien 62, barde 62 (leurs niveaux habituels, ±4 sur une
+  graine). Perf : bande 19,3 %, panneau 18,9 %, mini 5,5 %, icône 0,4 %. Captures des Compétences à 1280 px en fr, en, zh : propres. Texte russe
+  (25 621 lignes) : aucun mot non traduit. Rien pour « Idées ».
 - 2026-11-25 (it. 3280) « Quoi de neuf » : édition 189 (Mage un peu plus robuste), 10 langues ; nouveautés retenues de la 0.1.10 complétées.
 - 2026-11-25 (it. 3279) Artificier (61,7 sur 3 graines à l'it. 3275) : 7 graines, 12 h : 63,4 avec ses PV actuels (0,9) ; essai à 1,0 : 64,3
   (+0,9, bruit). Pas de changement : le 61,7 venait de trois graines défavorables.
