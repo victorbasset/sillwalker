@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3262) Traduction : en allemand et en polonais, la capacité de boss « Enragé » portait le même nom que l'élite « Furieux »
+  (« Wütend », « Wściekły ») ; elle devient « Rasend » et « Rozjuszony » (les autres langues les distinguaient déjà). Vu en capturant le
+  Bestiaire (Bénédictions 19/19, Élites 12/12, allemand, 1280 px : propres) ; npm test.
 - 2026-11-25 (it. 3261) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : mage 59 (son niveau habituel sur cette graine, it. 3201 : 60), assassin
   62, berserker 70. Perf : bande 19,5 %, panneau 18,9 %, mini 5,4 %, icône 0,5 %. Captures des Talents à 1366 px en fr, en, ko : propres. Texte
   japonais (25 548 lignes) : aucun mot non traduit. Rien pour « Idées ».
