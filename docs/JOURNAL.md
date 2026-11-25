@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3277) Contrôle après le Défi des champions : stall-check STALL_DAYMOD=all 120 parties avancées, 0 figées ; save-fuzz sur la partie
+  d'une semaine : ok (1274 corruptions).
 - 2026-11-25 (it. 3276) Berserker sur 7 graines (7, 3, 11, 21, 31, 41, 51) : avant les ajouts du 24-25/11 (42e1d013, git worktree) 65 62 70 65 66
   66 69, moyenne 66,1 ; maintenant 66 69 77 66 65 62 69, moyenne 67,7. +1,6 porté par une seule graine à 77 (palier franchi) : bruit, pas
   de réglage ; idée close.
