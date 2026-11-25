@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3263) Outil : scripts/i18n-collisions.mjs (dans npm test) repère deux noms de données distincts traduits à l'identique
+  dans une langue (201 noms : élites, capacités de boss, événements, bénédictions, familiers, monstres, déblocages, constellations). Après
+  l'it. 3262, il ne reste que 3 cas, tous le même effet pour une élite et pour un boss (pt « esquivo », zh « 吸血 », « 再生 ») : autorisés.
 - 2026-11-25 (it. 3262) Traduction : en allemand et en polonais, la capacité de boss « Enragé » portait le même nom que l'élite « Furieux »
   (« Wütend », « Wściekły ») ; elle devient « Rasend » et « Rozjuszony » (les autres langues les distinguaient déjà). Vu en capturant le
   Bestiaire (Bénédictions 19/19, Élites 12/12, allemand, 1280 px : propres) ; npm test.

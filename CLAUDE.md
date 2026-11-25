@@ -308,6 +308,9 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   priorité (première catégorie reconnue) : une traduction peut contenir le morceau fixe d'une autre (russe « Открыто: » dans
   « Событие открыто: », it. 1840). Nouvelle ligne de journal à classer : l'ajouter à LOG_KEYS ; npm test vérifie que chaque
   modèle de game.js garde la même catégorie dans les 10 langues (it. 1842).
+- Noms traduits à l'identique (it. 3263) : `scripts/i18n-collisions.mjs` (lancé par `npm test`) refuse deux noms de données distincts
+  (élites, capacités de boss, événements, bénédictions, familiers, monstres, déblocages, constellations) traduits pareil dans une langue
+  (« Furieux » et « Enragé » donnaient « Wütend »). Même effet élite / boss : liste SAME du script.
 - Clés de traduction : i18n-append ignore une clé déjà présente (« Cuirasse » = pièce d'armure, déjà traduite) :
   vérifier `KEYS.indexOf(...)` avant de nommer une nouveauté avec un mot courant, sinon le sens se mélange.
 - Sortie d'une version (itch.io, it. 1144) : 1) `version` de package.json ; 2) notes de version dans news.js
