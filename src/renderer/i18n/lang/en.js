@@ -2399,4 +2399,5 @@ export default {
   3524: "Every elite becomes a champion!",
   3525: "{n} champion defeated|{n} champions defeated",
   3526: "Let the champions step forward!",
+  3527: "New rare event, the “Champions’ Challenge”: for 30 seconds, upcoming elites become champions, tougher but dropping an epic item.",
 };

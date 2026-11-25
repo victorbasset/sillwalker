@@ -2399,4 +2399,5 @@ export default {
   3524: "Każda elita staje się czempionem!",
   3525: "{n} czempion pokonany|{n} czempioni pokonani|{n} czempionów pokonanych",
   3526: "Niech czempioni wystąpią!",
+  3527: "Nowe rzadkie wydarzenie, „Wyzwanie czempionów”: przez 30 sekund nadchodzące elity stają się czempionami, twardszymi, ale zostawiającymi epicki przedmiot.",
 };

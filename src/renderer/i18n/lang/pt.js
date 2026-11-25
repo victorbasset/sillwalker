@@ -2399,4 +2399,5 @@ export default {
   3524: "Cada elite vira um campeão!",
   3525: "{n} campeão derrotado|{n} campeões derrotados",
   3526: "Que os campeões se apresentem!",
+  3527: "Novo evento raro, o “Desafio dos campeões”: durante 30 segundos, as próximas elites viram campeões, mais resistentes mas que deixam um item épico.",
 };

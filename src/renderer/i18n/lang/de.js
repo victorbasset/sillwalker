@@ -2399,4 +2399,5 @@ export default {
   3524: "Jede Elite wird zum Champion!",
   3525: "{n} Champion besiegt|{n} Champions besiegt",
   3526: "Die Champions sollen vortreten!",
+  3527: "Neues seltenes Ereignis, die „Herausforderung der Champions“: 30 Sekunden lang werden kommende Eliten zu Champions – zäher, aber sie hinterlassen einen epischen Gegenstand.",
 };

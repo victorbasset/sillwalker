@@ -2399,4 +2399,5 @@ export default {
   3524: "¡Cada élite se convierte en campeón!",
   3525: "{n} campeón vencido|{n} campeones vencidos",
   3526: "¡Que se presenten los campeones!",
+  3527: "Nuevo evento raro, el «Desafío de campeones»: durante 30 segundos, las próximas élites se vuelven campeones, más duros pero que dejan un objeto épico.",
 };

@@ -3528,5 +3528,6 @@ export const KEYS = [
   "Défi des champions",
   "Chaque élite devient un champion !",
   "{n} champion vaincu|{n} champions vaincus",
-  "Que les champions se présentent !"
+  "Que les champions se présentent !",
+  "Nouvel événement rare, le « Défi des champions » : pendant 30 secondes, les élites à venir deviennent des champions, plus coriaces mais qui laissent un objet épique."
 ];
