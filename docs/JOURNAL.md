@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-25 (it. 3275) hero-table des 20 héros, 12 h, graines 7/3/11 : moyenne 64,8 (inchangée), nécromancien 63,7 (comme à l'it. 3204 :
+  l'idée de l'it. 3271 est close), écart 9,0 tiré par le berserker (77 sur la graine 7, 70,7 en moyenne) ; mage et artificier 61,7. À revoir
+  sur 7 graines si le berserker reste au-dessus de 69 (noté dans « Idées »).
 - 2026-11-25 (it. 3274) Défi des champions vérifié sur la bande (mise en scène, zone 20, 1920 px) : les élites de la file deviennent « Champion
   rapide ✦ » (contour violet), bannière, réplique « Que les champions se présentent ! » et pastille « Défi des champions 29 s ».
 - 2026-11-25 (it. 3273) Préparation de la 0.1.10 : titre (« a Zeal Day, the Champions’ Challenge and the Shrike »), couverture (5 étiquettes) et
@@ -10093,7 +10096,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P3 (it. 3271) Nécromancien après le Défi des champions (it. 3270) : 7 graines, 63,1 → 61,3 ; moyenne des 10 héros −0,9 (bruit). Revoir
+- P3 (it. 3275) Berserker : 77 / 66 / 69 (graines 7/3/11), 70,7 de moyenne, +5,9 sur la moyenne des héros (it. 3204 : 66,7). Vérifier sur
+  7 graines et contre un ancien commit (worktree) avant tout réglage (paliers des murs, CLAUDE.md).
+- CLOS (it. 3275 : hero-table, nécromancien 63,7, comme avant) P3 (it. 3271) Nécromancien après le Défi des champions (it. 3270) : 7 graines, 63,1 → 61,3 ; moyenne des 10 héros −0,9 (bruit). Revoir
   avec hero-table 7 graines à la prochaine revue ; si le recul se confirme pour un seul héros, chercher pourquoi (champions et serviteur ?).
 - P3 (it. 3226) Étoiles filantes pendant l'absence avec le Filet à étoiles (zone 130) : aujourd'hui aucune étoile hors ligne. Les compter
   donnerait or, quête et +2 % de vitesse permanente par étoile (≈ 11 en 12 h d'absence) : à proposer à Victor (équilibre des joueurs absents).
