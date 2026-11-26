@@ -523,6 +523,11 @@ export class Game {
       const d = VENOM.s * (1 - (hs.purity || 0) / 100);
       if (d > 0.05) { R.venomT = d; this.emit("bossSkill", { id: "venom" }); } else this.emit("bossSkill", { id: "venomBlocked" });
     }
+    // (it. 3338) élite maléfique : la malédiction des boss (même durée, réduite par la pureté)
+    if (m.affix === "hexer" && dmg > 0 && !(R.cursed > 0) && rand() < ELITE_AFFIXES.hexer.hex.chance) {
+      const d = CURSE.s * (1 - (hs.purity || 0) / 100);
+      if (d > 0.05) { R.cursed = d; this.emit("bossSkill", { id: "curse" }); } else this.emit("bossSkill", { id: "curseBlocked" });
+    }
     if (m.affix === "frosty" && dmg > 0 && rand() < ELITE_AFFIXES.frosty.freeze.chance) { // gel : attaques du héros ralenties
       R.frozen = Math.max(R.frozen || 0, ELITE_AFFIXES.frosty.freeze.s);
       this.emit("bossSkill", { id: "frost" });

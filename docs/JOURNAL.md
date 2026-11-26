@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3338) Contenu : 13e sorte d'élite, le Maléfique (hexer : 15 % de chances par coup de maudire le héros, la malédiction des boss,
+  +15 % de dégâts subis pendant 3 s, raccourcie par la pureté). 10 langues (aucune collision), page Steam à 13 sortes d'élites (10 langues),
+  checklist, README. Test ; npm test 411, autotest 349/349, lang-overflow all 1280/1920 (état maximal, 13 élites) : aucun défaut ; fuzz 600
+  parties : 0 bloquée.
 - 2026-11-26 (it. 3337) Quête « expérience du familier » : temps estimé (« ≈ N min ») comme les autres (questEta : 1 point par victoire,
   5 par élite, 10 par boss, au rythme des 60 dernières victoires). Test ; npm test 410, autotest 349/349. (Capture : dev-data combat un
   boss pendant 25 s, aucune victoire, donc aucun temps estimé pour aucune quête ; normal.)

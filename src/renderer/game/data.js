@@ -239,6 +239,8 @@ export const ELITE_AFFIXES = {
   // (it. 3199) 12e sorte : le danger monte au fil du combat (le contraire de l'Explosif, dangereux seulement à la fin) ;
   // 15 % de vie en moins pour compenser : il faut l'achever vite
   relentless: { name: "Acharné",  color: "#ff5a3a", hp: 0.85, rage: 0.6, desc: "Frappe de plus en plus fort à mesure qu’il perd de la vie (jusqu’à 60 % de plus), mais a 15 % de vie en moins." },
+  // (it. 3338) 13e sorte : la malédiction des boss (le héros subit 15 % de dégâts en plus pendant 3 s, raccourcie par la pureté)
+  hexer: { name: "Maléfique", color: "#b06aff", hex: { chance: 0.15 }, desc: "Ses coups peuvent maudire le héros (15 % de dégâts subis en plus pendant 3 s)." },
 };
 
 /** (it. 3199) Élite acharnée : multiplicateur de ses coups selon la vie perdue (1 à pleine vie, 1 + rage à vie nulle). */

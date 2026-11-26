@@ -2426,4 +2426,6 @@ export default {
   3551: "+{n} pet experience point|+{n} pet experience points",
   3552: "Have your pet gain {n} experience point|Have your pet gain {n} experience points",
   3553: "New quest type: have your pet gain experience (a bonus egg one time in four).",
+  3554: "Hexing",
+  3555: "Its hits can curse the hero (15% more damage taken for 3 s).",
 };

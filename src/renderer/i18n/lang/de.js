@@ -2426,4 +2426,6 @@ export default {
   3551: "+{n} Erfahrungspunkt fürs Haustier|+{n} Erfahrungspunkte fürs Haustier",
   3552: "Lass dein Haustier {n} Erfahrungspunkt sammeln|Lass dein Haustier {n} Erfahrungspunkte sammeln",
   3553: "Neue Questart: Lass dein Haustier Erfahrung sammeln (in einem von vier Fällen gibt es ein Ei dazu).",
+  3554: "Unheilvoll",
+  3555: "Seine Treffer können den Helden verfluchen (15 % mehr erlittener Schaden für 3 s).",
 };

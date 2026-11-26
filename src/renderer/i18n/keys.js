@@ -3555,5 +3555,7 @@ export const KEYS = [
   "Nouvel événement rare, la « Fête des familiers » : pendant 30 secondes, ton familier gagne 10 fois plus d’expérience.",
   "+{n} point d’expérience de familier|+{n} points d’expérience de familier",
   "Faire gagner {n} point d’expérience à ton familier|Faire gagner {n} points d’expérience à ton familier",
-  "Nouvelle sorte de quête : faire gagner de l’expérience à ton familier (un œuf en prime une fois sur quatre)."
+  "Nouvelle sorte de quête : faire gagner de l’expérience à ton familier (un œuf en prime une fois sur quatre).",
+  "Maléfique",
+  "Ses coups peuvent maudire le héros (15 % de dégâts subis en plus pendant 3 s)."
 ];

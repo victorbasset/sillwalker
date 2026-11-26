@@ -909,6 +909,14 @@ test("Colibri : +10 % de dégâts des coups au clic par niveau (it. 3214)", () =
   assert.ok(Math.abs((g.stats().tapDmg || 0) - t0 - 100) < 1e-9, "coups au clic " + g.stats().tapDmg);
 });
 
+test("élite Maléfique : ses coups peuvent maudire le héros, la pureté raccourcit (it. 3338)", () => {
+  const g = new Game(freshState()); g.R.cursed = 0;
+  const m = { affix: "hexer", atk: 5, hp: 100, max: 100, interval: 1 };
+  const hs = g.stats(); let cursed = false; for (let i = 0; i < 200 && !cursed; i++) { g.R.cursed = 0; g.S.hp = g.stats().hp; g.monsterAttack(m, hs, 1); cursed = g.R.cursed > 0; }
+  assert.ok(cursed, "malédiction posée");
+  assert.ok(g.R.cursed <= 3 + 1e-9, "3 s au plus : " + g.R.cursed);
+});
+
 test("élite Acharnée : ses coups grandissent avec la vie qu'elle a perdue, jusqu'à +60 % (it. 3199)", () => {
   const m = { affix: "relentless", max: 1000, hp: 1000 };
   assert.equal(relentlessMul(m), 1);

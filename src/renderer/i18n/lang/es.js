@@ -2426,4 +2426,6 @@ export default {
   3551: "+{n} punto de experiencia de mascota|+{n} puntos de experiencia de mascota",
   3552: "Haz que tu mascota gane {n} punto de experiencia|Haz que tu mascota gane {n} puntos de experiencia",
   3553: "Nuevo tipo de misión: haz que tu mascota gane experiencia (un huevo extra una vez de cada cuatro).",
+  3554: "Maléfico",
+  3555: "Sus golpes pueden maldecir al héroe (15 % más de daño recibido durante 3 s).",
 };
