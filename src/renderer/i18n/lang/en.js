@@ -2418,4 +2418,5 @@ export default {
   3543: "Bestiary: the rare events title shows the total you’ve lived, to follow the 100-event achievement.",
   3544: "Woodpecker",
   3545: "It never stops pecking: each hit in a row hurts a little more.",
+  3546: "New pet, the Woodpecker: each hit in a row hurts a little more.",
 };

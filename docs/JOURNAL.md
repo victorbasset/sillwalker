@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3316) « Quoi de neuf » : édition 194 (Pivert), 10 langues. Sortie 0.1.11 : étiquette « New pets: Wasp, Woodpecker » (couverture
+  vérifiée entière), titre du devlog « two new pets », accroches avec les deux familiers.
 - 2026-11-26 (it. 3315) Contenu : 26e familier, le Pivert (coups d'affilée, +0,15 % par niveau, +1,5 % par coup au niveau 10, jusqu'à +15 % ;
   aucun familier ne donnait combo). Dessin vert à calotte rouge qui vole et frappe (art.js). Test ; README à 26. Capture Familiers et bande en
   espagnol à 1280 px ; npm test 408, autotest 349/349, lang-overflow de, ru, pl, es 1280 : aucun défaut ; i18n-collisions : 0.

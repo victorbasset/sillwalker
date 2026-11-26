@@ -2418,4 +2418,5 @@ export default {
   3543: "Bestiariusz: tytuł rzadkich wydarzeń pokazuje, ile przeżyłeś łącznie, by śledzić osiągnięcie 100.",
   3544: "Dzięcioł",
   3545: "Stuka bez przerwy: każdy kolejny cios z rzędu boli trochę bardziej.",
+  3546: "Nowy chowaniec, Dzięcioł: każdy kolejny cios z rzędu boli trochę bardziej.",
 };

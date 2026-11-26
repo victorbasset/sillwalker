@@ -2418,4 +2418,5 @@ export default {
   3543: "Bestiario: el título de los eventos raros muestra el total vivido, para seguir el logro de los 100.",
   3544: "Pájaro carpintero",
   3545: "Golpea sin descanso: cada golpe seguido duele un poco más.",
+  3546: "Nueva mascota, el Pájaro carpintero: cada golpe seguido duele un poco más.",
 };

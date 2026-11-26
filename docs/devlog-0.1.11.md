@@ -5,7 +5,7 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 ## Publication sur itch.io
 
-- **Titre :** Sillwalker 0.1.11 – a Wasp, a Forge Day and a Bestiary that remembers
+- **Titre :** Sillwalker 0.1.11 – two new pets, a Forge Day and a Bestiary that remembers
 - **Image de couverture :** steam/itch/cover-0.1.11.png (1920 × 1080 ; `ONLY=update-0.1.11 electron scripts/steam-capsules/make.js <dossier>`)
 - **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
   cozy game, gamedev
@@ -17,7 +17,7 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 ## Français
 
-**Titre :** Sillwalker 0.1.11 : une Guêpe, un Jour de la forge et un Bestiaire qui se souvient
+**Titre :** Sillwalker 0.1.11 : deux familiers, un Jour de la forge et un Bestiaire qui se souvient
 
-Nouveautés retenues pour RELEASE_0111 (éditions, indice) : 190·0 Jour de la forge, 191·0 comptes des événements et des bénédictions, 192·0 succès des 100 événements, 193·0 Guêpe, 193·1 total vécu.
+Nouveautés retenues pour RELEASE_0111 (éditions, indice) : 190·0 Jour de la forge, 191·0 comptes des événements et des bénédictions, 192·0 succès des 100 événements, 193·0 Guêpe, 193·1 total vécu, 194·0 Pivert.
 Plus les éditions parues d'ici 18 h 30.

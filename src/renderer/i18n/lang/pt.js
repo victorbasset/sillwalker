@@ -2418,4 +2418,5 @@ export default {
   3543: "Bestiário: o título dos eventos raros mostra o total vivido, para acompanhar a conquista dos 100.",
   3544: "Pica-pau",
   3545: "Bica sem parar: cada golpe seguido dói um pouco mais.",
+  3546: "Novo mascote, o Pica-pau: cada golpe seguido dói um pouco mais.",
 };

@@ -2418,4 +2418,5 @@ export default {
   3543: "Bestiarium: Der Titel der seltenen Ereignisse zeigt die Gesamtzahl der erlebten, um den Erfolg der 100 zu verfolgen.",
   3544: "Specht",
   3545: "Er hämmert ohne Pause: Jeder Treffer in Folge tut etwas mehr weh.",
+  3546: "Neues Haustier, der Specht: Jeder Treffer in Folge tut etwas mehr weh.",
 };

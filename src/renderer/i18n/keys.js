@@ -3547,5 +3547,6 @@ export const KEYS = [
   "Nouveau familier, la Guêpe : ton premier coup de chaque combat frappe plus fort.",
   "Bestiaire : le titre des événements rares donne le total vécu, pour suivre le succès des 100.",
   "Pivert",
-  "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal."
+  "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal.",
+  "Nouveau familier, le Pivert : chaque coup d’affilée fait un peu plus mal."
 ];
