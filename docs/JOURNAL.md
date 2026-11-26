@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3339) « Quoi de neuf » : édition 197 (Maléfique), 10 langues. Rendu de l'élite générique (étiquette : nom et couleur de
+  ELITE_AFFIXES ; malédiction : l'effet « curse » des boss) ; une mise en scène qui impose des élites à la file est réécrite par le jeu (nouvelle
+  série tirée) : à refaire avec R.lineupZone et slotKey (CLAUDE.md, it. 1905) si une capture est utile.
 - 2026-11-26 (it. 3338) Contenu : 13e sorte d'élite, le Maléfique (hexer : 15 % de chances par coup de maudire le héros, la malédiction des boss,
   +15 % de dégâts subis pendant 3 s, raccourcie par la pureté). 10 langues (aucune collision), page Steam à 13 sortes d'élites (10 langues),
   checklist, README. Test ; npm test 411, autotest 349/349, lang-overflow all 1280/1920 (état maximal, 13 élites) : aucun défaut ; fuzz 600
