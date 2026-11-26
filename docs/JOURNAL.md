@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3333) Contenu : 21e sorte de quête, « Faire gagner N points d'expérience à ton familier » (60 à 120 ; un œuf une fois sur
+  quatre ; seulement avec un familier qui peut encore monter ; avance aussi hors ligne et ×10 pendant la Fête des familiers). 10 langues, page
+  Steam à 21 sortes de quêtes (10 langues), checklist, README. Test ; npm test 410, autotest 349/349, save-fuzz ok, lang-overflow de, ru, pl, es
+  1280 : aucun défaut ; capture Quêtes en allemand.
 - 2026-11-26 (it. 3332) SORTIE 0.1.11 publiée : itch-push.sh (AppImage essayée, 2 monstres en 30 s), canaux windows, linux et mac en 0.1.11
   (butler status), fichiers et SHA256-0.1.11.txt dans Médias/dist-itch, devlog 1809159 publié (couverture envoyée).
 - 2026-11-26 (it. 3330) SORTIE 0.1.11 (préparation) : package.json 0.1.11, RELEASE_0111 (7 nouveautés : Guêpe, Pivert, Fête des familiers, Jour de

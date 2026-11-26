@@ -7,6 +7,7 @@ import { zoneDef, heroStats, heroDps, xpNeed, monsterBase, earlyPace } from "./r
 import { rand, pick } from "./util.js";
 import { eggsAllowed, fixQuestEgg } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
+import { PET_MAX_LVL } from "./pets.js";
 
 export const QUEST_SLOTS = 3;
 export const goldScale = (S) => 3 * Math.pow(1.25, Math.max(1, S.best) - 1); // or d'un monstre normal
@@ -141,6 +142,13 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: randInt(3, 6) * 5, reward: { gold: Math.round(goldScale(S) * 80), potions: 1, egg: rand() < 0.15 } }),
   },
   // (it. 1406) 18e sorte : des niveaux à gagner (avance seule, même pendant l'absence : un objectif de patience)
+  // (it. 3333) expérience gagnée par le familier qui accompagne le héros (1 par victoire, 5 par élite, 10 par boss ; ×10 pendant la
+  // Fête des familiers) : seulement avec un familier qui peut encore monter ; un œuf une fois sur quatre (thème)
+  petxp: {
+    ok: (S) => { const a = S.pets && S.pets.active, o = a && S.pets.owned && S.pets.owned[a]; return !!(o && o.lvl < PET_MAX_LVL); },
+    text: (q) => txn(q.goal, "Faire gagner {n} point d’expérience à ton familier|Faire gagner {n} points d’expérience à ton familier"),
+    make: (S) => { const goal = randInt(6, 12) * 10; return { goal, reward: { gold: Math.round(goal * goldScale(S) * 2.5), egg: rand() < 0.25 } }; },
+  },
   level: {
     // (it. 1407) seulement si un niveau coûte au plus ≈ 500 victoires de la zone (bonus d'expérience non comptés) : un
     // héros très au-dessus de sa zone (niveau 1313 de dev-data : 0 niveau en 30 min) ne la finirait jamais
@@ -153,7 +161,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1, goblin: 1, star: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1, goblin: 1, star: 1, petxp: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

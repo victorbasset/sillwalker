@@ -3553,5 +3553,6 @@ export const KEYS = [
   "Ton familier gagne 10 fois plus d’expérience !",
   "C’est ta fête, mon petit compagnon !",
   "Nouvel événement rare, la « Fête des familiers » : pendant 30 secondes, ton familier gagne 10 fois plus d’expérience.",
-  "+{n} point d’expérience de familier|+{n} points d’expérience de familier"
+  "+{n} point d’expérience de familier|+{n} points d’expérience de familier",
+  "Faire gagner {n} point d’expérience à ton familier|Faire gagner {n} points d’expérience à ton familier"
 ];

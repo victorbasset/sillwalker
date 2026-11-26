@@ -3078,7 +3078,10 @@ export class Game {
 
   petGainXp(n) { // (it. 3318) Fête des familiers : ×PET_FEST
     if ((this.R.events.petfest || 0) > 0) n *= PET_FEST;
-    if (this.S.pets.active && n > 0) { this.petAddXp(this.S.pets.active, n); this.R.petXpGot = (this.R.petXpGot || 0) + n; } // compteur : bilan
+    if (this.S.pets.active && n > 0) {
+      this.petAddXp(this.S.pets.active, n); this.R.petXpGot = (this.R.petXpGot || 0) + n; // compteur : bilan
+      this.questProgress("petxp", n); // (it. 3333) quête « Faire gagner N points d'expérience à ton familier »
+    }
   }
 
   petAddXp(id, n) {

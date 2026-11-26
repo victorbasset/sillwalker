@@ -869,6 +869,15 @@ test("événements vécus : un compte par événement, « true » des anciennes 
   g.startEvent("wisdom"); assert.equal(g.S.stats.eventsSeen.wisdom, 1);
 });
 
+test("quête « expérience du familier » (it. 3333) : avance avec l'expérience du familier, seulement s'il peut encore monter", () => {
+  const g = new Game(freshState()); const { QUEST_TEMPLATES: QUEST_KINDS } = M_quests_js;
+  g.S.pets.owned.cat = { lvl: 1, xp: 0 }; g.S.pets.active = "cat";
+  assert.ok(QUEST_KINDS.petxp.ok(g.S), "familier niveau 1 : permise");
+  const q = { kind: "petxp", goal: 60, progress: 0, reward: { gold: 1 } }; g.S.quests.slots = [q];
+  g.petGainXp(5); assert.equal(q.progress, 5);
+  g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
+});
+
 test("Fête des familiers (it. 3318) : expérience du familier ×10, seulement avec un familier qui peut encore monter", () => {
   const g = new Game(freshState()); const { EVENTS } = M_events_js;
   g.S.pets.owned.cat = { lvl: 1, xp: 0 }; g.S.pets.active = "cat";
