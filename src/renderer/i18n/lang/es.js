@@ -2411,4 +2411,5 @@ export default {
   3536: "Bestiario: cada evento raro vivido indica cuántas veces, y cada bendición del día cuántos días la has tenido.",
   3537: "Testigo de prodigios (100 eventos raros)",
   3538: "Nuevo logro: «Testigo de prodigios (100 eventos raros)», un objetivo para las partidas largas.",
+  3539: "{n} vivido|{n} vividos",
 };

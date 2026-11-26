@@ -2411,4 +2411,5 @@ export default {
   3536: "Bestiariusz: każde przeżyte rzadkie wydarzenie pokazuje, ile razy, a każde błogosławieństwo dnia – przez ile dni je miałeś.",
   3537: "Świadek cudów (100 rzadkich zdarzeń)",
   3538: "Nowe osiągnięcie: „Świadek cudów (100 rzadkich zdarzeń)”, cel na długie rozgrywki.",
+  3539: "{n} przeżyte|{n} przeżyte|{n} przeżytych",
 };

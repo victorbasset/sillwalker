@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3305) Bestiaire > Événements rares : le titre donne le total vécu (« 37 vécus », stats.events, progression du succès des 100),
+  10 langues ; max-save à 999 999. npm test 406, autotest 349/349, lang-overflow de, ru, pl, fr à 1280 : aucun défaut.
 - 2026-11-26 (it. 3304) --crawl sur la partie d'une semaine en russe (comptes du Bestiaire, Défi des champions, nouvelles bénédictions) :
   939 clics en 34 s, aucune erreur.
 - 2026-11-26 (it. 3303) Contrôles avant la 0.1.11 : couverture revue entière (4 étiquettes) ; fuzz FUZZ_DAYMOD=all 600 parties, 0 bloquée ;

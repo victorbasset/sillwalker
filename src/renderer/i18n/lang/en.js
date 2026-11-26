@@ -2411,4 +2411,5 @@ export default {
   3536: "Bestiary: each rare event you’ve lived shows how many times, and each daily blessing how many days you’ve had it.",
   3537: "Witness of Wonders (100 rare events)",
   3538: "New achievement: “Witness of Wonders (100 rare events)”, a goal for long games.",
+  3539: "{n} lived|{n} lived",
 };

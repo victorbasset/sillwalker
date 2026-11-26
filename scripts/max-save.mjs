@@ -38,6 +38,7 @@ const { EVENTS } = await import(R + "events.js");
 const { DAY_MOD_KEYS } = await import(R + "daymods.js");
 s.pets.owned = Object.fromEntries(PETS.map((p) => [p.id, { lvl: 10, xp: 0 }]));
 s.stats.affixesSeen = Object.fromEntries(Object.keys(ELITE_AFFIXES).map((k) => [k, 9999]));
+s.stats.events = 999999; // (it. 3305) total vécu, pire cas du titre
 s.stats.eventsSeen = Object.fromEntries(Object.keys(EVENTS).map((k) => [k, 9999])); // (it. 3296) comptes (×9 999 : le pire cas affiché)
 s.daily.seen = Object.fromEntries(DAY_MOD_KEYS.map((k) => [k, 9999])); // (it. 3297) comptes de jours (pire cas)
 s.stats.champions = 12345; s.stats.elites = Math.max(s.stats.elites || 0, 987654);

@@ -162,7 +162,9 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
     const seen = (S.stats && S.stats.eventsSeen) || {}, ent = Object.entries(EVENTS), n = ent.filter(([id]) => seen[id]).length;
     const pct = (p) => dec(String(Math.round(p * 10000) / 100)) + unit("%");
     const cur = describeEffects(eventsSeenEffects(S)) || "—"; // (it. 932) bonus de la collection
-    return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})</h2>
+    // (it. 3305) total vécu (succès « Témoin des prodiges »)
+    const tot = (S.stats && S.stats.events) || 0;
+    return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})${tot ? ` <small>${esc(txn(tot, "{n} vécu|{n} vécus", { n: fmt(tot) }))}</small>` : ""}</h2>
       <p class="note tabintro">${tx("Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(EVENT_SEEN_BONUS)), 1: esc(cur) })}</p>
       <div class="setgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
         return seen[id]
