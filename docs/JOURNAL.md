@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3301) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : rôdeur 64, paladin 64, gardien des étoiles 69. Perf : bande 19,8 %, panneau
+  19,1 %, mini 5,5 %, icône 0,5 %. Captures du Bestiaire > Événements rares à 1280 px en fr, en, ko (« 1 / 20 », compte « ×1 ») : propres. Texte
+  allemand (25 610 lignes) : aucun mot français. Rien pour « Idées ».
 - 2026-11-26 (it. 3300) 74e succès, « Témoin des prodiges (100 événements rares) » (après celui des 10 ; progression, icône Steam EVENTS_100 à
   l'étoile, seules ses deux images nouvelles), 10 langues ; steam/achievements.md, README, checklist et POUR-VICTOR à 74. lang-overflow all
   (150 mesures, liste des succès allongée) : aucun défaut ; npm test 406, autotest 349/349.
