@@ -3551,5 +3551,6 @@ export const KEYS = [
   "Nouveau familier, le Pivert : chaque coup d’affilée fait un peu plus mal.",
   "Fête des familiers",
   "Ton familier gagne 10 fois plus d’expérience !",
-  "C’est ta fête, mon petit compagnon !"
+  "C’est ta fête, mon petit compagnon !",
+  "Nouvel événement rare, la « Fête des familiers » : pendant 30 secondes, ton familier gagne 10 fois plus d’expérience."
 ];

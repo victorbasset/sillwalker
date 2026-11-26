@@ -2422,4 +2422,5 @@ export default {
   3547: "Święto chowańców",
   3548: "Twój chowaniec zdobywa 10 razy więcej doświadczenia!",
   3549: "To twoje święto, mały towarzyszu!",
+  3550: "Nowe rzadkie wydarzenie, „Święto chowańców”: przez 30 sekund twój chowaniec zdobywa 10 razy więcej doświadczenia.",
 };

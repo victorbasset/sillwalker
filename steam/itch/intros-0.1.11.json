@@ -1,12 +1,12 @@
 {
-  "en": "<strong>Sillwalker 0.1.11 is out!</strong> Two new pets, the Wasp and the Woodpecker, a daily blessing for forging and a Bestiary that keeps count of every rare event and blessing you've lived. Here is what's new since 0.1.10:",
-  "fr": "<strong>Sillwalker 0.1.11 est sortie !</strong> Deux nouveaux familiers, la Guêpe et le Pivert, une bénédiction du jour pour forger et un Bestiaire qui compte chaque événement rare et chaque bénédiction vécus. Les nouveautés depuis la 0.1.10 :",
-  "es": "<strong>¡Ya está aquí Sillwalker 0.1.11!</strong> Dos nuevas mascotas, la Avispa y el Pájaro carpintero, una bendición del día para forjar y un Bestiario que cuenta cada evento raro y cada bendición vividos. Novedades desde la 0.1.10:",
-  "pt": "<strong>Sillwalker 0.1.11 chegou!</strong> Dois novos mascotes, a Vespa e o Pica-pau, uma bênção do dia para forjar e um Bestiário que conta cada evento raro e cada bênção vividos. Novidades desde a 0.1.10:",
-  "de": "<strong>Sillwalker 0.1.11 ist da!</strong> Zwei neue Haustiere, Wespe und Specht, ein Segen des Tages zum Schmieden und ein Bestiarium, das jedes erlebte seltene Ereignis und jeden Segen zählt. Neu seit 0.1.10:",
-  "pl": "<strong>Sillwalker 0.1.11 już jest!</strong> Dwa nowe chowańce, Osa i Dzięcioł, błogosławieństwo dnia do kucia i Bestiariusz, który liczy każde przeżyte rzadkie wydarzenie i błogosławieństwo. Nowości od wersji 0.1.10:",
-  "ru": "<strong>Вышла Sillwalker 0.1.11!</strong> Два новых питомца — Оса и Дятел, благословение дня для ковки и Бестиарий, который считает каждое пережитое редкое событие и благословение. Что нового с версии 0.1.10:",
-  "zh": "<strong>Sillwalker 0.1.11 发布！</strong>两只新宠物「胡蜂」和「啄木鸟」、新的锻造每日祝福，以及会记录每个稀有事件和每日祝福次数的怪物图鉴。自 0.1.10 以来的新内容：",
-  "ja": "<strong>Sillwalker 0.1.11 リリース！</strong>新ペット「アシナガバチ」と「キツツキ」、鍛冶のための日替わりの祝福と、体験したレアイベントと祝福を数えるモンスター図鑑。0.1.10 からの新要素：",
-  "ko": "<strong>Sillwalker 0.1.11 출시!</strong> 새 펫 쌍살벌과 딱따구리, 단조를 위한 오늘의 축복과, 겪은 희귀 이벤트와 축복을 세어 주는 몬스터 도감. 0.1.10 이후 새로운 점:"
+  "en": "<strong>Sillwalker 0.1.11 is out!</strong> Two new pets, the Wasp and the Woodpecker, a Pet Party rare event, a daily blessing for forging and a Bestiary that keeps count of every rare event and blessing you've lived. Here is what's new since 0.1.10:",
+  "fr": "<strong>Sillwalker 0.1.11 est sortie !</strong> Deux nouveaux familiers, la Guêpe et le Pivert, un événement rare, la Fête des familiers, une bénédiction du jour pour forger et un Bestiaire qui compte chaque événement rare et chaque bénédiction vécus. Les nouveautés depuis la 0.1.10 :",
+  "es": "<strong>¡Ya está aquí Sillwalker 0.1.11!</strong> Dos nuevas mascotas, la Avispa y el Pájaro carpintero, un evento raro, la Fiesta de las mascotas, una bendición del día para forjar y un Bestiario que cuenta cada evento raro y cada bendición vividos. Novedades desde la 0.1.10:",
+  "pt": "<strong>Sillwalker 0.1.11 chegou!</strong> Dois novos mascotes, a Vespa e o Pica-pau, um evento raro, a Festa dos mascotes, uma bênção do dia para forjar e um Bestiário que conta cada evento raro e cada bênção vividos. Novidades desde a 0.1.10:",
+  "de": "<strong>Sillwalker 0.1.11 ist da!</strong> Zwei neue Haustiere, Wespe und Specht, ein seltenes Ereignis, das Haustierfest, ein Segen des Tages zum Schmieden und ein Bestiarium, das jedes erlebte seltene Ereignis und jeden Segen zählt. Neu seit 0.1.10:",
+  "pl": "<strong>Sillwalker 0.1.11 już jest!</strong> Dwa nowe chowańce, Osa i Dzięcioł, rzadkie wydarzenie Święto chowańców, błogosławieństwo dnia do kucia i Bestiariusz, który liczy każde przeżyte rzadkie wydarzenie i błogosławieństwo. Nowości od wersji 0.1.10:",
+  "ru": "<strong>Вышла Sillwalker 0.1.11!</strong> Два новых питомца — Оса и Дятел, редкое событие «Праздник питомцев», благословение дня для ковки и Бестиарий, который считает каждое пережитое редкое событие и благословение. Что нового с версии 0.1.10:",
+  "zh": "<strong>Sillwalker 0.1.11 发布！</strong>两只新宠物「胡蜂」和「啄木鸟」、稀有事件「宠物庆典」、新的锻造每日祝福，以及会记录每个稀有事件和每日祝福次数的怪物图鉴。自 0.1.10 以来的新内容：",
+  "ja": "<strong>Sillwalker 0.1.11 リリース！</strong>新ペット「アシナガバチ」と「キツツキ」、レアイベント「ペットの祭り」、鍛冶のための日替わりの祝福と、体験したレアイベントと祝福を数えるモンスター図鑑。0.1.10 からの新要素：",
+  "ko": "<strong>Sillwalker 0.1.11 출시!</strong> 새 펫 쌍살벌과 딱따구리, 희귀 이벤트 펫 축제, 단조를 위한 오늘의 축복과, 겪은 희귀 이벤트와 축복을 세어 주는 몬스터 도감. 0.1.10 이후 새로운 점:"
 }

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3319) « Quoi de neuf » : édition 195 (Fête des familiers), 10 langues. Sortie 0.1.11 : couverture à 4 étiquettes (familiers,
+  Fête des familiers, Jour de la forge, comptes ; avec 5, elles sortaient du cadre), accroches avec l'événement.
 - 2026-11-26 (it. 3318) Contenu : 21e événement rare, la Fête des familiers (expérience du familier ×10 pendant 30 s, PET_FEST ; seulement avec un
   familier qui peut encore monter), réplique, petite fanfare (sound.js), 10 langues ; page Steam à 21 événements (10 langues), checklist,
   POUR-VICTOR, README. Bestiaire > Événements rares : la 21e carte ouvrait une 5e rangée (état maximal, 1280 px : pl 87 px, ru 54, fr 37) ;

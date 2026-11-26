@@ -2422,4 +2422,5 @@ export default {
   3547: "Pet Party",
   3548: "Your pet gains 10 times more experience!",
   3549: "It’s your party, little buddy!",
+  3550: "New rare event, “Pet Party”: for 30 seconds, your pet gains 10 times more experience.",
 };
