@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3320) Fête des familiers : bilan de fin comme les autres événements (« +N points d'expérience de familier », R.petXpGot dans
+  eventSnap), 10 langues, test. npm test 409, autotest 349/349, save-fuzz : ok.
 - 2026-11-26 (it. 3319) « Quoi de neuf » : édition 195 (Fête des familiers), 10 langues. Sortie 0.1.11 : couverture à 4 étiquettes (familiers,
   Fête des familiers, Jour de la forge, comptes ; avec 5, elles sortaient du cadre), accroches avec l'événement.
 - 2026-11-26 (it. 3318) Contenu : 21e événement rare, la Fête des familiers (expérience du familier ×10 pendant 30 s, PET_FEST ; seulement avec un

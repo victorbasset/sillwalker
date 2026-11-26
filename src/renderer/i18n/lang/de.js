@@ -2423,4 +2423,5 @@ export default {
   3548: "Dein Haustier erhält 10-mal mehr Erfahrung!",
   3549: "Heute ist dein Fest, kleiner Freund!",
   3550: "Neues seltenes Ereignis, das „Haustierfest“: 30 Sekunden lang erhält dein Haustier 10-mal mehr Erfahrung.",
+  3551: "+{n} Erfahrungspunkt fürs Haustier|+{n} Erfahrungspunkte fürs Haustier",
 };

@@ -2423,4 +2423,5 @@ export default {
   3548: "¡Tu mascota gana 10 veces más experiencia!",
   3549: "¡Es tu fiesta, pequeño compañero!",
   3550: "Nuevo evento raro, la «Fiesta de las mascotas»: durante 30 segundos, tu mascota gana 10 veces más experiencia.",
+  3551: "+{n} punto de experiencia de mascota|+{n} puntos de experiencia de mascota",
 };

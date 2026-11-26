@@ -2455,7 +2455,8 @@ export class Game {
     const st = this.S.stats;
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
       spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0,
-      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0, regal: this.R.regalGot || 0, champions: st.champions || 0 };
+      xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0, regal: this.R.regalGot || 0, champions: st.champions || 0,
+      petxp: this.R.petXpGot || 0 };
   }
 
   /**
@@ -2484,6 +2485,8 @@ export class Game {
     if (id === "wisdom" && d("xp")) parts.push(txn(Math.round(d("xp")), "+{n} point d’expérience|+{n} points d’expérience", { n: fmt(Math.round(d("xp"))) }));
     if (id === "hoard" && d("chests")) parts.push(txn(d("chests"), "{n} coffre au trésor|{n} coffres au trésor", { n: fmt(d("chests")) })); // (it. 1439)
     if (id === "regal" && d("regal")) parts.push(txn(d("regal"), "{n} objet rare ou mieux|{n} objets rares ou mieux", { n: fmt(d("regal")) })); // (it. 3180)
+    // (it. 3320) Fête des familiers : l'expérience gagnée par le familier
+    if (id === "petfest" && d("petxp")) parts.push(txn(d("petxp"), "+{n} point d’expérience de familier|+{n} points d’expérience de familier", { n: fmt(d("petxp")) }));
     if (id === "nest" && d("eggs")) parts.push(txn(d("eggs"), "{n} œuf trouvé|{n} œufs trouvés", { n: fmt(d("eggs")) }));
     if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
     if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));
@@ -3075,7 +3078,7 @@ export class Game {
 
   petGainXp(n) { // (it. 3318) Fête des familiers : ×PET_FEST
     if ((this.R.events.petfest || 0) > 0) n *= PET_FEST;
-    if (this.S.pets.active && n > 0) this.petAddXp(this.S.pets.active, n);
+    if (this.S.pets.active && n > 0) { this.petAddXp(this.S.pets.active, n); this.R.petXpGot = (this.R.petXpGot || 0) + n; } // compteur : bilan
   }
 
   petAddXp(id, n) {

@@ -876,6 +876,8 @@ test("Fête des familiers (it. 3318) : expérience du familier ×10, seulement a
   g.petGainXp(1); const x1 = g.S.pets.owned.cat.xp + 0;
   g.startEvent("petfest"); g.petGainXp(1);
   assert.equal(g.S.pets.owned.cat.xp - x1, 10, "×10");
+  g.S.stats.kills = (g.S.stats.kills || 0) + 3; g.petGainXp(2);
+  const ln = g.eventReport("petfest"); assert.ok(ln && /30/.test(ln), "bilan (it. 3320) : " + ln);
   g.S.pets.owned.cat.lvl = 10; assert.ok(!EVENTS.petfest.req(g.S), "niveau max : exclu");
   g.S.pets.active = null; assert.ok(!EVENTS.petfest.req(g.S), "sans familier : exclu");
 });
