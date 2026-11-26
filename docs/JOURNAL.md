@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3309) Essai à blanc de la sortie (itch-push.sh --dry-run) : trois constructions, Mac signée, AppImage essayée 30 s
+  (2 monstres vaincus) : chaîne prête pour la 0.1.11 de ce soir.
 - 2026-11-26 (it. 3308) mem-watch 10 min avant la 0.1.11 : réel 632-634 Mo de 420 à 570 s, plat (mode haut de la mesure bimodale ≈ 625,
   CLAUDE.md) : aucune fuite.
 - 2026-11-26 (it. 3307) Perf de la partie d'une semaine avant la 0.1.11 (charge 0,2) : bande 26,5 %, panneau 26,6 %, mini 6,6 %, icône 0,9 % ;
