@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3328) Pivert : +0,2 % par coup d'affilée et par niveau (au lieu de 0,15) : la carte « À découvrir » et le niveau 1
+  affichaient « +0,2 % » (arrondi à une décimale) pour un effet de 0,15 ; capture Familiers > À découvrir en allemand. Test ; npm test 409.
 - 2026-11-26 (it. 3326) --crawl, fin de partie en polonais (Guêpe et Pivert possédés) : 738 clics en 25 s, aucune erreur. Notes de version 0.1.11
   préparées (7 nouveautés, clés des éditions 190-195 déjà traduites) pour 18 h 30.
 - 2026-11-26 (it. 3324) lang-overflow all, tous états (heure, 6 h, semaine, fin × 130 %…), après la Fête des familiers : 150 mesures, aucun défaut.

@@ -833,10 +833,10 @@ test("quête « Attraper N étoiles filantes » : seulement après une première
   assert.equal(g.questEta(q2), 600 + 65 * 60, "temps estimé : prochaine étoile, puis 65 min en moyenne");
 });
 
-test("Pivert : +0,15 % de dégâts par coup d'affilée par niveau (it. 3315)", () => {
+test("Pivert : +0,2 % de dégâts par coup d’affilée par niveau (it. 3315, 3328)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const c0 = g.stats().combo || 0;
   g.S.pets.owned.woodpecker = { lvl: 10, xp: 0 }; g.S.pets.active = "woodpecker"; g.invalidateStats();
-  assert.ok(Math.abs((g.stats().combo || 0) - c0 - 1.5) < 1e-9, "coups d'affilée " + g.stats().combo);
+  assert.ok(Math.abs((g.stats().combo || 0) - c0 - 2) < 1e-9, "coups d'affilée " + g.stats().combo);
 });
 
 test("Guêpe : +6 % de dégâts du premier coup par niveau (it. 3311)", () => {
