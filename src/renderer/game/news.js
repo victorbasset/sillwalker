@@ -1075,9 +1075,18 @@ const RELEASE_0110 = [
   "Jour du zèle : avant l’ouverture des quêtes, sa bulle précise qu’elles arrivent après les premières minutes de jeu.",
   "Traductions : des noms qui se confondaient sont maintenant distincts (une capacité de boss et une sorte d’élite en allemand et en polonais, deux sorts, un pouvoir et une panoplie en chinois, coréen et polonais).",
 ];
-// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183, 0.1.10 avec l'édition 189
-// (NEWS_ID) : la suivante prendra after: 189.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }, { version: "0.1.10", after: 183, items: RELEASE_0110 }];
+const RELEASE_0111 = [
+  "Nouveau familier, la Guêpe : ton premier coup de chaque combat frappe plus fort.",
+  "Nouveau familier, le Pivert : chaque coup d’affilée fait un peu plus mal.",
+  "Nouvel événement rare, la « Fête des familiers » : pendant 30 secondes, ton familier gagne 10 fois plus d’expérience.",
+  "Nouvelle bénédiction du jour, le « Jour de la forge » : forger coûte deux fois moins cher ce jour-là.",
+  "Bestiaire : chaque événement rare vécu dit combien de fois, et chaque bénédiction du jour combien de jours tu l’as vécue.",
+  "Bestiaire : le titre des événements rares donne le total vécu, pour suivre le succès des 100.",
+  "Nouveau succès : « Témoin des prodiges (100 événements rares) », un objectif pour les longues parties.",
+];
+// 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183, 0.1.10 avec l'édition 189,
+// 0.1.11 avec l'édition 195 (NEWS_ID) : la suivante prendra after: 195.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }, { version: "0.1.10", after: 183, items: RELEASE_0110 }, { version: "0.1.11", after: 189, items: RELEASE_0111 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);
