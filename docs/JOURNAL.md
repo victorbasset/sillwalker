@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3342) Préparation de la 0.1.12 : docs/devlog-0.1.12.md (« a Hexing elite and a quest for your pet »), accroches en 10 langues,
+  couverture (2 étiquettes, à compléter dans la journée).
 - 2026-11-27 (it. 3341) REVUE GÉNÉRALE. fight-odds guerrier 12 h × 3 graines : normaux 0 %, élites 29 %, champions 47 %, boss 58 % (repère
   it. 2874 : 0 / 31 / 46 / 57) ; Maléfique 20 % de défaites, parmi Givré 19, Venimeux 18, Épineux 22 : bien dosé. Perf : bande 19,7 %, panneau 19,5 %, mini 5,5 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-26 (it. 3340) Capture du Maléfique sur la bande (zone 50, file imposée : R.lineup + R.lineupZone + S.slotKey = null) en fr et pl :
