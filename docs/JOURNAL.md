@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3332) SORTIE 0.1.11 publiée : itch-push.sh (AppImage essayée, 2 monstres en 30 s), canaux windows, linux et mac en 0.1.11
+  (butler status), fichiers et SHA256-0.1.11.txt dans Médias/dist-itch, devlog 1809159 publié (couverture envoyée).
 - 2026-11-26 (it. 3330) SORTIE 0.1.11 (préparation) : package.json 0.1.11, RELEASE_0111 (7 nouveautés : Guêpe, Pivert, Fête des familiers, Jour de
   la forge, comptes du Bestiaire, total vécu, succès des 100), NEWS_RELEASES after: 189, tests des notes, CLAUDE.md (0.1.12 prendra after: 195),
   steam/itch/devlog-0.1.11.html. npm test 409, autotest 349/349, lang-overflow all 1280 : aucun défaut ; fenêtre de version capturée en ru.

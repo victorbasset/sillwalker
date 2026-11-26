@@ -4,6 +4,15 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Version 0.1.11 (envoyée le 26/11 vers 19 h 30, it. 3332, devlog https://victor-basset.itch.io/sillwalker/devlog/1809159)
+
+- Contenu : 25e et 26e familiers, la Guêpe (premier coup renforcé) et le Pivert (coups d'affilée) ; 21e événement rare, la Fête des
+  familiers (expérience du familier ×10 pendant 30 s) ; 20e bénédiction, le Jour de la forge (forge à moitié prix, première le 29/11).
+- Collection : le Bestiaire compte chaque événement rare vécu (et leur total) et les jours passés sous chaque bénédiction ; 74e succès,
+  « Témoin des prodiges » (100 événements rares).
+- Steam (si déjà saisi) : page du magasin à 21 événements ; créer le succès EVENTS_100 et téléverser ses deux icônes.
+- Fichiers dans Médias/dist-itch (SHA256-0.1.11.txt) ; les trois canaux itch.io en 0.1.11.
+
 ## Version 0.1.10 (envoyée le 25/11 vers 19 h, it. 3289, devlog https://victor-basset.itch.io/sillwalker/devlog/1806596)
 
 - Contenu : 24e familier, la Pie-grièche (dégâts contre les cibles sous 30 % de vie) ; 19e bénédiction, le Jour du zèle (quêtes ×2,
@@ -11,7 +20,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Confort : bulles du mode mini pour les élites, boss, champions et Poupouce ; le résumé d'absence annonce la bénédiction du nouveau jour.
 - Équilibre : le Mage, le plus faible, a 0,95 de PV au lieu de 0,85 (62,6 → 64,0 sur 7 graines).
 - Traductions : noms qui se confondaient corrigés (de, pl, ko, zh) ; nouvel outil scripts/i18n-collisions.mjs dans npm test.
-- Steam (si déjà saisi) : page du magasin à 21 événements, 20 quêtes, 12 élites ; succès RELENTLESS_25 et EVENTS_100 et icônes de Poupouce refaites.
+- Steam (si déjà saisi) : page du magasin à 20 événements, 20 quêtes, 12 élites ; succès RELENTLESS_25 et icônes de Poupouce refaites.
 
 ## Version 0.1.9 (envoyée le 24/11 vers 19 h, it. 3245, devlog publié) : contenu ci-dessous
 
