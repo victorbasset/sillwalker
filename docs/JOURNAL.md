@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3317) Texte japonais de la partie d'une semaine (Guêpe et Pivert possédés, 28 920 lignes) : mots latins tous attendus (HP, Lv,
+  suffixes Ud/Dc/Sp, Poupouce, noms des langues, Shift/Esc) : rien d'oublié.
 - 2026-11-26 (it. 3316) « Quoi de neuf » : édition 194 (Pivert), 10 langues. Sortie 0.1.11 : étiquette « New pets: Wasp, Woodpecker » (couverture
   vérifiée entière), titre du devlog « two new pets », accroches avec les deux familiers.
 - 2026-11-26 (it. 3315) Contenu : 26e familier, le Pivert (coups d'affilée, +0,15 % par niveau, +1,5 % par coup au niveau 10, jusqu'à +15 % ;
