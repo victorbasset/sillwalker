@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3304) --crawl sur la partie d'une semaine en russe (comptes du Bestiaire, Défi des champions, nouvelles bénédictions) :
+  939 clics en 34 s, aucune erreur.
 - 2026-11-26 (it. 3303) Contrôles avant la 0.1.11 : couverture revue entière (4 étiquettes) ; fuzz FUZZ_DAYMOD=all 600 parties, 0 bloquée ;
   stall-check STALL_DAYMOD=all 120 parties, 0 figée (avec les bénédictions étoiles, zèle et forge).
 - 2026-11-26 (it. 3302) « Quoi de neuf » : édition 192 (succès des 100 événements), 10 langues ; couverture 0.1.11 avec une 4e étiquette, devlog
