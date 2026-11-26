@@ -2425,4 +2425,5 @@ export default {
   3550: "New rare event, “Pet Party”: for 30 seconds, your pet gains 10 times more experience.",
   3551: "+{n} pet experience point|+{n} pet experience points",
   3552: "Have your pet gain {n} experience point|Have your pet gain {n} experience points",
+  3553: "New quest type: have your pet gain experience (a bonus egg one time in four).",
 };

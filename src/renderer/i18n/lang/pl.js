@@ -2425,4 +2425,5 @@ export default {
   3550: "Nowe rzadkie wydarzenie, „Święto chowańców”: przez 30 sekund twój chowaniec zdobywa 10 razy więcej doświadczenia.",
   3551: "+{n} punkt doświadczenia chowańca|+{n} punkty doświadczenia chowańca|+{n} punktów doświadczenia chowańca",
   3552: "Niech twój chowaniec zdobędzie {n} punkt doświadczenia|Niech twój chowaniec zdobędzie {n} punkty doświadczenia|Niech twój chowaniec zdobędzie {n} punktów doświadczenia",
+  3553: "Nowy rodzaj zadania: niech twój chowaniec zdobywa doświadczenie (raz na cztery razy jajo w nagrodę).",
 };

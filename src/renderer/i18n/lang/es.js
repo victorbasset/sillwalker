@@ -2425,4 +2425,5 @@ export default {
   3550: "Nuevo evento raro, la «Fiesta de las mascotas»: durante 30 segundos, tu mascota gana 10 veces más experiencia.",
   3551: "+{n} punto de experiencia de mascota|+{n} puntos de experiencia de mascota",
   3552: "Haz que tu mascota gane {n} punto de experiencia|Haz que tu mascota gane {n} puntos de experiencia",
+  3553: "Nuevo tipo de misión: haz que tu mascota gane experiencia (un huevo extra una vez de cada cuatro).",
 };

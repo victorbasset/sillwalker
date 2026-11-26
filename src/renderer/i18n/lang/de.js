@@ -2425,4 +2425,5 @@ export default {
   3550: "Neues seltenes Ereignis, das „Haustierfest“: 30 Sekunden lang erhält dein Haustier 10-mal mehr Erfahrung.",
   3551: "+{n} Erfahrungspunkt fürs Haustier|+{n} Erfahrungspunkte fürs Haustier",
   3552: "Lass dein Haustier {n} Erfahrungspunkt sammeln|Lass dein Haustier {n} Erfahrungspunkte sammeln",
+  3553: "Neue Questart: Lass dein Haustier Erfahrung sammeln (in einem von vier Fällen gibt es ein Ei dazu).",
 };

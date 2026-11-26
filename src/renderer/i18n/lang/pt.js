@@ -2425,4 +2425,5 @@ export default {
   3550: "Novo evento raro, a “Festa dos mascotes”: por 30 segundos, seu mascote ganha 10 vezes mais experiência.",
   3551: "+{n} ponto de experiência de mascote|+{n} pontos de experiência de mascote",
   3552: "Faça seu mascote ganhar {n} ponto de experiência|Faça seu mascote ganhar {n} pontos de experiência",
+  3553: "Novo tipo de missão: faça seu mascote ganhar experiência (um ovo de bônus uma vez a cada quatro).",
 };
