@@ -2414,4 +2414,6 @@ export default {
   3539: "{n} lived|{n} lived",
   3540: "Wasp",
   3541: "Always first to sting: your first hit in each fight strikes harder.",
+  3542: "New pet, the Wasp: your first hit in each fight strikes harder.",
+  3543: "Bestiary: the rare events title shows the total you’ve lived, to follow the 100-event achievement.",
 };

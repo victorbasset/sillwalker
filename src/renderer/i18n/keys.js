@@ -3543,5 +3543,7 @@ export const KEYS = [
   "Nouveau succès : « Témoin des prodiges (100 événements rares) », un objectif pour les longues parties.",
   "{n} vécu|{n} vécus",
   "Guêpe",
-  "Toujours la première à piquer : ton premier coup de chaque combat frappe plus fort."
+  "Toujours la première à piquer : ton premier coup de chaque combat frappe plus fort.",
+  "Nouveau familier, la Guêpe : ton premier coup de chaque combat frappe plus fort.",
+  "Bestiaire : le titre des événements rares donne le total vécu, pour suivre le succès des 100."
 ];

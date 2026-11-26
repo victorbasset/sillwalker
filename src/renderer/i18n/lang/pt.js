@@ -2414,4 +2414,6 @@ export default {
   3539: "{n} vivido|{n} vividos",
   3540: "Vespa",
   3541: "Sempre a primeira a picar: seu primeiro golpe de cada combate acerta mais forte.",
+  3542: "Novo mascote, a Vespa: seu primeiro golpe de cada combate acerta mais forte.",
+  3543: "Bestiário: o título dos eventos raros mostra o total vivido, para acompanhar a conquista dos 100.",
 };

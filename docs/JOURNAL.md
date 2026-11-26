@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3312) « Quoi de neuf » : édition 193 (Guêpe, total des événements vécus), 10 langues. Sortie 0.1.11 : couverture à cinq
+  étiquettes (« New pet: Wasp » en tête, vérifiée entière), accroches et titre du devlog avec la Guêpe. npm test 407, autotest 349/349.
 - 2026-11-26 (it. 3311) Contenu : 25e familier, la Guêpe (premier coup de chaque combat, +6 % par niveau, +60 % au niveau 10 ; aucun familier
   ne donnait firstStrike). Dessin rayé jaune et noir qui vole (art.js) ; noms ja « アシナガバチ » et ko « 쌍살벌 » (i18n-collisions : le Frelon
   avait déjà « スズメバチ » / « 말벌 »). Test ; README à 25. Capture Familiers 1280 px et bande ; npm test 407, autotest 349/349, lang-overflow
