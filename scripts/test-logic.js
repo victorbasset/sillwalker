@@ -833,6 +833,12 @@ test("quête « Attraper N étoiles filantes » : seulement après une première
   assert.equal(g.questEta(q2), 600 + 65 * 60, "temps estimé : prochaine étoile, puis 65 min en moyenne");
 });
 
+test("Guêpe : +6 % de dégâts du premier coup par niveau (it. 3311)", () => {
+  const g = new Game(freshState()); g.invalidateStats(); const f0 = g.stats().firstStrike || 0;
+  g.S.pets.owned.wasp = { lvl: 10, xp: 0 }; g.S.pets.active = "wasp"; g.invalidateStats();
+  assert.ok(Math.abs((g.stats().firstStrike || 0) - f0 - 0.6) < 1e-9, "premier coup " + g.stats().firstStrike);
+});
+
 test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niveau (it. 3246)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const e0 = g.stats().execute || 0;
   g.S.pets.owned.shrike = { lvl: 10, xp: 0 }; g.S.pets.active = "shrike"; g.invalidateStats();

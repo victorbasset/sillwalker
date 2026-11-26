@@ -2412,4 +2412,6 @@ export default {
   3537: "Świadek cudów (100 rzadkich zdarzeń)",
   3538: "Nowe osiągnięcie: „Świadek cudów (100 rzadkich zdarzeń)”, cel na długie rozgrywki.",
   3539: "{n} przeżyte|{n} przeżyte|{n} przeżytych",
+  3540: "Osa",
+  3541: "Zawsze żądli pierwsza: twój pierwszy cios w każdej walce uderza mocniej.",
 };

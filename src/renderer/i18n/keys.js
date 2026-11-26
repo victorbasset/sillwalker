@@ -3541,5 +3541,7 @@ export const KEYS = [
   "Bestiaire : chaque événement rare vécu dit combien de fois, et chaque bénédiction du jour combien de jours tu l’as vécue.",
   "Témoin des prodiges (100 événements rares)",
   "Nouveau succès : « Témoin des prodiges (100 événements rares) », un objectif pour les longues parties.",
-  "{n} vécu|{n} vécus"
+  "{n} vécu|{n} vécus",
+  "Guêpe",
+  "Toujours la première à piquer : ton premier coup de chaque combat frappe plus fort."
 ];

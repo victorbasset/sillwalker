@@ -2412,4 +2412,6 @@ export default {
   3537: "Witness of Wonders (100 rare events)",
   3538: "New achievement: “Witness of Wonders (100 rare events)”, a goal for long games.",
   3539: "{n} lived|{n} lived",
+  3540: "Wasp",
+  3541: "Always first to sting: your first hit in each fight strikes harder.",
 };

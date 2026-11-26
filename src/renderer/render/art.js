@@ -337,6 +337,10 @@ export const PET_ART = {
   shrike: { pal: { G: "#9aa0a8", W: "#f2f2ee", K: "#1a1a1a", B: "#2a2a30" }, fly: true, frames: [
     [".........", "....GGG..", "...GKKKK.", "K..GGGWK.", "KKGGGWW..", ".BBGWWW..", "....W.W.."],
     ["....B....", "...BGGG..", "...GKKKK.", "K..GGGWK.", "KKGGGWW..", "..GGWWW..", "....W.W.."]] },
+  // (it. 3311) Guêpe : corps rayé jaune et noir, ailes claires, dard (deuxième image : ailes baissées)
+  wasp: { pal: { Y: "#f2c230", K: "#1a1a1a", W: "#d8eef8" }, fly: true, frames: [
+    ["...WW.WW.", "...WW.WW.", "....K....", ".KYKYKK..", "KYKYKYKK.", ".KYKYK...", "..K......"],
+    [".........", "....K....", "..WWKWW..", ".KYKYKK..", "KYKYKYKK.", ".KYKYK...", "..K......"]] },
   // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
   hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
     [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],

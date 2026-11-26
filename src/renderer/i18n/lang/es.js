@@ -2412,4 +2412,6 @@ export default {
   3537: "Testigo de prodigios (100 eventos raros)",
   3538: "Nuevo logro: «Testigo de prodigios (100 eventos raros)», un objetivo para las partidas largas.",
   3539: "{n} vivido|{n} vividos",
+  3540: "Avispa",
+  3541: "Siempre la primera en picar: tu primer golpe de cada combate pega más fuerte.",
 };

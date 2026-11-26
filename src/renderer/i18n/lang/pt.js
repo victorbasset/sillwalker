@@ -2412,4 +2412,6 @@ export default {
   3537: "Testemunha de prodígios (100 eventos raros)",
   3538: "Nova conquista: “Testemunha de prodígios (100 eventos raros)”, um objetivo para partidas longas.",
   3539: "{n} vivido|{n} vividos",
+  3540: "Vespa",
+  3541: "Sempre a primeira a picar: seu primeiro golpe de cada combate acerta mais forte.",
 };

@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3311) Contenu : 25e familier, la Guêpe (premier coup de chaque combat, +6 % par niveau, +60 % au niveau 10 ; aucun familier
+  ne donnait firstStrike). Dessin rayé jaune et noir qui vole (art.js) ; noms ja « アシナガバチ » et ko « 쌍살벌 » (i18n-collisions : le Frelon
+  avait déjà « スズメバチ » / « 말벌 »). Test ; README à 25. Capture Familiers 1280 px et bande ; npm test 407, autotest 349/349, lang-overflow
+  de, ru, pl, ja 1280 (état maximal, tous familiers) : aucun défaut ; save-fuzz : ok.
 - 2026-11-26 (it. 3310) hud-probe, partie d'une semaine en polonais à 1280 px (élite Acharné et son étiquette « +N % ») : HPROBE 0 / 242 et 0 / 230.
 - 2026-11-26 (it. 3309) Essai à blanc de la sortie (itch-push.sh --dry-run) : trois constructions, Mac signée, AppImage essayée 30 s
   (2 monstres vaincus) : chaîne prête pour la 0.1.11 de ce soir.

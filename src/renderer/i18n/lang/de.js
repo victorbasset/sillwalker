@@ -2412,4 +2412,6 @@ export default {
   3537: "Zeuge der Wunder (100 seltene Ereignisse)",
   3538: "Neuer Erfolg: „Zeuge der Wunder (100 seltene Ereignisse)“, ein Ziel für lange Partien.",
   3539: "{n} erlebt|{n} erlebt",
+  3540: "Wespe",
+  3541: "Sticht immer als Erste: Dein erster Schlag in jedem Kampf trifft härter.",
 };
