@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3307) Perf de la partie d'une semaine avant la 0.1.11 (charge 0,2) : bande 26,5 %, panneau 26,6 %, mini 6,6 %, icône 0,9 % ;
+  comme le repère de l'it. 2984 (26 / 28 / 6,9 / 0,9) : les ajouts depuis (élite Acharné, Défi des champions, familiers) ne coûtent rien de visible.
 - 2026-11-26 (it. 3305) Bestiaire > Événements rares : le titre donne le total vécu (« 37 vécus », stats.events, progression du succès des 100),
   10 langues ; max-save à 999 999. npm test 406, autotest 349/349, lang-overflow de, ru, pl, fr à 1280 : aucun défaut.
 - 2026-11-26 (it. 3304) --crawl sur la partie d'une semaine en russe (comptes du Bestiaire, Défi des champions, nouvelles bénédictions) :
