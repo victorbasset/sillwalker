@@ -875,6 +875,8 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   assert.ok(QUEST_KINDS.petxp.ok(g.S), "familier niveau 1 : permise");
   const q = { kind: "petxp", goal: 60, progress: 0, reward: { gold: 1 } }; g.S.quests.slots = [q];
   g.petGainXp(5); assert.equal(q.progress, 5);
+  g.R.pace = Array.from({ length: 11 }, (_, i) => [i * 6, 10]); // une victoire toutes les 6 s
+  const eta = g.questEta(q); assert.ok(eta > 0 && eta < 55 * 6, "temps estimé (it. 3337) : " + eta);
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 

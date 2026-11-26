@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3337) Quête « expérience du familier » : temps estimé (« ≈ N min ») comme les autres (questEta : 1 point par victoire,
+  5 par élite, 10 par boss, au rythme des 60 dernières victoires). Test ; npm test 410, autotest 349/349. (Capture : dev-data combat un
+  boss pendant 25 s, aucune victoire, donc aucun temps estimé pour aucune quête ; normal.)
 - 2026-11-26 (it. 3335) quest-pace 12 h × 3 graines : 12 sortes tirées (kill 11 min … zone 114 min), comme l'it. 2892 ; ni « expédition » ni
   « expérience du familier » : le joueur de quest-pace n'achète aucun déblocage et ne fait jamais éclore d'œuf (aucun familier emmené). La
   nouvelle quête est couverte par son test (it. 3333).

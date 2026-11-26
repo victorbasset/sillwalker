@@ -2666,7 +2666,7 @@ export class Game {
     // optimiste sans le Filet à étoiles (une étoile non attrapée ne compte pas)
     if (q && q.kind === "star" && !questDone(q)) return Math.max(0, this.R.starT || 0) + Math.max(0, Math.ceil((q.goal - q.progress) / (activeDayMod(this.S)?.quests || 1)) - 1) * (STAR.minS + STAR.maxS) / 2;
     const P = this.R.pace || [];
-    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss", "goblin"].includes(q.kind)) return null;
+    if (!q || questDone(q) || P.length < 6 || !["kill", "hunt", "gold", "elite", "prey", "champion", "level", "spell", "crit", "chest", "event", "loot", "boss", "goblin", "petxp"].includes(q.kind)) return null;
     const dt = P[P.length - 1][0] - P[0][0];
     if (!(dt > 0)) return null;
     // (it. 3248) Jour du zèle : chaque progrès compte double, il en reste deux fois moins à faire
@@ -2690,6 +2690,12 @@ export class Game {
       const S = this.S, perKill = monsterBase(S.zone, false).xp * earlyPace(S) * (1 + (this.stats().xp || 0) / 100);
       let need = -S.xp; for (let i = 0; i < left; i++) need += xpNeed(S.lvl + i);
       return perKill > 0 ? Math.max(0, need) / (rate * perKill) : null;
+    }
+    // (it. 3337) expérience du familier : 1 par victoire, 5 par élite, 10 par boss (petGainXp) ; Fête des familiers négligée
+    if (q.kind === "petxp") {
+      if (!this.S.pets.active) return null;
+      const perKill = 1 + 4 * (this.eliteChancePerKill(this.stats()) || 0) + 9 / (KILLS_PER_ZONE + 1);
+      return left / (rate * perKill);
     }
     if (q.kind === "hunt") { const types = this.zoneDef().monsters; if (!types.includes(q.type)) return null; rate /= types.length; }
     // (it. 976) élites : chance d'élite par victoire (mêmes règles que pendant l'absence) ; proie : une sorte sur toutes
