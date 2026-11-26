@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3323) hero-table HEROES=all, 12 h, graines 7/3/11, après Guêpe, Pivert et Fête des familiers : moyenne 65,1 (64,8 à l'it. 3099),
+  écart 6,3 (berserker 68,7 avec une graine à 75 : même cas que l'it. 3275, bruit ; guerrier 68,0). Rien à régler. Mode mini pendant
+  l'événement (ru, ja) : nom raccourci « … », secondes gardées ; propre.
 - 2026-11-26 (it. 3321) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : guerrier 66, mage 64, nécromancien 64. Perf : bande 20,5 %, panneau 19,3 %,
   mini 5,5 %, icône 0,5 %. Bannière et pastille de la Fête des familiers sur la bande à 1280 px en de et ko : propres. Rien pour « Idées ».
 - 2026-11-26 (it. 3320) Fête des familiers : bilan de fin comme les autres événements (« +N points d'expérience de familier », R.petXpGot dans
