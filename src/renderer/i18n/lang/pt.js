@@ -2419,4 +2419,7 @@ export default {
   3544: "Pica-pau",
   3545: "Bica sem parar: cada golpe seguido dói um pouco mais.",
   3546: "Novo mascote, o Pica-pau: cada golpe seguido dói um pouco mais.",
+  3547: "Festa dos mascotes",
+  3548: "Seu mascote ganha 10 vezes mais experiência!",
+  3549: "É a sua festa, pequeno companheiro!",
 };

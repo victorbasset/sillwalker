@@ -2419,4 +2419,7 @@ export default {
   3544: "Woodpecker",
   3545: "It never stops pecking: each hit in a row hurts a little more.",
   3546: "New pet, the Woodpecker: each hit in a row hurts a little more.",
+  3547: "Pet Party",
+  3548: "Your pet gains 10 times more experience!",
+  3549: "It’s your party, little buddy!",
 };

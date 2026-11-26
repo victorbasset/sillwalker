@@ -196,6 +196,7 @@ export class Sound {
       case "hoard": this.noise(0, 0.08, 0.12, 400, 0.8); [N.E5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, 0.1 + i * 0.07, 0.25, "triangle", 0.12)); break; // (it. 1439) coffre qui s'ouvre, notes qui montent
       case "regal": [N.G5, N.C6, N.E6, N.G6].forEach((f, i) => this.tone(f, i * 0.08, i === 3 ? 0.5 : 0.14, "square", 0.1)); break; // (it. 3180) petite sonnerie royale
       case "tourney": this.noise(0, 0.05, 0.1, 900, 0.8); [N.C5, N.C5, N.G5, N.C6].forEach((f, i) => this.tone(f, 0.06 + i * 0.1, i === 3 ? 0.45 : 0.08, "sawtooth", 0.08)); break; // (it. 3270) trompette d'arène
+      case "petfest": [N.E5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, 0.05 + i * 0.08, 0.12, "triangle", 0.07)); break; // (it. 3318) petite fanfare légère
       case "nest": for (let i = 0; i < 3; i++) this.tone(2000 + i * 300, i * 0.13, 0.08, "sine", 0.17, 1.4); break; // pépiements
       case "arcane": [N.C5, N.G5, N.C6, N.E6].forEach((f, i) => this.tone(f, i * 0.06, 0.4, "sine", 0.06, 1.2)); this.whoosh(0.1, 0.5, 600, 2400, 0.06, 4); break; // marée arcanique : arpège qui monte, souffle
       case "ward": this.tone(N.E5, 0, 0.8, "sine", 0.08, 1.5); this.tone(N.E5 * 1.01, 0, 0.8, "sine", 0.06, 1.5); this.whoosh(0, 0.6, 2000, 4000, 0.05, 3); break; // voile qui se lève

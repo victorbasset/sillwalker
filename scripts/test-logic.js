@@ -869,6 +869,17 @@ test("événements vécus : un compte par événement, « true » des anciennes 
   g.startEvent("wisdom"); assert.equal(g.S.stats.eventsSeen.wisdom, 1);
 });
 
+test("Fête des familiers (it. 3318) : expérience du familier ×10, seulement avec un familier qui peut encore monter", () => {
+  const g = new Game(freshState()); const { EVENTS } = M_events_js;
+  g.S.pets.owned.cat = { lvl: 1, xp: 0 }; g.S.pets.active = "cat";
+  assert.ok(EVENTS.petfest.req(g.S), "familier niveau 1 : permis");
+  g.petGainXp(1); const x1 = g.S.pets.owned.cat.xp + 0;
+  g.startEvent("petfest"); g.petGainXp(1);
+  assert.equal(g.S.pets.owned.cat.xp - x1, 10, "×10");
+  g.S.pets.owned.cat.lvl = 10; assert.ok(!EVENTS.petfest.req(g.S), "niveau max : exclu");
+  g.S.pets.active = null; assert.ok(!EVENTS.petfest.req(g.S), "sans familier : exclu");
+});
+
 test("Défi des champions (it. 3270) : les élites à venir deviennent des champions, pas avant la zone des champions ; bilan", () => {
   const g = new Game(freshState());
   const line = [{ type: "slime", elite: true, champion: false }, { type: "slime", elite: false }, { type: "slime", elite: true, champion: false }];

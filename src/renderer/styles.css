@@ -963,6 +963,8 @@ button.buy { margin-top: auto; min-width: 80px; padding: 3px 8px; font-size: 13p
 #mini .mini-info.todo::before { content: ""; position: absolute; left: 1px; top: 9px; width: 4px; height: 4px; background: #ffd34d; box-shadow: 0 0 3px #ffd34d; } /* dans la marge : ne pousse pas le texte */
 /* Bestiaire : liste des panoplies */
 .setgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 6px; margin-bottom: 6px; }
+/* (it. 3318) événements rares : 21 cartes ; 6 par rangée à 1280 px (4 rangées : avec 5 par rangée, la 21e en ouvrait une 5e et l'onglet défilait) */
+.setgrid.evgrid { grid-template-columns: repeat(auto-fill, minmax(196px, 1fr)); }
 .setcard { border: 1px solid var(--line); border-left: 3px solid var(--c); border-radius: 3px; padding: 4px 8px; font-size: 12px; color: var(--muted); background: var(--panel); }
 .setcard.unknown { border-left-style: dashed; border-left-color: var(--line); } /* (it. 920) événement jamais vu */
 .setcard b { font-size: 13px; }
@@ -1458,6 +1460,8 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 1013) écran de portable : cartes du Bestiaire (panoplies, capacités, élites, événements) sur 5 colonnes au lieu
    de 4 à 1280 px ; les 10 panoplies tiennent sur deux rangées (russe et allemand défilaient de 9 à 26 px) */
 @container panel (max-width: 1467px) { [data-pane="bestiary"] .setgrid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); } }
+/* (it. 3318) événements rares : 7 colonnes à 1280 px (21 cartes sur 3 rangées ; 6 colonnes laissaient défiler le russe de 19 px) */
+@container panel (max-width: 1467px) { [data-pane="bestiary"] .setgrid.evgrid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); } }
 /* Duo idéal : étincelle dorée qui file entre les deux héros. */
 .spark.duolink { width: 3px; height: 3px; background: #ffd34d; box-shadow: 0 0 3px #ffd34d; }
 /* Statistiques > Chiffres sur écran de portable : lignes un peu plus petites (langues aux mots longs : russe, allemand). */

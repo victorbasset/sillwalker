@@ -166,7 +166,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
     const tot = (S.stats && S.stats.events) || 0;
     return `<h2 class="codexh" id="bj-events">${tx("Événements rares")} (${n} / ${ent.length})${tot ? ` <small>${esc(txn(tot, "{n} vécu|{n} vécus", { n: fmt(tot) }))}</small>` : ""}</h2>
       <p class="note tabintro">${tx("Chaque événement vécu donne {0} pour toujours. Bonus actuel : {1}.", { 0: esc(describeEffects(EVENT_SEEN_BONUS)), 1: esc(cur) })}</p>
-      <div class="setgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
+      <div class="setgrid evgrid">${ent.map(([id, e]) => { const t = this.game.R.events[id] || 0; // (it. 936) en cours : encadré, secondes restantes
         return seen[id]
         ? `<div class="setcard${t > 0 ? " here" : ""}" style="--c:${e.color}"><b class="tint">${esc(e.name)}</b> <small>${t > 0 ? esc(tx("en cours · {0}", { 0: uS(Math.ceil(t)) })) : pct(e.chance) + tx(" par victoire")} · ×${fmt(affixWins(seen[id]))}</small><div>${esc(e.text)}</div></div>` /* (it. 3296) combien de fois vécu */
         : `<div class="setcard unknown"><b>???</b> <small>${pct(e.chance)}${tx(" par victoire")}</small></div>`; }).join("")}</div>

@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
@@ -3073,7 +3073,10 @@ export class Game {
     return true;
   }
 
-  petGainXp(n) { if (this.S.pets.active && n > 0) this.petAddXp(this.S.pets.active, n); }
+  petGainXp(n) { // (it. 3318) Fête des familiers : ×PET_FEST
+    if ((this.R.events.petfest || 0) > 0) n *= PET_FEST;
+    if (this.S.pets.active && n > 0) this.petAddXp(this.S.pets.active, n);
+  }
 
   petAddXp(id, n) {
     const own = this.S.pets.owned[id];

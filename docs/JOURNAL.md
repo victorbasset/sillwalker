@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3318) Contenu : 21e événement rare, la Fête des familiers (expérience du familier ×10 pendant 30 s, PET_FEST ; seulement avec un
+  familier qui peut encore monter), réplique, petite fanfare (sound.js), 10 langues ; page Steam à 21 événements (10 langues), checklist,
+  POUR-VICTOR, README. Bestiaire > Événements rares : la 21e carte ouvrait une 5e rangée (état maximal, 1280 px : pl 87 px, ru 54, fr 37) ;
+  7 colonnes à 1280 px (.setgrid.evgrid, règle @container du Bestiaire), 3 rangées. Test ; npm test 409, autotest 349/349, lang-overflow all
+  1280/1600/1920 : aucun défaut ; save-fuzz : ok ; captures pl et ru.
 - 2026-11-26 (it. 3317) Texte japonais de la partie d'une semaine (Guêpe et Pivert possédés, 28 920 lignes) : mots latins tous attendus (HP, Lv,
   suffixes Ud/Dc/Sp, Poupouce, noms des langues, Shift/Esc) : rien d'oublié.
 - 2026-11-26 (it. 3316) « Quoi de neuf » : édition 194 (Pivert), 10 langues. Sortie 0.1.11 : étiquette « New pets: Wasp, Woodpecker » (couverture

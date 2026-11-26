@@ -2419,4 +2419,7 @@ export default {
   3544: "Dzięcioł",
   3545: "Stuka bez przerwy: każdy kolejny cios z rzędu boli trochę bardziej.",
   3546: "Nowy chowaniec, Dzięcioł: każdy kolejny cios z rzędu boli trochę bardziej.",
+  3547: "Święto chowańców",
+  3548: "Twój chowaniec zdobywa 10 razy więcej doświadczenia!",
+  3549: "To twoje święto, mały towarzyszu!",
 };

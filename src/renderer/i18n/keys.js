@@ -3548,5 +3548,8 @@ export const KEYS = [
   "Bestiaire : le titre des événements rares donne le total vécu, pour suivre le succès des 100.",
   "Pivert",
   "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal.",
-  "Nouveau familier, le Pivert : chaque coup d’affilée fait un peu plus mal."
+  "Nouveau familier, le Pivert : chaque coup d’affilée fait un peu plus mal.",
+  "Fête des familiers",
+  "Ton familier gagne 10 fois plus d’expérience !",
+  "C’est ta fête, mon petit compagnon !"
 ];

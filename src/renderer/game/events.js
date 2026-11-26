@@ -1,6 +1,7 @@
 import { eggsAllowed, tabReady } from "./tabs.js";
 import { classSpells, spellRank } from "./spells.js";
 import { ELITE, CHAMPION } from "./data.js";
+import { PET_MAX_LVL } from "./pets.js";
 // Événements rares et vitesse.
 //
 // La vitesse de déplacement accélère tout le trajet entre deux combats
@@ -66,7 +67,13 @@ export const EVENTS = {
   // (it. 3270) 20e : les élites de la file deviennent des champions (plus coriaces, objet épique) ; à partir de la zone des champions
   tourney: { name: "Défi des champions", chance: 0.0015, duration: 30, text: "Chaque élite devient un champion !", color: "#c08cff",
     req: (S) => S.zone >= CHAMPION.minZone },
+  // (it. 3318) 21e : le familier qui accompagne le héros gagne son expérience bien plus vite (PET_FEST) ; seulement avec un familier
+  // qui peut encore monter ; à la FIN (tirage dans l'ordre)
+  petfest: { name: "Fête des familiers", chance: 0.0015, duration: 30, text: "Ton familier gagne 10 fois plus d’expérience !", color: "#ffb0d8",
+    req: (S) => { const a = S.pets && S.pets.active, o = a && S.pets.owned && S.pets.owned[a]; return !!(o && o.lvl < PET_MAX_LVL); } },
 };
+/** (it. 3318) Fête des familiers : multiplicateur de l'expérience du familier. */
+export const PET_FEST = 10;
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */
 export const STARFALL_GAP = 1.5;
 /** (it. 954) Ruée des gobelins : part des monstres simples à venir changés en gobelins dorés. */

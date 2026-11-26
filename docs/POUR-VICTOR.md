@@ -11,7 +11,7 @@ détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 - Confort : bulles du mode mini pour les élites, boss, champions et Poupouce ; le résumé d'absence annonce la bénédiction du nouveau jour.
 - Équilibre : le Mage, le plus faible, a 0,95 de PV au lieu de 0,85 (62,6 → 64,0 sur 7 graines).
 - Traductions : noms qui se confondaient corrigés (de, pl, ko, zh) ; nouvel outil scripts/i18n-collisions.mjs dans npm test.
-- Steam (si déjà saisi) : page du magasin à 20 événements, 20 quêtes, 12 élites ; succès RELENTLESS_25 et icônes de Poupouce refaites.
+- Steam (si déjà saisi) : page du magasin à 21 événements, 20 quêtes, 12 élites ; succès RELENTLESS_25 et EVENTS_100 et icônes de Poupouce refaites.
 
 ## Version 0.1.9 (envoyée le 24/11 vers 19 h, it. 3245, devlog publié) : contenu ci-dessous
 
@@ -454,7 +454,7 @@ Détail : `docs/MONSTRES-VIVANTS.md`. Vidéo envoyée le 17/11 vers 4 h 30 (zone
   fais le reste (notes de version, constructions, butler).
 - **Bande-annonce et nouvelle musique** : FAIT (it. 1684, à ta demande) : 30 vidéos (10 langues × complète 70 s, 30 s,
   verticale) refilmées et montées sur « Le Rebord », son discret (≈ −46 LUFS) ; dans steam/promo/videos et sur le partage.
-- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 20 événements rares (Faveur royale, it. 3180),
+- **Page du magasin** : recopier `steam/store-page.md` (10 langues). Elle cite maintenant 21 événements rares (Fête des familiers, it. 3318),
   11 sortes d'élites (le Colossal, it. 1617) et 19 sortes de quêtes (it. 1375, 1382, 1406, 1452 et 1617).
 - **Succès** : déclarer `CHAMPIONS_25` « Fléau des champions » (it. 1266) et `EXPLOSIVE_25` « Démineur (25 explosifs) »
   (it. 1395), `CHESTS_50` « Pilleur de coffres (50 coffres) » (it. 1430), `POUPOUCE` « Poupouce ?! » (it. 1576), `COLOSSAL_25` « Tombeur de colosses (25 colossaux) » (it. 1622), chacun avec ses deux icônes (`steam/achievement-icons/`) ; renommer `BLESSINGS_ALL` en « Toutes les bénédictions du jour » (était « Dix jours bénis », it. 1293).

@@ -2419,4 +2419,7 @@ export default {
   3544: "Pájaro carpintero",
   3545: "Golpea sin descanso: cada golpe seguido duele un poco más.",
   3546: "Nueva mascota, el Pájaro carpintero: cada golpe seguido duele un poco más.",
+  3547: "Fiesta de las mascotas",
+  3548: "¡Tu mascota gana 10 veces más experiencia!",
+  3549: "¡Es tu fiesta, pequeño compañero!",
 };

@@ -2419,4 +2419,7 @@ export default {
   3544: "Specht",
   3545: "Er hämmert ohne Pause: Jeder Treffer in Folge tut etwas mehr weh.",
   3546: "Neues Haustier, der Specht: Jeder Treffer in Folge tut etwas mehr weh.",
+  3547: "Haustierfest",
+  3548: "Dein Haustier erhält 10-mal mehr Erfahrung!",
+  3549: "Heute ist dein Fest, kleiner Freund!",
 };
