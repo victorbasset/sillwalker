@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3340) Capture du Maléfique sur la bande (zone 50, file imposée : R.lineup + R.lineupZone + S.slotKey = null) en fr et pl :
+  étiquettes « Maléfique » / « Złowrogi » violettes au-dessus des élites ; chevauchement seulement parce que la file n'a que des élites (jamais
+  en jeu). Mise en scène réutilisable : 20 élites d'une sorte, puis S.kills = 0.
 - 2026-11-26 (it. 3339) « Quoi de neuf » : édition 197 (Maléfique), 10 langues. Rendu de l'élite générique (étiquette : nom et couleur de
   ELITE_AFFIXES ; malédiction : l'effet « curse » des boss) ; une mise en scène qui impose des élites à la file est réécrite par le jeu (nouvelle
   série tirée) : à refaire avec R.lineupZone et slotKey (CLAUDE.md, it. 1905) si une capture est utile.
