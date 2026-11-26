@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3314) lang-overflow all après la Guêpe et le total des événements vécus : 150 mesures, aucun défaut ; i18n-names : 30 écarts,
+  comme avant la Guêpe (faux positifs connus) ; firstStrike de la Guêpe appliqué à tous les héros (game.js, premier coup).
 - 2026-11-26 (it. 3312) « Quoi de neuf » : édition 193 (Guêpe, total des événements vécus), 10 langues. Sortie 0.1.11 : couverture à cinq
   étiquettes (« New pet: Wasp » en tête, vérifiée entière), accroches et titre du devlog avec la Guêpe. npm test 407, autotest 349/349.
 - 2026-11-26 (it. 3311) Contenu : 25e familier, la Guêpe (premier coup de chaque combat, +6 % par niveau, +60 % au niveau 10 ; aucun familier
