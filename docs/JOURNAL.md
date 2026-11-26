@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3310) hud-probe, partie d'une semaine en polonais à 1280 px (élite Acharné et son étiquette « +N % ») : HPROBE 0 / 242 et 0 / 230.
 - 2026-11-26 (it. 3309) Essai à blanc de la sortie (itch-push.sh --dry-run) : trois constructions, Mac signée, AppImage essayée 30 s
   (2 monstres vaincus) : chaîne prête pour la 0.1.11 de ce soir.
 - 2026-11-26 (it. 3308) mem-watch 10 min avant la 0.1.11 : réel 632-634 Mo de 420 à 570 s, plat (mode haut de la mesure bimodale ≈ 625,
