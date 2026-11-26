@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3335) quest-pace 12 h × 3 graines : 12 sortes tirées (kill 11 min … zone 114 min), comme l'it. 2892 ; ni « expédition » ni
+  « expérience du familier » : le joueur de quest-pace n'achète aucun déblocage et ne fait jamais éclore d'œuf (aucun familier emmené). La
+  nouvelle quête est couverte par son test (it. 3333).
 - 2026-11-26 (it. 3334) « Quoi de neuf » : édition 196 (quête de l'expérience du familier), 10 langues.
 - 2026-11-26 (it. 3333) Contenu : 21e sorte de quête, « Faire gagner N points d'expérience à ton familier » (60 à 120 ; un œuf une fois sur
   quatre ; seulement avec un familier qui peut encore monter ; avance aussi hors ligne et ×10 pendant la Fête des familiers). 10 langues, page
