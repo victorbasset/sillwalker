@@ -2410,4 +2410,5 @@ export default {
   3535: "{n} Tag|{n} Tage",
   3536: "Bestiarium: Jedes erlebte seltene Ereignis zeigt, wie oft, und jeder Segen des Tages, an wie vielen Tagen du ihn hattest.",
   3537: "Zeuge der Wunder (100 seltene Ereignisse)",
+  3538: "Neuer Erfolg: „Zeuge der Wunder (100 seltene Ereignisse)“, ein Ziel für lange Partien.",
 };

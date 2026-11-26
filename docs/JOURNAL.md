@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3302) « Quoi de neuf » : édition 192 (succès des 100 événements), 10 langues ; couverture 0.1.11 avec une 4e étiquette, devlog
+  complété. npm test 406, autotest 349/349.
 - 2026-11-26 (it. 3301) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : rôdeur 64, paladin 64, gardien des étoiles 69. Perf : bande 19,8 %, panneau
   19,1 %, mini 5,5 %, icône 0,5 %. Captures du Bestiaire > Événements rares à 1280 px en fr, en, ko (« 1 / 20 », compte « ×1 ») : propres. Texte
   allemand (25 610 lignes) : aucun mot français. Rien pour « Idées ».

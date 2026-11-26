@@ -19,5 +19,5 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 **Titre :** Sillwalker 0.1.11 : un Jour de la forge et un Bestiaire qui se souvient
 
-Nouveautés retenues pour RELEASE_0111 (éditions, indice) : 190·0 Jour de la forge, 191·0 comptes des événements et des bénédictions.
+Nouveautés retenues pour RELEASE_0111 (éditions, indice) : 190·0 Jour de la forge, 191·0 comptes des événements et des bénédictions, 192·0 succès des 100 événements.
 Plus les éditions parues d'ici 18 h 30.
