@@ -2416,4 +2416,6 @@ export default {
   3541: "Sempre a primeira a picar: seu primeiro golpe de cada combate acerta mais forte.",
   3542: "Novo mascote, a Vespa: seu primeiro golpe de cada combate acerta mais forte.",
   3543: "Bestiário: o título dos eventos raros mostra o total vivido, para acompanhar a conquista dos 100.",
+  3544: "Pica-pau",
+  3545: "Bica sem parar: cada golpe seguido dói um pouco mais.",
 };

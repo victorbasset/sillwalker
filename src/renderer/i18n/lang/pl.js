@@ -2416,4 +2416,6 @@ export default {
   3541: "Zawsze żądli pierwsza: twój pierwszy cios w każdej walce uderza mocniej.",
   3542: "Nowy chowaniec, Osa: twój pierwszy cios w każdej walce uderza mocniej.",
   3543: "Bestiariusz: tytuł rzadkich wydarzeń pokazuje, ile przeżyłeś łącznie, by śledzić osiągnięcie 100.",
+  3544: "Dzięcioł",
+  3545: "Stuka bez przerwy: każdy kolejny cios z rzędu boli trochę bardziej.",
 };

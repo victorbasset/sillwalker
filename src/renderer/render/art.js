@@ -341,6 +341,10 @@ export const PET_ART = {
   wasp: { pal: { Y: "#f2c230", K: "#1a1a1a", W: "#d8eef8" }, fly: true, frames: [
     ["...WW.WW.", "...WW.WW.", "....K....", ".KYKYKK..", "KYKYKYKK.", ".KYKYK...", "..K......"],
     [".........", "....K....", "..WWKWW..", ".KYKYKK..", "KYKYKYKK.", ".KYKYK...", "..K......"]] },
+  // (it. 3315) Pivert : dos vert, calotte rouge, bec pointu, ventre clair (deuxième image : tête en avant, il frappe)
+  woodpecker: { pal: { G: "#5c9a3a", R: "#d23a2a", Y: "#e8d890", K: "#1a1a1a", B: "#6a5030" }, fly: true, frames: [
+    [".........", "...RR....", "..GGKG...", "..GGGBB..", ".GGGYY...", "GGGYYY...", "..B.B...."],
+    [".........", "....RR...", "...GGKG..", "...GGGBBB", ".GGGYY...", "GGGYYY...", "..B.B...."]] },
   // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
   hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
     [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],

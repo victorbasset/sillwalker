@@ -44,6 +44,8 @@ export const PETS = [
   { id: "shrike", name: "Pie-grièche", desc: "Petit oiseau chasseur au masque noir : il t’apprend à achever les blessés.", eff: { execute: 3 } },
   // (it. 3311) Guêpe : dégâts du premier coup de chaque combat (+6 % par niveau, +60 % au niveau 10 ; aucun familier ne les donnait)
   { id: "wasp", name: "Guêpe", desc: "Toujours la première à piquer : ton premier coup de chaque combat frappe plus fort.", eff: { firstStrike: 0.06 } },
+  // (it. 3315) Pivert : dégâts par coup d'affilée (+0,15 % par niveau, +1,5 % par coup au niveau 10, jusqu'à +15 % ; aucun familier ne le donnait)
+  { id: "woodpecker", name: "Pivert", desc: "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal.", eff: { combo: 0.15 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

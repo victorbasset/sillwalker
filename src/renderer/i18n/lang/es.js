@@ -2416,4 +2416,6 @@ export default {
   3541: "Siempre la primera en picar: tu primer golpe de cada combate pega más fuerte.",
   3542: "Nueva mascota, la Avispa: tu primer golpe de cada combate pega más fuerte.",
   3543: "Bestiario: el título de los eventos raros muestra el total vivido, para seguir el logro de los 100.",
+  3544: "Pájaro carpintero",
+  3545: "Golpea sin descanso: cada golpe seguido duele un poco más.",
 };

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3315) Contenu : 26e familier, le Pivert (coups d'affilée, +0,15 % par niveau, +1,5 % par coup au niveau 10, jusqu'à +15 % ;
+  aucun familier ne donnait combo). Dessin vert à calotte rouge qui vole et frappe (art.js). Test ; README à 26. Capture Familiers et bande en
+  espagnol à 1280 px ; npm test 408, autotest 349/349, lang-overflow de, ru, pl, es 1280 : aucun défaut ; i18n-collisions : 0.
 - 2026-11-26 (it. 3314) lang-overflow all après la Guêpe et le total des événements vécus : 150 mesures, aucun défaut ; i18n-names : 30 écarts,
   comme avant la Guêpe (faux positifs connus) ; firstStrike de la Guêpe appliqué à tous les héros (game.js, premier coup).
 - 2026-11-26 (it. 3312) « Quoi de neuf » : édition 193 (Guêpe, total des événements vécus), 10 langues. Sortie 0.1.11 : couverture à cinq
