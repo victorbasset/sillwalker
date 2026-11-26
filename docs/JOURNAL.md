@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3321) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : guerrier 66, mage 64, nécromancien 64. Perf : bande 20,5 %, panneau 19,3 %,
+  mini 5,5 %, icône 0,5 %. Bannière et pastille de la Fête des familiers sur la bande à 1280 px en de et ko : propres. Rien pour « Idées ».
 - 2026-11-26 (it. 3320) Fête des familiers : bilan de fin comme les autres événements (« +N points d'expérience de familier », R.petXpGot dans
   eventSnap), 10 langues, test. npm test 409, autotest 349/349, save-fuzz : ok.
 - 2026-11-26 (it. 3319) « Quoi de neuf » : édition 195 (Fête des familiers), 10 langues. Sortie 0.1.11 : couverture à 4 étiquettes (familiers,
