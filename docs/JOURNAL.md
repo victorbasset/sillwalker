@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-26 (it. 3326) --crawl, fin de partie en polonais (Guêpe et Pivert possédés) : 738 clics en 25 s, aucune erreur. Notes de version 0.1.11
+  préparées (7 nouveautés, clés des éditions 190-195 déjà traduites) pour 18 h 30.
 - 2026-11-26 (it. 3324) lang-overflow all, tous états (heure, 6 h, semaine, fin × 130 %…), après la Fête des familiers : 150 mesures, aucun défaut.
 - 2026-11-26 (it. 3323) hero-table HEROES=all, 12 h, graines 7/3/11, après Guêpe, Pivert et Fête des familiers : moyenne 65,1 (64,8 à l'it. 3099),
   écart 6,3 (berserker 68,7 avec une graine à 75 : même cas que l'it. 3275, bruit ; guerrier 68,0). Rien à régler. Mode mini pendant
