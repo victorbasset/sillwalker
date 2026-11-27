@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3353) lang-overflow all, tous états, après Maléfique, Jour des voyages, Mante et quête du familier : 150 mesures, aucun défaut.
 - 2026-11-27 (it. 3352) hero-table HEROES=all, 12 h, graines 7/3/11, après Maléfique et Mante : moyenne 64,7 (65,1 à l'it. 3323), écart 5,0
   (guerrier 68,3 en tête) : dans le bruit (±1,5). Rien à régler.
 - 2026-11-27 (it. 3351) « Quoi de neuf » : édition 199 (Mante), 10 langues. Sortie 0.1.12 : couverture à 4 étiquettes (vérifiée), accroches
