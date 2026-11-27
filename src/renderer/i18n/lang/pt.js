@@ -2445,4 +2445,6 @@ export default {
   3570: "As estrelas batem o ferro por mim!",
   3571: "{n} item já forjado|{n} itens já forjados",
   3572: "Novo evento raro, a “Forja celeste”: por 30 segundos, cada item encontrado já chega forjado (+2).",
+  3573: "Polvo",
+  3574: "Oito braços valem mais que dois: seus golpes às vezes acertam duas vezes.",
 };

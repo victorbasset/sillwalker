@@ -78,7 +78,7 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   jamais de quête impossible (forge, transmutation, expéditions ou élites seulement quand c'est faisable)
   (or, coffres, élixirs, potions, œufs, éclats d'étoile).
   Une quête à coffre réclamée (clic, « Tout réclamer », touche R) ouvre son coffre sous les yeux.
-- **Familiers** : 27 compagnons (dont le lapin et le phénix, rares ; la Belette donne esquive et riposte, le Colibri des coups au clic plus forts, la Pie-grièche achève les blessés, la Guêpe renforce le premier coup, le Pivert les coups d’affilée, la Mante la vitesse d’attaque) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
+- **Familiers** : 28 compagnons (dont le lapin et le phénix, rares ; la Belette donne esquive et riposte, le Colibri des coups au clic plus forts, la Pie-grièche achève les blessés, la Guêpe renforce le premier coup, le Pivert les coups d’affilée, la Mante la vitesse d’attaque, la Pieuvre la frappe double) qui suivent le héros (ceux à découvrir montrent déjà leur bonus), sortent d'œufs (boss, élites, quêtes)
   et montent jusqu'au niveau 10. Les autres partent en **expédition** (30 min, 2 h, 8 h, même jeu fermé) et rapportent
   or, expérience, œufs et objets.
 - **Pouvoirs légendaires** : chaque objet légendaire reçoit l'un des 29 pouvoirs uniques (dont l'Appât des champions, qui attire les élites).

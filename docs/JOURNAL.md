@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3366) Contenu : 28e familier, la Pieuvre (frappe double, +0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne la
+  donnait). Dessin violet aux tentacules qui ondulent (art.js) ; capture bande en polonais. Test ; README à 28 ; i18n-collisions 0 ;
+  npm test 415, autotest 349/349, lang-overflow de, ru, pl, es 1280 : aucun défaut.
 - 2026-11-27 (it. 3362) « Quoi de neuf » : édition 201 (Forge céleste), 10 langues. Sortie 0.1.12 : couverture (Maléfique, Mante, Forge céleste,
   Jour des voyages ; vérifiée), titre « a Hexing elite, a Sky Forge and a Mantis », accroches avec l'événement.
 - 2026-11-27 (it. 3361) Contenu : 22e événement rare, la Forge céleste (pendant 30 s, chaque objet trouvé au combat arrive forgé +2,

@@ -2445,4 +2445,6 @@ export default {
   3570: "Gwiazdy kują dla mnie żelazo!",
   3571: "{n} przedmiot już wykuty|{n} przedmioty już wykute|{n} przedmiotów już wykutych",
   3572: "Nowe rzadkie wydarzenie, „Niebiańska kuźnia”: przez 30 sekund każdy znaleziony przedmiot jest już wykuty (+2).",
+  3573: "Ośmiornica",
+  3574: "Osiem ramion to więcej niż dwa: twoje ciosy czasem uderzają dwa razy.",
 };

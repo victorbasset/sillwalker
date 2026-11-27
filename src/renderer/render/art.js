@@ -349,6 +349,10 @@ export const PET_ART = {
   mantis: { pal: { G: "#7cc84a", D: "#4e8a2a", K: "#1a1a1a" }, frames: [
     [".........", "..GK.....", "..GGG....", ".D.GG....", "D..GGG...", "....GGGG.", "...D..D.."],
     [".........", "..GK.....", "..GGG....", "..DGG....", "..DGGG...", "....GGGG.", "...D..D.."]] },
+  // (it. 3366) Pieuvre : tête ronde violette, grands yeux, tentacules qui ondulent (deux images)
+  octopus: { pal: { P: "#a05ad0", L: "#c88af0", K: "#1a1a1a", W: "#f2f2ee" }, frames: [
+    [".........", "...PPP...", "..PLLLP..", "..PWKWP..", "..PPPPP..", ".P.P.P.P.", "P.P...P.P"],
+    [".........", "...PPP...", "..PLLLP..", "..PWKWP..", "..PPPPP..", "..PP.PP..", ".P.P.P.P."]] },
   // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
   hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
     [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],

@@ -49,6 +49,8 @@ export const PETS = [
   { id: "woodpecker", name: "Pivert", desc: "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal.", eff: { combo: 0.2 } },
   // (it. 3350) Mante : vitesse d'attaque (+0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne la donnait)
   { id: "mantis", name: "Mante", desc: "Patiente puis foudroyante : elle t’apprend à frapper plus vite.", eff: { spd: 0.5 } },
+  // (it. 3366) Pieuvre : chances de frappe double (+0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne les donnait)
+  { id: "octopus", name: "Pieuvre", desc: "Huit bras valent mieux que deux : tes coups frappent parfois deux fois.", eff: { doubleShot: 0.5 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

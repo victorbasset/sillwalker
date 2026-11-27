@@ -833,6 +833,12 @@ test("quête « Attraper N étoiles filantes » : seulement après une première
   assert.equal(g.questEta(q2), 600 + 65 * 60, "temps estimé : prochaine étoile, puis 65 min en moyenne");
 });
 
+test("Pieuvre : +0,5 % de chances de frappe double par niveau (it. 3366)", () => {
+  const g = new Game(freshState()); g.invalidateStats(); const d0 = g.stats().doubleShot || 0;
+  g.S.pets.owned.octopus = { lvl: 10, xp: 0 }; g.S.pets.active = "octopus"; g.invalidateStats();
+  assert.ok(Math.abs((g.stats().doubleShot || 0) - d0 - 5) < 1e-9, "frappe double " + g.stats().doubleShot);
+});
+
 test("Mante : +0,5 % de vitesse d'attaque par niveau (it. 3350)", () => {
   const g = new Game(freshState()); g.invalidateStats(); const v0 = g.stats().spd || 0;
   g.S.pets.owned.mantis = { lvl: 10, xp: 0 }; g.S.pets.active = "mantis"; g.invalidateStats();

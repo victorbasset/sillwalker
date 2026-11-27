@@ -2445,4 +2445,6 @@ export default {
   3570: "The stars are hammering the iron for me!",
   3571: "{n} item already forged|{n} items already forged",
   3572: "New rare event, “Sky Forge”: for 30 seconds, every item found arrives already forged (+2).",
+  3573: "Octopus",
+  3574: "Eight arms beat two: your hits sometimes strike twice.",
 };
