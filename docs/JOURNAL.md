@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3371) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : assassin 65, druide 62, barde 62. Perf : bande 19,8 %, panneau 19,5 %,
+  mini 5,6 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-27 (it. 3370) lang-overflow all, tous états, après la liste des succès à 7 colonnes : 150 mesures, aucun défaut.
 - 2026-11-27 (it. 3369) lang-overflow all, tous états : « ru heure 1280 : succès=13 » (75 succès, 13 rangées de 6). Colonnes de la liste des
   succès à 164 px sous 1334 px de panneau (7 colonnes, 11 rangées) ; lang-overflow all 1280 : aucun défaut ; capture ru lisible ; autotest 349/349.
