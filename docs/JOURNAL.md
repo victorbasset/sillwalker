@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3347) « Quoi de neuf » : édition 198 (Jour des voyages), 10 langues. Sortie 0.1.12 : couverture à 3 étiquettes (vérifiée),
+  accroches et devlog complétés.
 - 2026-11-27 (it. 3346) Contenu : 21e bénédiction du jour, le Jour des voyages (🧭, expéditions des familiers deux fois plus courtes ;
   expeditionMin dans pets.js, utilisé au départ, dans le journal et sur les boutons de l'onglet). Sel « # » par défaut : aucun jour du 08/11
   au 28/11 changé, premier le 02/12/2026. Note avant le Chenil des explorateurs, réplique du héros, 10 langues, README. Test ; npm test 412,

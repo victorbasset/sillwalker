@@ -2434,4 +2434,5 @@ export default {
   3559: "Expeditions take half as long.",
   3560: "Expeditions are bought in the Shop: the Explorers' Kennel.",
   3561: "Fair winds, little explorers: the roads are short today!",
+  3562: "New daily blessing, “Travel Day”: your pets’ expeditions take half as long that day.",
 };

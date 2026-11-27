@@ -19,5 +19,5 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 **Titre :** Sillwalker 0.1.12 : une élite Maléfique et une quête pour ton familier
 
-Nouveautés retenues pour RELEASE_0112 (éditions, indice) : 196·0 quête de l'expérience du familier, 197·0 Maléfique.
+Nouveautés retenues pour RELEASE_0112 (éditions, indice) : 196·0 quête de l’expérience du familier, 197·0 Maléfique, 198·0 Jour des voyages.
 Plus les éditions parues d'ici 18 h.

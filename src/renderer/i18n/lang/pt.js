@@ -2434,4 +2434,5 @@ export default {
   3559: "Expedições duas vezes mais curtas.",
   3560: "As expedições são compradas na Loja: o Canil dos exploradores.",
   3561: "Bons ventos, pequenos exploradores: hoje os caminhos são curtos!",
+  3562: "Nova bênção do dia, o “Dia das viagens”: nesse dia, as expedições dos seus mascotes duram metade do tempo.",
 };

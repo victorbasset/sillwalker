@@ -2434,4 +2434,5 @@ export default {
   3559: "Expeditionen dauern nur halb so lang.",
   3560: "Expeditionen kaufst du im Laden: den Zwinger der Entdecker.",
   3561: "Gute Reise, kleine Entdecker: Heute sind die Wege kurz!",
+  3562: "Neuer Segen des Tages, der „Tag der Reisen“: An diesem Tag dauern die Expeditionen deiner Haustiere nur halb so lang.",
 };

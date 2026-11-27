@@ -3563,5 +3563,6 @@ export const KEYS = [
   "Jour des voyages",
   "Expéditions deux fois plus courtes.",
   "Les expéditions s’achètent dans la boutique : le Chenil des explorateurs.",
-  "Bon vent, petits explorateurs : les routes sont courtes aujourd’hui !"
+  "Bon vent, petits explorateurs : les routes sont courtes aujourd’hui !",
+  "Nouvelle bénédiction du jour, le « Jour des voyages » : les expéditions de tes familiers durent deux fois moins longtemps ce jour-là."
 ];
