@@ -57,8 +57,8 @@ Trois affichages (bouton sur la bande / l'encart, panneau, ou menu de l'icône d
   l'Ascension) : scène de rencontre sur la bande quand l'onglet s'ouvre (`juice.js`, `npcPlace`), puis le PNJ dans
   l'onglet avec ses répliques (une autre au clic).
 - **Talents** : un arbre par classe, 3 branches × 4 paliers (0 / 5 / 10 / 20 points), talent ultime ★ au bout, une Voie au choix et des Maîtrises sans limite (aucun point perdu), avec des paliers aux rangs 10, 25, 50, 100, 200, 400 (deux bonus au choix à chaque palier, `MASTERY_ALT` ; « Choisir les bonus des paliers » dans la grande fenêtre) puis à chaque doublement. 1 point par niveau ; un clic monte un talent au maximum (« +1 » : un seul rang).
-- **Déblocages** (boutique, permanents, tous visibles dans une rangée latérale) : 26 automatismes et fonctionnalités à acheter, chacun demandant une zone record
-  (étalées de la zone 8 à la zone 300) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier,
+- **Déblocages** (boutique, permanents, tous visibles dans une rangée latérale) : 27 automatismes et fonctionnalités à acheter, chacun demandant une zone record
+  (étalées de la zone 8 à la zone 300) et de l’or : boutons groupés, carte du voyageur, potions et vente automatiques, Ménagerie (familiers), Enclume (forge), Atelier, contremaître (l’Atelier tout seul, it. 3376),
   quêtes et expéditions, transmutation, dépense des points à chaque niveau, valet d’armes, maître de forge
   (forge l’équipement porté avec l’or en trop), filet à étoiles (attrape les étoiles filantes manquées),
   Enclume stellaire (zone 140 : remettre un objet au niveau du record, très cher), astrolabe (ascension automatique quand

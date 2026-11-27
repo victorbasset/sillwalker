@@ -1038,6 +1038,22 @@ export class Game {
     return n;
   }
 
+  /** (it. 3376) Contremaître (déblocage, actif sauf refus) : l'amélioration d'atelier la moins chère, tant qu'elle coûte moins
+   *  d'un dixième de l'or ; au plus 3 niveaux par minute de jeu (même prudence que le Grimoire des sorts, it. 486). */
+  autoWorkshop({ force = false } = {}) {
+    const S = this.S;
+    if (!hasUnlock(S, "foreman") || !hasUnlock(S, "workshop") || S.settings.autoWorkshop === false) return 0;
+    if (!force && this.R.time - (this.R.foremanT ?? -1e9) < 60) return 0;
+    this.R.foremanT = this.R.time;
+    let n = 0;
+    for (; n < 3; n++) {
+      const W = S.workshop || {};
+      const ws = WORKSHOP.filter((w) => !(w.max && (W[w.id] || 0) >= w.max)).sort((a, b) => workshopPrice(a, S) - workshopPrice(b, S))[0];
+      if (!ws || workshopPrice(ws, S) > S.gold * 0.1 || !this.buyWorkshop(ws.id, 1, { quiet: true })) break;
+    }
+    return n;
+  }
+
   /** « max » : autant de rangs que l'or le permet, une seule ligne au journal. Renvoie le nombre de rangs achetés. */
   learnSpellMax(id) {
     let n = 0;
@@ -1330,6 +1346,7 @@ export class Game {
     this.autoBuyPotions();
     this.autoBuffs();
     this.autoSpells();
+    this.autoWorkshop(); // (it. 3376) Contremaître
     this.autoForge();
     this.autoAnvil();
     this.autoTrade();
@@ -1590,6 +1607,10 @@ export class Game {
       if (n < 3) break;
     }
     if (spells) this.log(txn(spells, "Grimoire des sorts : {n} rang appris pendant ton absence.|Grimoire des sorts : {n} rangs appris pendant ton absence."));
+    // (it. 3376) Contremaître : même rythme que le Grimoire (3 niveaux par minute d'absence au plus)
+    let wsN = 0;
+    for (const max = Math.min(300, 3 * Math.floor(sec / 60)); wsN < max;) { const n = this.autoWorkshop({ force: true }); wsN += n; if (n < 3) break; }
+    if (wsN) this.log(txn(wsN, "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence."));
     const traded = this.offlineTrade(sec);
     if (traded) this.log(txn(traded, "Marchand attitré : {n} objet acheté pendant ton absence.|Marchand attitré : {n} objets achetés pendant ton absence."));
     let forged = 0;
@@ -2274,14 +2295,14 @@ export class Game {
   }
 
   /** Atelier : un niveau de plus (illimité, sauf le cartographe). */
-  buyWorkshop(id, n = 1) {
+  buyWorkshop(id, n = 1, { quiet = false } = {}) { // quiet (it. 3376) : Contremaître, sans ligne de journal
     if (!hasUnlock(this.S, "workshop")) return 0;
     const w = WORKSHOP.find((x) => x.id === id), S = this.S, W = (S.workshop ||= {});
     let done = 0;
     while (w && done < n && !(w.max && (W[id] || 0) >= w.max) && this.pay(workshopPrice(w, S))) { W[id] = (W[id] || 0) + 1; done++; }
     if (!done) return 0;
     this.invalidateStats();
-    this.log(`${tx("Atelier : {0} niveau {1}.", { 0: w.name, 1: W[id] })}`);
+    if (!quiet) this.log(`${tx("Atelier : {0} niveau {1}.", { 0: w.name, 1: W[id] })}`);
     this.changed();
     return done;
   }

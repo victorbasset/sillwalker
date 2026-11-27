@@ -151,7 +151,7 @@ export class ShopTab {
             confirmation que dans le sac), sans aller-retour par l'Aventure */ ""}${((n) => full && n && hasUnlock(S, "bulkEquip") ? `<div class="row msell"><span class="note">${tx("Sac plein")}</span><button data-action="sellless" class="primary" title="${esc(tx("Vend tout ce qui n’est pas plus puissant que ton équipement actuel, légendaires et pièces de panoplie compris."))}">${tx("Vendre les inutiles ({0})", { 0: n })}</button></div>` : "")(full ? g.nonUpgradeItems().length : 0)}<div class="mgrid">${merchant}</div></article>
         <article class="panel"><h2 title="${esc(tx("10 min de jeu, cumulable jusqu’à 2 h"))}">${tx("Potions et élixirs")}</h2><div class="cgrid potions">${consumables}</div></article>
         <article class="panel"><h2 title="${esc(tx("niveau {0}", { 0: S.best }))}">${tx("Coffres")}</h2><div class="cgrid chests">${chests}</div></article>
-        <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small></h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
+        <article class="panel wsec"><h2>${tx("Atelier")} <small>${tx("permanent, gardé à l’ascension")}</small>${hasUnlock(S, "workshop") ? (hasUnlock(S, "foreman") ? ` <label class="toggle" title="${esc(tx("Contremaître : acheter tout seul l’amélioration la moins chère"))}"><input type="checkbox" data-action="s-autows"${S.settings.autoWorkshop !== false ? " checked" : ""}> ${tx("Contremaître")}</label>` : " " + lockLinkS(S, "foreman")) : ""}</h2>${hasUnlock(S, "workshop") ? workshop : `<p class="note">${tx("Améliorations permanentes de la boutique (attaque, PV, or, expérience, vitesse).")}</p><div class="row">${lockLinkS(S, "workshop")}</div>`}</article>
       </div></div>`;
   }
 
@@ -164,6 +164,7 @@ export class ShopTab {
     else if (a === "s-egg") g.buyEgg();
     else if (a === "s-ws") g.buyWorkshop(id);
     else if (a === "s-wsmax") g.buyWorkshop(id, 999);
+    else if (a === "s-autows") { g.S.settings.autoWorkshop = b.checked; if (b.checked) g.autoWorkshop({ force: true }); g.changed(); } // (it. 3376) Contremaître
     else if (a === "s-up") g.buyUpgrade(id);
     else if (a === "s-upmax") { let n = 0; while (n < 99 && g.buyUpgrade(id)) n++; }
     else if (a === "s-reroll") g.rerollShop();

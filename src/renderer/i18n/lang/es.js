@@ -2448,4 +2448,8 @@ export default {
   3573: "Pulpo",
   3574: "Ocho brazos valen más que dos: tus golpes a veces pegan dos veces.",
   3575: "Nueva mascota, el Pulpo: tus golpes a veces pegan dos veces (hasta un 5 % de probabilidad en el nivel 10).",
+  3576: "Capataz",
+  3577: "Compra solo la mejora del Taller más barata, mientras cueste menos de una décima parte de tu oro (opción).",
+  3578: "Capataz: comprar solo la mejora más barata",
+  3579: "Capataz: {n} mejora del Taller durante tu ausencia.|Capataz: {n} mejoras del Taller durante tu ausencia.",
 };

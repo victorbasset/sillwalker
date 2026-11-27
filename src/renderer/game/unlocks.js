@@ -22,6 +22,8 @@ export const UNLOCKS = [
   { id: "spellBook",   price: 3e7, zone: 45,   icon: "grimoire", name: "Grimoire des sorts",       desc: "Améliore tout seul le sort le moins cher de ton héros ou de son compagnon, tant qu’il coûte moins d’un dixième de ton or (option)." },
   { id: "expeditions", price: 8.7e7, zone: 50,   icon: "kennel",   name: "Chenil des explorateurs",  desc: "Tes familiers libres partent en expédition (même jeu fermé)." },
   { id: "petBulk",     price: 9.4e8, zone: 60,  icon: "egg",      name: "Nid douillet",             desc: "Fait éclore tous les œufs et gère toutes les expéditions en un clic." },
+  // (it. 3376) l'Atelier tout seul : l'amélioration la moins chère tant qu'elle coûte moins d'un dixième de l'or (règle du joueur simulé)
+  { id: "foreman",     price: 4e9, zone: 65,  icon: "clock",    name: "Contremaître", desc: "Achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or (option)." },
   { id: "transmute",   price: 1.6e10, zone: 72,  icon: "cauldron", name: "Creuset du transmutateur", desc: "Transforme 3 objets inutiles en 1 objet de la rareté au-dessus." },
   { id: "autoLevel",   price: 3.4e11, zone: 85,  icon: "keys",     name: "Grimoire de l’éveil",      desc: "À chaque niveau, les points se dépensent tout seuls (option)." },
   { id: "armsValet",   price: 1.1e13, zone: 100, icon: "ws_atk",   name: "Valet d’armes",            desc: "Équipe tout seul un objet plus puissant dès qu’il tombe (option)." },

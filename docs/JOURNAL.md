@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3376) Contenu : 27e déblocage, le Contremaître (zone 65, 4e9 or) : achète tout seul l'amélioration d'atelier la moins chère tant
+  qu'elle coûte moins d'un dixième de l'or (règle du joueur simulé), 3 niveaux par minute au plus, aussi pendant l'absence (une ligne au journal),
+  option settings.autoWorkshop (interrupteur dans l'Atelier). Exclu du freshState des tests (dépense de l'or), test dédié. 10 langues, page Steam
+  à 27 automatismes (10 langues), README, checklist, CLAUDE.md. npm test 416, autotest 349/349, crawl de : 0 erreur, lang-overflow all 1280/1920 : aucun défaut.
 - 2026-11-27 (it. 3374) SORTIE 0.1.12 publiée : itch-push.sh (AppImage essayée, 2 monstres en 30 s), canaux windows, linux et mac en 0.1.12
   (butler status), fichiers et SHA256-0.1.12.txt dans Médias/dist-itch, devlog 1812000 publié (couverture envoyée).
 - 2026-11-27 (it. 3372) SORTIE 0.1.12 (préparation) : package.json 0.1.12, RELEASE_0112 (7 nouveautés : Maléfique, Mante, Pieuvre, Forge

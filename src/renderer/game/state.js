@@ -270,6 +270,7 @@ export function migrate(raw) {
   // (it. 608) niveaux des reliques : entiers de 1 à 5, ids connus seulement
   s.relicLv = Object.fromEntries(Object.entries(isObj(s.relicLv) ? s.relicLv : {}).filter(([k, v]) => RELICS[k] && Number.isFinite(+v)).map(([k, v]) => [k, Math.min(5, Math.max(1, Math.floor(+v)))]));
   s.settings.autoStars = s.settings.autoStars !== false;
+  s.settings.autoWorkshop = s.settings.autoWorkshop !== false; // (it. 3376) Contremaître : actif une fois acheté, sauf refus
   s.settings.autoSpells = s.settings.autoSpells !== false; // Grimoire des sorts : actif une fois acheté, sauf refus // Carte du ciel : active une fois achetée, sauf refus
   // Volumes propres de la musique et de l'ambiance (0 à 200 % du réglage d'origine)
   // Volume général (0 à 100 %) : une valeur illisible affichait « NaN % » dans Réglages.

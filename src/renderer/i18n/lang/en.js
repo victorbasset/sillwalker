@@ -2448,4 +2448,8 @@ export default {
   3573: "Octopus",
   3574: "Eight arms beat two: your hits sometimes strike twice.",
   3575: "New pet, the Octopus: your hits sometimes strike twice (up to a 5% chance at level 10).",
+  3576: "Foreman",
+  3577: "Buys the cheapest Workshop upgrade on its own, as long as it costs less than a tenth of your gold (option).",
+  3578: "Foreman: buy the cheapest upgrade on its own",
+  3579: "Foreman: {n} Workshop upgrade while you were away.|Foreman: {n} Workshop upgrades while you were away.",
 };

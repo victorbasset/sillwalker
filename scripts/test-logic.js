@@ -57,7 +57,7 @@ import { MONSTERS as MONSTERS1904, ZONES as ZONES1904 } from "../src/renderer/ga
 import { freshState as freshLocked, migrate, SAVE_VERSION } from "../src/renderer/game/state.js";
 import { UNLOCKS, hasUnlock, nextUnlock } from "../src/renderer/game/unlocks.js";
 // Les tests des mécaniques partent avec tous les déblocages (ceux-ci ont leur propre test).
-const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => !["armsValet", "skyChart", "spellBook", "starSmith", "herbalist", "trader"].includes(u.id)).map((u) => [u.id, true])),
+const freshState = (...a) => Object.assign(freshLocked(...a), { unlocks: Object.fromEntries(UNLOCKS.filter((u) => !["armsValet", "skyChart", "spellBook", "starSmith", "herbalist", "trader", "foreman"].includes(u.id)).map((u) => [u.id, true])),
   tabsOpen: Object.fromEntries(Object.keys(TAB_GATES).map((id) => [id, true])) }); // tout débloqué, onglets compris
 import { reachedAchievements, ACHIEVEMENTS as ACH_T, ACH_PROGRESS } from "../src/renderer/game/achievements.js";
 import { setRandom, seeded } from "../src/renderer/game/util.js";
@@ -901,6 +901,17 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.R.pace = Array.from({ length: 11 }, (_, i) => [i * 6, 10]); // une victoire toutes les 6 s
   const eta = g.questEta(q); assert.ok(eta > 0 && eta < 55 * 6, "temps estimé (it. 3337) : " + eta);
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
+});
+
+test("Contremaître (it. 3376) : achète l'amélioration d'atelier la moins chère sous un dixième de l'or ; option ; absence", () => {
+  const g = new Game(freshState()); g.S.unlocks.foreman = true; g.S.workshop = {};
+  g.S.gold = 1; assert.equal(g.autoWorkshop({ force: true }), 0, "pas assez d'or : rien");
+  g.S.gold = 1e12; const n = g.autoWorkshop({ force: true });
+  assert.ok(n >= 1 && n <= 3, "1 à 3 niveaux : " + n);
+  assert.ok(Object.values(g.S.workshop).reduce((a, b) => a + b, 0) === n);
+  assert.equal(g.autoWorkshop(), 0, "au plus une fois par minute");
+  g.S.settings.autoWorkshop = false; assert.equal(g.autoWorkshop({ force: true }), 0, "option décochée");
+  const h = new Game(freshState()); h.S.workshop = {}; h.S.gold = 1e12; assert.equal(h.autoWorkshop({ force: true }), 0, "sans le déblocage : rien");
 });
 
 test("Forge céleste (it. 3361) : les objets trouvés au combat arrivent forgés +2 ; bilan", () => {

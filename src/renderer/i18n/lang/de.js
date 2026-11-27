@@ -2448,4 +2448,8 @@ export default {
   3573: "Krake",
   3574: "Acht Arme sind besser als zwei: Deine Treffer schlagen manchmal doppelt zu.",
   3575: "Neues Haustier, der Krake: Deine Treffer schlagen manchmal doppelt zu (bis zu 5 % Chance auf Stufe 10).",
+  3576: "Vorarbeiter",
+  3577: "Kauft von selbst die günstigste Werkstatt-Verbesserung, solange sie weniger als ein Zehntel deines Goldes kostet (Option).",
+  3578: "Vorarbeiter: die günstigste Verbesserung von selbst kaufen",
+  3579: "Vorarbeiter: {n} Werkstatt-Verbesserung während deiner Abwesenheit.|Vorarbeiter: {n} Werkstatt-Verbesserungen während deiner Abwesenheit.",
 };

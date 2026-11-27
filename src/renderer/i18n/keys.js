@@ -3577,5 +3577,9 @@ export const KEYS = [
   "Nouvel événement rare, la « Forge céleste » : pendant 30 secondes, chaque objet trouvé arrive déjà forgé (+2).",
   "Pieuvre",
   "Huit bras valent mieux que deux : tes coups frappent parfois deux fois.",
-  "Nouveau familier, la Pieuvre : tes coups frappent parfois deux fois (jusqu’à 5 % de chances au niveau 10)."
+  "Nouveau familier, la Pieuvre : tes coups frappent parfois deux fois (jusqu’à 5 % de chances au niveau 10).",
+  "Contremaître",
+  "Achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or (option).",
+  "Contremaître : acheter tout seul l’amélioration la moins chère",
+  "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence."
 ];

@@ -2448,4 +2448,8 @@ export default {
   3573: "Ośmiornica",
   3574: "Osiem ramion to więcej niż dwa: twoje ciosy czasem uderzają dwa razy.",
   3575: "Nowy chowaniec, Ośmiornica: twoje ciosy czasem uderzają dwa razy (do 5 % szans na poziomie 10).",
+  3576: "Majster",
+  3577: "Sam kupuje najtańsze ulepszenie Warsztatu, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
+  3578: "Majster: samodzielnie kupuj najtańsze ulepszenie",
+  3579: "Majster: {n} ulepszenie Warsztatu podczas twojej nieobecności.|Majster: {n} ulepszenia Warsztatu podczas twojej nieobecności.|Majster: {n} ulepszeń Warsztatu podczas twojej nieobecności.",
 };

@@ -174,7 +174,7 @@ semble « sans fin » peut n'être qu'une lenteur répétée sur 1 200 cas (it. 
   app.getPreferredSystemLanguages, it. 1538), à forcer avec `--lang=fr-FR` (lu dans process.argv) ; sous Linux, LANGUAGE / LANG. Le panneau est sombre par défaut ; pour capturer le thème clair, mettre `settings.theme = "light"` dans la copie
   (ou `"auto"` + `--force-dark-mode` pour tester le suivi de Windows).
 - Les erreurs de l'interface s'affichent dans la console sous la forme `[renderer error] …`.
-- Tests logiques : le `freshState` de `test-logic.js` donne TOUS les déblocages sauf `armsValet`, `skyChart`, `spellBook`,
+- Tests logiques : le `freshState` de `test-logic.js` donne TOUS les déblocages sauf `armsValet`, `skyChart`, `spellBook`, `foreman`,
   `starSmith`, `herbalist` et `trader` (ils changent les comptes d'équipement, d'éclats et d'or) : un nouveau déblocage automatique peut fausser d'anciens tests ; l'exclure
   là s'il le faut, et le tester à part.
 - Performance (`--perf`) : `npm run perf` / `perf:linux` passent par scripts/perf.mjs, qui copie dev-data dans un dossier temporaire

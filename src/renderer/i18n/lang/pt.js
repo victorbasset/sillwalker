@@ -2448,4 +2448,8 @@ export default {
   3573: "Polvo",
   3574: "Oito braços valem mais que dois: seus golpes às vezes acertam duas vezes.",
   3575: "Novo mascote, o Polvo: seus golpes às vezes acertam duas vezes (até 5 % de chance no nível 10).",
+  3576: "Capataz",
+  3577: "Compra sozinho a melhoria da Oficina mais barata, desde que custe menos de um décimo do seu ouro (opção).",
+  3578: "Capataz: comprar sozinho a melhoria mais barata",
+  3579: "Capataz: {n} melhoria da Oficina durante sua ausência.|Capataz: {n} melhorias da Oficina durante sua ausência.",
 };
