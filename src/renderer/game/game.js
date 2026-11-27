@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
@@ -1343,6 +1343,8 @@ export class Game {
       const regal = (R.events.regal || 0) > 0;
       const it = this.newItem(Math.max(regal ? REGAL_MIN : 0, m.poupouce ? LEGENDARY : m.champion ? CHAMPION.minRarity : m.boss ? 2 : m.elite ? ELITE.minRarity : 0), this.S.zone, true);
       if (regal) this.R.regalGot = (this.R.regalGot || 0) + 1;
+      // (it. 3361) Forge céleste : l'objet arrive déjà forgé
+      if ((R.events.skyforge || 0) > 0 && (it.plus || 0) < SKYFORGE_PLUS) { it.plus = SKYFORGE_PLUS; this.R.skyforgeGot = (this.R.skyforgeGot || 0) + 1; }
       if (it.r >= 2) this.questProgress("loot", 1);
       this.addToBag(it);
       this.emit("loot", { item: it, mon: m, ground: this.R.grounded === it.id }); // ground : resté au sol (sac plein)
@@ -2461,7 +2463,7 @@ export class Game {
     return { kills: st.kills || 0, gold: st.goldTotal || 0, elites: st.elites || 0, items: st.items || 0, crits: +st.crits || 0,
       spells: +st.spells || 0, shards: this.S.prestige.total || 0, stars: st.stars || 0, goblins: st.goblins || 0, bosses: st.bosses || 0,
       xp: this.R.xpGot || 0, eggs: this.R.eggsGot || 0, chests: st.chests || 0, regal: this.R.regalGot || 0, champions: st.champions || 0,
-      petxp: this.R.petXpGot || 0 };
+      petxp: this.R.petXpGot || 0, skyforge: this.R.skyforgeGot || 0 };
   }
 
   /**
@@ -2492,6 +2494,7 @@ export class Game {
     if (id === "regal" && d("regal")) parts.push(txn(d("regal"), "{n} objet rare ou mieux|{n} objets rares ou mieux", { n: fmt(d("regal")) })); // (it. 3180)
     // (it. 3320) Fête des familiers : l'expérience gagnée par le familier
     if (id === "petfest" && d("petxp")) parts.push(txn(d("petxp"), "+{n} point d’expérience de familier|+{n} points d’expérience de familier", { n: fmt(d("petxp")) }));
+    if (id === "skyforge" && d("skyforge")) parts.push(txn(d("skyforge"), "{n} objet déjà forgé|{n} objets déjà forgés", { n: fmt(d("skyforge")) })); // (it. 3361)
     if (id === "nest" && d("eggs")) parts.push(txn(d("eggs"), "{n} œuf trouvé|{n} œufs trouvés", { n: fmt(d("eggs")) }));
     if (id === "goblinrush" && d("goblins")) parts.push(txn(d("goblins"), "{n} gobelin attrapé|{n} gobelins attrapés", { n: fmt(d("goblins")) }));
     if ((id === "goldrain" || id === "bloodmoon" || id === "goblinrush") && d("gold")) parts.push("+" + tx("{0} or", { 0: fmt(d("gold")) }));

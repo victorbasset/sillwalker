@@ -2440,4 +2440,8 @@ export default {
   3565: "New pet, the Mantis: it raises your attack speed (up to 5% more at level 10).",
   3566: "Hex Breaker (25 hexing)",
   3567: "New achievement: “Hex Breaker (25 hexing)”, for hunters of the new elite.",
+  3568: "Sky Forge",
+  3569: "Every item found arrives already forged (+2)!",
+  3570: "The stars are hammering the iron for me!",
+  3571: "{n} item already forged|{n} items already forged",
 };

@@ -71,7 +71,11 @@ export const EVENTS = {
   // qui peut encore monter ; à la FIN (tirage dans l'ordre)
   petfest: { name: "Fête des familiers", chance: 0.0015, duration: 30, text: "Ton familier gagne 10 fois plus d’expérience !", color: "#ffb0d8",
     req: (S) => { const a = S.pets && S.pets.active, o = a && S.pets.owned && S.pets.owned[a]; return !!(o && o.lvl < PET_MAX_LVL); } },
+  // (it. 3361) 22e : chaque objet trouvé arrive déjà forgé (SKYFORGE_PLUS) ; à la FIN (tirage dans l'ordre)
+  skyforge: { name: "Forge céleste", chance: 0.0015, duration: 30, text: "Chaque objet trouvé arrive déjà forgé (+2) !", color: "#ffb347" },
 };
+/** (it. 3361) Forge céleste : niveau de forge minimal des objets trouvés au combat. */
+export const SKYFORGE_PLUS = 2;
 /** (it. 3318) Fête des familiers : multiplicateur de l'expérience du familier. */
 export const PET_FEST = 10;
 /** Nuée d'étoiles : délai avant l'étoile suivante, une fois la précédente attrapée ou partie (s). */

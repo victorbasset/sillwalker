@@ -2440,4 +2440,8 @@ export default {
   3565: "Neues Haustier, die Gottesanbeterin: Sie erhöht dein Angriffstempo (bis zu 5 % mehr auf Stufe 10).",
   3566: "Fluchbrecher (25 Unheilvolle)",
   3567: "Neuer Erfolg: „Fluchbrecher (25 Unheilvolle)“, für die Jäger der neuen Elite.",
+  3568: "Himmelsschmiede",
+  3569: "Jeder gefundene Gegenstand ist bereits geschmiedet (+2)!",
+  3570: "Die Sterne schmieden das Eisen für mich!",
+  3571: "{n} bereits geschmiedeter Gegenstand|{n} bereits geschmiedete Gegenstände",
 };

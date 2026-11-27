@@ -897,6 +897,17 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("Forge céleste (it. 3361) : les objets trouvés au combat arrivent forgés +2 ; bilan", () => {
+  const g = new Game(freshState());
+  g.S.autoSell = {}; g.S.bag = [];
+  g.startEvent("skyforge");
+  for (let i = 0; i < 30; i++) { g.R.mon = g.makeMonster(false); g.R.events.skyforge = 30; g.R.events.bounty = 30; g.killMonster(); }
+  const ps = g.S.bag.map((it) => it.plus || 0);
+  assert.ok(ps.length >= 10, "objets gardés : " + ps.length);
+  assert.ok(ps.every((p) => p >= 2), "forges : " + ps.join(","));
+  const ln = g.eventReport("skyforge"); assert.ok(ln && /forged/.test(ln), "bilan : " + ln);
+});
+
 test("Fête des familiers (it. 3318) : expérience du familier ×10, seulement avec un familier qui peut encore monter", () => {
   const g = new Game(freshState()); const { EVENTS } = M_events_js;
   g.S.pets.owned.cat = { lvl: 1, xp: 0 }; g.S.pets.active = "cat";
@@ -4508,12 +4519,13 @@ test("Boss majeurs et reliques (demande S) : zones 50, 100, 150 ; relique gagné
   assert.ok(hasRelic_T(g.S, "drone"), "relique gagnée");
   assert.ok(M_achievements_js.reachedAchievements(g.S).includes("RELIC_FIRST"), "succès « Première relique »");
   // Drone : un missile toutes les 1,5 s, 4 % des PV max d'un monstre ordinaire
-  g.R.mon = g.makeMonster(false); g.R.mon.hp = g.R.mon.max = 1e6; g.R.mode = "fight"; g.R.droneT = 0.01; g.R.hp = 1e12;
+  // (it. 3361) monstre ordinaire : une élite Régénérante (tirage) faisait échouer la carapace
+  g.R.mon = g.makeMonster(false); g.R.mon.elite = false; g.R.mon.affix = null; g.R.mon.hp = g.R.mon.max = 1e6; g.R.mode = "fight"; g.R.droneT = 0.01; g.R.hp = 1e12;
   let shots = 0; g.on("droneShot", () => shots++); g.step(0.05);
   assert.ok(shots === 1 && g.R.mon.hp < 1e6 * 0.99, "missile du drone (1,5 % des PV max)");
   // (it. 638) la carapace d'un boss retient le missile
   const hpS = g.R.mon.hp; g.R.mon.shell = 1e12; g.R.droneT = 0.01; g.step(0.05);
-  assert.ok(g.R.mon.hp === hpS && g.R.mon.shell < 1e12, "carapace : le missile l'entame, pas les PV");
+  assert.ok(g.R.mon.hp === hpS && g.R.mon.shell < 1e12, "carapace : le missile l’entame, pas les PV");
   g.R.mon.shell = 0;
   // Lame du crépuscule ×4 attaque ; Couronne ×3 attaque et PV
   g.S.relics.blade = 1; g.invalidateStats(); assert.ok(Math.abs(g.stats().atk / atk0 - 2.5) < 1e-6, "attaque ×2,5");

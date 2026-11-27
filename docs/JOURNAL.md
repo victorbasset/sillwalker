@@ -5,6 +5,12 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3361) Contenu : 22e événement rare, la Forge céleste (pendant 30 s, chaque objet trouvé au combat arrive forgé +2,
+  SKYFORGE_PLUS ; bilan « N objets déjà forgés »), réplique, coups d'enclume (sound.js), 10 langues ; page Steam à 22 événements (10 langues),
+  checklist, README. Bestiaire > Événements rares : 8 colonnes serrées à 1280 px (la 22e carte ouvrait une 4e rangée : ru 70 px, de 54, pl 53).
+  Le tirage des événements consomme un nombre aléatoire de plus par victoire : un test du Drone (it. 638) tombait sur une élite Régénérante,
+  monstre ordinaire forcé (attention : un commentaire mis en milieu de ligne a d'abord avalé la fin du code, rattrapé). Test ; npm test 414,
+  autotest 349/349, lang-overflow all 1280/1600/1920 : aucun défaut ; capture ru.
 - 2026-11-27 (it. 3359) early-pace (3 graines) : à 60 min niveau 38-42, zone 22-26, 6,7 déblocages (it. 3295 : 40-43, 23-27, 6,3 ; bruit de
   ±3 sur 3 graines) ; tab-pace : onglets aux mêmes minutes (talents 1, quêtes 5, boutique 8, Bestiaire 14, ascension 32-45). Rien à régler.
 - 2026-11-27 (it. 3358) Familiers : les boutons du Grand intendant (Balade, Voyage, Grande expédition) ont la durée en bulle (« Voyage · 1 h »

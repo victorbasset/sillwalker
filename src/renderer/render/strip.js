@@ -81,6 +81,7 @@ const SPEECH = {
   ev_regal: [tx("Rien que des belles pièces !")], // (it. 3180)
   ev_tourney: [tx("Que les champions se présentent !")], // (it. 3270)
   ev_petfest: [tx("C’est ta fête, mon petit compagnon !")], // (it. 3318)
+  ev_skyforge: [tx("Les étoiles battent le fer pour moi !")], // (it. 3361)
   ev_echo: [tx("Chaque coup compte double !")], // (it. 1304)
   poupouce: [tx("Poupouce ?! Pas possible…"), tx("C’est… Poupouce ?!")], // (it. 1558) monstre rare (data.js, POUPOUCE)
   poupouceBagFull: [tx("Le sac est plein : vite, une place pour le légendaire de Poupouce !")], // (it. 1767)

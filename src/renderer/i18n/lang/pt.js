@@ -2440,4 +2440,8 @@ export default {
   3565: "Novo mascote, o Louva-a-deus: aumenta sua velocidade de ataque (até 5 % a mais no nível 10).",
   3566: "Quebra-maldições (25 maléficos)",
   3567: "Nova conquista: “Quebra-maldições (25 maléficos)”, para os caçadores da nova elite.",
+  3568: "Forja celeste",
+  3569: "Cada item encontrado já chega forjado (+2)!",
+  3570: "As estrelas batem o ferro por mim!",
+  3571: "{n} item já forjado|{n} itens já forjados",
 };

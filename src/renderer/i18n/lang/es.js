@@ -2440,4 +2440,8 @@ export default {
   3565: "Nueva mascota, la Mantis: aumenta tu velocidad de ataque (hasta un 5 % más en el nivel 10).",
   3566: "Rompemaleficios (25 maléficos)",
   3567: "Nuevo logro: «Rompemaleficios (25 maléficos)», para los cazadores de la nueva élite.",
+  3568: "Forja celeste",
+  3569: "¡Cada objeto encontrado llega ya forjado (+2)!",
+  3570: "¡Las estrellas baten el hierro por mí!",
+  3571: "{n} objeto ya forjado|{n} objetos ya forjados",
 };

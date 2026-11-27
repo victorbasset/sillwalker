@@ -2440,4 +2440,8 @@ export default {
   3565: "Nowy chowaniec, Modliszka: zwiększa twoją szybkość ataku (do 5 % więcej na poziomie 10).",
   3566: "Łamacz klątw (25 złowrogich)",
   3567: "Nowe osiągnięcie: „Łamacz klątw (25 złowrogich)”, dla łowców nowej elity.",
+  3568: "Niebiańska kuźnia",
+  3569: "Każdy znaleziony przedmiot jest już wykuty (+2)!",
+  3570: "Gwiazdy kują dla mnie żelazo!",
+  3571: "{n} przedmiot już wykuty|{n} przedmioty już wykute|{n} przedmiotów już wykutych",
 };

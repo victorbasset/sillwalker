@@ -3569,5 +3569,9 @@ export const KEYS = [
   "Patiente puis foudroyante : elle t’apprend à frapper plus vite.",
   "Nouveau familier, la Mante : elle augmente ta vitesse d’attaque (jusqu’à 5 % de plus au niveau 10).",
   "Briseur de maléfices (25 maléfiques)",
-  "Nouveau succès : « Briseur de maléfices (25 maléfiques) », pour les chasseurs de la nouvelle élite."
+  "Nouveau succès : « Briseur de maléfices (25 maléfiques) », pour les chasseurs de la nouvelle élite.",
+  "Forge céleste",
+  "Chaque objet trouvé arrive déjà forgé (+2) !",
+  "Les étoiles battent le fer pour moi !",
+  "{n} objet déjà forgé|{n} objets déjà forgés"
 ];
