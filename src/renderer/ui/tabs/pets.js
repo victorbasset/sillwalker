@@ -9,6 +9,7 @@ import { esc, uH, uMin, countdown } from "../../game/format.js";
 
 const left = (ms) => countdown(ms / 1000); // (it. 2786-2787) format.js
 const dur = (min) => (min >= 60 ? uH(min / 60) : uMin(min));
+// (it. 3358) les boutons du Grand intendant (Balade, Voyage…) ont la durée de l'expédition en bulle (Jour des voyages compris)
 import { petURL } from "../../render/sprites.js";
 import { lockLink } from "../locks.js";
 import { hasUnlock } from "../../game/unlocks.js";
@@ -84,7 +85,7 @@ export class PetsTab {
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
         ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${txn(idle, "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}", { 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(expeditionMin(this.game.S, ex))}</button>`).join("") })}</span>` : ""}
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
-          ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
+          ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" title="${esc(ex.name + " · " + dur(expeditionMin(S, ex)))}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${txn(this.readyN, "Récupérer {n} expédition|Récupérer {n} expéditions")}</button>` : ""}
       </div>
       <div class="petgrid hscroll sec-${owned < PETS.length ? this.sec : "found"}" data-hs="pets-${this.sec}">${cards}</div>`;
