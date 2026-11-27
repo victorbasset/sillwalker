@@ -20,5 +20,7 @@ export function dayModNotes(S, dm) {
   if (dm.quests && !tabOpen(S, "quests")) out.push(tx("Les quêtes s’ouvrent après les premières minutes de jeu."));
   // (it. 3292) Jour de la forge avant l'Enclume (déblocage de la boutique)
   if (dm.forge && !(S.unlocks && S.unlocks.forge)) out.push(tx("La forge s’achète dans la boutique : l’Enclume."));
+  // (it. 3346) Jour des voyages avant le Chenil des explorateurs
+  if (dm.expedition && !(S.unlocks && S.unlocks.expeditions)) out.push(tx("Les expéditions s’achètent dans la boutique : le Chenil des explorateurs."));
   return out;
 }

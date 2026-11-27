@@ -2430,4 +2430,8 @@ export default {
   3555: "Its hits can curse the hero (15% more damage taken for 3 s).",
   3556: "New elite, the Hexing: its hits can curse the hero, who then takes 15% more damage for 3 seconds (purity shortens the curse).",
   3557: "An evil aura… Watch out for its curses!",
+  3558: "Travel Day",
+  3559: "Expeditions take half as long.",
+  3560: "Expeditions are bought in the Shop: the Explorers' Kennel.",
+  3561: "Fair winds, little explorers: the roads are short today!",
 };

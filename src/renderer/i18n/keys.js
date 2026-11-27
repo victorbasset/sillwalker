@@ -3559,5 +3559,9 @@ export const KEYS = [
   "Maléfique",
   "Ses coups peuvent maudire le héros (15 % de dégâts subis en plus pendant 3 s).",
   "Nouvelle élite, le Maléfique : ses coups peuvent maudire le héros, qui subit alors 15 % de dégâts en plus pendant 3 secondes (la pureté raccourcit la malédiction).",
-  "Une aura maléfique… Gare à ses malédictions !"
+  "Une aura maléfique… Gare à ses malédictions !",
+  "Jour des voyages",
+  "Expéditions deux fois plus courtes.",
+  "Les expéditions s’achètent dans la boutique : le Chenil des explorateurs.",
+  "Bon vent, petits explorateurs : les routes sont courtes aujourd’hui !"
 ];

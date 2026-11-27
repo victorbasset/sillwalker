@@ -60,6 +60,8 @@ export function rollPet(rand) {
  * explorer (en temps réel, même jeu fermé). Au retour : or, expérience du
  * familier, parfois un œuf ou un objet. Plus c'est long, plus c'est rentable.
  */
+/** (it. 3346) Durée d'une expédition en minutes (Jour des voyages : deux fois plus courte). */
+export const expeditionMin = (S, ex) => ex.min * ((S && activeDayMod(S)?.expedition) || 1);
 export const EXPEDITIONS = {
   short: { name: "Balade",            min: 30,  gold: 40,  xp: 40,  egg: 0.04, item: 0.25, minRarity: 1 },
   long:  { name: "Voyage",            min: 120, gold: 200, xp: 160, egg: 0.12, item: 0.6,  minRarity: 2 },

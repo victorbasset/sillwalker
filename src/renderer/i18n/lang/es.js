@@ -2430,4 +2430,8 @@ export default {
   3555: "Sus golpes pueden maldecir al héroe (15 % más de daño recibido durante 3 s).",
   3556: "Nueva élite, el Maléfico: sus golpes pueden maldecir al héroe, que recibe entonces un 15 % más de daño durante 3 segundos (la pureza acorta la maldición).",
   3557: "Un aura maléfica… ¡Cuidado con sus maldiciones!",
+  3558: "Día de los viajes",
+  3559: "Expediciones el doble de cortas.",
+  3560: "Las expediciones se compran en la Tienda: la Perrera de exploradores.",
+  3561: "¡Buen viento, pequeños exploradores: hoy los caminos son cortos!",
 };

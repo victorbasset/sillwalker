@@ -40,7 +40,7 @@ import {
 } from "./shop.js";
 import { POWERS, POWER_INDEX } from "./powers.js";
 import { SETS, SET_KEYS, setCounts } from "./sets.js";
-import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS } from "./pets.js";
+import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, EXPEDITIONS, expeditionMin } from "./pets.js";
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
@@ -2862,9 +2862,10 @@ export class Game {
     if (!ex || !P.owned[id] || P.active === id) return false;
     P.exp ||= {};
     if (P.exp[id]) return false;
-    P.exp[id] = { kind, start: now, end: now + ex.min * 60000 };
+    const mins = expeditionMin(this.S, ex); // (it. 3346) Jour des voyages
+    P.exp[id] = { kind, start: now, end: now + mins * 60000 };
     P.lastKind = kind; // le Grand intendant reprend ce choix
-    if (!this._quiet) this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: ex.min >= 60 ? uH(ex.min / 60) : uMin(ex.min) })}`);
+    if (!this._quiet) this.log(`${PET_INDEX[id].name} ${tx("part en {0} ({1}).", { 0: lc(ex.name), 1: mins >= 60 ? uH(mins / 60) : uMin(mins) })}`);
     this.changed();
     return true;
   }

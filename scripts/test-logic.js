@@ -851,6 +851,17 @@ test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niv
   assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
 });
 
+test("Jour des voyages (it. 3346) : premier le 02/12/2026, aucun jour du 08/11 au 28/11 changé ; expéditions deux fois plus courtes", () => {
+  const { dayModFor, DAY_MODS } = M_daymods_js;
+  assert.equal(dayModFor("2026-12-02"), "travel");
+  for (let t = Date.parse("2026-11-08T12:00:00Z"); t <= Date.parse("2026-11-28T12:00:00Z"); t += 864e5) assert.notEqual(dayModFor(new Date(t).toISOString().slice(0, 10)), "travel");
+  const g = new Game(freshState()); g.S.pets.owned.cat = { lvl: 1, xp: 0 }; g.S.pets.active = null;
+  g.S.daily = { ...(g.S.daily || {}), mod: "travel" };
+  const now = Date.now(); assert.ok(g.sendExpedition("cat", "short", now), "partie");
+  assert.equal(g.S.pets.exp.cat.end - now, 15 * 60000, "Balade : 15 min au lieu de 30");
+  assert.ok(DAY_MODS.travel.expedition === 0.5);
+});
+
 test("bénédictions : un compte de jours vécus, « true » ancien compté pour 1 (it. 3297)", () => {
   const g = new Game(freshState()); const { dayModFor } = M_daymods_js;
   g.S.daily = { last: null, streak: 0, seen: {} };

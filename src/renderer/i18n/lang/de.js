@@ -2430,4 +2430,8 @@ export default {
   3555: "Seine Treffer können den Helden verfluchen (15 % mehr erlittener Schaden für 3 s).",
   3556: "Neue Elite, der Unheilvolle: Seine Treffer können den Helden verfluchen, der dann 3 Sekunden lang 15 % mehr Schaden erleidet (Reinheit verkürzt den Fluch).",
   3557: "Eine unheilvolle Aura… Vorsicht vor seinen Flüchen!",
+  3558: "Tag der Reisen",
+  3559: "Expeditionen dauern nur halb so lang.",
+  3560: "Expeditionen kaufst du im Laden: den Zwinger der Entdecker.",
+  3561: "Gute Reise, kleine Entdecker: Heute sind die Wege kurz!",
 };

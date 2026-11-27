@@ -38,6 +38,9 @@ export const DAY_MODS = {
   zeal: { icon: "🎯", name: "Jour du zèle", desc: "Les quêtes avancent deux fois plus vite.", eff: {}, quests: 2 },
   // (it. 3292) 20e, ajouté à la FIN : la forge (le jour où l'on renforce son équipement) ; premier jour : le 29/11/2026 (sel « #5 »)
   forge: { icon: "⚒", name: "Jour de la forge", desc: "Forge à moitié prix.", eff: {}, forge: 0.5 },
+  // (it. 3346) 21e, ajouté à la FIN : les expéditions des familiers (aucune bénédiction ne les touchait) ; premier jour : le 02/12/2026
+  // (sel « # » par défaut : aucun jour du 08/11 au 28/11 touché)
+  travel: { icon: "🧭", name: "Jour des voyages", desc: "Expéditions deux fois plus courtes.", eff: {}, expedition: 0.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 

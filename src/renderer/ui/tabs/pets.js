@@ -2,7 +2,7 @@
 import { npcHTML } from "../npc.js";
 import { subtabsHTML } from "../subtabs.js";
 import { t as tx, txn, lc } from "../../i18n/index.js";
-import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS } from "../../game/pets.js";
+import { PETS, PET_MAX_LVL, EGG_CHANCE, petXpNeed, EXPEDITIONS, expeditionMin } from "../../game/pets.js";
 import { describeEffects } from "../../game/talents.js";
 import { activeDayMod } from "../../game/daymods.js";
 import { esc, uH, uMin, countdown } from "../../game/format.js";
@@ -35,8 +35,8 @@ export class PetsTab {
     if (active || !hasUnlock(this.game.S, "expeditions")) return "";
     // (it. 714, signalé par Victor) une seule ligne : la durée sur le bouton, le nom en infobulle (« Balade · 30 min »,
     // « Voyage · 2 h », « Grande expédition · 8 h » passaient sur deux lignes et faisaient défiler l'onglet)
-    return `<div class="row expe-btns">${Object.entries(EXPEDITIONS).map(([k, ex]) => { const tip = tx("{0} : or, expérience, parfois un œuf ({1} %) ou un objet ({2} %)", { 0: ex.name, 1: Math.round(ex.egg * 100), 2: Math.round(ex.item * 100) }) + " · " + dur(ex.min);
-      return `<button class="quiet" data-action="p-exp" data-id="${p.id}" data-kind="${k}" title="${esc(tip)}" aria-label="${esc(ex.name + " · " + dur(ex.min))}">${dur(ex.min)}</button>`; }).join("")}</div>`;
+    return `<div class="row expe-btns">${Object.entries(EXPEDITIONS).map(([k, ex]) => { const tip = tx("{0} : or, expérience, parfois un œuf ({1} %) ou un objet ({2} %)", { 0: ex.name, 1: Math.round(ex.egg * 100), 2: Math.round(ex.item * 100) }) + " · " + dur(expeditionMin(this.game.S, ex));
+      return `<button class="quiet" data-action="p-exp" data-id="${p.id}" data-kind="${k}" title="${esc(tip)}" aria-label="${esc(ex.name + " · " + dur(expeditionMin(this.game.S, ex)))}">${dur(expeditionMin(this.game.S, ex))}</button>`; }).join("")}</div>`;
   }
 
   render(el) {
@@ -82,7 +82,7 @@ export class PetsTab {
         <span class="note help" title="${esc(tx("Le familier actif suit ton héros et gagne de l’expérience à chaque victoire. Les autres peuvent partir en expédition (même jeu fermé) et rapporter or, expérience, œufs et objets."))}">ⓘ</span>
         ${P.eggs > 0 && (hasUnlock(S, "petBulk") || P.eggs <= 1) ? `<button data-action="${hasUnlock(S, "petBulk") ? "p-hatchall" : "p-hatch"}" class="primary"${P.eggs ? "" : " disabled"}>${P.eggs > 1 ? `${tx("Faire éclore les {0} œufs", { 0: P.eggs })}` : tx("Faire éclore l’œuf")}</button>` : P.eggs > 1 ? `<button data-action="p-hatch" class="primary">${tx("Faire éclore l’œuf")}</button>` : ""}
         ${lockLink(S, "expeditions") || lockLink(S, "petBulk")}
-        ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${txn(idle, "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}", { 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(ex.min)}</button>`).join("") })}</span>` : ""}
+        ${idle && hasUnlock(S, "petBulk") ? `<span class="sendall">${txn(idle, "Envoyer le familier libre : {1}|Envoyer les {n} familiers libres : {1}", { 1: Object.entries(EXPEDITIONS).map(([k, ex]) => `<button data-action="p-expall" data-kind="${k}" class="quiet">${esc(ex.name)} · ${dur(expeditionMin(this.game.S, ex))}</button>`).join("") })}</span>` : ""}
         ${hasUnlock(S, "steward") ? `<span class="stewrow"><label class="toggle"><input type="checkbox" data-action="steward"${S.settings.autoPets !== false ? " checked" : ""}> ${tx("Grand intendant : œufs et expéditions tout seuls")}</label>
           ${Object.entries(EXPEDITIONS).map(([k, ex]) => `<button class="quiet" data-action="p-stewkind" data-kind="${k}" aria-pressed="${(EXPEDITIONS[P.lastKind] ? P.lastKind : "long") === k}">${esc(ex.name)}</button>`).join("")}</span>` : ""}
         ${this.readyN > 1 && hasUnlock(S, "petBulk") ? `<button data-action="p-claimall" class="primary">${txn(this.readyN, "Récupérer {n} expédition|Récupérer {n} expéditions")}</button>` : ""}

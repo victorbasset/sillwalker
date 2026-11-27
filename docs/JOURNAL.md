@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3346) Contenu : 21e bénédiction du jour, le Jour des voyages (🧭, expéditions des familiers deux fois plus courtes ;
+  expeditionMin dans pets.js, utilisé au départ, dans le journal et sur les boutons de l'onglet). Sel « # » par défaut : aucun jour du 08/11
+  au 28/11 changé, premier le 02/12/2026. Note avant le Chenil des explorateurs, réplique du héros, 10 langues, README. Test ; npm test 412,
+  autotest 349/349, lang-overflow all 1280/1920 (état maximal, 21 bénédictions) : aucun défaut.
 - 2026-11-27 (it. 3345) Bulle de réplique invisible dans une capture forcée (strip.say depuis --stage, dev-data à 1280 px) : pas un défaut. Deux
   règles l'expliquent : une réplique urgente moins de 6 s après une autre est ignorée (le héros parle au lancement), et la bulle se tait
   quand elle n'a pas de place entre les barres de vie et le nom du boss (it. 2797 ; dev-data combat le boss de zone 57 tout à droite).
