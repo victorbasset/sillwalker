@@ -2438,4 +2438,5 @@ export default {
   3563: "Mantis",
   3564: "Patient, then lightning-fast: it teaches you to strike faster.",
   3565: "New pet, the Mantis: it raises your attack speed (up to 5% more at level 10).",
+  3566: "Hex Breaker (25 hexing)",
 };

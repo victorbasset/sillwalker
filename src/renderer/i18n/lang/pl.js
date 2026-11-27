@@ -2438,4 +2438,5 @@ export default {
   3563: "Modliszka",
   3564: "Cierpliwa, a potem błyskawiczna: uczy cię szybciej uderzać.",
   3565: "Nowy chowaniec, Modliszka: zwiększa twoją szybkość ataku (do 5 % więcej na poziomie 10).",
+  3566: "Łamacz klątw (25 złowrogich)",
 };

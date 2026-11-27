@@ -2438,4 +2438,5 @@ export default {
   3563: "Gottesanbeterin",
   3564: "Geduldig, dann blitzschnell: Sie lehrt dich, schneller zuzuschlagen.",
   3565: "Neues Haustier, die Gottesanbeterin: Sie erhöht dein Angriffstempo (bis zu 5 % mehr auf Stufe 10).",
+  3566: "Fluchbrecher (25 Unheilvolle)",
 };

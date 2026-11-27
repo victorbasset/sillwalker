@@ -103,6 +103,7 @@ export const ACHIEVEMENTS = [
   { id: "EXPLOSIVE_25",    name: "Démineur (25 explosifs)", test: (S) => affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.explosive) >= 25 },
   { id: "COLOSSAL_25",     name: "Tombeur de colosses (25 colossaux)", test: (S) => affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.colossal) >= 25 }, // (it. 1622)
   { id: "RELENTLESS_25",   name: "Plus acharné que lui (25 acharnés)", test: (S) => affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.relentless) >= 25 }, // (it. 3239)
+  { id: "HEXER_25",        name: "Briseur de maléfices (25 maléfiques)", test: (S) => affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.hexer) >= 25 }, // (it. 3355)
   { id: "POWERS_ALL",      name: "Tous les pouvoirs légendaires", test: (S) => Object.keys(S.powersSeen || {}).length >= POWERS.length },
   { id: "POTIONS_50",      name: "Alchimiste (50 potions bues)", test: (S) => (S.stats.potionsUsed || 0) >= 50 },
   { id: "UNLOCK_FIRST",    name: "Premier déblocage", test: (S) => Object.keys(S.unlocks || {}).length >= 1 },
@@ -141,6 +142,7 @@ export const ACH_PROGRESS = {
   EXPLOSIVE_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.explosive)), 25],
   COLOSSAL_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.colossal)), 25],
   RELENTLESS_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.relentless)), 25],
+  HEXER_25: (S) => [Math.min(25, affixWins(S.stats && S.stats.affixesSeen && S.stats.affixesSeen.hexer)), 25],
   ELITES_ALL: (S) => [affixesSeenCount(S), Object.keys(ELITE_AFFIXES).length],
   HEROES_10: (S) => [(S.classesUnlocked || []).length, 10],
   CHRONICLER: (S) => [chronRead(S), CHRONICLES.length - 1],

@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3355) 75e succès, « Briseur de maléfices (25 maléfiques) » (comme celui de l'Acharné ; progression, icône Steam au fantôme :
+  m:cultist_void n'existe pas pour achicons, seules les deux images nouvelles), 10 langues ; achievements.md, README, checklist, POUR-VICTOR à 75.
+  npm test 413, autotest 349/349, lang-overflow all 1280/1600 : aucun défaut.
 - 2026-11-27 (it. 3353) lang-overflow all, tous états, après Maléfique, Jour des voyages, Mante et quête du familier : 150 mesures, aucun défaut.
 - 2026-11-27 (it. 3352) hero-table HEROES=all, 12 h, graines 7/3/11, après Maléfique et Mante : moyenne 64,7 (65,1 à l'it. 3323), écart 5,0
   (guerrier 68,3 en tête) : dans le bruit (±1,5). Rien à régler.

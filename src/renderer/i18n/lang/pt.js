@@ -2438,4 +2438,5 @@ export default {
   3563: "Louva-a-deus",
   3564: "Paciente e depois fulminante: ensina você a golpear mais rápido.",
   3565: "Novo mascote, o Louva-a-deus: aumenta sua velocidade de ataque (até 5 % a mais no nível 10).",
+  3566: "Quebra-maldições (25 maléficos)",
 };

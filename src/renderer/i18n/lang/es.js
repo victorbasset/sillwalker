@@ -2438,4 +2438,5 @@ export default {
   3563: "Mantis",
   3564: "Paciente y luego fulminante: te enseña a golpear más rápido.",
   3565: "Nueva mascota, la Mantis: aumenta tu velocidad de ataque (hasta un 5 % más en el nivel 10).",
+  3566: "Rompemaleficios (25 maléficos)",
 };

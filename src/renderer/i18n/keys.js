@@ -3567,5 +3567,6 @@ export const KEYS = [
   "Nouvelle bénédiction du jour, le « Jour des voyages » : les expéditions de tes familiers durent deux fois moins longtemps ce jour-là.",
   "Mante",
   "Patiente puis foudroyante : elle t’apprend à frapper plus vite.",
-  "Nouveau familier, la Mante : elle augmente ta vitesse d’attaque (jusqu’à 5 % de plus au niveau 10)."
+  "Nouveau familier, la Mante : elle augmente ta vitesse d’attaque (jusqu’à 5 % de plus au niveau 10).",
+  "Briseur de maléfices (25 maléfiques)"
 ];
