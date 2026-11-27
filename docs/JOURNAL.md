@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3369) lang-overflow all, tous états : « ru heure 1280 : succès=13 » (75 succès, 13 rangées de 6). Colonnes de la liste des
+  succès à 164 px sous 1334 px de panneau (7 colonnes, 11 rangées) ; lang-overflow all 1280 : aucun défaut ; capture ru lisible ; autotest 349/349.
 - 2026-11-27 (it. 3367) « Quoi de neuf » : édition 202 (Pieuvre), 10 langues. Sortie 0.1.12 : étiquette « New pets: Mantis, Octopus »
   (couverture vérifiée), titre « a Hexing elite, a Sky Forge and two new pets », accroches ; brouillon des notes à 7 nouveautés.
 - 2026-11-27 (it. 3366) Contenu : 28e familier, la Pieuvre (frappe double, +0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne la
