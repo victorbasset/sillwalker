@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3370) lang-overflow all, tous états, après la liste des succès à 7 colonnes : 150 mesures, aucun défaut.
 - 2026-11-27 (it. 3369) lang-overflow all, tous états : « ru heure 1280 : succès=13 » (75 succès, 13 rangées de 6). Colonnes de la liste des
   succès à 164 px sous 1334 px de panneau (7 colonnes, 11 rangées) ; lang-overflow all 1280 : aucun défaut ; capture ru lisible ; autotest 349/349.
 - 2026-11-27 (it. 3367) « Quoi de neuf » : édition 202 (Pieuvre), 10 langues. Sortie 0.1.12 : étiquette « New pets: Mantis, Octopus »
