@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3359) early-pace (3 graines) : à 60 min niveau 38-42, zone 22-26, 6,7 déblocages (it. 3295 : 40-43, 23-27, 6,3 ; bruit de
+  ±3 sur 3 graines) ; tab-pace : onglets aux mêmes minutes (talents 1, quêtes 5, boutique 8, Bestiaire 14, ascension 32-45). Rien à régler.
 - 2026-11-27 (it. 3358) Familiers : les boutons du Grand intendant (Balade, Voyage, Grande expédition) ont la durée en bulle (« Voyage · 1 h »
   le Jour des voyages), comme les boutons d'expédition des cartes. npm test 413, autotest 349/349.
 - 2026-11-27 (it. 3356) « Quoi de neuf » : édition 200 (succès Briseur de maléfices), 10 langues ; devlog 0.1.12 complété.
