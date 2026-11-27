@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3380) Préparation de la 0.1.13 : docs/devlog-0.1.13.md (titre provisoire « a Foreman for your Workshop »), entrée de couverture
+  update-0.1.13 ; à compléter demain (accroches, couverture, au moins 6 nouveautés : idée en cours, une 20e capacité de boss).
 - 2026-11-27 (it. 3378) simulate.js 168 h guerrier avec le Contremaître (acheté à 648 min, zone 65) : record de la semaine 350, 6 158 éclats
   (repère it. 1708/2332 : 350, 6 158) : il ne vide pas l'or (même règle que le joueur simulé).
 - 2026-11-27 (it. 3377) « Quoi de neuf » : édition 203 (Contremaître), 10 langues. Lien « 🔒 » du Contremaître absent de l'Atelier dans dev-data :
