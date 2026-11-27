@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3381) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : moine 65, cryomancien 64, lancier 69. Perf : bande 19,6 %, panneau 18,9 %,
+  mini 5,5 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-27 (it. 3380) Préparation de la 0.1.13 : docs/devlog-0.1.13.md (titre provisoire « a Foreman for your Workshop »), entrée de couverture
   update-0.1.13 ; à compléter demain (accroches, couverture, au moins 6 nouveautés : idée en cours, une 20e capacité de boss).
 - 2026-11-27 (it. 3378) simulate.js 168 h guerrier avec le Contremaître (acheté à 648 min, zone 65) : record de la semaine 350, 6 158 éclats
