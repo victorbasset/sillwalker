@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3356) « Quoi de neuf » : édition 200 (succès Briseur de maléfices), 10 langues ; devlog 0.1.12 complété.
 - 2026-11-27 (it. 3355) 75e succès, « Briseur de maléfices (25 maléfiques) » (comme celui de l'Acharné ; progression, icône Steam au fantôme :
   m:cultist_void n'existe pas pour achicons, seules les deux images nouvelles), 10 langues ; achievements.md, README, checklist, POUR-VICTOR à 75.
   npm test 413, autotest 349/349, lang-overflow all 1280/1600 : aucun défaut.

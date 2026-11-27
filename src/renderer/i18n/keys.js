@@ -3568,5 +3568,6 @@ export const KEYS = [
   "Mante",
   "Patiente puis foudroyante : elle t’apprend à frapper plus vite.",
   "Nouveau familier, la Mante : elle augmente ta vitesse d’attaque (jusqu’à 5 % de plus au niveau 10).",
-  "Briseur de maléfices (25 maléfiques)"
+  "Briseur de maléfices (25 maléfiques)",
+  "Nouveau succès : « Briseur de maléfices (25 maléfiques) », pour les chasseurs de la nouvelle élite."
 ];

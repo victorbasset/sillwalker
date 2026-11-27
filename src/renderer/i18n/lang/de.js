@@ -2439,4 +2439,5 @@ export default {
   3564: "Geduldig, dann blitzschnell: Sie lehrt dich, schneller zuzuschlagen.",
   3565: "Neues Haustier, die Gottesanbeterin: Sie erhöht dein Angriffstempo (bis zu 5 % mehr auf Stufe 10).",
   3566: "Fluchbrecher (25 Unheilvolle)",
+  3567: "Neuer Erfolg: „Fluchbrecher (25 Unheilvolle)“, für die Jäger der neuen Elite.",
 };
