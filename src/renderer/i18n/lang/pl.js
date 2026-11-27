@@ -2429,4 +2429,5 @@ export default {
   3554: "Złowrogi",
   3555: "Jego ciosy mogą przekląć bohatera (15 % więcej otrzymywanych obrażeń przez 3 s).",
   3556: "Nowa elita, Złowrogi: jego ciosy mogą przekląć bohatera, który przez 3 sekundy otrzymuje wtedy 15 % więcej obrażeń (czystość skraca klątwę).",
+  3557: "Złowroga aura… Uważaj na jego klątwy!",
 };

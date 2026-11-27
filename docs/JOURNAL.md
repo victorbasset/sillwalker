@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3343) Réplique du héros devant le premier Maléfique (tant qu'aucun n'est vaincu, comme l'Acharné et le Colossal), 10 langues.
 - 2026-11-27 (it. 3342) Préparation de la 0.1.12 : docs/devlog-0.1.12.md (« a Hexing elite and a quest for your pet »), accroches en 10 langues,
   couverture (2 étiquettes, à compléter dans la journée).
 - 2026-11-27 (it. 3341) REVUE GÉNÉRALE. fight-odds guerrier 12 h × 3 graines : normaux 0 %, élites 29 %, champions 47 %, boss 58 % (repère

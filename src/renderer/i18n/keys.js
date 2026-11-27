@@ -3558,5 +3558,6 @@ export const KEYS = [
   "Nouvelle sorte de quête : faire gagner de l’expérience à ton familier (un œuf en prime une fois sur quatre).",
   "Maléfique",
   "Ses coups peuvent maudire le héros (15 % de dégâts subis en plus pendant 3 s).",
-  "Nouvelle élite, le Maléfique : ses coups peuvent maudire le héros, qui subit alors 15 % de dégâts en plus pendant 3 secondes (la pureté raccourcit la malédiction)."
+  "Nouvelle élite, le Maléfique : ses coups peuvent maudire le héros, qui subit alors 15 % de dégâts en plus pendant 3 secondes (la pureté raccourcit la malédiction).",
+  "Une aura maléfique… Gare à ses malédictions !"
 ];

@@ -2429,4 +2429,5 @@ export default {
   3554: "Hexing",
   3555: "Its hits can curse the hero (15% more damage taken for 3 s).",
   3556: "New elite, the Hexing: its hits can curse the hero, who then takes 15% more damage for 3 seconds (purity shortens the curse).",
+  3557: "An evil aura… Watch out for its curses!",
 };

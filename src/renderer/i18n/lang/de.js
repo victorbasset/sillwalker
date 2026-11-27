@@ -2429,4 +2429,5 @@ export default {
   3554: "Unheilvoll",
   3555: "Seine Treffer können den Helden verfluchen (15 % mehr erlittener Schaden für 3 s).",
   3556: "Neue Elite, der Unheilvolle: Seine Treffer können den Helden verfluchen, der dann 3 Sekunden lang 15 % mehr Schaden erleidet (Reinheit verkürzt den Fluch).",
+  3557: "Eine unheilvolle Aura… Vorsicht vor seinen Flüchen!",
 };

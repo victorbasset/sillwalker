@@ -2429,4 +2429,5 @@ export default {
   3554: "Maléfico",
   3555: "Seus golpes podem amaldiçoar o herói (15 % mais dano recebido por 3 s).",
   3556: "Nova elite, o Maléfico: seus golpes podem amaldiçoar o herói, que passa a receber 15 % mais dano por 3 segundos (a pureza encurta a maldição).",
+  3557: "Uma aura maléfica… Cuidado com as maldições dele!",
 };

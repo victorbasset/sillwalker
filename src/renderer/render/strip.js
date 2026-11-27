@@ -87,6 +87,7 @@ const SPEECH = {
   poupouceDown: [tx("Pardon, Poupouce…"), tx("Reviens vite, Poupouce !")], // (it. 1654) vaincu
   colossal: [tx("Il est immense, celui-là…"), tx("Plus il est grand, plus il tombe de haut !")], // (it. 1625) premier Colossal
   relentless: [tx("Plus je le frappe, plus il s’énerve… Finissons-en vite !")], // (it. 3200) premier Acharné
+  hexer: [tx("Une aura maléfique… Gare à ses malédictions !")], // (it. 3343) premier Maléfique
   eliteNew: [tx("Une de plus pour ma collection !"), tx("Celle-là, je ne l’avais jamais battue !")],
   setFull: [tx("Panoplie au complet !"), tx("Tout est assorti, enfin !")], // (it. 1037) palier de 4 pièces
   // (it. 1038) ascension, héros libéré, œuf trouvé
@@ -251,6 +252,7 @@ export class StripRenderer {
       if (m && m.poupouce) this.say(g.bagFull() ? SPEECH.poupouceBagFull : SPEECH.poupouce, true);
       else if (m && m.affix === "colossal" && !((g.S.stats || {}).affixesSeen || {}).colossal) this.say(SPEECH.colossal, true); // (it. 1625) tant qu'aucun n'est vaincu
       else if (m && m.affix === "relentless" && !((g.S.stats || {}).affixesSeen || {}).relentless) this.say(SPEECH.relentless, true); // (it. 3200) premier Acharné
+      else if (m && m.affix === "hexer" && !((g.S.stats || {}).affixesSeen || {}).hexer) this.say(SPEECH.hexer, true); // (it. 3343) premier Maléfique
       // (it. 1894) entrée en scène d'un boss de zone : il se dresse de toute sa hauteur, la bande tremble, « !! » (les
       // lieutenants et le Briseur ont leur propre mise en scène)
       if (m && m.boss && !m.final && !m.major) {
