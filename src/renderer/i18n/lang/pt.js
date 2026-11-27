@@ -2453,4 +2453,6 @@ export default {
   3578: "Capataz: comprar sozinho a melhoria mais barata",
   3579: "Capataz: {n} melhoria da Oficina durante sua ausência.|Capataz: {n} melhorias da Oficina durante sua ausência.",
   3580: "Novo desbloqueio, o “Capataz” (zona 65): compra sozinho a melhoria da Oficina mais barata, desde que custe menos de um décimo do seu ouro, mesmo durante sua ausência.",
+  3581: "Ignífugo",
+  3582: "A queimadura e o veneno só causam metade do dano a ele.",
 };

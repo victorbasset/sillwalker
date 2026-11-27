@@ -144,7 +144,7 @@ ${names}">◆ ${tx("{n} dans le sac", { n: bagN })}</button>`
       <h2 class="codexh" id="bj-bosses">${tx("Capacités des boss")} <small>${tx("une par boss, deux à partir de la 2e boucle ; en plus, la compétence de sa famille (au survol de sa carte)")}</small></h2>
       ${/* (it. 1866) capacités tournantes seulement : les pouvoirs uniques des lieutenants et du Briseur (it. 1849) faisaient
          défiler l'onglet en russe et en allemand à 1280 px ; ils restent décrits dans le panneau de zone de leur boss */ ""}
-      <div class="setgrid">${Object.entries(BOSS_MECHANICS).filter(([id]) => !UNIQUE_MECHS.includes(id)).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
+      <div class="setgrid evgrid">${Object.entries(BOSS_MECHANICS).filter(([id]) => !UNIQUE_MECHS.includes(id)).map(([id, b]) => { // prochaine zone (à partir de la zone actuelle) dont le boss a cette capacité
         let nz = 0; for (let z = S.zone; z < S.zone + 60; z++) if (bossMechanics(z).includes(id)) { nz = z; break; }
         return `<div class="setcard${nz === S.zone ? " here" : ""}" style="--c:#ff9a7a"><b>${esc(b.name)}</b>${nz ? ` <small>${nz === S.zone ? tx("boss de ta zone") : tx("prochain boss : zone {0}", { 0: nz })}</small>` : ""}<div>${esc(b.desc)}</div></div>`; }).join("")}</div>
       ${show.elites ? (() => { const won = (S.stats && S.stats.affixesSeen) || {}, ae = Object.entries(ELITE_AFFIXES); // (it. 943) sortes vaincues : ✓

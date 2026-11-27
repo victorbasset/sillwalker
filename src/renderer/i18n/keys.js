@@ -3582,5 +3582,7 @@ export const KEYS = [
   "Achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or (option).",
   "Contremaître : acheter tout seul l’amélioration la moins chère",
   "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence.",
-  "Nouveau déblocage, le « Contremaître » (zone 65) : il achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or, même pendant ton absence."
+  "Nouveau déblocage, le « Contremaître » (zone 65) : il achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or, même pendant ton absence.",
+  "Ignifugé",
+  "La brûlure et le poison ne lui infligent que la moitié de leurs dégâts."
 ];

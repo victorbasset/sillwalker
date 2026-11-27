@@ -2453,4 +2453,6 @@ export default {
   3578: "Vorarbeiter: die günstigste Verbesserung von selbst kaufen",
   3579: "Vorarbeiter: {n} Werkstatt-Verbesserung während deiner Abwesenheit.|Vorarbeiter: {n} Werkstatt-Verbesserungen während deiner Abwesenheit.",
   3580: "Neue Freischaltung, der „Vorarbeiter“ (Zone 65): Er kauft von selbst die günstigste Werkstatt-Verbesserung, solange sie weniger als ein Zehntel deines Goldes kostet, auch während deiner Abwesenheit.",
+  3581: "Feuerfest",
+  3582: "Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu.",
 };

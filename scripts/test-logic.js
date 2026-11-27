@@ -903,6 +903,17 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("boss Ignifugé (it. 3383) : brûlure et poison à moitié", () => {
+  const run = (mech) => {
+    const g = new Game(freshState()); g.R.mode = "fight";
+    const m = g.makeMonster(false); m.elite = false; m.affix = null; m.mech = mech; m.hp = m.max = 1e9; m.atk = 0;
+    m.burnT = 10; m.burnDps = 1000; g.R.mon = m; g.R.hp = 1e12;
+    const hp0 = m.hp; g.R.heroAtkT = 1e9; g.step(0.1); return hp0 - m.hp;
+  };
+  const plain = run([]), fp = run(["fireproof"]);
+  assert.ok(plain > 0 && fp > 0 && fp < plain, "moins de brûlure : " + plain + " / " + fp);
+});
+
 test("Contremaître (it. 3376) : achète l'amélioration d'atelier la moins chère sous un dixième de l'or ; option ; absence", () => {
   const g = new Game(freshState()); g.S.unlocks.foreman = true; g.S.workshop = {};
   g.S.gold = 1; assert.equal(g.autoWorkshop({ force: true }), 0, "pas assez d'or : rien");

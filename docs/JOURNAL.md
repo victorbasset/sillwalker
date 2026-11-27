@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3383) Contenu : 20e capacité de boss, Ignifugé (fireproof : brûlure, poison et venin des sorts à moitié, FIREPROOF.keep),
+  ajoutée à ORDER (les capacités tournent sur 15 au lieu de 14 : le boss de chaque zone change). balance.mjs 12 contre b22d9da8 : 64,5 → 65,6
+  (+1,1, bruit) ; stall-check 120 parties 0 figée ; fuzz 600 parties 0 bloquée. Bestiaire > Capacités des boss : grille serrée (evgrid,
+  8 colonnes à 1280 px : ru 60 px de défilement avant). 10 langues, page Steam à 20 capacités de boss (10 langues). Test ; npm test 417,
+  autotest 349/349, lang-overflow all 1280/1600/1920 : aucun défaut ; capture ru. Le boss de la zone 57 (dev-data, repère perf) a changé.
 - 2026-11-27 (it. 3381) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : moine 65, cryomancien 64, lancier 69. Perf : bande 19,6 %, panneau 18,9 %,
   mini 5,5 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-27 (it. 3380) Préparation de la 0.1.13 : docs/devlog-0.1.13.md (titre provisoire « a Foreman for your Workshop »), entrée de couverture
@@ -10287,7 +10292,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 3382) 20e capacité de boss pour la 0.1.13 : l'ajouter à ORDER (bosses.js) change la capacité du boss de presque chaque zone
+- FAIT (it. 3383, Ignifugé) P2 (it. 3382) 20e capacité de boss pour la 0.1.13 : l'ajouter à ORDER (bosses.js) change la capacité du boss de presque chaque zone
   (bossMechanics prend ORDER[(z - 1) % longueur]) : comme les Écailles (it. 965), contrôler ensuite balance.mjs 12 contre l'ancien commit,
   fight-odds (boss), stall-check et le combat de dev-data (perf : le repère dépend du boss de la zone 57). Pièces : BOSS_MECHANICS, effet dans
   game.js, mot et couleur (strip.js label), son (sound.js), selftest « son : tous les sons », test, 10 langues, page Steam (19 → 20).

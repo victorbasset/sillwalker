@@ -2453,4 +2453,6 @@ export default {
   3578: "Capataz: comprar solo la mejora más barata",
   3579: "Capataz: {n} mejora del Taller durante tu ausencia.|Capataz: {n} mejoras del Taller durante tu ausencia.",
   3580: "Nuevo desbloqueo, el «Capataz» (zona 65): compra solo la mejora del Taller más barata, mientras cueste menos de una décima parte de tu oro, incluso durante tu ausencia.",
+  3581: "Ignífugo",
+  3582: "La quemadura y el veneno solo le infligen la mitad de su daño.",
 };

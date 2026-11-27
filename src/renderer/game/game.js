@@ -45,7 +45,7 @@ import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestige
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
 import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS } from "./events.js";
-import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS } from "./bosses.js";
+import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS, FIREPROOF } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
 /** (it. 1854) Une compétence change la façon de se battre d'un monstre, pas sa force : un coup en plus (bond, piqué…)
@@ -425,16 +425,18 @@ export class Game {
       if (R.silenced > 0) R.silenced -= dt; // Silence (échos) : les sorts attendent
       else if (this.castSpells(m, hs, dt)) return;
       // Brûlure, poison, serviteur
+      // (it. 3383) boss Ignifugé : brûlure et poisons à moitié
+      const dotK = m.mech && m.mech.includes("fireproof") ? FIREPROOF.keep : 1;
       if (m.burnT > 0) {
         const t = Math.min(dt, m.burnT);
         m.burnT -= dt;
-        m.hp -= m.burnDps * t;
+        m.hp -= m.burnDps * t * dotK;
         if (m.hp <= 0) { this.killMonster(); return; }
       }
       if (m.poisonT > 0) {
         const t = Math.min(dt, m.poisonT);
         m.poisonT -= dt;
-        m.hp -= hs.atk * hs.poison / 100 * m.poisonStacks * t;
+        m.hp -= hs.atk * hs.poison / 100 * m.poisonStacks * t * dotK;
         if (m.poisonT <= 0) m.poisonStacks = 0;
         if (m.hp <= 0) { this.killMonster(); return; }
       }
@@ -442,7 +444,7 @@ export class Game {
       if (m.venomT > 0) {
         const t = Math.min(dt, m.venomT);
         m.venomT -= dt;
-        m.hp -= (m.venomDps || 0) * t;
+        m.hp -= (m.venomDps || 0) * t * dotK;
         if (m.venomT <= 0) m.venomDps = 0;
         if (m.hp <= 0) { this.killMonster(); return; }
       }

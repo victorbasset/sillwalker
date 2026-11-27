@@ -2453,4 +2453,6 @@ export default {
   3578: "Foreman: buy the cheapest upgrade on its own",
   3579: "Foreman: {n} Workshop upgrade while you were away.|Foreman: {n} Workshop upgrades while you were away.",
   3580: "New unlock, the “Foreman” (zone 65): it buys the cheapest Workshop upgrade on its own, as long as it costs less than a tenth of your gold, even while you’re away.",
+  3581: "Fireproof",
+  3582: "Burn and poison deal only half their damage to it.",
 };

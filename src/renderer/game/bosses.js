@@ -80,6 +80,8 @@ export const BOSS_MECHANICS = {
   venom: { name: "Crachat venimeux", desc: "Toutes les 8 s, empoisonne le héros pendant 4 s : il perd 3 % de ses PV max par seconde, malgré sa défense et son bouclier (sans pouvoir l’achever)." },
   // (it. 964) Variété : contre les héros qui misent tout sur les coups critiques.
   scales: { name: "Écailles", desc: "Les coups critiques ne lui infligent que la moitié de leur bonus." },
+  // (it. 3383) 20e : la brûlure et le poison (du héros, des sorts) ne lui font que la moitié de leurs dégâts (FIREPROOF)
+  fireproof: { name: "Ignifugé", desc: "La brûlure et le poison ne lui infligent que la moitié de leurs dégâts." },
   bulwark: { name: "Peau de pierre", desc: "Subit 30 % de dégâts en moins tant qu’il lui reste plus de 70 % de ses PV : la première charge est la plus dure." },
   // (it. 1849, demande de Victor : « des compétences uniques ») pouvoirs propres aux trois lieutenants et au Briseur
   // (hors de ORDER : aucun boss ordinaire ne les reçoit ; les échos gardent celui de leur lieutenant)
@@ -97,7 +99,9 @@ export const SHARDS = { every: 10, first: 7, n: 3, mult: 0.6 };
 /** Cuirasse : réduction des dégâts au-dessus du seuil de PV. */
 export const BULWARK = { above: 0.7, cut: 0.3 };
 export const FURY = { every: 5, speed: 0.9, max: 6 };
-const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious", "venom", "scales"];
+const ORDER = ["enrage", "smash", "shell", "regen", "mirror", "drain", "frost", "evasive", "fury", "bulwark", "curse", "tenacious", "venom", "scales", "fireproof"];
+/** (it. 3383) Ignifugé : part des dégâts de brûlure et de poison qui passe. */
+export const FIREPROOF = { keep: 0.5 };
 /** (it. 964) Écailles : part du bonus des coups critiques qui passe. */
 export const SCALES = { keep: 0.5 };
 /** Venin (it. 878) : toutes les `every` s (la première après `first`), `s` s de poison à `pct` des PV max par seconde. */
