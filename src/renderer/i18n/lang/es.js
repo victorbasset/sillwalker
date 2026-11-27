@@ -2444,4 +2444,5 @@ export default {
   3569: "¡Cada objeto encontrado llega ya forjado (+2)!",
   3570: "¡Las estrellas baten el hierro por mí!",
   3571: "{n} objeto ya forjado|{n} objetos ya forjados",
+  3572: "Nuevo evento raro, la «Forja celeste»: durante 30 segundos, cada objeto encontrado llega ya forjado (+2).",
 };

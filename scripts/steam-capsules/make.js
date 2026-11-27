@@ -21,7 +21,7 @@ const SIZES = [
   ["update-0.1.9", 1920, 1080, "update", { ver: "0.1.9", tags: "Star Day|Relentless elite|Weasel & Hummingbird|Shooting-star quests|Clearer mini mode" }], // (it. 3237)
   ["update-0.1.10", 1920, 1080, "update", { ver: "0.1.10", tags: "Zeal Day|Champions’ Challenge|The Shrike pet|Friendlier mini mode|Clearer translations" }], // (it. 3260, 3273)
   ["update-0.1.11", 1920, 1080, "update", { ver: "0.1.11", tags: "New pets: Wasp, Woodpecker|Pet Party event|Forge Day|Events & blessings counted" }], // (it. 3299, 3302, 3312, 3319)
-  ["update-0.1.12", 1920, 1080, "update", { ver: "0.1.12", tags: "New elite: Hexing|New pet: Mantis|Pet quest|Travel Day" }], // (it. 3342, 3347, 3351)
+  ["update-0.1.12", 1920, 1080, "update", { ver: "0.1.12", tags: "New elite: Hexing|New pet: Mantis|Sky Forge event|Travel Day" }], // (it. 3342, 3347, 3351, 3362)
 ].filter(([name]) => !process.env.ONLY || name === process.env.ONLY); // ONLY=<nom> : une seule image
 app.whenReady().then(async () => {
   fs.mkdirSync(OUT, { recursive: true });

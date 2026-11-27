@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3362) « Quoi de neuf » : édition 201 (Forge céleste), 10 langues. Sortie 0.1.12 : couverture (Maléfique, Mante, Forge céleste,
+  Jour des voyages ; vérifiée), titre « a Hexing elite, a Sky Forge and a Mantis », accroches avec l'événement.
 - 2026-11-27 (it. 3361) Contenu : 22e événement rare, la Forge céleste (pendant 30 s, chaque objet trouvé au combat arrive forgé +2,
   SKYFORGE_PLUS ; bilan « N objets déjà forgés »), réplique, coups d'enclume (sound.js), 10 langues ; page Steam à 22 événements (10 langues),
   checklist, README. Bestiaire > Événements rares : 8 colonnes serrées à 1280 px (la 22e carte ouvrait une 4e rangée : ru 70 px, de 54, pl 53).

@@ -2444,4 +2444,5 @@ export default {
   3569: "Jeder gefundene Gegenstand ist bereits geschmiedet (+2)!",
   3570: "Die Sterne schmieden das Eisen für mich!",
   3571: "{n} bereits geschmiedeter Gegenstand|{n} bereits geschmiedete Gegenstände",
+  3572: "Neues seltenes Ereignis, die „Himmelsschmiede“: 30 Sekunden lang ist jeder gefundene Gegenstand bereits geschmiedet (+2).",
 };

@@ -3573,5 +3573,6 @@ export const KEYS = [
   "Forge céleste",
   "Chaque objet trouvé arrive déjà forgé (+2) !",
   "Les étoiles battent le fer pour moi !",
-  "{n} objet déjà forgé|{n} objets déjà forgés"
+  "{n} objet déjà forgé|{n} objets déjà forgés",
+  "Nouvel événement rare, la « Forge céleste » : pendant 30 secondes, chaque objet trouvé arrive déjà forgé (+2)."
 ];

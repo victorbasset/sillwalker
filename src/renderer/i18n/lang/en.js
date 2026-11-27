@@ -2444,4 +2444,5 @@ export default {
   3569: "Every item found arrives already forged (+2)!",
   3570: "The stars are hammering the iron for me!",
   3571: "{n} item already forged|{n} items already forged",
+  3572: "New rare event, “Sky Forge”: for 30 seconds, every item found arrives already forged (+2).",
 };

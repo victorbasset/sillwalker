@@ -2444,4 +2444,5 @@ export default {
   3569: "Każdy znaleziony przedmiot jest już wykuty (+2)!",
   3570: "Gwiazdy kują dla mnie żelazo!",
   3571: "{n} przedmiot już wykuty|{n} przedmioty już wykute|{n} przedmiotów już wykutych",
+  3572: "Nowe rzadkie wydarzenie, „Niebiańska kuźnia”: przez 30 sekund każdy znaleziony przedmiot jest już wykuty (+2).",
 };
