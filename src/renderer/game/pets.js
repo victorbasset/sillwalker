@@ -47,6 +47,8 @@ export const PETS = [
   // (it. 3315) Pivert : dégâts par coup d’affilée (+0,2 % par niveau, +2 % par coup au niveau 10, jusqu’à +20 % ; aucun familier ne le donnait ;
   // it. 3328 : 0,15 s’affichait « +0,2 % » au niveau 1, arrondi à une décimale)
   { id: "woodpecker", name: "Pivert", desc: "Il frappe sans relâche : chaque coup d’affilée fait un peu plus mal.", eff: { combo: 0.2 } },
+  // (it. 3350) Mante : vitesse d'attaque (+0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne la donnait)
+  { id: "mantis", name: "Mante", desc: "Patiente puis foudroyante : elle t’apprend à frapper plus vite.", eff: { spd: 0.5 } },
 ];
 /** Tirage d'un familier selon sa rareté (weight, 1 par défaut). */
 export function rollPet(rand) {

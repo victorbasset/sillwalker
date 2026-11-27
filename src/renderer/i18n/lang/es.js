@@ -2435,4 +2435,6 @@ export default {
   3560: "Las expediciones se compran en la Tienda: la Perrera de exploradores.",
   3561: "¡Buen viento, pequeños exploradores: hoy los caminos son cortos!",
   3562: "Nueva bendición del día, el «Día de los viajes»: ese día las expediciones de tus mascotas duran la mitad.",
+  3563: "Mantis",
+  3564: "Paciente y luego fulminante: te enseña a golpear más rápido.",
 };

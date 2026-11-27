@@ -2435,4 +2435,6 @@ export default {
   3560: "Expeditionen kaufst du im Laden: den Zwinger der Entdecker.",
   3561: "Gute Reise, kleine Entdecker: Heute sind die Wege kurz!",
   3562: "Neuer Segen des Tages, der „Tag der Reisen“: An diesem Tag dauern die Expeditionen deiner Haustiere nur halb so lang.",
+  3563: "Gottesanbeterin",
+  3564: "Geduldig, dann blitzschnell: Sie lehrt dich, schneller zuzuschlagen.",
 };

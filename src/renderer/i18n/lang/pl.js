@@ -2435,4 +2435,6 @@ export default {
   3560: "Wyprawy kupisz w Sklepie: Psiarnia odkrywców.",
   3561: "Pomyślnych wiatrów, mali odkrywcy: dziś drogi są krótkie!",
   3562: "Nowe błogosławieństwo dnia, „Dzień podróży”: tego dnia wyprawy twoich chowańców trwają o połowę krócej.",
+  3563: "Modliszka",
+  3564: "Cierpliwa, a potem błyskawiczna: uczy cię szybciej uderzać.",
 };

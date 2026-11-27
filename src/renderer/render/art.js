@@ -345,6 +345,10 @@ export const PET_ART = {
   woodpecker: { pal: { G: "#5c9a3a", R: "#d23a2a", Y: "#e8d890", K: "#1a1a1a", B: "#6a5030" }, fly: true, frames: [
     [".........", "...RR....", "..GGKG...", "..GGGBB..", ".GGGYY...", "GGGYYY...", "..B.B...."],
     [".........", "....RR...", "...GGKG..", "...GGGBBB", ".GGGYY...", "GGGYYY...", "..B.B...."]] },
+  // (it. 3350) Mante : corps vert fin, pattes ravisseuses levées, yeux ronds (deuxième image : pattes repliées)
+  mantis: { pal: { G: "#7cc84a", D: "#4e8a2a", K: "#1a1a1a" }, frames: [
+    [".........", "..GK.....", "..GGG....", ".D.GG....", "D..GGG...", "....GGGG.", "...D..D.."],
+    [".........", "..GK.....", "..GGG....", "..DGG....", "..DGGG...", "....GGGG.", "...D..D.."]] },
   // (it. 3214) Colibri : vert irisé à gorge rouge et long bec, il vole sur place, bec vers l'avant comme les autres (deuxième image : ailes basses)
   hummingbird: { pal: { G: "#3fbf7a", T: "#2a8a9a", R: "#e2343a", K: "#1a1a1a", W: "#cfe8ff" }, fly: true, frames: [
     [".....WW..", "....WW...", "...GGK...", "..GGRGKKK", "..TGG....", "..TT.....", "..T......"],

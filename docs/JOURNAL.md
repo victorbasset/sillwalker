@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3350) Contenu : 27e familier, la Mante (vitesse d'attaque, +0,5 % par niveau, +5 % au niveau 10 ; aucun familier ne la
+  donnait). Dessin vert aux pattes ravisseuses (art.js, au sol). Test ; README à 27 ; i18n-collisions 0 ; npm test 413, autotest 349/349,
+  lang-overflow de, ru, pl, pt 1280 : aucun défaut ; capture bande en allemand.
 - 2026-11-27 (it. 3347) « Quoi de neuf » : édition 198 (Jour des voyages), 10 langues. Sortie 0.1.12 : couverture à 3 étiquettes (vérifiée),
   accroches et devlog complétés.
 - 2026-11-27 (it. 3346) Contenu : 21e bénédiction du jour, le Jour des voyages (🧭, expéditions des familiers deux fois plus courtes ;
