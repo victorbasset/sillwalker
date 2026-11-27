@@ -1105,9 +1105,18 @@ const RELEASE_0111 = [
   "Bestiaire : le titre des événements rares donne le total vécu, pour suivre le succès des 100.",
   "Nouveau succès : « Témoin des prodiges (100 événements rares) », un objectif pour les longues parties.",
 ];
+const RELEASE_0112 = [
+  "Nouvelle élite, le Maléfique : ses coups peuvent maudire le héros, qui subit alors 15 % de dégâts en plus pendant 3 secondes (la pureté raccourcit la malédiction).",
+  "Nouveau familier, la Mante : elle augmente ta vitesse d’attaque (jusqu’à 5 % de plus au niveau 10).",
+  "Nouvel événement rare, la « Forge céleste » : pendant 30 secondes, chaque objet trouvé arrive déjà forgé (+2).",
+  "Nouveau familier, la Pieuvre : tes coups frappent parfois deux fois (jusqu’à 5 % de chances au niveau 10).",
+  "Nouvelle sorte de quête : faire gagner de l’expérience à ton familier (un œuf en prime une fois sur quatre).",
+  "Nouvelle bénédiction du jour, le « Jour des voyages » : les expéditions de tes familiers durent deux fois moins longtemps ce jour-là.",
+  "Nouveau succès : « Briseur de maléfices (25 maléfiques) », pour les chasseurs de la nouvelle élite.",
+];
 // 0.1.3 distribuée avec l'édition 58, 0.1.4 avec l'édition 101, 0.1.5 avec l'édition 114, 0.1.6 avec l'édition 132, 0.1.7 avec l'édition 152, 0.1.8 avec l'édition 176, 0.1.9 avec l'édition 183, 0.1.10 avec l'édition 189,
-// 0.1.11 avec l'édition 195 (NEWS_ID) : la suivante prendra after: 195.
-export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }, { version: "0.1.10", after: 183, items: RELEASE_0110 }, { version: "0.1.11", after: 189, items: RELEASE_0111 }];
+// 0.1.11 avec l'édition 195, 0.1.12 avec l'édition 202 (NEWS_ID) : la suivante prendra after: 202.
+export const NEWS_RELEASES = [{ version: "0.1.3", after: 32, items: RELEASE_013 }, { version: "0.1.4", after: 58, items: RELEASE_014 }, { version: "0.1.5", after: 101, items: RELEASE_015 }, { version: "0.1.6", after: 114, items: RELEASE_016 }, { version: "0.1.7", after: 132, items: RELEASE_017 }, { version: "0.1.8", after: 152, items: RELEASE_018 }, { version: "0.1.9", after: 176, items: RELEASE_019 }, { version: "0.1.10", after: 183, items: RELEASE_0110 }, { version: "0.1.11", after: 189, items: RELEASE_0111 }, { version: "0.1.12", after: 195, items: RELEASE_0112 }];
 /** Notes de version à montrer à un joueur qui a lu jusqu'à l'édition `seen` (la plus récente qu'il n'a pas vue), ou null. */
 export function releaseFor(seen = 0) {
   const r = NEWS_RELEASES.filter((x) => seen <= x.after && NEWS_ID > x.after);

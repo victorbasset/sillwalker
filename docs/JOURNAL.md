@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3372) SORTIE 0.1.12 (préparation) : package.json 0.1.12, RELEASE_0112 (7 nouveautés : Maléfique, Mante, Pieuvre, Forge
+  céleste, quête du familier, Jour des voyages, succès Briseur de maléfices), NEWS_RELEASES after: 195, tests des notes, CLAUDE.md (0.1.13 prendra
+  after: 202), steam/itch/devlog-0.1.12.html. npm test 415, autotest 349/349, lang-overflow all 1280 : aucun défaut ; fenêtre capturée en de.
 - 2026-11-27 (it. 3371) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : assassin 65, druide 62, barde 62. Perf : bande 19,8 %, panneau 19,5 %,
   mini 5,6 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-27 (it. 3370) lang-overflow all, tous états, après la liste des succès à 7 colonnes : 150 mesures, aucun défaut.
