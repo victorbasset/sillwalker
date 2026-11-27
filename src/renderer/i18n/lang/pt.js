@@ -2437,4 +2437,5 @@ export default {
   3562: "Nova bênção do dia, o “Dia das viagens”: nesse dia, as expedições dos seus mascotes duram metade do tempo.",
   3563: "Louva-a-deus",
   3564: "Paciente e depois fulminante: ensina você a golpear mais rápido.",
+  3565: "Novo mascote, o Louva-a-deus: aumenta sua velocidade de ataque (até 5 % a mais no nível 10).",
 };

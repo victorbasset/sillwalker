@@ -2437,4 +2437,5 @@ export default {
   3562: "Neuer Segen des Tages, der „Tag der Reisen“: An diesem Tag dauern die Expeditionen deiner Haustiere nur halb so lang.",
   3563: "Gottesanbeterin",
   3564: "Geduldig, dann blitzschnell: Sie lehrt dich, schneller zuzuschlagen.",
+  3565: "Neues Haustier, die Gottesanbeterin: Sie erhöht dein Angriffstempo (bis zu 5 % mehr auf Stufe 10).",
 };

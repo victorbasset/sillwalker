@@ -2437,4 +2437,5 @@ export default {
   3562: "Nueva bendición del día, el «Día de los viajes»: ese día las expediciones de tus mascotas duran la mitad.",
   3563: "Mantis",
   3564: "Paciente y luego fulminante: te enseña a golpear más rápido.",
+  3565: "Nueva mascota, la Mantis: aumenta tu velocidad de ataque (hasta un 5 % más en el nivel 10).",
 };

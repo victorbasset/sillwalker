@@ -2437,4 +2437,5 @@ export default {
   3562: "New daily blessing, “Travel Day”: your pets’ expeditions take half as long that day.",
   3563: "Mantis",
   3564: "Patient, then lightning-fast: it teaches you to strike faster.",
+  3565: "New pet, the Mantis: it raises your attack speed (up to 5% more at level 10).",
 };

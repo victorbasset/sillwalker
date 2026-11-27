@@ -2437,4 +2437,5 @@ export default {
   3562: "Nowe błogosławieństwo dnia, „Dzień podróży”: tego dnia wyprawy twoich chowańców trwają o połowę krócej.",
   3563: "Modliszka",
   3564: "Cierpliwa, a potem błyskawiczna: uczy cię szybciej uderzać.",
+  3565: "Nowy chowaniec, Modliszka: zwiększa twoją szybkość ataku (do 5 % więcej na poziomie 10).",
 };
