@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3374) SORTIE 0.1.12 publiée : itch-push.sh (AppImage essayée, 2 monstres en 30 s), canaux windows, linux et mac en 0.1.12
+  (butler status), fichiers et SHA256-0.1.12.txt dans Médias/dist-itch, devlog 1812000 publié (couverture envoyée).
 - 2026-11-27 (it. 3372) SORTIE 0.1.12 (préparation) : package.json 0.1.12, RELEASE_0112 (7 nouveautés : Maléfique, Mante, Pieuvre, Forge
   céleste, quête du familier, Jour des voyages, succès Briseur de maléfices), NEWS_RELEASES after: 195, tests des notes, CLAUDE.md (0.1.13 prendra
   after: 202), steam/itch/devlog-0.1.12.html. npm test 415, autotest 349/349, lang-overflow all 1280 : aucun défaut ; fenêtre capturée en de.

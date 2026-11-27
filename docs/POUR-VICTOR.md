@@ -4,13 +4,23 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Version 0.1.12 (envoyée le 27/11 vers 19 h 30, it. 3374, devlog https://victor-basset.itch.io/sillwalker/devlog/1812000)
+
+- Contenu : 13e élite, le Maléfique (ses coups peuvent maudire le héros) ; 27e et 28e familiers, la Mante (vitesse d'attaque) et la Pieuvre
+  (frappe double) ; 22e événement rare, la Forge céleste (objets trouvés déjà forgés +2) ; 21e sorte de quête (expérience du familier) ;
+  21e bénédiction, le Jour des voyages (expéditions deux fois plus courtes, première le 02/12).
+- Confort : liste des 75 succès sur 7 colonnes à 1280 px ; durée des expéditions en bulle sur les boutons du Grand intendant.
+- Steam (si déjà saisi) : page du magasin à 22 événements, 13 sortes d'élites, 21 sortes de quêtes ; créer le succès HEXER_25 (75 succès)
+  et téléverser ses deux icônes.
+- Fichiers dans Médias/dist-itch (SHA256-0.1.12.txt) ; les trois canaux itch.io en 0.1.12.
+
 ## Version 0.1.11 (envoyée le 26/11 vers 19 h 30, it. 3332, devlog https://victor-basset.itch.io/sillwalker/devlog/1809159)
 
 - Contenu : 25e et 26e familiers, la Guêpe (premier coup renforcé) et le Pivert (coups d'affilée) ; 21e événement rare, la Fête des
   familiers (expérience du familier ×10 pendant 30 s) ; 20e bénédiction, le Jour de la forge (forge à moitié prix, première le 29/11).
 - Collection : le Bestiaire compte chaque événement rare vécu (et leur total) et les jours passés sous chaque bénédiction ; 74e succès,
   « Témoin des prodiges » (100 événements rares).
-- Steam (si déjà saisi) : page du magasin à 21 événements ; créer le succès EVENTS_100 et téléverser ses deux icônes.
+- Steam (si déjà saisi) : créer le succès EVENTS_100 et téléverser ses deux icônes.
 - Fichiers dans Médias/dist-itch (SHA256-0.1.11.txt) ; les trois canaux itch.io en 0.1.11.
 
 ## Version 0.1.10 (envoyée le 25/11 vers 19 h, it. 3289, devlog https://victor-basset.itch.io/sillwalker/devlog/1806596)
