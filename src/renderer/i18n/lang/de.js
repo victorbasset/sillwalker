@@ -2447,4 +2447,5 @@ export default {
   3572: "Neues seltenes Ereignis, die „Himmelsschmiede“: 30 Sekunden lang ist jeder gefundene Gegenstand bereits geschmiedet (+2).",
   3573: "Krake",
   3574: "Acht Arme sind besser als zwei: Deine Treffer schlagen manchmal doppelt zu.",
+  3575: "Neues Haustier, der Krake: Deine Treffer schlagen manchmal doppelt zu (bis zu 5 % Chance auf Stufe 10).",
 };

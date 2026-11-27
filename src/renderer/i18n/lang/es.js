@@ -2447,4 +2447,5 @@ export default {
   3572: "Nuevo evento raro, la «Forja celeste»: durante 30 segundos, cada objeto encontrado llega ya forjado (+2).",
   3573: "Pulpo",
   3574: "Ocho brazos valen más que dos: tus golpes a veces pegan dos veces.",
+  3575: "Nueva mascota, el Pulpo: tus golpes a veces pegan dos veces (hasta un 5 % de probabilidad en el nivel 10).",
 };

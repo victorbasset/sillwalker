@@ -2447,4 +2447,5 @@ export default {
   3572: "New rare event, “Sky Forge”: for 30 seconds, every item found arrives already forged (+2).",
   3573: "Octopus",
   3574: "Eight arms beat two: your hits sometimes strike twice.",
+  3575: "New pet, the Octopus: your hits sometimes strike twice (up to a 5% chance at level 10).",
 };

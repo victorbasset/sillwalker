@@ -2447,4 +2447,5 @@ export default {
   3572: "Nowe rzadkie wydarzenie, „Niebiańska kuźnia”: przez 30 sekund każdy znaleziony przedmiot jest już wykuty (+2).",
   3573: "Ośmiornica",
   3574: "Osiem ramion to więcej niż dwa: twoje ciosy czasem uderzają dwa razy.",
+  3575: "Nowy chowaniec, Ośmiornica: twoje ciosy czasem uderzają dwa razy (do 5 % szans na poziomie 10).",
 };
