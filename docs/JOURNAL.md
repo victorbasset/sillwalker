@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3345) Bulle de réplique invisible dans une capture forcée (strip.say depuis --stage, dev-data à 1280 px) : pas un défaut. Deux
+  règles l'expliquent : une réplique urgente moins de 6 s après une autre est ignorée (le héros parle au lancement), et la bulle se tait
+  quand elle n'a pas de place entre les barres de vie et le nom du boss (it. 2797 ; dev-data combat le boss de zone 57 tout à droite).
+  Pour capturer une réplique : partie qui ne combat pas un boss, say() après 10 s, relever st.bubble.hidden 0,5 s plus tard.
 - 2026-11-27 (it. 3343) Réplique du héros devant le premier Maléfique (tant qu'aucun n'est vaincu, comme l'Acharné et le Colossal), 10 langues.
 - 2026-11-27 (it. 3342) Préparation de la 0.1.12 : docs/devlog-0.1.12.md (« a Hexing elite and a quest for your pet »), accroches en 10 langues,
   couverture (2 étiquettes, à compléter dans la journée).
