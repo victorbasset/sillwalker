@@ -10287,6 +10287,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 3382) 20e capacité de boss pour la 0.1.13 : l'ajouter à ORDER (bosses.js) change la capacité du boss de presque chaque zone
+  (bossMechanics prend ORDER[(z - 1) % longueur]) : comme les Écailles (it. 965), contrôler ensuite balance.mjs 12 contre l'ancien commit,
+  fight-odds (boss), stall-check et le combat de dev-data (perf : le repère dépend du boss de la zone 57). Pièces : BOSS_MECHANICS, effet dans
+  game.js, mot et couleur (strip.js label), son (sound.js), selftest « son : tous les sons », test, 10 langues, page Steam (19 → 20).
 - CLOS (it. 3276 : 7 graines, 66,1 → 67,7, une graine à 77 : bruit) P3 (it. 3275) Berserker : 77 / 66 / 69 (graines 7/3/11), 70,7 de moyenne, +5,9 sur la moyenne des héros (it. 3204 : 66,7). Vérifier sur
   7 graines et contre un ancien commit (worktree) avant tout réglage (paliers des murs, CLAUDE.md).
 - CLOS (it. 3275 : hero-table, nécromancien 63,7, comme avant) P3 (it. 3271) Nécromancien après le Défi des champions (it. 3270) : 7 graines, 63,1 → 61,3 ; moyenne des 10 héros −0,9 (bruit). Revoir
