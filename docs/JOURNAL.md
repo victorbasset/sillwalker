@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-27 (it. 3377) « Quoi de neuf » : édition 203 (Contremaître), 10 langues. Lien « 🔒 » du Contremaître absent de l'Atelier dans dev-data :
+  normal (lockLink ne montre un déblocage qu'à LOCK_LOOKAHEAD zones du record ; dev-data 57, Contremaître 65).
 - 2026-11-27 (it. 3376) Contenu : 27e déblocage, le Contremaître (zone 65, 4e9 or) : achète tout seul l'amélioration d'atelier la moins chère tant
   qu'elle coûte moins d'un dixième de l'or (règle du joueur simulé), 3 niveaux par minute au plus, aussi pendant l'absence (une ligne au journal),
   option settings.autoWorkshop (interrupteur dans l'Atelier). Exclu du freshState des tests (dépense de l'or), test dédié. 10 langues, page Steam

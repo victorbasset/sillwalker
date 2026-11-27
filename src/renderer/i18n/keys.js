@@ -3581,5 +3581,6 @@ export const KEYS = [
   "Contremaître",
   "Achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or (option).",
   "Contremaître : acheter tout seul l’amélioration la moins chère",
-  "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence."
+  "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence.",
+  "Nouveau déblocage, le « Contremaître » (zone 65) : il achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or, même pendant ton absence."
 ];

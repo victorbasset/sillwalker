@@ -2452,4 +2452,5 @@ export default {
   3577: "Sam kupuje najtańsze ulepszenie Warsztatu, dopóki kosztuje mniej niż jedną dziesiątą twojego złota (opcja).",
   3578: "Majster: samodzielnie kupuj najtańsze ulepszenie",
   3579: "Majster: {n} ulepszenie Warsztatu podczas twojej nieobecności.|Majster: {n} ulepszenia Warsztatu podczas twojej nieobecności.|Majster: {n} ulepszeń Warsztatu podczas twojej nieobecności.",
+  3580: "Nowe odblokowanie, „Majster” (strefa 65): sam kupuje najtańsze ulepszenie Warsztatu, dopóki kosztuje mniej niż jedną dziesiątą twojego złota, nawet podczas twojej nieobecności.",
 };
