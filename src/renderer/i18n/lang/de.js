@@ -2455,4 +2455,5 @@ export default {
   3580: "Neue Freischaltung, der „Vorarbeiter“ (Zone 65): Er kauft von selbst die günstigste Werkstatt-Verbesserung, solange sie weniger als ein Zehntel deines Goldes kostet, auch während deiner Abwesenheit.",
   3581: "Feuerfest",
   3582: "Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu.",
+  3583: "Neue Bossfähigkeit, „Feuerfest“: Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu. Die Bossfähigkeiten wechseln jetzt anders: Jede Zone kann eine Überraschung bereithalten.",
 };

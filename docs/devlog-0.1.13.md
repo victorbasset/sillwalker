@@ -19,5 +19,5 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 **Titre :** Sillwalker 0.1.13 : un Contremaître pour ton Atelier
 
-Nouveautés retenues pour RELEASE_0113 (éditions, indice) : 203·0 Contremaître.
+Nouveautés retenues pour RELEASE_0113 (éditions, indice) : 203·0 Contremaître, 204·0 Ignifugé.
 Plus les éditions parues d'ici 18 h (au moins 6 nouveautés, test des notes).

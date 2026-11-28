@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3384) « Quoi de neuf » : édition 204 (Ignifugé, capacités qui tournent autrement), 10 langues. Perf avec le nouveau boss de la
+  zone 57 de dev-data (Tenace + Ignifugé ; charge 0,8) : bande 20,4 %, panneau 19,1 %, mini 5,8 %, icône 0,5 % (dans le bruit du repère).
+  Autotest 349/349.
 - 2026-11-28 (it. 3383) Contenu : 20e capacité de boss, Ignifugé (fireproof : brûlure, poison et venin des sorts à moitié, FIREPROOF.keep),
   ajoutée à ORDER (les capacités tournent sur 15 au lieu de 14 : le boss de chaque zone change). balance.mjs 12 contre b22d9da8 : 64,5 → 65,6
   (+1,1, bruit) ; stall-check 120 parties 0 figée ; fuzz 600 parties 0 bloquée. Bestiaire > Capacités des boss : grille serrée (evgrid,

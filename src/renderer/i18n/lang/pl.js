@@ -2455,4 +2455,5 @@ export default {
   3580: "Nowe odblokowanie, „Majster” (strefa 65): sam kupuje najtańsze ulepszenie Warsztatu, dopóki kosztuje mniej niż jedną dziesiątą twojego złota, nawet podczas twojej nieobecności.",
   3581: "Ognioodporny",
   3582: "Podpalenie i trucizna zadają mu tylko połowę obrażeń.",
+  3583: "Nowa umiejętność bossa, „Ognioodporny”: podpalenie i trucizna zadają mu tylko połowę obrażeń. Umiejętności bossów zmieniają się teraz inaczej: każda strefa może kryć niespodziankę.",
 };

@@ -2455,4 +2455,5 @@ export default {
   3580: "Nuevo desbloqueo, el «Capataz» (zona 65): compra solo la mejora del Taller más barata, mientras cueste menos de una décima parte de tu oro, incluso durante tu ausencia.",
   3581: "Ignífugo",
   3582: "La quemadura y el veneno solo le infligen la mitad de su daño.",
+  3583: "Nueva habilidad de jefe, «Ignífugo»: la quemadura y el veneno solo le infligen la mitad de su daño. Las habilidades de los jefes rotan de otra forma: cada zona puede guardar una sorpresa.",
 };

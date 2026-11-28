@@ -2455,4 +2455,5 @@ export default {
   3580: "Novo desbloqueio, o “Capataz” (zona 65): compra sozinho a melhoria da Oficina mais barata, desde que custe menos de um décimo do seu ouro, mesmo durante sua ausência.",
   3581: "Ignífugo",
   3582: "A queimadura e o veneno só causam metade do dano a ele.",
+  3583: "Nova habilidade de chefe, “Ignífugo”: a queimadura e o veneno só causam metade do dano a ele. As habilidades dos chefes agora giram de outro jeito: cada zona pode guardar uma surpresa.",
 };

@@ -3584,5 +3584,6 @@ export const KEYS = [
   "Contremaître : {n} amélioration d’atelier pendant ton absence.|Contremaître : {n} améliorations d’atelier pendant ton absence.",
   "Nouveau déblocage, le « Contremaître » (zone 65) : il achète tout seul l’amélioration d’atelier la moins chère, tant qu’elle coûte moins d’un dixième de ton or, même pendant ton absence.",
   "Ignifugé",
-  "La brûlure et le poison ne lui infligent que la moitié de leurs dégâts."
+  "La brûlure et le poison ne lui infligent que la moitié de leurs dégâts.",
+  "Nouvelle capacité de boss, « Ignifugé » : la brûlure et le poison ne lui infligent que la moitié de leurs dégâts. Les capacités des boss tournent autrement : chaque zone peut réserver une surprise."
 ];

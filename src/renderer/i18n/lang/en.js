@@ -2455,4 +2455,5 @@ export default {
   3580: "New unlock, the “Foreman” (zone 65): it buys the cheapest Workshop upgrade on its own, as long as it costs less than a tenth of your gold, even while you’re away.",
   3581: "Fireproof",
   3582: "Burn and poison deal only half their damage to it.",
+  3583: "New boss ability, “Fireproof”: burn and poison deal only half their damage to it. Boss abilities now rotate differently: every zone may hold a surprise.",
 };
