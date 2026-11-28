@@ -50,8 +50,7 @@ export class PetsTab {
         // (it. 1366) nom gardé secret, mais son bonus au niveau 1 et sa rareté : un but pour les œufs
         return `<article class="panel petcard unknown"><div class="detail-head"><div class="petimg">?</div><div>
           <div class="nm">???</div><div class="sub">${tx("Pas encore trouvé")}${(p.weight ?? 1) < 1 ? " · " + tx("Rare") : ""}</div></div></div>
-          <p class="delta-p">${esc(tx("Bonus au niveau 1 : {0}", { 0: describeEffects(p.eff) }))}</p>
-          <p class="note">${esc(tx("au niveau {0} : {1}", { 0: PET_MAX_LVL, 1: describeEffects(p.eff, PET_MAX_LVL) }))}</p>
+          <p class="delta-p" title="${esc(tx("au niveau {0} : {1}", { 0: PET_MAX_LVL, 1: describeEffects(p.eff, PET_MAX_LVL) }))}">${esc(tx("Bonus au niveau 1 : {0}", { 0: describeEffects(p.eff) }))}</p>
           <p class="note">${tx("Sort d’un œuf : boss ({0} %), élites ({1} %) ou quêtes.", { 0: Math.round(EGG_CHANCE.boss * 100), 1: Math.round(EGG_CHANCE.elite * 100) })}</p></article>`;
       }
       const maxed = own.lvl >= PET_MAX_LVL, need = petXpNeed(own.lvl), petDay = !!activeDayMod(this.game.S)?.pets;

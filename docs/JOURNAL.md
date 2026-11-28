@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3408) lang-overflow all : Familiers > À découvrir défilait (fr, es, pt, de ; partie d'une heure : 22 px à 1280, 19 à 1600, 13 à 130 %) à
+  cause de la ligne « au niveau 10 » (it. 3400) : elle passe dans la bulle du bonus (survol). fr, es, pt, de à 1280/1600 : aucun défaut.
 - 2026-11-28 (it. 3407) « Quoi de neuf » : édition 210 (séries de victoires), 10 langues. Sortie 0.1.13 : 9 nouveautés, titre « Jackpots, winning
   streaks and a Foreman », accroches et couverture (Jackpot, séries, Contremaître, Ignifugé ; vérifiée).
 - 2026-11-28 (it. 3406) Récompense : les SÉRIES DE VICTOIRES. Chaque victoire d'affilée compte (R.winStreak, remis à zéro quand le héros tombe) ;
