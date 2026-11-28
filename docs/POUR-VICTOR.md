@@ -4,14 +4,23 @@ Tenu à jour par les itérations automatiques (it. 1386). Les décisions et les 
 détail est dans `docs/JOURNAL.md` et `steam/checklist.md`.
 
 
+## Version 0.1.13 (envoyée le 28/11 vers 19 h 30, it. 3418, devlog https://victor-basset.itch.io/sillwalker/devlog/1814920)
+
+- Récompenses (ta demande du 28/11, la dopamine d'abord) : Jackpot (une victoire sur 250 rapporte 20 fois son or), séries de victoires
+  fêtées (+1 % d'or par tranche de 10, jusqu'à +30 %), record de coup célébré ; aussi en mode mini.
+- Contenu : 27e déblocage, le Contremaître (l'Atelier tout seul) ; 20e capacité de boss, Ignifugé (les capacités tournent autrement) ;
+  22e bénédiction, le Jour du marché (première le 10/12) ; 22e sorte de quête (dépenser de l'or) ; succès Grand dépensier et Main en or.
+- Steam (si déjà saisi) : page du magasin à 27 automatismes, 20 capacités de boss, 22 sortes de quêtes ; créer les succès SPEND_1B et
+  JACKPOT_10 (77 succès) et téléverser leurs icônes.
+- Fichiers dans Médias/dist-itch (SHA256-0.1.13.txt) ; les trois canaux itch.io en 0.1.13.
+
 ## Version 0.1.12 (envoyée le 27/11 vers 19 h 30, it. 3374, devlog https://victor-basset.itch.io/sillwalker/devlog/1812000)
 
 - Contenu : 13e élite, le Maléfique (ses coups peuvent maudire le héros) ; 27e et 28e familiers, la Mante (vitesse d'attaque) et la Pieuvre
   (frappe double) ; 22e événement rare, la Forge céleste (objets trouvés déjà forgés +2) ; 21e sorte de quête (expérience du familier) ;
   21e bénédiction, le Jour des voyages (expéditions deux fois plus courtes, première le 02/12).
 - Confort : liste des 75 succès sur 7 colonnes à 1280 px ; durée des expéditions en bulle sur les boutons du Grand intendant.
-- Steam (si déjà saisi) : page du magasin à 22 événements, 13 sortes d'élites, 21 sortes de quêtes ; créer le succès HEXER_25 (75 succès)
-  et téléverser ses deux icônes.
+- Steam (si déjà saisi) : page du magasin à 22 événements, 13 sortes d'élites ; créer le succès HEXER_25 et téléverser ses deux icônes.
 - Fichiers dans Médias/dist-itch (SHA256-0.1.12.txt) ; les trois canaux itch.io en 0.1.12.
 
 ## Version 0.1.11 (envoyée le 26/11 vers 19 h 30, it. 3332, devlog https://victor-basset.itch.io/sillwalker/devlog/1809159)
