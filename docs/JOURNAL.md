@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3389) Contenu : 22e bénédiction du jour, le Jour du marché (🏷, potions, coffres, œufs et renouvellement de l'étal à moitié prix,
+  marketMul dans shop.js ; les objets de l'étal gardent leur prix, figé au tirage). Sel « #3 » (« # » prenait le 02/12, premier Jour des voyages
+  déjà annoncé), premier jour le 10/12/2026 ; réplique (« potions et coffres », pas « tout »), 10 langues, README. Test ; npm test 419, autotest
+  349/349, lang-overflow all 1280/1920 (22 bénédictions) : aucun défaut.
 - 2026-11-28 (it. 3388) « Quoi de neuf » : édition 205 (quête « Dépenser »), 10 langues.
 - 2026-11-28 (it. 3387) Contenu : 22e sorte de quête, « Dépenser N or » (100 à 200 fois l'or d'un monstre ; pay() et la forge la font avancer ;
   progression affichée en or ; lien vers la Boutique). 10 langues, page Steam à 22 sortes de quêtes (10 langues), README, checklist. Test ;

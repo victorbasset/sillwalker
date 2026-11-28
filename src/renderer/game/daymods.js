@@ -41,6 +41,9 @@ export const DAY_MODS = {
   // (it. 3346) 21e, ajouté à la FIN : les expéditions des familiers (aucune bénédiction ne les touchait) ; premier jour : le 02/12/2026
   // (sel « # » par défaut : aucun jour du 08/11 au 28/11 touché)
   travel: { icon: "🧭", name: "Jour des voyages", desc: "Expéditions deux fois plus courtes.", eff: {}, expedition: 0.5 },
+  // (it. 3389) 22e, ajouté à la FIN : la boutique (potions, coffres, œufs et renouvellement de l'étal à moitié prix) ; premier jour :
+  // le 10/12/2026 (sel « #3 » : « # » prenait le 02/12, premier Jour des voyages déjà annoncé)
+  market: { icon: "🏷", name: "Jour du marché", desc: "Potions, coffres et œufs à moitié prix.", eff: {}, market: 0.5 },
 };
 export const DAY_MOD_KEYS = Object.keys(DAY_MODS);
 
@@ -60,7 +63,7 @@ const DAY_MODS_BASE = 9;
  *  ajout un jour sur n, mais CE jour-là peut tomber aujourd'hui ou demain (déjà annoncé) : la 13e aurait remplacé la
  *  bénédiction du 14/11/2026 en pleine journée. On choisit alors un autre sel pour CE rang, qui épargne aujourd'hui et
  *  les jours suivants ; ne jamais changer le sel d'un rang déjà publié (son calendrier bougerait). */
-export const DAY_MOD_SALT = { 12: "#2", 17: "#3", 18: "#2", 19: "#5" }; // (it. 3195) 18e : « # » aurait changé le 17/11/2026, déjà joué
+export const DAY_MOD_SALT = { 12: "#2", 17: "#3", 18: "#2", 19: "#5", 21: "#3" }; // (it. 3195) 18e : « # » aurait changé le 17/11/2026, déjà joué
 export function dayModFor(day) {
   let k = DAY_MOD_KEYS[fnv(day) % DAY_MODS_BASE];
   for (let i = DAY_MODS_BASE; i < DAY_MOD_KEYS.length; i++) if (fnv(day + (DAY_MOD_SALT[i] || "#") + i) % (i + 1) === 0) k = DAY_MOD_KEYS[i];

@@ -3587,5 +3587,8 @@ export const KEYS = [
   "La brûlure et le poison ne lui infligent que la moitié de leurs dégâts.",
   "Nouvelle capacité de boss, « Ignifugé » : la brûlure et le poison ne lui infligent que la moitié de leurs dégâts. Les capacités des boss tournent autrement : chaque zone peut réserver une surprise.",
   "Dépenser {0} or",
-  "Nouvelle sorte de quête : dépenser de l’or (boutique, Atelier, déblocages, forge… tout compte)."
+  "Nouvelle sorte de quête : dépenser de l’or (boutique, Atelier, déblocages, forge… tout compte).",
+  "Jour du marché",
+  "Potions, coffres et œufs à moitié prix.",
+  "Jour de marché : potions et coffres à moitié prix, profitons-en !"
 ];

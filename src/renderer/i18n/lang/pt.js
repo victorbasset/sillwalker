@@ -2458,4 +2458,7 @@ export default {
   3583: "Nova habilidade de chefe, “Ignífugo”: a queimadura e o veneno só causam metade do dano a ele. As habilidades dos chefes agora giram de outro jeito: cada zona pode guardar uma surpresa.",
   3584: "Gastar {0} de ouro",
   3585: "Novo tipo de missão: gastar ouro (Loja, Oficina, desbloqueios, forja… tudo conta).",
+  3586: "Dia de feira",
+  3587: "Poções, baús e ovos pela metade do preço.",
+  3588: "Dia de feira: poções e baús pela metade do preço, vamos aproveitar!",
 };

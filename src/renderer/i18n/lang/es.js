@@ -2458,4 +2458,7 @@ export default {
   3583: "Nueva habilidad de jefe, «Ignífugo»: la quemadura y el veneno solo le infligen la mitad de su daño. Las habilidades de los jefes rotan de otra forma: cada zona puede guardar una sorpresa.",
   3584: "Gastar {0} de oro",
   3585: "Nuevo tipo de misión: gastar oro (Tienda, Taller, desbloqueos, forja… todo cuenta).",
+  3586: "Día de mercado",
+  3587: "Pociones, cofres y huevos a mitad de precio.",
+  3588: "Día de mercado: pociones y cofres a mitad de precio, ¡aprovechemos!",
 };

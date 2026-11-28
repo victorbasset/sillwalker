@@ -123,6 +123,7 @@ const SPEECH = {
   dm_stars: [tx("Les étoiles brillent fort : c’est le jour de monter vers elles !")], // (it. 3195)
   dm_zeal: [tx("Aujourd’hui, chaque contrat compte double !")], // (it. 3247)
   dm_travel: [tx("Bon vent, petits explorateurs : les routes sont courtes aujourd’hui !")], // (it. 3346)
+  dm_market: [tx("Jour de marché : potions et coffres à moitié prix, profitons-en !")], // (it. 3389)
   dm_forge: [tx("L’enclume est chaude : c’est le jour de forger !")], // (it. 3292)
 };
 

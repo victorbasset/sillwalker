@@ -2458,4 +2458,7 @@ export default {
   3583: "New boss ability, “Fireproof”: burn and poison deal only half their damage to it. Boss abilities now rotate differently: every zone may hold a surprise.",
   3584: "Spend {0} gold",
   3585: "New quest type: spend gold (Shop, Workshop, unlocks, forge… it all counts).",
+  3586: "Market Day",
+  3587: "Potions, chests and eggs at half price.",
+  3588: "Market day: potions and chests at half price, let’s make the most of it!",
 };

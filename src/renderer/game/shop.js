@@ -2,6 +2,9 @@
 // (même progression que l'or gagné : ×1,25 par zone), pour rester utiles
 // toute la partie sans pouvoir être contournés en retournant farmer en zone 1.
 import { BAG_SIZE, BAG_MAX } from "./data.js";
+import { activeDayMod } from "./daymods.js";
+/** (it. 3389) Jour du marché : potions, coffres, œufs et renouvellement de l'étal à moitié prix. */
+const marketMul = (S) => (S && activeDayMod(S)?.market) || 1;
 
 export const SHOP_REFRESH_S = 15 * 60;   // renouvellement du marchand
 export const SHOP_SLOTS = 4;
@@ -72,11 +75,11 @@ export function workshopEffects(S) {
 
 /** Œuf de familier : un par étal du marchand. */
 export const EGG_PRICE = 1500;
-export const eggPrice = (S) => Math.round(EGG_PRICE * zoneScale(S));
+export const eggPrice = (S) => Math.round(EGG_PRICE * zoneScale(S) * marketMul(S));
 /** Bonne affaire du marchand : un objet à prix réduit à chaque étal. */
 export const DEAL_DISCOUNT = 0.4;
 
-export const consumablePrice = (c, S) => Math.round(c.base * zoneScale(S));
-export const chestPrice = (c, S) => Math.round(c.base * zoneScale(S));
+export const consumablePrice = (c, S) => Math.round(c.base * zoneScale(S) * marketMul(S));
+export const chestPrice = (c, S) => Math.round(c.base * zoneScale(S) * marketMul(S));
 export const upgradePrice = (u, S) => Math.round(u.base * Math.pow(u.growth, S.upgrades[u.id] || 0));
-export const rerollPrice = (S) => Math.round(50 * zoneScale(S));
+export const rerollPrice = (S) => Math.round(50 * zoneScale(S) * marketMul(S));

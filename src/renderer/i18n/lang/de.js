@@ -2458,4 +2458,7 @@ export default {
   3583: "Neue Bossfähigkeit, „Feuerfest“: Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu. Die Bossfähigkeiten wechseln jetzt anders: Jede Zone kann eine Überraschung bereithalten.",
   3584: "{0} Gold ausgeben",
   3585: "Neue Questart: Gold ausgeben (Laden, Werkstatt, Freischaltungen, Schmiede… alles zählt).",
+  3586: "Markttag",
+  3587: "Tränke, Truhen und Eier zum halben Preis.",
+  3588: "Markttag: Tränke und Truhen zum halben Preis, nutzen wir das!",
 };

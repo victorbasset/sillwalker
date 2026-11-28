@@ -2458,4 +2458,7 @@ export default {
   3583: "Nowa umiejętność bossa, „Ognioodporny”: podpalenie i trucizna zadają mu tylko połowę obrażeń. Umiejętności bossów zmieniają się teraz inaczej: każda strefa może kryć niespodziankę.",
   3584: "Wydaj {0} złota",
   3585: "Nowy rodzaj zadania: wydawanie złota (Sklep, Warsztat, odblokowania, kucie… wszystko się liczy).",
+  3586: "Dzień targowy",
+  3587: "Mikstury, skrzynie i jaja za pół ceny.",
+  3588: "Dzień targowy: mikstury i skrzynie za pół ceny, korzystajmy!",
 };

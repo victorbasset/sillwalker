@@ -863,6 +863,17 @@ test("Pie-grièche : +3 % de dégâts contre les cibles sous 30 % de vie par niv
   assert.ok(Math.abs((g.stats().execute || 0) - e0 - 30) < 1e-9, "achèvement " + g.stats().execute);
 });
 
+test("Jour du marché (it. 3389) : premier le 10/12/2026, aucun jour du 08/11 au 29/11 ni le 02/12 changé ; potions, coffres, œufs à moitié prix", () => {
+  const { dayModFor } = M_daymods_js;
+  assert.equal(dayModFor("2026-12-10"), "market");
+  assert.equal(dayModFor("2026-12-02"), "travel", "premier Jour des voyages gardé");
+  for (let t = Date.parse("2026-11-08T12:00:00Z"); t <= Date.parse("2026-11-29T12:00:00Z"); t += 864e5) assert.notEqual(dayModFor(new Date(t).toISOString().slice(0, 10)), "market");
+  const g = new Game(freshState()); const S = g.S; const { CONSUMABLES, consumablePrice, eggPrice, rerollPrice } = M_shop_js;
+  S.daily = { ...(S.daily || {}), mod: null }; const p0 = consumablePrice(CONSUMABLES[0], S), e0 = eggPrice(S), r0 = rerollPrice(S);
+  S.daily.mod = "market";
+  assert.ok(Math.abs(consumablePrice(CONSUMABLES[0], S) - p0 / 2) <= 1 && Math.abs(eggPrice(S) - e0 / 2) <= 1 && Math.abs(rerollPrice(S) - r0 / 2) <= 1);
+});
+
 test("Jour des voyages (it. 3346) : premier le 02/12/2026, aucun jour du 08/11 au 28/11 changé ; expéditions deux fois plus courtes", () => {
   const { dayModFor, DAY_MODS } = M_daymods_js;
   assert.equal(dayModFor("2026-12-02"), "travel");
