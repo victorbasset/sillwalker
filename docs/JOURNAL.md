@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3411) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : arbalétrier 64, danseur de lames 62, artificier 62. Perf : bande 19,8 %,
+  panneau 19,9 %, mini 5,9 %, icône 0,5 % (récompenses ajoutées : rien de visible). Rien pour « Idées ».
 - 2026-11-28 (it. 3410) Mode mini : jackpot, paliers de série (dès 25) et record de coup y sont aussi annoncés (showMoment), comme sur la bande ;
   capture fr et de. npm test 422, autotest 349/349.
 - 2026-11-28 (it. 3409) Récompense : le RECORD DE COUP célébré. Plus gros coup battu d'au moins 25 % (HIT_RECORD, au plus une fois par minute :
