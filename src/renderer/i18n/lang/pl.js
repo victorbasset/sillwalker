@@ -2478,4 +2478,5 @@ export default {
   3603: "Rekord ciosu: gdy twój bohater pobije swój najmocniejszy cios (o co najmniej 25 %), pasek to świętuje: „Nowy rekord: cios za …!”.",
   3604: "Złota ręka (10 jackpotów)",
   3605: "Nowe osiągnięcie: „Złota ręka (10 jackpotów)”. Także w trybie mini ogłaszane są jackpoty, serie zwycięstw i rekordy ciosów.",
+  3606: "+{0} mocy",
 };

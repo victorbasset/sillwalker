@@ -456,6 +456,8 @@ export class StripRenderer {
     });
 
     g.on("heroDown", () => this.float(this.heroX + 6, 40, "K.O.", "#ff7a6b", true));
+    // (it. 3422) meilleur objet équipé : le gain de puissance monte au-dessus du héros
+    g.on("powerUp", ({ pct }) => { const t = performance.now(); if (t - (this.powerUpAt || 0) < 1000) return; this.powerUpAt = t; this.float(this.heroX + 6, 30, `▲ ${tx("+{0} puissance", { 0: pct + unit("%") })}`, "#7fe08a", true); });
     // (it. 1867, journée des monstres : comportements de groupe) mort d'un voisin : les suivants de la file sursautent et
     // reculent d'un pas (les craintifs plus loin) ; héros à terre : la file sautille de joie, chacun à son tour
     g.on("kill", () => {

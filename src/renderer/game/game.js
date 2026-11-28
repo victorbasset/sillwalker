@@ -1706,6 +1706,7 @@ export class Game {
 
   equip(it, quiet) {
     const S = this.S, old = S.equip[it.slot], before = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
+    const p0 = power(this.stats()); // (it. 3422) gain de puissance montré sur la bande
     S.bag = S.bag.filter((i) => i.id !== it.id);
     S.equip[it.slot] = it;
     if (old) S.bag.push(old);
@@ -1713,6 +1714,8 @@ export class Game {
     this.R.hp = Math.min(this.R.hp, this.stats().hp);
     if (!quiet) this.log(tx("Équipé : ") + itemName(it) + cend());
     this.emit("equipped", { r: it.r }); // son : cliquetis d'équipement
+    // (it. 3422, la sensation de montée en puissance) au moins +1 % de puissance : « +N % ⚔ » au-dessus du héros
+    { const p1 = power(this.stats()); if (p0 > 0 && p1 > p0 * 1.01) this.emit("powerUp", { pct: Math.round((p1 / p0 - 1) * 100) }); }
     // Palier de panoplie atteint (2 ou 4 pièces) : un moment à marquer.
     const after = it.set ? setCounts(S.equip)[it.set] || 0 : 0;
     for (const n of [2, 4]) if (before < n && after >= n && SETS[it.set]) {

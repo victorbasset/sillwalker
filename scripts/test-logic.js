@@ -914,6 +914,15 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("gain de puissance à l'équipement (it. 3422) : annoncé dès +1 %, pas pour un objet moins bon", () => {
+  const g = new Game(freshState()); const got = []; g.on("powerUp", ({ pct }) => got.push(pct));
+  const slot = "weapon"; const cur = g.S.equip[slot];
+  const strong = g.newItem(4, Math.max(1, g.S.best + 20), true); strong.slot = slot; g.S.bag.push(strong); g.equip(strong, true);
+  if (got.length) assert.ok(got[0] >= 1, "pourcentage : " + got[0]);
+  const weak = g.newItem(0, 1, true); weak.slot = slot; weak.r = 0; g.S.bag.push(weak); const n = got.length; g.equip(weak, true);
+  assert.equal(got.length, n, "objet moins bon : rien");
+});
+
 test("record de coup (it. 3409) : célébré au-delà de +25 %, une fois par minute au plus", () => {
   const g = new Game(freshState()); let n = 0; g.on("hitRecord", () => n++);
   g.S.stats.maxHit = 1000; g.R.time = 100;

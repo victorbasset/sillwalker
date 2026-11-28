@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3422) Montée en puissance visible : équiper un meilleur objet (à la main ou par le Valet d'armes) affiche « ▲ +N % puissance »
+  au-dessus du héros dès +1 % (événement powerUp, une fois par seconde au plus pour « Équiper le meilleur ») ; ⚔ remplacé par le mot traduit (la
+  police pixel le dessinait comme un X). 10 langues. Test ; npm test 423, autotest 349/349 ; capture fr et de.
 - 2026-11-28 (it. 3421) REVUE GÉNÉRALE. Perf : bande 19,7 %, panneau 18,9 %, mini 5,5 %, icône 0,7 % ; lang-overflow all, tous états (résumé
   d'absence aux compteurs qui montent compris) : aucun défaut. Rien pour « Idées ».
 - 2026-11-28 (it. 3420) Récompense au retour : dans le résumé d'absence, « Monstres vaincus » et « Or gagné » montent de 0 à leur valeur en 1,2 s

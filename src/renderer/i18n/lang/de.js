@@ -2478,4 +2478,5 @@ export default {
   3603: "Trefferrekord: Wenn dein Held seinen stärksten Treffer (um mindestens 25 %) übertrifft, feiert die Leiste das: „Neuer Rekord: Treffer mit …!“.",
   3604: "Goldhändchen (10 Jackpots)",
   3605: "Neuer Erfolg: „Goldhändchen (10 Jackpots)“. Auch im Mini-Modus werden Jackpots, Siegesserien und Trefferrekorde angekündigt.",
+  3606: "+{0} Stärke",
 };

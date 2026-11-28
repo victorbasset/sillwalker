@@ -3607,5 +3607,6 @@ export const KEYS = [
   "Nouveau record : coup de {0} !",
   "Record de coup : quand ton héros pulvérise son plus gros coup (d’au moins 25 %), la bande le fête : « Nouveau record : coup de … ! ».",
   "Main en or (10 jackpots)",
-  "Nouveau succès : « Main en or (10 jackpots) ». En mode mini aussi, jackpots, séries de victoires et records de coup sont annoncés."
+  "Nouveau succès : « Main en or (10 jackpots) ». En mode mini aussi, jackpots, séries de victoires et records de coup sont annoncés.",
+  "+{0} puissance"
 ];
