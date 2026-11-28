@@ -3590,5 +3590,6 @@ export const KEYS = [
   "Nouvelle sorte de quête : dépenser de l’or (boutique, Atelier, déblocages, forge… tout compte).",
   "Jour du marché",
   "Potions, coffres et œufs à moitié prix.",
-  "Jour de marché : potions et coffres à moitié prix, profitons-en !"
+  "Jour de marché : potions et coffres à moitié prix, profitons-en !",
+  "Nouvelle bénédiction du jour, le « Jour du marché » : potions, coffres et œufs à moitié prix ce jour-là."
 ];

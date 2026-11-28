@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3390) « Quoi de neuf » : édition 206 (Jour du marché), 10 langues ; devlog 0.1.13 à 4 nouveautés.
 - 2026-11-28 (it. 3389) Contenu : 22e bénédiction du jour, le Jour du marché (🏷, potions, coffres, œufs et renouvellement de l'étal à moitié prix,
   marketMul dans shop.js ; les objets de l'étal gardent leur prix, figé au tirage). Sel « #3 » (« # » prenait le 02/12, premier Jour des voyages
   déjà annoncé), premier jour le 10/12/2026 ; réplique (« potions et coffres », pas « tout »), 10 langues, README. Test ; npm test 419, autotest

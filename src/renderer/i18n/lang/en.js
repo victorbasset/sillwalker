@@ -2461,4 +2461,5 @@ export default {
   3586: "Market Day",
   3587: "Potions, chests and eggs at half price.",
   3588: "Market day: potions and chests at half price, let’s make the most of it!",
+  3589: "New daily blessing, “Market Day”: potions, chests and eggs at half price that day.",
 };
