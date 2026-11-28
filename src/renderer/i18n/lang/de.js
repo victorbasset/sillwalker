@@ -2473,4 +2473,5 @@ export default {
   3598: "{n} Sieg in Folge!|{n} Siege in Folge!",
   3599: "Serie beendet: {n} Sieg|Serie beendet: {n} Siege",
   3600: "Längste Siegesserie",
+  3601: "Siegesserien: Jeder Sieg in Folge zählt. Meilensteine (10, 25, 50, 100…) werden gefeiert, und je 10 Siege geben +1 % Gold (bis zu +30 %), solange dein Held steht. Deine längste Serie findest du in Statistiken.",
 };

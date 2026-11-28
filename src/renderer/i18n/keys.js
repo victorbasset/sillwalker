@@ -3602,5 +3602,6 @@ export const KEYS = [
   "Jackpot ! De temps en temps, une victoire rapporte 20 fois son or, avec une pluie de pièces et une fanfare : chaque combat peut être le bon.",
   "{n} victoire d’affilée !|{n} victoires d’affilée !",
   "Série terminée : {n} victoire|Série terminée : {n} victoires",
-  "Meilleure série de victoires"
+  "Meilleure série de victoires",
+  "Séries de victoires : chaque victoire d’affilée compte. Les paliers (10, 25, 50, 100…) sont fêtés, et chaque tranche de 10 donne +1 % d’or (jusqu’à +30 %) tant que ton héros tient debout. Ta meilleure série est dans les Statistiques."
 ];

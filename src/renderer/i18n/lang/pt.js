@@ -2473,4 +2473,5 @@ export default {
   3598: "{n} vitória seguida!|{n} vitórias seguidas!",
   3599: "Sequência encerrada: {n} vitória|Sequência encerrada: {n} vitórias",
   3600: "Melhor sequência de vitórias",
+  3601: "Sequências de vitórias: cada vitória seguida conta. Os marcos (10, 25, 50, 100…) são celebrados, e cada 10 vitórias dão +1 % de ouro (até +30 %) enquanto seu herói continuar de pé. Sua melhor sequência fica em Estatísticas.",
 };

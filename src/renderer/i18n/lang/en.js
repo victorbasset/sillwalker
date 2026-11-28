@@ -2473,4 +2473,5 @@ export default {
   3598: "{n} win in a row!|{n} wins in a row!",
   3599: "Streak over: {n} win|Streak over: {n} wins",
   3600: "Best winning streak",
+  3601: "Winning streaks: every win in a row counts. Milestones (10, 25, 50, 100…) are celebrated, and every 10 wins give +1% gold (up to +30%) as long as your hero stays standing. Your best streak is in Statistics.",
 };

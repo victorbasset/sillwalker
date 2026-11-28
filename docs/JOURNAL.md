@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3407) « Quoi de neuf » : édition 210 (séries de victoires), 10 langues. Sortie 0.1.13 : 9 nouveautés, titre « Jackpots, winning
+  streaks and a Foreman », accroches et couverture (Jackpot, séries, Contremaître, Ignifugé ; vérifiée).
 - 2026-11-28 (it. 3406) Récompense : les SÉRIES DE VICTOIRES. Chaque victoire d'affilée compte (R.winStreak, remis à zéro quand le héros tombe) ;
   +1 % d'or par tranche de 10 (jusqu'à +30 %, STREAK) ; paliers 10, 25, 50, 100, 250… célébrés (bannière 🔥, plus grande dès 100, étincelles,
   son ; journal dès 100) ; série perdue dite (« Série terminée : N victoires », dès 25) ; meilleure série dans Statistiques. Pluriels accordés

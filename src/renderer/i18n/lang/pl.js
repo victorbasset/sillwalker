@@ -2473,4 +2473,5 @@ export default {
   3598: "{n} zwycięstwo z rzędu!|{n} zwycięstwa z rzędu!|{n} zwycięstw z rzędu!",
   3599: "Seria zakończona: {n} zwycięstwo|Seria zakończona: {n} zwycięstwa|Seria zakończona: {n} zwycięstw",
   3600: "Najlepsza seria zwycięstw",
+  3601: "Serie zwycięstw: liczy się każde zwycięstwo z rzędu. Progi (10, 25, 50, 100…) są świętowane, a każde 10 zwycięstw daje +1 % złota (do +30 %), dopóki twój bohater stoi. Najlepsza seria jest w Statystyki.",
 };
