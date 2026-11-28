@@ -5,7 +5,7 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 ## Publication sur itch.io
 
-- **Titre :** Sillwalker 0.1.13 – a Foreman for your Workshop
+- **Titre :** Sillwalker 0.1.13 – a Foreman, Fireproof bosses and a Market Day
 - **Image de couverture :** steam/itch/cover-0.1.13.png (1920 × 1080 ; `ONLY=update-0.1.13 electron scripts/steam-capsules/make.js <dossier>`)
 - **Tags :** Sillwalker, idle game, idle RPG, incremental game, pixel art, indie game, desktop game, taskbar game,
   cozy game, gamedev
@@ -17,7 +17,7 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 ## Français
 
-**Titre :** Sillwalker 0.1.13 : un Contremaître pour ton Atelier
+**Titre :** Sillwalker 0.1.13 : un Contremaître, des boss ignifugés et un Jour du marché
 
 Nouveautés retenues pour RELEASE_0113 (éditions, indice) : 203·0 Contremaître, 204·0 Ignifugé, 205·0 quête « Dépenser », 206·0 Jour du marché, 207·0 succès Grand dépensier, 207·1 progression des succès en bulle.
 Plus les éditions parues d'ici 18 h (au moins 6 nouveautés, test des notes).

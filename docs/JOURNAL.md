@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3396) Préparation de la 0.1.13 : accroches en 10 langues (Contremaître, Ignifugé, Jour du marché, quête « Dépenser », Grand
+  dépensier), titre « a Foreman, Fireproof bosses and a Market Day », couverture à 4 étiquettes (vérifiée).
 - 2026-11-28 (it. 3395) lang-overflow all, tous états (semaine, 6 h, zoom compris), après Grand dépensier et la progression en bulle : aucun défaut.
 - 2026-11-28 (it. 3394) « Quoi de neuf » : édition 207 (Grand dépensier, progression des succès en bulle), 10 langues ; devlog 0.1.13 à 6 nouveautés.
 - 2026-11-28 (it. 3393) 76e succès, « Grand dépensier (1 milliard d'or dépensé) » (stats.spent, compté par pay() et la forge ; icône du sac),
