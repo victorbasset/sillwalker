@@ -21,6 +21,20 @@ CHOISIR
 - Avant de coder, écris en deux lignes ce que le joueur verra de différent et comment tu vérifieras que ça
   marche. Si tu ne sais pas le dire, choisis autre chose.
 
+LE PLUS IMPORTANT (demande de Victor, 2026-11-28 : « stimule surtout le circuit de la récompense dans le cerveau en jouant sur
+la dopamine, ça c'est vraiment vraiment le plus important »)
+- Chaque mise à jour doit donner au joueur une impression de MONTÉE EN PUISSANCE, du FUN et de la SATISFACTION : des récompenses
+  qui tombent souvent et se voient, des chiffres qui grimpent, des paliers franchis, des surprises (butin rare, coup énorme,
+  jackpot), l'anticipation (« encore un peu et… »), la collection qui se remplit, des retours visuels et sonores qui
+  célèbrent chaque gain. Se demander toujours : « qu'est-ce que le joueur RESSENT de plus en jouant ? ».
+- Varier les SORTES de nouveautés d'une version à l'autre (Victor, 2026-11-28 : « c'est toujours un familier, un nouvel
+  événement et un nouveau truc daily ») : ne pas refaire chaque jour familier + événement rare + bénédiction. Puiser dans tout :
+  sensations de combat (coups critiques spectaculaires, combos, gros chiffres), récompenses et butin (jackpots, coffres,
+  raretés, moments « wow »), paliers et jalons célébrés, nouveaux systèmes de progression, objectifs à court terme qui
+  s'enchaînent, retours visuels et sonores, rythme du début de partie, quêtes et défis, ergonomie, contenu (héros, zones,
+  boss, objets, panoplies, pouvoirs), mode mini et bande. Regarder les nouveautés des 3 dernières versions (NEWS_RELEASES,
+  news.js) et choisir AUTRE CHOSE.
+
 PRIORITÉS (dans cet ordre)
 1. Ne jamais trahir le joueur : aucun plantage, aucune perte de progression, sauvegardes toujours compatibles.
    Un bug visible (texte non traduit, débordement, valeur fausse, bouton sans effet) passe avant tout.

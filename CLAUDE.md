@@ -19,6 +19,10 @@ Le README décrit le contenu et l'organisation du code ; ce fichier dit **commen
   commodité ou automatisation passe par un **déblocage** acheté en boutique (`game/unlocks.js` :
   zone record + or, conservé à l'ascension) ; l'action manuelle reste possible avant l'achat.
 - Il limite les clics : préférer une action directe (un clic, double-clic, survol) aux allers-retours.
+- **Le plus important** (demande de Victor, 2026-11-28) : stimuler le circuit de la récompense (dopamine). Chaque mise à jour doit donner
+  une impression de montée en puissance, du fun et de la satisfaction (récompenses fréquentes et visibles, chiffres qui grimpent, paliers
+  célébrés, surprises, anticipation, collection qui se remplit). Varier les SORTES de nouveautés : pas chaque jour un familier + un
+  événement rare + une bénédiction (détails : scripts/auto-iteration.md, « LE PLUS IMPORTANT »).
 
 ## Règles absolues
 
