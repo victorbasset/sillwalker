@@ -2463,4 +2463,6 @@ export default {
   3588: "Market day: potions and chests at half price, let’s make the most of it!",
   3589: "New daily blessing, “Market Day”: potions, chests and eggs at half price that day.",
   3590: "Big Spender (1 billion gold spent)",
+  3591: "New achievement: “Big Spender (1 billion gold spent)”.",
+  3592: "Achievements: on a laptop screen, achievement progress shows on hover (except for the three almost earned), so the list fits.",
 };

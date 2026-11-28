@@ -2463,4 +2463,6 @@ export default {
   3588: "Dia de feira: poções e baús pela metade do preço, vamos aproveitar!",
   3589: "Nova bênção do dia, o “Dia de feira”: nesse dia, poções, baús e ovos pela metade do preço.",
   3590: "Grande gastador (1 bilhão de ouro gasto)",
+  3591: "Nova conquista: “Grande gastador (1 bilhão de ouro gasto)”.",
+  3592: "Conquistas: em uma tela de notebook, o progresso das conquistas aparece ao passar o mouse (exceto as três quase obtidas), para a lista caber.",
 };

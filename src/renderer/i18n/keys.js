@@ -3592,5 +3592,7 @@ export const KEYS = [
   "Potions, coffres et œufs à moitié prix.",
   "Jour de marché : potions et coffres à moitié prix, profitons-en !",
   "Nouvelle bénédiction du jour, le « Jour du marché » : potions, coffres et œufs à moitié prix ce jour-là.",
-  "Grand dépensier (1 milliard d’or dépensé)"
+  "Grand dépensier (1 milliard d’or dépensé)",
+  "Nouveau succès : « Grand dépensier (1 milliard d’or dépensé) ».",
+  "Succès : sur un écran de portable, la progression des succès s’affiche au survol (sauf pour les trois presque obtenus), pour que la liste tienne."
 ];

@@ -2463,4 +2463,6 @@ export default {
   3588: "Markttag: Tränke und Truhen zum halben Preis, nutzen wir das!",
   3589: "Neuer Segen des Tages, der „Markttag“: An diesem Tag gibt es Tränke, Truhen und Eier zum halben Preis.",
   3590: "Großer Verschwender (1 Milliarde Gold ausgegeben)",
+  3591: "Neuer Erfolg: „Großer Verschwender (1 Milliarde Gold ausgegeben)“.",
+  3592: "Erfolge: Auf einem Laptop-Bildschirm erscheint der Fortschritt beim Darüberfahren (außer bei den drei fast geschafften), damit die Liste passt.",
 };

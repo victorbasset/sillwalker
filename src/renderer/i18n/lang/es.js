@@ -2463,4 +2463,6 @@ export default {
   3588: "Día de mercado: pociones y cofres a mitad de precio, ¡aprovechemos!",
   3589: "Nueva bendición del día, el «Día de mercado»: ese día pociones, cofres y huevos a mitad de precio.",
   3590: "Gran derrochador (1000 millones de oro gastados)",
+  3591: "Nuevo logro: «Gran derrochador (1000 millones de oro gastados)».",
+  3592: "Logros: en una pantalla de portátil, el progreso de los logros aparece al pasar el ratón (salvo los tres casi conseguidos), para que la lista quepa.",
 };

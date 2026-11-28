@@ -2463,4 +2463,6 @@ export default {
   3588: "Dzień targowy: mikstury i skrzynie za pół ceny, korzystajmy!",
   3589: "Nowe błogosławieństwo dnia, „Dzień targowy”: tego dnia mikstury, skrzynie i jaja za pół ceny.",
   3590: "Wielki rozrzutnik (wydany 1 mld złota)",
+  3591: "Nowe osiągnięcie: „Wielki rozrzutnik (wydany 1 mld złota)”.",
+  3592: "Osiągnięcia: na ekranie laptopa postęp osiągnięć widać po najechaniu kursorem (poza trzema prawie zdobytymi), żeby lista się zmieściła.",
 };
