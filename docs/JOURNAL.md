@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3402) « Quoi de neuf » : édition 208 (bonus au niveau 10 des familiers à découvrir), 10 langues ; notes 0.1.13 à 7 nouveautés.
 - 2026-11-28 (it. 3401) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : prêtresse 62, gladiateur 63, chaman 65. Perf : bande 19,4 %, panneau 19,2 %,
   mini 5,6 %, icône 0,5 %. Rien pour « Idées ».
 - 2026-11-28 (it. 3400) Familiers > À découvrir : chaque carte dit aussi le bonus au niveau maximal (« au niveau 10 : +100 % … »), pour juger

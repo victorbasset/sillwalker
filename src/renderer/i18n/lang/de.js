@@ -2466,4 +2466,5 @@ export default {
   3591: "Neuer Erfolg: „Großer Verschwender (1 Milliarde Gold ausgegeben)“.",
   3592: "Erfolge: Auf einem Laptop-Bildschirm erscheint der Fortschritt beim Darüberfahren (außer bei den drei fast geschafften), damit die Liste passt.",
   3593: "auf Stufe {0}: {1}",
+  3594: "Begleiter: Noch unentdeckte Begleiter zeigen auch ihren Bonus auf Stufe 10, damit du weißt, was sie wert sein werden.",
 };

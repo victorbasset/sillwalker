@@ -2466,4 +2466,5 @@ export default {
   3591: "Nova conquista: “Grande gastador (1 bilhão de ouro gasto)”.",
   3592: "Conquistas: em uma tela de notebook, o progresso das conquistas aparece ao passar o mouse (exceto as três quase obtidas), para a lista caber.",
   3593: "no nível {0}: {1}",
+  3594: "Mascotes: os mascotes ainda por descobrir também mostram seu bônus no nível 10, para você saber quanto vão valer.",
 };

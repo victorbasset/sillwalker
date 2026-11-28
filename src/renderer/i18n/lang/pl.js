@@ -2466,4 +2466,5 @@ export default {
   3591: "Nowe osiągnięcie: „Wielki rozrzutnik (wydany 1 mld złota)”.",
   3592: "Osiągnięcia: na ekranie laptopa postęp osiągnięć widać po najechaniu kursorem (poza trzema prawie zdobytymi), żeby lista się zmieściła.",
   3593: "na poziomie {0}: {1}",
+  3594: "Pupile: pupile do odkrycia pokazują też premię na poziomie 10, żeby było wiadomo, ile będą warte.",
 };

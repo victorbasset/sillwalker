@@ -3595,5 +3595,6 @@ export const KEYS = [
   "Grand dépensier (1 milliard d’or dépensé)",
   "Nouveau succès : « Grand dépensier (1 milliard d’or dépensé) ».",
   "Succès : sur un écran de portable, la progression des succès s’affiche au survol (sauf pour les trois presque obtenus), pour que la liste tienne.",
-  "au niveau {0} : {1}"
+  "au niveau {0} : {1}",
+  "Familiers : les familiers encore à découvrir montrent aussi leur bonus au niveau 10, pour savoir ce qu’ils vaudront."
 ];

@@ -2466,4 +2466,5 @@ export default {
   3591: "New achievement: “Big Spender (1 billion gold spent)”.",
   3592: "Achievements: on a laptop screen, achievement progress shows on hover (except for the three almost earned), so the list fits.",
   3593: "at level {0}: {1}",
+  3594: "Pets: pets still to discover also show their level 10 bonus, so you know what they’ll be worth.",
 };

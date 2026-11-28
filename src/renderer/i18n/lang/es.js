@@ -2466,4 +2466,5 @@ export default {
   3591: "Nuevo logro: «Gran derrochador (1000 millones de oro gastados)».",
   3592: "Logros: en una pantalla de portátil, el progreso de los logros aparece al pasar el ratón (salvo los tres casi conseguidos), para que la lista quepa.",
   3593: "en el nivel {0}: {1}",
+  3594: "Mascotas: las mascotas por descubrir también muestran su bonificación en el nivel 10, para saber cuánto valdrán.",
 };
