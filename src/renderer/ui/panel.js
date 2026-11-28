@@ -400,6 +400,22 @@ export class Panel {
     } else { this.visitSnap = this.game.visitSnapshot(); this.sinceVisit = null; }
   }
 
+  /** (it. 3420, demande de Victor : la sensation de récompense) Compteurs qui montent : chaque [data-count] part de 0 et atteint sa
+   *  valeur en 1,2 s (accéléré puis ralenti). Le texte final est celui du rendu (mesures de mise en page inchangées) ; rien si
+   *  « réduire les animations » est demandé ou en arrière-plan (document caché). */
+  countUp(root) {
+    if (!root || document.hidden || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const els = [...root.querySelectorAll("[data-count]")].filter((e) => +e.dataset.count > 0);
+    if (!els.length) return;
+    const finals = els.map((e) => e.textContent), t0 = performance.now(), D = 1200;
+    const step = (now) => {
+      const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
+      els.forEach((el, i) => { if (!el.isConnected) return; el.textContent = k >= 1 ? finals[i] : (el.dataset.pre || "") + fmt(Math.round(+el.dataset.count * e)); });
+      if (k < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
   /** Ligne « Depuis ta dernière visite » en haut de la carte du héros (un clic la ferme). */
   visitHTML() {
     const v = this.sinceVisit;
@@ -559,10 +575,10 @@ export class Panel {
       `<div class="modalwide offgrid"><div>
       <p>${tx("Ton héros a continué de farmer {0} pendant {1}.", { 0: esc(sum.zone).replace(/ ([+＋])/g, "\u00a0$1"), 1: esc(sum.duration) })}</p>
       <ul class="lines">
-        <li><span>${tx("Monstres vaincus")}</span><b>${fmt(sum.kills)}</b></li>
+        <li><span>${tx("Monstres vaincus")}</span><b data-count="${sum.kills}">${fmt(sum.kills)}</b></li>
         ${sum.elites ? `<li><span>${tx("Élites vaincues")}</span><b>${fmt(sum.elites)}</b></li>` : ""}
         ${sum.champions ? `<li><span>${tx("Champions vaincus")}</span><b>${fmt(sum.champions)}${sum.champEpics > 0 ? ` <small>${txn(sum.champEpics, "(+{n} objet épique)|(+{n} objets épiques)")}</small>` : ""}</b></li>` : "" /* (it. 2943) chacun laisse son épique (it. 2905) : ceux vraiment rangés, comme Poupouce */}
-        <li><span>${tx("Or gagné")}</span><b>+${fmt(sum.gold + (sum.petGold || 0))}</b></li>
+        <li><span>${tx("Or gagné")}</span><b data-count="${sum.gold + (sum.petGold || 0)}" data-pre="+">+${fmt(sum.gold + (sum.petGold || 0))}</b></li>
         <li><span>${tx("Expérience")}</span><b>+${fmt(sum.xp)}</b></li>
         ${(() => { const dm = sum.newDay ? activeDayMod(this.game.S) : null; return dm ? `<li><span>${tx("Bénédiction du jour")}</span><b title="${esc(dm.desc)}" tabindex="0">${dm.icon} ${esc(dm.name)}</b></li>` : ""; })() /* (it. 3257) absence qui a traversé minuit */}
         ${sum.newLevel ? `<li><span>${tx("Nouveau niveau")}</span><b>${sum.newLevel}</b></li>` : ""}
@@ -593,6 +609,7 @@ export class Panel {
     { const og = $(this.root, "#mbody .offgrid"); if (og && og.firstElementChild.querySelectorAll("li").length > 11) og.classList.add("long"); }
     this.setTab("adventure");
     $(this.root, "#modal").hidden = false;
+    this.countUp($(this.root, "#mbody")); // (it. 3420) les gains montent sous les yeux du joueur
     // (it. 2927) 8 lignes « À faire » ne tiennent pas toujours : un libellé long (« Comprar y equipar: Túnica de cuero celeste… ») passe
     // sur deux lignes et la fenêtre défilait de 14 px (es, 1280). Tant qu'elle défile, la dernière ligne s'efface (4 au moins restent) ;
     // la note compte toutes celles qui sont dans la carte du héros

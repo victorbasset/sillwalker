@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3420) Récompense au retour : dans le résumé d'absence, « Monstres vaincus » et « Or gagné » montent de 0 à leur valeur en 1,2 s
+  (panel.countUp, [data-count] ; texte final identique au rendu, donc mesures de mise en page inchangées ; rien si « réduire les animations »).
+  Relevé : 73 puis 91 victoires, +23,17 puis +28,72 Md. npm test 422, autotest 349/349.
 - 2026-11-28 (it. 3419) Séries de victoires : à partir de 50 victoires d'affilée, chaque palier (50, 100, 250…) ouvre aussi un coffre au trésor (or,
   potion, objet rare ou mieux, avec son animation) : une récompense qu'on voit tomber (STREAK.chestFrom). Test ; npm test 422, autotest 349/349.
 - 2026-11-28 (it. 3418) SORTIE 0.1.13 publiée : itch-push.sh (AppImage essayée, 3 monstres en 30 s), canaux windows, linux et mac en 0.1.13
