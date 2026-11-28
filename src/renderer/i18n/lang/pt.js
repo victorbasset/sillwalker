@@ -2469,4 +2469,5 @@ export default {
   3594: "Mascotes: os mascotes ainda por descobrir também mostram seu bônus no nível 10, para você saber quanto vão valer.",
   3595: "Jackpot! {0} de ouro de uma vez.",
   3596: "JACKPOT! +{0} de ouro",
+  3597: "Jackpot! De vez em quando, uma vitória rende 20 vezes o seu ouro, com chuva de moedas e fanfarra: qualquer combate pode ser o premiado.",
 };

@@ -2469,4 +2469,5 @@ export default {
   3594: "Mascotas: las mascotas por descubrir también muestran su bonificación en el nivel 10, para saber cuánto valdrán.",
   3595: "¡Premio gordo! {0} de oro de golpe.",
   3596: "¡PREMIO GORDO! +{0} de oro",
+  3597: "¡Premio gordo! De vez en cuando, una victoria da 20 veces su oro, con lluvia de monedas y fanfarria: cualquier combate puede ser el bueno.",
 };

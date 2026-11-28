@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3405) « Quoi de neuf » : édition 209 (Jackpot), 10 langues. Sortie 0.1.13 : Jackpot en tête des notes (8 nouveautés), du titre
+  (« Jackpots, a Foreman and Fireproof bosses »), des accroches et de la couverture (vérifiée).
 - 2026-11-28 (it. 3404) Récompense (demande de Victor, dopamine) : le JACKPOT. Une victoire sur 250 (hors boss et Poupouce) rapporte 20 fois son
   or (JACKPOT, events.js ; ≈ +8 % d'or en moyenne) : bannière dorée « ✦ JACKPOT ! +N or », gerbe de 48 pièces, étincelles, éclair, cascade de
   pièces et accord (sound.js « jackpot », rendu par l'autotest), ligne de journal ; S.stats.jackpots. 10 langues. Test ; le test de la Forge

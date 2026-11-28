@@ -2469,4 +2469,5 @@ export default {
   3594: "Begleiter: Noch unentdeckte Begleiter zeigen auch ihren Bonus auf Stufe 10, damit du weißt, was sie wert sein werden.",
   3595: "Jackpot! {0} Gold auf einen Schlag.",
   3596: "JACKPOT! +{0} Gold",
+  3597: "Jackpot! Ab und zu bringt ein Sieg das 20-Fache seines Goldes, mit Münzregen und Fanfare: Jeder Kampf kann der richtige sein.",
 };

@@ -2469,4 +2469,5 @@ export default {
   3594: "Pets: pets still to discover also show their level 10 bonus, so you know what they’ll be worth.",
   3595: "Jackpot! {0} gold in one go.",
   3596: "JACKPOT! +{0} gold",
+  3597: "Jackpot! Now and then, a victory pays 20 times its gold, with a shower of coins and a fanfare: any fight could be the one.",
 };
