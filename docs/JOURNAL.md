@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3392) Samouraï +3,7 zones : avant la rotation, les boss des zones 67 et 70 avaient les Écailles (bonus des critiques ÷ 2, son
+  arme) : il butait sur 67-70 ; elles tombent maintenant en 71 et 74. Effet de placement dans le cycle, pas un héros trop fort : la moyenne des
+  héros est inchangée (65,1). Pas de réglage ; idée close.
 - 2026-11-28 (it. 3391) REVUE GÉNÉRALE. hero-table HEROES=all 12 h, graines 7/3/11, après la rotation des capacités (Ignifugé) : moyenne 65,1
   (64,7 avant), écart 9,3 (5,0) : samouraï 71,3, mage 62,0. Samouraï sur 7 graines : 70,0 après contre 66,3 avant (b22d9da8, worktree) :
   +3,7 zones, vrai effet de la rotation (murs de zones déplacés). Noté en Idées (P2), pas de réglage un jour de sortie.
@@ -10311,7 +10314,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
-- P2 (it. 3391) Samouraï +3,7 zones depuis la rotation des capacités de boss (Ignifugé, it. 3383) : 70,0 sur 7 graines (moyenne des héros 65,1 ;
+- CLOS (it. 3392 : cause trouvée, pas de réglage) P2 (it. 3391) Samouraï +3,7 zones depuis la rotation des capacités de boss (Ignifugé, it. 3383) : 70,0 sur 7 graines (moyenne des héros 65,1 ;
   écart 9,3). Avant tout réglage : comprendre quel mur il franchit (Écailles déplacées ? simulate.js RELIC_LOG / zones de défaite), 7 graines,
   comparer en worktree ; le mage reste le plus bas (62,0).
 - FAIT (it. 3383, Ignifugé) P2 (it. 3382) 20e capacité de boss pour la 0.1.13 : l'ajouter à ORDER (bosses.js) change la capacité du boss de presque chaque zone
