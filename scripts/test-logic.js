@@ -5272,12 +5272,13 @@ test("notes de version : un joueur de la 0.1.2 voit celles de la 0.1.3, pas un l
   // (it. 3289) la plus récente est la 0.1.10 (distribuée avec l'édition 189) ; un joueur de la 0.1.9 (édition 183) la voit
   // (it. 3330) la plus récente est la 0.1.11 (distribuée avec l'édition 195) ; un joueur de la 0.1.10 (édition 189) la voit
   // (it. 3372) la plus récente est la 0.1.12 (distribuée avec l'édition 202) ; un joueur de la 0.1.11 (édition 195) la voit
-  assert.equal(releaseFor(195)?.version, "0.1.12", "dernière édition lue = 195 (0.1.11)");
-  assert.equal(releaseFor(189)?.version, "0.1.12", "0.1.10 : la version la plus récente");
-  assert.equal(releaseFor(32)?.version, "0.1.12", "plus ancien encore (0.1.2) : la version la plus récente");
-  assert.equal(releaseFor(196), null, "a déjà lu des éditions de la 0.1.12 : éditions normales");
+  // (it. 3415) la plus récente est la 0.1.13 (distribuée avec l'édition 212) ; un joueur de la 0.1.12 (édition 202) la voit
+  assert.equal(releaseFor(202)?.version, "0.1.13", "dernière édition lue = 202 (0.1.12)");
+  assert.equal(releaseFor(195)?.version, "0.1.13", "0.1.11 : la version la plus récente");
+  assert.equal(releaseFor(32)?.version, "0.1.13", "plus ancien encore (0.1.2) : la version la plus récente");
+  assert.equal(releaseFor(203), null, "a déjà lu des éditions de la 0.1.13 : éditions normales");
   assert.equal(releaseFor(NEWS_ID), null, "à jour");
-  for (const v of [32, 58, 101, 114, 132, 152, 176, 183, 189, 195]) assert(releaseFor(v).items.length >= 6 && releaseFor(v).items.length <= 12, "une liste courte et choisie");
+  for (const v of [32, 58, 101, 114, 132, 152, 176, 183, 189, 195, 202]) assert(releaseFor(v).items.length >= 6 && releaseFor(v).items.length <= 12, "une liste courte et choisie");
 });
 
 test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148)", () => {
@@ -5296,7 +5297,7 @@ test("mise à jour : une partie de la 0.1.2 se charge sans rien perdre (it. 1148
   assert(g.stats().atk > 0 && isFinite(power(g.stats())), "statistiques calculables");
   const { newsDue, releaseFor } = M_news_js;
   assert(newsDue(S), "nouveautés à annoncer");
-  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.12", "fenêtre de la version la plus récente (0.1.12 depuis l’it. 3372)");
+  assert.equal(releaseFor(S.settings.newsSeen || 0)?.version, "0.1.13", "fenêtre de la version la plus récente (0.1.13 depuis l’it. 3415)");
 });
 
 test("coréen : particule après un guillemet fermant (it. 1155)", () => {

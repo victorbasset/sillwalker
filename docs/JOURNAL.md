@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3415) SORTIE 0.1.13 (préparation) : package.json 0.1.13, RELEASE_0113 (11 nouveautés : Jackpot, séries de victoires, record de
+  coup, Contremaître, Ignifugé, Jour du marché, quête « Dépenser », Grand dépensier, Main en or et mode mini, progression des succès en bulle,
+  bonus au niveau 10 des familiers), NEWS_RELEASES after: 202, tests des notes, CLAUDE.md (0.1.14 prendra after: 212), devlog-0.1.13.html.
+  lang-overflow all tous états : aucun défaut ; npm test 422, autotest 349/349 ; fenêtre de version capturée en ru.
 - 2026-11-28 (it. 3413) « Quoi de neuf » : édition 212 (Main en or, récompenses en mode mini), 10 langues ; notes 0.1.13 à 11 nouveautés (12 au plus).
 - 2026-11-28 (it. 3412) 77e succès, « Main en or (10 jackpots) » (S.stats.jackpots ; icône du coffre royal), 10 langues ; achievements.md, README,
   checklist, POUR-VICTOR à 77. npm test 422, autotest 349/349, lang-overflow all 1280/1600 : aucun défaut.
