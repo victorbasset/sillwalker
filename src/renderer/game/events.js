@@ -74,6 +74,8 @@ export const EVENTS = {
   // (it. 3361) 22e : chaque objet trouvé arrive déjà forgé (SKYFORGE_PLUS) ; à la FIN (tirage dans l'ordre)
   skyforge: { name: "Forge céleste", chance: 0.0015, duration: 30, text: "Chaque objet trouvé arrive déjà forgé (+2) !", color: "#ffb347" },
 };
+/** (it. 3409) Record de coup : célébré s'il bat l'ancien d'au moins `factor`, une fois toutes les `gap` secondes au plus. */
+export const HIT_RECORD = { factor: 1.25, gap: 60 };
 /** (it. 3406) Série de victoires : +goldPer % d'or par tranche de 10 victoires d'affilée (cap % au plus) ; paliers célébrés. */
 export const STREAK = { goldPer: 1, cap: 30, steps: [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000] };
 /** Bonus d'or (%) d'une série de n victoires d'affilée. */

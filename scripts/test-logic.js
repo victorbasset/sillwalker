@@ -914,6 +914,16 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("record de coup (it. 3409) : célébré au-delà de +25 %, une fois par minute au plus", () => {
+  const g = new Game(freshState()); let n = 0; g.on("hitRecord", () => n++);
+  g.S.stats.maxHit = 1000; g.R.time = 100;
+  g.noteHit(1100); assert.equal(n, 0, "+10 % : record gardé, pas de fête"); assert.equal(g.S.stats.maxHit, 1100);
+  g.noteHit(2000); assert.equal(n, 1, "+82 % : fêté");
+  g.R.time = 130; g.noteHit(5000); assert.equal(n, 1, "30 s plus tard : pas encore"); assert.equal(g.S.stats.maxHit, 5000);
+  g.R.time = 200; g.noteHit(9000); assert.equal(n, 2, "une minute plus tard : fêté");
+  const h = new Game(freshState()); let k = 0; h.on("hitRecord", () => k++); h.S.stats.maxHit = 0; h.noteHit(50); assert.equal(k, 0, "tout premier coup : rien");
+});
+
 test("série de victoires (it. 3406) : paliers annoncés, bonus d'or plafonné, remise à zéro quand le héros tombe", () => {
   const { streakGold } = M_events_js;
   assert.equal(streakGold(9), 0); assert.equal(streakGold(10), 1); assert.equal(streakGold(250), 25); assert.equal(streakGold(9999), 30);

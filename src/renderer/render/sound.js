@@ -609,6 +609,7 @@ export class Sound {
     game.on("setBonus", () => this.play("level"));
     game.on("bossNemesis", () => this.play("legendary"));
     game.on("jackpot", () => this.play("jackpot")); // (it. 3404)
+    game.on("hitRecord", () => this.play("level")); // (it. 3409) record de coup
     game.on("streak", ({ n }) => this.play(n >= 100 ? "level" : "champion")); // (it. 3406) palier d'une série de victoires
     game.on("questDone", () => this.play("quest"));
   }

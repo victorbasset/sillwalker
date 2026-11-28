@@ -182,6 +182,8 @@ export class Juice {
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin || mon.poupouce);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
+    // (it. 3409) Record de coup : bannière et étincelles au-dessus du monstre
+    g.on("hitRecord", ({ dmg }) => { this.banner(`💥 ${tx("Nouveau record : coup de {0} !", { 0: fmt(dmg) })}`, "#ff7a6b", this.s.monX(), true); this.sparkles(this.s.monX() + 10, this.ground() - 40, "#ff7a6b", 10); });
     // (it. 3406) Série de victoires : bannière à chaque palier (plus grande à partir de 100), étincelles ; série perdue : dite sobrement
     g.on("streak", ({ n }) => { this.banner(`🔥 ${txn(n, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(n) })}`, n >= 100 ? "#ff9a3a" : "#ffc76b", this.s.heroX + 60, n >= 100); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ff9a3a", n >= 100 ? 14 : 8); });
     g.on("streakLost", ({ n }) => this.banner(txn(n, "Série terminée : {n} victoire|Série terminée : {n} victoires", { n: fmt(n) }), "#c9a37a", this.s.heroX + 60));

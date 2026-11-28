@@ -19,5 +19,5 @@ Publié automatiquement par scripts/itch-push.sh (scripts/itch-devlog.cjs). Repr
 
 **Titre :** Sillwalker 0.1.13 : des jackpots, des séries de victoires et un Contremaître
 
-Nouveautés retenues pour RELEASE_0113 (éditions, indice) : 203·0 Contremaître, 204·0 Ignifugé, 205·0 quête « Dépenser », 206·0 Jour du marché, 207·0 succès Grand dépensier, 207·1 progression des succès en bulle, 208·0 bonus au niveau 10 des familiers à découvrir, 209·0 Jackpot, 210·0 séries de victoires.
+Nouveautés retenues pour RELEASE_0113 (éditions, indice) : 203·0 Contremaître, 204·0 Ignifugé, 205·0 quête « Dépenser », 206·0 Jour du marché, 207·0 succès Grand dépensier, 207·1 progression des succès en bulle, 208·0 bonus au niveau 10 des familiers à découvrir, 209·0 Jackpot, 210·0 séries de victoires, 211·0 record de coup.
 Plus les éditions parues d'ici 18 h (au moins 6 nouveautés, test des notes).

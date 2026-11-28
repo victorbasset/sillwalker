@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS, JACKPOT, STREAK, streakGold } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS, JACKPOT, STREAK, streakGold, HIT_RECORD } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS, FIREPROOF } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
@@ -1065,6 +1065,15 @@ export class Game {
     return n;
   }
 
+  /** (it. 3409) Plus gros coup : record gardé ; battu d'au moins 25 %, il est célébré (une fois par minute au plus, les records
+   *  tombent vite au début de partie). */
+  noteHit(dmg) {
+    const prev = this.S.stats.maxHit || 0;
+    if (!(dmg > prev)) return;
+    this.S.stats.maxHit = Math.round(dmg);
+    if (prev > 0 && dmg >= prev * HIT_RECORD.factor && this.R.time - (this.R.hitRecordT ?? -1e9) >= HIT_RECORD.gap) { this.R.hitRecordT = this.R.time; this.emit("hitRecord", { dmg: Math.round(dmg) }); }
+  }
+
   heroStrike(m, hs, first, extra) {
     if (m.mech && m.mech.includes("evasive") && rand() < 0.2) { this.emit("bossDodge"); return; }
     if (this.R.eclipse > 0 && rand() < ECLIPSE.miss) { this.emit("bossDodge"); return; } // (it. 1849) Éclipse du Chevalier
@@ -1098,7 +1107,7 @@ export class Game {
       const back = Math.min(dmg * 0.4, Math.max(0, this.R.hp - 1));
       if (back > 0) { this.R.hp -= back; this.emit("mirrorHit", { dmg: back }); }
     }
-    if (dmg > (this.S.stats.maxHit || 0)) this.S.stats.maxHit = Math.round(dmg);
+    this.noteHit(dmg);
     if (hs.poison > 0) { m.poisonStacks = Math.min(5, (m.poisonStacks || 0) + 1); m.poisonT = 4; }
     if (hs.lifesteal > 0 && !(this.R.cursed > 0)) this.R.hp = Math.min(hs.hp, this.R.hp + dmg * hs.lifesteal / 100);
     if (hs.burn > 0) { m.burnDps = hs.atk * hs.burn / 100; m.burnT = BURN_TIME; }

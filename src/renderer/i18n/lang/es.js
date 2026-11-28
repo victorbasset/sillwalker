@@ -2474,4 +2474,6 @@ export default {
   3599: "Racha terminada: {n} victoria|Racha terminada: {n} victorias",
   3600: "Mejor racha de victorias",
   3601: "Rachas de victorias: cada victoria seguida cuenta. Los hitos (10, 25, 50, 100…) se celebran y cada 10 victorias dan +1 % de oro (hasta +30 %) mientras tu héroe siga en pie. Tu mejor racha está en Estadísticas.",
+  3602: "¡Nuevo récord: golpe de {0}!",
+  3603: "Récord de golpe: cuando tu héroe supera su golpe más fuerte (en al menos un 25 %), la franja lo celebra: «¡Nuevo récord: golpe de …!».",
 };
