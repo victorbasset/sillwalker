@@ -918,6 +918,7 @@ test("quête « Dépenser N or » (it. 3387) : avance avec les achats et la forg
   const g = new Game(freshState()); g.S.gold = 1e9;
   const q = { kind: "spend", goal: 5000, progress: 0, reward: { gold: 1 } }; g.S.quests.slots = [q];
   assert.ok(g.pay(1200)); assert.equal(q.progress, 1200);
+  assert.ok(g.S.stats.spent >= 1200, "succès « Grand dépensier » : compte (it. 3393)");
   const it = g.newItem(0, 1, true); it.plus = 0; const c0 = q.progress; assert.ok(g.forge(it)); assert.ok(q.progress > c0, "forge comptée");
 });
 

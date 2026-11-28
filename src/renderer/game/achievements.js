@@ -80,6 +80,7 @@ export const ACHIEVEMENTS = [
   { id: "KILLS_10000",     name: "Dix mille victoires", test: (S) => (S.stats.kills || 0) >= 10000 },
   { id: "BOSSES_100",      name: "Tueur de boss (100)", test: (S) => (S.stats.bosses || 0) >= 100 },
   { id: "GOLD_MILLION",    name: "Millionnaire (1 M d’or gagnés)", test: (S) => (S.stats.goldTotal || 0) >= 1e6 },
+  { id: "SPEND_1B",        name: "Grand dépensier (1 milliard d’or dépensé)", test: (S) => (+S.stats.spent || 0) >= 1e9 }, // (it. 3393)
   { id: "SPELLS_1000",     name: "Mage de bataille (1 000 sorts lancés)", test: (S) => (+S.stats.spells || 0) >= 1000 },
   { id: "SPELLS_ALL3",     name: "Grimoire complet (les trois sorts d’un héros)", test: (S) => spellsBest(S) >= 3 },
   { id: "CRITS_10000",     name: "Lame affûtée (10 000 coups critiques)", test: (S) => (+S.stats.crits || 0) >= 10000 },
@@ -162,6 +163,7 @@ export const ACH_PROGRESS = {
   KILLS_1000: (S) => [S.stats.kills || 0, 1000], KILLS_10000: (S) => [S.stats.kills || 0, 10000],
   BOSSES_100: (S) => [S.stats.bosses || 0, 100],
   GOLD_MILLION: (S) => [Math.floor(S.stats.goldTotal || 0), 1e6],
+  SPEND_1B: (S) => [Math.min(1e9, Math.floor(+S.stats.spent || 0)), 1e9],
   SPELLS_1000: (S) => [Math.floor(+S.stats.spells || 0), 1000],
   SPELLS_ALL3: (S) => [spellsBest(S), 3],
   CRITS_10000: (S) => [Math.floor(+S.stats.crits || 0), 10000],

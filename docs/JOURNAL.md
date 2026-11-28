@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3393) 76e succès, « Grand dépensier (1 milliard d'or dépensé) » (stats.spent, compté par pay() et la forge ; icône du sac),
+  10 langues ; achievements.md, README, checklist, POUR-VICTOR à 76. La liste des succès défilait à 1280 px (pl, partie d'une heure, 11 px) : à
+  8 colonnes c'était pire (es 24, ru 10 : noms sur deux lignes) ; retour à 7 colonnes et, sous 1334 px de panneau, progression en ligne seulement
+  pour les trois « presque obtenus », toutes les autres en bulle. Contrôle de l'autotest « 9 explications » passé à « au moins 9 bulles ».
+  npm test 419, autotest 349/349, save-fuzz ok, lang-overflow all 1280 (tous états sauf semaine, 6 h, zoom) : aucun défaut ; capture pl.
 - 2026-11-28 (it. 3392) Samouraï +3,7 zones : avant la rotation, les boss des zones 67 et 70 avaient les Écailles (bonus des critiques ÷ 2, son
   arme) : il butait sur 67-70 ; elles tombent maintenant en 71 et 74. Effet de placement dans le cycle, pas un héros trop fort : la moyenne des
   héros est inchangée (65,1). Pas de réglage ; idée close.

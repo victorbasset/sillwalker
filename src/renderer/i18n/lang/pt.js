@@ -2462,4 +2462,5 @@ export default {
   3587: "Poções, baús e ovos pela metade do preço.",
   3588: "Dia de feira: poções e baús pela metade do preço, vamos aproveitar!",
   3589: "Nova bênção do dia, o “Dia de feira”: nesse dia, poções, baús e ovos pela metade do preço.",
+  3590: "Grande gastador (1 bilhão de ouro gasto)",
 };

@@ -1734,6 +1734,7 @@ export class Game {
     if (this.S.gold < c || it.plus >= MAX_PLUS) return false;
     this.S.gold -= c;
     this.questProgress("spend", c); // (it. 3387)
+    this.S.stats.spent = (+this.S.stats.spent || 0) + c; // (it. 3393)
     it.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
@@ -2078,6 +2079,7 @@ export class Game {
     this.S.gold -= price;
     this.S.stats.purchases++;
     this.questProgress("spend", price); // (it. 3387) quête « Dépenser N or »
+    this.S.stats.spent = (+this.S.stats.spent || 0) + price; // (it. 3393) succès « Grand dépensier »
     this.emit("spent", { price }); // son : achat (caisse)
     return true;
   }

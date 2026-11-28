@@ -1,6 +1,6 @@
 # Succès Steam : noms dans les 10 langues
 
-Généré par `scripts/steam-achievements.mjs` (75 succès). À recopier dans Steamworks → Stats & Achievements.
+Généré par `scripts/steam-achievements.mjs` (76 succès). À recopier dans Steamworks → Stats & Achievements.
 
 | Identifiant | fr | en | es | pt | de | pl | ru | zh | ja | ko |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -47,6 +47,7 @@ Généré par `scripts/steam-achievements.mjs` (75 succès). À recopier dans St
 | `KILLS_10000` | Dix mille victoires | Ten thousand victories | Diez mil victorias | Dez mil vitórias | Zehntausend Siege | Dziesięć tysięcy zwycięstw | Десять тысяч побед | 一万场胜利 | 一万勝 | 만 번의 승리 |
 | `BOSSES_100` | Tueur de boss (100) | Boss Slayer (100) | Matajefes (100) | Matador de chefes (100) | Bosstöter (100) | Pogromca bossów (100) | Убийца боссов (100) | 首领杀手（100） | ボス殺し（100） | 보스 사냥꾼 (100) |
 | `GOLD_MILLION` | Millionnaire (1 M d’or gagnés) | Millionaire (1 M gold earned) | Millonario (1 M de oro ganado) | Milionário (1 M de ouro ganho) | Millionär (1 Mio. Gold verdient) | Milioner (1 mln złota) | Миллионер (1 млн золота) | 百万富翁（100 万金币） | 百万長者（100 万ゴールド） | 백만장자 (100만 골드) |
+| `SPEND_1B` | Grand dépensier (1 milliard d’or dépensé) | Big Spender (1 billion gold spent) | Gran derrochador (1000 millones de oro gastados) | Grande gastador (1 bilhão de ouro gasto) | Großer Verschwender (1 Milliarde Gold ausgegeben) | Wielki rozrzutnik (wydany 1 mld złota) | Транжира (потрачен 1 млрд золота) | 挥金如土（花费 10 亿金币） | 大散財（ゴールドを 10 億使う） | 큰손 (골드 10억 소비) |
 | `SPELLS_1000` | Mage de bataille (1 000 sorts lancés) | Battle Mage (1,000 spells cast) | Mago de batalla (1000 hechizos lanzados) | Mago de batalha (1000 feitiços lançados) | Kampfmagier (1.000 gewirkte Zauber) | Mag bitewny (1000 rzuconych zaklęć) | Боевой маг (1000 заклинаний) | 战斗法师（施放 1000 次法术） | 戦闘魔導士（呪文 1,000 回発動） | 전투 마법사 (주문 1,000회 시전) |
 | `SPELLS_ALL3` | Grimoire complet (les trois sorts d’un héros) | Full grimoire (all three spells of a hero) | Grimorio completo (los tres hechizos de un héroe) | Grimório completo (os três feitiços de um herói) | Volles Grimoire (alle drei Zauber eines Helden) | Pełny grimuar (trzy zaklęcia jednego bohatera) | Полный гримуар (все три заклинания героя) | 完整魔典（一名英雄的三个法术） | 完全な魔導書（英雄の呪文3つ） | 완전한 마법서 (영웅의 주문 3개) |
 | `CRITS_10000` | Lame affûtée (10 000 coups critiques) | Honed Blade (10,000 critical hits) | Hoja afilada (10 000 golpes críticos) | Lâmina afiada (10 000 golpes críticos) | Geschärfte Klinge (10.000 kritische Treffer) | Naostrzone ostrze (10 000 ciosów krytycznych) | Острый клинок (10 000 критических ударов) | 锋利之刃（10 000 次暴击） | 研ぎ澄まされた刃（会心の一撃 10,000 回） | 예리한 칼날 (치명타 10,000회) |

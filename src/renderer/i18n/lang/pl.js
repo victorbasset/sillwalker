@@ -2462,4 +2462,5 @@ export default {
   3587: "Mikstury, skrzynie i jaja za pół ceny.",
   3588: "Dzień targowy: mikstury i skrzynie za pół ceny, korzystajmy!",
   3589: "Nowe błogosławieństwo dnia, „Dzień targowy”: tego dnia mikstury, skrzynie i jaja za pół ceny.",
+  3590: "Wielki rozrzutnik (wydany 1 mld złota)",
 };

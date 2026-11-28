@@ -1640,8 +1640,11 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 12p
 /* (it. 3156) partie d'une heure en polonais, 1920 px avec l'interface à 130 % : Succès défilait encore ; liste un peu plus petite sous
    1467 px de panneau (12 px, progression 11 px) */
 @container panel (max-width: 1467px) { .achlist { font-size: 12px; line-height: 1.15; } .achlist .achp { font-size: 11px; } }
-/* (it. 3369) 75 succès : 7 colonnes à 1280 px (la partie d’une heure en russe défilait de 13 px avec 6) */
+/* (it. 3369, 3393) succès : 8 colonnes à 1280 px (76 succès : la partie d’une heure en polonais défilait de 11 px avec 7 ; en russe de 13 px avec 6) */
 @container panel (max-width: 1334px) { .achlist { grid-template-columns: repeat(auto-fill, minmax(164px, 1fr)); font-size: 12px; gap: 1px 8px; } }
+/* (it. 3393) 76 succès : sous 1334 px de panneau, la progression « (3 553 / 10 k) » seulement pour les trois presque obtenus (les autres en
+   bulle) : elle faisait passer les noms sur deux lignes (pl, partie d'une heure, 11 px de défilement) */
+@container panel (max-width: 1334px) { .achlist li:not(.near) .achp { display: none; } }
 /* Mode mini : icône du sort lancé, au-dessus du héros. */
 #mini .minispell { position: absolute; left: 0; top: 0; width: 18px; height: 18px; image-rendering: pixelated; pointer-events: none; }
 .spellbox h2 .spellbook .toggle, .spellbox h2 .spellbook .linkbtn { display: inline-flex; margin: 0; font-size: 12px; width: auto; }

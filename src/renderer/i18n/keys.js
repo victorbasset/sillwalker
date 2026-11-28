@@ -3591,5 +3591,6 @@ export const KEYS = [
   "Jour du marché",
   "Potions, coffres et œufs à moitié prix.",
   "Jour de marché : potions et coffres à moitié prix, profitons-en !",
-  "Nouvelle bénédiction du jour, le « Jour du marché » : potions, coffres et œufs à moitié prix ce jour-là."
+  "Nouvelle bénédiction du jour, le « Jour du marché » : potions, coffres et œufs à moitié prix ce jour-là.",
+  "Grand dépensier (1 milliard d’or dépensé)"
 ];

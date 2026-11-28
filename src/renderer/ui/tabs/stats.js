@@ -76,7 +76,8 @@ export class StatsTab {
     const near = new Set(nearAchievements(S).slice(0, 3).map(([id]) => id));
     const ach = ACHIEVEMENTS.map((a) => {
       const on = reached.has(a.id), pr = !on && ACH_PROGRESS[a.id] ? ACH_PROGRESS[a.id](S) : null; // progression des succès chiffrés
-      const tip = [near.has(a.id) ? tx("Presque obtenu") : "", a.desc || ""].filter(Boolean).join(" · ");
+      // (it. 3393) la progression aussi dans la bulle : sous 1334 px de panneau, elle n'est écrite en ligne que pour les « presque obtenus »
+      const tip = [near.has(a.id) ? tx("Presque obtenu") : "", pr ? `${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])}` : "", a.desc || ""].filter(Boolean).join(" · ");
       return `<li class="ach${on ? " on" : ""}${near.has(a.id) ? " near" : ""}"${tip ? ` title="${esc(tip)}"` : ""}><span class="aico">${on ? "★" : "☆"}</span>${esc(a.name)}${pr ? ` <small class="achp">(${fmt(Math.min(pr[0], pr[1]))} / ${fmt(pr[1])})</small>` : ""}</li>`;
     }).join("");
     // (it. 1729) avant la zone 40 : le Journal seul (l'onglet s'ouvre tôt pour lui)
