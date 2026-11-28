@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3421) REVUE GÉNÉRALE. Perf : bande 19,7 %, panneau 18,9 %, mini 5,5 %, icône 0,7 % ; lang-overflow all, tous états (résumé
+  d'absence aux compteurs qui montent compris) : aucun défaut. Rien pour « Idées ».
 - 2026-11-28 (it. 3420) Récompense au retour : dans le résumé d'absence, « Monstres vaincus » et « Or gagné » montent de 0 à leur valeur en 1,2 s
   (panel.countUp, [data-count] ; texte final identique au rendu, donc mesures de mise en page inchangées ; rien si « réduire les animations »).
   Relevé : 73 puis 91 victoires, +23,17 puis +28,72 Md. npm test 422, autotest 349/349.
