@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3385) fight-odds guerrier 12 h × 3 graines après la rotation des capacités (Ignifugé) : normaux 0 %, élites 31 %, champions
+  55 % (47 à l'it. 3341, sur ~120 combats : bruit probable), boss 57 % (58). Rien à régler ; champions à revoir si l'écart se confirme.
 - 2026-11-28 (it. 3384) « Quoi de neuf » : édition 204 (Ignifugé, capacités qui tournent autrement), 10 langues. Perf avec le nouveau boss de la
   zone 57 de dev-data (Tenace + Ignifugé ; charge 0,8) : bande 20,4 %, panneau 19,1 %, mini 5,8 %, icône 0,5 % (dans le bruit du repère).
   Autotest 349/349.
