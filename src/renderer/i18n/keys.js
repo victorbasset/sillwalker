@@ -3594,5 +3594,6 @@ export const KEYS = [
   "Nouvelle bénédiction du jour, le « Jour du marché » : potions, coffres et œufs à moitié prix ce jour-là.",
   "Grand dépensier (1 milliard d’or dépensé)",
   "Nouveau succès : « Grand dépensier (1 milliard d’or dépensé) ».",
-  "Succès : sur un écran de portable, la progression des succès s’affiche au survol (sauf pour les trois presque obtenus), pour que la liste tienne."
+  "Succès : sur un écran de portable, la progression des succès s’affiche au survol (sauf pour les trois presque obtenus), pour que la liste tienne.",
+  "au niveau {0} : {1}"
 ];

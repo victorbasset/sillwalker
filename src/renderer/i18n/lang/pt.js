@@ -2465,4 +2465,5 @@ export default {
   3590: "Grande gastador (1 bilhão de ouro gasto)",
   3591: "Nova conquista: “Grande gastador (1 bilhão de ouro gasto)”.",
   3592: "Conquistas: em uma tela de notebook, o progresso das conquistas aparece ao passar o mouse (exceto as três quase obtidas), para a lista caber.",
+  3593: "no nível {0}: {1}",
 };

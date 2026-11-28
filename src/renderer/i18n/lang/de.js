@@ -2465,4 +2465,5 @@ export default {
   3590: "Großer Verschwender (1 Milliarde Gold ausgegeben)",
   3591: "Neuer Erfolg: „Großer Verschwender (1 Milliarde Gold ausgegeben)“.",
   3592: "Erfolge: Auf einem Laptop-Bildschirm erscheint der Fortschritt beim Darüberfahren (außer bei den drei fast geschafften), damit die Liste passt.",
+  3593: "auf Stufe {0}: {1}",
 };

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3400) Familiers > À découvrir : chaque carte dit aussi le bonus au niveau maximal (« au niveau 10 : +100 % … »), pour juger
+  un familier avant de l'avoir ; 10 langues. Capture de 1280 px, lang-overflow all 1280 : aucun défaut ; npm test 419, autotest 349/349.
 - 2026-11-28 (it. 3396) Préparation de la 0.1.13 : accroches en 10 langues (Contremaître, Ignifugé, Jour du marché, quête « Dépenser », Grand
   dépensier), titre « a Foreman, Fireproof bosses and a Market Day », couverture à 4 étiquettes (vérifiée).
 - 2026-11-28 (it. 3395) lang-overflow all, tous états (semaine, 6 h, zoom compris), après Grand dépensier et la progression en bulle : aucun défaut.

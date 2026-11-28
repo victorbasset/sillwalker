@@ -2465,4 +2465,5 @@ export default {
   3590: "Big Spender (1 billion gold spent)",
   3591: "New achievement: “Big Spender (1 billion gold spent)”.",
   3592: "Achievements: on a laptop screen, achievement progress shows on hover (except for the three almost earned), so the list fits.",
+  3593: "at level {0}: {1}",
 };
