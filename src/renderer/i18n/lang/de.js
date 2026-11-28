@@ -2467,4 +2467,6 @@ export default {
   3592: "Erfolge: Auf einem Laptop-Bildschirm erscheint der Fortschritt beim Darüberfahren (außer bei den drei fast geschafften), damit die Liste passt.",
   3593: "auf Stufe {0}: {1}",
   3594: "Begleiter: Noch unentdeckte Begleiter zeigen auch ihren Bonus auf Stufe 10, damit du weißt, was sie wert sein werden.",
+  3595: "Jackpot! {0} Gold auf einen Schlag.",
+  3596: "JACKPOT! +{0} Gold",
 };

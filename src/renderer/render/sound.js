@@ -438,6 +438,8 @@ export class Sound {
         [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6, NOTES.E6, NOTES.G6].forEach((f, i) => this.tone(f, i * 0.08, 0.25, "square", 0.22));
         break;
       case "level": [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, i * 0.07, 0.14, "triangle", 0.3)); break;
+      // (it. 3404) Jackpot : cascade de pièces puis accord montant
+      case "jackpot": for (let i = 0; i < 12; i++) { const f = COIN_SCALE[(i * 5) % COIN_SCALE.length]; this.tone(f, i * 0.05, 0.12, "sine", 0.09); } [NOTES.C5, NOTES.E5, NOTES.G5, NOTES.C6].forEach((f, i) => this.tone(f, 0.55 + i * 0.07, 0.2, "square", 0.16)); break;
       case "boss": this.tone(110, 0, 0.35, "sawtooth", 0.35, 0.4); this.noise(0, 0.2, 0.3); break;
       // (it. 1290) champion vaincu : petite fanfare montante (trois notes, plus douce que le boss et le légendaire)
       case "champion": [NOTES.G5, NOTES.C6, NOTES.E6].forEach((f, i) => this.tone(f, i * 0.09, 0.18, "triangle", 0.26)); break;
@@ -606,6 +608,7 @@ export class Sound {
     game.on("ascend", () => this.play("ascend"));
     game.on("setBonus", () => this.play("level"));
     game.on("bossNemesis", () => this.play("legendary"));
+    game.on("jackpot", () => this.play("jackpot")); // (it. 3404)
     game.on("questDone", () => this.play("quest"));
   }
 }

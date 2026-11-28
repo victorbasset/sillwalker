@@ -5,6 +5,11 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3404) Récompense (demande de Victor, dopamine) : le JACKPOT. Une victoire sur 250 (hors boss et Poupouce) rapporte 20 fois son
+  or (JACKPOT, events.js ; ≈ +8 % d'or en moyenne) : bannière dorée « ✦ JACKPOT ! +N or », gerbe de 48 pièces, étincelles, éclair, cascade de
+  pièces et accord (sound.js « jackpot », rendu par l'autotest), ligne de journal ; S.stats.jackpots. 10 langues. Test ; le test de la Forge
+  céleste ne regarde plus que le butin des combats (un tirage de plus décalait la suite). npm test 420, autotest 349/349, balance.mjs 12 : +0,2
+  (bruit) ; capture fr et de.
 - 2026-11-28 (it. 3403) Demande de Victor : priorité n°1 au circuit de la récompense (dopamine : montée en puissance, fun, satisfaction) et
   des sortes de nouveautés variées (fini familier + événement + bénédiction chaque jour) : scripts/auto-iteration.md (« LE PLUS IMPORTANT »),
   CLAUDE.md, mémoire.

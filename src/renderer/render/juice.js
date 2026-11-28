@@ -182,6 +182,8 @@ export class Juice {
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin || mon.poupouce);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
+    // (it. 3404) Jackpot : bannière dorée, gerbe de pièces et éclair
+    g.on("jackpot", ({ gold }) => { this.banner(`✦ ${tx("JACKPOT ! +{0} or", { 0: fmt(gold) })}`, "#ffd34d", this.s.monX() - 20, true); this.coins(this.s.monX() + 10, this.ground() - 20, 48, true); this.sparkles(this.s.monX() + 10, this.ground() - 34, "#ffd34d", 14); this.flash("#ffe9a8", 0.25); });
     g.on("bossNemesis", ({ name, fem, gender }) => this.banner(agreeDefeated(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name }), gender), "#ffb733", this.s.monX() - 40)); // (it. 960, 966)
     g.on("loot", ({ item, mon, chest, ground }) => this.loot(item, chest ? this.s.heroX + 50 : mon ? this.s.monX() + 8 : this.s.heroX + 10, ground));
     g.on("levelUp", ({ lvl }) => { this.banner(`${tx("Niveau {0} !", { 0: lvl })}`, "#ffe27a", this.s.heroX); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ffe27a", 10); });

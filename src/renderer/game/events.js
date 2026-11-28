@@ -74,6 +74,8 @@ export const EVENTS = {
   // (it. 3361) 22e : chaque objet trouvé arrive déjà forgé (SKYFORGE_PLUS) ; à la FIN (tirage dans l'ordre)
   skyforge: { name: "Forge céleste", chance: 0.0015, duration: 30, text: "Chaque objet trouvé arrive déjà forgé (+2) !", color: "#ffb347" },
 };
+/** (it. 3404) Jackpot : une victoire sur `oneIn` (hors boss) rapporte `mul` fois son or (≈ +8 % d'or en moyenne). */
+export const JACKPOT = { oneIn: 250, mul: 20 };
 /** (it. 3361) Forge céleste : niveau de forge minimal des objets trouvés au combat. */
 export const SKYFORGE_PLUS = 2;
 /** (it. 3318) Fête des familiers : multiplicateur de l'expérience du familier. */

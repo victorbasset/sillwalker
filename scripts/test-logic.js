@@ -914,6 +914,15 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("Jackpot (it. 3404) : une victoire sur 250 rapporte 20 fois son or, jamais sur un boss ; compté et annoncé", () => {
+  const { JACKPOT } = M_events_js;
+  const g = new Game(freshState()); let jp = 0, n = 0; g.on("jackpot", () => jp++);
+  for (let i = 0; i < 3000; i++) { g.R.mon = g.makeMonster(false); g.R.mon.boss = false; g.R.mon.poupouce = false; g.R.mode = "fight"; g.killMonster(); n++; }
+  assert.ok(jp >= 3 && jp <= 30, "jackpots sur 3000 victoires : " + jp);
+  assert.equal(g.S.stats.jackpots, jp);
+  assert.equal(JACKPOT.mul, 20);
+});
+
 test("quête « Dépenser N or » (it. 3387) : avance avec les achats et la forge", () => {
   const g = new Game(freshState()); g.S.gold = 1e9;
   const q = { kind: "spend", goal: 5000, progress: 0, reward: { gold: 1 } }; g.S.quests.slots = [q];
@@ -948,9 +957,11 @@ test("Forge céleste (it. 3361) : les objets trouvés au combat arrivent forgés
   const g = new Game(freshState());
   g.S.autoSell = {}; g.S.bag = [];
   g.startEvent("skyforge");
+  const dropped = []; g.on("loot", ({ item, mon }) => { if (mon) dropped.push(item); });
   for (let i = 0; i < 30; i++) { g.R.mon = g.makeMonster(false); g.R.events.skyforge = 30; g.R.events.bounty = 30; g.killMonster(); }
-  const ps = g.S.bag.map((it) => it.plus || 0);
-  assert.ok(ps.length >= 10, "objets gardés : " + ps.length);
+  // (it. 3404) le butin des combats seulement (un objet ôté, un coffre… peuvent aussi entrer dans le sac)
+  const ps = dropped.map((it) => it.plus || 0);
+  assert.ok(ps.length >= 10, "objets trouvés : " + ps.length);
   assert.ok(ps.every((p) => p >= 2), "forges : " + ps.join(","));
   const ln = g.eventReport("skyforge"); assert.ok(ln && /forged/.test(ln), "bilan : " + ln);
 });

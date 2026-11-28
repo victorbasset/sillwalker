@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS, JACKPOT } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS, FIREPROOF } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
@@ -1301,8 +1301,11 @@ export class Game {
       return;
     }
     const hs = this.stats();
-    const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1));
+    // (it. 3404, demande de Victor : le circuit de la récompense) Jackpot : de temps en temps, une victoire rapporte JACKPOT.mul fois son or
+    const jackpot = !m.boss && !m.poupouce && rand() < 1 / JACKPOT.oneIn;
+    const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1) * (jackpot ? JACKPOT.mul : 1));
     S.gold += gold;
+    if (jackpot) { S.stats.jackpots = (+S.stats.jackpots || 0) + 1; this.log(tx("Jackpot ! {0} or d’un coup.", { 0: fmt(gold) })); this.emit("jackpot", { gold }); }
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
     if (m.stolen > 0) { S.gold += m.stolen; this.emit("goldBack", { amount: m.stolen }); } // (it. 1865) le bandit rend ce qu'il a volé
     // (it. 926) rythme récent (60 dernières victoires) : estimation du temps restant des quêtes (questEta)
