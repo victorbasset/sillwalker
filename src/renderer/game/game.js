@@ -1315,7 +1315,12 @@ export class Game {
     // (it. 3406) Série de victoires : une de plus ; bonus d'or selon la série ; paliers célébrés (bande, journal au-delà de 100)
     R.winStreak = (R.winStreak || 0) + 1;
     if (R.winStreak > (+S.stats.bestStreak || 0)) S.stats.bestStreak = R.winStreak;
-    if (STREAK.steps.includes(R.winStreak)) { this.emit("streak", { n: R.winStreak }); if (R.winStreak >= 100) this.log(txn(R.winStreak, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(R.winStreak) })); }
+    if (STREAK.steps.includes(R.winStreak)) {
+      this.emit("streak", { n: R.winStreak });
+      if (R.winStreak >= 100) this.log(txn(R.winStreak, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(R.winStreak) }));
+      // (it. 3419) à partir de 50 victoires d'affilée, chaque palier ouvre un coffre au trésor (une récompense qu'on voit tomber)
+      if (R.winStreak >= STREAK.chestFrom) this.openChest();
+    }
     const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1) * (jackpot ? JACKPOT.mul : 1) * (1 + streakGold(R.winStreak) / 100));
     S.gold += gold;
     if (jackpot) { S.stats.jackpots = (+S.stats.jackpots || 0) + 1; this.log(tx("Jackpot ! {0} or d’un coup.", { 0: fmt(gold) })); this.emit("jackpot", { gold }); }

@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3419) Séries de victoires : à partir de 50 victoires d'affilée, chaque palier (50, 100, 250…) ouvre aussi un coffre au trésor (or,
+  potion, objet rare ou mieux, avec son animation) : une récompense qu'on voit tomber (STREAK.chestFrom). Test ; npm test 422, autotest 349/349.
 - 2026-11-28 (it. 3418) SORTIE 0.1.13 publiée : itch-push.sh (AppImage essayée, 3 monstres en 30 s), canaux windows, linux et mac en 0.1.13
   (butler status), fichiers et SHA256-0.1.13.txt dans Médias/dist-itch, devlog 1814920 publié (couverture envoyée).
 - 2026-11-28 (it. 3415) SORTIE 0.1.13 (préparation) : package.json 0.1.13, RELEASE_0113 (11 nouveautés : Jackpot, séries de victoires, record de

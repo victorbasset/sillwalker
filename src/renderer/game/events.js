@@ -77,7 +77,7 @@ export const EVENTS = {
 /** (it. 3409) Record de coup : célébré s'il bat l'ancien d'au moins `factor`, une fois toutes les `gap` secondes au plus. */
 export const HIT_RECORD = { factor: 1.25, gap: 60 };
 /** (it. 3406) Série de victoires : +goldPer % d'or par tranche de 10 victoires d'affilée (cap % au plus) ; paliers célébrés. */
-export const STREAK = { goldPer: 1, cap: 30, steps: [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000] };
+export const STREAK = { goldPer: 1, cap: 30, steps: [10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000], chestFrom: 50 }; // chestFrom : it. 3419
 /** Bonus d'or (%) d'une série de n victoires d'affilée. */
 export const streakGold = (n) => Math.min(STREAK.cap, Math.floor((n || 0) / 10) * STREAK.goldPer);
 /** (it. 3404) Jackpot : une victoire sur `oneIn` (hors boss) rapporte `mul` fois son or (≈ +8 % d'or en moyenne). */

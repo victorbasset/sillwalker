@@ -930,8 +930,12 @@ test("série de victoires (it. 3406) : paliers annoncés, bonus d'or plafonné, 
   const g = new Game(freshState()); const seen = []; g.on("streak", ({ n }) => seen.push(n));
   for (let i = 0; i < 30; i++) { g.R.mon = g.makeMonster(false); g.R.mon.boss = false; g.R.mode = "fight"; g.killMonster(); }
   assert.deepEqual(seen, [10, 25]); assert.equal(g.R.winStreak, 30); assert.ok(g.S.stats.bestStreak >= 30);
+  // (it. 3419) palier de 50 : un coffre au trésor
+  let chests = 0; g.on("chest", () => chests++);
+  for (let i = 0; i < 20; i++) { g.R.mon = g.makeMonster(false); g.R.mon.boss = false; g.R.mode = "fight"; g.killMonster(); }
+  assert.ok(chests >= 1, "coffre au palier de 50 : " + chests);
   let lost = 0; g.on("streakLost", ({ n }) => (lost = n)); g.heroDown();
-  assert.equal(lost, 30, "série perdue annoncée"); assert.equal(g.R.winStreak, 0);
+  assert.equal(lost, 50, "série perdue annoncée"); assert.equal(g.R.winStreak, 0);
 });
 
 test("Jackpot (it. 3404) : une victoire sur 250 rapporte 20 fois son or, jamais sur un boss ; compté et annoncé", () => {
