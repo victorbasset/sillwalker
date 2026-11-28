@@ -44,7 +44,7 @@ import { PET_INDEX, PET_MAX_LVL, EGG_CHANCE, DUPLICATE_XP, petXpNeed, rollPet, E
 import { ASCEND_MIN_ZONE, CONSTELLATIONS, shardsFor, constellationCost, prestigeEffects } from "./prestige.js";
 import { goblinCatchable, QUEST_SLOTS, QUEST_TEMPLATES, makeQuest, questDone, questGold, questRerollPrice , guildRank, guildRankName } from "./quests.js";
 import { SKILL_TREE, canTakeSkill, ascensionSkillPoints, skillPointsFree, skillSpendable, activeSkillSet, skillPathTo } from "./skilltree.js";
-import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS, JACKPOT } from "./events.js";
+import { EVENTS, FEATHER, STAR, SPEED_CAP, CHEST, SHARDFALL_CHANCE, NEST_CHANCE, HOARD_CHANCE, STARFALL_GAP, EVENT_SEEN_BONUS, GOBLIN_RUSH, PALE_MOON, SPRING, REGAL_MIN, PET_FEST, SKYFORGE_PLUS, JACKPOT, STREAK, streakGold } from "./events.js";
 import { bossMechanics, bossName, bossGender, agreeDefeated, SCALES, FURY, CURSE, bossWear, BULWARK, TENACIOUS, VENOM, PURE_PARRIES, CHAINS, ASHES, ECLIPSE, SHARDS, FIREPROOF } from "./bosses.js";
 import { rand, rnd, pick, shuffled } from "./util.js";
 import { monSkillOf } from "./monskills.js";
@@ -1303,7 +1303,11 @@ export class Game {
     const hs = this.stats();
     // (it. 3404, demande de Victor : le circuit de la récompense) Jackpot : de temps en temps, une victoire rapporte JACKPOT.mul fois son or
     const jackpot = !m.boss && !m.poupouce && rand() < 1 / JACKPOT.oneIn;
-    const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1) * (jackpot ? JACKPOT.mul : 1));
+    // (it. 3406) Série de victoires : une de plus ; bonus d'or selon la série ; paliers célébrés (bande, journal au-delà de 100)
+    R.winStreak = (R.winStreak || 0) + 1;
+    if (R.winStreak > (+S.stats.bestStreak || 0)) S.stats.bestStreak = R.winStreak;
+    if (STREAK.steps.includes(R.winStreak)) { this.emit("streak", { n: R.winStreak }); if (R.winStreak >= 100) this.log(txn(R.winStreak, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(R.winStreak) })); }
+    const gold = Math.round(m.gold * earlyPace(this.S) * rnd(0.8, 1.2) * (1 + hs.gold / 100) * ((R.events.goldrain || 0) > 0 ? 3 : 1) * (jackpot ? JACKPOT.mul : 1) * (1 + streakGold(R.winStreak) / 100));
     S.gold += gold;
     if (jackpot) { S.stats.jackpots = (+S.stats.jackpots || 0) + 1; this.log(tx("Jackpot ! {0} or d’un coup.", { 0: fmt(gold) })); this.emit("jackpot", { gold }); }
     S.stats.goldTotal = (S.stats.goldTotal || 0) + gold;
@@ -1438,6 +1442,9 @@ export class Game {
     // Défaites près du record : sert à suggérer une ascension quand le héros bloque.
     if (S.zone >= S.best - 1) (R.wallDeaths ||= []).push(R.time);
     this.R.pierce = 0; // héros à terre : les dégâts perçants en réserve se perdent
+    // (it. 3406) la série de victoires s'arrête (dite si elle était belle)
+    if ((R.winStreak || 0) >= 25) this.emit("streakLost", { n: R.winStreak });
+    R.winStreak = 0;
     this.emit("heroDown");
     // Bloqué depuis peu : prévenir une fois par record (l'interface affiche aussi un repère tant que ça dure).
     const st = this.stuckInfo();

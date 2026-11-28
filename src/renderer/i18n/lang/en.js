@@ -2470,4 +2470,7 @@ export default {
   3595: "Jackpot! {0} gold in one go.",
   3596: "JACKPOT! +{0} gold",
   3597: "Jackpot! Now and then, a victory pays 20 times its gold, with a shower of coins and a fanfare: any fight could be the one.",
+  3598: "{n} win in a row!|{n} wins in a row!",
+  3599: "Streak over: {n} win|Streak over: {n} wins",
+  3600: "Best winning streak",
 };

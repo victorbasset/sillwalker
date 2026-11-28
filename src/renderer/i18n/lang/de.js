@@ -2470,4 +2470,7 @@ export default {
   3595: "Jackpot! {0} Gold auf einen Schlag.",
   3596: "JACKPOT! +{0} Gold",
   3597: "Jackpot! Ab und zu bringt ein Sieg das 20-Fache seines Goldes, mit Münzregen und Fanfare: Jeder Kampf kann der richtige sein.",
+  3598: "{n} Sieg in Folge!|{n} Siege in Folge!",
+  3599: "Serie beendet: {n} Sieg|Serie beendet: {n} Siege",
+  3600: "Längste Siegesserie",
 };

@@ -914,6 +914,16 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("série de victoires (it. 3406) : paliers annoncés, bonus d'or plafonné, remise à zéro quand le héros tombe", () => {
+  const { streakGold } = M_events_js;
+  assert.equal(streakGold(9), 0); assert.equal(streakGold(10), 1); assert.equal(streakGold(250), 25); assert.equal(streakGold(9999), 30);
+  const g = new Game(freshState()); const seen = []; g.on("streak", ({ n }) => seen.push(n));
+  for (let i = 0; i < 30; i++) { g.R.mon = g.makeMonster(false); g.R.mon.boss = false; g.R.mode = "fight"; g.killMonster(); }
+  assert.deepEqual(seen, [10, 25]); assert.equal(g.R.winStreak, 30); assert.ok(g.S.stats.bestStreak >= 30);
+  let lost = 0; g.on("streakLost", ({ n }) => (lost = n)); g.heroDown();
+  assert.equal(lost, 30, "série perdue annoncée"); assert.equal(g.R.winStreak, 0);
+});
+
 test("Jackpot (it. 3404) : une victoire sur 250 rapporte 20 fois son or, jamais sur un boss ; compté et annoncé", () => {
   const { JACKPOT } = M_events_js;
   const g = new Game(freshState()); let jp = 0, n = 0; g.on("jackpot", () => jp++);

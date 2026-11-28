@@ -3599,5 +3599,8 @@ export const KEYS = [
   "Familiers : les familiers encore à découvrir montrent aussi leur bonus au niveau 10, pour savoir ce qu’ils vaudront.",
   "Jackpot ! {0} or d’un coup.",
   "JACKPOT ! +{0} or",
-  "Jackpot ! De temps en temps, une victoire rapporte 20 fois son or, avec une pluie de pièces et une fanfare : chaque combat peut être le bon."
+  "Jackpot ! De temps en temps, une victoire rapporte 20 fois son or, avec une pluie de pièces et une fanfare : chaque combat peut être le bon.",
+  "{n} victoire d’affilée !|{n} victoires d’affilée !",
+  "Série terminée : {n} victoire|Série terminée : {n} victoires",
+  "Meilleure série de victoires"
 ];

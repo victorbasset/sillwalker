@@ -2470,4 +2470,7 @@ export default {
   3595: "Jackpot! {0} de ouro de uma vez.",
   3596: "JACKPOT! +{0} de ouro",
   3597: "Jackpot! De vez em quando, uma vitória rende 20 vezes o seu ouro, com chuva de moedas e fanfarra: qualquer combate pode ser o premiado.",
+  3598: "{n} vitória seguida!|{n} vitórias seguidas!",
+  3599: "Sequência encerrada: {n} vitória|Sequência encerrada: {n} vitórias",
+  3600: "Melhor sequência de vitórias",
 };

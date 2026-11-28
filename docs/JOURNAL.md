@@ -5,6 +5,10 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3406) Récompense : les SÉRIES DE VICTOIRES. Chaque victoire d'affilée compte (R.winStreak, remis à zéro quand le héros tombe) ;
+  +1 % d'or par tranche de 10 (jusqu'à +30 %, STREAK) ; paliers 10, 25, 50, 100, 250… célébrés (bannière 🔥, plus grande dès 100, étincelles,
+  son ; journal dès 100) ; série perdue dite (« Série terminée : N victoires », dès 25) ; meilleure série dans Statistiques. Pluriels accordés
+  (txn : ru « 100 побед »). 10 langues. Test ; npm test 421, autotest 349/349, balance.mjs 12 : +0,5 (bruit) ; capture ru et ja.
 - 2026-11-28 (it. 3405) « Quoi de neuf » : édition 209 (Jackpot), 10 langues. Sortie 0.1.13 : Jackpot en tête des notes (8 nouveautés), du titre
   (« Jackpots, a Foreman and Fireproof bosses »), des accroches et de la couverture (vérifiée).
 - 2026-11-28 (it. 3404) Récompense (demande de Victor, dopamine) : le JACKPOT. Une victoire sur 250 (hors boss et Poupouce) rapporte 20 fois son

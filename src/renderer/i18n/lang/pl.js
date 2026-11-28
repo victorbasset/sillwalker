@@ -2470,4 +2470,7 @@ export default {
   3595: "Jackpot! {0} złota naraz.",
   3596: "JACKPOT! +{0} złota",
   3597: "Jackpot! Od czasu do czasu zwycięstwo daje 20 razy więcej złota, z deszczem monet i fanfarą: każda walka może być tą właściwą.",
+  3598: "{n} zwycięstwo z rzędu!|{n} zwycięstwa z rzędu!|{n} zwycięstw z rzędu!",
+  3599: "Seria zakończona: {n} zwycięstwo|Seria zakończona: {n} zwycięstwa|Seria zakończona: {n} zwycięstw",
+  3600: "Najlepsza seria zwycięstw",
 };

@@ -182,6 +182,9 @@ export class Juice {
       this.coins(this.s.monX() + 10, this.ground() - 20, n * ((g.R.events.goldrain || 0) > 0 ? 2 : 1), mon.boss || mon.goblin || mon.poupouce);
       if (mon.boss) this.flash("#ffe9a8", 0.3);
     });
+    // (it. 3406) Série de victoires : bannière à chaque palier (plus grande à partir de 100), étincelles ; série perdue : dite sobrement
+    g.on("streak", ({ n }) => { this.banner(`🔥 ${txn(n, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(n) })}`, n >= 100 ? "#ff9a3a" : "#ffc76b", this.s.heroX + 60, n >= 100); this.sparkles(this.s.heroX + 18, this.ground() - 40, "#ff9a3a", n >= 100 ? 14 : 8); });
+    g.on("streakLost", ({ n }) => this.banner(txn(n, "Série terminée : {n} victoire|Série terminée : {n} victoires", { n: fmt(n) }), "#c9a37a", this.s.heroX + 60));
     // (it. 3404) Jackpot : bannière dorée, gerbe de pièces et éclair
     g.on("jackpot", ({ gold }) => { this.banner(`✦ ${tx("JACKPOT ! +{0} or", { 0: fmt(gold) })}`, "#ffd34d", this.s.monX() - 20, true); this.coins(this.s.monX() + 10, this.ground() - 20, 48, true); this.sparkles(this.s.monX() + 10, this.ground() - 34, "#ffd34d", 14); this.flash("#ffe9a8", 0.25); });
     g.on("bossNemesis", ({ name, fem, gender }) => this.banner(agreeDefeated(tx(fem ? "{0} enfin vaincue !" : "{0} enfin vaincu !", { 0: name }), gender), "#ffb733", this.s.monX() - 40)); // (it. 960, 966)
