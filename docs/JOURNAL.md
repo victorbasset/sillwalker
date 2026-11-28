@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3391) REVUE GÉNÉRALE. hero-table HEROES=all 12 h, graines 7/3/11, après la rotation des capacités (Ignifugé) : moyenne 65,1
+  (64,7 avant), écart 9,3 (5,0) : samouraï 71,3, mage 62,0. Samouraï sur 7 graines : 70,0 après contre 66,3 avant (b22d9da8, worktree) :
+  +3,7 zones, vrai effet de la rotation (murs de zones déplacés). Noté en Idées (P2), pas de réglage un jour de sortie.
 - 2026-11-28 (it. 3390) « Quoi de neuf » : édition 206 (Jour du marché), 10 langues ; devlog 0.1.13 à 4 nouveautés.
 - 2026-11-28 (it. 3389) Contenu : 22e bénédiction du jour, le Jour du marché (🏷, potions, coffres, œufs et renouvellement de l'étal à moitié prix,
   marketMul dans shop.js ; les objets de l'étal gardent leur prix, figé au tirage). Sel « #3 » (« # » prenait le 02/12, premier Jour des voyages
@@ -10308,6 +10311,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Idées
 
+- P2 (it. 3391) Samouraï +3,7 zones depuis la rotation des capacités de boss (Ignifugé, it. 3383) : 70,0 sur 7 graines (moyenne des héros 65,1 ;
+  écart 9,3). Avant tout réglage : comprendre quel mur il franchit (Écailles déplacées ? simulate.js RELIC_LOG / zones de défaite), 7 graines,
+  comparer en worktree ; le mage reste le plus bas (62,0).
 - FAIT (it. 3383, Ignifugé) P2 (it. 3382) 20e capacité de boss pour la 0.1.13 : l'ajouter à ORDER (bosses.js) change la capacité du boss de presque chaque zone
   (bossMechanics prend ORDER[(z - 1) % longueur]) : comme les Écailles (it. 965), contrôler ensuite balance.mjs 12 contre l'ancien commit,
   fight-odds (boss), stall-check et le combat de dev-data (perf : le repère dépend du boss de la zone 57). Pièces : BOSS_MECHANICS, effet dans
