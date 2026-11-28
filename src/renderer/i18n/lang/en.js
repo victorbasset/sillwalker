@@ -2457,4 +2457,5 @@ export default {
   3582: "Burn and poison deal only half their damage to it.",
   3583: "New boss ability, “Fireproof”: burn and poison deal only half their damage to it. Boss abilities now rotate differently: every zone may hold a surprise.",
   3584: "Spend {0} gold",
+  3585: "New quest type: spend gold (Shop, Workshop, unlocks, forge… it all counts).",
 };

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3388) « Quoi de neuf » : édition 205 (quête « Dépenser »), 10 langues.
 - 2026-11-28 (it. 3387) Contenu : 22e sorte de quête, « Dépenser N or » (100 à 200 fois l'or d'un monstre ; pay() et la forge la font avancer ;
   progression affichée en or ; lien vers la Boutique). 10 langues, page Steam à 22 sortes de quêtes (10 langues), README, checklist. Test ;
   npm test 418, autotest 349/349, save-fuzz ok, lang-overflow de, ru, pl, fr 1280 : aucun défaut.

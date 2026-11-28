@@ -2457,4 +2457,5 @@ export default {
   3582: "Podpalenie i trucizna zadają mu tylko połowę obrażeń.",
   3583: "Nowa umiejętność bossa, „Ognioodporny”: podpalenie i trucizna zadają mu tylko połowę obrażeń. Umiejętności bossów zmieniają się teraz inaczej: każda strefa może kryć niespodziankę.",
   3584: "Wydaj {0} złota",
+  3585: "Nowy rodzaj zadania: wydawanie złota (Sklep, Warsztat, odblokowania, kucie… wszystko się liczy).",
 };
