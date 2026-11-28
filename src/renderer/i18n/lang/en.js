@@ -2476,4 +2476,5 @@ export default {
   3601: "Winning streaks: every win in a row counts. Milestones (10, 25, 50, 100…) are celebrated, and every 10 wins give +1% gold (up to +30%) as long as your hero stays standing. Your best streak is in Statistics.",
   3602: "New record: a {0} hit!",
   3603: "Hit record: when your hero smashes their biggest hit (by at least 25%), the strip celebrates it: “New record: a … hit!”.",
+  3604: "Golden Touch (10 jackpots)",
 };

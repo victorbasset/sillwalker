@@ -2476,4 +2476,5 @@ export default {
   3601: "Siegesserien: Jeder Sieg in Folge zählt. Meilensteine (10, 25, 50, 100…) werden gefeiert, und je 10 Siege geben +1 % Gold (bis zu +30 %), solange dein Held steht. Deine längste Serie findest du in Statistiken.",
   3602: "Neuer Rekord: Treffer mit {0}!",
   3603: "Trefferrekord: Wenn dein Held seinen stärksten Treffer (um mindestens 25 %) übertrifft, feiert die Leiste das: „Neuer Rekord: Treffer mit …!“.",
+  3604: "Goldhändchen (10 Jackpots)",
 };

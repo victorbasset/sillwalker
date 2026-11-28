@@ -2476,4 +2476,5 @@ export default {
   3601: "Sequências de vitórias: cada vitória seguida conta. Os marcos (10, 25, 50, 100…) são celebrados, e cada 10 vitórias dão +1 % de ouro (até +30 %) enquanto seu herói continuar de pé. Sua melhor sequência fica em Estatísticas.",
   3602: "Novo recorde: golpe de {0}!",
   3603: "Recorde de golpe: quando seu herói supera o golpe mais forte (em pelo menos 25 %), a faixa comemora: “Novo recorde: golpe de …!”.",
+  3604: "Mão de ouro (10 jackpots)",
 };

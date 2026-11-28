@@ -2476,4 +2476,5 @@ export default {
   3601: "Serie zwycięstw: liczy się każde zwycięstwo z rzędu. Progi (10, 25, 50, 100…) są świętowane, a każde 10 zwycięstw daje +1 % złota (do +30 %), dopóki twój bohater stoi. Najlepsza seria jest w Statystyki.",
   3602: "Nowy rekord: cios za {0}!",
   3603: "Rekord ciosu: gdy twój bohater pobije swój najmocniejszy cios (o co najmniej 25 %), pasek to świętuje: „Nowy rekord: cios za …!”.",
+  3604: "Złota ręka (10 jackpotów)",
 };
