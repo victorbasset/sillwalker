@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3386) Champions, graines 4/5/6 : après l'Ignifugé 42 % de défaites, avant (b22d9da8, worktree) 46 % ; boss 57 / 57 : les 55 %
+  de l'it. 3385 étaient du bruit (≈ 100 combats de champions par mesure). Rien à régler.
 - 2026-11-28 (it. 3385) fight-odds guerrier 12 h × 3 graines après la rotation des capacités (Ignifugé) : normaux 0 %, élites 31 %, champions
   55 % (47 à l'it. 3341, sur ~120 combats : bruit probable), boss 57 % (58). Rien à régler ; champions à revoir si l'écart se confirme.
 - 2026-11-28 (it. 3384) « Quoi de neuf » : édition 204 (Ignifugé, capacités qui tournent autrement), 10 langues. Perf avec le nouveau boss de la
