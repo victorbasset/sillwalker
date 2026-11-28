@@ -2479,4 +2479,7 @@ export default {
   3604: "Golden Touch (10 jackpots)",
   3605: "New achievement: “Golden Touch (10 jackpots)”. In mini mode too, jackpots, winning streaks and hit records are announced.",
   3606: "+{0} power",
+  3607: "Winning streaks: from 50 wins in a row, every milestone also opens a treasure chest.",
+  3608: "Back from a break: monsters defeated and gold earned count up before your eyes.",
+  3609: "Power climb: when your hero equips a better item, the power gained (▲ +N%) shows above them.",
 };

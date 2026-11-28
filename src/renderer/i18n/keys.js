@@ -3608,5 +3608,8 @@ export const KEYS = [
   "Record de coup : quand ton héros pulvérise son plus gros coup (d’au moins 25 %), la bande le fête : « Nouveau record : coup de … ! ».",
   "Main en or (10 jackpots)",
   "Nouveau succès : « Main en or (10 jackpots) ». En mode mini aussi, jackpots, séries de victoires et records de coup sont annoncés.",
-  "+{0} puissance"
+  "+{0} puissance",
+  "Séries de victoires : à partir de 50 victoires d’affilée, chaque palier ouvre aussi un coffre au trésor.",
+  "Retour d’absence : les monstres vaincus et l’or gagné montent sous tes yeux, comme un compteur.",
+  "Montée en puissance : quand ton héros s’équipe d’un meilleur objet, son gain de puissance (▲ +N %) s’affiche au-dessus de lui.",
 ];

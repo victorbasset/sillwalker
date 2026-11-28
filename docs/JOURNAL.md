@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3423) « Quoi de neuf » : édition 213 (coffre aux paliers de série, compteurs du retour, gain de puissance), 10 langues. Attention :
+  un sed sur keys.js n'avait pas pris (dernière ligne sans virgule) alors que news.js avait changé : vérifier KEYS.indexOf de chaque phrase.
 - 2026-11-28 (it. 3422) Montée en puissance visible : équiper un meilleur objet (à la main ou par le Valet d'armes) affiche « ▲ +N % puissance »
   au-dessus du héros dès +1 % (événement powerUp, une fois par seconde au plus pour « Équiper le meilleur ») ; ⚔ remplacé par le mot traduit (la
   police pixel le dessinait comme un X). 10 langues. Test ; npm test 423, autotest 349/349 ; capture fr et de.

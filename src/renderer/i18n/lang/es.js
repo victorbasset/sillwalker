@@ -2479,4 +2479,7 @@ export default {
   3604: "Mano de oro (10 premios gordos)",
   3605: "Nuevo logro: «Mano de oro (10 premios gordos)». También en modo mini se anuncian los premios gordos, las rachas de victorias y los récords de golpe.",
   3606: "+{0} de poder",
+  3607: "Rachas de victorias: a partir de 50 victorias seguidas, cada hito también abre un cofre del tesoro.",
+  3608: "Al volver: los monstruos vencidos y el oro ganado suben ante tus ojos, como un contador.",
+  3609: "Subida de poder: cuando tu héroe se equipa un objeto mejor, el poder ganado (▲ +N %) aparece sobre él.",
 };

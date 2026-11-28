@@ -2479,4 +2479,7 @@ export default {
   3604: "Złota ręka (10 jackpotów)",
   3605: "Nowe osiągnięcie: „Złota ręka (10 jackpotów)”. Także w trybie mini ogłaszane są jackpoty, serie zwycięstw i rekordy ciosów.",
   3606: "+{0} mocy",
+  3607: "Serie zwycięstw: od 50 zwycięstw z rzędu każdy próg otwiera też skrzynię skarbów.",
+  3608: "Po powrocie: pokonane potwory i zdobyte złoto rosną na twoich oczach jak licznik.",
+  3609: "Wzrost mocy: gdy bohater założy lepszy przedmiot, zdobyta moc (▲ +N %) pojawia się nad nim.",
 };

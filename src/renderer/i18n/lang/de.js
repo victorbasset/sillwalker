@@ -2479,4 +2479,7 @@ export default {
   3604: "Goldhändchen (10 Jackpots)",
   3605: "Neuer Erfolg: „Goldhändchen (10 Jackpots)“. Auch im Mini-Modus werden Jackpots, Siegesserien und Trefferrekorde angekündigt.",
   3606: "+{0} Stärke",
+  3607: "Siegesserien: Ab 50 Siegen in Folge öffnet jeder Meilenstein auch eine Schatztruhe.",
+  3608: "Nach einer Pause: Besiegte Monster und verdientes Gold zählen vor deinen Augen hoch.",
+  3609: "Kraftzuwachs: Rüstet dein Held einen besseren Gegenstand aus, erscheint die gewonnene Stärke (▲ +N %) über ihm.",
 };

@@ -2479,4 +2479,7 @@ export default {
   3604: "Mão de ouro (10 jackpots)",
   3605: "Nova conquista: “Mão de ouro (10 jackpots)”. No modo mini também são anunciados jackpots, sequências de vitórias e recordes de golpe.",
   3606: "+{0} de poder",
+  3607: "Sequências de vitórias: a partir de 50 vitórias seguidas, cada marco também abre um baú do tesouro.",
+  3608: "Na volta: os monstros derrotados e o ouro ganho sobem diante dos seus olhos, como um contador.",
+  3609: "Ganho de poder: quando seu herói equipa um item melhor, o poder ganho (▲ +N %) aparece acima dele.",
 };
