@@ -3606,5 +3606,6 @@ export const KEYS = [
   "Séries de victoires : chaque victoire d’affilée compte. Les paliers (10, 25, 50, 100…) sont fêtés, et chaque tranche de 10 donne +1 % d’or (jusqu’à +30 %) tant que ton héros tient debout. Ta meilleure série est dans les Statistiques.",
   "Nouveau record : coup de {0} !",
   "Record de coup : quand ton héros pulvérise son plus gros coup (d’au moins 25 %), la bande le fête : « Nouveau record : coup de … ! ».",
-  "Main en or (10 jackpots)"
+  "Main en or (10 jackpots)",
+  "Nouveau succès : « Main en or (10 jackpots) ». En mode mini aussi, jackpots, séries de victoires et records de coup sont annoncés."
 ];

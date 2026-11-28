@@ -2477,4 +2477,5 @@ export default {
   3602: "Novo recorde: golpe de {0}!",
   3603: "Recorde de golpe: quando seu herói supera o golpe mais forte (em pelo menos 25 %), a faixa comemora: “Novo recorde: golpe de …!”.",
   3604: "Mão de ouro (10 jackpots)",
+  3605: "Nova conquista: “Mão de ouro (10 jackpots)”. No modo mini também são anunciados jackpots, sequências de vitórias e recordes de golpe.",
 };

@@ -5,6 +5,7 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3413) « Quoi de neuf » : édition 212 (Main en or, récompenses en mode mini), 10 langues ; notes 0.1.13 à 11 nouveautés (12 au plus).
 - 2026-11-28 (it. 3412) 77e succès, « Main en or (10 jackpots) » (S.stats.jackpots ; icône du coffre royal), 10 langues ; achievements.md, README,
   checklist, POUR-VICTOR à 77. npm test 422, autotest 349/349, lang-overflow all 1280/1600 : aucun défaut.
 - 2026-11-28 (it. 3411) REVUE GÉNÉRALE. Simulations 12 h (graine 7) : arbalétrier 64, danseur de lames 62, artificier 62. Perf : bande 19,8 %,

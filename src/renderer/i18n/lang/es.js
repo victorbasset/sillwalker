@@ -2477,4 +2477,5 @@ export default {
   3602: "¡Nuevo récord: golpe de {0}!",
   3603: "Récord de golpe: cuando tu héroe supera su golpe más fuerte (en al menos un 25 %), la franja lo celebra: «¡Nuevo récord: golpe de …!».",
   3604: "Mano de oro (10 premios gordos)",
+  3605: "Nuevo logro: «Mano de oro (10 premios gordos)». También en modo mini se anuncian los premios gordos, las rachas de victorias y los récords de golpe.",
 };

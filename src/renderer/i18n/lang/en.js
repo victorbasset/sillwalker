@@ -2477,4 +2477,5 @@ export default {
   3602: "New record: a {0} hit!",
   3603: "Hit record: when your hero smashes their biggest hit (by at least 25%), the strip celebrates it: “New record: a … hit!”.",
   3604: "Golden Touch (10 jackpots)",
+  3605: "New achievement: “Golden Touch (10 jackpots)”. In mini mode too, jackpots, winning streaks and hit records are announced.",
 };
