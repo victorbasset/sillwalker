@@ -5,6 +5,8 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3410) Mode mini : jackpot, paliers de série (dès 25) et record de coup y sont aussi annoncés (showMoment), comme sur la bande ;
+  capture fr et de. npm test 422, autotest 349/349.
 - 2026-11-28 (it. 3409) Récompense : le RECORD DE COUP célébré. Plus gros coup battu d'au moins 25 % (HIT_RECORD, au plus une fois par minute :
   les records tombent vite au début) : bannière « 💥 Nouveau record : coup de N ! », étincelles, son (game.noteHit). « Quoi de neuf » 211,
   10 langues ; notes 0.1.13 à 10 nouveautés. Test ; npm test 422, autotest 349/349 ; capture pl.

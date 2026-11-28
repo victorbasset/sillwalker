@@ -76,6 +76,10 @@ export class MiniRenderer {
     game.on("starbreaker", ({ first }) => { if (first) this.showMoment("✦ " + tx("Le Briseur d’Étoiles est vaincu")); });
     game.on("chronicle", ({ ids }) => { const c = CHRONICLES.find((x) => x.id === ids[0]); if (c) this.showMoment("📜 " + tx(c.title)); });
     // Onglet débloqué : la bulle de la bande n'est pas visible en mode mini, l'annonce passe par la scène.
+    // (it. 3410) récompenses de la bande, aussi en mode mini : jackpot, palier de série (dès 25), record de coup
+    game.on("jackpot", ({ gold }) => this.showMoment("✦ " + tx("JACKPOT ! +{0} or", { 0: fmt(gold) })));
+    game.on("streak", ({ n }) => { if (n >= 25) this.showMoment("🔥 " + txn(n, "{n} victoire d’affilée !|{n} victoires d’affilée !", { n: fmt(n) })); });
+    game.on("hitRecord", ({ dmg }) => this.showMoment("💥 " + tx("Nouveau record : coup de {0} !", { 0: fmt(dmg) })));
     game.on("graphOpen", () => this.showMoment("✦ " + tx("Le grand graphe s’ouvre !"))); // (it. 1106)
     game.on("graphFull", () => this.showMoment("✦ " + tx("Grand graphe complet !"))); // (it. 1117)
     game.on("masteryStep", ({ at }) => this.showMoment("✦ " + tx("Palier de maîtrise : rang {0}", { 0: at }))); // (it. 1124)
