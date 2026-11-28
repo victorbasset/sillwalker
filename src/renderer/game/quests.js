@@ -91,6 +91,11 @@ export const QUEST_TEMPLATES = {
     text: (q) => `${tx("Ramasser {0} or", { 0: q.goalText })}`,
     make: (S) => ({ goal: Math.round(goldScale(S) * randInt(150, 300)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
   },
+  // (it. 3387) or dépensé (boutique, Atelier, déblocages, forge… : tout passe par pay ou la forge) ; même ordre de grandeur que « Ramasser »
+  spend: {
+    text: (q) => `${tx("Dépenser {0} or", { 0: q.goalText })}`,
+    make: (S) => ({ goal: Math.round(goldScale(S) * randInt(100, 200)), reward: { buff: pick(["elixir", "fortune", "wisdom", "haste", "luck", "iron"]), potions: 3 } }),
+  },
   forge: {
     ok: (S) => !!(S.unlocks && S.unlocks.forge), // pas de quête impossible avant l'Enclume
     text: (q) => txn(q.goal, "Forger {n} fois|Forger {n} fois"),
@@ -161,7 +166,7 @@ export const QUEST_TEMPLATES = {
     make: (S) => ({ goal: S.best + randInt(2, 3), reward: { chest: 3, egg: rand() < 0.4, shards: S.prestige.count > 0 ? 3 : 0 } }),
   },
 };
-const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1, goblin: 1, star: 1, petxp: 1 };
+const WEIGHTS = { kill: 3, hunt: 3, elite: 2, boss: 2, gold: 2, forge: 1, zone: 1, expedition: 1, transmute: 1, loot: 2, event: 1, tap: 1, crit: 1, spell: 1, chest: 1, prey: 1, champion: 1, level: 1, goblin: 1, star: 1, petxp: 1, spend: 1 };
 
 /**
  * Difficulté : 1 à 3 étoiles. Objectif et récompenses multipliés ; les quêtes

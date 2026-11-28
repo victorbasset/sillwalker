@@ -25,7 +25,7 @@ Tenue à jour à chaque étape (it. 785). ✅ fait · 🟡 prêt, à faire dans 
 
 - 🟡 (it. 3234) Icône du succès « Poupouce ?! » refaite (chat au lieu de l'ancien champignon) : `steam/achievement-icons/POUPOUCE.png` et `_gray.png`, à téléverser de nouveau dans Steamworks si les succès y sont déjà saisis.
 
-- 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`. Dernière retouche : it. 3376 (27 automatismes avec le Contremaître ; 13 sortes d’élites avec le Maléfique, it. 3338 ; 21 sortes de quêtes ; 22 événements rares avec la Forge céleste (it. 3361) ; à recopier si déjà saisie).
+- 🟡 Page du magasin : descriptions courte et longue, 10 langues → `steam/store-page.md`. Dernière retouche : it. 3387 (22 sortes de quêtes avec « Dépenser » ; 20 capacités de boss avec l’Ignifugé ; 27 automatismes avec le Contremaître ; 13 sortes d’élites avec le Maléfique, it. 3338 ; 21 sortes de quêtes ; 22 événements rares avec la Forge céleste (it. 3361) ; à recopier si déjà saisie).
 - 🟡 Captures 1920×1080 (it. 1206 : 15 vues, jeu seul, anglais et français) → `steam/screenshots/` ; les 10 langues
   (une série par page localisée), les versions avec accroches et tout le matériel promo : `steam/promo/`
   (aussi sur le partage, Médias/sillwalker-promo ; LISEZMOI.txt ; régénérable par `scripts/promo/`).

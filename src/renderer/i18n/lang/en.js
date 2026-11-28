@@ -2456,4 +2456,5 @@ export default {
   3581: "Fireproof",
   3582: "Burn and poison deal only half their damage to it.",
   3583: "New boss ability, “Fireproof”: burn and poison deal only half their damage to it. Boss abilities now rotate differently: every zone may hold a surprise.",
+  3584: "Spend {0} gold",
 };

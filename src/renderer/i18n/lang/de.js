@@ -2456,4 +2456,5 @@ export default {
   3581: "Feuerfest",
   3582: "Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu.",
   3583: "Neue Bossfähigkeit, „Feuerfest“: Verbrennung und Gift fügen ihm nur die Hälfte ihres Schadens zu. Die Bossfähigkeiten wechseln jetzt anders: Jede Zone kann eine Überraschung bereithalten.",
+  3584: "{0} Gold ausgeben",
 };

@@ -903,6 +903,13 @@ test("quête « expérience du familier » (it. 3333) : avance avec l'expérienc
   g.S.pets.owned.cat.lvl = 10; assert.ok(!QUEST_KINDS.petxp.ok(g.S), "niveau max : exclue");
 });
 
+test("quête « Dépenser N or » (it. 3387) : avance avec les achats et la forge", () => {
+  const g = new Game(freshState()); g.S.gold = 1e9;
+  const q = { kind: "spend", goal: 5000, progress: 0, reward: { gold: 1 } }; g.S.quests.slots = [q];
+  assert.ok(g.pay(1200)); assert.equal(q.progress, 1200);
+  const it = g.newItem(0, 1, true); it.plus = 0; const c0 = q.progress; assert.ok(g.forge(it)); assert.ok(q.progress > c0, "forge comptée");
+});
+
 test("boss Ignifugé (it. 3383) : brûlure et poison à moitié", () => {
   const run = (mech) => {
     const g = new Game(freshState()); g.R.mode = "fight";

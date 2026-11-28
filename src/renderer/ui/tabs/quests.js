@@ -20,7 +20,7 @@ const KIND_ICON = {
   kill: () => itemIconURL({ icon: "sword", slot: "weapon", r: 1 }), hunt: () => itemIconURL({ icon: "bow", slot: "weapon", r: 1 }),
   elite: () => itemIconURL({ icon: "crown", slot: "helm", r: 3 }), boss: () => itemIconURL({ icon: "horned", slot: "helm", r: 4 }),
   gold: () => shopIconURL("ws_gold", 4), forge: () => itemIconURL({ icon: "hammer", slot: "weapon", r: 2 }),
-  zone: () => shopIconURL("ws_speed", 4), level: () => shopIconURL("ws_xp", 4), goblin: () => shopIconURL("ws_gold", 4), star: () => shopIconURL("star", 4), petxp: () => shopIconURL("egg", 4), expedition: () => shopIconURL("egg", 4), transmute: () => shopIconURL("chest_iron", 4),
+  zone: () => shopIconURL("ws_speed", 4), level: () => shopIconURL("ws_xp", 4), goblin: () => shopIconURL("ws_gold", 4), star: () => shopIconURL("star", 4), petxp: () => shopIconURL("egg", 4), spend: () => shopIconURL("bag", 4), expedition: () => shopIconURL("egg", 4), transmute: () => shopIconURL("chest_iron", 4),
   loot: () => itemIconURL({ icon: "ring", slot: "ring", r: 2 }), // butin rare ou mieux
   event: () => shopIconURL("star", 4), // événements rares
   chest: () => shopIconURL("chest_wood", 4), // coffres au trésor trouvés (it. 889)
@@ -49,7 +49,7 @@ function rewardHTML(rw) {
 
 // (it. 2233) quêtes qui demandent un geste ailleurs : un lien vers l'onglet où le faire (forger et transmuter : fiche d'un objet du
 // sac ; expéditions : Familiers). Nom de l'onglet tel qu'affiché dans la barre.
-const QUEST_GO = { forge: ["adventure", "Aventure"], transmute: ["adventure", "Aventure"], expedition: ["pets", "Familiers"] };
+const QUEST_GO = { forge: ["adventure", "Aventure"], transmute: ["adventure", "Aventure"], expedition: ["pets", "Familiers"], spend: ["shop", "Boutique"] }; // (it. 3387) spend
 // (it. 2266-2267) automatisme actif pour ce geste (Grand intendant, Maître de forge, Creuset perpétuel) : la quête avance toute seule,
 // rien à faire là-bas : pas de lien
 const QUEST_AUTO = { expedition: ["steward", "autoPets"], forge: ["masterForge", "autoForge"], transmute: ["crucible", "autoTransmute"] };
@@ -79,7 +79,7 @@ export class QuestsTab {
     </article>`;
     const cards = slots.map((q) => {
       const done = questDone(q), pct = Math.min(100, (100 * q.progress) / q.goal), stars = q.stars || 1;
-      const prog = q.kind === "gold" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
+      const prog = q.kind === "gold" || q.kind === "spend" ? `${fmt(q.progress)} / ${fmt(q.goal)}` : `${Math.min(q.progress, q.goal)} / ${q.goal}`;
       const eta = g.questEta(q); // (it. 926) au rythme actuel des combats
       const etaTxt = eta != null && eta < 48 * 3600 ? ` <small class="eta">· ${esc(tx("≈ {0}", { 0: durText(Math.max(60, eta)) }))}</small>` : "";
       // (it. 1426) chasse d'un monstre absent de la zone (zone changée, ascension) : la zone la plus proche où il vit ;

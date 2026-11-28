@@ -1733,6 +1733,7 @@ export class Game {
     const c = forgeCost(it, this.S);
     if (this.S.gold < c || it.plus >= MAX_PLUS) return false;
     this.S.gold -= c;
+    this.questProgress("spend", c); // (it. 3387)
     it.plus++;
     this.invalidateStats();
     this.questProgress("forge", 1);
@@ -2076,6 +2077,7 @@ export class Game {
     if (this.S.gold < price) return false;
     this.S.gold -= price;
     this.S.stats.purchases++;
+    this.questProgress("spend", price); // (it. 3387) quête « Dépenser N or »
     this.emit("spent", { price }); // son : achat (caisse)
     return true;
   }

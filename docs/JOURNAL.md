@@ -5,6 +5,9 @@ Revue générale toutes les 10 itérations (prochaine : itération 71).
 
 ## Fait
 
+- 2026-11-28 (it. 3387) Contenu : 22e sorte de quête, « Dépenser N or » (100 à 200 fois l'or d'un monstre ; pay() et la forge la font avancer ;
+  progression affichée en or ; lien vers la Boutique). 10 langues, page Steam à 22 sortes de quêtes (10 langues), README, checklist. Test ;
+  npm test 418, autotest 349/349, save-fuzz ok, lang-overflow de, ru, pl, fr 1280 : aucun défaut.
 - 2026-11-28 (it. 3386) Champions, graines 4/5/6 : après l'Ignifugé 42 % de défaites, avant (b22d9da8, worktree) 46 % ; boss 57 / 57 : les 55 %
   de l'it. 3385 étaient du bruit (≈ 100 combats de champions par mesure). Rien à régler.
 - 2026-11-28 (it. 3385) fight-odds guerrier 12 h × 3 graines après la rotation des capacités (Ignifugé) : normaux 0 %, élites 31 %, champions

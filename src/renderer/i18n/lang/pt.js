@@ -2456,4 +2456,5 @@ export default {
   3581: "Ignífugo",
   3582: "A queimadura e o veneno só causam metade do dano a ele.",
   3583: "Nova habilidade de chefe, “Ignífugo”: a queimadura e o veneno só causam metade do dano a ele. As habilidades dos chefes agora giram de outro jeito: cada zona pode guardar uma surpresa.",
+  3584: "Gastar {0} de ouro",
 };

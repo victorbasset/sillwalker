@@ -2456,4 +2456,5 @@ export default {
   3581: "Ignífugo",
   3582: "La quemadura y el veneno solo le infligen la mitad de su daño.",
   3583: "Nueva habilidad de jefe, «Ignífugo»: la quemadura y el veneno solo le infligen la mitad de su daño. Las habilidades de los jefes rotan de otra forma: cada zona puede guardar una sorpresa.",
+  3584: "Gastar {0} de oro",
 };
